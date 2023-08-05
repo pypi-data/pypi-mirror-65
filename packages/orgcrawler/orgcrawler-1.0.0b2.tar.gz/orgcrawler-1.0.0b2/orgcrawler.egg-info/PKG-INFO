@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: orgcrawler
+Version: 1.0.0b2
+Summary: Tools for working with AWS Organizations
+Home-page: https://github.com/ucopacme/orgcrawler
+Author: Ashley Gould - University of California Office of the President
+Author-email: agould@ucop.edu
+License: GPLv3
+Project-URL: Documentation, https://orgcrawler.readthedocs.io/en/latest/
+Project-URL: Issues, https://github.com/ucopacme/orgcrawler/issues
+Description: 
+        Getting Started with OrgCrawler
+        ===============================
+        
+        A python library for managing resources across all accounts in an AWS Organization.
+        
+        OrgCrawler package exports two primary classes:
+        
+        ``orgcrawler.orgs.Org``
+          provides a data model and methods for querying AWS Organizations resources:
+        
+          - accounts
+          - organizational units
+          - service control policies
+        
+        ``orgcrawler.crawlers.Crawler``
+          provides a framework for executing user defined python code in all accounts and regions or a subset thereof.
+        
+        OrgCrawler also contains two commandline scripts:
+        
+        ``orgquery``
+          Provides a generic interface for running organization queries
+        
+        ``orgcrawler``
+          Execute a custom boto3 payload pythonfunction in all specified accounts/regions
+        
+        See full documentation at https://orgcrawler.readthedocs.io/en/latest/
+        
+Keywords: aws organizations boto3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/x-rst
