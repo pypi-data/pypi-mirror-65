@@ -1,0 +1,10 @@
+include oort/*.py
+include oort/app/*.py
+include oort/app/static/css/*.css
+include oort/app/static/fonts/*.svg
+include oort/app/static/fonts/*.ttf
+include oort/app/static/fonts/*.woff
+include oort/app/static/fonts/*.woff2
+include oort/app/static/img/*.png
+include oort/app/static/js/*.js
+include oort/app/templates/*.html
