@@ -1,0 +1,118 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: mbed-tools-lib-1.2.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdx/spdxdocs/mbed-tools-lib-1.2.0-9d5a1e83-e615-4e44-ac28-5f587b4c9f7c
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+ExternalDocumentRef: python-dotenv-0.12.0 http://spdx.org/spdxdocs/python-dotenv-0.12.0-d7725d68-3e3a-a3c4-e32f-b3c6bc58b7a3 SHA1:2a7cf7d7d74f9da052d7d4968dbb3eb5b0f9148e
+
+
+# Creation Info
+
+Creator: Person: Mbed team (support@mbed.com)
+Creator: Organization: Arm Mbed (support@mbed.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-06T11:41:50Z
+
+
+# Review
+
+Reviewer: Person: Monty Bot (monty-bot@arm.com)
+ReviewDate: 2020-04-06T11:41:50Z
+
+
+# Package
+
+PackageName: mbed-tools-lib
+SPDXID: SPDXRef-46e1a3a5-39d6-4e4b-a64b-ee8a23cc6d31
+PackageVersion: 1.2.0
+PackageDownloadLocation: NONE
+PackageSummary: <text>A library of shared Mbed tools functionality.</text>
+PackageFileName: mbed-tools-lib
+PackageOriginator: Person: Mbed team (support@mbed.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: Apache 2.0 AND Apache-2.0
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseInfoFromFiles: Apache 2.0 AND Apache-2.0
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://github.com/ARMmbed/mbed-tools-lib
+
+
+# File
+
+FileName: ./mbed_tools_lib/__init__.py
+SPDXID: SPDXRef-b5d4730a-c866-ae57-bd77-4b3f74463364
+FileType: SOURCE
+FileChecksum: SHA1: 02dd9e418af74b21d6fb08e7ee2926b60f41ce36
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools_lib/_internal/__init__.py
+SPDXID: SPDXRef-ff9e97ca-d824-874f-9558-ca9315ed0d11
+FileType: SOURCE
+FileChecksum: SHA1: 42e8af887e0213a263843ee65781eb6bd97ba85f
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools_lib/_version.py
+SPDXID: SPDXRef-f823309a-ded2-6b11-45b6-ac251ca4ff84
+FileType: SOURCE
+FileChecksum: SHA1: cea4a3402ead5cae6fed76046541c18e04fed794
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools_lib/exceptions.py
+SPDXID: SPDXRef-74b9209b-4f0b-a55e-8d59-7fedb032fb91
+FileType: SOURCE
+FileChecksum: SHA1: 6e42d809e2cbbc900d3c8a3d630c6f7b49a9483c
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools_lib/logging.py
+SPDXID: SPDXRef-a23d7ebc-bdc1-d855-41e9-3a73bdb7e9d9
+FileType: SOURCE
+FileChecksum: SHA1: 15d42d547e1bdeab73ce7f3087e348e8b4abb6e0
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools_lib/python_helpers.py
+SPDXID: SPDXRef-20302e75-eda6-7285-35b3-ca58316dc8f1
+FileType: SOURCE
+FileChecksum: SHA1: 521d8e8066f1965a7c94d75d79ce8227d6989d68
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+
