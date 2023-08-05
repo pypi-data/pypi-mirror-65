@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: pynets
+Version: 0.9.94
+Summary: A Fully-Automated Workflow for Reproducible Ensemble Sampling of Functional and Structural Connectomes
+Home-page: https://github.com/dPys/pynets
+Author: Derek Pisner
+Author-email: dpisner@utexas.edu
+License: GNU General Public License v3
+Keywords: pynets
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: nilearn (==0.6.0b0)
+Requires-Dist: pandas (>=0.24.2)
+Requires-Dist: Sphinx (>=1.4.8)
+Requires-Dist: sphinx-argparse (>=0.2.5)
+Requires-Dist: sphinx-rtd-theme (>=0.4.3)
+Requires-Dist: psutil (>=5.6.1)
+Requires-Dist: scipy (>=1.0.0)
+Requires-Dist: numpy (>=1.13.3)
+Requires-Dist: setuptools (>=38.2.4)
+Requires-Dist: click (>=6.7)
+Requires-Dist: numpydoc (>=0.8.0)
+Requires-Dist: nibabel (>=3.0.1)
+Requires-Dist: indexed-gzip (>=0.8.8)
+Requires-Dist: seaborn (>=0.7.1)
+Requires-Dist: matplotlib (>=2.2.0)
+Requires-Dist: pytest (>=3.3.1)
+Requires-Dist: networkx (>=2.0)
+Requires-Dist: nipype (==1.2.0)
+Requires-Dist: scikit-learn (>=0.19.1)
+Requires-Dist: dipy (>=1.1.0)
+Requires-Dist: pyyaml (>=4.2b1)
+Requires-Dist: boto3 (>=1.9.111)
+Requires-Dist: pybids (>=0.6.4)
+Requires-Dist: colorama (>=0.3.9)
+Requires-Dist: python-louvain (==0.13)
+Requires-Dist: scikit-image (==0.14.2)
+Requires-Dist: fury (>=0.2.0)
+Requires-Dist: graspy (>=0.0.2)
+Requires-Dist: python-dateutil (==2.8.0)
+Requires-Dist: docutils (==0.14.0)
+Provides-Extra: datalad
+Requires-Dist: datalad ; extra == 'datalad'
+Provides-Extra: doc
+Requires-Dist: nbsphinx ; extra == 'doc'
+Requires-Dist: packaging ; extra == 'doc'
+Requires-Dist: pydot (>=1.2.3) ; extra == 'doc'
+Requires-Dist: pydotplus ; extra == 'doc'
+Requires-Dist: sphinx (>=1.5.3) ; extra == 'doc'
+Requires-Dist: sphinx-argparse ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme ; extra == 'doc'
+
+UNKNOWN
+
+

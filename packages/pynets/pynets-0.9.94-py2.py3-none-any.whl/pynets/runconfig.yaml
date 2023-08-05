@@ -1,0 +1,105 @@
+maxcrossing:
+    - 2
+overlap_thr:
+    - 1
+step_list: # Should never exceed the voxel size.
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+curv_thr_list: # Should be [0, 90] degrees.
+    - 40
+    - 30
+nilearn_parc_atlases:
+    - 'atlas_harvard_oxford'
+    - 'atlas_aal'
+    - 'atlas_destrieux_2009'
+    - 'atlas_talairach_gyrus'
+    - 'atlas_talairach_ba'
+    - 'atlas_talairach_lobe'
+nilearn_coord_atlases:
+    - 'coords_power_2011'
+    - 'coords_dosenbach_2010'
+nilearn_prob_atlases:
+    - 'atlas_msdl'
+    - 'atlas_pauli_2017'
+available_models:
+    func_models:
+      - 'corr'
+      - 'sps'
+      - 'cov'
+      - 'partcorr'
+      - 'QuicGraphicalLasso'
+      - 'QuicGraphicalLassoCV'
+      - 'QuicGraphicalLassoEBIC'
+      - 'AdaptiveQuicGraphicalLasso'
+    struct_models:
+      - 'csa'
+      - 'csd'
+resource_dict:
+      - 'fetch_nodes_and_labels_node':
+        - (1, 1)
+      - 'check_orient_and_dims_func_node':
+        - (1, 2)
+      - 'check_orient_and_dims_mask_node':
+        - (1, 1)
+      - 'node_gen_node':
+        - (1, 3)
+      - 'check_orient_and_dims_dwi_node':
+        - (1, 2)
+      - 'extract_ts_node':
+        - (1, 6)
+      - 'clustering_node':
+        - (1, 8)
+      - 'get_conn_matrix_node':
+        - (1, 2)
+      - 'thresh_func_node':
+        - (1, 0.5)
+      - 'register_node':
+        - (1, 6)
+      - 'register_atlas_node':
+        - (1, 4)
+      - 'get_fa_node':
+        - (1, 2)
+      - 'run_tracking_node':
+        - (1, 8)
+      - 'thresh_diff_node':
+        - (1, 0.5)
+      - 'dsn_node':
+        - (1, 4)
+      - 'plot_all_node':
+        - (1, 1)
+      - 'streams2graph_node':
+        - (1, 8)
+execution_dict:
+    - 'stop_on_first_crash':
+        - False
+    - 'crashfile_format':
+        - 'txt'
+    - 'parameterize_dirs':
+        - True
+    - 'display_variable':
+        - ':0'
+    - 'job_finished_timeout':
+        - 120
+    - 'matplotlib_backend':
+        - 'Agg'
+    - 'use_relative_paths':
+        - False
+    - 'keep_inputs':
+        - True
+    - 'remove_unnecessary_outputs':
+        - False
+    - 'remove_node_directories':
+        - False
+    - 'raise_insufficient':
+        - False
+    - 'maxtasksperchild':
+        - 1
+    - 'poll_sleep_duration':
+        - 1
+    - 'hash_method':
+        - 'timestamp'
+    - 'local_hash_check':
+        - False

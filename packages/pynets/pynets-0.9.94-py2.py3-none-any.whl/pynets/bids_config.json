@@ -1,0 +1,40 @@
+{
+    "dwi": {
+            "dg": "['prob']",
+            "ml": "['10']",
+            "mod": "['csd']",
+            "s": 10000,
+            "tc": "['bin']",
+            "tt": "['local']"
+        },
+    "func": {
+            "cc": "['tcorr']",
+            "ct": "['ward']",
+            "hp": "['0']",
+            "k": "None",
+            "mod": "['partcorr']",
+            "sm": "['0']"
+        },
+    "gen": {
+            "a":  "None",
+            "bin":  "False",
+            "df":  "False",
+            "dt":  "False",
+            "embed":  "None",
+            "max_thr":  "None",
+            "min_thr":  "None",
+            "mplx":  0,
+            "mst":  "True",
+            "n":  "None",
+            "names":  "False",
+            "norm": "6",
+            "ns":  "4",
+            "p":  "['3']",
+            "plt":  "False",
+            "spheres":  "False",
+            "step_thr":  "None",
+            "thr":  1.0,
+            "vox":  "'2mm'"
+        }
+}
+
