@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: inface-dl
+Version: 0.3
+Summary: Video Downloader
+
+Example Code:
+
+>>> # instagram video downloader
+>>> import inface-dl
+>>> ses = inface-dl.Session()
+>>> ses.ig(url='url here', output='output.mp4')
+
+
+>>> # facebook video downloader
+>>> import inface-dl
+>>> ses = inface-dl.Session()
+>>> ses.fb(url='url here', output='output.mp4')
+Home-page: https://github.com/anonkyuhuu/inface-dl
+Author: sCuby07
+Author-email: ajaanonk@gmail.com
+License: MIT
+Download-URL: https://github.com/user/reponame/inface-dl.tar.gz
+Description: UNKNOWN
+Keywords: download,python,video
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
