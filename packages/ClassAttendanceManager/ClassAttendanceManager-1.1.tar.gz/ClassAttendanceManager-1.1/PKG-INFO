@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: ClassAttendanceManager
+Version: 1.1
+Summary: A simple python script to manage students attendance in class in terminal.
+Home-page: https://github.com/Navid2zp/ClassAttendanceManager
+Author: Navid Zarepak
+Author-email: navid2zp@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/ClassAttendanceManager/
+Description: # ClassAttendanceManager - ط­ط¶ظˆط± ظˆ ط؛غŒط§ط¨ ع©ظ„ط§ط³
+        A simple python script to manage students attendance in class in terminal.
+        
+        ط§ط³ع©ط±غŒظ¾طھغŒ ط³ط§ط¯ظ‡ ط¨ط±ط§غŒ ظ…ط¯غŒط±غŒطھ ط­ط¶ظˆط± ظˆ ط؛غŒط§ط¨ ط¯ط± ع©ظ„ط§ط³ ط¯ط±ط³
+        
+        ## Commands - ط¯ط³طھظˆط±ط§طھ:
+        
+        |           Command     |Description|
+        |----------------|-------------------------------|
+        |**help**    | Show help menu
+        |**start**   | Start attendance managment procedure
+        |**list**    | Show students list
+        |**add**     | Add a student
+        |**del**     | Delete a student
+        |**search**  | Search for students
+        |**weeks**   | Increase or decrease total weeks (Default is 16)
+        |**exit**    | Exit the program
+        |**reset**   | Reset all data
+        
+        
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
