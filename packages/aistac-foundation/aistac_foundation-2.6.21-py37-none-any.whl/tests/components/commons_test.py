@@ -1,0 +1,84 @@
+import unittest
+import os
+import shutil
+
+from aistac.components.aistac_commons import AnalyticsCommons
+from aistac.properties.property_manager import PropertyManager
+
+
+class CommonsTest(unittest.TestCase):
+
+    def setUp(self):
+        os.environ['AISTAC_PM_PATH'] = os.path.join('work', 'config')
+        os.environ['AISTAC_DEFAULT_PATH'] = os.path.join('work', 'data')
+        try:
+            os.makedirs(os.environ['AISTAC_PM_PATH'])
+            os.makedirs(os.environ['AISTAC_DEFAULT_PATH'])
+        except:
+            pass
+        PropertyManager._remove_all()
+
+    def tearDown(self):
+        try:
+            shutil.rmtree('work')
+        except:
+            pass
+
+    def test_analytics_structure(self):
+        analysis = {'survived': {'associate': 'survived',
+                                 'analysis': {'intent': {'selection': [0, 1],
+                                                         'dtype': 'category',
+                                                         'upper': 61.62,
+                                                         'lower': 38.38,
+                                                         'granularity': 2,
+                                                         'weighting_precision': 2},
+                                              'patterns': {'weight_pattern': [61.62, 38.38],
+                                                           'sample_distribution': [549, 342]},
+                                              'stats': {'nulls_percent': 0.0, 'outlier_percent': 0.0, 'sample': 891}}}}
+        result = AnalyticsCommons(analysis=analysis, label='titanic_survived')
+        self.assertEqual('titanic_survived', result.label)
+        self.assertEqual('survived', result.associate)
+        result = AnalyticsCommons(analysis=analysis)
+        self.assertEqual('survived', result.label)
+        self.assertEqual('survived', result.associate)
+        analysis = {'associate': 'survived',
+                    'analysis': {'intent': {'selection': [0, 1],
+                                            'dtype': 'category',
+                                            'upper': 61.62,
+                                            'lower': 38.38,
+                                            'granularity': 2,
+                                            'weighting_precision': 2},
+                                 'patterns': {'weight_pattern': [61.62, 38.38],
+                                              'sample_distribution': [549, 342]},
+                                 'stats': {'nulls_percent': 0.0, 'outlier_percent': 0.0, 'sample': 891}}}
+        result = AnalyticsCommons(analysis=analysis, label='titanic_survived')
+        self.assertEqual('titanic_survived', result.label)
+        self.assertEqual('survived', result.associate)
+        result = AnalyticsCommons(analysis=analysis)
+        self.assertEqual('n/a', result.label)
+
+    def test_analytics_structure_elements(self):
+        analysis = {'survived': {'associate': 'survived',
+                                 'analysis': {'intent': {'selection': [0, 1],
+                                                         'dtype': 'category',
+                                                         'upper': 61.62,
+                                                         'lower': 38.38,
+                                                         'granularity': 2,
+                                                         'weighting_precision': 2},
+                                              'patterns': {'weight_pattern': [61.62, 38.38],
+                                                           'sample_distribution': [549, 342]},
+                                              'stats': {'nulls_percent': 0.0, 'outlier_percent': 0.0, 'sample': 891}}}}
+        result = AnalyticsCommons(analysis=analysis)
+        self.assertEqual([0, 1], result.intent.selection)
+        self.assertEqual('category', result.intent.dtype)
+        self.assertEqual([61.62, 38.38], result.patterns.weight_pattern)
+        self.assertEqual(891, result.stats.sample)
+
+    def test_raise(self):
+        with self.assertRaises(KeyError) as context:
+            env = os.environ['NoEnvValueTest']
+        self.assertTrue("'NoEnvValueTest'" in str(context.exception))
+
+
+if __name__ == '__main__':
+    unittest.main()
