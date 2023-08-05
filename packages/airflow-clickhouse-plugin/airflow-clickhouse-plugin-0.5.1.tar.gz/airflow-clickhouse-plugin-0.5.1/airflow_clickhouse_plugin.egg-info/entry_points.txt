@@ -1,0 +1,4 @@
+[airflow.plugins]
+airflow_clickhouse_hook = airflow_clickhouse_plugin:ClickHouseHookPlugin
+airflow_clickhouse_operator = airflow_clickhouse_plugin:ClickHouseOperatorPlugin
+
