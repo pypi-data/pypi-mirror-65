@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: schocken
+Version: 0.2.0
+Summary: Schocken - The game
+Home-page: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: python-dotenv
+Requires-Dist: pysm
+Requires-Dist: discord.py
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-asyncio ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Requires-Dist: bump2version ; extra == 'dev'
+
+UNKNOWN
+
+
