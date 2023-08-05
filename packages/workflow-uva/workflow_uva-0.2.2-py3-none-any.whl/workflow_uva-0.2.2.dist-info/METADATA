@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: workflow-uva
+Version: 0.2.2
+Summary: A workflow for Canvas and Nbgrader
+Home-page: https://github.com/jaspervdh96/Workflow
+Author: Jasper van der Heide
+Author-email: jaspervdh96@hotmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4 (>=4.7.1)
+Requires-Dist: canvasapi (>=0.12.0)
+Requires-Dist: ipython (>=6.2.1)
+Requires-Dist: ipywidgets (>=7.4.2)
+Requires-Dist: matplotlib (>=2.2.2)
+Requires-Dist: nbconvert (>=5.5.0)
+Requires-Dist: nbgrader (>=0.6.1)
+Requires-Dist: nbstripout (>=0.3.6)
+Requires-Dist: numpy (>=1.16.4)
+Requires-Dist: pandas (>=1.0.1)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: seaborn (>=0.9.0)
+Requires-Dist: tqdm (>=4.32.2)
+Requires-Dist: traitlets (>=4.3.2)
+
+# Workflow
+
+# Workflow.json (Config file)
+A few things can or need to be added to `workflow.json`:
+* sequence, a list of assignments in order
+  * For example: `"sequence": [
+        "AssignmentWeek1",
+        "AssignmentWeek2",
+        "AssignmentWeek3"]`
+* groups, a dict of groups of assignments
+  * It should be a dict with as key the name of a group. The value of this dict is again a dict, with keys "assignments" and "weight". The key "assignments" should have as value a list of assignments and "weight" should have the relative weight as a number (for the whole group).
+  * For example: `"groups": {
+        "Assignments": {
+            "assignments": [
+                "AssignmentWeek1",
+                "AssignmentWeek2",
+                "AssignmentWeek3",
+            ],
+            "weight": 20
+        }}`
+* resits, a dict of resits, and which assignments it replaces
+  * It should be a dict with as keys the names of the resits, and as values the name of the assignment it replaces or a list of names.
+  * For example: `"resits": {
+        "ResitExam1": "Exam1",
+        "OverallResit": [
+            "Exam1",
+            "Exam2"
+        ]
+    }`
+* requirements, a list of minimal grades students have to have for assignment groups to pass the course
+  * It should be a list of dictionaries, with as keys "groups" and "min_grade". The value of groups can be a string or list and should refer to the name of a group. The value of min_grade should be a number.
+  * For example: `"requirements": [
+        {
+            "groups": "Theoretical_Assignments",
+            "min_grade": 4.5
+        },
+        {
+            "groups": ["Practical_Assignments", "Theoretical_Assignments"],
+            "min_grade": 5.5
+        }
+    ]`
+
+
+# FAQ
+
+## Where to get an Canvas API key?
+[See the Canvas API Documentation](https://canvas.instructure.com/doc/api/file.oauth.html#manual-token-generation)
+
+## Where to store the Canvas API key?
+The Workflow notebook will ask for it. Otherwise, it can be changed in the `workflow.json` file.
+
+
