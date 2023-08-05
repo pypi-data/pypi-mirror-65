@@ -1,0 +1,111 @@
+img[alt=small_logo] { width: 100px; }
+
+img[alt=medium_logo] { width: 300px; }
+
+img[alt=medium_width_pic] { width: 350px; }
+
+ /* Custom styles to override MkDocs defaults and enhance theme */
+
+ /* Unordered list <ul> symbols:
+  * - level 2 is hollow circle
+  * - level 3 is filled square
+  * - ul default is filled disc (bullet)
+  */
+article ul ul {
+         list-style-type:  circle !important;
+ }
+
+article ul ul ul {
+         list-style-type:  square !important;
+ }
+
+
+details.abstract {
+  font-size: 0.7rem;
+}
+
+
+h1, h2, h3, h4, h5, h6, legend {
+    color: black !important;
+    font-weight: 600 !important;
+}
+
+h2{
+  margin-top:40px !important;
+  margin-bottom:15px !important;
+}
+
+
+p2 {
+    display: block;
+    margin-block-start: 1em !important;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1.2em !important;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.remo__output-code {
+  background: transparent;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  color: rgba(19, 30, 52, 0.96);
+  font-size: 0.7rem;
+  font-family: "Roboto Mono","Courier New",Courier,monospace;
+}
+
+.remo__output-code::before {
+  content: "Output";
+  position: absolute;
+  left: 7px;
+  font-size: 12px;
+  transform: translateY(-117%);
+  background: white;
+  padding: 0px 5px;
+  z-index: 1000;
+  color: grey;
+}
+
+.header-custom {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: #4caf50 !important;
+}
+
+@media only screen and (min-width: 60em) {
+  .md-search {
+    padding: 0 .2rem !important;
+  }
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.remo-link {
+  padding: 6px 10px;
+  color: #fff;
+  font-size: .87em;
+  font-family: 'Roboto', sans-serif;
+}
+
+.links-container {
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  line-height: 60px;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
