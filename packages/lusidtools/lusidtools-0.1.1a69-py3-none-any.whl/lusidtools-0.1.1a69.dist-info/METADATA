@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: lusidtools
+Version: 0.1.1a69
+Summary: Python Tools for LUSID
+Home-page: https://github.com/finbourne/lusid-python-tools
+Author: FINBOURNE Technology
+Author-email: engineering@finbourne.com
+License: MIT
+Keywords: FINBOURNE,LUSID,LUSID API,python
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: lusid-sdk-preview (>=0.10.975)
+Requires-Dist: msrest (==0.6.*)
+Requires-Dist: xlrd (==1.*)
+Requires-Dist: pandas (==1.0.*)
+Requires-Dist: numpy (==1.*)
+Requires-Dist: pytz (==2019.*)
+Requires-Dist: tqdm (==4.*)
+Requires-Dist: requests (==2.*)
+Requires-Dist: coloredlogs (==10.*)
+Requires-Dist: detect-delimiter (==0.1.*)
+Requires-Dist: pyyaml (==5.*)
+Requires-Dist: flatten-json (==0.1.*)
+
+UNKNOWN
+
+
