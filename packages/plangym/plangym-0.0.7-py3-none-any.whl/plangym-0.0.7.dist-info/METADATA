@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: plangym
+Version: 0.0.7
+Summary: OpenAI gym environments adapted for planning.
+Home-page: https://github.com/FragileTech/plangym
+Author: Guillem Duran Ballester
+Author-email: guillem.db@fragile.tech
+License: MIT
+Download-URL: https://github.com/FragileTech/plangym
+Keywords: gym,reinforcement learning,artificial intelligence,monte carlo,planning,atari games
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: numpy (>=1.16.2)
+Requires-Dist: gym (>=0.10.9)
+Requires-Dist: pillow-simd (>=7.0.0.post3)
+Requires-Dist: opencv-python (>=4.2.0.32)
+Provides-Extra: all
+Requires-Dist: atari-py (==0.1.1) ; extra == 'all'
+Requires-Dist: gym-retro (>=0.7.0) ; extra == 'all'
+Requires-Dist: pytest (>=5.3.5) ; extra == 'all'
+Requires-Dist: ray ; extra == 'all'
+Requires-Dist: setproctitle ; extra == 'all'
+Provides-Extra: atari
+Requires-Dist: atari-py (==0.1.1) ; extra == 'atari'
+Provides-Extra: ray
+Requires-Dist: ray ; extra == 'ray'
+Requires-Dist: setproctitle ; extra == 'ray'
+Provides-Extra: retro
+Requires-Dist: gym-retro (>=0.7.0) ; extra == 'retro'
+Provides-Extra: test
+Requires-Dist: pytest (>=5.3.5) ; extra == 'test'
+
+UNKNOWN
+
+
