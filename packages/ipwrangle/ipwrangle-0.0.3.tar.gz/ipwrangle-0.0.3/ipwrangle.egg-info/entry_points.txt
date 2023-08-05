@@ -1,0 +1,6 @@
+[console_scripts]
+innet = ipwrangle:innet_main
+ipexpand = ipwrangle:expand_main
+ipreduce = ipwrangle:reduce_main
+netlen = ipwrangle:netlen_main
+
