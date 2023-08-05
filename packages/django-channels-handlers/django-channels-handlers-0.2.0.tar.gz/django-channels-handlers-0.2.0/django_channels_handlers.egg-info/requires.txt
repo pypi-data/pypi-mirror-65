@@ -1,0 +1,11 @@
+Django>=2.1
+channels>=2.2
+pydantic~=1.4
+
+[tests]
+pytest~=5.0
+pytest-django~=3.5
+pytest-asyncio~=0.10
+pytest-cov>=2.7
+black>=19.3b0
+flake8>=3.7
