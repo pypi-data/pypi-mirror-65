@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: DungeonGenerator
+Version: 0.1.6
+Summary: D&D Dungeon Generator
+Home-page: UNKNOWN
+Author: Robert Sharp
+Author-email: webmaster@sharpdesigndigital.com
+License: Free for non-commercial use
+Keywords: D&D,Dungeon,Monster,Treasure,Traps
+Platform: Darwin
+Platform: Linux
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Fortuna
+
+# Dungeon Lib Beta
+
+DM Tools for 5th Edition.
+
+
