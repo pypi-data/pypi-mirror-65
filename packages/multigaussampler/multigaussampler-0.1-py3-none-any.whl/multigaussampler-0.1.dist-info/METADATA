@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: multigaussampler
+Version: 0.1
+Summary: Sampling from a Maximum-Likelihood fitted Multi-Gaussian distribution in TensorFlow 2.1
+Home-page: https://github.com/landerlini/multigaussampler
+Author: Lucio Anderlini
+Author-email: Lucio.Anderlini@fi.infn.it
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: tensorflow (==2.1.0)
+Requires-Dist: FastQuantileLayer
+
+# multigaussampler
+
+
