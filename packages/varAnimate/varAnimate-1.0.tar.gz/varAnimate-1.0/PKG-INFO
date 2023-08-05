@@ -1,0 +1,99 @@
+Metadata-Version: 1.1
+Name: varAnimate
+Version: 1.0
+Summary: 
+      [!] styling python script with var_animate [!]
+
+[?] need tutorial the modul?
+
+1.Anim Input: ( Suport py2&py3 )
+
+>>> from var_animate import animinput # importing the modul
+>>> inpt = animinput()
+
+>>> # input plus
+>>> inpt.plus('the text')
+>>> # output?: [+] the text: # user input in here
+
+>>> # input ask
+>>> inpt.ask('Username?') # if your ask user ex: Username?
+>>> # output?: [?] Username?: # user input in here
+
+>>> # input danger
+>>> inpt.danger('Exception enter to loop the progam!') # if user excepting input
+>>> # output?: [!] Exception enter to loop the progam!: # user input in here
+
+
+2.Coloring: ( Suport py2&py3 )
+
+>>> from var_animate import color # importing the modul
+>>> color = color()
+>>> # color.show('ColorName...') # showing the color with name
+
+>>> # what list the color?:
+>>> #     Default color     #
+>>> color.show('red') # Red color
+>>> color.show('yellow') # Yellow color
+>>> color.show('green') # Gren color
+>>> color.show('blue') # Blue color
+>>> color.show('magenta') # Magenta color
+>>> color.show('cyan') # Cyan color
+>>> color.show('white') # White color
+>>> color.show('black') # Black color
+>>> color.show('default') # Default color
+>>> color.show('reset') # reset color
+
+>>> #      Light color      #
+>>> color.show('lightGray') # lightGray color
+>>> color.show('darkGray') # darkGray color
+>>> color.show('lightRed') # lightRed color
+>>> color.show('lightYellow') # lightYellow color
+>>> color.show('lightGreen') # lightGreen color
+>>> color.show('lightBlue') # lightBlue color
+>>> color.show('lightMagenta') # lightMagenta color
+>>> color.show('lightCyan') # lightCyan color
+
+
+3.Anim Variable: ( Suport py2&py3 )
+
+>>> from var_animate import animvar # importing the modul
+>>> var = animvar()
+
+>>> # if the condition true then return:
+>>> true = var.true('True!')
+>>> print(true) # printing var.true()
+
+>>> # if the condition false then return:
+>>> false = var.false('False!')
+>>> print(false) # printing var.false()
+
+
+4.Make the bannner script: ( Suport py2&py3 )
+>>> import var_animate # importing the modul
+
+>>> banner = var_animate.banner('TheScriptName','AuthorName','ScriptVersion') # Make the banner
+>>> print(banner) # printing the banner
+
+>>> # Ex: banner = var_animate.banner('Var_Animate','Dst_207','1.0')
+>>> # Ex: print(banner)
+
+
+Example script with modules var_animate:
+github: https://github.com/DH4CK1/var_animate_calculator
+
+
+Home-page: UNKNOWN
+Author: Dst_207
+Author-email: cyberdhack@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: animate,anim python,animate python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
