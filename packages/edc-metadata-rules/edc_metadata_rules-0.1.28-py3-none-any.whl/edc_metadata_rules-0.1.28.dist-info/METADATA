@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: edc-metadata-rules
+Version: 0.1.28
+Summary: Create rules to manipulate metadata (edc-metadata)
+Home-page: http://github/botswana-harvard/edc-metadata-rules
+Author: Erik van Widenfelt
+Author-email: ew2789@gmail.com
+License: GPL license, see LICENSE
+Keywords: django Edc data entry metadata rules
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.7
+
+|pypi| |travis| |codecov| |downloads|
+
+
+edc-metadata-rules
+------------------
+Create rules to manipulate metadata (edc-metadata)
+
+ See also `edc_metadata`
+
+.. |pypi| image:: https://img.shields.io/pypi/v/edc-metadata-rules.svg
+    :target: https://pypi.python.org/pypi/edc-metadata-rules
+
+.. |travis| image:: https://travis-ci.com/clinicedc/edc-metadata-rules.svg?branch=develop
+    :target: https://travis-ci.com/clinicedc/edc-metadata-rules
+
+.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-metadata-rules/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/clinicedc/edc-metadata-rules
+
+.. |downloads| image:: https://pepy.tech/badge/edc-metadata-rules
+   :target: https://pepy.tech/project/edc-metadata-rules
+
+
