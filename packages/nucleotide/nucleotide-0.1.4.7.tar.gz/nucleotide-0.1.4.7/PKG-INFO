@@ -1,0 +1,74 @@
+Metadata-Version: 1.1
+Name: nucleotide
+Version: 0.1.4.7
+Summary: An Scons library which wraps interface of various compilers in to one universal.
+Home-page: https://github.com/dmilos/nucleotide
+Author: Dejan Milosavljevic
+Author-email: dmilos@gmail.com
+License: https://raw.githubusercontent.com/dmilos/nucleotide/master/license.txt
+Description: Wrap all C++ compilers in to the one.
+        =====================================
+        
+        Description
+        -----------
+        
+        An Scons library which wraps interface of various compilers in to one
+        universal. Nucleotide allow us to make Scons files avoiding to
+        explicitly state: platform, compiler, compilerâ€™s version.
+        
+        Quick example:
+        --------------
+        
+        Next line set RTL:
+        
+        .. code:: python
+        
+               settings.accumulate( 'RTL', { 'type': 'static', 'configuration' : 'debug' } )
+        
+        and replace:
+        
+        .. code:: python
+        
+                       if( os.platform == 'win32' ):
+                           if( retrieve_compiler_name() == 'msvc' ):
+                               flag = 'M'
+                               if( 'dynamic' == retrieve_RTL_type() ):
+                                   flag += 'D'
+                               if( 'static' == retrieve_RTL_type() ):
+                                   flag += 'T'
+                               if( 'debug' == retrieve_configuration_type() ):
+                                   flag += 'd'
+                               if( 'release' == retrieve_configuration_type() ):
+                                   pass
+                               env.append( CPPFLAGS, [ flag ] )
+        
+                           if( retrieve_compiler_name() == 'cygwin' ):
+                               env.append( LINKFLAGS, '-static' )
+        
+                           if( retrieve_compiler_name() == 'mingw' ):
+                               env.append( LINKFLAGS, '-static' )
+                       else:
+                           if( os.platform == 'linux' ):
+                               if( retrieve_compiler_name() == 'gcc' ):
+                                   env.append( LINKFLAGS, '-static' )
+                       ... ... ... 
+        
+        Install:
+        --------
+        
+        Start command line and type: ``pip install nucleotide``
+        
+        Want to see more:
+        -----------------
+        
+        -  `Wiki page <https://github.com/dmilos/nucleotide/wiki>`__
+        
+Keywords: scons,module,universal,unified,compiler,c++
+Platform: All
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Build Tools
