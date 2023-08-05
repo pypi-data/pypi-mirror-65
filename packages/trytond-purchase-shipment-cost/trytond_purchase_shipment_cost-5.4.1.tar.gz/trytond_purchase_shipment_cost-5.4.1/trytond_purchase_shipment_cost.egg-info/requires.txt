@@ -1,0 +1,13 @@
+trytond_carrier<5.5,>=5.4
+trytond_currency<5.5,>=5.4
+trytond_stock<5.5,>=5.4
+trytond<5.5,>=5.4
+
+[account_product]
+trytond_account_product<5.5,>=5.4
+
+[account_stock_anglo_saxon]
+trytond_account_stock_anglo_saxon<5.5,>=5.4
+
+[account_stock_continental]
+trytond_account_stock_continental<5.5,>=5.4
