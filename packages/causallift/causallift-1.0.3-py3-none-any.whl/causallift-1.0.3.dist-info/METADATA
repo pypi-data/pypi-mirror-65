@@ -1,0 +1,55 @@
+Metadata-Version: 2.0
+Name: causallift
+Version: 1.0.3
+Summary: CausalLift: Python package for Uplift Modeling for A/B testing and observational data.
+Home-page: https://github.com/Minyus/causallift
+Author: Yusuke Minami
+Author-email: me@minyus.github.com
+License: BSD 2-Clause
+Keywords: uplift lift causal propensity ipw observational
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: optional
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: easydict
+Requires-Dist: kedro (>=0.15.0)
+Provides-Extra: dev
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: pytest-mock; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: requests-mock; extra == 'dev'
+Requires-Dist: wheel; extra == 'dev'
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: isort; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: nbsphinx; extra == 'docs'
+Requires-Dist: nbstripout; extra == 'docs'
+Requires-Dist: recommonmark; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints (>=1.7.0); extra == 'docs'
+Requires-Dist: typed-ast (>=1.4.0); extra == 'docs'
+Requires-Dist: sphinx-copybutton; extra == 'docs'
+Requires-Dist: jupyter-client; extra == 'docs'
+Requires-Dist: tornado; extra == 'docs'
+Requires-Dist: ipykernel; extra == 'docs'
+Provides-Extra: optional
+Requires-Dist: matplotlib; extra == 'optional'
+Requires-Dist: xgboost; extra == 'optional'
+Requires-Dist: scikit-optimize; extra == 'optional'
+
+UNKNOWN
+
+
