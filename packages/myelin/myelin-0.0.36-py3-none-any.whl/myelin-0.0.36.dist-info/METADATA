@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: myelin
+Version: 0.0.36
+Summary: Myelin utility package
+Home-page: https://bitbucket.org/myelinproj/myelin-metric/
+Author: Myelin
+Author-email: jamborta@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2.19.1)
+Requires-Dist: kubernetes (==7.0.0)
+
+.. image:: https://myelin.io/images/resized-logo.png
+   :target: https://myelin.io
+
+myelin
+=====
+
+.. rtd-inclusion-marker-do-not-remove
+
+Myelin is `a utility`_ for publishing Metrics.
+
+
+.. _`a utility`: https://pypi.org/project/myelin/
+
+
