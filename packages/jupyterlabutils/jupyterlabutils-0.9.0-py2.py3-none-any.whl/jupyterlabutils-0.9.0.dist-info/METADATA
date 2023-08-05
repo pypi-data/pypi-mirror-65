@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: jupyterlabutils
+Version: 0.9.0
+Summary: UNKNOWN
+Home-page: https://github.com/sqre-lsst/jupyterlabutils
+Author: Adam Thornton
+Author-email: athornton@lsst.org
+License: MIT
+Keywords: lsst
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: bokeh (>=0.12.15)
+Requires-Dist: kubernetes (>=10.0.0)
+Requires-Dist: maproxy
+Requires-Dist: pyvo (>=1.0)
+Requires-Dist: requests (>=2.18)
+Requires-Dist: semver
+
+# Utilities for LSST LSP Science Platform notebook aspect (user pod side)
+
+
