@@ -1,0 +1,12 @@
+{% extends 'djangoadmin/base/body/index.html' %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+{% include "djangoadmin/widgets/promo-slider.html" %}
+{% include "djangoadmin/widgets/category-article-accordian.html" %}
+{% endblock body %}
+
+{% block sidebar-right %}
+{% include "djangoadmin/widgets/promo-window.html" %}
+{% include "djangoadmin/widgets/trend-article-accordian.html" %}
+{% endblock sidebar-right %}
