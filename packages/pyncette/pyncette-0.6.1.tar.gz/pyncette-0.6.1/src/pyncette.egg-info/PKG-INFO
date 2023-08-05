@@ -1,0 +1,186 @@
+Metadata-Version: 2.1
+Name: pyncette
+Version: 0.6.1
+Summary: A reliable distributed cron with pluggable storage backends
+Home-page: https://github.com/tibordp/pyncette
+Author: Tibor Djurica Potpara
+Author-email: tibor.djurica@ojdip.net
+License: MIT
+Project-URL: Documentation, https://pyncette.readthedocs.io/
+Project-URL: Changelog, https://pyncette.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/tibordp/pyncette/issues
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        A reliable distributed cron with pluggable storage backends
+        
+        * Free software: MIT license
+        
+        Installation
+        ============
+        
+        Minimal installation (just SQLite persistence):
+        
+        ::
+        
+            pip install pyncette
+        
+        Full installation (Redis and PostgreSQL persistence and Prometheus metrics exporter):
+        
+        ::
+        
+            pip install pyncette[redis,postgres,prometheus]
+        
+        You can also install the in-development version with::
+        
+            pip install https://github.com/tibordp/pyncette/archive/master.zip
+        
+        Documentation
+        =============
+        
+        
+        https://pyncette.readthedocs.io
+        
+        
+        Usage example
+        =============
+        
+        Simple in-memory cron (does not persist state)
+        
+        .. code:: python
+        
+            from pyncette import Pyncette, Context
+        
+            app = Pyncette()
+        
+            @app.task(schedule='* * * * *')
+            async def foo(context: Context):
+                print('This will run every minute')
+        
+            if __name__ == '__main__':
+                app.main()
+        
+        Persistent distributed cron using Redis (coordinates execution with parallel instances and survives restarts)
+        
+        .. code:: python
+        
+            from pyncette import Pyncette, Context
+            from pyncette.redis import redis_repository
+        
+            app = Pyncette(repository_factory=redis_repository, redis_url='redis://localhost')
+        
+            @app.task(schedule='* * * * * */10')
+            async def foo(context: Context):
+                print('This will run every 10 seconds')
+        
+            if __name__ == '__main__':
+                app.main()
+        
+        
+        Development
+        ===========
+        
+        To run integration tests you will need Redis and PostgreSQL Server running locally.
+        
+        To run the all tests run::
+        
+            tox
+        
+        To run just the unit tests (excluding integration tests)::
+        
+            tox -e py37  # or py38 
+        
+        Note, to combine the coverage data from all the tox environments run:
+        
+        .. list-table::
+            :widths: 10 90
+            :stub-columns: 1
+        
+            - - Windows
+              - ::
+        
+                    set PYTEST_ADDOPTS=--cov-append
+                    tox
+        
+            - - Other
+              - ::
+        
+                    PYTEST_ADDOPTS=--cov-append tox
+        
+        
+        Changelog
+        =========
+        
+        0.6.1 (2020-04-02)
+        ------------------
+        
+        * Optimize the task querying on Postgres backend
+        * Fix: ensure that there are no name colissions between concrete instances of different dynamic tasks
+        * Improve fairness of polling tasks under high contention.
+        
+        
+        0.6.0 (2020-03-31)
+        ------------------
+        
+        * Added PostgreSQL backend
+        * Added Sqlite backend and made it the default (replacing `InMemoryRepository`)
+        * Refactored test suite to cover all conformance/integration tests on all backends
+        * Refactored Redis backend, simplifying the Lua scripts and improving exceptional case handling (e.g. tasks disappearing between query and poll)
+        * Main loop only sleeps for the rest of remaining `poll_interval` before next tick instead of the full amount
+        * General bug fixes, documentation changes, clean up
+        
+        
+        0.5.0 (2020-03-27)
+        ------------------
+        
+        * Fixes bug where a locked dynamic task could be executed again on next tick.
+        * poll_task is now reentrant with regards to locking. If the lease passed in matches the lease on the task, it behaves as though it were unlocked.
+        
+        
+        0.4.0 (2020-02-16)
+        ------------------
+        
+        * Middleware support and optional metrics via Prometheus
+        * Improved the graceful shutdown behavior
+        * Task instance and application context are now available in the task context
+        * Breaking change: dynamic task parameters are now accessed via `context.args['name']` instead of `context.name`
+        * Improved examples, documentation and packaging
+        
+        
+        0.2.0 (2020-01-08)
+        ------------------
+        
+        * Timezone support
+        * More efficient poling when Redis backend is used 
+        
+        
+        0.1.1 (2020-01-08)
+        ------------------
+        
+        * First release that actually works.
+        
+        
+        0.0.0 (2019-12-31)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Provides-Extra: postgres
+Provides-Extra: prometheus
+Provides-Extra: redis
