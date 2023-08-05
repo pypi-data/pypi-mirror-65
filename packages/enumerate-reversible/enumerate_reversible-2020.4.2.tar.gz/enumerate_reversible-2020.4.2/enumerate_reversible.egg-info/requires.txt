@@ -1,0 +1,10 @@
+
+[dev]
+check-manifest
+twine
+wheel
+
+[test]
+coverage
+pytest
+pytest-cov

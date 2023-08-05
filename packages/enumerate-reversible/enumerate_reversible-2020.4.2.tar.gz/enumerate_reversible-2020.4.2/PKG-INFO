@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: enumerate_reversible
+Version: 2020.4.2
+Summary: Alternative `enumerate` that can be reversed
+Home-page: https://github.com/cjrh/enumerate_reversible
+Author: Caleb Hattingh
+Author-email: caleb.hattingh@gmail.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/cjrh/enumerate_reversible/issues
+Project-URL: Funding, https://github.com/sponsors/cjrh
+Project-URL: Say Thanks!, https://github.com/sponsors/cjrh
+Project-URL: Source, https://github.com/cjrh/enumerate_reversible
+Description: .. image:: https://travis-ci.org/cjrh/enumerate_reversible.svg?branch=master
+            :target: https://travis-ci.org/cjrh/enumerate_reversible
+        
+        .. image:: https://coveralls.io/repos/github/cjrh/enumerate_reversible/badge.svg?branch=master
+            :target: https://coveralls.io/github/cjrh/enumerate_reversible?branch=master
+        
+        .. image:: https://img.shields.io/pypi/pyversions/enumerate_reversible.svg
+            :target: https://pypi.python.org/pypi/enumerate_reversible
+        
+        .. image:: https://img.shields.io/github/tag/cjrh/enumerate_reversible.svg
+            :target: https://img.shields.io/github/tag/cjrh/enumerate_reversible.svg
+        
+        .. image:: https://img.shields.io/badge/install-pip%20install%20enumerate_reversible-ff69b4.svg
+            :target: https://img.shields.io/badge/install-pip%20install%20enumerate_reversible-ff69b4.svg
+        
+        .. image:: https://img.shields.io/pypi/v/enumerate_reversible.svg
+            :target: https://img.shields.io/pypi/v/enumerate_reversible.svg
+        
+        .. image:: https://img.shields.io/badge/calver-YYYY.MM.MINOR-22bfda.svg
+            :target: http://calver.org/
+        
+        
+        enumerate_reversible
+        ====================
+        
+        Alternative to the builtin ``enumerate()``, that can be fed into another
+        builtin, ``reversed()``, as long as the collection being passed in implements
+        the ``Sized`` abstract base class, which means that it implements
+        ``__len__()``. Note that it does not need to implement ``__getitem__``.
+        
+Keywords: enumerate reversed iterator iterable
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/x-rst
+Provides-Extra: dev
+Provides-Extra: test
