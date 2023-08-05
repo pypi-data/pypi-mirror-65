@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: abics
+Version: 1.0b0
+Summary: ab-Initio Configuration Sampling tool kit
+Home-page: https://github.com/issp-center-dev/abICS
+Author: ABICS developers
+Author-email: abics-dev@issp.u-tokyo.ac.jp
+License: GPLv3
+Platform: UNKNOWN
+Requires-Python: >=3.4.0
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: toml
+Requires-Dist: mpi4py
+Requires-Dist: pymatgen
+Requires-Dist: qe-tools
+
+UNKNOWN
+
+
