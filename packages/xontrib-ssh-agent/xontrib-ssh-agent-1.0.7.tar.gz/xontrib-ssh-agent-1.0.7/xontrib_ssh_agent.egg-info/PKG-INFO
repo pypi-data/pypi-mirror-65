@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: xontrib-ssh-agent
+Version: 1.0.7
+Summary: SSH agent integration for xonsh
+Home-page: https://github.com/dyuri/xontrib-ssh-agent
+Author: Gyuri Horák
+Author-email: dyuri@horak.hu
+License: MIT
+Description: # Xontrib-ssh-agent
+        
+        Ssh-agent xonsh integration.
+        
+        ## Install
+        
+        Install using pip
+        
+        ```
+        pip install xontrib-ssh-agent
+        ```
+        
+        Add to your `.xonshrc`:
+        
+        ```
+        xontrib load ssh_agent
+        ```
+        
+        ## Usage
+        
+        This xontrib launches `ssh-agent` when `xonsh` is started if it isn't already running, and sets the required environment variables.
+        
+        By issuing the `ssh` command it checks for added identities, and if there's none it adds them via the `ssh-add` command.
+        
+Platform: any
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Desktop Environment
+Classifier: Topic :: System :: Shells
+Classifier: Topic :: System :: System Shells
+Description-Content-Type: text/markdown
