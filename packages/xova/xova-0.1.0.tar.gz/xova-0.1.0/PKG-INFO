@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: xova
+Version: 0.1.0
+Summary: Measurement Set Averager
+Home-page: https://github.com/ska-sa/xova
+Author: Simon Perkins
+Author-email: sperkins@ska.ac.za
+License: BSD license
+Description: ====
+        xova
+        ====
+        
+        
+        .. image:: https://img.shields.io/pypi/v/xova.svg
+                :target: https://pypi.python.org/pypi/xova
+        
+        .. image:: https://img.shields.io/travis/ska-sa/xova.svg
+                :target: https://travis-ci.org/ska-sa/xova
+        
+        .. image:: https://readthedocs.org/projects/xova/badge/?version=latest
+                :target: https://xova.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        Measurement Set Averager
+        
+        
+        * Free software: BSD license
+        * Documentation: https://xova.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+Keywords: xova
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Provides-Extra: testing

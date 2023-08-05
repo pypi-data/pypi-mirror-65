@@ -1,0 +1,7 @@
+codex-africanus[dask]>=0.2.1
+dask-ms>=0.2.3
+loguru
+
+[testing]
+pytest
+pytest-flake8
