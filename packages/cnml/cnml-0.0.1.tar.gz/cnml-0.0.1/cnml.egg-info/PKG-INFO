@@ -1,0 +1,23 @@
+Metadata-Version: 1.2
+Name: cnml
+Version: 0.0.1
+Summary: Machine learning algorithm implementations
+Home-page: https://github.com/frosklis/cn-machine-learning
+Author: Claudio Noguera
+Author-email: claudio.noguera@gmail.com
+License: <_io.TextIOWrapper name='LICENSE' mode='r' encoding='UTF-8'>
+Description: cn machine learning
+        =====================================================
+        
+        Custom implementations of machine learning algorithms
+        
+        WoE transformer.
+        
+        Why?
+        ----
+        
+        - learning purposes
+        - some things I have used quite a lot and they are not implemented in scikit-learn
+        
+Platform: UNKNOWN
+Requires-Python: >=3
