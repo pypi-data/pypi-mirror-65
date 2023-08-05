@@ -1,0 +1,7 @@
+query fetchTaskAuditEvents($taskId: String!) {
+    fetchTaskAuditEvents(taskId: $taskId) {
+      time
+      displayMessage
+      type
+    }
+}

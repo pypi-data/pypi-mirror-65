@@ -1,0 +1,6 @@
+query fetchJobStatus($id: String!) {
+            fetchJob(id: $id) {
+                id
+                status
+            }
+        }

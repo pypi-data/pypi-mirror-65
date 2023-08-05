@@ -1,0 +1,6 @@
+mutation createJob(
+                $args: CreateJobInput!, $options: CreateJobOptionsInput!) {
+            createJob(args: $args, options: $options) {
+                  id
+            }
+        }

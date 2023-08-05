@@ -1,0 +1,5 @@
+mutation archiveJob($id: String!) {
+            archiveJob(id: $id) {
+                id
+            }
+        }

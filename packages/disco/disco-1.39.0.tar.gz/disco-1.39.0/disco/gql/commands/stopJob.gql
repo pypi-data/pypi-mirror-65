@@ -1,0 +1,5 @@
+mutation stopJob($id: String!) {
+            stopJob(id: $id) {
+                id
+            }
+        }

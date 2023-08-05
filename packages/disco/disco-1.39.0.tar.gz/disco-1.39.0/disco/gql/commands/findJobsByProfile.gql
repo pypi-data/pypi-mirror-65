@@ -1,0 +1,16 @@
+query findJobsByProfile(
+    $limit: Float, $next: String, $previous: String, $ownerId: String) {
+        findJobs(
+        limit: $limit, next: $next, previous: $previous, ownerId: $ownerId) {
+            next
+            results {
+                id
+                status
+                request {
+                    meta {
+                        name
+                    }
+                }
+            }
+        }
+    }
