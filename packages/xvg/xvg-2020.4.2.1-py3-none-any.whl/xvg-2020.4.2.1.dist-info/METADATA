@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: xvg
+Version: 2020.4.2.1
+Summary: A scriptable vector graphics library
+Home-page: https://lrgstu.github.io/xvgpy/
+Author: Hayden McDonald
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+
+## **xvgpy**
+### A scriptable vector graphics library for Python
+
+---
+### **Install** 
+```
+python3 -m pip install xvg
+```
+(See: [PyPI package](https://pypi.org/project/xvg/))
+
+---
+### **Example** 
+```python
+from xvg.application import Engine
+from xvg.renderers import SVGRenderer
+
+Engine(SVGRenderer()).processFile('image.xvg')
+```
+(See: [XVGPY Index](https://lrgstu.github.io/xvgpy/))
+
+(See: [XVGPY Tests](./tests))
+
+---
+
