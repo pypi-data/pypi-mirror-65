@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: okie
+Version: 0.1.0
+Summary: [WIP] Small(and dumb) http request generator and stream controller
+Home-page: https://github.com/uwinx/okie
+License: MIT
+Keywords: http,asyncio
+Author: Martin Winks
+Author-email: cat@snejugal.ru
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: httptools (>=0.1.1,<0.2.0)
+Project-URL: Repository, https://github.com/uwinx/okie
+Description-Content-Type: text/x-rst
+
+==================
+[WIP] 🌲 okie
+==================
+
+
+**Minimalistic http client for production and tests.**
+
