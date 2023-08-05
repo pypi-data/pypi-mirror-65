@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: cloudmesh-cloud
+Version: 4.3.10
+Summary: Cloudmesh Multicloud Cloud Plugins for Cloudmesh cmd5 CMD
+Home-page: https://github.com/cloudmesh/cloudmesh-cloud
+Author: Gregor von Laszewski
+Author-email: laszewski@gmail.com
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: MacOS X
+Classifier: Environment :: OpenStack
+Classifier: Environment :: Other Environment
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: System
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: System :: Shells
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: cloudmesh-configuration
+Requires-Dist: cloudmesh-cmd5
+Requires-Dist: cloudmesh-sys
+Requires-Dist: cloudmesh-inventory
+Requires-Dist: cloudmesh-abstract
+Requires-Dist: cloudmesh-admin
+Requires-Dist: apache-libcloud
+Requires-Dist: beautifulsoup4
+Requires-Dist: dateparser
+Requires-Dist: docker
+Requires-Dist: docopt
+Requires-Dist: flask
+Requires-Dist: Flask-PyMongo
+Requires-Dist: humanize
+Requires-Dist: idna
+Requires-Dist: munch
+Requires-Dist: oyaml
+Requires-Dist: progress
+Requires-Dist: psutil
+Requires-Dist: pymongo
+Requires-Dist: PyYAML
+Requires-Dist: recommonmark
+Requires-Dist: requests
+Requires-Dist: selenium
+Requires-Dist: tabulate
+Requires-Dist: uuid
+
+# Cloudmesh Cloud Interfaceshttps://github.com/cloudmesh/cloudmesh-cloud
+
+[![Version](https://img.shields.io/pypi/v/cloudmesh--cloud.svg)](https://pypi.python.org/pypi/cloudmesh--cloud)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/cloudmesh/cloudmesh--cloud/blob/master/LICENSE)
+[![Python](https://img.shields.io/pypi/pyversions/cloudmesh--cloud.svg)](https://pypi.python.org/pypi/cloudmesh--cloud)
+[![Format](https://img.shields.io/pypi/format/cloudmesh--cloud.svg)](https://pypi.python.org/pypi/cloudmesh--cloud)
+[![Status](https://img.shields.io/pypi/status/cloudmesh--cloud.svg)](https://pypi.python.org/pypi/cloudmesh--cloud)
+[![Travis](https://travis-ci.com/cloudmesh/cloudmesh--cloud.svg?branch=master)](https://travis-ci.com/cloudmesh/cloudmesh-cloud)
+
+
+## Requirements
+
+Please note that several packages are available which are pointed to
+in the installation documentation.
+
+|                          | Links                                              |
+|--------------------------|----------------------------------------------------|
+| Documentation            | <https://cloudmesh.github.io/cloudmesh-manual>     |
+| Code                     | <https://github.com/cloudmesh/cloudmesh-cloud>     |
+| Instalation Instructions | <https://github.com/cloudmesh/cloudmesh-installer> |
+
+An dynamically extensible CMD based command shell. For en extensive
+documentation please see
+
+* <https://github.com/cloudmesh-community/book/blob/master/vonLaszewski-cloud.epub?raw=true>
+
+where we also document how to use pyenv virtualenv.
+
+
+## Installation
+
+* See <https://github.com/cloudmesh/cloudmesh-installer>
+
+* See <https://github.com/cloudmesh/cloudmesh-manual>
+
+
+
