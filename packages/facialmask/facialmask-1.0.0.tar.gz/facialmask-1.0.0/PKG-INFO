@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: facialmask
+Version: 1.0.0
+Summary: Pixelate faces automatically classified in images through a Python CLI.
+Home-page: https://github.com/dhorvay/facial-mask
+Author: Devin C. Horvay
+Author-email: devin.c.horvay@gmail.com
+License: BSD license
+Description: # facial-mask
+        Pixelate faces in images through a Python CLI.
+Keywords: facialmask pixelate facedetection face
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
