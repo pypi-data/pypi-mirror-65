@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "netblocks3"
+version = "0.0.13"
+description = "Get the Cloud Provider netblocks (Python3 version)"
+authors = ["tomasfse"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.urls]
+"Github" = "https://github.com/tomasfse/netblocks"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+requests = "^2.23.0"
+
+[tool.poetry.dev-dependencies]
+
+[[tool.poetry.source]]
+name = 'github'
+url = 'https://github.com/tomasfse/netblocks'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
