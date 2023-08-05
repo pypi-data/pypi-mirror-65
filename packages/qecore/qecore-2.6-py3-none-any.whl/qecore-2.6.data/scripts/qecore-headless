@@ -1,0 +1,556 @@
+#!python
+import os
+import errno
+import subprocess
+from subprocess import check_output, STDOUT, CalledProcessError
+import time
+import configparser
+import shutil
+import glob
+import sys
+import re
+
+
+def run(command, verbose=False):
+    """
+    Utility function to execute given command and return its output.
+    """
+
+    try:
+        output = check_output(command, shell=True, stderr=STDOUT, encoding="utf-8")
+        return output if not verbose else (output, 0, None)
+    except CalledProcessError as error:
+        return error.output if not verbose else (error.output, error.returncode, error)
+
+
+ENVIRONMENT_DICTIONARY = {}
+ENVIRONMENT_VARIABLES_TO_PRESERVE = ["PYTHONPATH", "TEST", "TERM"]
+
+
+def _get_environment_as_dictionary(path_to_process):
+    """
+    Get environment variables from process and save to the global dictionary.
+    Return True or False if the globel environment variable was successfuly modified.
+    """
+
+    def is_session_process(path_to_process):
+        pid = path_to_process.split("/")[2]
+        if pid == "self" or pid == str(os.getpid()):
+            return False
+        return True
+
+    # Verify path to process is indeed a process
+    if is_session_process(path_to_process):
+        file_name = path_to_process + "environ"
+    else:
+        return False
+
+    # Verify the environ file can be opened
+    try:
+        path_to_environment = open(file_name, "r").read()
+    except IOError:
+        return False
+
+    # Loading environment to dictionary
+    environment_items = path_to_environment.split("\x00")
+    for item in environment_items:
+        if "=" in item:
+            key, value = item.split("=", 1)
+            ENVIRONMENT_DICTIONARY[key] = value
+
+    # Preserving wanted environment variables
+    for env_variable in ENVIRONMENT_VARIABLES_TO_PRESERVE:
+        if env_variable in os.environ:
+            ENVIRONMENT_DICTIONARY[env_variable] = os.environ[env_variable]
+
+    return True
+
+
+def get_environment_dictionary():
+    """
+    Iterates over the proc files and looks for environment to use.
+    Targetting the org.gnome.Shell process to get all environment variables.
+    Returns environment as dictionary.
+    """
+
+    for path_to_process in glob.glob("/proc/*/"):
+        # If given number is a running process, get environment variables of its environ file
+        environment_retrieved = _get_environment_as_dictionary(path_to_process)
+        if not environment_retrieved:
+            continue
+
+        try:
+            assert ENVIRONMENT_DICTIONARY["GIO_LAUNCHED_DESKTOP_FILE"] # shell desktop file
+            if ENVIRONMENT_DICTIONARY["TERM"] != "xterm":
+                print(f"Setting environment variable TERM as xterm")
+                ENVIRONMENT_DICTIONARY["TERM"] = "xterm"
+
+            return ENVIRONMENT_DICTIONARY
+        except KeyError:
+            continue
+
+    raise RuntimeError("Can't find our environment!")
+
+
+
+def is_binary_existing_and_executable(path):
+    """
+    Test if given binary file exists.
+    """
+
+    if (path.startswith(os.path.sep) or
+            path.startswith(os.path.join(".", "")) or
+            path.startswith(os.path.join("..", ""))):
+        if not os.path.exists(path):
+            raise IOError(errno.ENOENT, "No such file", path)
+
+        if not os.access(path, os.X_OK):
+            raise IOError(errno.ENOEXEC, "Permission denied", path)
+
+    return True
+
+
+def start_script_and_return_process(list_of_arguments, environment=None):
+    is_binary_existing_and_executable(list_of_arguments[0])
+    if environment is None:
+        environment = os.environ
+    return subprocess.Popen(list_of_arguments, env=environment)
+
+
+
+class DisplayManager:
+    def __init__(self,
+                 session_type="Xorg",
+                 session_desktop="gnome",
+                 enable_start=True,
+                 enable_stop=True):
+        self.enable_start = enable_start
+        self.enable_stop = enable_stop
+
+        self.display_manager = "gdm"
+        self.session_type = session_type if session_type else "Xorg" # Xorg Xwayland
+        self.session_desktop = session_desktop if session_desktop else "gnome"# gnome gnome-classic
+        self.session_binary = "/usr/bin/gnome-shell"
+        self.user = run("whoami").strip("\n")
+
+        self.config_file = "/etc/gdm/custom.conf"
+        self.temporary_config_file = f"/tmp/{os.path.basename(self.config_file)}"
+
+        self.account_file = f"/var/lib/AccountsService/users/{self.user}"
+        self.temporary_account_file = f"/tmp/{os.path.basename(self.account_file)}"
+
+        self.restart_needed = False
+
+
+    def restore_config(self): # not used, but implemented if needed
+        # Restore configuration file
+        shutil.copy(self.config_file, self.temporary_config_file)
+
+        config_parser = configparser.ConfigParser()
+        config_parser.optionxform = str
+        config_parser.read(self.temporary_config_file)
+
+        config_parser.remove_option("daemon", "AutomaticLoginEnable")
+        config_parser.remove_option("daemon", "AutomaticLogin")
+        config_parser.remove_option("daemon", "WaylandEnable")
+
+        with open(self.temporary_config_file, "w") as _file:
+            config_parser.write(_file)
+
+
+    def handling_config_setup(self):
+        # Handling config setup
+        shutil.copy(self.config_file, self.temporary_config_file)
+
+        config_parser = configparser.ConfigParser()
+        config_parser.optionxform = str
+        config_parser.read(self.temporary_config_file)
+
+        if not config_parser.has_section("daemon"): # section does not exist
+            config_parser.add_section("daemon")
+
+        config_parser.set("daemon", "AutomaticLoginEnable", "true")
+        config_parser.set("daemon", "AutomaticLogin", self.user)
+
+        if self.session_type == "Xorg":
+            config_parser.set("daemon", "WaylandEnable", "false")
+        elif self.session_type == "Xwayland":
+            config_parser.set("daemon", "WaylandEnable", "true")
+        else:
+            print("This is not acceptable session type. Fallback to the 'Xorg' session type")
+            print(f"Acceptable names for --session-type: ['Xorg', 'Xwayland']")
+            self.session_type = "Xorg"
+            config_parser.set("daemon", "WaylandEnable", "false")
+
+        with open(self.temporary_config_file, "w") as _file:
+            config_parser.write(_file)
+
+        if not os.path.isfile(self.temporary_config_file):
+            print("Temporary config file was not found, waiting a bit...")
+            time.sleep(1)
+
+        subprocess.Popen(\
+            f"sudo mv -f {self.temporary_config_file} {self.config_file}", shell=True).wait()
+        subprocess.Popen(\
+            f"sudo rm -f {self.temporary_config_file}", shell=True).wait()
+
+
+    def handling_account_setup(self):
+        # Handling account setup
+        #shutil.copy(self.account_file, self.temporary_account_file) # Permission error
+        run(f"sudo cp -f {self.account_file} {self.temporary_account_file}")
+
+        account_config_parser = configparser.ConfigParser()
+        account_config_parser.optionxform = str
+        account_config_parser.read(self.temporary_account_file)
+
+        acceptable_x_desktop_names = [x for x in \
+            run("ls /usr/share/xsessions").split("\n")]
+        acceptable_wayland_desktop_names = [x for x in \
+            run("ls /usr/share/wayland-sessions").split("\n")]
+
+        if self.session_type == "Xorg":
+            acceptable_desktop_names = acceptable_x_desktop_names
+        elif self.session_type == "Xwayland":
+            acceptable_desktop_names = acceptable_wayland_desktop_names
+
+        acceptable_desktop_names = [x.strip("desktop").strip(".") for x in \
+            acceptable_desktop_names if x]
+
+        if not account_config_parser.has_section("User"): # section does not exist
+            account_config_parser.add_section("User")
+            account_config_parser.set("User", "Session", "gnome")
+            account_config_parser.set("User", "SystemAccount", "false")
+
+        elif account_config_parser.has_section("User"): # section does exist
+            if "Session" in account_config_parser.options("User"): # option does exist
+                saved_session_desktop = account_config_parser.get("User", "Session")
+
+            elif "Session" not in account_config_parser.options("User"): # option does not exist
+                self.session_desktop = self.session_desktop if self.session_desktop else "gnome"
+                account_config_parser.set("User", "Session", self.session_desktop)
+                saved_session_desktop = account_config_parser.get("User", "Session")
+                self.restart_needed = True
+
+            if self.session_desktop not in (saved_session_desktop, None) and \
+                self.session_desktop in acceptable_desktop_names:
+                print(f"Changing desktop '{saved_session_desktop}' -> '{self.session_desktop}'")
+                account_config_parser.set("User", "Session", self.session_desktop)
+                account_config_parser.set("User", "SystemAccount", "false")
+                self.restart_needed = True
+
+            elif self.session_desktop is not None and \
+                self.session_desktop not in acceptable_desktop_names:
+                print(" ".join((
+                    "This is not acceptable session desktop name.",
+                    "Fallback to the 'gnome' session desktop"
+                )))
+                print(f"Acceptable names for '{self.session_type}': {acceptable_desktop_names}")
+                account_config_parser.set("User", "Session", "gnome")
+                self.restart_needed = True
+
+
+        if self.restart_needed:
+            print("Restart required")
+            with open(self.temporary_account_file, "w") as _file:
+                account_config_parser.write(_file)
+
+            if not os.path.isfile(self.temporary_account_file):
+                print("Temporary account file was not found, waiting a bit...")
+                time.sleep(1)
+
+            subprocess.Popen(f"sudo mv -f {self.temporary_account_file} {self.account_file}",\
+                             shell=True).wait()
+            subprocess.Popen("sudo systemctl restart accounts-daemon", shell=True).wait()
+            subprocess.Popen("sudo systemctl restart systemd-logind", shell=True).wait()
+            subprocess.Popen(f"sudo rm -f {self.temporary_account_file}", shell=True).wait()
+
+
+    def start_display_manager(self):
+        """
+        Starting the display manager - gdm.
+        """
+
+        subprocess.Popen(("sudo systemctl stop gdm").split()).wait()
+
+        # first check, loginctl
+        preexisting_session = run(f"sudo loginctl | grep {self.user} | grep seat0")
+        if preexisting_session:
+            preexisting_session_number = preexisting_session.strip().strip(" ")[0]
+            subprocess.Popen(" ".join((
+                f"sudo loginctl kill-session",
+                f"--signal=9 {preexisting_session_number}"
+            )), shell=True).wait()
+
+        # second check, loginctl
+        preexisting_session = run(f"sudo loginctl | grep {self.user} | grep seat0")
+        if preexisting_session:
+            preexisting_session_number = preexisting_session.strip().strip(" ")[0]
+            subprocess.Popen(" ".join((
+                f"sudo loginctl kill-session",
+                f"--signal=9 {preexisting_session_number}"
+            )), shell=True).wait()
+
+        subprocess.Popen(("sudo systemctl start gdm").split()).wait()
+        self.wait_until_process_is_running(self.session_binary)
+        time.sleep(4)
+
+
+    def stop_display_manager(self):
+        """
+        Stopping the display manager - gdm.
+        """
+
+        subprocess.Popen(("sudo systemctl stop gdm").split()).wait()
+
+        self.wait_until_process_is_not_running(self.session_binary)
+
+        # first check, loginctl
+        if self.is_process_running(self.session_binary):
+            still_open_session = run(f"sudo loginctl | grep {self.user} | grep seat0", verbose=True)
+            if still_open_session[1] == 0:
+                still_open_session_number = still_open_session.strip().strip(" ")[0]
+            subprocess.Popen(" ".join((
+                f"sudo loginctl terminate-session",
+                f"{still_open_session_number}"
+            )), shell=True).wait()
+
+        # second check, process
+        if self.is_process_running("Xorg") or self.is_process_running("Xwayland"):
+            still_open_session = run(f"sudo loginctl | grep {self.user} | grep seat0", verbose=True)
+            if still_open_session[1] == 0:
+                still_open_session_number = still_open_session.strip().strip(" ")[0]
+                subprocess.Popen(" ".join((
+                    f"sudo loginctl kill-session --signal=9",
+                    f"{still_open_session_number}"
+                )), shell=True).wait()
+
+
+    @staticmethod
+    def is_process_running(process_to_find):
+        active_processes = subprocess.Popen(["ps", "axw"], stdout=subprocess.PIPE)
+        for active_process in active_processes.stdout:
+            if re.search(process_to_find, str(active_process)):
+                return True
+        return False
+
+
+    # wait until process IS running with hard limit of 30 seconds
+    def wait_until_process_is_running(self, process_to_find):
+        for _ in range(60):
+            if not self.is_process_running(process_to_find): # gnome-shell
+                time.sleep(0.5)
+            else:
+                break
+
+    # wait until process IS NOT running with hard limit of 30 seconds
+    def wait_until_process_is_not_running(self, process_to_find):
+        for _ in range(60):
+            if self.is_process_running(process_to_find): # gnome-shell
+                time.sleep(0.5)
+            else:
+                break
+
+
+def parse():
+    import argparse
+    parser = argparse.ArgumentParser(prog="$ qecore-headless",
+                                     description="Adjusted headless script.",
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("script",
+                        help="Script to be executed")
+    parser.add_argument("--session-type",
+                        required=False,
+                        help="Xorg Xwayland")
+    parser.add_argument("--session-desktop",
+                        required=False,
+                        help="gnome gnome-classic gnome-classic-wayland")
+    parser.add_argument("--dont-start",
+                        action="store_true",
+                        help="Use the system as is. Does not have to be under display manager")
+    parser.add_argument("--dont-kill",
+                        action="store_true",
+                        help="Do not kill the session when script exits.")
+    parser.add_argument("--disable-a11y",
+                        action="store_true",
+                        help="Disable accessibility technologies on script (not session) exit.")
+    parser.add_argument("--force",
+                        action="store_true",
+                        help="Will check if the wanted protocol was used. Exit upon fail.")
+    parser.add_argument("--debug",
+                        action="store_true",
+                        help="Will print debug messages to the file.")
+    return parser.parse_args()
+
+
+class Headless:
+    def __init__(self):
+        self.display_manager_control = None
+        self.environment_control = None
+        self.script_control = None
+
+        self.arguments = None
+        self.script_as_list_of_arguments = None
+
+        self.enable_start = True
+        self.enable_stop = True
+
+        self.disable_accessibility_on_script_exit = None
+
+        self.force = None
+        self.session_type = None
+        self.session_desktop = None
+
+        self.user_script_process = None
+        self.user_script_exit_code = None
+
+
+    def set_accessibility_to(self, enable_accessibility):
+        """
+        Using simple gsettings command to enable or disable toolkit-accessibility.
+        """
+
+        value = "true" if enable_accessibility else "false"
+        subprocess.Popen(
+            f"gsettings set org.gnome.desktop.interface toolkit-accessibility {value}",
+            shell=True, env=os.environ)
+
+
+    def handle_arguments(self):
+        """
+        Makes all neccessary steps for arguments passed along the headless script.
+        """
+
+        # Parse arguments of headless
+        self.arguments = parse()
+
+        # Parse arguments of given script
+        self.script_as_list_of_arguments = self.arguments.script.split()
+
+        # Handle dogtail debug variable
+        if self.arguments.debug:
+            os.environ["DOGTAIL_DEBUG"] = "true"
+
+        # Handle dogtail don't start variable
+        if self.arguments.dont_start:
+            self.enable_start = False
+
+        # Handle dogtail don't kill variable
+        if self.arguments.dont_kill:
+            self.enable_stop = False
+
+        # Handle dogtail disable a11y variable
+        if self.arguments.disable_a11y:
+            self.disable_accessibility_on_script_exit = True
+
+        # Handle dogtail force variable
+        if self.arguments.force:
+            self.force = True
+
+        # Handle session type variable
+        if self.arguments.session_type:
+            self.session_type = self.arguments.session_type
+
+        # Handle session desktop variable
+        if self.arguments.session_desktop:
+            self.session_desktop = self.arguments.session_desktop
+
+
+    def check_what_desktop_and_type_is_running(self):
+        """
+        Retrieve information about running process and prints it before user script start.
+        """
+
+        if not self.enable_start:
+            return
+
+        running_session_process = run("ps ax | grep X").split("\n")
+        running_session_process = [x for x in running_session_process\
+            if "headless" not in x and ("Xorg" in x or "Xwayland" in x)][0]
+
+        current_type = "Xorg" if "Xorg" in running_session_process else "Xwayland"
+        current_desktop = os.environ["XDG_SESSION_DESKTOP"]
+        print(f"headless: Running binary '{current_type}' with desktop '{current_desktop}'")
+
+
+    def verify_that_correct_session_was_started(self):
+        """
+        Verifies that correct session type as started, terminate on mismatch.
+        """
+
+        if not self.enable_start:
+            return
+
+        running_session_process = run("ps ax | grep X").split("\n")
+        running_session_process = [x for x in running_session_process\
+            if "headless" not in x and ("Xorg" in x or "Xwayland" in x)][0]
+        running_session_type = "Xorg" if "Xorg" in running_session_process else "Xwayland"
+        if self.display_manager_control.session_type not in running_session_process:
+            print("".join((
+                f"headless: Script requires session of type: ",
+                f"'{self.display_manager_control.session_type}'\n",
+                f"headless: Script was started under session of type: ",
+                f"'{running_session_type}'\n",
+                f"Running process:\n'{running_session_process}'"
+            )))
+            print("Exitting the headless script.")
+            sys.exit(1)
+
+
+    def execute(self):
+        """
+        Makes all neccessary preparations for the system to start gdm and execute user script.
+        """
+
+        # Arguments
+        self.handle_arguments()
+
+        # Accessibility
+        self.set_accessibility_to(True)
+
+        # Display manager setup and handling
+        self.display_manager_control = DisplayManager(session_type=self.session_type,
+                                                      session_desktop=self.session_desktop,
+                                                      enable_start=self.enable_start,
+                                                      enable_stop=self.enable_stop)
+        self.display_manager_control.handling_config_setup()
+        self.display_manager_control.handling_account_setup()
+        if self.enable_start:
+            self.display_manager_control.start_display_manager()
+
+        # Force x/wayland setting - terminate upon error
+        if self.force:
+            self.verify_that_correct_session_was_started()
+
+        # Environment handling
+        os.environ = get_environment_dictionary()
+
+        # Waiting until environment variables are set before trying to reach a value
+        self.check_what_desktop_and_type_is_running()
+
+        # User script handling
+        self.user_script_process = start_script_and_return_process(self.script_as_list_of_arguments)
+        print(f"headless: Started the script with PID {self.user_script_process.pid}")
+
+        # Get exit code from user script process
+        self.user_script_exit_code = self.user_script_process.wait()
+        print(f"headless: The user script finished with return code {self.user_script_exit_code}")
+
+        # Disable accessibility upon script exit
+        if self.disable_accessibility_on_script_exit:
+            self.set_accessibility_to(False)
+
+        # Stop display manager unless user specifies otherwise
+        if self.enable_stop:
+            self.display_manager_control.stop_display_manager()
+
+
+def main():
+    headless = Headless()
+    headless.execute()
+
+    sys.exit(headless.user_script_exit_code)
+
+
+if __name__ == "__main__":
+    main()
