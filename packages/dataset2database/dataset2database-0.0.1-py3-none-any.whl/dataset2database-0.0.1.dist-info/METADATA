@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: dataset2database
+Version: 0.0.1
+Summary: Useful converter of videos to SQL databases for Python
+Home-page: https://github.com/alexandrosstergiou/dataset2database
+Author: Alexandros Stergiou
+Author-email: alexstergiou5@gmail.com
+License: GPL-3.0
+Download-URL: https://pypi.org/project/dataset2database/
+Keywords: SQLconverter,dataset2database,JPG2SQL
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python (>=4.2.0.32)
+Requires-Dist: numpy (>=1.18.1)
+
+# dataset2database
+----------------------
+About
+----------------------
+
+The package is made as a solution when using video inputs in Machine Learning models. As extracting and storing frames in `.JPEG` files will quickly increase the memory requirements and more importantly the number of `inodes`, the package provides a convenient alternative. Video frames are stored as blobs at database file `.db` which can be read as quickly as the `.JPEG` files but without the additional large memory requirements.
+
+----------------------
+Dataset structure
+----------------------
+
+The package assumes a fixed dataset structure such as:
+
+```
+<dataset>    
+  │
+  └──<class 1>
+  │     │
+  │     │─── <video_data_1.mp4>
+  │     │─── <video_data_2.mp4>
+  │     │─── ...
+  │    ...      
+  │
+  └───<class 2>
+  │      │
+  │      │─── <video_data_1.mp4>
+  │      │─── <video_data_2.mp4>
+  │      │─── ...
+ ...    ...
+
+```
+
+-------------------------
+Installation through git
+-------------------------
+
+Please make sure, Git is installed in your machine:
+```
+$ sudo apt-get update
+$ sudo apt-get install git
+$ git clone https://github.com/alexandrosstergiou/dataset2database.git
+```
+
+
+# Version history
+
+### 6 April 2020 : Initial code created
+
+
