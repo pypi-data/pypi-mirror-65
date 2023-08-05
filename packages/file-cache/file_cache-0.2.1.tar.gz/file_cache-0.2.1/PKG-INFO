@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: file_cache
+Version: 0.2.1
+Summary: Cache dataframe with local hd5 file, and reduce the memory by convert type for number
+Home-page: https://github.com/Flyfoxs/file_cache
+Author: Felix Li
+Author-email: lilao@163.com
+License: MIT
+Description: File_cache can help you cache the pandas result with hd5 file, You can get demo from: https://github.com/Flyfoxs/file_cache/blob/master/demo.ipynb
+Keywords: pandas file cache python file_cache
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
