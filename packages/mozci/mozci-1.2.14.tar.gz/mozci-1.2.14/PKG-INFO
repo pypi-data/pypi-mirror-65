@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: mozci
+Version: 1.2.14
+Summary: 
+Author: Andrew Halberstadt
+Author-email: ahal@mozilla.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: adr (>=0.17.6,<0.18.0)
+Requires-Dist: taskcluster_urls (>=12.1,<13.0)
