@@ -1,0 +1,34 @@
+lang_list = [
+    "zh",
+    "en",
+    "yue",
+    "wyw",
+    "jp",
+    "kor",
+    "fra",
+    "spa",
+    "th",
+    "ara",
+    "ru",
+    "pt",
+    "de",
+    "it",
+    "el",
+    "nl",
+    "pl",
+    "bul",
+    "est",
+    "dan",
+    "fin",
+    "cs",
+    "rom",
+    "slo",
+    "swe",
+    "hu",
+    "cht",
+    "vie",
+]
+# remove yue, wyw, cht for those target_language don't support multiline text
+lang_list.remove("yue")
+lang_list.remove("wyw")
+lang_list.remove("cht")

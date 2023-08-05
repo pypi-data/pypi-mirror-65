@@ -1,0 +1,3 @@
+from corpusflow.augmentor.back_translate.apis.baidu_cloud_translate import BaiduCloudTranslate
+from corpusflow.augmentor.back_translate.apis.google_cloud_translate import GoogleCloudTranslate
+from corpusflow.augmentor.back_translate.apis.microsoft_cloud_translate import MicrosoftCloudTranslate
