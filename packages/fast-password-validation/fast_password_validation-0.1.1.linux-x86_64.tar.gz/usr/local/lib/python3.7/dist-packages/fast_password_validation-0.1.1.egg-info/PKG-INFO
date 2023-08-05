@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: fast-password-validation
+Version: 0.1.1
+Summary: Drop-in replacement for Django's CommonPasswordValidator with 4x speed and ⅓ memory usage
+Home-page: https://git.sr.ht/~kravietz/django-fast-common-passwords-validator
+Author: Paweł Krawczyk
+Author-email: pawel.krawczyk@hush.com
+License: GPLv3
+Description: # FastCommonPasswordValidator
+        A faster drop-in replacement for Django built-in
+        [CommonPasswordValidator](https://docs.djangoproject.com/en/3.0/topics/auth/passwords/#enabling-password-validation).
+        With the default password list it has 4x lookup speed gain and 30% memory savings
+        and these results will be even better with larger password lists.
+        
+        Validate whether the password is a listed common password. By default, will use built-in list of 20k
+        common  passwords (lowercase and deduplicated) by
+        [Royce Williams](https://gist.github.com/roycewilliams/281ce539915a947a23db17137d91aeb7). If called with
+        a file name, it will load passwords one-per-line and use for subsequent checks.
+        
+        ## Why?
+        
+        The original class loads a static list of 20k passwords into memory and scans through it each time it's called, which is...
+        far from being optimal. From Django maintainers point of view it has one advantage: it does not require 
+        any extra dependencies, which was the main reason that class was included into the default Django distribution
+        while [this wasn't](https://github.com/django/django/pull/11840) and is available as an extra module.
+        
+        ## Compiling your own password list
+        
+        Initialize a new Bloom filter from your data:
+        
+        ```python
+        from bloom_filter import BloomFilter
+        import pathlib
+        
+        approx_number_of_lines = 20_000 # or whatever your file has
+        bloom = BloomFilter(max_elements=approx_number_of_lines, error_rate=0.001)
+        
+        with pathlib.Path('mypasswords.txt').open() as f:
+            for line in f.readlines():
+                line = line.strip()
+                if len(line.strip()) > 0 and not line.startswith('#'):
+                    bloom.add(line)
+        
+        # test if it works
+        'password77' in bloom # should be True
+        'PLWmV6Zh3viv' in bloom # should be False (but see on false positives below)
+        ```
+        And dump it as a file using [pickle](https://docs.python.org/3/library/pickle.html) module:
+        ```python
+        import pickle
+        with open('myawesomepasswords.dat') as f:
+            pickle.dump(f, bloom)
+        ```
+         
+        ## False positives
+        
+        Bloom filter is a probabilistic structure. The filter is by default configured for 0.001 (0.1%) error rate which
+        means on 1000 checks in will falsely report 1 password on average as "common" even if it was not in the original
+        list. In practical applications it's not really a hill to die on, and it might actually bump the respect for your
+        prophetic skills among the users.
+        
+Keywords: django,password,validation
+Platform: UNKNOWN
+Classifier: Framework :: Django :: 3.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Security
+Description-Content-Type: text/markdown
