@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: shodanfinder
+Version: 0.3
+Summary: Get an observation on any website on internet using Shodan
+Home-page: https://github.com/elkarouani/shodan-finder-demo
+Author: KDragon
+Author-email: elkarouani@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: click (==7.1.1)
+Requires-Dist: click-plugins (==1.1.1)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: idna (==2.9)
+Requires-Dist: lxml (==4.5.0)
+Requires-Dist: Pillow (==7.1.1)
+Requires-Dist: python-docx (==0.8.10)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: shodan (==1.22.0)
+Requires-Dist: urllib3 (==1.25.8)
+Requires-Dist: wincertstore (==0.2)
+Requires-Dist: XlsxWriter (==1.2.8)
+
+## Shodan Finder Module
+
+Get an observation on any website on internet using Shodan
+
+# Installation :
+
+    pip install shodanfinder
+
+
