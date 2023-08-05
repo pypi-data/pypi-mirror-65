@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import git_repo
+
+if __name__ == "__main__":
+    git_repo.main()
