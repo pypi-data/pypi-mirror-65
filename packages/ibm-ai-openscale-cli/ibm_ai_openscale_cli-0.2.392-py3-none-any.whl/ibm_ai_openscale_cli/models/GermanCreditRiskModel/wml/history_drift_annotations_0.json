@@ -1,0 +1,3961 @@
+[{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "99cddf690e3e46c49b03e8b783ca6bbc-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6104101093934701, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "f518c5b310cb487c940597ec58dee99b-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6313863493059979, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "af2871bc900a4da5ac74137c7e143a35-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.644246583561812, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "db0f638dab6b427aac2f20d41e9c6f08-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6515562676799985, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "4483807419214165ae5d6a9204de3e4b-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6543596809104231, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "f6741fda53b24438bc341ef2ae9d7da1-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.657435451819414, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "601b589d43d24a9b9fc67f17ee1e686f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6616852602187193, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "469f87d042fa405ab384fcd1a4b6380e-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6705547176400087, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "dbb9bc73c61f4a77a7554bc4941ee410-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.676105262606139, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "29255bb8251248cba173643a7242022b-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.677493242268151, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "4a2a27bb6a714d2492d6b23af07645fc-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6985792871551384, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "1a12c5c572b64078b68c8d7fff799207-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7034976565670346, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "09646404d04a4193aaac87a3a585a1f6-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7135922505314966, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "e7be35ce369743c596281ad6b8ef97ce-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7237664950225129, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "3c88358103fc4bd4bab54f21d8bf11ac-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7261188408953033, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "13d0ce0dd92d4a9e83323b0582ccce85-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7300582807636687, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "468abdfe32b34177a9ceb3848659d7ed-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7387932593357666, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "7bbb76a9108846d3948cee81c45754d8-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7472885877984005, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "06db019ebf5f437e881283ed3a93dadf-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7507250013980079, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "df5a89c2fa084fe9974200b904ab8bd5-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7537464763050262, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "ba1ad4eb1cf54dae808b6eaf05c62617-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7560279466738996, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "7c6b177e38cb4e69ab9b7ed11abe21eb-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7620692667013222, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "1a2aa4fa2cb3482181e944e7f5c99246-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7645573850999567, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "2231891ae4de40d9836c44c1bc455240-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7654955381975859, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "403c5249d7ac4606bfa27e730cf26b02-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7660273042826008, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "8060d69c40a7440f99c529b695c3ec49-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7811146873146124, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "f0e29266c59046b4a9322f3280a2a835-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7815770811133761, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "12d84118ca714973b4ca394943d39551-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7863262720330686, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "3ba5b138d87e4d1cacff410e28c9e4fc-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8075972763487197, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "ddd4e24c1a91441da809e0811875bc1c-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8079820605025861, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "f2d46ce7dd5f4dfbafe434a7a4ec076a-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8103285214134958, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "9c4d899439e24abf90804b6c6df51faf-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8167848407306615, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "293294c1dbe2413e8b6b8aa00da309cb-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8260795036101665, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "a004280dbd56487a99e88a79ddb965d2-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8263938752883256, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "6c2345e4c9ce46c8a14152afb7f24eb9-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8318427322240234, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "590972b41567443ba9d8474543d378db-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8356445946369571, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "01d301cf63504ca3a720d7ef6ac0394e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8392609673520486, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "8f0ae09227ab4e768d342cb05fedaa52-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8402694334563918, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "3802f3d06acb4f9e84d63f7b5db664a4-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8484343003313937, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "ab6293344db646228084432545a90ccb-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8497812087728573, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "06868b1d306c4a09b248bbd7aa25935d-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.850410278365302, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "71104e18f7844741aad4615b8145d40e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8566616278058129, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "d660c8b40f5c4b6ca2fb46fa3720c475-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8606570151557118, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "6849cbaf88184abd89864fc72a532ae6-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.863158289676342, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "40d022e6310c423e91d9e91b4734c3ae-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8714179667986972, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "f1812c1489284916ac91f2ec89e06af8-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8716434148550014, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "07c98195a1014c48b4ec008776ee3a9a-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8739620445219874, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "5329c561bfb74847bde4e638282dfb33-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8768128999340472, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "b6afa4decf284890aee69c3501cb0fe2-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8784027453086561, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "7a416eed0ac242dda958bd58fa4d4faf-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8792436310169877, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "7d9d8d17454f4ed086725236d90c2eb5-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8827586926653779, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "5b0033d619db4888bc7509c9757a004b-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8872246118321575, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "ecea9db3d0ef4feea31ccc97cf13460e-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8875478536470187, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "36257212c5214478ba86c05aea50a796-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8920084181982653, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "9843cbf4ccb8486b817f39cc40a076ac-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8946910029578107, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "7445eb50fcff467c9ac05aef8364a432-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8949002573113337, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "43bd7667c8e94427ad5b066379cfa083-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8968820217386366, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "e4c5c0b5f8344a04a3c80a3fd8c52109-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8970809648828575, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "ce4a997300604aab83115d59be1a1682-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8986170359287662, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "41acfa081c2643f4824695237402fcc4-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9106463322200176, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "d4909b02a38d4e2eb10ee2b269e118dc-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9106463322200176, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "b4133d8e2e7e4823b2cbd0ac651036ff-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.912335262493943, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "1d763ee6cb404335b851394871ce1a32-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9228992962291716, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "13faa574127343169f7151389ac7e8b9-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9255608808448357, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "efbab014f0df4ae78c442d73548badc9-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9256550232288608, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "fbe64a1bdfe7401fb7a6161ca322340c-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9300953001291645, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "3eebeeef0382407d936be8a7b6cc0043-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9336709590026242, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "7fec6f3fa1994e269a750cbc7037f86f-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9344212728864502, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "f36d7d67eb5940c99c3f74a0d470d86c-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9386136187440126, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "2575707cde484c24a515c3a7b6097f44-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9422994439519011, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "532cd1f2c19a45759cfa8875afb04450-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9428614573253847, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "94766f2098404d76b32218b7063d2b95-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9447919220402328, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "05892fb979bc4b2fb4507278c817460b-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9508255770654825, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "7068c1a5647149a6b96cfafea53b4556-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9536772099431606, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "2bdec48eeab64372b21238202ef09f4a-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9550717839318746, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "f2bdf3cd276a47ab97c466774343c01f-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9861729899356056, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "22fc702864f74b61bc7653595df2291c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "a050eb5c3736458094df7bf4dff35a10-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "bfe4a1b289d241b6b826fb3183e6e5d4-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d5b78db49be54189b8afb502513b904b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "f0457fdecc764a65af23a5a37edb5628-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "44af55fcd93649afb92b814fe7403d23-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "c6229bfff094418999758203aecb918b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "caafffe853954c6ba296cdada5e9b9b0-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "7053f36c0c8a44f3a8b28873c6e7c02c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "00cadfb2d9554b73b6d59252b8853660-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "7bbb76a9108846d3948cee81c45754d8-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "ab6293344db646228084432545a90ccb-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "6dde6db3709c470bad91dada901544b6-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "e4c5c0b5f8344a04a3c80a3fd8c52109-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "8f85a88cec494ce38f468a08a798ea40-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "7bbb76a9108846d3948cee81c45754d8-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "ab6293344db646228084432545a90ccb-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "e4c5c0b5f8344a04a3c80a3fd8c52109-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        }
+    ]
+},{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "755b4dca0a5a4f3184720b88f175bad7-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.60176859352598, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "679621abc6094fbd830cae82441bfada-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6036418575849913, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "6ea76d3531a747d18bd0169190e92fe5-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6092970873600752, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "fc65eb8e60564aa4bc6e31fd1462b465-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.609570901002543, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "a5142b4380064335900f220dec2aba7b-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6295338028913338, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "5f9abb8f57dc4c8581f4a9ca2256e15f-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6508035650143242, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "c7f1a6d1642a4e8591898cf47a2918ff-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6562809097486861, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "aa06ef70652647b59fbd1e5620cc1d5b-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6620275060337444, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "3b5b8810303d4a16aeefe5b58d72c362-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6692112840782105, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "695c1d69a88342e8adb43e199030e318-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.671020653015876, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "b5005494f247402fa0c1f27e04178f2b-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6842666493807056, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "80530b87df7f4253a628f8f2e754ea9e-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6867920638575873, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "c0458d69212f4988ab4169ee00bf2ac9-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6914923383533051, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "eb7fbe41be4546f595c1ac7277351172-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6915434609398565, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "a5cbc2f7d9224b8badbc547b1eed7185-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6951887886688572, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "a736d207e3d44a6faac134f94360070e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6999686558327408, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "75f897c0bbf14c20b6961e099333b81f-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7041255346177611, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "f21140e6565642349eac37769fa51f53-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7053858064344114, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "9e5ff65c21804df09deb315dd1e0829c-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7199502856717255, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "569f32a3a71843a78417f105fbce1d8e-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7199787254810652, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "f3e365e924774ceba0b5ae03a8cc4eda-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7209548069035987, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "79e032b03e254d1fade663cddd403ec1-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7227646258146577, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "8cfbfc4553d2421ebe28be40731f255d-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.724178445046191, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "141c2c43689c42b6937d97135fdeba24-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7414596398728812, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "fde5671727f3438897437a3cf7693c8a-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.750060594648265, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "60a319933bc54c8aae43c0eeddb6d19f-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7548636203923825, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "91d1f4c8ed284eb28c93ff98382aa56c-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7645573850999567, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "4956dc948e8041a0bf27df1b84e149b8-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7649454831971059, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "b2cbdbb0f8f14bd088819394425fe2f0-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7681303107761936, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "e689eea60a4944fa94a8127ac9c13255-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.77266149460287, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "bac5a523f8064130888a1a5ba6259501-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7763161072241069, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "f982d7c895e24881aa624c82bc0b3a91-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7789316906041758, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "a3141e15dd264a32aa52f0db9c77aa4d-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7811146873146124, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "7238723cd734439f8a7e73c546066feb-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7826655937459062, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "5a438a3f94fa4b5bb1a69b22d74bcf7f-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7836548062804831, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "c8a9b6633c1849b99bc06598c9bc810d-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7982537289135779, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "7c77aed072c245f78d703297bba867a9-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8035415614649053, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "f21f061ad2ce48528b9f05bb4fb7aeba-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8054837552472556, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "bbb880670438443f84a96a4c63d40e5f-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8068310506218679, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "c15067ebd71748129e549b5a77da3ce2-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8078183787805779, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "5043518347f04304b3e2837c31b83f8c-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8085033762308185, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "2563de70fc504eea8b1c0c0c6379eb53-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8103285214134958, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "354f7d4eb2cc481aa0da3eb565196625-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8121184366932783, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "65240efafa67495496d80b7b03a74f1e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8179659042780586, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "8cf317ced2d241a096b4765a47d7ba00-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8222302361518679, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "4cf3f826e85a436da71e8ca601b97dff-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8236573214802168, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "2bac8888b0b94876a174de8b11812da2-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8276669793336753, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "f4cfa98d76794434b944a1a9b7adbabc-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8278621361611507, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "60734ebe04634c2cb509374abc0411c2-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8280445517641265, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "1ff7e4a22d4c49c884f3d5f330984916-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8286099988384948, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "fb111d101ac34f14991b0ac7fbe55b4f-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8322933314844229, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "2315f7e5e2154336879e016b4ff914f7-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8326235858010747, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "ad9294d58af14416b7e73df88ab6d069-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8332440911450391, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "c923055f34ee48c4a66ad6e265bf82c1-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8348010249382075, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "e51adaa097194a90bf72745fc34b187c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8371159912900316, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "1f0904af0ae744928e01bb9da78570de-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8392609673520486, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "19c4b32695d848f88bf4d6f128c05645-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8441412250260403, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "17ff4de729a14b969d44602141f237f4-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8524142507857193, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "e840a1c6790f44acab6d0bbf0bc90585-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8575375370227177, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "fe4b798ccc144196997949cde33d397b-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8630984170975591, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "b4c3ae13c75c46f6910bc67b654eae59-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8757967361667457, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "fbc3ed7a64114d27914a085af4969304-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8777127164971972, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "48f721b11307489fbcf43c3300ed5a9e-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8882842572501369, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "b45e8545a2f64baca674bd367f9eadeb-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8933111394582087, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "d0a6092677b747c88c257c77f201f4e1-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9027815549670869, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "c9f3551f65eb434696c59507d863064b-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9059523984648672, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "9032b7434ff54950b047f518ce83f7bd-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9062384794410977, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "bb7f3fe44bab407ba158b12b4e5af746-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9111186108288786, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "f8fe523c94c348d4a5df2bd1e07e0876-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9111186108288786, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "c0dccd2816584be4859dc82485e2f3d3-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9124419414198776, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "52ff5b286b1946d7a569a2ce269272d9-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9189198480355191, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "44934c674716443f9e956ac7187c939e-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9238056366388643, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "30e9c6bedda14f4abd3fdda527d6f686-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9285130431912463, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "e350c1de0774400f8031b6f6370caa2f-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9341898092539077, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "e9c641843cb740d08a86d080624586ce-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9413482795993736, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "b087e496339c426b941c4b8a4f0ead5b-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9433642862267119, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "eed6aa2be7f44420b9ced8edf6e43ae3-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9462051320958718, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "7b15b7b1bc3849bd956e20a3a9f03325-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9465503318201727, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "e14ed8a4769a44e7958716b80bd8eeea-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9573280314297774, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "cbb8c38c5b3c4668adc89de005a3f93c-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9632908798537149, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "5114eefbda37486cae831e91ab3b0e9c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d9bc8495f6af4d62b9eaf02d528829e7-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "f34ec7f25db740b1aa1a3e5697a6a54d-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "a4dc5c062a4c42d684259a9a77db7217-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "2d46148c1dc94802aeb3394f165c14c6-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "772ec2b6fb8149a2bf4d07bbb03d75fc-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "957292077a1449fe9214e00682f86895-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "c5c5855bc1f24c8989e3f8adb060eccf-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "5b556ad36bcc4fc7bef75ebe8fc87095-1",
+            "annotation": "ddrift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "6ea76d3531a747d18bd0169190e92fe5-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "8b6641223cb44fd4a31e392649393b3f-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "945fa4b2193e44258baaaa31165f66a5-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "7496e5f14c2b4b4585c33363547a8477-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "cbb8c38c5b3c4668adc89de005a3f93c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "5a028d62b5f848bcb556117841492a1b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "5f9abb8f57dc4c8581f4a9ca2256e15f-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "730d37cb7fa242d18b3382dfb621794c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "a38685e1f2f84780ba5e50ca6645656c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "fde5671727f3438897437a3cf7693c8a-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "96b905da54574fbb8c89e64b54a9f8c4-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "cf15c526a211485ca76b038985314948-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e51adaa097194a90bf72745fc34b187c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "6ea76d3531a747d18bd0169190e92fe5-1",
+            "annotation": "mddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "cbb8c38c5b3c4668adc89de005a3f93c-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "5f9abb8f57dc4c8581f4a9ca2256e15f-1",
+            "annotation": "mddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "fde5671727f3438897437a3cf7693c8a-1",
+            "annotation": "mddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "e51adaa097194a90bf72745fc34b187c-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        }
+    ]
+},{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "c0680a852cdc4a86bc47e311cf6dfb5c-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6629939379212133, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "9008108bf8a946dabc9d7156eb537595-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6670932347022489, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "401920ba93a94b5b8c3a7496ed5a53b9-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6723807383222264, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "612c50327486423e8407d5b29a69ade6-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6813898504883519, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "51a32c24b1414312952c902ff1c552c7-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6904254333956665, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "026a796ec6404673a03ada4f946944e8-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6957870205958245, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "d5371b07ffac4e7b8f4910418321ad84-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7023285511232755, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "3b4f2913b64446369a0050a8ca6a1bad-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.707868851914939, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "36df998f56d3415bba0a7b882db233eb-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7124865979721237, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "f4d2900e84084c96876a575ae003da94-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7176176479702534, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "b2a1151baafb40fbac36345798bb84d8-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7201270450800793, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "f75656857e0b45ff8ad78d3279687221-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7261188408953033, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "cd92ac86ea9a428d89fe7d0c0d436d06-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.728362985195536, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "4c1218a833eb4ea5b6a39d0fd4c8f4ce-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7367657579578697, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "0efa63000af54bdfaf9b0ec38ec15cdc-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7371838964150157, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "c3ab4e01f42b44a99e96e5d1a74e491b-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7519347770748679, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "2d3c5050f5684a3da3a459eed24a5d19-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7520694933627421, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "a41bf5522e2e434cb341fe9b8b958364-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7649454831971059, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "d8c98ae376754e288325177a148bc8cc-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7654955381975859, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "a4650706eb284e51ac6daa3193540f07-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.776716995745603, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "15a15f2e62df4654b28937f4772b177e-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7806303203105609, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "2d425acc905c464e860bfc6061ab6ecb-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7865434305297916, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "e4907807ca2348cb8071243b5bf1f0e5-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7875777885423739, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "29378c7a0fa24e7aa2824202ffd92bc1-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7878957395951494, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "d315f0f708034aa28b37eef712bb9d48-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7886794237087988, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "3b3add0831664cf99af3c69da4461f64-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7889736771160129, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "73025bda7ba74e6397b379a64aa9403c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7922562798165731, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "42498494d08944d494d88e9253e04b6d-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7946872860949818, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "8298ceffbd024c1fb167ced689b21294-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7961302176193026, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "05dbf7b9f3664e5496f80d0c8d1d320e-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7961302176193026, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "0a5542448eb541889516ef17a727ce7d-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8034674888007665, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "15850682143745c18ecd45e32471273b-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8086667658812771, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "b9a37c9352fd476e9daf5855e17f92b1-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8088357324447348, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "070aea6a68694c8090d4e1cc26b4940b-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8100248977243887, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "ced5b51c4d024ebe9d9a2b63eb42206c-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8104176382240849, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "a304b2bbd6d040bc8a2357d2f7a53868-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8240439077453151, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "f256588d72fc4f0bb60f5a03cfba2d90-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.833088065194481, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "50c93fd0abf5431b90bf3abfb4868903-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8334538037813558, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "8566a54a48f04778a7dd08f019ea735a-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8364412321010699, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "c7c10cb896e94483975d8706fa1c89e4-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.844339795150252, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "8ba936ca1b0f4f25a1320d694f765cbd-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8524754765637051, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "a0a271279c994d298b0d06a4fed9eba4-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8566616278058129, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "3f7333c533c44580ba521369ea87a01f-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8651659199888534, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "b7b63169143b4a26b28d14fe9b2226c5-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8686375909261566, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "c769b751c53e4d78a7ef8650c59afd2e-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8715136218331554, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "bb87b55d580344a89c2b822962a955a6-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8746588578938089, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "4136c5685d6a47baa683ab424db14bdc-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8768128999340472, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "992eaf6ad57d460698f4f6de593e7203-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8786900296076369, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "0c8b376139a04ac6a8bc7aa1d9192609-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8803517337472748, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "cc1ce7656b3846ff99560dcef657492f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8889611281057891, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "bcfce78f18d343889af0c785ef81939d-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8918638149117645, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "442f742ead10422189311b3e3eaac336-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8930921918375716, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "7d94ac759f3d488eb05c168e04c10d60-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8968820217386366, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "5161d786d1fd46109cdee0133e4fbc76-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9000631772919453, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "381f84c643354e75ab0b0a6eef8ead10-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9010802341004587, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "45aa9d2431c64e9295641c1a85b29b6d-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9045344761266808, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "a6be58ab453b472e80840ff276882ba7-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9111654994570294, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "e8bd9df6b72148ed8975d1c9fc4f9055-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9140804775586778, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "68240ed5280c48fc9f94a82c14c2ffaa-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9255608808448357, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "bc5dbae518e64f6fa65a9247f15606ea-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9255608808448357, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "dd8eaec132f34daba320cc6f9270eb12-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9270387693749786, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "4d304e6e0624420ba291d8d5ac2c2435-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9347187391742063, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "7d040ff3e8f14002af50350bd9a4c455-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9373477383901712, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "f40f74c0363e445594717a19ef1dcafb-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9426581365512846, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "11410b7d841f4bfe87bec0922b96b9a8-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9433642862267119, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "91fe05e8ba4a475bbe66c93ad730870e-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9498085171218003, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "db4b3f60e8444fe3b13eccbce4f4a0aa-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9848074974247218, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "fe1e57a6660c4efaa992ee4bb11cf7ca-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9887571823560959, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "1eb063c2e0d84b97bead3e3be9813970-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "30e9616d07c14b8b98623aeef697451f-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "186f1eab3ea74d7cb080e762db0219ef-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "07a1f58b90d6437ba3b6fb4836b21c74-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "32f6d333da954f66ba8e2a6d7ff971f9-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "50c93fd0abf5431b90bf3abfb4868903-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "bc2a0fab3f7b4621820e95f2a4216b99-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "a6be58ab453b472e80840ff276882ba7-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "0ed08fbe29eb4c888969abeed05c1fd0-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "24a03c49321e4bdc81f24dd9eba052e2-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "33348271a42749b8bb1d3517c10e8b63-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "4d0a326d4bbb4a72971912e2be66bd97-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "57c8ecb219334ea1872745e4ff22f0e8-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "6c7eec72690f4948a0d5f10af1b52688-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "2d3c5050f5684a3da3a459eed24a5d19-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "71471900bc1c4a99bbe3f5d6eb29de71-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d4ffef5cd90d4e2388f2fe19d717310b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "50c93fd0abf5431b90bf3abfb4868903-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "a6be58ab453b472e80840ff276882ba7-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "2d3c5050f5684a3da3a459eed24a5d19-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        }
+    ]
+},{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "6447b61a26c841639a1e2e264e37cbe3-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5832807133570928, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "74751030581f49d38abb1caf50ce2f56-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5867139930331606, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "74ee510669a04a95bec6a596367e9e7f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6089646028293355, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "8b244f48a75f4362b332d3afede16646-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6089646028293355, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "da15a83fe66e4f24a2aefb051925549d-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6172914444339779, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "79499881769844be9e4b4364273f8bc1-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6233359382400352, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "2453778907a84bc3bb8050745a721617-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6314442041382827, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "b5e75d170bd14a0982dd18ff8f6a1d4d-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6314442041382827, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "d7a2a3c1d26b45398f02ca8e3acda87d-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6382631958937228, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "d486c3813b074f488b8e5d01f2e64025-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6415956790221056, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "8421fb6a40a7417ba10914ca0332dc47-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6418118210404364, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "254177326a99401fa4921675da0f3dc2-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6429236825158349, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "3d54e446c0574197a3ee391c7021c67f-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.644246583561812, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "35e6de72c48b452eac3526d710d1cf3c-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6535491544352748, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "ae048ae04d3542e7b69b08dbf645269c-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6557631882202334, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "5b31a9181c8545b2b4d5de9357de4614-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6601564841901036, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "f0d8ccd4af99498991a867337479e75b-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6814099947306033, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "763db3c29c5a4d378c4bd5be86e39d5a-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6957870205958245, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "65398d5b47d748198e89520bb8367ebb-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6970618531119325, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "b6aa5de3e50140ab820c95075c9c6b00-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7169262398144273, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "87eafca22acc485fbcb32f26f18fd054-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7169270678139208, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "65467e08695e4ab5b32ac6686ce6d60c-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7228196481570756, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "3a8a712e0f164959ab1e9b2c0a9bf0b0-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7260573078286349, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "011191d6a18d420783858f6a39eeb9d7-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7460531894511766, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "acf1199d2fe6469f988387fea43d8e7e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7460531894511766, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "b94c19daa17f47c285edd5ee2a7f2468-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7560279466738996, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "c3c4d919490f407f9bf891083a11570e-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.760492196008106, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "75e0604456334f0ca7595c8662ae9ebc-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7768136933408967, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "a213f3c3d4fd42218d6e9c743254419f-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7800430780055477, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "442ebb6d9334491fa5164220c1616a8f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7824610577730224, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "9d1a34f2737d4d6e9c1aed17fa1bb61c-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7849731564775312, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "503dc1700a3443bbba08f0c137719cf8-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7916747618087678, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "dc45fb467fc248baafd0a9a1269e2cb1-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7946872860949818, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "ef614b6d8e5549b689483deadb1632b9-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7980402957989546, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "ed7e9e2835d344dd84abc2b83f533e31-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7999663613344722, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "53c17edff16b4a27baffb5003750c98f-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8024532659237191, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "a8199253dfd243c289e273b5cc0f434a-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8100248977243887, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "364be31f758541bfb975e7234f3947e8-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8103285214134958, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "ad5bc768921c4896b6d647e1dfb39dbf-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8199654686530294, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "5ca1cf3d3e924fcda85d12f4852fbb4b-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8277150822229075, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "03025cf6a5e64b91bc3a6eafee078136-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.834608974614842, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "ff7124231c4c44b2a969b0992a49c574-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8364412321010699, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "29b0e466ab4b41e183fbae7045ae11fb-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8390625667283126, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "5dc029065075449b93cc815b1302536c-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8466522590735599, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d900d46ae9044661a0167214896cfae5-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8490320839920861, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "3e60e9578fb94518b548d6dbb2660728-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8510122620510945, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "cab11b4dd8614901a9259385a0531c96-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.851669717410877, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "02e1aeee746f4186b485ae5233a37574-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8524754765637051, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "9c01669cee3b45a980157e1d6d79125c-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.868346164450776, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "2bb8a338b8b94d2f974c5815ab9c6dfe-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8715136218331554, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "867412679c7b4277b9bcf26934288746-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.873938817952472, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "26a917fd6b474deea3c61049b599eca7-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8741981066958204, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "08a7484331034d7baba2082e81152e2c-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8753296505322589, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "f3bf6a848ad3469892faa212c8934176-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8756941945461247, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "33eda9a2081a418a807e776d17fe91a8-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8771354829961796, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e650b58bbb4643abb9a83044810cee90-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8813532249316696, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "84fa3971a4d742c19ad9e21da3f828b3-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8827586926653779, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "be8a8be84acd4a31bf2008f4d4850d41-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8882842572501369, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "2f523658f77a4b60964996b4d739e9b6-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8903634376686578, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "1eb2d88275524ecc98e307b831df7227-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8979726231347226, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "af036564d54242c38bbdd91243d1d4b1-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9004661787154616, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "dda29807b3ea47a397862515ebb58004-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9070539442778974, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "a73fa18547b643939eacaf1af8115fb1-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9080642266838048, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "f3fd5f157fd34199956349209afd012f-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9127742489750016, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "4ba8a50630b8409a9a1d47e9e2dcc4a7-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9146754408617978, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "9cd875976a554b7fb5452eb1cb0d8b06-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9238056366388643, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "ea8af0b38c734cb18fa69e1316994cf9-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9255608808448357, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "4e27b5057b514f72894df73c5edf7432-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9283022803584278, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "b899e122acd64f779177e3e576e0341a-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9303879330631255, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "6e3ae26a8ff44ea083cc5b8db6a0cda1-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9304160715824901, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "b160c12cbc8b45d9a2e8ecda0182eed0-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9368429760222642, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "2a2261a241344d27be7e57a4db849bfe-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.938545027367876, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "8b7bbdff41e847218eef9bea43301619-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9389000871849184, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "87064a41112f477ba325905b7ef841d6-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9508857315307822, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "bef19ac972c34a17aae5c93fba3c8d4d-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9513349970821053, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "1a8bcf110ad440449e0b38352a3ee993-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9573494301828046, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "3ea1dc256fbe448987f53c71cc5b2bc8-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9593935410803193, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "c295db8f09bf4d16b9de6db1397dcd83-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.963468855143595, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "f999332168bf47308c0bac7e4ec632a6-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9645711864876539, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "da1f754e1d1347b1bb6f24046da41b83-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9645887981865853, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "96365adf56d143c4be353d5d9a0a2811-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9834598506627225, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "9491c04543a643dd92ea713130acad8c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9848074974247218, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "7864573cc0ca49c7b94e7adb65f71241-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9908718954078781, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "16d71479b9924f4cb8bd8e9347c63993-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "3e480984ed41490eaa0da4b11cdf2739-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "b160c12cbc8b45d9a2e8ecda0182eed0-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "987d37b99fae4059a27e2bf207be27bb-1",
+            "annotation": "ddrift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "073c8ebd74954a58ab5158a3c4a7db20-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "a213f3c3d4fd42218d6e9c743254419f-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "d44489d9d23d4d77ab35e36f803bc1ed-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "99cea217840346ac9de2a5a7e3e665dd-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "1beed67a9c9844ceaf9a195cf2cd4414-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "29b0e466ab4b41e183fbae7045ae11fb-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "2ce373fbaca843e0b6068f7a42b1f97b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "29de01eb148e45baa83d2782bd2d3864-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "08b1364815444c71945fe4c4a8dad4d3-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "70c0434c6e5446f3805cca0b86819e87-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "8a86a7abc5054427850d741d9d033ccb-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "f2a0b470d4df4421af86206c5abeef10-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "3cc08261ff3c47c895b44c0e1ab40563-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "2d31919e8b064718b085beb9abe7b007-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "40936ed961c74a418c14a054f7a8848b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "b160c12cbc8b45d9a2e8ecda0182eed0-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "a213f3c3d4fd42218d6e9c743254419f-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "29b0e466ab4b41e183fbae7045ae11fb-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        }
+    ]
+},{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "e8f074da5fd840d89b4b17c5a2a22289-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5748508642505893, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "59e095a1f24845949f3f6deffb23d855-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5832807133570928, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "c106545e13fa4626b8992c3494fd3628-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5843372735581774, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "1795fb39ac744b2aa992c5dd48f231fa-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5866303378401577, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "dc499cad7b164d0fa753883b2c02c18c-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5922199561098369, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "f62c1771331a4924a453c9fa8c740775-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6072770504643824, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "1b455d242b1d430ebb893f608a554247-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6073098865830177, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "c3ba5640bb8444f191029e4af30e41b7-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6073098865830177, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "6b11416b1cf142e1a75e79af39abf331-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6165547104991009, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "673732a214d143beaf3cdef64067364c-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6356418844200196, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "d8034328f6034752806df3b2910c0a25-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.647777601600795, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "73077602238d4c8d95d46fa95f7c1897-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6509131533269774, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "72fb2648a3aa4dfc81356b0e6a382d66-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6513739727397287, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "c2e26c8ed5fa420fab68317b850c3e9f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6560254955885262, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "7e4a8e969a7540429f79683d52a9ee34-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6668168534468101, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "6478c3c27baf4b01b74f5e365d535384-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6685571625525932, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "508de6357fef4553aee23bf18752b5bb-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6710769848362363, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "98e9f54e5b5a49d8ad4b14f24deaf9fa-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.676105262606139, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "a7780b9ce4fb4e66ae40f1d14b4f2bfc-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6882950653477362, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "6fe618f5c4324540bab4f1c0dd34435f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6885153340283168, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "96b5360f2d444449ababc279fd9bee1d-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.695406212009976, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "dc1fc1916339410699dab5fe6ec478a1-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7034202057941817, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "89732ae295a8471dba71ff50e160c892-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7169270678139208, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "6246c596539b428e9903a3aac561cf8f-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7230496329487207, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "5f37e44a93674d10a11c2fd07b571141-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.736988752486581, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "f2c1c84a38034ce9ab198287df88e906-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7419336417037506, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "08b77905d9de4e208a25e8750cb4162a-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7437002899580716, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "69451b58be8049398e297195f7d4af75-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7472885877984005, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "6e2797063f1e4b2fafa8bf9a1e206caa-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7507250013980079, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e481109ca7084bd5a2cf633717bb3a3c-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7519347770748679, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "0245f5bdc21149b3bcf77b1f886a863d-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7537714078068247, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "912bef2828924d8e98ceac360f542794-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7656585370437592, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "d2ff8761f6bc48cab38d8179c0157ddd-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7780050145520852, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "cc69826335b4482e8823aca818caf1f6-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7811146873146124, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "78c570612de44e62bdca1b44e1568bde-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7829151469687371, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "3302d2f9a16c481894404fd573984933-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7916784437556468, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "dc4ceefd95fa4918bfa6cb9d54ae14bb-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.795320237756265, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "6e2c5a62858048f291b6a14869deadbd-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7972751393648227, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "fa11017caaea408aa0262341869348d0-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8024532659237191, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "eaf92218c5b040eab66479fafec6a600-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8068310506218679, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "fe0daac508544dfbbafb74593f865e81-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8216249319165196, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "4bb39949e45c4c7ba75d30c95e817f78-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8222302361518679, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "fab64a44f6dc409ca5d189be6f1b9208-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8226987135321803, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "536b4a9df9c24aefb1b87290387eb6ce-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8276669793336753, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "06049914b6c44ddfbcf76b9288a6b960-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8287685893262828, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "3aeea792a5de4f669727e87253f6a6eb-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.834622010942266, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "9955746b4346434a86c759cc433937b1-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8384541416157583, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "012a84f80c8c4acf8da458fb9fd01c18-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8392760554561833, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "d33705616d7e4464905ee5ff995216b9-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8483125711012511, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "e5e2d7bd57854830b987dcb110fa1acc-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8491741255104153, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "4e053773013941f999c656895982534e-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.858838159418168, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "0d1f651bb1a143b3ba1bd19c24b7ca64-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8629015191345883, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "0641c41ab2f446d49688139e8bf8d014-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.86378116741557, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "b4e6aa9ad8cb482c90d3425fe7f2a647-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8641646598706336, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "031c9ab4de054ab787cbd4f79da78ee1-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8716434148550014, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "24639ddb5a764653aa87506f78cd8fbb-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8739620445219874, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "beff87cea44e4dd1bc22b7f64b7df40b-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8807440635492868, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "fc55f3c01cf845ba8e861a4473f81ef2-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8810920210707196, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "a397acc36cb24b5c8e26f306740fd46e-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8813435731179796, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "2dd601539c354f94892abba3f53909ae-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.897604651642009, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "203ca531b6e84d2ba3832f1337f51c79-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9023950866060342, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e0bd1bb32ad843fbbbf856e880454617-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9028727801555063, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "de796eaebd4d4584a20141fb9fc1a5dc-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9062384794410977, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "d051085c1b17429881b98e3b8255fe66-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9070216660324311, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "88fa7323f91c445cb80698c4a9477504-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9070216660324311, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "8cf707cf134a46f4aedf22dbdadbfb58-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9109395091999035, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "977b3aa41614426eb874446ec2ad1740-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9168921516941831, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "a41b758a5bb242d18e85f82df9d48b96-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9247322454350204, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "ac20cc51371d4297975513e3fa52aa9e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9270387693749786, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "d7fabd53181f435d92d842190a127e6d-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9363352103546305, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "65d38173934a4f6ab0a2857983af29a3-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9394226536178214, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "6c220dc03b2e494dbd25ee971bfa8a83-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9421774423284746, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "836c9abf93de407bbf6beab59f4b895c-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9427952615084371, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "0c2063d1631f4c71a0aa7c794646af39-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9585748502893374, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "4bfc45518fa8414eb7218bcd2dd8e605-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9648030560093669, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "347778dff1c649c39045adf6739cf8b2-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9679851311365502, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "531b4414d2e047f980a98cc1cb5b67c8-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9703748449011942, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e6adb46140c74d1b865ab14a6744a58f-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9735660168394641, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "122d95a832a54d479a57d197dc7110f3-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9908718954078781, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "62ba7f14bf2440a38b41625f5e2fd8eb-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "9d2c8ee84e4745288d0d32a4803a9f1e-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "a8e0351f523e4f76914eea99c5288f34-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "946d24d60a1745599ec0cb0b90e8fada-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "c4f2b1f23fcd43978328e6dc0c2aaa11-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e4c469193d5c4457b01984e0eb277df1-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "06a3d94b46da42799a043e087785e85b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "69451b58be8049398e297195f7d4af75-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "a8cf0d2d54674a37bd5b9e6665e32cc9-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "3448a61246704aa19da23a4878b46cb7-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "977b3aa41614426eb874446ec2ad1740-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "2dd601539c354f94892abba3f53909ae-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "dc499cad7b164d0fa753883b2c02c18c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "2c77f30ff3d44ac38219d9288bb4a2aa-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "8cf707cf134a46f4aedf22dbdadbfb58-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "a88e90a11ee64d03ba1264c346b619c6-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "bda0332129a9424e836e24fb526e8ca3-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "69451b58be8049398e297195f7d4af75-1",
+            "annotation": "mddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "977b3aa41614426eb874446ec2ad1740-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "2dd601539c354f94892abba3f53909ae-1",
+            "annotation": "mddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "dc499cad7b164d0fa753883b2c02c18c-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "8cf707cf134a46f4aedf22dbdadbfb58-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        }
+    ]
+},{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "a995574299a6498eb3beb244d7762e41-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5961902065680609, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "f6cddda3bdc84cbea1739934ad7ca442-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6039183626258513, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "93534f86460140ec9e80b24182cf12a5-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6119602112103655, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "554d4a9c2a36434f8bdc29e54ceb40bf-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6253435118603576, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "304e6840ecb14de782cb37e353c2fab7-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6262053135267345, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "f29da398de9547e4910c26016e24d7a8-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.643700938747725, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "3fe6bfaaf68247adb3e98e1681b0fb55-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6867920638575873, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "9d93bd1d65bc42a198407ef45a45732b-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.687203416099999, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "1620ae0a34334a36a211ebacfb31186c-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6914913409586577, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "5955fe6ef8994a038aac69c54e77dfe9-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7053858064344114, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "4d7f3a76dab8420490a2b764a9509304-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7068025601455874, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "ad1f576f5c31445a8e64aca8ebc33f44-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7068025601455874, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "677fe89f30d2458e8c314018f47d0f98-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7092805903568493, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "128fae62a6cf4e36959042f609873d41-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7108266320374586, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "5c2c7c07c034454e98c5be7d44df6c30-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7140200867351144, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "bb83e2b353fc40cf99bba111538c959c-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7152001950250689, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "b290744feb3b4943be90df50b3e89bdc-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7152001950250689, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "80b02d20127a43f5bd18fc705bc0ba11-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7293685131538368, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "9fdef7a551124254a7ac78dc3f6d223e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7396126048829598, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "bbba1d1a8aa14c0988085151a2a42343-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7446257052368852, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "db6e219366ae4c7bbf18d555893e04d7-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7461733068902727, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "3b83265f19bf4410a4d0195dbf88c6f6-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7472885877984005, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "af1ec9b5d3004abdb4f51ded1c8fdb98-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7498737113207814, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "d47079dd62864428bb8298303f35ead6-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7557509323568392, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "216f78c684454e96b711d12a12545667-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7603541782177198, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "eeb2da947207445e82ce54a8c8595481-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.760492196008106, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "9404795c14f24709bda255bf8f71cb92-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7620692667013222, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "3183f302f7bd4d54a0a9e33890dcf5e0-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7649454831971059, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "ee3e4a84fafc40c483a62c2a9d07daea-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7701936957869661, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "7451e2d7f2144485be491bfcb09c06c2-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.775549845250701, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "e7bd046c326a45b1ae4f8a0a136103e7-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7764599636863959, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "17314c1cd63746fc93d6d9a0dc055880-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7768136933408967, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "2f31c96bb6a648cb83663a5b04d494d4-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7806303203105609, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "4ebcecfff7b343b2a5b0ee1ef6bd45f3-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7824610577730224, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "3cb561295c084a8f808839aaa1c0e2e4-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7836548062804831, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e6eff7aae1f846e3ab85cf88b1b7a354-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.784604169427151, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "ce4d41376b0e4b79b6bad72961c2da7d-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7858638521998641, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "166506d260234361814efdec3b553355-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7858638521998641, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "4ad7d3746aaf4b44b9cb0e6f7350bf5a-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7878957395951494, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "c193670ec7b64912bfea7a78ab1bae20-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7946282980547377, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "5c31e8977d314cd2ad5cefefeb3aa608-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8103285214134958, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "95d520036044459783d9ecf26c8b7909-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8121184366932783, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "a7efcca3135a4c2da6c3a32df968060c-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8216249319165196, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "b6c5c9f2a85347a5bf09bbcd5ff230aa-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8220093133303652, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "dc87775fd91d4d378d08fe9e9a0b7105-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8238371884110948, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "6a2549029c9243f69b3df26e4a90a772-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8317986757313836, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "658b9f29d1a14faeae1535e90d6b9327-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8323614205554085, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "514f0cea200143b08fb5889c9b24dee4-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8324794685059675, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "dd16ebf405bc4d82a49d87052d294d36-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8364412321010699, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "d8dbc6c29ac14d049c81fe4b66159e45-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8392760554561833, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "95d874aad41b4790aed1e0f78acbce7f-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8400384796323326, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "389edd6b0b264cf0ac9c9a5fa278e9c7-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8476619272451514, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "5a021007f82d4611a0d465b855362d41-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8483125711012511, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "a1e0546946aa48e197a15c1d869d7277-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8524754765637051, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "7729028fe02b461b97368462323a08d2-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8524754765637051, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "2dd35264aab447d08a0145aa64cbae53-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8542986131624892, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "c87954f68f6f4be3ab6450cdcefb1150-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8694774665064667, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "8f6e905162db413db89ed94634488c19-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8712574303057912, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "87127471af664557b7adc05d0c8289ae-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8721166793686331, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "fb8f05fbfb164f82976cf573bfa1894d-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8721228819975557, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "7f2ae0ee104e4b0b87acea65b1bedca3-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8756941945461247, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "34a41a975b3b41be969691f4e6ffeaf5-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8777127164971972, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "60a6ad0c7efc40f8b633c906e680b3b9-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8878543269505821, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "427165bffcc94dec973509969f50ecb1-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8898713598299468, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "c8aafccb8bd741529a08f49f9e272b84-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8945071165829215, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "6679dc370272409aa1f425042c8fdc8e-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.896183952993561, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "60c9b6cd44b24821a81ad480d49be1e6-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.896579416703398, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "28e2ece5a06c4311a4823b8dc1e9b29c-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8992538400640905, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "76636a5fdda04090a9514f5e976fb433-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9000631772919453, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "bae03256042e4fd0a3194bfbaba03096-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.900184433222099, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "2e307aa82eb14e4e856e68b288e6f8d4-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9034128768213513, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "cd04eb1646844fea917fea9ac147d46f-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9059523984648672, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "431b64dd79a24494afeaaecf0ea059a5-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9088200035177665, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "0117742a6a394211ba46a5db3ba3f80c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9099928775479882, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "6112681692194b7ea98ae0e340625dc4-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9102302171861026, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "8dcaf198f4f7474dab7eb7bf5e181bca-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.912140313613661, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "3969187ad550437b9dc7f99c5be00f00-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9320187347565807, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "bfd681539b0f46ad9532fcd5d32ee4be-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9320187347565807, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "0994da0940b5439cb4e24f070cc65d0a-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9358418057772697, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "9be0b6e57f1e427ea4a00ffda300ae3e-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9382744403665855, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "0e4765d2094b4544bd88fdaa915a0f8e-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9408360562802686, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "f6aaafba93b54511ba76a03f0d5ac616-1",
+            "annotation": "drift_<measurement_id>_cluster_8",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9416076965010265, \"shap_cluster\": 8}"
+        },
+        {
+            "scoring_id": "08a536f1cf2743bbba8bfd6bedcf375d-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9447919220402328, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "ece3549f07844bf5a288de06663cefad-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9478517334618503, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "f2c0ba60042e49bcac83e7e238de108f-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9550717839318746, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "f929cd2c000f45b68832db3c244d2399-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9606959502442771, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "e82bf72d537140a980e7c65db9793b7a-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9636477182853223, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "3ab766665a964bfcb347cf01e46052b5-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9636477182853223, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "5a739f942d7a4ea58dab3641f89a387f-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9676067511655303, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "cfabb52f1da9414a9afd4184ed455695-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9686321825921016, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "716969582ac04654a5bcc8d56844a95d-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9887571823560959, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "3a20982062b143bdb232701b31d3c0da-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "5a739f942d7a4ea58dab3641f89a387f-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "c38ccec7bf7b491c98f5059a2ca8d8fa-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "b6f4a1c19b15470ba33a802656b15e56-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d94266364bb6488995420fcdb231841f-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "bef06207a529475995d0eb6f3d5f8f5b-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d1bd1d398f9749d3a2442bffae8e13b3-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "c90baebe30d948d99f196f2b06d16ad8-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e8d253e0155848428bad78f0ef8b4958-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "48172837824c44998e20269952698b70-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "3b83265f19bf4410a4d0195dbf88c6f6-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "9f2a285b45cf45688e4c01dcb8a2a865-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "dea72d2ddd074ff9979181b201b1fdba-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "968ae7ac3da54807bcb413043e59b3fb-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "5a739f942d7a4ea58dab3641f89a387f-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "3b83265f19bf4410a4d0195dbf88c6f6-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        }
+    ]
+},{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "66cc3daa7e0144f0be594f8ef17ca80f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5783880313069345, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "c936dcc74c684e998e4a0e78657f3a3f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5799978482162835, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "9e04fe31688044f09046054bc970a0ae-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5878152374586185, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "e19fd7d2d8f74bb486a099f10902099f-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.5982690996872209, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "7c855a6ffeb34cbb99a5b38a8d961faa-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6039183626258513, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "397fa672c814481ea8a0f4be134eeda2-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6202933527180987, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "18992fa8bcd744bc8f8844671904b868-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6251712460964066, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "5ea2849424c84ed78833ea568eeb222a-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6309146048412184, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "9b8853b02f394b6183a80e2b913ea3d9-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6329534132496673, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "ae92113164674a13bc333d70c830c9e1-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6466329327228016, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "1af81a85cf2f456eadb60a23a3ac6dfd-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6658798901823875, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "7f4eed7bfd964e93b0155684c5dbd2ea-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6723807383222264, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "00b1a46caf02434998b0550eb3680814-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6729618989403472, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "22aa6c8daaef47ad9e689903ff9a203a-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6768169733525156, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "c88be9df94cc42f38fb3f15a63393c62-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6813898504883519, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "b0e0a95e67ee4e498b83d4ab7e5d7372-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7038484178951279, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "f94e50b355d84d89a8d1767bc6efea91-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7135922505314966, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "cc85284a275b4e01a76677cc5f03c21f-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7198552919538135, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "f18c8bde3fd444ea819b9d0dddf72910-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.728362985195536, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "5565a7044275436597b1cd261e151871-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7307624180385054, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "86fa54f76d9d4126b88ae57c39040a70-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7367657579578697, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "fc864505dbbe4eb18f9c24282b7deb04-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7405374281662006, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "f07e5d90ec9545448520c1bf4162bc9b-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7557509323568392, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "672a228b9ab443469f55205974db28d3-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7677024091726534, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "eb7764d973544ea19577591b46903a0f-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7780050145520852, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "68c79b3a346c47eaa410bec16df35756-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7877315434944789, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "d256b419733942cb8a6708659c304600-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7916784437556468, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "acd302ab26dc46419bcab2757d1e55fe-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7936284158037075, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "3ce7e21c628044d68e82a58c95f2275d-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7972994239581623, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "c58f80584ce54d67bc7266827340d5c6-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7980039208603157, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "7373b0610f9b4732ac09639a9da43d36-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7991326944041071, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "840c2f47add642be9a59f62dbc935595-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8033245296435202, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "39b30315829e407eb9724e6e54765600-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.826231075844688, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "d95b405521704201a3a8369b6516a7d8-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8326235858010747, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "587b83396193437098c8013a8d33bebf-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8390625667283126, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "bcf3490ffb61492cba40dc8f7e8ee230-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8393792781046991, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "45549268599e4e9fbce1d9778bbcc856-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8410540081208608, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "408833edc6f4448ab3b9d4952d26ecf8-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8423381899745965, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "f6ef908761e945bbb66de18ebb94efc2-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8471505218683628, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "732974142a5749c2adfc084519e057f2-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8603914658492979, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "60fcbc05ceff4b37bdacdfd3fc978c1c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.861858544516819, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "e8645068c53b418b921721a6ee624fb4-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.863711931653603, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "2e605cd48ad74b26b786eea40c39a87c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8712574303057912, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "9f239149ca474ca8990800f1751b5edd-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8741981066958204, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "b2509856fd2540159f744b0931d8a047-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8784027453086561, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "a958998e79a7428e8e49fee8a4db6059-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8810782161065206, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "e8b674b8b762482aa6eaa0e238729f81-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8890319492896919, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "6db4f5c4b8f94b9984746b714787d90b-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8922706552993712, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "41f5745901e2481b8ae2677eb8666fe5-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8930921918375716, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "8d46a554b8dd46eaafb63ba6c3859882-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8972356676403518, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "772d96c9798d4a1eb628ffefd636ba09-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.897604651642009, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "29a2ca12d047444683a1a03536f83755-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8979726231347226, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "9ed154a7250242ae846727def2789e5d-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9000631772919453, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "c73da27d6643470b8bf2c30ff5333158-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9004661787154616, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "6ea795f849bb4f3d81a42c3a95daa5e6-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9010408632031618, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "629b52098e9c4413b301275c1299899d-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9059406908738792, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "380f07373e644f72b1ce761a114bc84f-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9070539442778974, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "69a3df6ec0c849dc99513544407f833e-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.912335262493943, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e773146381854be69a52149c60672561-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.913152608785477, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "2f49c1a5703d41d69151b83593dfe48d-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9231585932138087, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "e9379a557af14cbdb1a10d8392ed19b6-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9251559528844455, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "3a9cfc7034d04a1bb75e9e5f362e3574-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9305685124064291, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "2a22da8d3b804bb39de046d3f9d30349-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9384257382915172, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "36e19a3b51b14925bc67b94173828de5-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.938545027367876, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "469f0820146e47a0a7221b16881bf184-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9386136187440126, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "9ed41df0ea5b435cbc31e5368b5d6867-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9494347103331768, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "6d2df4ca207c496fb3baf0342272995f-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9520813825954233, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d761ab8e9fd9474096e6a211da9cc26b-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9536772099431606, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "f686312c5f444d6995326886dabf6298-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.987773776303048, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d545f0e28bd642a5bd3d3dc4d8ad4107-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9916728688827668, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "0697e562c4694ce6a5959e96cdf51842-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "2ca8ed05b42748eba88f846a3d92462a-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "587b83396193437098c8013a8d33bebf-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "8706d2fc45a447cbbe34d7083c6a5c04-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "e550419341cd418d97ca17d9fbde59b9-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "1b749eac6e0e4d26b01718ef29a25513-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "556f2241d8a0499092e6d713eb9cc4be-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "5d19d96cdb374a30a064d439f84fff12-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "5d59ac4f6f1c40f08eb30cabef268ff9-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "772d96c9798d4a1eb628ffefd636ba09-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "3cdd9b09ca2b43618f51d0edbb4cb99c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "7525d82752f64cd4a09c15a2bed62e5a-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "77bd9c8f6fcd431686ec296a04020329-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "dce7e3896cbb43f9adc943c0e355eb79-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "9e8360aad3f04b3b9da5d7a9c96b725e-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "2db2819474d24ec7a579ad44613de9d6-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "b5d9593fcce34037806bb1ae3cf9bbaf-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "587b83396193437098c8013a8d33bebf-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "772d96c9798d4a1eb628ffefd636ba09-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        }
+    ]
+},{
+    "service_binding_id": "<binding_id>",
+    "subscription_id": "<subscription_id>",
+    "annotations": [
+        {
+            "scoring_id": "80854a8d559e4f3b80736732d4510b9a-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6314442041382827, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "757fd28c3b2248bc8f814d2788f012df-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6418118210404364, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "b4bd2fda95c74053896ffc80bf18e01c-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6490502864413704, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "4c4ee251f8fb4a648dacb1392da3e821-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6560584928002247, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "d70cfd102908460093c9e954a6dfa022-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6597939736079282, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "7baf94f13a7e428cb75d8a998e59be56-1",
+            "annotation": "drift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6601564841901036, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "422ff22ab34f426d985153b6e05e7504-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6842666493807056, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "94adad2512c940a692bc20e38077ca7f-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6869020177600331, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "4a4437d4176e40818c4e486b233bac75-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.6915434609398565, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "285c6be0d3474f699d6c0ff410f3fd42-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.695406212009976, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "9f268aefc09f4606a00bddcd1f64714a-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7041255346177611, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "18010d522e104a5b8ed4cf97163866f8-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7140200867351144, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "cc82378cf91a4b6a9839c45d31f2c8bd-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7176176479702534, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "87e66928b8274bdeb301871b2317c68a-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7176176479702534, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "4dd1484130604596a01e35c4bcd9e543-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7199787254810652, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "6e6d49b072734a9b9de6007dbe3bf639-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7266948795209587, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "80a2bbf3dc594cc7b51d15e8b04b2421-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.728362985195536, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "be9ccafb94414084ab3759187f36d377-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7336830144142077, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "8301ff67f34f4ce0ba767133abe91197-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7359606384486193, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "2f127844a78d494b8037529ea2e82827-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7367873363873183, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "cfe9d06fd2c7423b83a7d567d10ff215-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7387932593357666, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "6726e813993f4945a482801286ab1bd3-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7387932593357666, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "5162ca80e618436daa5ba8fd258b17a2-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7437002899580716, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "64cdb5c686024fd48ac59e02ef149fe7-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7478689508593952, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "e0db10dbf3ac4838933a16d9773cd536-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7561804085145455, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "b91f30c078104c61a30c94856c79ee23-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7579823160396202, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "4e9a439f2236466483ad5196d3270c65-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7721927232833292, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "b364b9286f654316a52ac24cb7f652db-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.773076785567655, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "f336741a6d794743a14ac45f9f6f73c2-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.773076785567655, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "ebcde23e58a74d83b5a1a24c6d41db65-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7739436587212464, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "5f16590a3488464284743f5ea918756b-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7793914396137125, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "7fa4b10661d0412f9bc06929e4ccd59a-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7829151469687371, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "4acd3853e5db48cd809db72094e854d3-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.784604169427151, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "92a66b7f3ad7478e99581fccf4fdbe74-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.7883133376289135, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "5d4d9fb870524b10a76d4ddeda11f9d4-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8054837552472556, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "02e1164385244a18a7763969df27ee81-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8074557460997994, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "9a6fd6fbd4874a6eab5f7f2b5d0a4809-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8074557460997994, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "d55a07df55b646faa22025151ba6dc01-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8149555856206483, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "d1ce44028af74d5e87f90d2a73e4e703-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8226987135321803, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "d115efffe9d04ed9a66683420bddb5e8-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8361436717908345, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "dbe7944a96ae49488546cb2981dd701c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8371159912900316, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "66cdb976e9d646e4b6f89ccc52a7b62f-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8390625667283126, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "962a6129b882466889db1f83bd45f651-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8392760554561833, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "fc8ec395939141069433024ee9105138-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8410540081208608, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "f123b3f4165340fca3550d9d471c1190-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8436351714178343, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "4b2fa4a9bb184780a94c256399665178-1",
+            "annotation": "drift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8439910273277297, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "2851a5dcb1f4413ebe671a50ccf2ab54-1",
+            "annotation": "drift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.844339795150252, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "7f8355b60a7d4a01bca5eab8b6bc4d13-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8540464429258251, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "4725304758804f8290c429ff87c8aa12-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8679899611090465, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "5c0766b175fb40e190931730491e57af-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8687374529706613, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "5800bf72eb0e433ba714aa0fa4a6df3e-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8728871261087974, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "6e71a2f1eea5429ca7370cf35fffcdae-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8753296505322589, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "a7f2fe67e4d34407896336ffba9a17de-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8821078910188814, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "9ba85548102b40eb82aafd0046db00e7-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8844730060351582, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "ac88fab0b7d74107ba20006d960c7d5a-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.8946910029578107, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "9c970ca510204f808081a5741e6b218b-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9035723723919449, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "2e4b4ea2adeb4dbfb7aed735dd4b7fbe-1",
+            "annotation": "drift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9035723723919449, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "b0c5a7205fa845558c404b656c403e47-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9051483152141833, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "cb4d04ae83ec4d7dbedfcbc0226bb817-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9080320750707487, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "b8a8eda07c2b4ccea5e79f4f4b9f9901-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9129992166310164, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "89eaa2e72aaa4fdb980bc15ff3c78f44-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9131521288326979, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "4acd5c461a854e18955408d245713d64-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9149654262689554, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "db93cb96b60940388c9a5013b117883c-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9251559528844455, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "e319cc9cfd41416a9ce8e86bbc10dd7e-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9306587978089174, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "38d63e33933846f2bec16276dc7b3085-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9336709590026242, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "b9d07bfe36174fc3b58af08e6d8521ee-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9376077052746088, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "906539f4444e48ac8c425cebfc34ce67-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9381414760551634, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "d7f402b5792b4c949b9d84b6db5ea0cf-1",
+            "annotation": "drift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9416076965010265, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "3e78bd66eebc4287bb70dff8a29851ef-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9433690256983391, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "0ac81063806c42b9bcb1b6bd4cf40953-1",
+            "annotation": "drift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9567828740186848, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "245683a072f34260b66db6cbf0b8ebc6-1",
+            "annotation": "drift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9581834112596626, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "0367b42d6c954b6f8b1d57cbf23744c3-1",
+            "annotation": "drift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": \"0\", \"confidence\": 0.9593549400215785, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "66cdb976e9d646e4b6f89ccc52a7b62f-1",
+            "annotation": "ddrift_<measurement_id>_cluster_7",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 7}"
+        },
+        {
+            "scoring_id": "9f212162ebee4e5da439209465d7afe1-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "a696b116fb574021acbf47aa1f4cef75-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "bce32291f04c4e78a4a5c57293f4d4fd-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "a7f2fe67e4d34407896336ffba9a17de-1",
+            "annotation": "ddrift_<measurement_id>_cluster_3",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 3}"
+        },
+        {
+            "scoring_id": "9928e7b9390b4bc1baf7a3588e5a0317-1",
+            "annotation": "ddrift_<measurement_id>_cluster_6",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 6}"
+        },
+        {
+            "scoring_id": "d115efffe9d04ed9a66683420bddb5e8-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "d6b9a79b65ea49d9bb17371050549ba9-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "05e47aa343b64af281cb71d11c0adab0-1",
+            "annotation": "ddrift_<measurement_id>_cluster_5",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 5}"
+        },
+        {
+            "scoring_id": "bb1427dbc46b422f81a4b5f5becfeaaf-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "c2d21fda17f544ee97a49052930cb845-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "dbe7944a96ae49488546cb2981dd701c-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "df73f6c3cc4f4be68e37b2af27ab37ed-1",
+            "annotation": "ddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "f1b372acf6aa4f4da74afddecc0103ab-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "713a89143def4a21a29bcd3711f222b3-1",
+            "annotation": "ddrift_<measurement_id>_cluster_4",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 4}"
+        },
+        {
+            "scoring_id": "bc643ef5e81d45d1976afb1ed9c01cb0-1",
+            "annotation": "ddrift_<measurement_id>_cluster_2",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 2}"
+        },
+        {
+            "scoring_id": "eff5c8befbfc4a9bab85676f9016c569-1",
+            "annotation": "ddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "66cdb976e9d646e4b6f89ccc52a7b62f-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "a7f2fe67e4d34407896336ffba9a17de-1",
+            "annotation": "mddrift_<measurement_id>_cluster_1",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 1}"
+        },
+        {
+            "scoring_id": "d115efffe9d04ed9a66683420bddb5e8-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        },
+        {
+            "scoring_id": "dbe7944a96ae49488546cb2981dd701c-1",
+            "annotation": "mddrift_<measurement_id>_cluster_0",
+            "meta": "{\"outcome\": null, \"confidence\": 0, \"shap_cluster\": 0}"
+        }
+    ]
+}]
