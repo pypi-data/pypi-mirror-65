@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: atomic_write_path
+Version: 1.2.0
+Summary: Context manager for atomically writing data to a file path.
+Home-page: UNKNOWN
+License: UNKNOWN
+Author: Bao Wei
+Author-email: baowei.ur521@gmail.com
+Requires-Dist: atomicwrites >= 1.3
