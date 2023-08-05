@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pytest-metrics
+Version: 0.4
+Summary: Custom metrics report for pytest
+Home-page: https://github.com/adiralashiva8/pytest-metrics
+Author: Shiva Adirala
+Author-email: adiralashiva8@gmail.com
+License: MIT license
+Keywords: pytest,py.test,metrics
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: pytest
+Requires-Dist: pytest-runner
+
+Dashboard view of pytest results created using hook
+
+
