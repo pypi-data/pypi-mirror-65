@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: databroker
+Version: 1.0.1
+Summary: Unification of NSLS-II data sources
+Home-page: https://github.com/NSLS-II/databroker
+Author: Brookhaven National Laboratory
+License: BSD (3-clause)
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: boltons
+Requires-Dist: cachetools
+Requires-Dist: dask[array,bag]
+Requires-Dist: doct
+Requires-Dist: event-model (>=1.14.0)
+Requires-Dist: humanize
+Requires-Dist: intake (>=0.5.5)
+Requires-Dist: jinja2
+Requires-Dist: jsonschema
+Requires-Dist: mongoquery
+Requires-Dist: msgpack
+Requires-Dist: msgpack-numpy
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pims
+Requires-Dist: pymongo
+Requires-Dist: pytz
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: six
+Requires-Dist: suitcase-mongo
+Requires-Dist: suitcase-msgpack
+Requires-Dist: tifffile (!=2019.7.26.2)
+Requires-Dist: toolz
+Requires-Dist: tzlocal
+Requires-Dist: xarray
+Requires-Dist: zarr
+Provides-Extra: all
+Requires-Dist: h5py ; extra == 'all'
+Requires-Dist: pymongo (>=3.0) ; extra == 'all'
+Requires-Dist: requests ; extra == 'all'
+Requires-Dist: tornado (<6) ; extra == 'all'
+Requires-Dist: ujson ; extra == 'all'
+Provides-Extra: client
+Requires-Dist: requests ; extra == 'client'
+Provides-Extra: hdf5
+Requires-Dist: h5py ; extra == 'hdf5'
+Provides-Extra: mongo
+Requires-Dist: pymongo (>=3.0) ; extra == 'mongo'
+Provides-Extra: service
+Requires-Dist: tornado (<6) ; extra == 'service'
+Requires-Dist: ujson ; extra == 'service'
+
+# databroker
+
+
+A unified interface to the various data sources at NSLS-II.
+
+
+[Databroker documentation](http://nsls-ii.github.io/databroker)
+
+[NSLS2 software overview](http://nsls-ii.github.io)
+
+---------------
+
+[![Build Status](https://travis-ci.org/bluesky/databroker.svg?branch=master)](https://travis-ci.org/bluesky/databroker)
+[![codecov](https://codecov.io/gh/bluesky/databroker/branch/master/graph/badge.svg)](https://codecov.io/gh/bluesky/databroker)
+[![Anaconda-Server Badge](https://anaconda.org/lightsource2/databroker/badges/version.svg)](https://anaconda.org/lightsource2/databroker)
+[![Anaconda-Server Badge](https://anaconda.org/lightsource2/databroker/badges/license.svg)](https://anaconda.org/lightsource2/databroker)
+
+## Conda Recipes
+
+Install the most recent tagged build: `conda install databroker -c lightsource2-tag`
+
+Install the most recent tagged build: `conda install databroker -c lightsource2-dev`
+
+Find the tagged recipe [here](https://github.com/NSLS-II/lightsource2-recipes/tree/master/recipes-tag/databroker) and the dev recipe [here](https://github.com/NSLS-II/lightsource2-recipes/tree/master/recipes-dev/databroker)
+
+
