@@ -1,0 +1,16 @@
+  query getDockerImagesByOwnerId($ownerId: String!) {
+      fetchProfile(id: $ownerId) {
+      ... on ConsoleProfile {
+        defaultDockerImageId
+        dockers {
+          id
+          displayName
+          repositoryType
+          path
+          entryPoint
+          isActive
+        }
+      }
+    }
+   }
+
