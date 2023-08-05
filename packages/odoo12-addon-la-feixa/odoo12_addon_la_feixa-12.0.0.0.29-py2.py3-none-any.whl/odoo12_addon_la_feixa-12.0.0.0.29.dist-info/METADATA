@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: odoo12-addon-la-feixa
+Version: 12.0.0.0.29
+Summary: Odoo La Feixa customizations
+Home-page: https://coopdevs.org
+Author: Coopdevs Treball SCCL
+License: AGPL-3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Requires-Python: >=3.5
+Requires-Dist: odoo12-addon-easy-my-coop-es
+Requires-Dist: odoo (<12.1dev,>=12.0a)
+
+
+Odoo La Feixa customizations.
+
+
