@@ -1,0 +1,5 @@
+from bio_test_artifacts.prebuilt.fasta import fasta_yeast_chr01, fasta_protein_yeast_chr01
+from bio_test_artifacts.prebuilt.counts import counts_yeast_tpm, counts_yeast_tpm_chr01, counts_yeast_single_cell_chr01
+from bio_test_artifacts.prebuilt.fastq import fastq_paired_end, fastq_single_end
+from bio_test_artifacts.prebuilt.bam_sam import bam_paired_end_sorted, bam_paired_end_unsorted, sam_paired_end
+from bio_test_artifacts.prebuilt.gtf_gff import gtf_yeast_chr01, gff_yeast_chr01
