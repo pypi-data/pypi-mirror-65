@@ -1,0 +1,6 @@
+
+    [console_scripts]
+    sermos_validate=sermos_utils.cli.deploy:validate
+    sermos_deploy=sermos_utils.cli.deploy:deploy
+    sermos_status=sermos_utils.cli.deploy:status
+    
