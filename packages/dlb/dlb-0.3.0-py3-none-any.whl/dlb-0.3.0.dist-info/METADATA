@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: dlb
+Version: 0.3.0
+Summary: A Pythonic build tool
+Home-page: https://github.com/dlu-ch/dlb
+Author: dlu-ch
+Author-email: dlu-ch@users.noreply.github.com
+License: LGPLv3+
+Keywords: build development
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+
+dlb is a Pythonic build tool that does not try to mimic Make, but brings the benefits of object-oriented languages to the build process. It is inspired by djb's redo.
+
+
