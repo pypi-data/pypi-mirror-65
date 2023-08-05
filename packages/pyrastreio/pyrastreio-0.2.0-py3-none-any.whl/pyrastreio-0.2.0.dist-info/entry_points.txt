@@ -1,0 +1,5 @@
+
+        [console_scripts]
+        rastreio=pyrastreio.cli:main
+        cade_minha_encomenda=pyrastreio.cli:main
+    
