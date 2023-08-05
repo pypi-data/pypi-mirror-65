@@ -1,0 +1,1300 @@
+=======
+lftools
+=======
+
+.. _lftools_v0.31.2:
+
+v0.31.2
+=======
+
+.. _lftools_v0.31.2_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/fix_stack_cost-4c8176a9d0a286a4.yaml @ 7bd981fee8f7cb7b5eb6605c606e96042765c26f
+
+- Fix stack_cost initialization value
+
+
+.. _lftools_v0.31.0:
+
+v0.31.0
+=======
+
+.. _lftools_v0.31.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/nexus2-d2f5afe25daee1d3.yaml @ dda12167850f2855cf471584948f55ac7973501e
+
+- Nexus2 API operations.
+  
+  Usage: lftools nexus2 [OPTIONS] COMMAND [ARGS]...
+  
+  .. code-block:: none
+  
+     Commands:
+         privilege   Privilege primary interface.
+         repository  Repository primary interface.
+         role        Role primary interface.
+         user        User primary interface.
+  
+  .. code-block:: none
+  
+     Options:
+       --help             Show this message and exit.
+
+
+.. _lftools_v0.30.0:
+
+v0.30.0
+=======
+
+.. _lftools_v0.30.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/nexus3-6a988f31e4876fd8.yaml @ b61c50f3f7f87c97353bb7523edf19feacfa5dfa
+
+- Nexus3 API operations.
+  
+  Usage: lftools nexus3 [OPTIONS] FQDN COMMAND [ARGS]...
+  
+  .. code-block:: none
+  
+     Commands:
+         asset       Asset primary interface.
+         privilege   Privilege primary interface.
+         repository  Repository primary interface.
+         role        Role primary interface.
+         script      Script primary interface.
+         tag         Tag primary interface.
+         task        Task primary interface.
+         user        User primary interface.
+  
+  .. code-block:: none
+  
+     Options:
+       --help             Show this message and exit.
+
+.. releasenotes/notes/readthedocs-74199dc94515f19f.yaml @ a5451186bdf40cdccdd38e9733971f1a9d450e0d
+
+- Enable project_version_update API method.
+  Allows enabling or disabling a project version (visibility in the
+  U/I) via an api call.
+
+
+.. _lftools_v0.30.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/github-create-team-52614d75e690f80d.yaml @ 10743bf874d8f99d5d81ea1b5ee54803f5d30941
+
+- lftools github create-team no longer requires repo
+  it is now an option
+
+
+.. _lftools_v0.29.0:
+
+v0.29.0
+=======
+
+.. _lftools_v0.29.0_Prelude:
+
+Prelude
+-------
+
+.. releasenotes/notes/self-service-project-creation-28cc70ec9ea9ec3e.yaml @ 4f06a413c6f2838eaf5ff8ae0154b9ba1e5bdd5e
+
+Changes to lftools needed for project creation to happen via command line logic.
+
+
+.. _lftools_v0.29.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/add-create_roles-function-d0cd9c31fe34a73f.yaml @ e90bfde6867cfe31665223929a794fdb66fa09be
+
+- Add "create role" subcommand for nexus, which enables users to create
+  Nexus roles outside of project creation.
+
+.. releasenotes/notes/add-openstack-cost-464444d8cf0bdfa5.yaml @ 4173355f2d34b2a23fbc6e6c0e063b7f011beb61
+
+- Add openstack cost command. The cost is sum of the costs of each member of
+  the running stack.
+  https://jira.linuxfoundation.org/browse/RELENG-2550
+
+.. releasenotes/notes/releasedockerhub_add_param_exact-6da9f2cdc28c0562.yaml @ 1dae64cd20c9ab1eab0e17fd15ffefcd1f5f1d82
+
+- Added --exact to the releasedockerhub command. This enables
+  user to only work on a specific repo (specified by --repo)
+
+.. releasenotes/notes/self-service-project-creation-28cc70ec9ea9ec3e.yaml @ 4f06a413c6f2838eaf5ff8ae0154b9ba1e5bdd5e
+
+- lftools gerrit [OPTIONS] COMMAND [ARGS]
+  abandonchanges              Abandon all OPEN changes for a gerrit project.
+  addfile                     Add an file for review to a Project.
+  addgithubrights             Grant Github read for a project.
+  addgitreview                Add git review to a project.
+  addinfojob                  Add an INFO job for a new Project.
+  createproject               Create a project via the gerrit API.
+  list-project-inherits-from  List who a project inherits from.
+  list-project-permissions    List Owners of a Project.
+
+
+.. _lftools_v0.29.0_Known Issues:
+
+Known Issues
+------------
+
+.. releasenotes/notes/self-service-project-creation-28cc70ec9ea9ec3e.yaml @ 4f06a413c6f2838eaf5ff8ae0154b9ba1e5bdd5e
+
+- Addinfofile trips up on extended characters in usernames.
+  Project lead must be added by hand to lftools infofile create.
+
+
+.. _lftools_v0.29.0_Upgrade Notes:
+
+Upgrade Notes
+-------------
+
+.. releasenotes/notes/self-service-project-creation-28cc70ec9ea9ec3e.yaml @ 4f06a413c6f2838eaf5ff8ae0154b9ba1e5bdd5e
+
+- lftools.ini needs configuration on internal jenkins for auth.
+  Documenting and implementing this is an internal endevor and beyond
+  the scope of these release notes.
+
+
+.. _lftools_v0.29.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/AddXtraOutputForNexusRelease-c92f45be77a109ed.yaml @ bd808c03e938d1255bf98bbd9eb453d4534d71fd
+
+- Print rule failures for unclosed repos
+
+.. releasenotes/notes/handle-lfidapi-errors-433cac02fc5e5e00.yaml @ 7fa10c8a5a086bb4934da50e65c9f7d7bc6153f7
+
+- Catch and print errors thrown by check_response_code in lftools/lfidapi.py.
+
+.. releasenotes/notes/self-service-project-creation-28cc70ec9ea9ec3e.yaml @ 4f06a413c6f2838eaf5ff8ae0154b9ba1e5bdd5e
+
+- Use proper python3 config parser.
+  Add has_section check for configparser
+  lftools github update repo will properly return "repo not found"
+  lftools infofile create will now take tsc approval string and set date.
+  lftools infofile will allow INFO.yaml to be created before ldap group.
+  yaml4info now correctly outputs to STDOUT so that its output can be properly
+  captured and printed by python.
+  lfidapi now correctly exits if a group does not exist.
+
+
+.. _lftools_v0.28.0:
+
+v0.28.0
+=======
+
+.. _lftools_v0.28.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/infofile-063db0be4acfe858.yaml @ 92f89d50c4c2d3e5155b2b4de10fb63f0045db36
+
+- New command lftools infofile create-info-file
+  Creates an initial info file for a project.
+  Must be on the VPN to use.
+
+.. releasenotes/notes/readthedocs-ec3b30d399730b9d.yaml @ ce8508e48bc148a5f97e3a9cf41922d5b15841a2
+
+- Add the ability to update existing project's properties. This is done by invoking
+  lftools rtd project-update PROJECT_NAME key='value' where key is the name of a json
+  API key for the RTD API and value is the new value you require.
+
+
+.. _lftools_v0.28.0_Upgrade Notes:
+
+Upgrade Notes
+-------------
+
+.. releasenotes/notes/lftools-python-85ad1e90d01c51fb.yaml @ 61348f95409a49283ee53824d3e7c5f6f6eb3d45
+
+- Drop support for python2.7 and python3.4(EOL)
+  lftools now requires python >= 3.6 This allows us to remove
+  remaining pins, and to move from glob2 to builtin glob
+
+
+.. _lftools_v0.28.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/readthedocs-ec3b30d399730b9d.yaml @ ce8508e48bc148a5f97e3a9cf41922d5b15841a2
+
+- Fixed issues with project and subproject listing.
+
+
+.. _lftools_v0.27.1:
+
+v0.27.1
+=======
+
+.. _lftools_v0.27.1_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/deploy_nexus-6e26fda6a3b0c5b1.yaml @ aa759ec74910138dec6c305d0ac94cfc15052b07
+
+- Added a get_filesize method to calculate filesize is an appropriate format.
+  This may be useful in logs if an upload fails.
+
+.. releasenotes/notes/readthedocs-f718039153d37377.yaml @ 8b5cf6d373f57d723e20287ba7f205ec6f597679
+
+- Add support for RTD subprojects, including list, details, create, delete.
+
+
+.. _lftools_v0.27.1_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/deploy_nexus-6e26fda6a3b0c5b1.yaml @ aa759ec74910138dec6c305d0ac94cfc15052b07
+
+- Refactored deploy_nexus to use concurrent.futures rather than multiprocessing.
+  This allows for non-blocking I/O, and also allows for easy state tracking.
+  It should also fix any random failures that are hard to troubleshoot.
+
+
+.. _lftools_v0.27.0:
+
+v0.27.0
+=======
+
+.. _lftools_v0.27.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/dco-check-2ef51234a4ee7d80.yaml @ 4571080a7756d6802c113d36911e831e1ae8110e
+
+- Expanded DCO shell script with 'check' and 'match' commands. The check
+  mode checks a git repo for missing DCO signatures. The match mode confirms
+  whether or not the DCO signature(s) match the git commit author's email
+  address.
+
+.. releasenotes/notes/readthedocs-1c75ba657986dc40.yaml @ c9d64e5dc9d41ce9ad0616f92310069a8203e77d
+
+- Read the Docs CRUD operations.
+  
+  Usage: Usage: lftools rtd [OPTIONS] COMMAND [ARGS]
+  
+  
+  .. code-block:: none
+  
+     Commands:
+         project-list             Get a list of Read the Docs projects.
+         project-details          Retrieve project details.
+         project-version-list     Retrieve project version list.
+         project-version-details  Retrieve project version details.
+         project-create           Create a new project.
+         project-build-list       Retrieve a list of a project's builds.
+         project-build-details    Retrieve specific project build details.
+         project-build-trigger    Trigger a new build.
+  
+  .. code-block:: none
+  
+     Options:
+       --help             Show this message and exit.
+
+
+.. _lftools_v0.26.1:
+
+v0.26.1
+=======
+
+.. _lftools_v0.26.1_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/fix-copy-archives-8cb39578a0367e5e.yaml @ 18887b5c194604a2aa19c13a2999003d42f6f332
+
+- Fix copy archives when a directory is foundm which results in the error:
+  ERROR: [Errno 17] File exists: '<dir>'
+
+
+.. _lftools_v0.26.0:
+
+v0.26.0
+=======
+
+.. _lftools_v0.26.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/github-1e99906af8ef75ac.yaml @ 91582c904af39df77ff187f2c2d3b8e3a78541c0
+
+- --team now lists members of a specific team
+
+.. releasenotes/notes/infofile-4dec08c571b39df8.yaml @ 91582c904af39df77ff187f2c2d3b8e3a78541c0
+
+- check_votes now takes click.option('--github_repo')
+  Used in automation to determine is 50% of committers
+  have voted on an INFO.yaml change
+
+.. releasenotes/notes/nexus-release-2b0ca5f0051c703c.yaml @ 2f20518985752a71fe27cec340b7a6a41b9a9dcf
+
+- nexus release now checks "{}/staging/repository/{}/activity"
+  Ensures that Repository is in closed state
+  Checks if Repository is already released (exit 0)
+  Check for failures, if found (exit 1)
+  Added
+  click.option('-v', '--verify-only', is_flag=True, required=False)
+  if -v is passed, only checks for errors, skips release
+
+
+.. _lftools_v0.26.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/github-1e99906af8ef75ac.yaml @ 91582c904af39df77ff187f2c2d3b8e3a78541c0
+
+- Fixes invite to team
+
+
+.. _lftools_v0.25.5:
+
+v0.25.5
+=======
+
+.. _lftools_v0.25.5_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/nexus-release-60333ea8c6deb068.yaml @ bfc3096e4d6664739dc47faa7d7a62a8fcf8c0c2
+
+- Support multiple nexus sections in lftools.ini
+  
+  In the format:
+  
+  .. code-block:: none
+  
+     [nexus.example.org]
+     username=
+     password=
+  
+     [nexus.example1.org]
+     username=
+     password=
+  
+  [nexus] section is taken from -s "server" passed to release job.
+  https part of passed url is stripped before match.
+
+
+.. _lftools_v0.25.5_Upgrade Notes:
+
+Upgrade Notes
+-------------
+
+.. releasenotes/notes/nexus-release-60333ea8c6deb068.yaml @ bfc3096e4d6664739dc47faa7d7a62a8fcf8c0c2
+
+- current [nexus] section of lftools.ini must be changed to
+  [nexus.example.com]
+  
+  where nexus.example.com matches the "server" string passed to
+  lftools nexus release -s https://nexus.example.com
+  The https part of passed url is stripped before match.
+  example provided would require auth section in lftools.ini of
+  [nexus.example.org]
+
+
+.. _lftools_v0.25.4:
+
+v0.25.4
+=======
+
+.. _lftools_v0.25.4_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/nexus-release-4e9aed6e9bc1a389.yaml @ f02974c34fbaaad55c89495eebae17c81358f1cb
+
+- Remove drop of staging repos on release
+  The api returns that the relese is completed.
+  in the background java threads are still running.
+  Then we call drop and nexus has threads promoting and dropping
+  at the same time.
+  In this way we lose data.
+  Something else needs to drop, the api does not correctly
+  handle this.
+
+
+.. _lftools_v0.25.3:
+
+v0.25.3
+=======
+
+.. _lftools_v0.25.3_Known Issues:
+
+Known Issues
+------------
+
+.. releasenotes/notes/pin-pytest-f940a8c95ebb3b96.yaml @ 86bdd388581baf69a052435a889653fc4712dad2
+
+- Pytest 5 has come out and requires Python >= 3.5 which we're not presently
+  testing on. Pytest is now pinned to 4.6.4 until we update.
+
+
+.. _lftools_v0.25.3_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/lfidapi-logger-cbd6457298f0718e.yaml @ 5201c5b80346f5a03a25ffd392fcb5cc706361b7
+
+- Change out lfidapi module print statements to use the logger facility. This
+  allows us to split appart information, debugging, and error log statements
+  so that they can be easily enabled and captured on the correct streams.
+
+.. releasenotes/notes/lfidapi-type-error-fix-aff74c5a7ea11a34.yaml @ 23a247a50b2917c1287a2bf0adf4f91707f26569
+
+- There was a subtle bug where a function call was being overwritten by a
+  local variable of the same name and then a call to the function was
+  being attempted.
+
+
+.. _lftools_v0.25.2:
+
+v0.25.2
+=======
+
+.. _lftools_v0.25.2_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/deploy-nexus-use-put-09e52050a869ac2d.yaml @ cb54d39b681196cca548f1abc9cdd6c51677634a
+
+- Use requests.put rather than requests.post for deploy_nexus in order to fix
+  Nexus 3 compatibility. This does not affect Nexus 2 compatibility.
+
+
+.. _lftools_v0.25.1:
+
+v0.25.1
+=======
+
+.. _lftools_v0.25.1_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/add-force-option-stack-delete-35463a7b8a0920eb.yaml @ 3ea6211476240b3c7109d5cbc040e7cdb42f560e
+
+- Add a ``--force`` option to delete stacks command. This will help with
+  re-factoring the code in global-jjb scripts using in builder-openstack-cron
+  job to remove orphaned stacks/node and continue with the next stack
+  to delete.
+
+
+.. _lftools_v0.25.1_Critical Issues:
+
+Critical Issues
+---------------
+
+.. releasenotes/notes/revert-plugin-list-change-0686578ef029edcc.yaml @ db7c8701074bd6363ee7f3d1241e3c808fd0338c
+
+- A problem was found with the Jenkins OpenStack cloud configuration job
+  routines that were relying on the long name form of installed plugins. As
+  the long name form is more human friendly we are reverting to that
+  configuration.
+
+
+.. _lftools_v0.25.0:
+
+v0.25.0
+=======
+
+.. _lftools_v0.25.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/github-create-334e11334f8b38ff.yaml @ f03e4f5d6adc6950c984173017d32409d8f2fb6b
+
+- Github list and create repositories.
+  
+  Usage: Usage: lftools github [OPTIONS] COMMAND [ARGS]...
+  
+  
+  .. code-block:: none
+  
+     Commands:
+         audit   List Users for an Org that do not have 2fa enabled.
+         create  Create a Github repo for within an Organizations.
+         list    List and Organizations GitHub repos.
+  
+  .. code-block:: none
+  
+     Options:
+       --help    Show this message and exit.
+
+
+.. _lftools_v0.25.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/Fix-copy_archives-error-when-archive-is-file-14e7a4e12775b887.yaml @ 78d119f32b69d7fdfc1de7d702707513ce0de424
+
+- There is a possibility that there exists a file called Archives, and if so, there will be an OSError crash
+      02:15:01   File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/deploy.py", line 236, in deploy_archives
+      02:15:01     copy_archives(workspace, pattern)
+      02:15:01   File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/deploy.py", line 170, in copy_archives
+      02:15:01     for file_or_dir in os.listdir(archives_dir):
+      02:15:01 OSError: [Errno 20] Not a directory: '/w/workspace/autorelease-update-validate-jobs-fluorine/archives'
+  
+  This fix raises an Exception, and exists lftools with (1), if there is any issues with the Archive directory
+    (missing, a file instead of directory, or something else)
+
+.. releasenotes/notes/copy_archive_with_pattern_causes_OSError-c194d1960d322c51.yaml @ bf148382ba9b04d592311ea2cb99f137a557f79f
+
+- Fix OSError in lftools deploy archives due to pattern
+  
+  If the pattern is not properly done, the resulting file list might
+  contain duplicated files.
+  
+  This fix will remove the duplicated patterns, as well as the
+  duplicated matched files.
+  
+  This fix should fix the following crash
+  08:24:05   File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/deploy.py", line 204, in copy_archives
+  08:24:05     os.makedirs(os.path.dirname(dest))
+  08:24:05   File "/usr/lib64/python2.7/os.py", line 157, in makedirs
+  08:24:05     mkdir(name, mode)
+  08:24:05 OSError: [Errno 17] File exists: '/tmp/lftools-da.m80YHz/features/benchmark/odl-benchmark-api/target/surefire-reports'
+
+.. releasenotes/notes/fix-jenkins-config-parser-d9eb6e7068a7906a.yaml @ c075fc35e7b7db4c89dcb7a665ea5f9452760e10
+
+- Handle config parser correctly which defaults to "[jenkins]" section
+  when no server is passed. This fixes the issue with checking if the key
+  exists in the configuration read before reading the key-value.
+  
+  The issue is reproducible by running `lftools jenkins plugins --help` or
+  `tox -e docs`, with ``jenkins.ini`` missing the "[jenkins]" section.
+  
+  .. code-block: none
+  
+     Traceback (most recent call last):
+        File "/home/jenkins/.local/lftools/env/bin/lftools", line 10, in <module>
+          sys.exit(main())
+        File "/home/jenkins/.local/lftools/lftools/cli/__init__.py", line 104, in main
+          cli(obj={})
+        File "/home/jenkins/.local/lftools/env/lib/python3.7/site-packages/click/core.py", line 764, in __call__
+          return self.main(*args, **kwargs)
+        File "/home/jenkins/.local/lftools/env/lib/python3.7/site-packages/click/core.py", line 717, in main
+          rv = self.invoke(ctx)
+        File "/home/jenkins/.local/lftools/env/lib/python3.7/site-packages/click/core.py", line 1137, in invoke
+          return _process_result(sub_ctx.command.invoke(sub_ctx))
+        File "/home/jenkins/.local/lftools/env/lib/python3.7/site-packages/click/core.py", line 1134, in invoke
+          Command.invoke(self, ctx)
+        File "/home/jenkins/.local/lftools/env/lib/python3.7/site-packages/click/core.py", line 956, in invoke
+          return ctx.invoke(self.callback, **ctx.params)
+        File "/home/jenkins/.local/lftools/env/lib/python3.7/site-packages/click/core.py", line 555, in invoke
+          return callback(*args, **kwargs)
+        File "/home/jenkins/.local/lftools/env/lib/python3.7/site-packages/click/decorators.py", line 17, in new_func
+          return f(get_current_context(), *args, **kwargs)
+        File "/home/jenkins/.local/lftools/lftools/cli/jenkins/__init__.py", line 44, in jenkins_cli
+          ctx.obj['jenkins'] = Jenkins(server, user, password, config_file=conf)
+        File "/home/jenkins/.local/lftools/lftools/jenkins/__init__.py", line 63, in __init__
+          user = config.get(server, 'user')
+        File "/usr/lib64/python3.7/configparser.py", line 780, in get
+          d = self._unify_values(section, vars)
+        File "/usr/lib64/python3.7/configparser.py", line 1146, in _unify_values
+          raise NoSectionError(section) from None
+     configparser.NoSectionError: No section: 'jenkins'
+
+.. releasenotes/notes/lfidapi-3265c24947b95d20.yaml @ e485d2a9da67087e0d06b02c9632bff43b69c239
+
+- lfidapi create group checks if group exists before posting
+
+.. releasenotes/notes/no-encode-py3-44307e6fd97c2d0c.yaml @ 8e4cfd42d3fbe974c98aebb52d491c8d84050e03
+
+- Unicode compatibility in deploy_logs for Python 2 and 3 was improved in
+  several ways. The former method to pull and write log files did not work
+  properly in Python 3, and was not very robust for Python 2. Both reading
+  and writing logs is now handled in a unicode-safe, 2/3 compatible way.
+
+
+.. _lftools_v0.24.0:
+
+v0.24.0
+=======
+
+.. _lftools_v0.24.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/lftools-jenkins-plugins-b4dbbf23454f659d.yaml @ 5df955f24bc0154f7069ecfc188311052e67febc
+
+- List active plugins that have a known vulnerability.
+
+
+.. _lftools_v0.24.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/add-files-to-compress-dcba892e04a7672a.yaml @ 63043520192531b2b76be335067839bd606a3a7d
+
+- Add file extensions `.html` and `.xml` to ensure they are compressed.
+  `.xml` files pushed to the log server can be quite large, so the fix
+  ensures that the logs uploaded to Nexus have a smaller foot print.
+
+
+.. _lftools_v0.23.1:
+
+v0.23.1
+=======
+
+.. _lftools_v0.23.1_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/tag-and-container-signing-734e0b8cfcabd3dc.yaml @ 8b5bee673cabc5b1992d84771872202476bc7d77
+
+- Add sigul signing for git tags and Docker containers.
+
+
+.. _lftools_v0.22.2:
+
+v0.22.2
+=======
+
+.. _lftools_v0.22.2_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/fix-httperror-exception-6017608b5f939733.yaml @ c1c2275aa44ed2f16aedff8953eebac2007f7fd1
+
+- Fix the unhelpful stack trace when a deploy nexus-zip fails to upload.
+  
+  .. code-block:: bash
+  
+      Traceback (most recent call last):
+        File "/home/jenkins/.local/bin/lftools", line 10, in <module>
+          sys.exit(main())
+        File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/cli/__init__.py", line 110, in main
+          cli(obj={})
+        File "/usr/lib/python2.7/site-packages/click/core.py", line 721, in __call__
+          return self.main(*args, **kwargs)
+        File "/usr/lib/python2.7/site-packages/click/core.py", line 696, in main
+          rv = self.invoke(ctx)
+        File "/usr/lib/python2.7/site-packages/click/core.py", line 1065, in invoke
+          return _process_result(sub_ctx.command.invoke(sub_ctx))
+        File "/usr/lib/python2.7/site-packages/click/core.py", line 1065, in invoke
+          return _process_result(sub_ctx.command.invoke(sub_ctx))
+        File "/usr/lib/python2.7/site-packages/click/core.py", line 894, in invoke
+          return ctx.invoke(self.callback, **ctx.params)
+        File "/usr/lib/python2.7/site-packages/click/core.py", line 534, in invoke
+          return callback(*args, **kwargs)
+        File "/usr/lib/python2.7/site-packages/click/decorators.py", line 17, in new_func
+          return f(get_current_context(), *args, **kwargs)
+        File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/cli/deploy.py", line 63, in archives
+          deploy_sys.deploy_archives(nexus_url, nexus_path, workspace, pattern)
+        File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/deploy.py", line 236, in deploy_archives
+          deploy_nexus_zip(nexus_url, 'logs', nexus_path, archives_zip)
+        File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/deploy.py", line 362, in deploy_nexus_zip
+          raise requests.HTTPError(e.value)
+      AttributeError: 'HTTPError' object has no attribute 'value'
+  
+  
+  Now instead it returns a much more helpful error message::
+  
+      ERROR: Failed to upload to Nexus with status code: 401.
+  
+      test.zip
+
+.. releasenotes/notes/lftools-deploy-HandleMissingArchiveDir-415ac62d2a45303f.yaml @ fcd29c1c74575dda69052a45f1b65349008bb094
+
+- Fixes an OSError exception that is not handled, in the lftools command:
+  
+  lftools deploy archives
+  
+  The code resides in the copy_archives function in deploy.py file.
+  
+  This exception is caused by a missing archives directory, which a for loop
+  expects to be there.
+  The fix is simply to verify if archives file/directory exists, and if it does
+  then perform the for loop.
+  
+  12:07:36   File "/home/jenkins/.local/lib/python2.7/site-packages/lftools/deploy.py", line 166, in copy_archives
+  12:07:36     for file_or_dir in os.listdir(archives_dir):
+  12:07:36 OSError: [Errno 2] No such file or directory: '/w/workspace/music-mdbc-master-verify-java/archives'
+
+
+.. _lftools_v0.22.0:
+
+v0.22.0
+=======
+
+.. _lftools_v0.22.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/infofile-2116cc444a88945e.yaml @ f7c7130a6b233d71d4371c5df612f978c651768b
+
+- check-votes
+  
+  Usage: lftools infofile check-votes [OPTIONS] INFO_FILE GERRIT_URL
+  
+  .. code-block:: none
+  
+     Commands:
+       Check for Majority of votes on a gerrit patchset that changes
+       an INFO.yaml file.
+  
+  .. code-block:: none
+  
+     Options:
+       --help    Show this message and exit.
+
+
+.. _lftools_v0.21.0:
+
+v0.21.0
+=======
+
+.. _lftools_v0.21.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/add-option-for-serial-e5342f8365a92120.yaml @ 0bbef1f18eab93eef97dbee1d1c3eb3442e0191f
+
+- Allow passing ``serial`` as third argument to **sign_dir**
+  
+  Parallel-signing using sigul is resulting in NSPR reset errors,
+  so allow passing "serial" to the sign_dir function as a third argument
+  to request serial signing of directory contents.
+
+
+.. _lftools_v0.20.0:
+
+v0.20.0
+=======
+
+.. _lftools_v0.20.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/gerrit-create-e3bea58593d0a1dd.yaml @ 21129cf9fb5a209670544e22fe001453c69f003b
+
+- Gerrit project create and github enable replication commands.
+  
+  Usage: lftools gerrit [OPTIONS] COMMAND [ARGS]...
+  
+  .. code-block:: none
+  
+     Commands:
+       create  Create and configure permissions for a new gerrit repo.
+  
+  .. code-block:: none
+  
+     Options:
+       --enable  Enable replication to Github.
+                 This skips creating the repo.
+       --parent  Specify parent other than "All-Projects"
+       --help    Show this message and exit.
+
+.. releasenotes/notes/lfidapi-74c7a5457203eec2.yaml @ c831fd818eb6ab19666e54feab57379fab274bd3
+
+- LFID Api Tools.
+  
+  Usage: lftools lfidapi [OPTIONS] COMMAND [ARGS]...
+  
+  
+  .. code-block:: none
+  
+     Commands:
+       create-group    Create group.
+       invite          Email invitation to join group.
+       search-members  List members of a group.
+       user            Add and remove users from groups.
+  
+  .. code-block:: none
+  
+     Options:
+       --help    Show this message and exit
+
+.. releasenotes/notes/nexus-release-cbc4111e790aad50.yaml @ 1920c1aeee01157ac7da07f89ab11ffe019f6f75
+
+- Add Nexus command to release one or more staging repositories. Via the
+  Nexus 2 REST API, this command performs both a "release" and a "drop"
+  action on the repo(s), in order to best reproduce the action of manually
+  using the "Release" option in the Nexus UI.
+  
+  Usage: lftools nexus release [OPTIONS] [REPOS]...
+  
+  Options:
+    -s, --server TEXT  Nexus server URL. Can also be set as NEXUS_URL in the
+                       environment. This will override any URL set in
+                       settings.yaml.
+
+.. releasenotes/notes/openstack-object-list-containers-ef156a5351bc6d5f.yaml @ b151b1aa0c7668e240599096383ea88b9673b175
+
+- Add command to list openstack containers.
+  
+  Usage:
+  
+  .. code-block:: bash
+  
+     lftools openstack --os-cloud example object list-containers
+
+.. releasenotes/notes/release_docker_hub-5562e259be24b2c4.yaml @ 604169fa463b46547d76cff5f22f62672737be42
+
+- This command will collect all tags from both Nexus3 and Docker Hub, for
+  a particular org (for instance 'onap'), as well as a repo (default all repos).
+  With this information, it will calculate a list of valid tags that needs to
+  be copied to Docker Hub from Nexus3.
+  
+  Usage:
+    lftools nexus docker releasedockerhub
+  
+  Options:
+    -o, --org TEXT   Specify repository organization.  [required]
+    -r, --repo TEXT  Only repos containing this string will be selected.
+                     Default set to blank string, which is every repo.
+    -s, --summary    Prints a summary of missing docker tags.
+    -v, --verbose    Prints all collected repo/tag information.
+    -c, --copy       Copy missing tags from Nexus3 repos to Docker Hub repos.
+    -p, --progbar    Display a progress bar for the time consuming jobs.
+
+.. releasenotes/notes/schema-validate-1e5793a8dc859ecf.yaml @ ec597668be38d37cd010b845bee14ff580c73c75
+
+- Verify YAML Schema.
+  
+  Usage: Usage: lftools schema verify [OPTIONS] YAMLFILE SCHEMAFILE
+  
+  .. code-block:: none
+  
+     Commands:
+       verify a yaml file based on a schema file.
+  
+  .. code-block:: none
+  
+     Options:
+       --help    Show this message and exit.
+
+
+.. _lftools_v0.20.0_Known Issues:
+
+Known Issues
+------------
+
+.. releasenotes/notes/release_docker_hub-5562e259be24b2c4.yaml @ 604169fa463b46547d76cff5f22f62672737be42
+
+- Currently, if the Docker Hub repo is missing, it is not created specifically,
+  but implicitly by docker itself when we push the docker image to an non-
+  existing Docker Hub repo.
+  
+  The command handles any org (onap or hyperledger for instance), "BUT" it
+  requires that the versioning pattern is #.#.# (1.2.3) for the project.
+  In regexp terms : ^\d+.\d+.\d+$
+
+
+.. _lftools_v0.20.0_Critical Issues:
+
+Critical Issues
+---------------
+
+.. releasenotes/notes/release_docker_hub-5562e259be24b2c4.yaml @ 604169fa463b46547d76cff5f22f62672737be42
+
+- Before you give the "lftools nexus docker releasedockerhub" command please
+  ensure you have manually logged in to both Nexus as well as to Docker.
+  
+  sudo docker login       ---> DOCKER Credentials
+  sudo docker login nexus3.onap.org:10002 -u <yourLFID>
+
+
+.. _lftools_v0.19.0:
+
+v0.19.0
+=======
+
+.. _lftools_v0.19.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/credential-input-73245c664c98cdc1.yaml @ 9b3f9748c5ef839e941adef6cc15e9214c598bfa
+
+- Provide additional methods to pass LFID to lftools than lftools.ini
+  
+  1. Via explicit ``--password`` parameter
+  2. Via environment variable ``LFTOOLS_PASSWORD``
+  3. At runtime if ``--interactive`` mode is set
+
+.. releasenotes/notes/deploy_nexus-4feb8fc7e24daaf0.yaml @ 837552cb3308a4cafaf8b283e6c78739f25410e8
+
+- Refactored deploy_nexus function
+  from shell/deploy to pure Python to be more portable with Windows systems.
+  Also added a number of unit tests to cover all executable branches of the
+  code.
+
+.. releasenotes/notes/deploy_nexus_stage-e5f6f3e068f88ca4.yaml @ d2aca2e11395c596080e6a63ad59acb15abfc61d
+
+- Refactored deploy_nexus_stage function
+  from shell/deploy to pure Python to be more portable with Windows systems.
+  Also added a number of unit tests to cover all executable branches of the
+  code.
+
+.. releasenotes/notes/jenkins-conf-e33db422385a2203.yaml @ fe703b4d2360c4d59595aa8f0118ab8b5da2bdb1
+
+- Add ``--conf`` parameter to jenkins subcommand to allow choosing a jjb
+  config outside of the default paths.
+
+.. releasenotes/notes/nexus-docker-cmds-2ea1515887e0ab00.yaml @ cd546f4628c5b9c09656b1a99112ff6feedbbfbd
+
+- Docker list and delete commands for Nexus docker repos.
+  
+  Usage: lftools nexus docker [OPTIONS] COMMAND [ARGS]...
+  
+  .. code-block:: none
+  
+     Commands:
+       delete  Delete all images matching the PATTERN.
+       list    List images matching the PATTERN.
+
+.. releasenotes/notes/refactor-copy-archives-b5e7ee75fc7bf271.yaml @ a889de0e5c9891e58bb99cc1d2e6dbff4e125885
+
+- The shell/deploy file's copy_archives() function has been reimplemented in
+  pure Python for better portability to Windows systems.
+
+.. releasenotes/notes/refactor-deploy-archives-5f86cfbe8415defc.yaml @ 0fcafa53a92105954afa47397d6b815bd9cc9f5d
+
+- Refactored deploy_archives() function from shell/deploy to pure Python to
+  be more portable with Windows systems.
+
+.. releasenotes/notes/refactor-deploy-logs-8631ffcf7eb7cad2.yaml @ dfab0ddcb3378c9fcaa21d2757babab4999ebf3e
+
+- Refactored deploy_logs() function from shell/deploy to pure Python to
+  be more portable with Windows systems.
+
+.. releasenotes/notes/refactor-deploy-nexus-zip-018f7e5ced9f558d.yaml @ de342e6c2e5197934377fb610e9dbb4019aec792
+
+- Refactored deploy_nexus_zip() function from shell/deploy to pure Python to
+  be more portable with Windows systems.
+
+.. releasenotes/notes/refactor-deploy-stage-create-close-7b3fcc911023a318.yaml @ 8aa95360e93db3d8122920313786794215a158eb
+
+- Refactored nexus_stage_repo_close(), and nexus_repo_stage_create() function
+  from shell/deploy to pure Python to be more portable with Windows systems.
+  Also added a number of unit tests to cover all executable branches of the
+  code.
+
+.. releasenotes/notes/upload_maven_file_to_nexus-f31b14521e4a0aca.yaml @ 06f9c845e0bdc1bcbd80a61460c06eb670c378f4
+
+- Refactored upload_maven_file_to_nexus function
+  from shell/deploy to pure Python to be more portable with Windows systems.
+  Also added a number of unit tests to cover all executable branches of the
+  code.
+
+
+.. _lftools_v0.19.0_Deprecation Notes:
+
+Deprecation Notes
+-----------------
+
+.. releasenotes/notes/deploy_nexus-4feb8fc7e24daaf0.yaml @ 837552cb3308a4cafaf8b283e6c78739f25410e8
+
+- shell/deploy script's deploy_nexus
+  function is now deprecated and will be removed in a future release.
+
+.. releasenotes/notes/deploy_nexus_stage-e5f6f3e068f88ca4.yaml @ d2aca2e11395c596080e6a63ad59acb15abfc61d
+
+- shell/deploy script's deploy_nexus_stage
+  function is now deprecated and will be removed in a future release.
+
+.. releasenotes/notes/refactor-copy-archives-b5e7ee75fc7bf271.yaml @ a889de0e5c9891e58bb99cc1d2e6dbff4e125885
+
+- The shell/deploy script's copy_archives() function is now deprecated and
+  will be removed in a later version. We recommend migrating to the lftools
+  pure Python implementation of this function.
+
+.. releasenotes/notes/refactor-deploy-archives-5f86cfbe8415defc.yaml @ 0fcafa53a92105954afa47397d6b815bd9cc9f5d
+
+- shell/deploy script's deploy_archives() function is now deprecated and will
+  be removed in a future release.
+
+.. releasenotes/notes/refactor-deploy-logs-8631ffcf7eb7cad2.yaml @ dfab0ddcb3378c9fcaa21d2757babab4999ebf3e
+
+- shell/deploy script's deploy_logs() function is now deprecated and will
+  be removed in a future release.
+
+.. releasenotes/notes/refactor-deploy-nexus-zip-018f7e5ced9f558d.yaml @ de342e6c2e5197934377fb610e9dbb4019aec792
+
+- shell/deploy script's deploy_nexus_zip() function is now deprecated and will
+  be removed in a future release.
+
+.. releasenotes/notes/refactor-deploy-stage-create-close-7b3fcc911023a318.yaml @ 8aa95360e93db3d8122920313786794215a158eb
+
+- shell/deploy script's nexus_stage_repo_close() and nexus_stage_repo_create()
+  function is now deprecated and will be removed in a future release.
+
+.. releasenotes/notes/upload_maven_file_to_nexus-f31b14521e4a0aca.yaml @ 06f9c845e0bdc1bcbd80a61460c06eb670c378f4
+
+- shell/deploy script's upload_maven_file_to_nexus
+  function is now deprecated and will be removed in a future release.
+
+
+.. _lftools_v0.19.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/unnecessary-sign-dir-35677f94e948d2a8.yaml @ 92b39c9e0c6033cff0535393f7a089312f0b15a9
+
+- Running the lftools CLI was unexpectedly creating unnecessary
+  gpg-signatures directories in the /tmp directory and not cleaning
+  them up.
+
+
+.. _lftools_v0.18.0:
+
+v0.18.0
+=======
+
+.. _lftools_v0.18.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/jenkins-token-cmd-8e5cdce9175f69a1.yaml @ 9d61520841d6ed796d5e3941740d5800cfde4b54
+
+- Add new cmd to fetch Jenkins token from user account. An optional
+  ``--change`` parameter can be passed to have Jenkins change the API token.
+  
+  Usage: lftools jenkins token [OPTIONS]
+  
+    Get API token.
+  
+  Options:
+    --change  Generate a new API token.
+    --help    Show this message and exit.
+
+.. releasenotes/notes/jenkins-token-init-4af337e4d79939f1.yaml @ 698a8bbb93d65158a5ffe4bf6a13a0445a56feac
+
+- Add jenkins token init command to initialize a new server section in
+  jenkins_jobs.ini. This command uses credentials found in lftools.ini to
+  initialize the new Jenkins server configuration.
+  
+  Usage: lftools jenkins token init [OPTIONS] NAME URL
+
+.. releasenotes/notes/jenkins-token-reset-1297047cb9b5804d.yaml @ 51fe465bee050dae5a02ee7e07bba978cc5d4ea3
+
+- Add jenkins token reset command to automatically reset API tokens for all
+  Jenkins systems configured in jenkins_jobs.ini.
+  
+  Usage: lftools jenkins token reset [OPTIONS] [SERVER]
+
+.. releasenotes/notes/jjb-ini-839c14f4e500fd56.yaml @ fb5ffd18315c55eb2c5625de101a4d42b050406b
+
+- We now support locating the jenkins_jobs.ini in all the same default search
+  paths as JJB supports. Specifically in this order:
+  
+  #. $PWD/jenkins_jobs.ini
+  #. ~/.config/jenkins_jobs/jenkins_jobs.ini
+  #. /etc/jenkins_jobs/jenkins_jobs.ini
+
+.. releasenotes/notes/openstack-delete-stale-stacks-bec3f2c27cd7cbe5.yaml @ a440a11bfa4d8f603589b1cf66caa26ccc57ce1d
+
+- Add a new ``delete-stale`` option to the **stack** command.
+  
+  This function compares running builds in Jenkins to active stacks in
+  OpenStack and determines if there are orphaned stacks and removes them.
+
+.. releasenotes/notes/share-openstack-images-4f1e3d18fdcb488b.yaml @ 50ce256a1e792c82f409c7b66b7b8bad1a9b5a37
+
+- Add an ``openstack image share`` sub-command to handle sharing images
+  between multiple tenants. Command accepts a space-separated list of tenants
+  to share the provided image with.
+  
+  Usage: ``lftools openstack image share [OPTIONS] IMAGE [DEST]...``
+
+.. releasenotes/notes/upload-openstack-images-99d86c78044850b0.yaml @ 2aa73e8b4efaa399002983f04bc5a85089402301
+
+- Add an ``openstack image upload`` sub-command to handle uploading images
+  to openstack.
+  
+  Usage: ``Usage: lftools openstack image upload [OPTIONS] IMAGE NAME...``
+
+
+.. _lftools_v0.18.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/fix-get-credentials-6759fee7366c5602.yaml @ e7009cb9e38b694a4515b9124654d6400e7e1d09
+
+- The get-credentials command is now fixed since it was was broken after
+  refactoring done in Gerrit patch I2168adf9bc992b719da6c0350a446830015e6df6.
+
+
+.. _lftools_v0.18.0_Other Notes:
+
+Other Notes
+-----------
+
+.. releasenotes/notes/jenkins-class-refactor-91250f2bba941c26.yaml @ c15e450508a4b34abcc208a87f32a9873e44f4a3
+
+- Refactored the Jenkins object into a class to allow us to reuse it outside
+  of the Jenkins command group.
+
+
+.. _lftools_v0.17.0:
+
+v0.17.0
+=======
+
+.. _lftools_v0.17.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/jenkins-25629106553ebbd5.yaml @ 54c0bdb08963841eecd01cc816d485d15f1e9de1
+
+- Add support to the **jenkins** command to parse ``jenkins_jobs.ini`` for
+  configuration if **server** parameter passed is not a URL.
+
+.. releasenotes/notes/jenkins-c247796de6390391.yaml @ 7d2b155ff78d52a94ada949cf85ffd17512cbc45
+
+- Add a **jobs** sub-command to **jenkins** command to enable or disable Jenkins
+  Jobs that match a regular expression.
+
+.. releasenotes/notes/openstack-stack-08f643f16b75bfb8.yaml @ de992398836117670b1271f63871755f8cac46a7
+
+- Add stack command.
+  https://jira.linuxfoundation.org/browse/RELENG-235
+
+.. releasenotes/notes/openstack-stack-08f643f16b75bfb8.yaml @ de992398836117670b1271f63871755f8cac46a7
+
+- Add stack create sub-command.
+  https://jira.linuxfoundation.org/browse/RELENG-235
+  
+  Usage: lftools openstack stack create NAME TEMPLATE_FILE PARAMETER_FILE
+
+.. releasenotes/notes/openstack-stack-08f643f16b75bfb8.yaml @ de992398836117670b1271f63871755f8cac46a7
+
+- Add stack delete sub-command.
+  https://jira.linuxfoundation.org/browse/RELENG-235
+  
+  Usage: lftools openstack stack create NAME
+
+
+.. _lftools_v0.17.0_Other Notes:
+
+Other Notes
+-----------
+
+.. releasenotes/notes/logger-c53984ef7b1da53f.yaml @ 4edf459161faeaebe1614ff16f18101f0785adc6
+
+- Enhance logger subsystem to work better as a CLI program. This is a first
+  step to migrating all lftools subsystems to use the logger instead of print
+  statements everywhere.
+
+
+.. _lftools_v0.16.1:
+
+v0.16.1
+=======
+
+.. _lftools_v0.16.1_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/ldap-b50f699fc066890f.yaml @ 3a409e15b5ad16715525fc86ad163f61b890645f
+
+- The v0.16.0 pulled in a new ldap module which breaks if the ldap devel
+  libraries are not available on the system trying to use it. This hotfix
+  makes the ldap module optional.
+
+
+.. _lftools_v0.16.0:
+
+v0.16.0
+=======
+
+.. _lftools_v0.16.0_New Features:
+
+New Features
+------------
+
+.. releasenotes/notes/debug-e80d591d478e69cc.yaml @ 2380b4e056c54b0258bffa43972fbc171b4af481
+
+- Add a new ``--debug`` flag to enable extra troubleshooting information.
+  This flag can also be set via environment variable ``DEBUG=True``.
+
+.. releasenotes/notes/ldap-info-017df79c3c8f9585.yaml @ 4d7ce295121e166f2fb18417acd8f5193d4b382c
+
+- $ lftools ldap
+  
+  Usage: lftools ldap [OPTIONS] COMMAND [ARGS]...
+  
+  .. code-block:: none
+  
+     Commands:
+       autocorrectinfofile  Verify INFO.yaml against LDAP group.
+       csv                  Query an Ldap server.
+       inactivecommitters   Check committer participation.
+       yaml4info            Build yaml of commiters for your INFO.yaml.
+
+.. releasenotes/notes/ldap-info-017df79c3c8f9585.yaml @ 4d7ce295121e166f2fb18417acd8f5193d4b382c
+
+- $ lftools infofile
+  
+  .. code-block:: none
+  
+     Commands:
+       get-committers   Extract Committer info from INFO.yaml or LDAP...
+       sync-committers  Sync committer information from LDAP into...
+
+
+.. _lftools_v0.16.0_Deprecation Notes:
+
+Deprecation Notes
+-----------------
+
+.. releasenotes/notes/logger-1aa26520f6d39fcb.yaml @ 28fc57084d22dd96db149069666e945b039b474a
+
+- Remove support for modifying the logger via logging.ini. It was a good idea
+  but in practice this is not really used and adds extra complexity to
+  lftools.
+
+
+.. _lftools_v0.16.0_Bug Fixes:
+
+Bug Fixes
+---------
+
+.. releasenotes/notes/docs-cad1f396741b9526.yaml @ 32275fd2e51e759b4b2c4c4b5f6c6ea4baaffa6c
+
+- Fix broken openstack and sign help command output in docs.
+
