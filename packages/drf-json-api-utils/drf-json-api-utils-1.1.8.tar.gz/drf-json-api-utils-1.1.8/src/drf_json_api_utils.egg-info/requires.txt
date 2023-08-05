@@ -1,0 +1,17 @@
+django>=3.0.0
+djangorestframework-jsonapi
+djangorestframework
+django-filter
+rest-framework-generic-relations
+
+[dev]
+check-manifest
+
+[django-simple-history]
+django-simple-history
+
+[rest-framework-generic-relations]
+rest-framework-generic-relations
+
+[test]
+coverage
