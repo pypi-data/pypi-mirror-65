@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: RAOdata
+Version: 0.1.11
+Summary: Radioastronomy Observatory of Institute of Solar-Terrestrial Physics data access API
+Home-page: https://git.iszf.irk.ru/RAO/raodata
+Author: Yuri Aksenov
+Author-email: ura2112@iszf.irk.ru
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: zeep
+Requires-Dist: requests
+Requires-Dist: urllib3
+Requires-Dist: python-dateutil
+Requires-Dist: astropy
+Requires-Dist: scipy
+Requires-Dist: ephem
+Requires-Dist: matplotlib
+Requires-Dist: sunpy
+
+Package to access RAO data
+
+Instalation:
+
+pip3 install raodata
+
+
