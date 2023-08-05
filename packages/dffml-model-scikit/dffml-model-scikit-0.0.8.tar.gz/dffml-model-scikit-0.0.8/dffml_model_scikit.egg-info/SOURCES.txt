@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+dffml_model_scikit/__init__.py
+dffml_model_scikit/scikit_base.py
+dffml_model_scikit/scikit_models.py
+dffml_model_scikit/version.py
+dffml_model_scikit.egg-info/PKG-INFO
+dffml_model_scikit.egg-info/SOURCES.txt
+dffml_model_scikit.egg-info/dependency_links.txt
+dffml_model_scikit.egg-info/entry_points.txt
+dffml_model_scikit.egg-info/requires.txt
+dffml_model_scikit.egg-info/top_level.txt
+tests/__init__.py
+tests/test_scikit.py
+tests/test_scikit_integration.py

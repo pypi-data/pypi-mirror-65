@@ -1,0 +1,37 @@
+[dffml.model]
+scikitac = dffml_model_scikit.scikit_models:AgglomerativeClusteringModel
+scikitadaboost = dffml_model_scikit.scikit_models:AdaBoostClassifierModel
+scikitap = dffml_model_scikit.scikit_models:AffinityPropagationModel
+scikitard = dffml_model_scikit.scikit_models:ARDRegressionModel
+scikitbgc = dffml_model_scikit.scikit_models:BaggingClassifierModel
+scikitbirch = dffml_model_scikit.scikit_models:BirchModel
+scikitbnb = dffml_model_scikit.scikit_models:BernoulliNBModel
+scikitbyr = dffml_model_scikit.scikit_models:BayesianRidgeModel
+scikitdtc = dffml_model_scikit.scikit_models:DecisionTreeClassifierModel
+scikitdtr = dffml_model_scikit.scikit_models:DecisionTreeRegressorModel
+scikiteln = dffml_model_scikit.scikit_models:ElasticNetModel
+scikitetc = dffml_model_scikit.scikit_models:ExtraTreesClassifierModel
+scikitgbc = dffml_model_scikit.scikit_models:GradientBoostingClassifierModel
+scikitgnb = dffml_model_scikit.scikit_models:GaussianNBModel
+scikitgpc = dffml_model_scikit.scikit_models:GaussianProcessClassifierModel
+scikitgpr = dffml_model_scikit.scikit_models:GaussianProcessRegressorModel
+scikitkmeans = dffml_model_scikit.scikit_models:KMeansModel
+scikitknn = dffml_model_scikit.scikit_models:KNeighborsClassifierModel
+scikitlars = dffml_model_scikit.scikit_models:LarsModel
+scikitlas = dffml_model_scikit.scikit_models:LassoModel
+scikitlda = dffml_model_scikit.scikit_models:LinearDiscriminantAnalysisModel
+scikitlor = dffml_model_scikit.scikit_models:LogisticRegressionModel
+scikitlr = dffml_model_scikit.scikit_models:LinearRegressionModel
+scikitmbkmeans = dffml_model_scikit.scikit_models:MiniBatchKMeansModel
+scikitmlp = dffml_model_scikit.scikit_models:MLPClassifierModel
+scikitmnb = dffml_model_scikit.scikit_models:MultinomialNBModel
+scikitms = dffml_model_scikit.scikit_models:MeanShiftModel
+scikitomp = dffml_model_scikit.scikit_models:OrthogonalMatchingPursuitModel
+scikitoptics = dffml_model_scikit.scikit_models:OPTICSModel
+scikitqda = dffml_model_scikit.scikit_models:QuadraticDiscriminantAnalysisModel
+scikitrfc = dffml_model_scikit.scikit_models:RandomForestClassifierModel
+scikitridge = dffml_model_scikit.scikit_models:RidgeModel
+scikitrsc = dffml_model_scikit.scikit_models:RANSACRegressorModel
+scikitsc = dffml_model_scikit.scikit_models:SpectralClusteringModel
+scikitsvc = dffml_model_scikit.scikit_models:SVCModel
+
