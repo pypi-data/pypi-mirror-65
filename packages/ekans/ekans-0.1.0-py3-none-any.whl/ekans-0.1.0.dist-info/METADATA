@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: ekans
+Version: 0.1.0
+Summary: A simple utility to check Conda environments integrity
+Author: Diego Vicente
+Author-email: mail@diego.codes
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: packaging (>=20.3,<21.0)
+Requires-Dist: pyyaml (>=5.3.1,<6.0.0)
