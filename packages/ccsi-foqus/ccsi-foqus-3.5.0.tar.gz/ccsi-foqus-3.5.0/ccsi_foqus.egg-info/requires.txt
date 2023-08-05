@@ -1,0 +1,16 @@
+boto3
+cma
+matplotlib
+mlrose
+numpy
+pandas
+psutil
+PyQt5==5.13.*
+requests
+scipy
+tqdm
+TurbineClient
+
+[:sys_platform == "win32"]
+adodbapi>=2.6.0.7
+pywin32
