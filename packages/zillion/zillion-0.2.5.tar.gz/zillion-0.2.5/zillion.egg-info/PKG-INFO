@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: zillion
+Version: 0.2.5
+Summary: Make sense of it all.
+Home-page: https://github.com/totalhack/zillion
+Author: totalhack
+Author-email: none@none.com
+Maintainer: totalhack
+License: MIT
+Description: Zillion: Make sense of it all
+        =============================
+        
+        Documentation/etc. to follow when the project is more mature.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: complete
+Provides-Extra: dev
+Provides-Extra: postgres
