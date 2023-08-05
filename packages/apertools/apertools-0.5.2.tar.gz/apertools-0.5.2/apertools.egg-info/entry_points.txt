@@ -1,0 +1,5 @@
+[console_scripts]
+aper = apertools.scripts.cli:cli
+asfdownlaod = apertools.scripts.asfdownlaod:cli
+createdem = apertools.scripts.dem_cli:cli
+
