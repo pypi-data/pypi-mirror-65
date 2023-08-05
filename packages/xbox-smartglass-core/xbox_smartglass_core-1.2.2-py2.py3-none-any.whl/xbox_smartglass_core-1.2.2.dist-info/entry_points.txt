@@ -1,0 +1,15 @@
+[console_scripts]
+xbox-cli = xbox.scripts.main_cli:main
+xbox-discover = xbox.scripts.main_cli:main_discover
+xbox-fo4-relay = xbox.scripts.main_cli:main_falloutrelay
+xbox-gamepadinput = xbox.scripts.main_cli:main_gamepadinput
+xbox-pcap = xbox.scripts.pcap:main
+xbox-poweroff = xbox.scripts.main_cli:main_poweroff
+xbox-poweron = xbox.scripts.main_cli:main_poweron
+xbox-recrypt = xbox.scripts.recrypt:main
+xbox-repl = xbox.scripts.main_cli:main_repl
+xbox-replserver = xbox.scripts.main_cli:main_replserver
+xbox-rest-server = xbox.scripts.rest_server:main
+xbox-textinput = xbox.scripts.main_cli:main_textinput
+xbox-tui = xbox.scripts.main_cli:main_tui
+
