@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pandemic
+Version: 0.1.4
+Summary: Orstein-Uhlenbeck pandemic simulation
+Home-page: https://github.com/microprediction/pandemic
+Author: microprediction
+Author-email: info@microprediction.org
+License: MIT
+Description: # Pandemic
+        
+        A generative model
+        
+            pip install pandemic
+            >> from pandemic import run
+            >> run()
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
