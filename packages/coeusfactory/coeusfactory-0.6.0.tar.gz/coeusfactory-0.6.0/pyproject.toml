@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "coeusfactory"
+version = "0.6.0"
+description = "A Database Connector interface that follows a factory model pattern."
+repository = "https://github.com/mamerisawesome/coeusfactory"
+keywords = [
+    "database",
+    "database-factory",
+    "db-connector",
+]
+readme = "README.md"
+authors = ["Almer Mendoza <atmalmer23@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pypubsub = "^4.0.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+hypothesis = "^5.5.4"
+flake8 = "^3.7.9"
+boto3 = "^1.11.15"
+pymongo = "^3.10.1"
+coverage = "^5.0.3"
+coverage-badge = "^1.0.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
