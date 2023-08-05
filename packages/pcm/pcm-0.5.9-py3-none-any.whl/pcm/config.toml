@@ -1,0 +1,62 @@
+template_dir = '~/.config/pcm/template'
+
+[prepare]
+  [prepare.custom_hook_command]
+  # after = 'nvim {dirname} -c "args **/solve.cpp" -c "tab all" -c ""'
+
+[ppp]
+  [ppp.custom_hook_command]
+  # after = 'nvim {dirname} -c "args **/solve.cpp" -c "tab all" -c ""'
+
+[submit]
+  [submit.default_lang.atcoder]
+  cpp = '3003' # C++14 (GCC 5.4.1)
+  py = '3510'  # pypy
+
+  [submit.default_lang.codeforces]
+  cpp = '50'  # GNU G++14 6.4.0
+  py = '41'   # pypy if you prefer python3, use '31'
+
+  [submit.language.atcoder]
+  gcc = '3003'
+  clang = '3004'
+  py = '3023'
+  py3 = '3023'
+  pypy = '3510'
+
+  [submit.language.codeforces]
+  py = '31'
+  py3 = '31'
+  pypy = '41'
+  gcc = '50'
+  clang = '52'
+
+[test]
+  timeout_sec=2
+  max_memory=256
+
+  [test.compile_command.cpp]  # for tt command, you can change the compile command by --cc option. like 'pcm tt -c 1 --cc v5'
+  default = """g++ {srcpath} -o {outpath} \
+            -std=c++14 \
+            -DPCM -Wall -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG -fuse-ld=gold
+            """
+
+  debug = """g++ {srcpath} -o {outpath} \
+            -std=c++14 \
+            -DPCM -Wall -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG -fuse-ld=gold \
+            -g
+            """
+
+  v5 = """g++ {srcpath} -o {outpath} \
+          -std=c++14 \
+          -DPCM -Wall -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
+          """
+
+  fast = """g++ {srcpath} -o {outpath} \
+          -std=c++14 \
+          """
+
+  clang = """clang++ {srcpath} -o {outpath} \
+          -stdlib=libc++ \
+          -DPCM -Wall
+          """
