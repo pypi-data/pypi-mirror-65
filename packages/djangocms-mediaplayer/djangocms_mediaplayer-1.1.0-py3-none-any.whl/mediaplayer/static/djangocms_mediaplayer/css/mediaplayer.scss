@@ -1,0 +1,265 @@
+$player-primary-color: white;
+$player-secondary-color: black;
+
+$player-progress-bar-color: $player-primary-color;
+$player-controls-color: $player-primary-color;
+$player-controls-hover-color: white;
+$player-font-size: 1rem;
+
+
+
+.mediaplayer-container {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+
+
+  .video-wrapper.playing:after {
+    opacity: 0;
+    transition: opacity 120ms ease-in-out;
+    -webkit-transition:opacity 120ms ease-in-out;
+  }
+
+  .player-controls.video {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 120ms ease-in-out;
+    -webkit-transition:opacity 120ms ease-in-out;
+  }
+
+  &.hide-controls {
+    .player-controls {
+      opacity: 0 !important;
+    }
+    .video-wrapper.playing:after {
+      opacity: 0 !important;
+    }
+  }
+
+  &:hover {
+    .video-wrapper.playing:after {
+      opacity: 1;
+    }
+
+    .player-controls {
+      opacity: 1;
+    }
+  }
+
+  video {
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  // Play button overlay
+  .video-wrapper {
+    line-height: 0;
+    &:after {
+      content: "";
+      z-index: 10;
+      cursor: pointer;
+      width: 5rem;
+      height: 5rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+
+      background: url("../img/play-circle-regular.svg") no-repeat center center;
+      background-size: 100% 100%;
+    }
+    &.playing:after {
+      background: url("../img/pause-circle-regular.svg") no-repeat center center;
+      //content: none;
+    }
+
+  }
+
+  // Fullscreen adjustments
+  &[data-fullscreen="true"] {
+    z-index: 0;
+    video {
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      max-height: 100%;
+      z-index: -99;
+    }
+
+    .player-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+  }
+  .icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: $player-controls-color;
+    margin: 0.3rem;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center center;
+    -webkit-mask-position: center center;
+    mask-size: auto;
+    -webkit-mask-size: auto;
+
+    // icons defs
+    &.icon-state {
+      mask-image: url("../img/play.svg");
+      -webkit-mask-image: url("../img/play.svg");
+    }
+    &.icon-state.playing {
+      mask-image: url("../img/pause-solid.svg");
+      -webkit-mask-image: url("../img/pause-solid.svg");
+    }
+    &.icon-stop {
+      mask-image: url("../img/stop-solid.svg");
+      -webkit-mask-image: url("../img/stop-solid.svg");
+    }
+    &.icon-rewind {
+      mask-image: url("../img/backward-solid.svg");
+      -webkit-mask-image: url("../img/backward-solid.svg");
+    }
+    &.icon-fast-forward {
+      mask-image: url("../img/forward-solid.svg");
+      -webkit-mask-image: url("../img/forward-solid.svg");
+    }
+    &.icon-volume {
+      mask-image: url("../img/volume-up-solid.svg");
+      -webkit-mask-image: url("../img/volume-up-solid.svg");
+    }
+    &.icon-volume.mute {
+      mask-image: url("../img/volume-mute-solid.svg");
+      -webkit-mask-image: url("../img/volume-mute-solid.svg");
+    }
+    &.icon-fullscreen {
+      mask-image: url("../img/expand-solid.svg");
+      -webkit-mask-image: url("../img/expand-solid.svg");
+    }
+  }
+
+  .player-controls {
+    background-color: $player-secondary-color;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    &.audio { border-radius: 0.3rem; }
+    &, a { color: $player-primary-color; font-size: $player-font-size;}
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
+    // player button styling
+    button {
+      background-color: transparent;
+      color: $player-primary-color;
+      padding: 0;
+      border: none;
+      font: inherit;
+      display: inherit;
+      cursor: pointer;
+
+
+      &:hover .icon {
+        background-color: $player-controls-hover-color;
+      }
+    }
+
+    // not browsable progress bar
+    .progress-container {
+      width: 50%;
+      display: flex;
+      align-items: center;
+
+      progress[value] {
+        width: 100%;
+        background-color: rgba(255,255,255,0.25);
+        border: none;
+        border-radius: 0.3rem;
+        overflow: hidden;
+
+        &::-webkit-progress-bar,
+        &::-moz-progress-bar,
+        &::-webkit-progress-value  {
+          background-color: $player-progress-bar-color;
+        }
+
+      }
+    }
+
+    // progress slider
+    .slide-container {
+      width: 100%;
+      input[type="range"] {
+        width: 100%;
+        background-color: transparent;
+        position: relative;
+
+        &::-moz-range-track, &::-webkit-slider-runnable-track {
+          background-color: rgba(255,255,255,0.25);
+        }
+        &::-moz-range-progress {
+          background-color: $player-progress-bar-color;
+        }
+        &::-moz-range-thumb {
+          border: none;
+          background-color: $player-primary-color;
+        }
+      }
+    }
+
+    // current time and duration
+    .playtime-text {
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      & > * {
+        padding: 0 0.3rem;
+      }
+    }
+
+    // volume slider
+    .volume-slider-container {
+      max-width: 20%;
+      .volume-slider {
+        background: transparent;
+        width: 100%;
+
+        &::-moz-range-thumb {
+          border: none;
+          background-color: $player-primary-color;
+        }
+        &::-moz-range-track, &::-webkit-slider-runnable-track {
+          background-color: rgba(255,255,255,0.25);
+        }
+        &::-moz-range-progress {
+          background-color: $player-progress-bar-color;
+        }
+      }
+    }
+  }
+}
