@@ -1,0 +1,9 @@
+[console_scripts]
+sympathy = sympathy.__main__:main
+
+[gui_scripts]
+
+
+[sympathy.library.plugins]
+sylib = sylib
+
