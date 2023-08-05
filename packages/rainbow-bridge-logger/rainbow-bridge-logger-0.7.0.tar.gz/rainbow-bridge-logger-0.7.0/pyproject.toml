@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "rainbow-bridge-logger"
+version = "0.7.0"
+description = "Improved wrapper for native logger of Python 3"
+authors = ["Almer Mendoza <atmalmer23@gmail.com>"]
+readme = "long-description.rst"
+repository = "https://github.com/mamerisawesome/rainbow-bridge-logger"
+keywords = ["logging", "colored", "logger", "python", "rainbow", "logging-wrapper"]
+packages = [ { include = "rainbow" } ]
+license = "MIT"
+include = [
+    "long-description.rst",
+    "README.md",
+    "LICENSE.txt",
+    "test.py",
+    "res/rainbow-logger-output.png"
+]
+
+[tool.poetry.dependencies]
+python = "~2.7 || ^3.6"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
