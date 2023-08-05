@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: arfs-gen
+Version: 1.1.0
+Summary: Library to generate toy data for machine learning experiments in the context of all-relevant feature selection.
+License: MIT
+Author: Lukas Pfannschmidt
+Author-email: lukas@lpfann.me
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: numpy (>=1,<2)
+Requires-Dist: scikit-learn (>=0,<1)
