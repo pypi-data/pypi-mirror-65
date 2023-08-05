@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: standup-notes
+Version: 0.0.1
+Summary: This is small tool for managing daily standup notes and getting them ready to be copy/pasted into another platform (i.e. virtual standup in Mattermost)
+Home-page: http://www.mikemartino.ca
+Author: Mike Martino
+Author-email: mikemartino86@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: python-editor (==1.0.4)
+Requires-Dist: pyperclip (==1.8.0)
+
+## Configure
+```
+### From source code
+sudo python3 -m pip install pipenv 
+sudo python3 setup.py install --user
+
+### From PyPi
+sudo pip3 install standup-notes
+```
+
+## Run
+```
+standup-notes --list
+standup-notes --read-today
+standup-notes --read-tomorrow
+standup-notes --edit-today
+standup-notes --edit-tomorrow
+standup-notes --copy-today
+standup-notes --copy-tomorrow
+```
+
+
+
