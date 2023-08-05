@@ -1,0 +1,9 @@
+redis<3.5
+six>=1.12
+sortedcontainers
+
+[aioredis]
+aioredis
+
+[lua]
+lupa
