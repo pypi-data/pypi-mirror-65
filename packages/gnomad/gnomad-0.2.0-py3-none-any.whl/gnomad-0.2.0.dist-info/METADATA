@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: gnomad
+Version: 0.2.0
+Summary: Hail utilities for the Genome Aggregation Database
+Home-page: https://github.com/broadinstitute/gnomad_methods
+Author: The Genome Aggregation Database
+Author-email: exomeconsortium@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://broadinstitute.github.io/gnomad_methods/
+Project-URL: Source Code, https://github.com/broadinstitute/gnomad_methods
+Project-URL: Issues, https://github.com/broadinstitute/gnomad_methods/issues
+Platform: UNKNOWN
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: hdbscan
+Requires-Dist: ipywidgets
+Requires-Dist: scikit-learn
+Requires-Dist: slackclient (==2.0.0)
+
+# Hail utilities for gnomAD
+
+[![PyPI](https://img.shields.io/pypi/v/gnomad)](https://pypi.org/project/gnomad/)
+
+This repo contains a number of [Hail](https://hail.is/) utility functions and scripts for the [gnomAD project](http://gnomad.broadinstitute.org) and the [MacArthur lab](http://macarthurlab.org). As we continue to expand the size of our datasets, we are constantly seeking to find ways to reduce the complexity of our workflows and to make these functions more generic. As a result, the interface for many of these functions will change over time as we generalize their implementation for more flexible use within our scripts. We are also continously adapting our code to regular changes in the Hail interface. These repos thus represent only a snapshot of the gnomAD code base and are shared without guarantees or warranties.
+
+We therefore encourage users to browse through the [API reference](https://broadinstitute.github.io/gnomad_methods/api_reference/) to identify modules and functions that will be useful in their own pipelines, and to edit and reconfigure relevant code to suit their particular analysis and QC needs.
+
+
