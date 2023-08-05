@@ -1,0 +1,5 @@
+[console_scripts]
+bl3-process-archive-saves = bl3save.cli_archive:main
+bl3-save-edit = bl3save.cli_edit:main
+bl3-save-info = bl3save.cli_info:main
+
