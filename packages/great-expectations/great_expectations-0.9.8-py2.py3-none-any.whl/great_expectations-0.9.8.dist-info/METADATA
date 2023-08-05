@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: great-expectations
+Version: 0.9.8
+Summary: Always know what to expect from your data.
+Home-page: https://github.com/great-expectations/great_expectations
+Author: The Great Expectations Team
+Author-email: team@greatexpectations.io
+License: Apache-2.0
+Keywords: data science testing pipeline data quality dataquality validation datavalidation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Other Audience
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: pyparsing (<3,>=2.4)
+Requires-Dist: numpy (>=1.14.1)
+Requires-Dist: scipy (>=0.19.0)
+Requires-Dist: pandas (>=0.22.0)
+Requires-Dist: python-dateutil (>=2.4.2)
+Requires-Dist: pytz (>=2015.6)
+Requires-Dist: six (>=1.12.0)
+Requires-Dist: jsonschema (>=2.5.1)
+Requires-Dist: altair (>=3.1.0)
+Requires-Dist: backports.functools-lru-cache (>=1.5)
+Requires-Dist: ruamel.yaml (>=0.15.24)
+Requires-Dist: ipywidgets (>=7.4.2)
+Requires-Dist: requests (>=2.20)
+Requires-Dist: Click (>=7.0)
+Requires-Dist: termcolor (>=1.1.0)
+Requires-Dist: tzlocal (>=1.2)
+Requires-Dist: mistune (>=0.8.4)
+Requires-Dist: future (>=0.16)
+Requires-Dist: jinja2 (>=2.10)
+Requires-Dist: marshmallow (>3.0)
+Requires-Dist: autopep8 (>=1.4.4)
+Requires-Dist: black (==19.10b0)
+Provides-Extra: airflow
+Requires-Dist: apache-airflow[s3] (>=1.9.0) ; extra == 'airflow'
+Requires-Dist: boto3 (>=1.7.3) ; extra == 'airflow'
+Provides-Extra: spark
+Requires-Dist: pyspark (>=2.3.2) ; extra == 'spark'
+Provides-Extra: sqlalchemy
+Requires-Dist: sqlalchemy (>=1.2) ; extra == 'sqlalchemy'
+
+Always know what to expect from your data. (See https://github.com/great-expectations/great_expectations for full description).
+
+
