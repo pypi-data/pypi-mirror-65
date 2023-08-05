@@ -1,0 +1,6 @@
+[dffml.db]
+mysql = dffml_source_mysql.db:MySQLDatabase
+
+[dffml.source]
+mysql = dffml_source_mysql.source:MySQLSource
+
