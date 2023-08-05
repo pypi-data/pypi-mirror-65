@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: torch_dataset_mirror
+Version: 0.2.1
+Summary: pytorch数据集国内镜像
+Home-page: https://github.com/killf/pytorch_dataset_mirror
+Author: killf
+Author-email: killf@foxmail.com
+License: Apache License
+Description: # PyTorch数据集国内镜像
+        
+        ### 一、使用方法
+        
+        只需要在使用数据集之前导入`torch_dataset_mirror`模块即可，如下：
+        
+        ```python
+        import torch
+        import torch_dataset_mirror
+        import torchvision.datasets.mnist as mnist
+        
+        train_dataset = mnist.MNIST("./data", train=True, download=True)
+        test_dataset = mnist.MNIST("./data", train=False, download=True)
+        ```
+        
+        ### 二、使用其他镜像
+        
+        要使用其他镜像，只需要修改`PYTORCH_DATASET_MIRROR`环境变量即可，如下：
+        
+        ```bash
+        export PYTORCH_DATASET_MIRROR=http://192.168.0.100:8080
+        ```
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
