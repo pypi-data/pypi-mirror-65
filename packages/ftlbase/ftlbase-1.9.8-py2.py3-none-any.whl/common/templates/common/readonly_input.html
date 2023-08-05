@@ -1,0 +1,20 @@
+{% load crispy_forms_field common_forms_tags %}
+
+
+<div id="div_{{ field.auto_id }}"
+     class="form-group{% if form_show_errors and field.errors %} error{% endif %}{% if field.css_classes %} {{ field.css_classes }}{% endif %}">
+  {% if not inline %}
+  <label class="control-label {{ label_class }}{% if field.field.required %} requiredField{% endif %}">
+    {{ field.label|safe }}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+  {% endif %}
+  <div class="controls {{ field_class }}">
+    {% if field|is_select %}
+        <div id="{{ field.auto_id }}" class="textinput textInput form-control {{ field_class }}" disabled>
+        {{ field|field_text|safe }}
+        </div>
+    {% else %}
+      {% crispy_field field 'disabled' 'disabled' %}
+    {% endif %}
+    {% include 'bootstrap3/layout/help_text.html' %}
+  </div>
+</div>
