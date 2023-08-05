@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: jk-flexdata
+Version: 0.2020.4.4
+Summary: This python module provides a special dictionary like data data structure that can be easily used to access and modify values of configurations and settings.
+Home-page: https://github.com/jkpubsrc/python-module-jk-flexdata
+Author: Jürgen Knauth
+Author-email: pubsrc@binary-overflow.de
+License: Apache 2.0
+Download-URL: https://github.com/jkpubsrc/python-module-jk-flexdata/tarball/0.2020.4.4
+Description: jk_flexdata
+        ==========
+        
+        Introduction
+        ------------
+        
+        This python module ...
+        
+        Information about this module can be found here:
+        
+        * [github.org](https://github.com/jkpubsrc/python-module-jk-flexdata)
+        * [pypi.python.org](https://pypi.python.org/pypi/jk_flexdata)
+        
+        Why this module?
+        ----------------
+        
+        ...
+        
+        Limitations of this module
+        --------------------------
+        
+        ...
+        
+        How to use this module
+        ----------------------
+        
+        ### Import this module
+        
+        Please include this module into your application using the following code:
+        
+        ```python
+        impoert jk_flexdata
+        ```
+        
+        ...
+        
+        Contact Information
+        -------------------
+        
+        This is Open Source code. That not only gives you the possibility of freely using this code it also
+        allows you to contribute. Feel free to contact the author(s) of this software listed below, either
+        for comments, collaboration requests, suggestions for improvement or reporting bugs:
+        
+        * Jürgen Knauth: jknauth@uni-goettingen.de, pubsrc@binary-overflow.de
+        
+        License
+        -------
+        
+        This software is provided under the following license:
+        
+        * Apache Software License 2.0
+        
+        
+        
+        
+Keywords: dictionary,dict,json,configuration
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
