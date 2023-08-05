@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: aspplea
+Version: 0.0.2
+Summary: ASPP course project package 'Traveling Salesperson'
+Home-page: https://github.com/LeaHohmann/TravelingSalesperson
+Author: Lea Hohmann
+Author-email: lea.hohmann@outlook.de
+License: UNKNOWN
+Description: # ISPP Traveling Salesman
+        
+        This package uses either the analytical method (datasets < 8) or the nearest-neighbour method to try to find a route for a symmetric TSP from a data matrix
+        
+        This package works on csv input files containing the symmetric matrix of distances for the TSP including indices, for examples see:
+        [Github Repository](https://github.com/LeaHohmann/TravelingSalesperson)
+        
+        To use, import the salesman module and call salesman.salesman(filename)
+        
+        # Requirements
+        
+        This package uses the numpy and pandas packages
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
