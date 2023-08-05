@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+fmri_anonymizer/__init__.py
+fmri_anonymizer/__main__.py
+fmri_anonymizer/deidentifier.py
+fmri_anonymizer/directory_replicator.py
+fmri_anonymizer/file_searcher.py
+fmri_anonymizer.egg-info/PKG-INFO
+fmri_anonymizer.egg-info/SOURCES.txt
+fmri_anonymizer.egg-info/dependency_links.txt
+fmri_anonymizer.egg-info/entry_points.txt
+fmri_anonymizer.egg-info/requires.txt
+fmri_anonymizer.egg-info/top_level.txt
+tests/__init__.py
