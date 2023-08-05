@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: certifi-2019.11.28
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/certifi-2019.11.28-031cffdb-48fa-05ed-c926-05551225b7c9
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: Kenneth Reitz (me@kennethreitz.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-02T14:32:39Z
+
+
+# Package
+
+PackageName: certifi
+SPDXID: SPDXRef-certifi
+PackageVersion: 2019.11.28
+PackageDownloadLocation: NONE
+PackageSummary: <text>Python package for providing Mozilla's CA Bundle.</text>
+PackageFileName: certifi
+PackageOriginator: Person: Kenneth Reitz (me@kennethreitz.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: MPL-2.0
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseInfoFromFiles: MPL-2.0
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://certifi.io/
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: MPL-2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+

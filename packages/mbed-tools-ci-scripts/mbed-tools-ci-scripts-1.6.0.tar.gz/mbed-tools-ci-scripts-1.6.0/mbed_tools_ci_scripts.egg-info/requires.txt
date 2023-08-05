@@ -1,0 +1,16 @@
+gitpython
+towncrier
+pyautoversion
+pdoc3
+toml
+python-dotenv
+twine
+boto3
+packaging
+licenseheaders
+spdx-tools
+license-expression
+wcmatch
+
+[:python_version < "3.7"]
+dataclasses

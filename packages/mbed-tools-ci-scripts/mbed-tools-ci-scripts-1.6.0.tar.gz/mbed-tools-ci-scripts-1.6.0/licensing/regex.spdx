@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: regex-2020.2.20
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/regex-2020.2.20-d8e4f766-9b56-b8c1-3bb1-70997290f2f7
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: Matthew Barnett (regex@mrabarnett.plus.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-02T14:32:39Z
+
+
+# Package
+
+PackageName: regex
+SPDXID: SPDXRef-regex
+PackageVersion: 2020.2.20
+PackageDownloadLocation: NONE
+PackageSummary: <text>Alternative regular expression module, to replace re.</text>
+PackageFileName: regex
+PackageOriginator: Person: Matthew Barnett (regex@mrabarnett.plus.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: Python Software Foundation License
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseInfoFromFiles: Python Software Foundation License
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://bitbucket.org/mrabarnett/mrab-regex
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: Python Software Foundation License
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+

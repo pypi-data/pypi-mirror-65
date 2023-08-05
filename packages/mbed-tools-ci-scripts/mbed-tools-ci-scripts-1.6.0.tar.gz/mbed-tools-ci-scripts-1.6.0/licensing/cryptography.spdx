@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: cryptography-2.8
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/cryptography-2.8-c84bad13-5603-0b42-52f3-dabc6f0dc63e
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: The cryptography developers (cryptography-dev@python.org)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-02T14:32:39Z
+
+
+# Package
+
+PackageName: cryptography
+SPDXID: SPDXRef-cryptography
+PackageVersion: 2.8
+PackageDownloadLocation: NONE
+PackageSummary: <text>cryptography is a package which provides cryptographic recipes and primitives to Python developers.</text>
+PackageFileName: cryptography
+PackageOriginator: Person: The cryptography developers (cryptography-dev@python.org)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: BSD or Apache License, Version 2.0
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseInfoFromFiles: BSD or Apache License, Version 2.0
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://github.com/pyca/cryptography
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: BSD or Apache License, Version 2.0
+FileCopyrightText: NOASSERTION
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+
