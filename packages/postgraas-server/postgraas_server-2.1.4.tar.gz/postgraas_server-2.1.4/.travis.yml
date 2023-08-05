@@ -1,0 +1,33 @@
+language: python
+python:
+- '2.7'
+- '3.5'
+- '3.6'
+services:
+- docker
+before_install:
+- docker pull postgres:9.4
+- docker pull postgres
+install:
+- pip install pip-tools
+- pip-compile --upgrade -o requirements-pinned.txt requirements.txt requirements_secrets.in requirements_prometheus.in
+- pip-compile --upgrade -o test-requirements-pinned.txt requirements-pinned.txt requirements_dev.txt
+- cat requirements-pinned.txt
+- pip install -r test-requirements-pinned.txt
+- pip install 'pyscaffold<3.0'
+- pip install coveralls
+- pip install -e .[docker]
+- pip freeze
+script:
+- . setup_integration_test_docker.sh
+- py.test
+after_success:
+- coveralls
+deploy:
+  provider: pypi
+  user: __token__
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  on:
+    tags: true
+    branch: master
