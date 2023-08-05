@@ -1,0 +1,13 @@
+[console_scripts]
+taurenmd = taurenmd.cli:maincli
+tmddist = taurenmd.cli_distances:maincli
+tmdfext = taurenmd.cli_fext:maincli
+tmdimagemol = taurenmd.cli_imagemol:maincli
+tmdnosol = tauremd.cli_nosol:maincli
+tmdpangle = taurenmd.cli_pangle:maincli
+tmdreport = taurenmd.cli_report:maincli
+tmdrmsd = taurenmd.cli_rmsd:maincli
+tmdrmsf = taurenmd.cli_rmsf:maincli
+tmdrot = taurenmd.cli_rot:maincli
+tmdtrajedit = taurenmd.cli_trajedit:maincli
+
