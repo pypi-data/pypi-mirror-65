@@ -1,0 +1,135 @@
+# Python-Client
+
+## Getting the Optimus Python client
+
+There are three ways to install and use the Optimus Python client.
+
+1. Install from [PyPi](https://pypi.org), as [Optimus-Python-Client](https://pypi.org/project/Optimus-Pyhton-Client/)
+
+    ```
+    pip install Optimus-Python-Client
+    ```
+
+2. Install from source, via [PyPi](https://pypi.org). From [Optimus-Python-Client](https://pypi.org/project/Optimus-Pyhton-Client/), download and unarchive the source tarball (Optimus-Python-Client-X.X.tar.gz).
+
+    ```
+    tar -xvf Optimus-Python-Client-X.X.tar.gz
+    cd Optimus-Python-Client-X.X
+    python setup.py install
+    ```
+
+3. Install from source via GitHub.
+
+    ```
+    git clone <path>
+    cd python-client
+    python setup.py install
+    ```
+
+### Run Tests
+
+
+1. With Python's [unittest](https://docs.python.org/3/library/unittest.html)
+
+    -  Create `setUp` and `tearDown` method inside a class.
+
+        ```python
+        import unittest
+
+        from remote.OptimusCloudDriver import OptimusCloudDriver
+        from remote.OptimusCloudManager import OptimusCloudManager
+
+        class BaseTest(unittest.TestCase):
+            def setUp(self) -> None:
+                desired_caps = {
+                    'platformName': 'Android',
+                    'appPackage': 'com.cleartrip.android',
+                    'appActivity': 'com.cleartrip.android.activity.common.SplashActivity'
+                }
+                self.mobileDriverDetails = OptimusCloudDriver().createDriver(desiredCapabilities=desired_caps)
+                self.driver = self.mobileDriverDetails.mobileDriver
+
+            def tearDown(self) -> None:
+                OptimusCloudManager().releaseSession(self.mobileDriverDetails)
+       ```
+
+	- Write the test.
+
+        ```python
+        class TestFile(BaseTest):
+            def test_page_title(self):
+                sleep(3)
+                self.driver.find_element_by_id("classic_bottom_navigation_icon").click()
+                assert self.driver.find_element_by_id("headerTxt").text == "Search Flights"
+        ```
+
+    - Run the tests
+
+
+2. With [pytest](https://docs.pytest.org/en/latest/contents.html)
+
+    - Write `setup` and `teardown` method in a class
+
+        ```python
+        import pytest
+    
+        from remote.OptimusCloudDriver import OptimusCloudDriver
+        from remote.OptimusCloudManager import OptimusCloudManager
+    
+        class DriverFactory(object):
+            @pytest.fixture(scope='function', autouse=True)
+            def setUp(self) -> None:
+                desired_caps = {
+                    'platformName': 'Android',
+                    'appPackage': 'com.cleartrip.android',
+                    'appActivity': 'com.cleartrip.android.activity.common.SplashActivity'
+                }
+                self.mobileDriverDetails = OptimusCloudDriver().createDriver(desiredCapabilities=desired_caps)
+                self.driver = self.mobileDriverDetails.mobileDriver
+    
+            @pytest.fixture(scope='function', autouse=True)
+            def tearDown(self) -> None:
+                OptimusCloudManager().releaseSession(self.mobileDriverDetails)
+        ```
+    
+        Read more about fixtures [here](https://docs.pytest.org/en/latest/fixture.html#scope-sharing-a-fixture-instance-across-tests-in-a-class-module-or-session)
+
+    - Write the Test class
+
+        ```python
+        from time import sleep
+
+        from test.DriverFactory import DriverFactory
+
+        class TestPageTitle(DriverFactory):
+            def test_page_title(self):
+                sleep(3)
+                self.driver.find_element_by_id("classic_bottom_navigation_icon").click()
+                assert self.driver.find_element_by_id("headerTxt").text == "Search Flights"
+        ```
+
+    - Run the test
+
+        ```
+        pytest TestPageTitle.py 
+        ```
+
+#### Run tests in parallel
+
+- Parallelization can be achieved by using [pytest-xdist](https://pypi.org/project/pytest-xdist)
+
+    - Install it via pip or pip3
+
+        `pip install pytest-xdist`
+
+        `pip3 install pytest-xdist`
+
+    - Write multiple tests or test in multiple files
+
+    - Run the test
+
+        `pytest -n <number of thread>`
+
+        ```shell script
+        pytest -n 2
+        ```
