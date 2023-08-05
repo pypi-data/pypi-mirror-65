@@ -1,0 +1,85 @@
+environment:
+  CARGO_HOME: "c:\\cargo"
+  RUSTUP_HOME: "c:\\rustup"
+  # Change this to the name of your binary
+  BINARY_NAME: "maturin.exe"
+  global:
+    RUST_BACKTRACE: full
+
+  MATURIN_PASSWORD:
+    secure: 3xTkaAvLd84qjLwY/quMb0w1Kh5NRXQ0a/zHtjnH4WY=
+  matrix:
+    # For the integration test
+    - TARGET: x86_64-pc-windows-msvc
+      CHANNEL: nightly-2020-01-23
+      PYTHON: "C:/Python36-x64"
+
+    # Publishes to pypi
+    - TARGET: i686-pc-windows-msvc
+      CHANNEL: stable
+    - TARGET: x86_64-pc-windows-msvc
+      CHANNEL: stable
+
+matrix:
+  fast_finish: true
+
+cache:
+  - target -> Cargo.lock
+
+install:
+  #- cinst miniconda3 # Deactivate because it makes non-conda tests fail
+  - appveyor-retry appveyor DownloadFile https://win.rustup.rs/ -FileName rustup-init.exe
+  - rustup-init.exe -y --default-host %TARGET% --default-toolchain %CHANNEL%
+  - SET PATH=%PATH%;%CARGO_HOME%\bin
+
+  # See https://github.com/PyO3/pyo3/blob/master/ci/appveyor/setup.ps1
+  - ps: if ($env:channel -like "nightly-2020-01-23") { .\ci\setup.ps1 }
+
+  # From and for ring
+  - IF "%CHANNEL%" == "nightly-2020-01-23" (call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"  x86_amd64)
+
+  - echo %PATH%
+  - echo %LIBPATH%
+  - rustc -V
+  - cargo -V
+
+test_script:
+  - cargo build
+  - IF "%CHANNEL%" == "nightly-2020-01-23" (python.exe -m pip install --upgrade cffi virtualenv)
+  - IF "%CHANNEL%" == "nightly-2020-01-23" (cargo test)
+
+before_deploy:
+  - cargo build --release --features password-storage
+  # Grab the binary and pack it into a zip archive
+  - cd target\release\
+  # You can add more file to the archive by adding them to this line
+  - 7z a ../../%APPVEYOR_PROJECT_SLUG%-%APPVEYOR_REPO_TAG_NAME%-%TARGET%.zip %BINARY_NAME%
+  - appveyor PushArtifact ../../%APPVEYOR_PROJECT_SLUG%-%APPVEYOR_REPO_TAG_NAME%-%TARGET%.zip
+  - cd ../..
+  # Publish pypi
+  - cargo run -- publish -b bin -u konstin --no-sdist
+
+
+deploy:
+  # Add zipped binary to the github release
+  - artifact: /.*\.zip/
+    # - Create a `public_repo` GitHub token at https://github.com/settings/tokens/new
+    # - Encrypt it at https://ci.appveyor.com/tools/encrypt
+    # - Paste the output down here
+    auth_token:
+      secure: PQ91ezDbGmow+5tjZCAQ2/Y/2bHFffmQZoa5lr09JQIwARsAa2jHtucVn9826lWG
+    provider: GitHub
+    on:
+      # Deploy when a new tag is pushed and only on the stable channel
+      # Make sure you only release once per target
+      CHANNEL: stable
+      appveyor_repo_tag: true
+
+branches:
+  only:
+    # Pushes to the master branch
+    - master
+    # Match release tags with a regex
+    - /^v\d+\.\d+\.\d+.*$/
+
+build: off # Otherwise appveyor assumes we're building a .NET project
