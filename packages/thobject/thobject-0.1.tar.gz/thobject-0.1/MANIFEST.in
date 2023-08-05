@@ -1,0 +1,23 @@
+include README.rst
+include LICENSE.txt
+include MANIFEST.in
+include Makefile
+include setup.py
+include setup.cfg
+
+include docs/*.rst
+include docs/*.png
+include docs/*.jpg
+
+include docs/*/*.rst
+include docs/*/*.png
+include docs/*/*.jpg
+
+include docs/*/*/*.rst
+include docs/*/*/*.png
+include docs/*/*/*.jpg
+
+exclude docs/_build
+include docs/conf.py
+include docs/Makefile
+include docs/make.bat
