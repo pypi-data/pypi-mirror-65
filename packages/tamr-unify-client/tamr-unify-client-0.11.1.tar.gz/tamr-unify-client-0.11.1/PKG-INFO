@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: tamr-unify-client
+Version: 0.11.1
+Summary: Python Client for the Tamr API
+Home-page: https://tamr-client.readthedocs.io/en/stable/
+License: Apache-2.0
+Keywords: tamr
+Author: Pedro Cattori
+Author-email: pedro.cattori@tamr.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: dataclasses (>=0.6.0,<0.7.0)
+Requires-Dist: pandas (>=1.0.3,<2.0.0)
+Requires-Dist: requests (>=2.22,<3.0)
+Requires-Dist: simplejson (>=3.16,<4.0)
+Project-URL: Repository, https://github.com/Datatamer/tamr-client
+Description-Content-Type: text/markdown
+
+# Python Client
+Programmatically 💻 interact with Tamr using Python 🐍
+
+[![Version](https://img.shields.io/pypi/v/tamr-unify-client.svg?style=flat-square)](https://pypi.org/project/tamr-unify-client/)
+[![Documentation Status](https://readthedocs.org/projects/tamr-client/badge/?version=stable&style=flat-square)](https://tamr-client.readthedocs.io/en/stable/?badge=stable)
+[![Build Status](https://img.shields.io/github/workflow/status/Datatamer/tamr-client/CI?&style=flat-square)](https://github.com/Datatamer/tamr-client/actions?query=workflow%3ACI)
+![Supported Python Versions](https://img.shields.io/pypi/pyversions/tamr-unify-client.svg?style=flat-square)
+[![License](https://img.shields.io/pypi/l/tamr-unify-client.svg?style=flat-square)](LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/ambv/black)
+
+---
+
+*Quick links:*
+**[Docs](https://tamr-client.readthedocs.io/en/stable/)** |
+**[Contributing](https://tamr-client.readthedocs.io/en/stable/contributor-guide.html)** |
+**[Change Log](https://github.com/Datatamer/tamr-client/blob/master/CHANGELOG.md)** |
+**[License](https://github.com/Datatamer/tamr-client/blob/master/LICENSE)**
+
+---
+
+## Install
+
+```sh
+pip install tamr-unify-client
+```
+
+## Features
+- 🐍 Python objects/methods/functions instead of raw HTTP requests
+- 🤖 Automate operational workflows
+  - Continuous Mastering
+  - Continuous Categorization
+- 🚀 Kick-off synchronous/asynchronous operations
+  - Refresh datasets in your pipeline
+  - Train Tamr's machine learning models
+  - Generate predictions from trained models
+- 🔒 Authenticate with Tamr
+
+For more see the [official docs](https://tamr-client.readthedocs.io/en/stable/).
+
+## Maintainers
+
+- [Pedro Cattori](https://github.com/pcattori)
+
