@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: haoqiren-py
+Version: 0.0.1
+Summary: The HaoQiRen Python Functions
+Home-page: http://www.haoqiren.com
+Author: HaoQiRen
+Author-email: haoqiren@qq.com
+Maintainer: HaoQiRen
+Maintainer-email: haoqiren@qq.com
+License: MIT
+Download-URL: http://www.haoqiren.com
+Keywords: tool utils lib
+Platform: UNKNOWN
+Requires-Python: >=3.6.8
+Requires-Dist: python-docx
+Requires-Dist: openpyxl
+Requires-Dist: xlsxwriter
+Requires-Dist: xlrd
+Requires-Dist: xlwt
+Requires-Dist: xlutils
+Requires-Dist: html5lib
+Requires-Dist: lxml
+Requires-Dist: beautifulsoup4
+
+The HaoQiRen Python Functions
+
+
