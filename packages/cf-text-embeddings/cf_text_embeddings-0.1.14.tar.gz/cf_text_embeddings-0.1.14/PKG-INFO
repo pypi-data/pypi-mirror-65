@@ -1,0 +1,49 @@
+Metadata-Version: 1.0
+Name: cf_text_embeddings
+Version: 0.1.14
+Summary: Text Embeddings for ClowdFlows
+Home-page: https://github.com/xflows/cf_text_embeddings
+Author: Roman Orac
+Author-email: orac.roman@gmail.com
+License: MIT License
+Description: #cf_text_embeddings
+        
+        ![TextEmbeddingsClowdFlowsWorkflow](clowdflows_workflow.png)
+        
+        Thisisa[ClowdFlows3.0](https://github.com/xflows/clowdflows-backend)packagewhichcontainswidgetsforword,sentenceanddocumentembeddings.
+        See[Widgets](https://github.com/xflows/cf_text_embeddings/wiki/Widgets)tolearnmoreabouttheincludedembeddingsmodels.
+        
+        ##Installation
+        Installthispackagebyrunning:`pipinstallcf_text_embeddings`.
+        ToenableitintheClowdFlowsBackend,editthe`local_settings.py`filelikeshownbelow:
+        ```
+        PACKAGE_TREE=[
+        {
+        "name":"TextEmbeddings",
+        "packages":['cf_text_embeddings'],
+        "order":1
+        }
+        ]
+        ```
+        Thenrun`./manage.pyimport_packagecf_text_embeddings`fromtheClowdFlowsBackenddirectorytoimportwidgetsintotheplatform.
+        
+        Afterpackageinstallation,youneedtodownloadthemodels.
+        
+        ##Downloadthemodels
+        TheTextEmbeddingspackagesupportsmodelsformultiplelanguages.
+        Tolistavailablelanguages:
+        
+        ```python-mcf_text_embeddings.downloader-l```
+        
+        Todownloadallthemodels:
+        
+        ```python-mcf_text_embeddings.downloader-dall```
+        
+        Youcanalsodownloadthemodelsforaspecificlanguage.Forexample,todownloadEnglishmodels:
+        
+        ```python-mcf_text_embeddings.downloader-den```.
+        
+        ##Usage
+        See[Usage](https://github.com/xflows/cf_text_embeddings/wiki/Usage)and[Widgets](https://github.com/xflows/cf_text_embeddings/wiki/Widgets)wikis.
+        
+Platform: UNKNOWN
