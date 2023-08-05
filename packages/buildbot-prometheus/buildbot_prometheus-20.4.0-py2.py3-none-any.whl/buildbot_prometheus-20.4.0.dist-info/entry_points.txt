@@ -1,0 +1,3 @@
+[buildbot.reporters]
+Prometheus = buildbot_prometheus:Prometheus
+
