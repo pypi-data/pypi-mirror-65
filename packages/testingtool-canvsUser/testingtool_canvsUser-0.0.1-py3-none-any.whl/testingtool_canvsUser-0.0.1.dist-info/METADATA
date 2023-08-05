@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: testingtool-canvsUser
+Version: 0.0.1
+Summary: A package for custom canvs analytics
+Home-page: https://github.com/dbproductionsLTD/canvs_tools
+Author: Janet Huang
+Author-email: janet.huang@canvs.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: numpy (==1.18.2)
+Requires-Dist: pandas (==1.0.3)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: six (==1.14.0)
+
+# Canvs Toolbox Package
+
+### Date Formatting
+"MM/DD/YY" 
+
+## General
+from canvs_toolbox import general as gen
+- gen.consolidate_data(file_path, file_type='csv')
+
+## API Tools
+
+### Canvs TV
+from canvs_toolbox.api import tv as tvAPI
+- tvAPI.twitter_daily_export(api_key, data_mode, start_date, end_date)
+- tvAPI.twitter_emotional_authors(api_key, series_id, start_date, end_date)
+- tvAPI.airings_backfill(api_key, data_mode, start_date, end_date)
+- tvAPI.facebook_backfill(api_key, data_mode, start_date, end_date)
+
+### Canvs Watch
+from canvs_toolbox.api import watch as watchAPI
+- watchAPI.post_backfill(api_key, data_mode, start_date, end_date)
+- watchAPI.series_backfill(api_key, data_mode, start_date, end_date)
+
+### Canvs Social
+from canvs_toolbox.api import social as socialAPI
+- socialAPI.get_facebook_posts(api_key, fb_id, org_id, start_date, end_date, query_increment=None)
+- socialAPI.get_page_collection(api_key, org_id, start_date, end_date, fb_pages, query_increment=None)
+
+## Analytics Tools
+
+### Canvs TV
+from canvs_toolbox.analytics import tv as tvAnalytics
+
+#### Audience Overlap Analysis
+- implementation: tvAnalytics.audience_overlap_analysis(directory)
+- input directory should contain audience csv files from calling tvAPI.twitter_emotional_authors()
+- analysis will find the overlapping audiences across those csv files
+- for best results, rename the csv files to desired series names (e.g. showA, showB)
+
+#### Audience Erosion Analysis
+- implementation: tvAnalytics.audience_erosion_analysis(filename)
+- input file should be a single audience csv file from calling tvAPI.twitter_emotional_authors()
+- creates an episode-over-episode drop-off analysis
+
+#### Emotional Fingerprinting Analysis
+- implementation: emotional_fingerprinting_analysis(source, filename, format)
+- input file should be either from a direct Explore Programs export from the Canvs App
+or from any of the API exports except twitter_emotional_authors
+- computes an emotional similarity score for all possible combinations of passed-in content
+- can choose to either return a stacked view of all pairings and their scores (format = 'stacked)
+or a matrix view containing similarity scores at content intersections (format = 'matrix')
+
+
+
