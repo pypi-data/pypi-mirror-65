@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: alice-onboarding
+Version: 1.3.8
+Summary: Alice Onboarding Python SDK
+Home-page: https://alicebiometrics.com
+Author: ALiCE Biometrics
+Author-email: support@alicebiometrics.com
+License: ALiCE Copyright
+Platform: UNKNOWN
+Requires-Dist: pyjwt (>=1.7.1)
+Requires-Dist: requests (>=2.18.0)
+Requires-Dist: dataclasses (>=0.6)
+Requires-Dist: dataclasses-json (>=0.2.14)
+Requires-Dist: meiga (>=0.1.4)
+
+UNKNOWN
+
+
