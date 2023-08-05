@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pogrep
+Version: 0.1.2
+Summary: Find translations examples by grepping in .po files.
+Home-page: https://github.com/JulienPalard/pogrep
+License: UNKNOWN
+Author: Julien Palard
+Author-email: julien@palard.fr
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: regex
+Requires-Dist: polib
+Requires-Dist: tabulate
