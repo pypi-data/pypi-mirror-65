@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+migri/__init__.py
+migri/main.py
+migri.egg-info/PKG-INFO
+migri.egg-info/SOURCES.txt
+migri.egg-info/dependency_links.txt
+migri.egg-info/entry_points.txt
+migri.egg-info/requires.txt
+migri.egg-info/top_level.txt
+migri/sql/applied_migration.sql
+test/__init__.py
+test/conftest.py
+test/test_run_migrations.py
