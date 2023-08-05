@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: dash_ace_persistent
+Version: 0.3.4
+Summary: Dash Ace Editor Component with persistence
+Home-page: https://github.com/reasoned-ai/dash-ace
+Author: james saunders <james@businessoptics.biz>
+Author-email: xu@reasoned.ai
+License: MIT
+Description: 
+        # dash ace
+        
+        dash ace is a Dash component for Ace Editor.
+        
+        ```
+            $ pip install dash-ace
+        ```
+        
+Platform: UNKNOWN
+Classifier: Framework :: Dash
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
