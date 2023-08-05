@@ -1,0 +1,84 @@
+/* Basic layout */
+#content { width: 100%; }
+h1, h2, h3, h4, .caption, .params { text-align: center; }
+.text { text-align: left; max-width: 45em;
+        margin-left: auto; margin-right: auto; margin-bottom: 2em;
+        font-size: 110%; line-height: 1.6em;}
+form { display: inline-block; margin: 0 auto; padding: 0; }
+.chart svg { display: inline-block; margin: 0 auto; }
+
+/* Forecast slider */
+div.slider { max-width: 45em; margin-left: auto; margin-right: auto; }
+#fs_slider { font-size: 100%; width: 90%; }
+.slider .buttons { margin-top: 1em; }
+.slider .buttons button { padding: 0.5em 1em; }
+button.prev { margin: 0; margin-right: 2em; }
+button.next { margin: 0; margin-left: 2em; }
+
+@media not all and (min-width: 40em) {
+    /* Increase the button size on small screens (e.g., mobile phones) */
+    .slider .buttons button { padding: 1em 2em; }
+}
+
+/* Plot elements: lines, paths, regions, points.
+ */
+
+line, .axis, .xTick, .yTick { stroke: #586e75; }
+
+line { stroke-width: 1.0; }
+
+.area { stroke-width: 0; }
+circle.area.series { stroke-width: 1; stroke: #3182bd; }
+
+.area.data-rw { fill: black; }
+.area.data-md { fill: #3182bd; }
+.area.data-50 { fill: #9ecae1; }
+.area.data-95 { fill: #deebf7; }
+.series.data-rw { stroke: black; stroke-width: 3.5; }
+.series.data-md { stroke: #3182bd; }
+.series.data-50 { stroke: #9ecae1; }
+.series.data-95 { stroke: #deebf7; }
+.truth { stroke-width: 2.5; stroke: black; }
+.at_fs_date {
+    stroke-width: 2.5; stroke: #afafaf;
+    stroke-dasharray: 15,10;
+}
+.data-rw.dot { fill: black; }
+.data-rw.dot.future { fill: #eee8d5; stroke-width: 1; stroke: black; }
+.data-rw.dot.incomplete { fill: #ff0000; stroke-width: 1; stroke: black; }
+.upper { stroke-width: 5; stroke: #ff0000; }
+
+line.grid {
+    stroke-width: 0.1;
+}
+
+.axis {
+    stroke-width: 0.8;
+}
+.xTick, .yTick {
+    stroke-width: 0.6;
+}
+
+.xTickLabel, .yTickLabel, .xLabel, .yLabel, label {
+    font-size: 90%;
+}
+form label { padding-left: 2em; }
+
+.plotTitle {
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.legend {
+    font-size: 125%;
+    border-bottom: 2px solid #586e75;
+    margin: 0 auto;
+    padding: 0.25em;
+    display: inline-block;
+}
+
+path {
+    stroke: #377eb8;
+    stroke-width: 1.5;
+    fill: none;
+}

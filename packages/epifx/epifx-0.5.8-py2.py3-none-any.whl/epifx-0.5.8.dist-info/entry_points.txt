@@ -1,0 +1,10 @@
+[console_scripts]
+epifx-cmp = epifx.cmd.cmp:main
+epifx-forecast = epifx.cmd.forecast:main
+epifx-json = epifx.cmd.json:main
+epifx-locns = epifx.cmd.locns:main
+epifx-replay = epifx.cmd.replay:main
+epifx-scan = epifx.cmd.scan:main
+epifx-summary = epifx.cmd.summary:main
+epifx-template = epifx.cmd.template:main
+
