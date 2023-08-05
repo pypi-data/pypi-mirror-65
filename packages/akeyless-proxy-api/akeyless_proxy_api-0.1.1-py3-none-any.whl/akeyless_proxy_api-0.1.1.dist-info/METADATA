@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: akeyless-proxy-api
+Version: 0.1.1
+Summary: AKEYLESS Proxy API
+Home-page: https://www.akeyless.io/
+Author: UNKNOWN
+Author-email: refael@akeyless.io
+License: UNKNOWN
+Keywords: Swagger,AKEYLESS Proxy API
+Platform: UNKNOWN
+Requires-Dist: certifi (>=2017.4.17)
+Requires-Dist: python-dateutil (>=2.1)
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.23)
+
+RESTFull API for interacting with AKEYLESS Proxy Vault  # noqa: E501
+
+
