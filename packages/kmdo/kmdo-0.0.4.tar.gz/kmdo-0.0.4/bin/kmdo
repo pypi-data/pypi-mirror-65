@@ -1,0 +1,134 @@
+#!/usr/bin/env python
+"""
+    Run commands from .cmd files, storing output in .out files
+"""
+from __future__ import print_function
+from subprocess import Popen, PIPE
+import argparse
+import sys
+import os
+
+VERSION_MAJOR = 0
+VERSION_MINOR = 0
+VERSION_PATCH = 4
+VERSION = "%d.%d.%d" % (VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH)
+__version__ = VERSION
+
+
+def expand_path(path):
+    """Expand variables in and provide absolute version of the given 'path'"""
+
+    return os.path.abspath(os.path.expanduser(os.path.expandvars(path)))
+
+
+def update_file(fpath, content):
+    """Writes 'content' to 'fpath'"""
+
+    with open(fpath, 'w+') as output:
+        output.write(content)
+
+
+def cmd_run(cmd):
+    """Execute the given command and return stdout, stderr, and returncode"""
+
+    process = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
+    out, err = process.communicate()
+
+    return out, err, process.returncode
+
+
+def cmd_from_file(fpath):
+    """Produces a 'cmd' as a list of strings from the given 'fpath'"""
+
+    # Grab commands
+    cmds = [line.strip() for line in open(fpath).readlines()]
+
+    # Merge those line-continuations
+    cmds = "\n".join(cmds).replace("\\\n", "").splitlines()
+
+    if not cmds:
+        fname = os.path.basename(fpath)
+        cmds = [fname.replace(".uone", "").replace(".cmd", "")]
+
+    return cmds
+
+
+def produce_cmd_output(args):
+    """Do the actual work"""
+
+    for root, _, fnames in os.walk(args.path):
+
+        if args.recursive and root != args.path:
+            continue
+
+        for fname in sorted(fname for fname in fnames if fname.endswith(".cmd")):
+            cmd_fpath = os.sep.join([root, fname])
+
+            out_fpath = cmd_fpath.replace(".cmd", ".out")
+            uone = cmd_fpath.endswith(".uone.cmd")
+            output = []
+            errored = False
+
+            for cmd in cmd_from_file(cmd_fpath):
+                stdout, stderr, rcode = cmd_run(cmd)
+
+                output.append(stdout)
+                output.append(stderr)
+
+                err = bool(rcode) and not uone
+                errored |= err
+
+                yield out_fpath, cmd_fpath, cmd, rcode, uone, err
+
+            if errored and not uone:
+                continue
+
+            update_file(out_fpath, "\n".join(output))
+
+def main(args):
+    """Entry point"""
+
+    nerrs = 0
+
+    try:
+        print("args:")
+        print("  path: %r" % args.path)
+        print("  recursive: %r" % args.recursive)
+        print("results:")
+        for out_fp, cmd_fp, cmd, rcode, uone, err in produce_cmd_output(args):
+            nerrs += int(err)
+
+            print("- out_fp: %r" % out_fp)
+            print("  cmd_fp: %r" % cmd_fp)
+            print("  cmd: %r" % cmd)
+            print("  rcode: %r" % rcode)
+            print("  uone: %r" % uone)
+            print("  err: %r" % err)
+
+    except OSError as exc:
+        print("# err(%s)" % exc)
+        return 1
+
+    print("nerrs: %r" % nerrs)
+
+    return nerrs
+
+if __name__ == "__main__":
+    PRSR = argparse.ArgumentParser(
+        description="Run commands from .cmd files, storing output in .out files"
+    )
+    PRSR.add_argument(
+        "path",
+        type=str,
+        help="Path to DIR containing .cmd files"
+    )
+    PRSR.add_argument(
+        "-r", "--recursive",
+        action="store_true",
+        help="go deepah!"
+    )
+
+    ARGS = PRSR.parse_args()
+    ARGS.path = expand_path(ARGS.path)
+
+    sys.exit(main(ARGS))
