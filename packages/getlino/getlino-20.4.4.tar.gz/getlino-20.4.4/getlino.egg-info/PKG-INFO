@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: getlino
+Version: 20.4.4
+Summary: Lino installer
+Home-page: http://getlino.lino-framework.org
+Author: Rumma & Ko Ltd
+Author-email: team@lino-framework.org
+License: BSD-2-Clause
+Description: 
+        A tool to install and configure Lino in different environments.
+        
+        The central project homepage is http://getlino.lino-framework.org
+        
+            
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
