@@ -1,0 +1,36 @@
+To build source distribution:
+    python setup.py sdist
+
+To build rpm distribution:
+    python setup.py bdist_rpm
+
+To build docker distribution:
+    # build rpm
+    docker build -t netcontrold:build . -f docker/Dockerfile.build
+    docker container create --name extract netcontrold:build
+    mkdir -p dist
+    docker container cp extract:/usr/src/netcontrold-py/dist .
+
+    docker container rm -f extract
+
+    # build container
+    docker build -t netcontrold . -f docker/Dockerfile
+
+    # run container
+    docker run --name ncd --pid=host -v /var/run/openvswitch:/var/run/openvswitch -v /sys/kernel/debug:/sys/kernel/debug -dit netcontrold:latest
+    # stop ncd service in container
+    docker exec ncd ncd_ctl stop
+
+    # register docker image (quay.io for eg).
+    docker login quay.io
+    docker commit ncd quay.io/<user_id>/ncd
+    docker push quay.io/<user_id>/ncd
+ 
+To deploy from Redhat Openstack Undercloud:
+    cd ansible
+    tripleo-ansible-inventory --static-yaml-inventory hosts.yaml
+    ansible-playbook -i hosts.yaml openstack-deploy.yaml
+
+To attach running service:
+    docker attach --sig-proxy=false ncd
+
