@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: blink2png-bridge
+Version: 0.1.2
+Summary: To via blink2png by Python directly.
+Home-page: http://github.com/star-inc/blink2png-bridge
+Author: Star Inc.
+Author-email: "Star Inc." <star_inc@aol.com>
+License: GNU Lesser General Public License
+Platform: UNKNOWN
+Classifier: Development Status :: 7 - Inactive
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Bug Tracking
+Classifier: Topic :: Multimedia :: Graphics :: Capture :: Screen Capture
+Classifier: Topic :: Utilities
+Description-Content-Type: text/x-rst
+Requires-Dist: blink2png
+
+blink2png-bridge
+================
+To via blink2png by Python directly.
+
+This is a wrapper of blink2png to take snapshot of web page in python codes.
+
+More Information: https://github.com/star-inc/blink2png-bridge
+
+Copyright 2020 Star Inc.(https://starinc.xyz/)
+
+
