@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: equilibrator-api
+Version: 0.3.0b1
+Summary: Cache application for compounds, reactions, and enzymes
+Home-page: https://gitlab.com/elad.noor/equilibrator-api
+Author: 
+Requires-Dist: matplotlib (>=3.0.0)
+Requires-Dist: component-contribution (==0.3.0b6)
+
+Elad Noor
+Moritz E. Beber
+Author-email: 
+noor@imsb.biol.ethz.ch
+morbeb@biosustain.dtu.dk
+License: MIT License
+Description: UNKNOWN
+Keywords: component contribution,Gibbs energy,biochemical reaction,eQuilibrator
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
