@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: nnoir
+Version: 1.0.3
+Summary: API for NNOIR
+Home-page: https://github.com/Idein/nnoir/tree/master/nnoir
+Author: Idein Inc.
+Author-email: fujii@idein.jp
+License: MIT
+Keywords: nnoir machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: msgpack-python
+
+# NNOIR
+
+## Install
+
+```
+pip install nnoir
+```
+
+## Example
+
+### Create & Save
+
+```
+inputs  = [nnoir.Value(b'v0', dtype='<f4', shape=(10,10)),
+           nnoir.Value(b'v1', dtype='<f4', shape=(10,10))]
+outputs = [nnoir.Value(b'v2', dtype='<f4', shape=(10,10))]
+nodes = inputs + outputs
+input_names = [ x.name for x in inputs ]
+output_names = [ x.name for x in outputs ]
+functions = [nnoir.functions.Add(input_names, output_names)]
+result = nnoir.NNOIR(b'Add', b'add_test', '0.1', input_names, output_names, nodes, functions)
+result.dump('add.nnoir')
+```
+
+### Load
+
+```
+add_nnoir = nnoir.load('add.nnoir')
+```
+
+
