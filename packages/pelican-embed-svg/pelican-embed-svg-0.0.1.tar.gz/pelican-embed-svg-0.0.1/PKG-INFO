@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pelican-embed-svg
+Version: 0.0.1
+Summary: A pelican plugin for embedding SVG images/icons in HTML. Includes support for FontAwesome <i> tags.
+Home-page: https://github.com/khoulihan/pelican-embed-svg
+Author: Kevin Houlihan
+Author-email: kevin@hyperlinkyourheart.com
+License: UNKNOWN
+Description: # pelican-embed-svg
+        
+        Pelican plugin for embedding SVG images at generation time.
+        
+        Probably shouldn't use this yet, it's only starting out.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
