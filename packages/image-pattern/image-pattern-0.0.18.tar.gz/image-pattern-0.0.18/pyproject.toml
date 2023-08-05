@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "image-pattern"
+version = "0.0.18"
+description = "Package for creating images, such as social media sharing images and avatars, from declarative templates."
+license = "MIT"
+authors = ["acrius <acrius@mail.ru>"]
+readme = "Readme.rst"
+homepage = "https://github.com/brogency/image-pattern"
+repository = "https://github.com/brogency/image-pattern"
+documentation = "https://github.com/brogency/image-pattern"
+keywords = ["image", "pattern", "create", "media", "sharing"]
+classifiers = [
+    "Framework :: Django",
+    "Environment :: Web Environment"
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pillow = "^7.0"
+pydantic = "^1.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+coverage = "^5.0"
+mypy = "^0.770.0"
+ipdb = "^0.13.2"
+ipython = "^7.13"
+django = "^3.0"
+coveralls = "^1.11"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
