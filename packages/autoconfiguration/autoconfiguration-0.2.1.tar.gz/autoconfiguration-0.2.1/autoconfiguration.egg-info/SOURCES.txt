@@ -1,0 +1,15 @@
+README.md
+setup.py
+autoconfiguration/__init__.py
+autoconfiguration/autoconfiguration.py
+autoconfiguration/config.py
+autoconfiguration.egg-info/PKG-INFO
+autoconfiguration.egg-info/SOURCES.txt
+autoconfiguration.egg-info/dependency_links.txt
+autoconfiguration.egg-info/top_level.txt
+autoconfiguration/exceptions/__init__.py
+autoconfiguration/exceptions/config_class_errors.py
+autoconfiguration/exceptions/config_dir_errors.py
+autoconfiguration/exceptions/config_file_errors.py
+autoconfiguration/infrastructure/__init__.py
+autoconfiguration/infrastructure/singleton.py
