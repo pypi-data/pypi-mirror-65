@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: Parcyl
+Version: 1.0a4
+Summary: UNKNOWN
+Home-page: https://github.com/nicfit/Parcyl
+Author: Travis Shirk
+Author-email: travis@pobox.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Provides-Extra: requirements
+Requires-Dist: pip-tools ; extra == 'requirements'
+
+
+Parcyl is built from and extends `setuptools`.
+It also provides a strategy and tools for managing project requirements.
+
