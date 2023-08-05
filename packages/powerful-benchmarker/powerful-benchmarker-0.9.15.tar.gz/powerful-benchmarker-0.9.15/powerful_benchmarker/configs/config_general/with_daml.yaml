@@ -1,0 +1,4 @@
+training_method: DeepAdversarialMetricLearning
+g_alone_epochs: 0
+metric_alone_epochs: 0
+g_triplets_per_anchor: 100
