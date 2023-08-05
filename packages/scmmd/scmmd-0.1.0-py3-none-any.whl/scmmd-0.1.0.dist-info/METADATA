@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: scmmd
+Version: 0.1.0
+Summary: Maximum mean discrepancy comparisons single cell profiles
+Home-page: http://github.com/calico/scmmd
+Author: Jacob C. Kimmel
+Author-email: jacobkimmel@gmail.com
+License: Apache
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.6
+Requires-Dist: torch (>=1.2.0)
+Requires-Dist: anndata (>=0.6.22.post1)
+Requires-Dist: scanpy (>=1.4)
+Requires-Dist: numpy (>=1.17.4)
+Requires-Dist: pandas (>=0.23.4)
+Requires-Dist: tqdm (>=4.35.0)
+Requires-Dist: torch-two-sample (>=0.1)
+
+
+There is a classical problem in statistics known as the **two-sample problem.**
+In this setting, you are given discrete observations of two different distributions and asked to determine if the distributions are significantly different.
+A special univariate case of this problem is familiar to many biologists as a "difference in means" comparison -- as performed using Student's *t*-test.
+
+
+
+This problem becomes somewhat more complex in high-dimensions, as differences between distributions may manifest not only in the mean location, but also in the covariance structure and modality of the data.
+One approach to comparing distributions in this setting leverages kernel similarity metrics to find the maximum mean discrepancy (Gretton et. al. 2012, *JMLR*) -- the largest difference in the means of the distributions under a flexible transformation.
+
+
+
+Here, we adapt the MMD method to compare cell populations in single cell measurement data.
+In the frame of the two-sample problem, each cell population of interest is considered as a distribution and each cell is a single observation from the source distribution.
+We use the MMD to compute (1) a metric of the magnitude of difference between two cell populations, and (2) a p-value for the significance of this difference.
+
+
+
