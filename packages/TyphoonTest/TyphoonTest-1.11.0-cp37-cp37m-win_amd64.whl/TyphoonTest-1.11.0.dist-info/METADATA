@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: TyphoonTest
+Version: 1.11.0
+Summary: Typhoon Testing Utilities
+Home-page: UNKNOWN
+Author: Typhoon HIL, Inc
+License: UNKNOWN
+Requires-Dist: Typhoon-HIL-API (>=1.1.3)
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: peakutils
+Requires-Dist: pytest (>=5)
+Requires-Dist: allure-pytest (==2.8.10)
+Requires-Dist: pandas (>=1.0)
+Requires-Dist: matplotlib
+Requires-Dist: wrapt
+Requires-Dist: future
+Requires-Dist: pycryptodomex
+Requires-Dist: nptdms (==0.23.0)
+Requires-Dist: tables (==3.5.1)
+Provides-Extra: testing
+Requires-Dist: pytest-assume; extra == 'testing'
+
+Description
+
+
