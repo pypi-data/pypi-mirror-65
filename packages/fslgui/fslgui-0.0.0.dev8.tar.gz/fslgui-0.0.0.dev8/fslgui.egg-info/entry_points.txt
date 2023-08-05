@@ -1,0 +1,4 @@
+[console_scripts]
+bet_gui = fsl.gui.scripts.Bet_gui:main
+flirt_gui = fsl.gui.scripts.Flirt_gui:main
+
