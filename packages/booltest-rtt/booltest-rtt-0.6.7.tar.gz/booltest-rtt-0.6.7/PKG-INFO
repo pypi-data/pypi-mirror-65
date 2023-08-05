@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: booltest-rtt
+Version: 0.6.7
+Summary: BoolTest: RTT wrapper
+Home-page: https://github.com/ph4r05/booltest-rtt
+Author: Dusan Klinec
+Author-email: dusan.klinec@gmail.com
+License: MIT
+Description: BoolTest RTT runner
+        ===================
+        
+        Utility integrating BoolTest battery to the RTT
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Security
+Provides-Extra: dev
+Provides-Extra: docs
