@@ -1,0 +1,7 @@
+Cython
+inspect2
+setuptools
+six
+
+[:python_version < "3.5"]
+typing
