@@ -1,0 +1,15 @@
+
+[dev]
+pre-commit
+mypy
+flake8
+isort
+black
+pylint
+sphinx
+bump
+sphinx_rtd_theme
+m2r
+
+[test]
+pytest
