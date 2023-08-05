@@ -1,0 +1,4 @@
+include docs/source/description.rst
+recursive-include src/apish/html *
+recursive-exclude * __pycache__
+recursive-exclude * *.pyc
