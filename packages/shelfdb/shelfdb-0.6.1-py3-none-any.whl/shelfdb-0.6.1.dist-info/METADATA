@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: shelfdb
+Version: 0.6.1
+Summary: Python dict/json DB, Done right for Efficiency and Simplicity
+Home-page: https://github.com/nitipit/shelfdb
+Author: Nitipit Nontasuwan
+Author-email: nitipit@gmail.com
+License: MIT
+Keywords: dict json database
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Requires-Dist: uvloop (>=0.12.1)
+Requires-Dist: dill (>=0.2.9)
+
+Python dict/json DB `done right` to make your job done
+
+
