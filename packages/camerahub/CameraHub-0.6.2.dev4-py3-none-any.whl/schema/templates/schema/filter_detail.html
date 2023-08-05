@@ -1,0 +1,16 @@
+{% extends "detail.html" %}
+
+{% block content %}
+<table class="table table-hover">
+  <tr>
+    <td>Type</td>
+    <td>{{ object.type }}</td>
+  </tr>
+  {% if object.attenuations is not None %}
+  <tr>
+    <td>Attenuation</td>
+    <td>{{ object.attenuation }}</td>
+  </tr>
+  {% endif %}
+</table>
+{% endblock %}
