@@ -1,0 +1,9 @@
+[followthemoney.cli]
+enrich = followthemoney_enrich.cli:enrich
+
+[followthemoney.enrich]
+aleph = followthemoney_enrich.aleph:AlephEnricher
+occrp = followthemoney_enrich.aleph:OccrpEnricher
+opencorporates = followthemoney_enrich.opencorporates:OpenCorporatesEnricher
+orbis = followthemoney_enrich.orbis:OrbisEnricher
+
