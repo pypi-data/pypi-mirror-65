@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+pds_github_util/__init__.py
+pds_github_util/maven_snapshot_release.py
+pds_github_util/python_snapshot_release.py
+pds_github_util/snapshot_release.py
+pds_github_util.egg-info/PKG-INFO
+pds_github_util.egg-info/SOURCES.txt
+pds_github_util.egg-info/dependency_links.txt
+pds_github_util.egg-info/entry_points.txt
+pds_github_util.egg-info/requires.txt
+pds_github_util.egg-info/top_level.txt
+pds_github_util/test/__init__.py
+pds_github_util/test/maven_get_version_test.py
+pds_github_util/test/python_get_version_test.py
