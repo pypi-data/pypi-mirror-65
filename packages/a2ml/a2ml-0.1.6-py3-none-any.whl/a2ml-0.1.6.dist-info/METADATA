@@ -1,0 +1,83 @@
+Metadata-Version: 2.0
+Name: a2ml
+Version: 0.1.6
+Summary: A2ML ("Automate AutoML") is a set of scripts to automate Automated Machine Learning workflows from multiple vendors.
+Home-page: https://github.com/augerai/a2ml
+Author: Auger AI
+Author-email: hello@auger.ai
+License: MIT
+Keywords: augerai aa2ml.cmdl.cmdl:cmdluger ai machine learning automl deeplearn api sdk
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3
+Provides-Extra: testing
+Provides-Extra: docs
+Provides-Extra: azure
+Provides-Extra: azure-local
+Provides-Extra: google
+Provides-Extra: all
+Requires-Dist: auger.ai (>=0.2.1)
+Requires-Dist: auger-hub-api-client (>=0.6.1)
+Requires-Dist: celery (==4.4.0)
+Requires-Dist: click
+Requires-Dist: shortuuid
+Requires-Dist: docutils (<0.16,>=0.10)
+Requires-Dist: ruamel.yaml (<=0.15.89,>=0.15.35)
+Requires-Dist: auger.ai (>=0.2.1)
+Requires-Dist: auger-hub-api-client (>=0.6.1)
+Provides-Extra: all
+Requires-Dist: flake8; extra == 'all'
+Requires-Dist: mock; extra == 'all'
+Requires-Dist: pytest; extra == 'all'
+Requires-Dist: pytest-cov; extra == 'all'
+Requires-Dist: pytest-runner; extra == 'all'
+Requires-Dist: pytest-xdist; extra == 'all'
+Requires-Dist: tox; extra == 'all'
+Requires-Dist: twine; extra == 'all'
+Requires-Dist: wheel (<0.31.0,>=0.30.0); extra == 'all'
+Requires-Dist: sphinx; extra == 'all'
+Requires-Dist: sphinx-rtd-theme; extra == 'all'
+Requires-Dist: azureml-train-automl-client; extra == 'all'
+Requires-Dist: numpy (<=1.16.2,>=1.16.0); extra == 'all'
+Requires-Dist: scipy (<=1.1.0,>=1.0.0); extra == 'all'
+Requires-Dist: pandas (==0.23.4); extra == 'all'
+Requires-Dist: scikit-learn (<=0.20.3,>=0.19.0); extra == 'all'
+Requires-Dist: shap (==0.32.1); extra == 'all'
+Requires-Dist: azureml-sdk[automl]; extra == 'all'
+Requires-Dist: google-cloud-automl; extra == 'all'
+Provides-Extra: azure
+Requires-Dist: azureml-train-automl-client; extra == 'azure'
+Provides-Extra: azure-local
+Requires-Dist: numpy (<=1.16.2,>=1.16.0); extra == 'azure-local'
+Requires-Dist: scipy (<=1.1.0,>=1.0.0); extra == 'azure-local'
+Requires-Dist: pandas (==0.23.4); extra == 'azure-local'
+Requires-Dist: scikit-learn (<=0.20.3,>=0.19.0); extra == 'azure-local'
+Requires-Dist: shap (==0.32.1); extra == 'azure-local'
+Requires-Dist: azureml-sdk[automl]; extra == 'azure-local'
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Provides-Extra: google
+Requires-Dist: google-cloud-automl; extra == 'google'
+Provides-Extra: testing
+Requires-Dist: flake8; extra == 'testing'
+Requires-Dist: mock; extra == 'testing'
+Requires-Dist: pytest; extra == 'testing'
+Requires-Dist: pytest-cov; extra == 'testing'
+Requires-Dist: pytest-runner; extra == 'testing'
+Requires-Dist: pytest-xdist; extra == 'testing'
+Requires-Dist: tox; extra == 'testing'
+Requires-Dist: twine; extra == 'testing'
+Requires-Dist: wheel (<0.31.0,>=0.30.0); extra == 'testing'
+
+A2ML ("Automate AutoML") is a set of scripts to automate Automated Machine Learning workflows from multiple vendors.
+
+
