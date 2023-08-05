@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: highcompress
+Version: 2.7
+Summary: Highcompress API client.
+Home-page: https://highcompress.com/
+Author: Himalaya Saxena
+Author-email: himalayasaxena@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Requires-Dist: requests (<3.0.0,>=2.7.0)
+Requires-Dist: simplejson (>=3.9.0)
+Provides-Extra: test
+Requires-Dist: nose (<2.0,>=1.3) ; extra == 'test'
+Requires-Dist: httpretty (<1.0.0,>=0.8.10) ; extra == 'test'
+
+Python pakcage for the compressing images through Highcompress API. Highcompress compresses your images intelligently and efficiently. Read more at https://highcompress.com.
+
+
