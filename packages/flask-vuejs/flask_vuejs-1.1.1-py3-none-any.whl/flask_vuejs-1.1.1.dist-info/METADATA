@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: flask-vuejs
+Version: 1.1.1
+Summary: Connect Flask With VueJS Framework
+Home-page: https://flaskvue.pacotei.xyz/
+License: MIT
+Keywords: fkask + vuejs,flask-vue,vuejs,create app with flask and vue
+Author: Marcus Pereira
+Author-email: oi@pacotei.xyz
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: flask (>=1.1.1,<2.0.0)
+Project-URL: Repository, https://github.com/pacotei/flask-vuejs
+Description-Content-Type: text/markdown
+
+![GitHub repo size](https://img.shields.io/github/repo-size/pacotei/flask-vuejs)![GitHub top language](https://img.shields.io/github/languages/top/pacotei/flask-vuejs)![PyPI - Python Version](https://img.shields.io/pypi/pyversions/flask-vuejs)
+![PyPI - License](https://img.shields.io/pypi/l/flask-vuejs)
+
+Please read the documentation [here]("https://flaskvue.pacotei.xyz/")
