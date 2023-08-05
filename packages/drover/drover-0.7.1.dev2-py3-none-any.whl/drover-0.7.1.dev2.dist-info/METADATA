@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: drover
+Version: 0.7.1.dev2
+Summary: a command-line utility to deploy Python packages to Lambda functions
+Home-page: https://github.com/jwilges/drover
+Author: Jeffrey Wilges
+Author-email: jeffrey@wilges.com
+License: BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Environment :: Console
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Software Distribution
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: boto3 (>=1.12)
+Requires-Dist: botocore (>=1.15)
+Requires-Dist: pydantic (>=1.4)
+Requires-Dist: pyyaml (>=5.3)
+Requires-Dist: tqdm (>=4.44)
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+# drover
+*drover: a command-line utility to deploy Python packages to Lambda functions*
+
+[![circleci](https://circleci.com/gh/jwilges/drover/tree/master.svg?style=shield)](https://circleci.com/gh/jwilges/drover/tree/master)
+[![codecov](https://codecov.io/gh/jwilges/drover/branch/master/graph/badge.svg)](https://codecov.io/gh/jwilges/drover/branch/master)
+
+## Supported Platforms
+This utility has been tested on macOS Catalina 10.15.
+
+## Usage
+### Development Environment
+Initialize a development environment by executing `nox -s dev-3.8`; the
+`drover` utility will be installed in the `.nox/dev-3-8` Python virtual
+environment binary path.
+
