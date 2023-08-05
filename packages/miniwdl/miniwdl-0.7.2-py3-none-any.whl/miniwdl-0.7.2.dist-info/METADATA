@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: miniwdl
+Version: 0.7.2
+Summary: Workflow Description Language (WDL) local runner & developer toolkit
+Home-page: https://github.com/chanzuckerberg/miniwdl
+Author: CZI
+Author-email: security@chanzuckerberg.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Interpreters
+Requires-Python: >3.6.0
+Description-Content-Type: text/markdown; charset=UTF-8
+Requires-Dist: setuptools
+Requires-Dist: lark-parser (==0.8.5)
+Requires-Dist: docker (>=3.4.0)
+Requires-Dist: argcomplete
+Requires-Dist: pygtail (>=0.11.0)
+Requires-Dist: coloredlogs
+Requires-Dist: importlib-metadata
+Requires-Dist: regex
+Requires-Dist: xdg
+
+Workflow Description Language (WDL) local runner & developer toolkit
+
+
