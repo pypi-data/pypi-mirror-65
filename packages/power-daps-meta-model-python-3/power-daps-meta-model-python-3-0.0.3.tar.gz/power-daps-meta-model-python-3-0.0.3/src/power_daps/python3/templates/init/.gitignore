@@ -1,0 +1,14 @@
+.DS_Store
+__*__
+*~
+*.pyc
+\#*\#
+.\#*
+dist
+build
+.*.swp
+.vscode
+venv
+**/test/**/dependencies.yml
+.idea/workspace.xml
+*.egg-info
