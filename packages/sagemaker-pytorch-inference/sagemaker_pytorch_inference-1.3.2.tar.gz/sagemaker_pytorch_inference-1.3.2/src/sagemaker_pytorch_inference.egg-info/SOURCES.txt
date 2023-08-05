@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+VERSION
+setup.cfg
+setup.py
+src/sagemaker_pytorch_inference.egg-info/PKG-INFO
+src/sagemaker_pytorch_inference.egg-info/SOURCES.txt
+src/sagemaker_pytorch_inference.egg-info/dependency_links.txt
+src/sagemaker_pytorch_inference.egg-info/entry_points.txt
+src/sagemaker_pytorch_inference.egg-info/requires.txt
+src/sagemaker_pytorch_inference.egg-info/top_level.txt
+src/sagemaker_pytorch_serving_container/__init__.py
+src/sagemaker_pytorch_serving_container/default_inference_handler.py
+src/sagemaker_pytorch_serving_container/handler_service.py
+src/sagemaker_pytorch_serving_container/serving.py
