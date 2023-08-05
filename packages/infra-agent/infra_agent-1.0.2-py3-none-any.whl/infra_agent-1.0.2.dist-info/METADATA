@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: infra-agent
+Version: 1.0.2
+Summary: Python package for infastructure agent.
+Home-page: https://contentstudio.io
+Author: Muhammad Azhar
+Author-email: azhar@contentstudio.io
+Maintainer: Muhammad Azhar
+Maintainer-email: azhar@contentstudio.io
+License: MIT License
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: uptime
+Requires-Dist: distro
+Requires-Dist: netifaces (==0.10.9)
+Requires-Dist: psutil
+Provides-Extra: full
+Requires-Dist: urllib3 ; extra == 'full'
+Requires-Dist: certifi ; extra == 'full'
+
+UNKNOWN
+
+
