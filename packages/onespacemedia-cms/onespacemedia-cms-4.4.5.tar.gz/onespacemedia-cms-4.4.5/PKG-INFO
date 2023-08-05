@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: onespacemedia-cms
+Version: 4.4.5
+Summary: CMS used by Onespacemedia
+Home-page: https://github.com/onespacemedia/cms
+Author: Onespacemedia
+Author-email: developers@onespacemedia.com
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Provides-Extra: testing
+Provides-Extra: usertools
+Provides-Extra: geoip
