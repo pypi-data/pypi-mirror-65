@@ -1,0 +1,55 @@
+{% include "templates/LICENSE.rst.template" %}
+
+Licensed code
+=============
+
+NengoDL imports several open source libraries:
+
+* `NumPy <https://numpy.org/>`_ - Used under
+  `BSD license <https://numpy.org/license.html>`__
+* `TensorFlow <https://www.tensorflow.org/>`_ - Used under
+  `Apache license <https://github.com/tensorflow/tensorflow/blob/master/LICENSE>`__
+* `Jinja2 <https://palletsprojects.com/p/jinja/>`_ - Used under
+  `BSD license <https://palletsprojects.com/license/>`__
+* `Progressbar 2 <https://progressbar-2.readthedocs.io/en/latest/>`_ - Used under
+  `BSD license <https://github.com/WoLpH/python-progressbar/blob/develop/LICENSE>`__
+
+To build the documentation, NengoDL uses:
+
+* `Jupyter <https://jupyter.org/>`_ - Used under
+  `BSD license <https://github.com/jupyter/jupyter/blob/master/LICENSE>`__
+* `matplotlib <https://matplotlib.org/>`_ - Used under
+  `modified PSF license <https://matplotlib.org/users/license.html>`__
+* `nbsphinx <https://github.com/spatialaudio/nbsphinx>`_ - Used under
+  `MIT license <https://github.com/spatialaudio/nbsphinx/blob/master/LICENSE>`__
+* `numpydoc <https://github.com/numpy/numpydoc>`_ - Used under
+  `BSD license <https://github.com/numpy/numpydoc/blob/master/LICENSE.txt>`__
+* `Pillow <https://pillow.readthedocs.io/en/latest/>`_ - Used under
+  `PIL license <https://github.com/python-pillow/Pillow/blob/master/LICENSE>`__
+* `Sphinx <http://www.sphinx-doc.org/en/stable/>`_ - Used under
+  `BSD license <https://github.com/sphinx-doc/sphinx/blob/master/LICENSE>`__
+* `sphinx-click <https://sphinx-click.readthedocs.io/en/latest/>`_ - Used under
+  `MIT license <https://github.com/click-contrib/sphinx-click/blob/master/LICENSE>`__
+
+To run the tests, NengoDL uses:
+
+* `Click <https://click.palletsprojects.com/en/6.x/>`_ - Used under
+  `BSD license <https://click.palletsprojects.com/en/6.x/license/>`__
+* `codespell <https://github.com/codespell-project/codespell>`_ - Used under
+  `GPL license <https://github.com/codespell-project/codespell/blob/master/COPYING>`__
+* `matplotlib <https://matplotlib.org/>`_ - Used under
+  `modified PSF license <https://matplotlib.org/users/license.html>`__
+* `nbval <https://github.com/computationalmodelling/nbval>`_ - Used under
+  `BSD license <https://github.com/computationalmodelling/nbval/blob/master/LICENSE>`__
+* `pylint <https://www.pylint.org/>`_ - Used under
+  `GPL license <https://github.com/PyCQA/pylint/blob/master/COPYING>`__
+* `pytest <https://docs.pytest.org/en/latest/>`_ - Used under
+  `MIT license <https://docs.pytest.org/en/latest/license.html>`__
+* `pytest-allclose <https://www.nengo.ai/pytest-allclose/>`__ Used under
+  `MIT license <https://github.com/nengo/pytest-allclose/blob/master/LICENSE.rst>`__
+* `pytest-cov <https://github.com/pytest-dev/pytest-cov>`_ - Used under
+  `MIT license <https://github.com/pytest-dev/pytest-cov/blob/master/LICENSE>`__
+* `pytest-rng <https://www.nengo.ai/pytest-rng/>`__ Used under
+  `MIT license <https://github.com/nengo/pytest-rng/blob/master/LICENSE.rst>`__
+* `pytest-xdist <https://github.com/pytest-dev/pytest-xdist>`_ - Used under
+  `MIT license <https://github.com/pytest-dev/pytest-xdist/blob/master/LICENSE>`__

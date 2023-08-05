@@ -1,0 +1,271 @@
+project_name: NengoDL
+pkg_name: nengo_dl
+repo_name: nengo/nengo-dl
+
+description: Deep learning integration for Nengo
+copyright_start: 2015
+
+license_rst: {}
+
+contributing_rst: {}
+
+# contributors_rst: {}
+
+manifest_in:
+  prune:
+    - docs/whitepaper
+    - tmp
+  global-exclude:
+    - "*.bat"
+    - "*.svg"
+
+setup_cfg:
+  pytest:
+    addopts:
+      - --disable-warnings
+    filterwarnings:
+      - always
+    xfail_strict: True
+    nengo_simloader: nengo_dl.tests.make_test_sim
+    nengo_test_unsupported:
+      tests/test_simulator.py::test_warn_on_opensim_del:
+        nengo-dl raises a different (more visible) warning, see
+        tests/test_nengo_tests.py::test_warn_on_opensim_del
+      tests/test_simulator.py::test_signal_init_values:
+        different method required to manually step simulator, see
+        tests/test_nengo_tests.py::test_signal_init_values
+      tests/test_simulator.py::test_entry_point:
+        overridden so we can pass custom test simulators, see
+        tests/test_nengo_tests.py::test_entry_point
+      tests/test_simulator.py::test_simulator_progress_bars:
+        nengo-dl uses a different progress bar system, see
+        tests/test_utils.py::test_progress_bar
+      tests/test_simulator.py::test_dtype[*:
+        nengo-dl uses a different system for signals/dtype, see
+        tests/test_nengo_tests.py::test_dtype
+      tests/test_simulator.py::test_time_absolute:
+        simulation times may not line up exactly if unroll_simulation != 1, see
+        tests/test_nengo_tests.py::test_time_absolute
+      tests/test_simulator.py::test_invalid_run_time:
+        simulation times may not line up exactly if unroll_simulation != 1, see
+        tests/test_nengo_tests.py::test_invalid_run_time
+      tests/test_simulator.py::test_steps:
+        simulation times may not line up exactly if unroll_simulation != 1, see
+        tests/test_nengo_tests.py::test_steps
+      tests/test_node.py::test_args:
+        time is passed as np.float32, not a float, see
+        tests/test_nengo_tests.py::test_args
+      tests/test_node.py::test_unconnected_node:
+        need to set `unroll_simulation` to ensure node runs the correct
+        number of times, see
+        tests/test_nengo_tests.py::test_unconnected_node
+      tests/test_ensemble.py::test_gain_bias:
+        use allclose instead of array_equal, see
+        tests/test_nengo_tests.py::test_gain_bias
+      tests/test_transforms.py::test_sparse[False-*:
+        nengo-dl doesn't raise a warning for scipy=False, see
+        tests/test_nengo_tests.py::test_sparse
+      tests/test_copy.py::test_pickle_sim[*:
+        nengo-dl does not support pickling a Simulator, see
+        tests/test_simulator.py::test_pickle_error
+      tests/test_probe.py::test_multirun:
+        simulation times may not line up exactly if unroll_simulation != 1, see
+        tests/test_nengo_tests.py::test_multirun
+    allclose_tolerances:
+      - tests/test_synapses.py::test_lowpass atol=5e-7
+      - tests/test_synapses.py::test_triangle atol=5e-7
+      - tests/test_synapses.py::test_alpha atol=5e-5
+      - tests/test_synapses.py::test_linearfilter atol=1e-4
+      - tests/test_transforms.py::test_convolution[* atol=1e-6
+  pylint:
+    known_third_party:
+      - PIL
+      - progressbar
+      - tensorflow
+  coverage:
+    omit_files:
+      - nengo_dl/tests/dummies.py
+  flake8:
+    ignore:
+      - C901
+
+docs_conf_py:
+  extensions:
+    - sphinx_click.ext
+    - nengo_sphinx_theme.ext.autoautosummary
+    - nengo_sphinx_theme.ext.resolvedefaults
+  nengo_logo: nengo-dl-full-light.svg
+  nengo_logo_color: "#ff6600"
+  sphinx_options:
+    suppress_warnings: "['image.nonlocal_uri']"
+  analytics_id: UA-41658423-2
+  doctest_setup:
+    - import nengo
+    - import numpy as np
+    - import tensorflow as tf
+  html_redirects:
+    frontend.html: user-guide.html
+    backend.html: reference.html#developers
+    builder.html: reference.html#builder
+    extra_objects.html: reference.html#neuron-types
+    graph_optimizer.html: reference.html#graph-optimization
+    operators.html: reference.html#operator-builders
+    learning_rules.html: reference.html#operator-builders
+    neurons.html: reference.html#operator-builders
+    op_builders.html: reference.html#operator-builders
+    processes.html: reference.html#operator-builders
+    tensor_node_builders.html: reference.html#operator-builders
+    signals.html: reference.html#signals
+    tensor_graph.html: reference.html#graph-construction
+    utils.html: reference.html#utilities
+    tensor_node.html: tensor-node.html
+    examples/nef_init.html: examples/nef-init.html
+    examples/pretrained_model.html: examples/pretrained-model.html
+    examples/spa_memory.html: examples/spa-memory.html
+    examples/spa_retrieval.html: examples/spa-retrieval.html
+    examples/spiking_mnist.html: examples/spiking-mnist.html
+    examples/pretrained-model.html: examples/tensorflow-models.html
+    training.html: simulator.html
+  autoautosummary_change_modules:
+    nengo_dl:
+      - nengo_dl.config.configure_settings
+      - nengo_dl.neurons.SoftLIFRate
+      - nengo_dl.neurons.LeakyReLU
+      - nengo_dl.neurons.SpikingLeakyReLU
+
+ci_scripts:
+  - template: static
+  - template: test
+    pip_install:
+      - $NUMPY_VERSION
+      - $TF_VERSION
+      - $NENGO_VERSION
+      - $SCIPY_VERSION
+      - git+https://github.com/drasmuss/spaun2.0.git
+    nengo_tests: true
+  - template: test
+    output_name: test-coverage
+    coverage: true
+    pip_install:
+      - --pre
+      - $NUMPY_VERSION
+      - $TF_VERSION
+      - $NENGO_VERSION
+      - $SCIPY_VERSION
+      - git+https://github.com/drasmuss/spaun2.0.git
+    nengo_tests: true
+  - template: examples
+    pip_install:
+      - $TF_VERSION
+  - template: docs
+    pip_install:
+      - $TF_VERSION
+      - $NUMPY_VERSION
+  - template: gpu
+    host: azure
+    travis_var_key: fcdbeb54a1c4
+    coverage: true
+  - template: remote-script
+    remote_script: docs
+    output_name: remote-docs
+    host: azure-docs
+    travis_var_key: fcdbeb54a1c4
+  - template: remote-script
+    remote_script: examples
+    output_name: remote-examples
+    host: azure-examples
+    travis_var_key: fcdbeb54a1c4
+  - template: deploy
+
+travis_yml:
+  python: 3.6
+  global_vars:
+    NUMPY_VERSION: numpy>=1.16.0
+    TF_VERSION: tensorflow-cpu
+    NENGO_VERSION: nengo[tests]
+    SCIPY_VERSION: noop
+  jobs:
+    - stage: basic
+      script: static
+    - cache: false
+    - script: gpu
+      test_args: --device /gpu:0
+      env:
+        NENGO_VERSION: git+https://github.com/nengo/nengo.git#egg=nengo[tests]
+        TF_VERSION: tensorflow-gpu
+        GPU_NUM: 0
+    - script: test-coverage
+      env:
+        NENGO_VERSION: git+https://github.com/nengo/nengo.git#egg=nengo[tests]
+        SCIPY_VERSION: scipy
+      dist: bionic
+      python: 3.7
+    - script: test-coverage
+      env:
+        NENGO_VERSION: nengo[tests]==3.0.0
+        TF_VERSION: tensorflow==2.0.0
+        NUMPY_VERSION: numpy==1.16.0
+      python: 3.5
+    - stage: advanced
+      script: remote-docs
+      env:
+        TF_VERSION: tensorflow-gpu
+        GPU_NUM: 0
+    - script: remote-examples
+      env:
+        TF_VERSION: tensorflow-gpu
+        GPU_NUM: 0
+    - test_args: --unroll-simulation 5 --simulator-only
+    - test_args: --dtype float64 --simulator-only
+    - test_args: --inference-only --simulator-only
+  pypi_user: drasmuss
+  deploy_dists:
+    - sdist
+
+codecov_yml:
+  abs_target: 100%
+
+setup_py:
+  include_package_data: True
+  docs_req:
+    - click>=6.7  # needed for sphinx-click
+    - jupyter>=1.0.0
+    - matplotlib>=2.0.0
+    - nbsphinx>=0.3.5
+    - nengo-sphinx-theme>=1.2.1
+    - numpydoc>=0.6.0
+    - Pillow>=4.1.1
+    - sphinx>=1.8.0
+    - sphinx-click>=1.4.1
+  tests_req:
+    - click>=6.7
+    - codespell>=1.12.0
+    - matplotlib>=2.0.0
+    - nbval>=0.6.0
+    - pylint>=1.9.2
+    - pytest>=3.6.0
+    - pytest-allclose>=1.0.0
+    - pytest-cov>=2.6.0
+    - pytest-rng>=1.0.0
+    - pytest-xdist>=1.16.0
+    - six>=1.11.0  # hint for pip dependency resolution, required by nbval
+  entry_points:
+    nengo.backends:
+      - dl = nengo_dl:Simulator
+  classifiers:
+      - "Development Status :: 5 - Production/Stable"
+      - "Framework :: Nengo"
+      - "Intended Audience :: Science/Research"
+      - "License :: Free for non-commercial use"
+      - "Operating System :: Microsoft :: Windows"
+      - "Operating System :: POSIX :: Linux"
+      - "Programming Language :: Python"
+      - "Programming Language :: Python :: 3.5"
+      - "Programming Language :: Python :: 3.6"
+      - "Programming Language :: Python :: 3.7"
+      - "Topic :: Scientific/Engineering"
+      - "Topic :: Scientific/Engineering :: Artificial Intelligence"
+
+pyproject_toml: {}
+
+pre_commit_config_yaml: {}
