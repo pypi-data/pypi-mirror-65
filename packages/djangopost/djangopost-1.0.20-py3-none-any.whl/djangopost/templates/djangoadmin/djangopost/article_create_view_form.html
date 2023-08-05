@@ -1,0 +1,114 @@
+{% extends 'djangoadmin/base/body/index_admin.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+<form method="POST" action="#" enctype="multipart/form-data">
+{% csrf_token %}
+
+<div class="form-group mb-1">
+    {{ article_form.title }}
+</div>
+
+<div class="card rounded-0 mb-1">
+<div class="card-header p-2">
+    <label for="{{ article_form.description.id_for_label }}">{{ article_form.description.label }}</label>
+</div>
+<div class="card-body p-0">
+<div class="form-group p-0 m-0">
+    {{ article_form.description }}
+</div>
+</div>
+</div>
+
+<div class="card rounded-0 mb-1">
+        <div class="card-header p-2">
+            <label for="{{ article_form.shortlines.id_for_label }}">{{ article_form.shortlines.label }}</label>
+        </div>
+        <div class="card-body p-0">
+        <div class="form-group p-0 m-0">
+            {{ article_form.shortlines }}
+        </div>
+        </div>
+        </div>
+
+<div class="card rounded-0 mb-1">
+                <div class="card-header p-2">
+                        <label for="{{ article_form.content.id_for_label }}">{{ article_form.content.label }}</label>
+                </div>
+                <div class="card-body p-0">
+                <div class="form-group p-0 m-0">
+                        {{ article_form.content }}
+                </div>
+                </div>
+</div>
+        
+{% endblock body %}
+
+{% block sidebar-right %}
+
+<div class="card rounded-0 mb-1">
+    <div class="card-header p-2">
+        {{ article_form.status.label }}
+    </div>
+    <div class="card-body">
+    <div class="custom-file">
+        {{ article_form.status }}
+        <button type="submit" class="btn btn-primary btn-block mt-1 rounded-0">Publish</button>
+    </div>
+    </div>
+</div>
+
+<div class="card rounded-0 mb-1">
+    <div class="card-header p-2">
+        {{ article_form.serial.label }}
+    </div>
+    <div class="card-body">
+        {{ article_form.serial }}
+    </div>
+</div>
+
+<div class="card rounded-0 mb-1">
+    <div class="card-header p-2">
+        {{ article_form.category.label }}
+    </div>
+    <div class="card-body">
+    <div class="form-check">
+        {{article_form.category}}
+    </div>
+    </div>
+</div>
+
+<div class="card rounded-0 mb-1">
+        <div class="card-header p-2">
+            {{ article_form.cover_image.label }}
+        </div>
+        <div class="card-body">
+        <div class="custom-file rounded-0">
+            {{ article_form.cover_image }}
+            <label class="custom-file-label rounded-0" for="customFile">Choose file</label>
+        </div>
+        </div>
+    </div>
+
+<div class="card rounded-0 mb-1">
+<div class="card-header p-2">Options</div>
+<div class="card-body p-0">
+<ul class="list-group list-group-flush">
+    <li class="list-group-item p-2" for="{{ article_form.verification.id_for_label }}">{{ article_form.verification }} {{ article_form.verification.label }}</li>
+    <li class="list-group-item p-2" for="{{ article_form.is_promote.id_for_label }}">{{ article_form.is_promote }} {{ article_form.is_promote.label }}</li>
+    <li class="list-group-item p-2" for="{{ article_form.is_trend.id_for_label }}">{{ article_form.is_trend }} {{ article_form.is_trend.label }}</li>
+    <li class="list-group-item p-2" for="{{ article_form.is_promotional.id_for_label }}">{{ article_form.is_promotional }} {{ article_form.is_promotional.label }}</li>
+</ul>
+</div>
+</div>
+
+<div class="card rounded-0 mb-1">
+<div class="card-header p-2">{{ article_form.total_views.label }}</div>
+<div class="card-body">
+    {{ article_form.total_views }}
+</div>
+</div>
+
+</form>
+{% endblock sidebar-right %}

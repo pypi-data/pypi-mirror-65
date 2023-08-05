@@ -1,0 +1,34 @@
+{% extends 'djangoadmin/base/body/index_admin.html' %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+
+<div class="alert alert-primary rounded-0 mb-1">
+    <h5 class="font-weight-bolder text-dark">Delete this article.</h5>
+</div>
+
+<table class="table border table-hover mb-1">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ article_detail.title }}</td>
+      <td>{{ article_detail.category }}</td>
+      <td>{{ article_detail.author }}</td>
+      <td>{{ article_detail.status }}</td>
+    </tr>
+  </tbody> 
+</table>
+
+<form method='POST' action="" class="my-1">
+    {% csrf_token %}
+    <input class="btn btn-outline-danger btn-block rounded-0" type="submit" value='delete'>
+</form>
+
+{% endblock body %}
