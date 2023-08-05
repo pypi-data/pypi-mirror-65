@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: crawl-wx
+Version: 0.0.8
+Summary: crawl wechat public account contents
+Home-page: https://github.com/fatelei/crawl_wx
+Author: fatelei
+Author-email: fatelei@gmail.com
+License: PRIVATE
+Description: # crawl_wx
+        
+        Download content from [wechat public content admin](https://mp.weixin.qq.com/cgi-bin/home).
+        
+        ## Install Requirement
+        
+        - python >= 3.7
+        
+        ## Install
+        
+        ```shell script
+        pip install crawl_wx
+        ```
+        
+        ## Usage
+        
+        1. Login https://mp.weixin.qq.com/cgi-bin/home
+        2. Navigate to #已群发消息#
+        3. Open chrome developer tool
+        4. Copy curl request, ![picture](./images/curl.png)
+        5. Save the copied to a file.
+        6. run the command
+        ```shell script
+        crawlwx --curl_file /path/to/curl_file --output /path/to/save
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
