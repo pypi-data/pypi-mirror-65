@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "streamcables"
+version = "0.1.0"
+description = "Syndicate audio streaming metadata to webservices."
+authors = ["Sander van Dragt <sander@vandragt.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+appdirs = "^1.4"
+beautifulsoup4 = "^4.8"
+maya = "^0.6.1"
+requests = "^2.23"
+toml = "^0.10.0"
+tweepy = "^3.8"
+
+[tool.poetry.dev-dependencies]
+black = "^18.3-alpha.0"
+pyinstaller = "^3.6"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
