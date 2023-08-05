@@ -1,0 +1,9 @@
+[datalad.extensions]
+webapp = datalad_webapp:command_suite
+
+[datalad.webapp.resources]
+auth = datalad_webapp.resources.auth:AuthenticationResource
+file = datalad_webapp.resources.file:FileResource
+procedure = datalad_webapp.resources.procedure:ProcedureResource
+subdataset = datalad_webapp.resources.subdataset:SubdatasetResource
+

@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: datalad-webapp
+Version: 0.3
+Summary: DataLad extension for exposing commands via a web request API
+Home-page: UNKNOWN
+Author: The DataLad Team and Contributors
+Author-email: team@datalad.org
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Flask-RESTful
+Requires-Dist: Flask (>=1.0)
+Requires-Dist: datalad (>=0.12.5)
+Requires-Dist: pytest-cov
+
+UNKNOWN
+
+
