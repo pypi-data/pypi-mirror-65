@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: OpenFisca-PPDLand
+Version: 0.3.2
+Summary: OpenFisca tax and benefit system for PPDLand
+Home-page: https://github.com/openfisca/country-template
+Author: Mahdi Ben Jelloul
+Author-email: mahdi.benjelloul@gmail.com
+License: http://www.fsf.org/licensing/licenses/agpl-3.0.html
+Keywords: benefit microsimulation social tax
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Dist: OpenFisca-Core (<35,>=34.7)
+Requires-Dist: OpenFisca-Survey-Manager (<0.39,>=0.38.3)
+Requires-Dist: matplotlib
+Provides-Extra: dev
+Requires-Dist: autopep8 (==1.4.0) ; extra == 'dev'
+Requires-Dist: flake8 (<3.6.0,>=3.5.0) ; extra == 'dev'
+Requires-Dist: flake8-print ; extra == 'dev'
+Requires-Dist: pycodestyle (<2.4.0,>=2.3.0) ; extra == 'dev'
+Requires-Dist: pytest (<4.0) ; extra == 'dev'
+Requires-Dist: scipy (>=0.17) ; extra == 'dev'
+Requires-Dist: requests (>=2.8) ; extra == 'dev'
+Requires-Dist: yamllint (<1.12,>=1.11.1) ; extra == 'dev'
+
+UNKNOWN
+
+
