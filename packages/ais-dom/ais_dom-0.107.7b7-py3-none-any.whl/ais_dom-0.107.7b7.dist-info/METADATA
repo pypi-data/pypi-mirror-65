@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: ais-dom
+Version: 0.107.7b7
+Summary: Open-source home automation platform running on Python 3.
+Home-page: https://www.ai-speaker.com
+Author: AI-Speaker team
+Author-email: info@sviete.pl
+License: Apache License 2.0
+Download-URL: https://github.com/sviete/AIS-home-assistant/archive/0.107.7b7.zip
+Project-URL: Bug Reports, https://github.com/sviete/AIS-home-assistant/issues
+Project-URL: Dev Docs, https://developers.home-assistant.io/
+Project-URL: Discord, https://discordapp.com/invite/c5DvZ4e
+Project-URL: Forum, https://community.home-assistant.io/
+Keywords: home,automation
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Home Automation
+Requires-Python: >=3.7.0
+Requires-Dist: aiohttp (==3.6.1)
+Requires-Dist: astral (==1.10.1)
+Requires-Dist: async-timeout (==3.0.1)
+Requires-Dist: attrs (==19.3.0)
+Requires-Dist: certifi (>=2019.11.28)
+Requires-Dist: ciso8601 (==2.1.3)
+Requires-Dist: importlib-metadata (==1.5.0)
+Requires-Dist: jinja2 (>=2.10.3)
+Requires-Dist: PyJWT (==1.7.1)
+Requires-Dist: cryptography (==2.8)
+Requires-Dist: pip (>=8.0.3)
+Requires-Dist: python-slugify (==4.0.0)
+Requires-Dist: pytz (>=2019.03)
+Requires-Dist: pyyaml (==5.3)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: ruamel.yaml (==0.15.100)
+Requires-Dist: voluptuous (==0.11.7)
+Requires-Dist: voluptuous-serialize (==2.3.0)
+Requires-Dist: ais-dom-frontend (==20200318.9)
+
+Assystent domowy
+=================================================================================
+
+Open source home automation platform that puts local control and privacy first.
+We are able to track and control all devices at home and offer a control by voice and automating the control.
+
+
+|screenshot-states|
+
+
+.. |screenshot-states| image:: https://raw.github.com/sviete/AIS-home-assistant/master/docs/screenshots.png
+   :target: https://www.ai-speaker.com
+
+
