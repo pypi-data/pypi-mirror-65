@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Schema for the agent configuration file.",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "aea_version",
+    "agent_name",
+    "author",
+    "version",
+    "license",
+    "private_key_paths",
+    "default_ledger",
+    "connections",
+    "default_connection",
+    "protocols",
+    "skills"
+  ],
+  "properties": {
+    "aea_version": {
+      "$ref": "definitions.json#/definitions/aea_version"
+    },
+    "agent_name": {
+      "type": "string"
+    },
+    "author": {
+      "$ref": "definitions.json#/definitions/author"
+    },
+    "version": {
+      "$ref": "definitions.json#/definitions/package_version"
+    },
+    "license": {
+      "$ref": "definitions.json#/definitions/license"
+    },
+    "fingerprint": {
+      "$ref": "definitions.json#/definitions/fingerprint"
+    },
+    "fingerprint_ignore_patterns": {
+      "$ref": "definitions.json#/definitions/fingerprint_ignore_patterns"
+    },
+    "registry_path": {
+      "type": "string"
+    },
+    "private_key_paths": {
+      "type": "object",
+      "uniqueItems": true,
+      "patternProperties": {
+        "^[^\\d\\W]\\w*\\Z": {
+          "$ref": "definitions.json#/definitions/private_key_path"
+        }
+      }
+    },
+    "ledger_apis": {
+      "type": "object",
+      "uniqueItems": true,
+      "patternProperties": {
+        "^[^\\d\\W]\\w*\\Z": {
+          "$ref": "definitions.json#/definitions/ledger_api"
+        }
+      }
+    },
+    "default_ledger": {
+      "type": "string"
+    },
+    "connections": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "definitions.json#/definitions/public_id"
+      }
+    },
+    "contracts": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "definitions.json#/definitions/public_id"
+      }
+    },
+    "default_connection": {
+      "type": "string"
+    },
+    "protocols": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "definitions.json#/definitions/public_id"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "definitions.json#/definitions/public_id"
+      }
+    },
+    "logging_config": {
+      "type": "object"
+    },
+    "description": {
+      "$ref": "definitions.json#/definitions/description"
+    }
+  }
+}
