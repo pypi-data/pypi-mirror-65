@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: ernie
+Version: 0.0.26b0
+Summary: An Accessible Python Library for State-of-the-art Natural Language Processing. Built with HuggingFace's Transformers.
+Home-page: https://github.com/brunneis/ernie
+Author: Rodrigo Martínez Castaño
+Author-email: rodrigo@martinez.gal
+License: GNU General Public License v3 (GPLv3)
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Requires-Dist: transformers (==2.4.1)
+Requires-Dist: scikit-learn (>=0.22.1)
+Requires-Dist: pandas (>=0.25.3)
+Requires-Dist: tensorflow (!=2.2.0-rc0,!=2.2.0rc1,>=2.1.0)
+Requires-Dist: py-cpuinfo (==5.0.0)
+
+UNKNOWN
+
+
