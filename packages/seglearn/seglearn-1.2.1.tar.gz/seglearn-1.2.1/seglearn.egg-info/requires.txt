@@ -1,0 +1,17 @@
+numpy
+scipy
+scikit-learn>=0.21.3
+
+[docs]
+sphinx
+sphinx-gallery
+sphinx_rtd_theme
+numpydoc
+matplotlib
+keras
+pandas
+imbalanced-learn>=0.6.0
+
+[tests]
+pytest
+pytest-cov
