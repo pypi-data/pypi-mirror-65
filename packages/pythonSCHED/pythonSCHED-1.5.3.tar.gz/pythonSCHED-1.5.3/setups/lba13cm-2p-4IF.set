@@ -1,0 +1,24 @@
+pcal='off'
+nchan    = 8
+bits     = 2
+bbfilter = 16.0
+pol      = dual
+freqref  = 2252
+netside  = usb
+freqoff  = 0, 0, 16, 16, 32, 32, 48, 48 
+/
+station = Shanghai
+nchan    = 4
+pol      = rcp
+freqoff  = 0, 16, 32, 48 
+/
+station = Parkes, ATCA, Mopra
+nchan    = 8 
+pol      = dual
+freqoff  = 0, 0, 16, 16, 32, 32, 48, 48
+/
+station = Ceduna, Hobart, DSS43LBA, DSS45LBA
+nchan    = 4 
+freqoff  = 0, 0, 16, 16
+/
+
