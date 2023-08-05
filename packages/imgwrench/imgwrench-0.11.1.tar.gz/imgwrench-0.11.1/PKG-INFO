@@ -1,0 +1,248 @@
+Metadata-Version: 1.1
+Name: imgwrench
+Version: 0.11.1
+Summary: A highly opinionated image processor for the commandline.
+Home-page: https://github.com/luphord/imgwrench
+Author: luphord
+Author-email: luphord@protonmail.com
+License: MIT license
+Description: ============
+        Image Wrench
+        ============
+        
+        
+        .. image:: https://img.shields.io/pypi/v/imgwrench.svg
+                :target: https://pypi.python.org/pypi/imgwrench
+        
+        .. image:: https://img.shields.io/travis/luphord/imgwrench.svg
+                :target: https://travis-ci.org/luphord/imgwrench
+        
+        .. image:: https://readthedocs.org/projects/imgwrench/badge/?version=latest
+                :target: https://imgwrench.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        A highly opinionated image processor for the commandline. Multiple subcommands can
+        be executed sequentially to form a processing pipeline.
+        
+        
+        * Free software: MIT license
+        * Documentation: https://imgwrench.readthedocs.io.
+        
+        Usage
+        -----
+        
+        .. code-block:: console
+        
+            Usage: imgwrench [OPTIONS] COMMAND1 [ARGS]... [COMMAND2 [ARGS]...]...
+            
+              A highly opinionated image processor for the commandline. Multiple
+              subcommands can be executed sequentially to form a processing pipeline.
+            
+            Options:
+              -i, --image-list FILENAME  File containing paths to images for processing,
+                                         defaults to stdin
+              -p, --prefix TEXT          prefix for all output filenames before numbering
+                                         [default: img_]
+              -d, --digits INTEGER       number of digits for file numbering  [default: 4]
+              -c, --increment INTEGER    increment for file numbering  [default: 1]
+              -k, --keep-names           keep original file names instead of numbering
+                                         [default: False]
+              -f, --force-overwrite      force overwriting output image file if it exists
+                                         [default: False]
+              -o, --outdir DIRECTORY     output directory  [default: .]
+              -q, --quality INTEGER      quality of the output images, integer 0 - 100
+                                         [default: 88]
+              -e, --preserve-exif        preserve image exif and xmp metadata if available
+                                         [default: False]
+              -j, --jpg / --png          save output images in JPEG format (otherwise PNG)
+                                         [default: True]
+              --help                     Show this message and exit.
+            
+            Commands:
+              blackwhite  Convert color images to black and white.
+              collage     Create a collage from multiple images.
+              colorfix    Fix colors by stretching channel histograms to full range.
+              crop        Crop images to the given aspect ratio.
+              dither      Apply black-white dithering to images.
+              filmstrip   Stack all images horizontally, creating a filmstrip.
+              frame       Put a monocolor frame around images.
+              framecrop   Crop and frame an image to a target aspect ratio.
+              resize      Resize images to a maximum side length preserving aspect...
+              save        No-op to enable saving of images without any processing.
+              stack       Stacks pairs of images vertically, empty space in the middle.
+        
+        
+        Features
+        --------
+        
+        * Subcommands can be executed sequentially to form a pipeline
+        * Command *blackwhite* for converting images to black and white
+        * Command *collage* creates a collage from multiple images
+        * Command *colorfix* for fixing the colors of aged photographs
+        * Command *crop* for cropping images to give aspect ratio
+        * Command *dither* for converting images to black and white and dithering
+        * Command *filmstrip* to stack images horizontally forming a filmstrip
+        * Command *frame* to put a monocolor frame around images
+        * Command *framecrop* top frame and crop an image to a target aspect ratio
+        * Command *resize* for resizing images
+        * Command *save* for no processing, but saving images with the given parameters
+        * Command *stack* for vertically stacking images
+        
+        Pipelines
+        ---------
+        
+        imgwrench subcommands can be combined into pipelines. This saves you from generating intermediate
+        files cluttering your filesystem and reducing the quality of the final results. For example, if you
+        would like to convert all images in the current directory to black and white, put a white frame
+        around them and have them cut to an aspect ratio of 3:2 (for standard format printing), you would
+        execute the following command:
+        
+        .. code-block:: console
+        
+                ls *.JPG | \
+                imgwrench -o out -q 95 -p oldschool_img_ \
+                        blackwhite \
+                        framecrop -a 3:2 -w 0.03 -c white
+        
+        Please refer to the `detailed subcommand documentation`_ for the individual parameters.
+        
+        .. _`detailed subcommand documentation`: https://imgwrench.readthedocs.io/en/latest/usage.html
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.11.1 (2020-04-05)
+        -------------------
+        
+        * :code:`-x/--seed` option for collage to control initialization of random number generator
+        
+        0.11.0 (2020-03-21)
+        -------------------
+        
+        * collage subcommand for creating a framed collage from images
+        * BREAKING CHANGE: default method for colorfix is now quantiles-fixed-cutoff
+        * preserve xmp metadata when :code:`-e/--preserve-exif` is used (in addition to exif metadata)
+        
+        0.10.0 (2020-03-04)
+        -------------------
+        
+        * :code:`-m/--method` option to colorfix (default: quantiles)
+        * add fixed-cutoff as new method to colorfix accepting fixed colors as color cutoff boundaries
+        * add quantiles-fixed-cutoff as new method to colorfix combining quantiles and fixed-cutoff
+        * deprecate running colorfix without specifying method (as default will change in next version)
+        
+        0.9.0 (2020-02-19)
+        ------------------
+        
+        * add numpy as dependency
+        * change colorfix algorithm to vectorized numpy code for performance
+        * support Python 3.8
+        
+        0.8.1 (2020-01-12)
+        ------------------
+        
+        * fix crash when orientation is missing in exif headers
+        
+        0.8.0 (2019-07-10)
+        ------------------
+        
+        * dither subcommand for dithering
+        * filmstrip subcommand to stack images horizontally
+        * images can be saved in PNG format using :code:`--png` CLI flag
+        
+        0.7.1 (2019-05-16)
+        ------------------
+        
+        * fix development status
+        
+        0.7.0 (2019-05-16)
+        ------------------
+        
+        * option for preserving exif image metadata
+        * fix error when running with :code:`-k/--keep-names`
+        * status progress to Alpha
+        
+        0.6.0 (2019-03-14)
+        ------------------
+        
+        * framecrop subcommand to crop and frame an image to a target aspect ratio incl. tests and docs
+        * breaking change: moved command modules to `commands` package
+        * introduced ImageInfo as a container for additional meta information in the pipeline
+        * increased test coverage
+        * more documentation
+        
+        0.5.2 (2019-03-10)
+        ------------------
+        
+        * use a custom parameter type for colors
+        
+        0.5.1 (2019-03-09)
+        ------------------
+        
+        * changed default frame width to 0.025
+        * usage doc for frame subcommand
+        * consistent alphabetic sorting of subcommands
+        * use a custom parameter type for ratios
+        
+        0.5.0 (2019-03-07)
+        ------------------
+        
+        * blackwhite subcommand to convert color images to black and white; incl. doc
+        * frame subcommand to put a monocolor frame around images; incl. tests
+        
+        0.4.0 (2019-02-26)
+        ------------------
+        
+        * convert RGBA mode PNG images to RGB (to enable saving as JPG)
+        * crop subcommand to crop images to a specified aspect ratio
+        * documentation for colorfix and crop
+        
+        0.3.0 (2019-02-17)
+        ------------------
+        
+        * :code:`-d/--digits` option to specify number of digits in file names
+        * :code:`-c/--increment` option to define increment for file numbering
+        * create non-existing output folder instead of complaining
+        
+        0.2.0 (2019-01-30)
+        ------------------
+        
+        * no-op save command for only saving images
+        * raise exception if output image already exists
+        * :code:`-f/--force-overwrite` flag to enable overwriting output
+        * tests for cli, pipeline and resize
+        
+        0.1.1 (2019-01-29)
+        ------------------
+        
+        * Fix __main__ module
+        
+        0.1.0 (2019-01-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: imgwrench
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
