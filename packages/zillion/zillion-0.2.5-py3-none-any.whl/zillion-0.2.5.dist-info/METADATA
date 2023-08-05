@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: zillion
+Version: 0.2.5
+Summary: Make sense of it all.
+Home-page: https://github.com/totalhack/zillion
+Author: totalhack
+Author-email: none@none.com
+Maintainer: totalhack
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: climax
+Requires-Dist: lxml
+Requires-Dist: m2r
+Requires-Dist: marshmallow
+Requires-Dist: networkx
+Requires-Dist: numpydoc
+Requires-Dist: orderedset (>=2.0.3)
+Requires-Dist: pandas
+Requires-Dist: pylint
+Requires-Dist: pymysql
+Requires-Dist: pyyaml
+Requires-Dist: simplejson
+Requires-Dist: stopit
+Requires-Dist: sqlalchemy
+Requires-Dist: sqlparse
+Requires-Dist: tlbx (>=0.1.13)
+Requires-Dist: xlrd
+Provides-Extra: complete
+Requires-Dist: black ; extra == 'complete'
+Requires-Dist: pre-commit ; extra == 'complete'
+Requires-Dist: psycopg2 ; extra == 'complete'
+Requires-Dist: pylint ; extra == 'complete'
+Requires-Dist: pytest ; extra == 'complete'
+Requires-Dist: sphinx ; extra == 'complete'
+Requires-Dist: sphinx-rtd-theme ; extra == 'complete'
+Requires-Dist: twine ; extra == 'complete'
+Requires-Dist: wheel ; extra == 'complete'
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Provides-Extra: postgres
+Requires-Dist: psycopg2 ; extra == 'postgres'
+
+Zillion: Make sense of it all
+=============================
+
+Documentation/etc. to follow when the project is more mature.
+
+
