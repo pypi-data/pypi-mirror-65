@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: dff-calc
+Version: 0.2.0
+Summary: Calculate dF/F for neural calcium traces
+License: Apache-2.0
+Author: HagaiHargil
+Author-email: hagaihargil@gmail.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: numpy (>=1.18.2,<2.0.0)
+Requires-Dist: pandas (>=1.0.3,<2.0.0)
+Requires-Dist: scipy (>=1.4.1,<2.0.0)
