@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: demosaicnet
+Version: 0.0.9
+Summary: Minimal implementation of Deep Joint Demosaicking and Denoising [Gharbi2016]
+Home-page: https://github.com/mgharbi/
+Author: Michaël Gharbi
+Author-email: gharbi@csail.mit.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Requires-Dist: wget
+Requires-Dist: torch-tools
+
+# Deep Joint Demosaicking and Denoising
+SiGGRAPH Asia 2016
+
+Michaël Gharbi gharbi@mit.edu Gaurav Chaurasia Sylvain Paris Frédo Durand
+
+A minimal pytorch implementation of "Deep Joint Demosaicking and Denoising" [Gharbi2016]
+
+# Installation
+
+From this repo:
+
+```shell
+python setup.py install
+```
+
+Using pip:
+
+```shell
+pip install demosaicnet
+```
+
+Then run the demo script with:
+
+```shell
+demosaicnet_demo
+```
+
+
