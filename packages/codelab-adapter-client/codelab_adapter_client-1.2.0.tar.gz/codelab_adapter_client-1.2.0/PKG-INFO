@@ -1,0 +1,100 @@
+Metadata-Version: 1.2
+Name: codelab_adapter_client
+Version: 1.2.0
+Summary: Python Boilerplate contains all the boilerplate you need to create a Python package.
+Home-page: https://github.com/wwj718/codelab_adapter_client
+Author: Wenjie Wu
+Author-email: wuwenjie718@gmail.com
+License: GNU General Public License v3
+Description: ======================
+        codelab_adapter_client
+        ======================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/codelab_adapter_client.svg
+                :target: https://pypi.python.org/pypi/codelab_adapter_client
+        
+        .. image:: https://img.shields.io/travis/wwj718/codelab_adapter_client.svg
+                :target: https://travis-ci.org/wwj718/codelab_adapter_client
+        
+        .. image:: https://readthedocs.org/projects/codelab-adapter-client/badge/?version=latest
+                :target: https://codelab-adapter-client.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        Python Client of CodeLab Adapter(https://adapter.codelab.club/) v2.
+        
+        
+        Install
+        -------
+        
+        pip install codelab_adapter_client
+        
+        
+        Usage
+        -----
+        
+        from codelab_adapter_client import AdapterNode
+        
+        example
+        -------
+        
+        https://github.com/wwj718/codelab_adapter_client/blob/master/examples/extension_eim.py
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        * 1.2.0 (2020-04-06)
+        * 1.1.0 (2020-04-03)
+        * 1.0.1 (2020-03-25)
+        * 1.0.0 (2019-10-01)
+        * 0.9.8 (2019-09-11)
+        * 0.9.4 (2019-08-28)
+        * 0.9.3 (2019-08-21)
+        * 0.9.2 (2019-08-20)
+        * 0.9.1 (2019-08-18)
+        * 0.9.0 (2019-08-17)
+        * 0.8.2 (2019-08-16)
+        * 0.8.1 (2019-08-16)
+        * 0.8.0 (2019-08-16)
+        * 0.7.1 (2019-08-09)
+        * 0.7.0 (2019-08-08)
+        * 0.6.0 (2019-07-30)
+        * 0.5.0 (2019-07-27)
+        * 0.4.1 (2019-07-24)
+        * 0.4.0 (2019-07-24)
+        * 0.3.1 (2019-07-21)
+        * 0.3.0 (2019-07-21)
+        * 0.2.0 (2019-07-21)
+        * 0.1.0 (2019-07-03)
+        * First release on PyPI.
+        
+Keywords: codelab_adapter_client
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6.0
