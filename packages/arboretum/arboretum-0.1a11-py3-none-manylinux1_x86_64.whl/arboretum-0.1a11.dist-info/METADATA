@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: arboretum
+Version: 0.1a11
+Summary: Gradient Boosting powered by GPU(NVIDIA CUDA)
+Home-page: https://github.com/sh1ng/arboretum
+Maintainer: Vladimir Ovsyannikov
+Maintainer-email: vladimir.ovsyannikov@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: sklearn
+
+Gradient Boosting implementation with focus on overcoming GRAM size limit
+
+
