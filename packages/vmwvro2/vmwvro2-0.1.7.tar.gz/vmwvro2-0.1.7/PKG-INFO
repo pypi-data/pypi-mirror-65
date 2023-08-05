@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: vmwvro2
+Version: 0.1.7
+Summary: REST lib for VMWARE vRO
+Home-page: http://github.com/JoseIbanez/vmwvro2
+Author: Jose Ibanez
+Author-email: ibanez.j@gmail.com
+License: MIT License
+Description: # Project description
+        A REST API library to execute 'Worflows' on VMware vRealize Orchestrator (vRO).
+        
+        
+        # Features
+        What you can do with vmwvro:
+        
+        * Support for a list of vRO endpoints
+        * Concurrent executions
+        * Support of input and output paramenters
+        * Supported socks proxy 
+        * Download of Workflow log
+        
+        # Basic usage
+        ```python
+        #!/usr/bin/env python
+        from vmwvro2.workflow import Workflow, MultiRun
+        from vmwvro2.sessions import SessionList
+        
+        
+        sl = SessionList()
+        sl.load()
+        
+        
+        
+        ##########################################################
+        wf = Workflow()
+        wf.id = "338beefa-9fff-469b-89d4-914031ffbfb6"
+        wf.name = "IP update"
+        
+        wf.param(name="ipAddress",value="10.10.10.10")
+        wf.param(name="newStatus",value="In Service")
+        
+        
+        mt = MultiRun()
+        mt.add(wf,sl,"dev")
+        mt.run()
+        mt.wait()
+        mt.getLogs()
+        
+        for alias in mt.list:
+            print("****************")
+            print(alias)
+            print(mt.list[alias].name)
+            mt.list[alias].print_parameters())
+            print(mt.list[alias].log)
+        
+        
+        ````
+        
+        # Licence
+        MIT
+        
+        NOTE: Based and some parts copied from "vmwvro" (c) Lior P. Abitbol
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
