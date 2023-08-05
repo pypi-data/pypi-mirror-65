@@ -1,0 +1,6 @@
+include README.md
+include LICENSE.txt
+include vtkplotlib/data/icons/*.jpg
+include vtkplotlib/data/icons/*.png
+recursive-include vtkplotlib/data/models *
+
