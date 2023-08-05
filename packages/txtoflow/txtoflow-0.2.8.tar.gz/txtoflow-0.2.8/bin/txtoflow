@@ -1,0 +1,46 @@
+#! /usr/bin/env python3
+# ------------------------------------------------
+# Author:    krishna
+# USAGE:
+#       txtoflow sample1.c
+# ------------------------------------------------
+from txtoflow import txtoflow
+import fileinput
+import argparse
+
+
+def getOpts():
+    '''Process the options'''
+
+    parser = argparse.ArgumentParser(
+        description='''Generates flowchart from pseudocode''',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+
+    parser.add_argument(
+        '-s', '--src',
+        type=argparse.FileType('r'),
+        required=True,
+        help="Source file with pseudocode to convert"
+    )
+
+    parser.add_argument(
+        '-o', '--out',
+        type=str,
+        default='flowchart.jpg',
+        help="Output file to write into"
+    )
+
+    # return validateOpts(parser.parse_args())
+    return parser.parse_args()
+
+
+def main():
+    '''The Main'''
+
+    opts = getOpts()
+    txtoflow.generate(opts.src.read(), outFile=opts.out)
+
+
+if __name__ == '__main__':
+    main()
