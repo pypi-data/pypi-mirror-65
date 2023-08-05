@@ -1,0 +1,235 @@
+Metadata-Version: 2.1
+Name: iland-sdk
+Version: 1.0.4
+Summary: iland cloud Python SDK.
+Home-page: https://github.com/ilanddev/python-sdk
+Author: iland Internet Solutions, Corp
+Author-email: devops@iland.com
+License: BSD
+Keywords: iland cloud sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.2.1)
+
+===============================
+iland-sdk
+===============================
+
+.. image:: https://img.shields.io/pypi/v/iland-sdk.svg
+        :target: https://pypi.python.org/pypi/iland-sdk
+
+.. image:: https://travis-ci.org/ilanddev/python-sdk.svg?branch=master
+        :target: https://travis-ci.org/ilanddev/python-sdk
+
+.. image:: https://readthedocs.org/projects/iland-sdk/badge/?version=latest
+        :target: https://iland-sdk.readthedocs.org/en/latest/
+        :alt: Documentation Status
+
+.. image:: https://requires.io/github/ilanddev/python-sdk/requirements.svg?branch=master
+     :target: https://requires.io/github/ilanddev/python-sdk/requirements/?branch=master
+     :alt: Requirements Status
+
+
+iland cloud Python SDK
+
+* Free software: BSD License
+* Documentation: https://iland-sdk.readthedocs.org.
+* iland cloud v1.0 API doc: https://us-east-1.api.ilandcloud.com/doc/current/.
+
+============
+Introduction
+============
+
+This library provides a pure Python interface for the
+`iland cloud API version 1.0 <https://www.iland.com/>`_.
+It works with Python versions from 2.7+.
+
+`iland cloud <http://www.iland.com>`_ provides Enterprise-grade IaaS and this
+library is intended to make it even easier for Python programmers to use.
+
+================
+Getting the code
+================
+
+The code is hosted at https://github.com/ilanddev/python-sdk
+
+Check out the latest development version anonymously with::
+
+    $ git clone https://github.com/ilanddev/python-sdk.git
+    $ cd python-sdk
+
+=============
+Documentation
+=============
+
+For documentation on using iland's Python SDK check out our `Wiki <https://github.com/ilanddev/python-sdk/wiki>`_.
+
+============
+Installation
+============
+
+At the command line::
+
+    $ pip install iland-sdk
+
+Or, if you have virtualenvwrapper installed::
+
+    $ mkvirtualenv iland-sdk
+    $ pip install iland-sdk
+
+You can also install iland-sdk using the actual source checkout::
+
+    $ git clone https://github.com/ilanddev/python-sdk.git
+
+    $ cd python-sdk
+
+    $ pip install -e .
+
+=============
+Running Tests
+=============
+
+To run the unit tests::
+
+    $ make test
+
+To run the unit tests for all supported Python interpreters::
+
+    $ make test-all
+
+To check your changes before submitting a pull request::
+
+    $ make lint
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+1.0.3 (2020-03-25)
+------------------
+
+* handle refresh token expiration and max session length expiration (#26)
+* Wiki and Python SDK examples: https://github.com/ilanddev/python-sdk/wiki
+
+1.0.2 (2019-02-15)
+------------------
+
+* Added support for ``timeout`` parameter to ``get``/``post``/``put``/``delete`` methods
+
+1.0.1 (2018-11-15)
+------------------
+
+* doc update
+
+1.0.0 (2018-11-15)
+------------------
+
+* Support for iland API v1.0
+* Update outdated dependencies
+
+0.9.0 (2018-11-13)
+------------------
+
+* iland API v0.9
+
+0.7.5 (2017-06-27)
+------------------
+
+* Force iland API v0.8.
+* Update dev requirements.
+* Dependencies definition shared with ``setup.py``
+* Add support for passing additional headers with api requests.
+
+0.7.4 (2017-05-26)
+------------------
+
+* Use a ``requests.Session`` object for all api calls
+* Remove ``base_url``, ``access_token_url``, and ``verify_ssl`` from Api constructor
+
+0.7.3 (2017-05-18)
+------------------
+
+*  Fix internal use of ``REFRESH_URL`` when overriding ``access_token_url`` at constructor time.
+
+0.7.2 (2017-05-17)
+------------------
+
+* optional ``access_url_token`` ``Api`` constructor param allowing one to override
+  token exchange URL.
+* update dependencies.
+* lower required version of ``requests`` module from ``==2.14.2`` to ``>=2.2.1``.
+
+0.7.1 (2017-02-08)
+------------------
+
+* update outdated dependencies
+* drop Python 3.3 support "just like everybody"
+* update token exchange endpoint. We keeping BBB for old client implementations
+
+0.7.0 (2016-10-13)
+------------------
+
+* update token exchange endpoint. We keeping BBB for old client implementations
+* update requests lib
+* update dev dependencies
+* promote to stable
+
+0.6.0 (2016-6-28)
+-----------------
+
+* update dependencies
+* default resource path update
+
+0.5.0 (2016-3-22)
+-----------------
+
+* promote to beta status
+* extra ``verify_ssl`` ``Api`` constructor to allow one to not verify endpoints SSL
+
+0.4.0 (2016-3-08)
+-----------------
+
+* support 204 no content HTTP return code
+* fix naming of _validate_token method
+* update Sphynx dependency
+* full unit tests coverage
+* fix return on POST, PUT and DELETE operations
+* fix use of custom BASE API URL
+
+0.3.0 (2016-2-18)
+-----------------
+
+* implement exceptions handling
+* docstrings and documentation
+* Housekeeping and refactoring
+* Better CI setup
+* Sphynx doc and readthedocs.org publishing.
+
+0.2.0 (2016-2-09)
+-----------------
+
+* Minor fixes.
+
+0.1.0 (2016-2-09)
+-----------------
+
+* First release on PyPI.
+
+
