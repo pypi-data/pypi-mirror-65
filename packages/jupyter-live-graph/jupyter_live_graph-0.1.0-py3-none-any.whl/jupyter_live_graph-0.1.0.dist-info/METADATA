@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: jupyter-live-graph
+Version: 0.1.0
+Summary: Create and update graphs live in Jupyter
+Home-page: https://dav-ell.github.io/jupyter-live-graph
+Author: David E
+Author-email: delliott537@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib
+
+# jupyter-live-graph
+
+Let's you create a graph in a Jupyter cell, and update that graph live in other cells. Uses matplotlib`.draw()`.
+
+![](jupyterdraw.gif)
+
+As simple as:
+
+```
+%matplotlib notebook
+from draw import Draw
+
+draw = Draw()
+# ---
+for i in range(1000):
+  draw.graph([j for j in range(i)])
+```
+
+## License
+
+MIT
+
+## Contributing
+
+This project is wide open to pull requests.
+
+
