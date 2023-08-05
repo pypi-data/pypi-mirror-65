@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: flask-skeleton
+Version: 1.0.1
+Summary: Quick start a flask app
+Home-page: https://github.com/enwawerueli/flask-skeleton
+Author: enwawerueli
+Author-email: seaworndrift@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: Flask
+Classifier: Topic :: Utilities
+Classifier: Natural Language :: English
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: click (==7.1.1)
+Requires-Dist: jinja2 (==2.11.1)
+
+# Flask Skeleton
+Basic flask app scaffolding.
+
+Includes a basic app structure and templates.
+
+## Install with pip
+`pip install flask-skeleton`
+
+## Run from the command line
+`$ create-flask-app [Options] APPNAME`
+
+Run `$ create-flask-app --help` for usage.
+
+## Setup
+1. `cd` into the app directory
+2. Activate virtual environment: `$ source env/bin/activate`
+3. Run tests: `$ python -m unittest`
+4. Create database: `$ flask create-db`
+5. Run: `$ flask run`
+
+Source: [Flask Skeleton](https://github.com/enwawerueli/flask-skeleton).
+
+Happy coding!
+
+
