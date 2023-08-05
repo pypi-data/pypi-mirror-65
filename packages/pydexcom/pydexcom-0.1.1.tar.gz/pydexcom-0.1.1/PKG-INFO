@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pydexcom
+Version: 0.1.1
+Summary: Python API to interact with Dexcom Share API
+Home-page: https://github.com/gagebenne/pydexcom
+Author: Gage Benne
+Author-email: gagedbenne@gmail.com
+License: MIT
+Description: # pydexcom
+        Python API to interact with Dexcom Share API
+        
+        ```python
+        >>> dexcom = pydexcom.Dexcom('username', 'password')
+        
+        >>> bg = dexcom.get_current_glucose_reading()
+        
+        >>> bg.value
+        105
+        
+        >>> bg.trend_arrow
+        '→'
+        
+        >>> bg.trend_description
+        'steady'
+        ```
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
