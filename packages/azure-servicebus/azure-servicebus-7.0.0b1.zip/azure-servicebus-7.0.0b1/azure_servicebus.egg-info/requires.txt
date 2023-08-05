@@ -1,0 +1,7 @@
+uamqp<2.0.0,>=1.2.5
+msrestazure<2.0.0,>=0.4.32
+azure-common~=1.1
+
+[:python_version<'3.0']
+azure-nspkg
+futures
