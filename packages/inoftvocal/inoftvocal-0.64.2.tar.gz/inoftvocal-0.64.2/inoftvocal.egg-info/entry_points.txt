@@ -1,0 +1,4 @@
+[console_scripts]
+inoft = inoft_vocal_framework.cli.cli_index:cli
+inoftvocal = inoft_vocal_framework.cli.cli_index:cli
+
