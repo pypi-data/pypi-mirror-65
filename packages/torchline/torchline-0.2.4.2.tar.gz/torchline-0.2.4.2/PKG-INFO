@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: torchline
+Version: 0.2.4.2
+Summary: A framework for easy to use Pytorch
+Home-page: https://github.com/marsggbo/torchline
+Author: marsggbo
+Author-email: csxinhe@comp.hkbu.edu.hk
+License: UNKNOWN
+Description: 
+            The ML developer can easily use this framework to implement your ideas. Our framework is built based on pytorch_lightning, 
+            and the structures is inspired by detectron2
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
