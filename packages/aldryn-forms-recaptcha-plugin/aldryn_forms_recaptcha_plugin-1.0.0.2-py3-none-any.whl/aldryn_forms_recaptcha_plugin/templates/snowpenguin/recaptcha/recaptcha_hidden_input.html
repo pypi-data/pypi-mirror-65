@@ -1,0 +1,6 @@
+{% load recaptcha3 %}
+
+<input type="hidden" class="django-recaptcha-hidden-field" name="g-recaptcha-response">
+
+{% recaptcha_init %}
+{% recaptcha_ready action_name='homepage' %}
