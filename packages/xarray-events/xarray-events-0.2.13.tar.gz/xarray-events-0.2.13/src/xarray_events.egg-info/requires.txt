@@ -1,0 +1,12 @@
+xarray
+pandas
+numpy
+
+[docs]
+jupyter_sphinx
+
+[tests]
+pytest-mypy
+pytest-flake8
+pytest-pydocstyle
+pytest-coverage
