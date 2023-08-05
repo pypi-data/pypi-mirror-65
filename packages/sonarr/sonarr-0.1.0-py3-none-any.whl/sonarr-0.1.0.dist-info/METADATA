@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: sonarr
+Version: 0.1.0
+Summary: Asynchronous Python client for the Sonarr API.
+Home-page: https://github.com/ctalkington/python-sonarr
+Author: Chris Talkington
+Author-email: chris@talkingtontech.com
+License: MIT license
+Keywords: sonarr,api,async,client
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: yarl (==1.4.2)
+
+# Python: Sonarr Client
+
+Asynchronous Python client for Sonarr API.
+
+## About
+
+This package allows you to monitor a Sonarr instance.
+
+## Installation
+
+```bash
+pip install sonarr
+```
+
+## Usage
+
+```python
+import asyncio
+
+from sonarr import Sonarr
+
+
+async def main():
+    """Show example of connecting to your Sonarr instance."""
+    async with Sonarr("192.168.1.100", "API_TOKEN") as sonarr:
+        info = sonarr.update()
+        print(info)
+
+
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
+```
+
+
