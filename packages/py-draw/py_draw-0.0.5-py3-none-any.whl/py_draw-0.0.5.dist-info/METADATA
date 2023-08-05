@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: py-draw
+Version: 0.0.5
+Summary: This program is drawing tool written using pygame
+Home-page: https://github.com/taiseiyo/Self-made-python-script/blob/master/command/py_draw/
+Author: suzuki taisei
+Author-email: taiseiyo11@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pygame
+Requires-Dist: pyautogui
+
+:orphan:
+
+====================
+Project description
+====================
+A drawing tool created from pygame, a python module
+
+About usage
+====================
+
+Use the following command on the shell
+
+$ py_draw
+
+You can draw on the window and you can draw a picture by moving the mouse while clicking.
+
+* Escape key : Quit py_draw
+* Space key: To erase all pictures on the screen
+* Right arrow key: You can use the eraser
+* Up arrow key: Take a screenshot
+
+
