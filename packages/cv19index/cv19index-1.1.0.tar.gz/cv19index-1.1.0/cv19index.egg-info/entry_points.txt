@@ -1,0 +1,4 @@
+[console_scripts]
+cv19index = cv19index.predict:main
+serve = cv19index.server:sagemaker_serve
+
