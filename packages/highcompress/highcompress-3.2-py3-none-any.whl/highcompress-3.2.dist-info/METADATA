@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: highcompress
+Version: 3.2
+Summary: Highcompress API client.
+Home-page: https://highcompress.com/
+Author: Himalaya Saxena
+Author-email: himalayasaxena@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Description-Content-Type: text/markdown
+Requires-Dist: requests (<3.0.0,>=2.7.0)
+Requires-Dist: simplejson (>=3.9.0)
+Provides-Extra: test
+Requires-Dist: nose (<2.0,>=1.3) ; extra == 'test'
+Requires-Dist: httpretty (<1.0.0,>=0.8.10) ; extra == 'test'
+
+# HighCompress + Python
+
+Python package for the compressing images through Highcompress API. Highcompress compresses your images intelligently and efficiently. Get your Highcompress key from [here!](https://highcompress.com)
+### How to install
+
+```               
+ pip install highcompress
+```
+
+### How to use
+
+
+```
+import highcompress as hc
+
+hc.key="Your_API_Key"
+
+//Pass the path of image
+hc.from_file("Image path")
+
+hc.from_file("Image path","path to save compressed image")
+```        
+More Features coming soon like releasing setting levels etc.
+
+
