@@ -1,0 +1,32 @@
+from setuptools import setup, find_packages
+ 
+setup(name='easierai_trainer_library',
+      version='0.0.74',
+      url='https://scm.atosresearch.eu/ari/easier/trainer-library',
+      license='ATOS',
+      author='AIR Unit',
+      author_email='adrian.arroyo@atos.net',
+      description='This library contains AI code for training purposes.',
+      long_description=open('README.md').read(),
+      long_description_content_type='text/markdown',
+      packages=find_packages(),
+      install_requires =[
+            'flask',
+            'flask-api',
+            'flask_monitoringdashboard',
+            'sklearn',
+            'easierai-elasticsearchlib',
+            'easierai-common-functions',
+            'tensorflow',
+            'configparser',
+            'numpy',
+            'pandas',
+            'joblib',
+            'keras',
+            'datetime',
+            'pydash',
+            'phased_lstm_keras',
+            'schedule',
+            'minio'
+      ],
+      zip_safe=False)
