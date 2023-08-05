@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+		<title>ImJoy elFinder v{{ IMJOY_ELFINDER_VERSION }}</title>
+		<script>
+			let serverUrl = "{{ IMJOY_ELFINDER_BASE_URL }}";
+			if(!serverUrl.startsWith('http')){
+				if(serverUrl.startsWith('//')) serverUrl = serverUrl.slice(1)
+				var origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+				serverUrl = origin + (serverUrl.startsWith('/') ? serverUrl : ("/" + serverUrl))
+			}
+			if(serverUrl && serverUrl.endsWith('/')) serverUrl = serverUrl.substring(0, serverUrl.length - 1);
+			window.ELFINDER_CONFIG = {
+				static_url: serverUrl + '/static',
+				connector_url: serverUrl + '/connector',
+				connector_query: null,
+				file_base_url: '',
+			}
+			// load the app
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.setAttribute('data-main', window.ELFINDER_CONFIG['static_url'] + '/main.js');
+			script.src = '//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js';
+			document.getElementsByTagName('head')[0].appendChild(script);
+			
+			// set app icon
+			var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+			link.type = 'image/x-icon';
+			link.rel = 'shortcut icon';
+			link.href = window.ELFINDER_CONFIG['static_url'] + '/img/favicon.ico';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+		<!-- <link rel="stylesheet" type="text/css" media="screen" href="{{ IMJOY_ELFINDER_BASE_URL }}/static/themes/Material/css/theme-light.min.css"> -->
+		<!-- <link rel="stylesheet" type="text/css" media="screen" href="{{ IMJOY_ELFINDER_BASE_URL }}/static/themes/windows-10/css/theme.css"> -->
+	</head>
+	<body>
+
+		<!-- Element where elFinder will be created (REQUIRED) -->
+		<div id="elfinder"></div>
+
+	</body>
+</html>
