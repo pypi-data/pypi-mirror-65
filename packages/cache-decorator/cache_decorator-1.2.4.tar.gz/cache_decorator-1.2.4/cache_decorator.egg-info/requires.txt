@@ -1,0 +1,14 @@
+numpy
+pandas
+compress_pickle
+dict_hash
+openpyxl
+xlrd
+compress_json
+
+[test]
+pytest
+pytest-cov
+coveralls
+validate_version_code
+codacy-coverage
