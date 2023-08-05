@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: data_france
+Version: 0.6.4
+Summary: Données administratives et géographiques sur la France
+Home-page: https://github.com/aktiur/data-france
+License: GNU-GPL 3.0
+Author: Arthur Cheysson
+Author-email: arthur@cheysson.fr
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Requires-Dist: django >= 2.0
+
+DATA-FRANCE
+===========
+
+Un ensemble de données administratives et géographiques pour la France. Elle double comme application Django
+pour permettre l'intégration aisée de ces données.
+
+Pour le moment, j'ai inclus :
+
+* Les communes
+    * Inclut les polygones correspondant à chaque commune
+    * Inclut les communes délégués / communes associées / arrondissements PLM
+    * Inclut article + charnière
+* Les EPCI
+    * CA, CC, CU et métropoles
+    * N'inclut pas encore les EPT du Grand Paris
+
+Paquets deb à installer pour le développement
+---------------------------------------------
+
+- libarchive-dev
+- libsqlite3-mod-spatialite
+
