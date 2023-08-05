@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: botocore-1.15.36
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/botocore-1.15.36-4b1a3145-30ee-75af-1ba1-5add8bfee0ce
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: Amazon Web Services (UNKNOWN)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-06T16:28:00Z
+
+
+# Package
+
+PackageName: botocore
+SPDXID: SPDXRef-botocore
+PackageVersion: 1.15.36
+PackageDownloadLocation: NONE
+PackageSummary: <text>Low-level, data-driven core of boto 3.</text>
+PackageFileName: botocore
+PackageOriginator: Person: Amazon Web Services (UNKNOWN)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: Apache License 2.0
+PackageLicenseConcluded: Apache License 2.0
+PackageLicenseInfoFromFiles: Apache License 2.0
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://github.com/boto/botocore
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: Apache License 2.0
+LicenseInfoInFile: Apache License 2.0
+FileCopyrightText: NONE
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+

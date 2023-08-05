@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: backrefs-4.3
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/backrefs-4.3-41541d41-353c-faf7-fba4-bf9e0d3b669e
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: Isaac Muse (Isaac.Muse@gmail.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-06T16:28:00Z
+
+
+# Package
+
+PackageName: backrefs
+SPDXID: SPDXRef-backrefs
+PackageVersion: 4.3
+PackageDownloadLocation: NONE
+PackageSummary: <text>A wrapper around re and regex that adds additional back references.</text>
+PackageFileName: backrefs
+PackageOriginator: Person: Isaac Muse (Isaac.Muse@gmail.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: MIT License
+PackageLicenseConcluded: MIT License
+PackageLicenseInfoFromFiles: MIT License
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://github.com/facelessuser/backrefs
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: MIT License
+LicenseInfoInFile: MIT License
+FileCopyrightText: NONE
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+

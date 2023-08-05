@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: urllib3-1.25.8
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/urllib3-1.25.8-e49b52f9-0471-6874-e8df-018d4148ef9e
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: Andrey Petrov (andrey.petrov@shazow.net)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-06T16:28:00Z
+
+
+# Package
+
+PackageName: urllib3
+SPDXID: SPDXRef-urllib3
+PackageVersion: 1.25.8
+PackageDownloadLocation: NONE
+PackageSummary: <text>HTTP library with thread-safe connection pooling, file post, and more.</text>
+PackageFileName: urllib3
+PackageOriginator: Person: Andrey Petrov (andrey.petrov@shazow.net)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: MIT
+PackageLicenseConcluded: MIT
+PackageLicenseInfoFromFiles: MIT
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://urllib3.readthedocs.io/
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: MIT
+LicenseInfoInFile: MIT
+FileCopyrightText: NONE
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+

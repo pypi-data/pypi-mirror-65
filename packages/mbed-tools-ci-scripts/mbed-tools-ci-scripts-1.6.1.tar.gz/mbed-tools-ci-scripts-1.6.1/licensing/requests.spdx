@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: requests-2.23.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/requests-2.23.0-7c90ec2c-9b99-e44c-159d-a68f2a5c765b
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: Kenneth Reitz (me@kennethreitz.org)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-06T16:28:00Z
+
+
+# Package
+
+PackageName: requests
+SPDXID: SPDXRef-requests
+PackageVersion: 2.23.0
+PackageDownloadLocation: NONE
+PackageSummary: <text>Python HTTP for Humans.</text>
+PackageFileName: requests
+PackageOriginator: Person: Kenneth Reitz (me@kennethreitz.org)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: Apache 2.0
+PackageLicenseConcluded: Apache 2.0
+PackageLicenseInfoFromFiles: Apache 2.0
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://requests.readthedocs.io
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: Apache 2.0
+LicenseInfoInFile: Apache 2.0
+FileCopyrightText: NONE
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+
