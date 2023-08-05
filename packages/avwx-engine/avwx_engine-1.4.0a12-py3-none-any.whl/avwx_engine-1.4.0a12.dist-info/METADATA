@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: avwx-engine
+Version: 1.4.0a12
+Summary: Aviation weather report parsing library
+Home-page: https://github.com/avwx-rest/avwx-engine
+Author: Michael duPont
+Author-email: michael@mdupont.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >= 3.6
+Requires-Dist: geopy (~=1.21)
+Requires-Dist: httpx (~=0.12)
+Requires-Dist: python-dateutil (~=2.8)
+Requires-Dist: xmltodict (~=0.12)
+Requires-Dist: dataclasses (>=0.7) ; python_version < "3.7"
+Provides-Extra: dev
+Requires-Dist: nox (==2019.11.9) ; extra == 'dev'
+Requires-Dist: pre-commit (~=2.2) ; extra == 'dev'
+Requires-Dist: pytest (~=5.4) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: mkdocs (~=1.1) ; extra == 'docs'
+Provides-Extra: scipy
+Requires-Dist: scipy (~=1.4) ; extra == 'scipy'
+
+UNKNOWN
+
+
