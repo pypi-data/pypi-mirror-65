@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: adventofcode.utils
+Version: 2.0.0
+Summary: Advent of Code utility classes
+Home-page: https://github.com/dh256/adventofcode/tree/master/utils
+Author: David Hanley
+Author-email: hanley_d@hotmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Advent of Code Utility Classes
+
+A bunch of utility classes for Advent of Code problems. As I have worked on Advent of Code problems a number of utility classes have been created that help solve problems.
+
+- Point2D - 2D point
+- Point3D - 3D point
+- Stack - Simple implementation of a Stack (LIFO)
+
+
