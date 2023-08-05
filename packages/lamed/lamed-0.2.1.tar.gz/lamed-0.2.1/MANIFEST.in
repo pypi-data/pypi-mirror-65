@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include lamed/VERSION
+include lamed/config.json.template
+recursive-include lamed/vendor *
+
+exclude tox.ini
+exclude requirements.in
+exclude requirements.txt
+exclude requirements_dev.txt
