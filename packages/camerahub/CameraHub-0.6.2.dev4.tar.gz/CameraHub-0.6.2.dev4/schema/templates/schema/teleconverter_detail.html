@@ -1,0 +1,41 @@
+{% extends "detail.html" %}
+{% load yesnoicon %}
+
+{% block content %}
+<table class="table table-hover">
+  <tr>
+    <td>Model</td>
+    <td>{{ object.model }}</td>
+  </tr>
+  {% if object.manufacturer is not None %}
+  <tr>
+    <td>Manufacturer</td>
+    <td><a href="{% url 'manufacturer-detail' object.manufacturer.slug %}">{{ object.manufacturer }}</a></td>
+  </tr>
+  {% endif %}
+  {% if object.mount is not None %}
+  <tr>
+    <td>Mount</td>
+    <td><a href="{% url 'mount-detail' object.mount.slug %}">{{ object.mount }}</a></td>
+  </tr>
+  {% endif %}
+  {% if object.factor is not None %}
+  <tr>
+    <td>Factor</td>
+    <td>{{ object.factor }}&times;</td>
+  </tr>
+  {% endif %}
+  {% if object.elements is not None %}
+  <tr>
+    <td>Elements/Groups</td>
+    <td>{{ object.elements }}/{{ object.groups }}</td>
+  </tr>
+  {% endif %}
+  {% if object.multicoated is not None %}
+  <tr>
+    <td>Multicoated</td>
+    <td>{{ object.multicoated|yesnoicon }}</td>
+  </tr>
+  {% endif %}
+</table>
+{% endblock %}

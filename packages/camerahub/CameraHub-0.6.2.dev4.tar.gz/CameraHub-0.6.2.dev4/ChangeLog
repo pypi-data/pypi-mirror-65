@@ -1,0 +1,147 @@
+CHANGES
+=======
+
+* Add CameraHub logo to front page
+* Drop all concept of a Series
+
+0.6.1
+-----
+
+* Prepare release 0.6.1
+
+0.6.0
+-----
+
+* Prepare release 0.6.0
+* Add note about CollectiBlend
+* Copy Watson templates locally to get rid of the h1
+* Improve search results page
+* Serve our own search form
+* Search box with default search view
+* Install Watson search engine
+* Fix typo
+
+0.5.0
+-----
+
+* Prepare release 0.5.0
+* Move all conditionals outisde the <tr>
+* Add conditional printing to all detail templates
+* Styling and formatting improvements
+* Add more bool icons
+* Format serial numbers
+* Move all templates into the right dir
+* Enforce either fixed or interchangeable lens
+* Improve form formatting
+* Improve layout of fixed lens form
+* Add validation for lens fields in camear
+* Update cameramodel form and detail view to include lens info
+* Drop fixed\_mount field
+* Rename lens\_model to remove ambiguity
+* Add lens fields to model for fixed cameras
+* POC of tabs
+* Link header to index and drop home link
+* Shorten pagination
+* Dedup pagination block as they are all provided by class based views
+
+0.4.3
+-----
+
+* Prepare release 0.4.3
+* Added created & updated logs to all public models
+* Added created & updated logs to cameramodel and lensmodel
+* Drop coupled metering
+* Remodel lens coating as a multi choice field
+* Add mirror lock-up
+* Fix display of ranged values for #283
+* Improve elements/groups display for #285
+* Auto formatting
+* Revise battery display and make it clickable
+* Fixed mount displays as boolean icon
+* Display camera and lens model disambiguations in list view
+
+0.4.2
+-----
+
+* Prepare release 0.4.2
+* Ensure constraints have unique names
+
+0.4.1
+-----
+
+* Prepare release 0.4.1
+* Use url slugs for other models
+* Create and populate slug field
+* Use cameramodel slug in url
+* Add new style unique constraint
+* Make manufacturer a required field for cameramodel
+* Add slug field and populate it
+
+0.4.0
+-----
+
+* Push version tag and latest
+* Prepare release 0.4.0
+* Filters are public data, modelled as types rather than specific filters
+* Make heading a little smaller
+* Mark items as active to make them brighter
+* Add reponsive hamburger menu
+* Remove excess containers
+* Model compatible batteries
+* Multiple choice battery chemistry for #268
+* Multiple choice paperstock finish for #270
+* Remove tonable for #265
+* Define tables explicitly via fields, instead of excludes
+* Add filters and filter forms for most list views with django-filter
+* Install django-filter
+* Add x-sync speed
+* Show related camera and lens models for mounts
+* Nullify the problematic migration
+* Test migrations
+* Push to Docker Hub on tags
+* Build docker image in Travis
+
+0.3.4
+-----
+
+* Use = instead of is
+* Prepare release 0.3.4
+* Use boolean comparisons which should work with Postgres and SQLite
+
+0.3.3
+-----
+
+* Prepare release 0.3.3
+* Scrap manual changelog
+* Break down lensmodel form into fieldsets
+* Fix dupe model fields
+* Break down cameramodel form into fieldsets
+* Set editable=False on some non-user fields
+* Drop workaround
+* Dedup \_\_init\_\_ method
+* Fix dupe model fields
+* Use some fancy widgets
+* Break down cameramodel form into fieldsets
+* Emit logs of WARNING and above to stderr for production and debug mode
+* Use to Crispy to render all forms
+* Replace hotshoe & coldshoe with single shoe type
+* Fix conditionals
+* Enable bool icons in lens model
+* Add mm to filter thread
+* Enable bool icons in camera model
+* Create yesnoicon template tag to display bools as icons
+* Display false values
+* Add yes/no icons
+* Add % symbol to viewfinder coverage
+* Allow negative EV values
+* Remove stray brace
+
+0.3.2
+-----
+
+* Prepare release 0.3.2
+* Convert md to html
+* Make tables hoverable
+* Display manufacturer info
+* Move edit link to top
+* Move stats into dropdown
