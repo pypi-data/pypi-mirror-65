@@ -1,0 +1,13 @@
+mock
+pytest
+pytest-cov
+virtualenv==16.7.9
+six
+coverage==4.5.4
+pyyaml
+coveralls==1.9.2
+pylint-junit
+pylint-json2html
+decorator
+bson
+dill
