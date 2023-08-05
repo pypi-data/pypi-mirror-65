@@ -1,0 +1,366 @@
+Metadata-Version: 2.1
+Name: oelint_adv
+Version: 1.18.0
+Summary: Advanced bitbake-recipe linter
+Home-page: https://github.com/priv-kweihmann/oelint-adv
+Author: Konrad Weihmann
+Author-email: kweihmann@outlook.com
+License: UNKNOWN
+Description: oelint-adv
+        ==========
+        
+        |Build status| |PyPI version| |Python version| |Downloads| |Language
+        grade: Python|
+        
+        Advanced oelint
+        
+        Purpose
+        -------
+        
+        Based on the `OpenEmbedded
+        Styleguide <https://www.openembedded.org/wiki/Styleguide>`__ and work
+        done by
+        `oe-stylize-tool <https://github.com/openembedded/meta-openembedded/blob/master/contrib/oe-stylize.py>`__
+        this module offers a (nearly) complete linter for bitbake-recipes.
+        
+        The tool should help anyone working with YOCTO/OpenEmbedded to write
+        more clean, less ‘magical’ recipes, without the need to know all the
+        internals of your used poky/OpenEmbedded version.
+        
+        It could also be used as part of a CI to avoid hard to debug issues
+        slipping to your code base - be sure to checkout
+        `rulefile <#defining-a-ruleset>`__ for that use case.
+        
+        As every linter this tool is sometimes extra picky, but for the good of
+        it, not just to bug people. Especially for novice users it might be a
+        help to avoid the most common pitfalls of bitbake recipes.
+        
+        The tool does handle includes/requires automatically so you don’t have
+        to pass them via CLI.
+        
+        **NOTE**: .bbappend-files have to be passed via CLI - these are NOT
+        gathered automatically
+        
+        Install
+        -------
+        
+        With pip
+        
+        .. code:: shell
+        
+           pip3 install oelint_adv
+        
+        From Arch Linux:
+        
+        .. code:: shell
+        
+           yay -S oelint-adv
+        
+        Usage
+        -----
+        
+        .. code:: shell
+        
+           oelint-adv
+           usage: __main__.py [-h] [--suppress SUPPRESS] [--output OUTPUT] [--fix]
+                              [--nobackup] [--addrules ADDRULES [ADDRULES ...]]
+                              [--rulefile RULEFILE] [--constantfile CONSTANTFILE]
+                              [--color]
+                              files [files ...]
+        
+           Advanced OELint - Check bitbake recipes against OECore styleguide
+        
+           positional arguments:
+             files                 File to parse
+        
+           optional arguments:
+             -h, --help            show this help message and exit
+             --suppress SUPPRESS   Rules to suppress
+             --output OUTPUT       Where to flush the findings (default: stderr)
+             --fix                 Automatically try to fix the issues
+             --nobackup            Don't create backup file when auto fixing
+             --addrules ADDRULES [ADDRULES ...]
+                                   Additional non-default rulessets to add
+             --rulefile RULEFILE   Rulefile
+             --constantfile CONSTANTFILE
+                                   Constantfile
+             --color               Add color to the output based on the severity
+        
+        Output
+        ------
+        
+        Will be [file]:[line]:[severity]:[message].
+        
+        Example:
+        
+        .. code:: shell
+        
+           /disk/meta-some/cppcheck-native/cppcheck.inc:26:error:oelint.task.nomkdir:'mkdir' shall not be used in do_install. Use 'install'
+           /disk/meta-some/cppcheck-native/cppcheck-native_1.87.bb:0:error:oelint.var.mandatoryvar:Variable 'SECTION' should be set
+           /disk/meta-some/cppcheck-native/cppcheck.inc:1:warning:oelint.vars.summary80chars:'SUMMARY' should not be longer than 80 characters
+           /disk/meta-some/cppcheck-native/cppcheck.inc:4:warning:oelint.vars.homepageprefix:'HOMEPAGE' should start with 'http://' or 'https://'
+           /disk/meta-some/cppcheck-native/cppcheck.inc:28:warning:oelint.spaces.lineend:Line shall not end with a space
+           /disk/meta-some/cppcheck-native/cppcheck-native_1.87.bb:0:error:oelint.var.mandatoryvar:Variable 'AUTHOR' should be set
+           /disk/meta-some/cppcheck-native/cppcheck.inc:26:error:oelint.task.nocopy:'cp' shall not be used in do_install. Use 'install'
+           /disk/meta-some/cppcheck-native/cppcheck.inc:12:warning:oelint.var.order:'DEPENDS' should be placed before 'inherit'
+        
+        Apply automatic fixing
+        ----------------------
+        
+        Some of the rules are capable of fixing the issues found automatically.
+        This will be done if you pass **–fix** as a startup parameter.
+        
+        As long as you don’t pass **–nobackup** a backup copy (filename + .bak)
+        will be created for all files fixed.
+        
+        Available rules
+        ---------------
+        
+        Rules marked with **[F]** are able to perform automatic fixing
+        
+        -  oelint.append.protvars - Variables that shouldn’t be set in a
+           bbappend
+        -  oelint.comments.notrailing - No trailing comments allowed, comments
+           should be on a single line
+        -  oelint.file.includenotfound - File to be included not found
+        -  oelint.file.patchsignedoff - Patches should contain a Signed-Of-By
+           entry
+        -  oelint.file.requireinclude - Require should be used instead of
+           include
+        -  oelint.file.requirenotfound - File to be required not found
+        -  oelint.file.upstreamstatus - Patches should contain a Upstream-Status
+           entry
+        -  oelint.func.machinespecific - Function is machine specific but no
+           matching COMPATIBLE_MACHINE was found
+        -  oelint.newline.consecutive - Consecutive blank lines should be
+           avoided **[F]**
+        -  oelint.newline.eof - File shall end on a newline **[F]**
+        -  oelint.spaces.emptyline - Empty line should not contain spaces or
+           tabs **[F]**
+        -  oelint.spaces.linebeginning - No space at a line beginning **[F]**
+        -  oelint.spaces.linecont - Safe line continuation **[F]**
+        -  oelint.spaces.lineend - No spaces at line end **[F]**
+        -  oelint.tabs.notabs - No tabs allowed **[F]**
+        -  oelint.task.addnotaskbody - Task added by addtask cannot be found
+        -  oelint.task.customorder - order of custom tasks added via addtask
+        -  oelint.task.docstrings - Custom tasks should have docstrings
+        -  oelint.task.multiappends - Multiple appends to the same function in
+           the same file won’t work in bitbake
+        -  oelint.task.nocopy - No cp usage in do_install
+        -  oelint.task.nomkdir - No mkdir usage in do_install
+        -  oelint.task.nopythonprefix - Tasks containing shell code should NOT
+           be prefixed with ‘python’ in function header
+        -  oelint.task.order - Order of tasks
+        -  oelint.task.pythonprefix - Tasks containing python code should be
+           prefixed with ‘python’ in function header
+        -  oelint.var.bbclassextend - Use BBCLASSEXTEND when possible
+        -  oelint.var.improperinherit - Warn about improperly named inherits
+        -  oelint.var.licenseremotefile - License shall be a file in remote
+           source not a local file
+        -  oelint.var.mandatoryvar - Check for mandatory variables
+        -  oelint.var.multiinclude - Warn on including the same file more than
+           once
+        -  oelint.var.multiinherit - Warn on inherit the same file more than
+           once
+        -  oelint.var.nativefilename - Native only recipes should be named
+           -native
+        -  oelint.var.order - Variable order
+        -  oelint.var.override - Check if include/append is overriding a
+           variable
+        -  oelint.var.srcuriwildcard - ‘SRC_URI’ should not contain any
+           wildcards
+        -  oelint.var.suggestedvar - Notice on suggested variables
+        -  oelint.vars.appendop - Use ’_append’ instead of ’ += ’
+        -  oelint.vars.autorev - The usage of ‘AUTOREV’ for SRCREV leads to not
+           reproducible builds
+        -  oelint.vars.bbvars - Variables that shouldn’t be altered in recipe
+           scope
+        -  oelint.vars.bugtrackerisurl - BUGTRACKER should be an URL
+        -  oelint.vars.dependsappend - DEPENDS should only be appended, not
+           overwritten
+        -  oelint.vars.dependsordered - RDEPENDS entries should be ordered
+           alphabetically
+        -  oelint.vars.descriptionsame - ‘DESCRIPTION’ is the same a ‘SUMMARY’ -
+           it can be removed then
+        -  oelint.vars.descriptiontoobrief - ‘DESCRIPTION’ is the shorter than
+           ‘SUMMARY’
+        -  oelint.vars.doublemodify - Multiple modifiers of
+           append/prepend/remove/+= found in one operation
+        -  oelint.vars.duplicate - No duplicates in DEPENDS and RDEPENDS
+        -  oelint.vars.fileextrapaths - ‘FILESEXTRAPATHS’ shouldn’t be used in a
+           bb file
+        -  oelint.vars.fileextrapathsop - ‘FILESEXTRAPATHS’ should only be used
+           in combination with ’ := ’
+        -  oelint.vars.homepageping - ‘HOMEPAGE’ isn’t reachable
+        -  oelint.vars.homepageprefix - HOMEPAGE should begin with https:// or
+           http://
+        -  oelint.vars.inconspaces - Inconsistent use of spaces on append
+           operation
+        -  oelint.vars.insaneskip - INSANE_SKIP should be avoided at any cost
+        -  oelint.vars.machinespecific - Variable is machine specific but no
+           matching COMPATIBLE_MACHINE was found
+        -  oelint.vars.mispell - Possible typo detected
+        -  oelint.vars.multilineident - On a multiline assignment, line indent
+           is desirable
+        -  oelint.vars.notneededspace - Space at the beginning of the var is not
+           needed **[F]**
+        -  oelint.vars.pathhardcode - Warn about the usage of hardcoded paths
+        -  oelint.vars.pbpusage - ${BP} should be used instead of ${P}
+        -  oelint.vars.pkgspecific - Variable is package-specific, but isn’t set
+           in that way
+        -  oelint.vars.pnbpnusage - ${BPN} should be used instead of ${PN}
+        -  oelint.vars.pnusagediscouraged - Variable shouldn’t contain ${PN} or
+           ${BPN}
+        -  oelint.vars.sectionlowercase - SECTION should be lowercase only
+           **[F]**
+        -  oelint.vars.spacesassignment - ’ = ’ should be correct variable
+           assignment
+        -  oelint.vars.srcuridomains - Recipe is pulling from different domains,
+           this will likely cause issues
+        -  oelint.vars.srcurioptions - Fetcher should only valid options
+        -  oelint.vars.summary80chars - SUMMARY should max. be 80 characters
+           long
+        -  oelint.vars.summarylinebreaks - No line breaks in SUMMARY
+        -  oelint.vars.valuequoted - Variable values should be properly quoted
+        
+        Non-default rulesets
+        ~~~~~~~~~~~~~~~~~~~~
+        
+        To enable rulesets that are not part of the standard ruleset pass
+        **–addrules <ruleset-name>** to CLI.
+        
+        These rules are sometimes contrary to OE-style-guide, so use them with
+        caution
+        
+        jetm ruleset
+        ^^^^^^^^^^^^
+        
+        To enable pass **–addrules jetm** to CLI
+        
+        Rules marked with **[F]** are able to perform automatic fixing
+        
+        -  oelint.jetm.vars.dependssingleline - Each [R]DEPENDS entry should be
+           put into a single line
+        
+        Defining a ruleset
+        ------------------
+        
+        If you pass the option ``--rulefile`` you could define the rules to be
+        checked and their severity via a simple json file.
+        
+        The rule file could look like this
+        
+        .. code:: json
+        
+           {
+             "<rule>": "<severity>"
+           }
+        
+        to override the severity, or
+        
+        .. code:: json
+        
+           {
+             "<rule>": ""
+           }
+        
+        to keep the original severity.
+        
+        Example
+        ~~~~~~~
+        
+        .. code:: json
+        
+           {
+             "oelint.file.includenotfound": "",
+             "oelint.file.requirenotfound": "warning"
+           }
+        
+        would enable the two rules ``oelint.file.includenotfound`` and
+        ``oelint.file.requirenotfound``. The severity of
+        ``oelint.file.includenotfound`` will be the default of the tool, while
+        ``oelint.file.requirenotfound`` will report ``warning`` instead of the
+        original suggested severity
+        
+        Adding additional constants
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
+        You can add e.g. known variable names, or known mirror replacements to
+        the rulefile (or the constantfile). Just add a key with the
+        corresponding json type to the file.
+        
+        +-------------+---+----------------------------------------------------+
+        | key         | t | description                                        |
+        |             | y |                                                    |
+        |             | p |                                                    |
+        |             | e |                                                    |
+        +=============+===+====================================================+
+        | known_mirro | d | Known mirror replacements. Key is the variable     |
+        | rs          | i | name surronded by ${}, value a string              |
+        |             | c |                                                    |
+        |             | t |                                                    |
+        +-------------+---+----------------------------------------------------+
+        | known_vars  | l | Known variable name, to avoid false positives at   |
+        |             | i | ``oelint.vars.mispell``                            |
+        |             | s |                                                    |
+        |             | t |                                                    |
+        +-------------+---+----------------------------------------------------+
+        | mandatory_v | l | Additional mandatory variables that should be set  |
+        | ars         | i | in a recipe                                        |
+        |             | s |                                                    |
+        |             | t |                                                    |
+        +-------------+---+----------------------------------------------------+
+        | protected_a | l | Variables that shouldn’t be set in a bbappend      |
+        | ppend_vars  | i |                                                    |
+        |             | s |                                                    |
+        |             | t |                                                    |
+        +-------------+---+----------------------------------------------------+
+        | protected_v | l | Variables that shouldn’t be set inside of a recipe |
+        | ars         | i |                                                    |
+        |             | s |                                                    |
+        |             | t |                                                    |
+        +-------------+---+----------------------------------------------------+
+        | suggested_v | l | Additional suggested variable that should be set   |
+        | ars         | i | in a recipe                                        |
+        |             | s |                                                    |
+        |             | t |                                                    |
+        +-------------+---+----------------------------------------------------+
+        
+        Missing anything?
+        -----------------
+        
+        You think there’s something missing, wrong, ‘improveable’… Just file an
+        issue to get in contact.
+        
+        Contribute
+        ----------
+        
+        Any sort of ideas, pull requests, bug reports, reports of false
+        positives are welcome. This project is open to anyone - no pitfalls or
+        legal inconveniences
+        
+        .. |Build status| image:: https://github.com/priv-kweihmann/oelint-adv/workflows/Python%20package/badge.svg
+        .. |PyPI version| image:: https://badge.fury.io/py/oelint_adv.svg
+           :target: https://badge.fury.io/py/oelint_adv
+        .. |Python version| image:: https://img.shields.io/pypi/pyversions/oelint_adv
+           :target: https://img.shields.io/pypi/pyversions/oelint_adv
+        .. |Downloads| image:: https://img.shields.io/pypi/dm/oelint_adv
+           :target: https://img.shields.io/pypi/dm/oelint_adv
+        .. |Language grade: Python| image:: https://img.shields.io/lgtm/grade/python/g/priv-kweihmann/oelint-adv.svg?logo=lgtm&logoWidth=18
+           :target: https://lgtm.com/projects/g/priv-kweihmann/oelint-adv/context:python
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Quality Assurance
+Description-Content-Type: text/x-rst
