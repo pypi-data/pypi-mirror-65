@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: meissner
+Version: 1.0.0
+Summary: a dictionary-based XSS mutation fuzzer
+Home-page: https://github.com/Arinerron/meissner
+Author: Aaron Esau
+Author-email: python@aaronesau.com
+License: UNKNOWN
+Description: # meissner
+        
+        Meissner Lop is a dictionary-based mutation-based exploit fuzzer for XSS.
+        
+        ![xss](tests/run.gif)
+        
+        ## Installation
+        ### Manual
+        ```
+        git clone https://github.com/arinerron/meissner.git
+        cd meissner
+        sudo ./setup.py install
+        ```
+        
+Keywords: ctf xss hacking mutation fuzzer fuzzing fuzz dictionary attack attacking injection scripting
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
