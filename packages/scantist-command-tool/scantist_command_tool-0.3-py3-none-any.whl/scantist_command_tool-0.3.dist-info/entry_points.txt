@@ -1,0 +1,4 @@
+[console_scripts]
+scantist_auth = command_tool.authenticate:main
+scantist_cmd = command_tool.scantist_cmd:main
+
