@@ -1,0 +1,12 @@
+FORMAT dicom
+
+%filter caoslab_filter
+
+%header
+
+BLANK PatientName
+BLANK PatientID
+BLANK PatientAge
+BLANK PatientBirthDate
+BLANK PatientSex
+BLANK PatientWeight
