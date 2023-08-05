@@ -1,0 +1,58 @@
+%path = "maths/finance/cost and price theory/cournot"
+%kind = kinda["problems"]
+%level = 12
+
+Enter numbers as fractions.
+<ol type="a">
+<li>
+If there is a linear price-sales function \(p(x)=kx+d\), how does
+the expression for the marginal revenue \(E'(x)\) look like? (use \(E(x)=xp(x)\)).
+</li><li>
+Through market observations an upper price limit (intersection
+between \(p(x)\) and p axis) is fixed at €{{ g.pmax }}.
+The saturation quantity (intersection between \(p(x)\) and the x axis)
+is estimated with {{ 2*g.xp0 }}.
+What is the model for the marginal revenue?
+<br>\(E'(x)=\)
+%chq(0, chow = util.tx)
+</li><li>
+Through integration of this marginal revenue one gets the total revenue.
+<br>\(E(x) =\)
+%chq(1, chow = util.tx)
+<br>
+How to determine the integration constant?
+</li><li>
+Costs consist of fixed costs and variable costs.
+Are the fixed costs independent from the production quantity and why?
+</li><li>
+The marginal costs are assumed to be quadratic
+\(K'(x)= {{ util.TX(g.Kp) }} \).
+Which model describes the total costs (integration)?
+To get the integration constant consider that even with no production
+there is €{{ g.Ko }} cost.
+<br>\(K(x)=\)
+%chq(2, chow = util.tx)
+</li><li>
+Write down the expression for the cost function c(x).
+<br>\(c(x) =\)
+%chq(3, chow = util.tx)
+</li><li>
+Write down the price elasticity \(\epsilon(x)\)
+(use the Amoroso-Robinson-Relation or the definition of \(\epsilon\))
+<br>\(\epsilon(x) =\)
+%chq(4, chow = util.tx)
+</li><li>
+With what production quantity do we have maximum profit?
+<br>\(x_g =\)
+%chq(5)
+</li><li>
+Is the demand at this production quantity elastic and why?
+</li><li>
+What price does one have to use to maximize the profit?
+<br>\(p(x_g) =\)
+%chq(6)
+</li><li>
+What is the name of this point \( (x_g,p(x_g)) \)?
+</li>
+</ol>
+
