@@ -1,0 +1,32 @@
+# Currency.
+
+- model: currency.Currency
+  pk: 1
+  fields:
+    abbreviation: PEN
+    name: Sol
+    currency_symbol: S/
+    currency_format: "S/ {} PEN"
+    number_format: "#,##0.00;-#"
+
+
+# Country.
+
+- model: country.Country
+  pk: 1
+  fields:
+    name: Perú
+    code: PE
+    language: es
+    currency: 1
+
+
+# PhoneCode.
+
+- model: phonecode.PhoneCode
+  pk: 1
+  fields:
+    country: 1
+    code: 51
+    max_length: 12
+    min_length: 12
