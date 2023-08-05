@@ -1,0 +1,14 @@
+setup.py
+src/shabadoo/__init__.py
+src/shabadoo/exceptions.py
+src/shabadoo/shabadoo.py
+src/shabadoo/version
+src/shabadoo.egg-info/PKG-INFO
+src/shabadoo.egg-info/SOURCES.txt
+src/shabadoo.egg-info/dependency_links.txt
+src/shabadoo.egg-info/requires.txt
+src/shabadoo.egg-info/top_level.txt
+test/test_bernoulli.py
+test/test_misc.py
+test/test_normal.py
+test/test_poisson.py

@@ -1,0 +1,11 @@
+numpyro~=0.2.4
+pandas~=1.0.1
+
+[docs]
+sphinx
+m2r
+numpydoc
+
+[test]
+black
+pytest
