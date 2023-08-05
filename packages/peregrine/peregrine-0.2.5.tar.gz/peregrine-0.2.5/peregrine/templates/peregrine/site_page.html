@@ -1,0 +1,41 @@
+{% extends 'peregrine/base.html' %}
+{% load wagtailimages_tags wagtailsettings_tags %}
+
+{% block site_title %}{{ page.title }}: {% settings_value 'WAGTAIL_SITE_NAME' %}{% endblock site_title %}
+
+{% block content %}
+    {% block page_header %}
+        {% if page.header_image %}
+            {% image page.header_image original as header_image %}
+            <header style="background-image: url({{ header_image.url }}); height=400;">
+                <div class="container">
+                    <div class="intro-text text-light">
+                        <div class="intro-heading">{{ page.title }}</div>
+                        <div class="intro-lead-in">{{ page.excerpt|safe }}</div>
+                    </div>  
+                    {% for category in page.categories.all %}
+                        <a class="btn btn-info btn-small" href="{% url 'posts-category' category.name|lower %}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </header>
+        {% else %}
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>{{ page.title }}</h1>
+                    <p class="lead">{{ page.excerpt|safe }}</p>
+                    {% block jumbotron_bottom %}
+                    {% endblock jumbotron_bottom %}
+                    {% for category in page.categories.all %}
+                        <a class="btn btn-info btn-small" href="{% url 'posts-category' category.name|lower %}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </div class="container">
+        {% endif %}
+    {% endblock page_header %}
+
+    <div class="container">
+        {{ page.body }}
+    </div class="container">
+{% endblock content %}
+
+
