@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: clifold
+Version: 0.2.3
+Summary: 🚀 A CLI tool for scaffolding any Python Projects 🚀
+Home-page: https://github.com/ydcjeff/clifold
+Author: Jeff Yang
+Author-email: ydc.jeff@gmail.com
+License: MIT
+Description: # Clifold
+        ## Usage
+        ```
+        usage: clif <arg> [options]
+        
+        🚀 A CLI tool for scaffolding any Python Projects 🚀
+        
+        Argument:
+          project_name    Project name to create with venv
+        
+        Options:
+          -g, --git       Make git initialization
+          -ng, --no-git   Skip git initialization
+          -p, --pkg       Ask packages to install
+          -np, --no-pkg   Skip packages installation
+          -i, --init      Create setup.py file
+          -ni, --no-init  Skip setup.py file
+          -V, --version   Output version number
+          -h, --help      Output usage information
+        ```
+Keywords: scaffold python project
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Provides-Extra: test
