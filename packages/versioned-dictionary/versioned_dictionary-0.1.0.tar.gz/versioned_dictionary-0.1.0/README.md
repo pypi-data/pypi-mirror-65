@@ -1,0 +1,133 @@
+# Versioned Dictionaries
+
+This package implements revision controlled dictionaries.
+Please see `tests.py` for usage and a full range of capabilities.
+
+## Installation
+
+```bash
+git clone https://andreacortis@bitbucket.org/andreacortis/versioned_dictionary.git
+cd versioned_dictionary
+pip install -e .
+```
+
+## Usage
+
+```python
+
+In [1]: from versioned_dictionary import VersionedDict, Change
+
+In [2]: D = {'a':1, 'b':{'c':3, 'd':4}}
+
+In [3]: T = VersionedDict(name="my_dict", root_object=D)
+
+In [4]: print(T)
+
+--------------------------------------------------------------------------------
+=== VersionedDict ===
+name         : my_dict
+dict         : {"a": 1, "b": {"c": 3, "d": 4}}
+root         : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+state        : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+creation time: 2020-04-02 12:00:41.531372
+last modified: None
+
+In [5]: print(T['b.c'])
+3
+
+In [6]: print(T.root_object)
+{'a': 1, 'b': {'c': 3, 'd': 4}}
+
+
+In [7]: c1 = Change(VersionedDict_root_hash=T.root_hash, state=T.current_state(), verb='set', key='a', to='17')
+
+In [8]: print(c1)
+--------------------------------------------------------------------------------
+=== CHANGE ===
+hash         : 5bfc003ac2c3498e2c997973b6d008b10e9c56e8307db697efa9c075
+VersionedDict hash : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+state        : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+verb         : set
+key          : a
+to           : 17
+applied      : False
+time         : None
+old_value    : None
+end_state    : None
+--------------------------------------------------------------------------------
+
+In [9]: T.apply_change(c1)
+
+In [10]: print(T)
+--------------------------------------------------------------------------------
+=== VersionedDict ===
+name         : my_dict
+dict         : {"a": "17", "b": {"c": 3, "d": 4}}
+root         : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+state        : 1def039e9ee1e6e7e266026c0db0101ea51b06266487085775f20454
+creation time: 2020-04-02 12:00:41.531372
+last modified: 2020-04-02 12:02:33.487806
+
+In [11]: T.apply_change(-c1)
+
+In [12]: print(T)
+--------------------------------------------------------------------------------
+=== VersionedDict ===
+name         : my_dict
+dict         : {"a": 1, "b": {"c": 3, "d": 4}}
+root         : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+state        : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+creation time: 2020-04-02 12:00:41.531372
+last modified: 2020-04-02 12:06:01.461169
+
+In [13]: T.revert_to_state('1def039e9ee1e6e7e266026c0db0101ea51b06266487085775f20454')
+
+In [14]: print(T)
+--------------------------------------------------------------------------------
+=== VersionedDict ===
+name         : my_dict
+dict         : {"a": "17", "b": {"c": 3, "d": 4}}
+root         : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+state        : 1def039e9ee1e6e7e266026c0db0101ea51b06266487085775f20454
+creation time: 2020-04-02 12:00:41.531372
+last modified: 2020-04-02 12:06:31.850728
+
+
+In [15]: print(T.states_history)
+['4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c',
+'1def039e9ee1e6e7e266026c0db0101ea51b06266487085775f20454',
+'4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c',
+'1def039e9ee1e6e7e266026c0db0101ea51b06266487085775f20454']
+
+
+In [16]: c2 = Change(VersionedDict_root_hash=T.root_hash, state=T.current_state(),verb='add', key='x', to='333')
+
+In [17]: T.apply_change(c2)
+
+In [18]: print(T)
+--------------------------------------------------------------------------------
+=== VersionedDict ===
+name         : my_dict
+dict         : {"a": "17", "b": {"c": 3, "d": 4}, "x": "333"}
+root         : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+state        : d55e3f7557847e880b16e08c58eaffac2fc1ae3a69832ea3f5ae9417
+creation time: 2020-04-02 12:00:41.531372
+last modified: 2020-04-02 12:07:55.429116
+
+
+In [19]: c3 = Change(VersionedDict_root_hash=T.root_hash, state=T.current_state(),verb='del', key='a', to='None')
+
+In [20]: T.apply_change(c3)
+
+In [21]: print(T)
+--------------------------------------------------------------------------------
+=== VersionedDict ===
+name         : my_dict
+dict         : {"b": {"c": 3, "d": 4}, "x": "333"}
+root         : 4b85a0bcc5e535f29ab263b7691ba7851a9a11b36e65b811e0d0b94c
+state        : 2ba85ba75a7e67fbe32dd928fd653998f4c0cb534d48c5967d10b9bd
+creation time: 2020-04-02 12:00:41.531372
+last modified: 2020-04-02 12:08:47.112648
+
+
+```
