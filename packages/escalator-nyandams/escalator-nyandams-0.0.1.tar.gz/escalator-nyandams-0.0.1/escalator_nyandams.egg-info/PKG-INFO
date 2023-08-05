@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: escalator-nyandams
+Version: 0.0.1
+Summary: A small package to detect stagnation in the values of a signal, sort of horizontal steps
+Home-page: https://github.com/Nyandams/step_detection
+Author: Damien Lecha
+Author-email: lecha.damien@gmail.com
+License: UNKNOWN
+Description: # Escalator
+        
+        A small python package to detect stagnation in the values of a signal, sort of **horizontal steps**
+        
+        ![Example 1 of the result](images/plat2.png)
+        ![Example 2 of the result](images/plat1.png)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
