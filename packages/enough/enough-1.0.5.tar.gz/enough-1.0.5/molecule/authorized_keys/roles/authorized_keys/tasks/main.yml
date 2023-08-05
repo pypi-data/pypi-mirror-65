@@ -1,0 +1,7 @@
+---
+- name: Set up multiple authorized keys
+  authorized_key:
+    user: "{{ ansible_user }}"
+    state: present
+    key: "{{ lookup('file', item) }}"
+  loop: "{{ query('fileglob', *authorized_keys_globs) }}"

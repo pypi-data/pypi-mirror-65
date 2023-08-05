@@ -1,0 +1,38 @@
+---
+driver:
+  name: delegated
+lint:
+  name: yamllint
+platforms:
+  - name: bind-host
+  - name: weblate-host
+    groups:
+      - pets
+provisioner:
+  name: ansible
+  options:
+    i: ../../inventory/firewall.yml
+    limit: bind-host,weblate-host,localhost
+  lint:
+    name: ansible-lint
+  env:
+    ANSIBLE_ROLES_PATH: roles:../infrastructure/roles:../firewall/roles:../backup/roles
+  inventory:
+    links:
+      group_vars: ../../inventory/group_vars
+      host_vars: ../../inventory/host_vars
+scenario:
+  name: backup
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - verify
+    - destroy
+verifier:
+  name: testinfra
+  options:
+    v: True
+    s: True
+  lint:
+    name: flake8

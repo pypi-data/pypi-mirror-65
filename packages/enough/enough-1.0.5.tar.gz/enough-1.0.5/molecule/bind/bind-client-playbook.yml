@@ -1,0 +1,66 @@
+---
+- name: setup DNS client (allow-recursion)
+  hosts: all:!external-host
+  become: true
+  serial: 1  # so blockinfile does not race against itslef
+
+  tasks:
+    - name: allow recursion for {{ ansible_hostname }}
+      blockinfile:
+        path: /etc/bind/named.conf.allow-recursion
+        insertafter: allow-recursion {
+        marker: "# {mark} ansible managed {{ ansible_host }}"
+        content: "{{ ansible_host }};"
+      delegate_to: bind-host
+
+- name: setup DNS client
+  hosts: all:!external-host
+  become: true
+  vars:
+    dns_a_record: "{{ ansible_hostname }}"
+    dns_cname_record: '{{ ansible_hostname | replace("-host","") }}'
+    dns_a: "{{ ansible_host }}"
+
+  pre_tasks:
+    - name: set A
+      nsupdate:
+        server: "{{ hostvars['bind-host']['ansible_host'] }}"
+        zone: "{{ domain }}"
+        record: "{{ dns_a_record }}"
+        ttl: 1800
+        type: A
+        value: "{{ dns_a }}"
+      delegate_to: bind-host
+
+    - name: set CNAME
+      nsupdate:
+        server: "{{ hostvars['bind-host']['ansible_host'] }}"
+        zone: "{{ domain }}"
+        record: "{{ dns_cname_record }}"
+        ttl: 1800
+        type: CNAME
+        value: "{{ dns_a_record }}"
+      delegate_to: bind-host
+
+    - debug:
+        msg: |
+          {{ dns_a_record }} IN A {{ dns_a }}
+          {{ dns_cname_record }} IN CNAME {{ dns_a_record }}
+
+  roles:
+    - role: dhclient
+      vars:
+        dns_nameservers: [ '{{ hostvars["bind-host"]["ansible_host"] }}' ]
+        dns_search: "{{ domain }}"
+        dns_domain: "{{ domain }}"
+
+    - role: install_ssh_records
+      vars:
+        install_ssh_records_host: "{{ ansible_hostname }}"
+        install_ssh_records_port: "{{ ansible_port }}"
+
+  tasks:
+    - name: set hostname
+      when: infrastructure_driver == 'openstack'
+      hostname:
+        name: '{{ inventory_hostname }}.{{ domain }}'

@@ -1,0 +1,41 @@
+---
+- name: remove apt pinning for openssh-client required for stretch
+  file:
+    state: absent
+    path: /etc/apt/preferences.d/{{ item }}
+  loop:
+    - default
+    - openssh-client
+  delegate_to: bind-host
+  run_once: true
+
+- name: install openssh-client
+  apt:
+    name: openssh-client
+    state: latest
+  delegate_to: bind-host
+  run_once: true
+
+- name: generate SSHFP records
+  shell: |
+    echo "[ '{{ install_ssh_records_host }}', ["
+    ssh-keyscan -D -p {{ install_ssh_records_port }} {{ install_ssh_records_host }} | while read record IN SSHFP value ; do
+       echo "'$value',"
+    done
+    echo '] ]'
+  delegate_to: bind-host
+  changed_when: false
+  register: cmd
+
+- name: install SSHFP records
+  nsupdate:
+    server: "{{ hostvars['bind-host']['ansible_host'] }}"
+    zone: "{{ domain }}"
+    record: "{{ sshfp.0 }}"
+    ttl: 604800
+    type: SSHFP
+    value: "{{ sshfp.1 }}"
+  vars:
+    sshfp: "{{ cmd.stdout }}"
+  delegate_to: bind-host
+  notify: reload bind

@@ -1,0 +1,8 @@
+---
+- name: prepare cloud environment
+  hosts: jmm-host
+
+  roles:
+    - { role: jmm }
+
+  become: True

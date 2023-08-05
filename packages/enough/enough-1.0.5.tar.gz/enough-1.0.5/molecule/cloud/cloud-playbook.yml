@@ -1,0 +1,8 @@
+---
+- name: prepare cloud environment
+  hosts: cloud-host
+
+  roles:
+    - { role: cloud }
+
+  become: True

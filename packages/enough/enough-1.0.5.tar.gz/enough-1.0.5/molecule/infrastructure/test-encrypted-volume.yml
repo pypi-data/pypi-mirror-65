@@ -1,0 +1,9 @@
+---
+- name: verify encrypted volumes
+  hosts: cloud-host
+
+  roles:
+    - role: encrypted_device
+      encrypted_device_mount_point: /opt
+
+  become: True

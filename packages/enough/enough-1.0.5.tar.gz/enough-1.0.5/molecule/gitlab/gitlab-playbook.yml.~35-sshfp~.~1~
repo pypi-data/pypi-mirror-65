@@ -1,0 +1,49 @@
+---
+- name: install gitlab
+  hosts: gitlab-host
+  become: true
+
+  vars_files:
+    - ../../clouds.yml
+
+  roles:
+    - { role: ansible-role-docker, docker_install_compose: false }
+    - { role: gitlab }
+
+    - role: install_ssh_records
+      vars:
+        install_ssh_records_fqdn: "lab.{{ domain }}"
+        install_ssh_records_port: 22
+
+    - role: monitor_http_vhost
+      http_vhost_name: Gitlab
+      http_vhost_fqdn: "gitlab.{{ domain }}"
+      http_vhost_uri: "/users/sign_in"
+      http_vhost_string: "GitLab"
+
+    - role: monitor_http_vhost
+      http_vhost_name: Lab
+      http_vhost_fqdn: "lab.{{ domain }}"
+      http_vhost_uri: "/users/sign_in"
+      http_vhost_string: "GitLab"
+
+# separate plays because of https://github.com/ansible/ansible/issues/50278
+- name: setup reverse proxy for {{ gitlab_vhost_fqdn }}
+  hosts: gitlab-host
+  become: true
+
+  roles:
+    - role: letsencrypt-nginx
+      vars:
+        letsencrypt_nginx_reverse_proxy: 127.0.0.1:8080
+        letsencrypt_nginx_fqdn: "{{ gitlab_vhost_fqdn }}"
+
+- name: setup reverse proxy for {{ short_gitlab_vhost_fqdn }}
+  hosts: gitlab-host
+  become: true
+
+  roles:
+    - role: letsencrypt-nginx
+      vars:
+        letsencrypt_nginx_reverse_proxy: 127.0.0.1:8080
+        letsencrypt_nginx_fqdn: "{{ short_gitlab_vhost_fqdn }}"

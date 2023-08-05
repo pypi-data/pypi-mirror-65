@@ -1,0 +1,8 @@
+---
+- import_playbook: ../infrastructure/buster-playbook.yml
+- name: setup backup
+  hosts: bind-host
+  become: true
+
+  roles:
+    - role: backup

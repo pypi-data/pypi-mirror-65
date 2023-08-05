@@ -1,0 +1,21 @@
+---
+- name: setup fake LE
+  hosts: test-host
+  become: true
+
+  roles:
+    - role: letsencrypt-nginx
+      vars:
+        staging: true
+        admins_email: "contact@something.com"
+        fqdn: {{ inventory_hostname }}.{{ domain }}
+
+- name: setup real LE
+  hosts: bind-host
+  become: true
+
+  roles:
+    - role: letsencrypt-nginx
+      vars:
+        admins_email: "contact@something.com"
+        fqdn: {{ inventory_hostname }}.{{ domain }}

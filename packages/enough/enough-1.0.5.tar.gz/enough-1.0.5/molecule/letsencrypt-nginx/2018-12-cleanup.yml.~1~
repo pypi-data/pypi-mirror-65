@@ -1,0 +1,17 @@
+---
+- name: get letsencrypt cert
+  hosts: certbot-host
+
+  roles:
+    - role: jdauphant.nginx
+      nginx_sites:
+        default:
+          - listen 80
+          - server_name certbot.{{ domain }}
+
+
+    - role: certbot
+      admins_email: "contact@something.com"
+      vhost_fqdn: "certbot.{{ domain }}"
+
+  become: True

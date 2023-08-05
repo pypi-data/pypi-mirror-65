@@ -1,0 +1,3 @@
+---
+install_ssh_records_fqdn: "{{ inventory_name }}"
+install_ssh_records_port: "{{ ansible_port }}"

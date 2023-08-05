@@ -1,0 +1,7 @@
+all:
+  hosts:
+    bind-host: {ansible_host: 51.68.84.31, ansible_port: '22', ansible_user: debian}
+    cloud-host: {ansible_host: 51.68.84.148, ansible_port: '22', ansible_user: debian}
+    gitlab-host: {ansible_port: 2222}
+    icinga-host: {ansible_host: 51.68.84.86, ansible_port: '22', ansible_user: debian}
+    postfix-host: {ansible_host: 51.68.81.99, ansible_port: '22', ansible_user: debian}

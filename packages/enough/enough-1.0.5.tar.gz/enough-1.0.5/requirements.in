@@ -1,0 +1,24 @@
+ansible==2.7.5
+beautifulsoup4==4.7.1
+cliff>=2.14
+django==2.2
+djangorestframework==3.9.2
+django-allauth==0.39.1
+django-bootstrap3==11.0.0
+docker
+docker-compose
+-e git+https://github.com/fmnisme/python-icinga2api.git@9a1a3cc7968d6c72bf49e97ef387b2824e6835e9#egg=icinga2api
+jinja2>=1.1
+molecule==2.19.0
+netaddr==0.7.19
+openstacksdk==0.22.0
+python-openstackclient==3.18.0
+python-heatclient==1.17
+#
+# pytest is required otherwise molecule will indirectly pull an ancient version that will create problems when
+# running tox, if specified in requirements-dev.in because egg-info will have a conflicting version.
+# This should be removed at some point.
+#
+pytest==4.4.0
+sh>=1.12
+shade==1.30.0

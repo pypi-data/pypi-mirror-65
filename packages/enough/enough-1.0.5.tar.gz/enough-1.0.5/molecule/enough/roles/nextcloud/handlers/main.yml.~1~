@@ -1,0 +1,7 @@
+- name: (re)create nextcloud
+  docker_service:
+    files: docker-compose-infrastructure.yml
+    project_src: "{{ app_dir }}"
+    state: present
+    restarted: yes
+  become: False

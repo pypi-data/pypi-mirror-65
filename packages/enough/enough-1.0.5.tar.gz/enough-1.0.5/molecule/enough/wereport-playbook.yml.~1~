@@ -1,0 +1,8 @@
+---
+- name: prepare enoughinstance environment
+  hosts: enoughinstance-host
+
+  roles:
+    - { role: enoughinstance }
+
+  become: True

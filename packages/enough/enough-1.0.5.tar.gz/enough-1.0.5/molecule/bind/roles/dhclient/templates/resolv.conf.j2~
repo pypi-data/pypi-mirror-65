@@ -1,0 +1,4 @@
+search {{ dns_domain }}
+nameserver {{ hostvars['bind-host']['ansible_host'] }}
+nameserver 127.0.0.11
+

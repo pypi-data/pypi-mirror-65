@@ -1,0 +1,31 @@
+---
+- name: setup fake LE
+  hosts: nginx-host
+  become: true
+
+  roles:
+    - role: letsencrypt-nginx
+      vars:
+        letsencrypt_nginx_staging: true
+        letsencrypt_nginx_email: "contact-nginx@something.com"
+        letsencrypt_nginx_fqdn: "{{ inventory_hostname }}.{{ domain }}"
+
+- name: setup real LE
+  hosts: bind-host
+  become: true
+
+  roles:
+    - role: letsencrypt-nginx
+      vars:
+        letsencrypt_nginx_email: "contact-bind@something.com"
+        letsencrypt_nginx_fqdn: "{{ inventory_hostname }}.{{ domain }}"
+
+- name: setup client
+  hosts: client-host
+  become: true
+
+  roles:
+    - role: letsencrypt-nginx
+      vars:
+        letsencrypt_nginx_staging: true
+        letsencrypt_nginx_client: true

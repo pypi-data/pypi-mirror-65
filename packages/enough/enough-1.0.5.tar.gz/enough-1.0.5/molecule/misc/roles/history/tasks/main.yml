@@ -1,0 +1,22 @@
+---
+
+- name: Ensure /etc/infrastructure/ exists
+  file:
+    path: /etc/infrastructure/
+    state: directory
+
+- name: Put hosts vars in /etc/infrastructure/hosts_vars
+  copy:
+    content: '{{ hostvars | to_nice_yaml(indent=2) }}'
+    dest: /etc/infrastructure/hosts_vars
+
+- name: Get git log
+  command: git log --oneline
+  register: cmd
+  delegate_to: localhost
+  become: False
+
+- name: Put git log in /etc/infrastructure/history
+  copy:
+    content: '{{ cmd.stdout }}'
+    dest: /etc/infrastructure/history

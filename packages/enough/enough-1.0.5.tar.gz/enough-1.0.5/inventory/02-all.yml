@@ -1,0 +1,44 @@
+#
+# Machines in the pets groups are long lived and contain data that
+# needs to be saved.
+#
+pets:
+  hosts:
+    gitlab-host:
+    weblate-host:
+    packages-host:
+    chat-host:
+    forum-host:
+
+enough:
+  hosts:
+    cloud-host:
+    wereport-host:
+
+wazuh_agent:
+  hosts:
+    api-host:
+    bind-host:
+    chat-host:
+    forum-host:
+    gitlab-host:
+    icinga-host:
+    packages-host:
+    postfix-host:
+    runner-host:
+    weblate-host:
+    website-host:
+
+gitlab:
+  hosts:
+    gitlab-host:
+    api-host:
+
+testing:
+  hosts:
+    external-host:
+    bind-client-host:
+
+pad-group:
+  hosts:
+    website-host:

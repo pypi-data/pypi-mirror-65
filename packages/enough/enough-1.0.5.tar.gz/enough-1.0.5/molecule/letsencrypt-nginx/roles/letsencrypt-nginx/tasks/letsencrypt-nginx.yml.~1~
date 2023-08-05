@@ -1,0 +1,39 @@
+---
+- name: install nginx
+  include_role:
+    name: jdauphant.nginx
+    #
+  vars:
+    nginx_sites:
+      '{{ fqdn }}':
+        - listen 80
+        - servername {{ fqdn }}
+    vars: |
+      {
+        'nginx_sites': {
+          '{{ fqdn }}': [
+            'listen 80',
+            'server_name {{ fqdn }}',
+          ]
+        }
+      }
+      
+- name: apt-get install certbot python-certbot-nginx
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - certbot
+    - python-certbot-nginx
+
+- name: call let's encrypt on vhost_fqdn
+  shell: |
+    certbot -n                                                   \
+      --agree-tos                                                \
+      --email {{ email }}                                        \
+      -d {{ fqdn }}                                              \
+      --authenticator standalone --installer nginx               \
+      --pre-hook  "systemctl stop nginx"                         \
+      --post-hook "systemctl start nginx"                        \
+      --redirect                                                 \
+      {% if with_fake_LE | default(false) %}--test-cert{% endif %}
