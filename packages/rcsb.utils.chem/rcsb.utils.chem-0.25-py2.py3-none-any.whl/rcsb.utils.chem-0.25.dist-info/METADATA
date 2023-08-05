@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: rcsb.utils.chem
+Version: 0.25
+Summary: RCSB Python Chemical Utility Classes
+Home-page: https://github.com/rcsb/py-rcsb_utils_chem
+Author: John Westbrook
+Author-email: john.westbrook@rcsb.org
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: mmcif (>=0.51)
+Requires-Dist: rcsb.utils.io (>=0.57)
+Requires-Dist: rcsb.utils.multiproc (>=0.17)
+Requires-Dist: OpenEye-toolkits (==2019.10.2)
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+
+See:  README.md
+
+
