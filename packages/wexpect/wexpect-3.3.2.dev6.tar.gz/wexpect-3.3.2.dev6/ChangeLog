@@ -1,0 +1,238 @@
+CHANGES
+=======
+
+* [TEST] add SpawnSocket tests to tox
+* [ADD] improove terminate function, reduce wait. [FIX] add fixes for testcases, to pass Socket tests
+* [FIX] use flag\_eof, and make more robust terminating process
+* [FIX] EOF handling moved upper to handle exception of last characters' patterns
+* [CLN] clean CI testcases: merge and reduce installed and default testcases
+
+v3.3.1
+------
+
+* [FIX] PYTHONPATH grew run-to-run. Fix #31
+* [FIX][TST] some test was skipped accidentally; [CLN] add no cover for unwanted exceptions
+* [FIX] legacy has problems with refreshing long consoles
+* [FIX] Infinite length console: #35
+* [FIX] Socket-mode port has not been added to the argument list. Fix: #34
+* [FIX] fix duplicated logging #28
+* [CLN] remove License from the beginning of each file MIT license requires only the LICENSE file: https://choosealicense.com/licenses/mit/
+* [FIX] https://github.com/readthedocs/readthedocs.org/issues/2569
+* [FIX][DOC] mock psutil
+* [ADD] First draft of autodoc
+* [ADD] First draft of the doc
+* [CLN] coverage-report: add no cover for unreachable code
+* [ADD] console reader coverage
+
+v3.3.0
+------
+
+* [FIX] tox ini to tox-matrix only mode
+* [REF] using only tox matrix
+* [REF] refactor appveyor deployment
+* [FIX] add workaround for #29, the disabled local\_echo is not stable
+* [ADD] pyinstaller testcase
+* [CLN] remove relative import from tests
+* [FIX] appveyor config
+* [ADD] installed testcase
+* [FIX] appveyor codecoverage
+* [FIX] codepage in new console launch
+* [ADD] pyinstaller feature based on #12
+* [REF] refactor startChild task, to prepare support pyinstaller
+* [REF] refactor start of console: now starts as python module
+* [CLN] linter
+* [CLN] more lint fixes
+* [FIX] Appveyor now uses Python3
+* [FIX] flake8 linter first run; Atom first fixes
+* [FIX] add install script back
+* [ADD] upload all coverage reports
+* [FIX] appveyor, by adding codepage parameter
+* [ADD][TST] add SpawnPipe to tox.ini. Now Appveyor tests both legacy and SpawnPipe
+* [FIX] exit status now returned from child in new-structure wexpect
+
+v3.2.0
+------
+
+* [ADD] more logging
+* [FIX] workaround codecov upload
+* [FIX][CI] generate xml coverage report from tox
+* [FIX] all cleaned test merged
+* [FIX] isalive now uses flag\_eof, and return false, if the eof has been catched
+* [FIX] real child process cannot be fetched from host, because it may died befor fetching it, so signal handling cannot be handled directly
+* [CLN] tests initial merge
+* [MRG] wexpect2 merged, the default is the legacy
+* [CLN] make wexpect subdir
+* [CLN] make wexpect subdir
+* [FIX] child logging
+* [REF] spawn renamed to host not to hide spawn class; [FIX][TST] More misc test fixed
+* [FIX] process termination: do not terminate a process, which has not been started
+* [FIX] process termination and exitstatus
+* [ADD] WEXPECT\_SPAWN\_CLASS environment variable set the working spawn class, the default is SpawnSocket if env var not set;[FIX][TST] interact testcases skipped
+* [CLN] clean process die
+* [CLN] clean non\_blocking\_read
+* [CLN] Remove non-standard linebreaks
+* [CLN] clean startChild function
+* [FIX] EOF handling, more fixes needed
+* [FIX] Pipe console byte decode was missing
+* [CLN] logging levels; [FIX] Pipe avail bytes
+* [FIX] align sleep times, now all commands arrives after the before one has been processed.[TST][FIX] destructor and constructor testcases
+* [ADD] interact feature
+* [ADD] terminal local echo feature
+* [FIX] add psutil to requirements; [FIX] test\_buffer\_interface: the assertion should have been delayed
+* [ADD] logging into spawn class; [FIX] more fixes around process finishing
+* [FIX] many fixes around process termination; [ADD] pipe mode basic features added
+* [FIX] logging, now all logs generated into .wlog dir; [ADD] searcher\_string class
+* [ADD] SpawnPipe, and SpawnSocket classes
+* [ADD] run function
+* [ADD] Basic features added
+* First variant of wexpect2, which is an upside down wexpect
+* [CLN] remove warning from waitnoecho
+* [CLN] refactor logger. Use offitial logging
+* [FIX] #23 : if WEXPECT\_LOGGER\_LEVEL environment variable is not defined, no logfile will be generated
+
+v3.1.0
+------
+
+* [CLN] logger level set by WEXPECT\_LOGGER\_LEVEL environment variable
+* [CLN] remove unused fields
+* [FIX] raise EOF when child finished and all character has been read
+* [FIX] try to fix: appveyor fails
+* [CLN] clean-up redundant timeout code from read\_nonblocking
+* [ADD] echo argument to spawn(); #17 and #18 solved with setecho workaround
+* [FIX] Add workaround for setecho/getecho
+* Update README.md
+
+v3.0.0
+------
+
+* [CLN] try - finally blocks
+* [REM] sendcontrol removed, this was a linux only method
+* [ADD][TST] test join args
+* [FIX]wait simply returns the previously determined exit status, in case of a non alive child; [ADD][TST] add isalive tests
+* [ADD][TST] console reader test, [REF] clean interact methods
+* [ADD][TST] interact dead; [FIX] add workaround of unreachable codecov
+* [ADD] \_\_enter\_\_ and \_\_exit\_\_ methods; [FIX] iteration; [ADD][TST] test\_misc
+* [FIX] timeout None for blocking applications; [ADD] argument type assertion in expect\_exact
+* [FIX] indent
+* [CLN] replace pexpect -> wexpect
+* [CLN][REM] remove Linux related unused functions
+* [ADD] stop\_interact test; [ADD] failure warnings around setecho
+* [ADD] reproduce script for #18
+* [FIX] remove sendeof() Linux part
+* [ADD] reproduce script for #9
+* [CLN][REM] remove unused codes of unused platforms
+* [ADD] deprecation warning to exception get\_trace; add run testcase
+* [CLN] Merge, then remove swawn\_unix object
+* [CLN][REM] Remove unused functions 03
+* [CLN][REM] Remove unused functions 02
+* [CLN][REM] Remove Linux-only public methods. (use pexpect on Linux)
+* [FIX][TST] descructor test python executable
+* [ADD] long read testcases against fixed #10
+* [ADD] no cover pragmas; faster descrutor test
+
+v2.3.9
+------
+
+* [FIX] workaround for #14 and #3
+* [MRG] #10 merged to test
+* [FIX] Refactored readConsole() fixes issue #10
+
+v2.3.8
+------
+
+* [FIX] appveyor config
+* [FIX] appveyor APPVEYOR\_REPO\_TAG
+* [FIX] First fix of #i10: Using Floor division in getPoint()
+
+v2.3.7
+------
+
+* [FIX] appveyor config. separete if-s
+* [FIX] appveyor config. Test branch -> testpypi; master -> pypi
+* debug appveyor
+* [FIX] appveyor link
+* [FIX] appeyor config, use APPVEYOR\_REPO\_BRANCH envirnoment variable
+* [FIX] appveyor config
+* [FIX] switchTo and add swithcBack
+* [FIX] add EOF exception into switchto
+* starting new branch for issue #8; [FIX] removing handling of non-handled exception from switchTo()
+* [ADD] more tests, and more deprecated warnings
+* [CLN] ADD more deprecation warning; [ADD] readline testcase
+* [FIX] getPoint; [ADD] more detailed reproduce script
+* [ADD] reproduce scripts
+* [CLN] Add deprecation warning to tell the end of linux support
+* [FIX] #11 a very similar issue can be reproduced
+* [REM] cmd example, use cmd wrapper instead
+* [ADD] issues folder for active issues
+* [CLN] Readme; [ADD] interact testcase, to improve coverage
+* [FIX] replace pypirc redirect to append to fix appveyor deploy
+* [FIX] trying appveyor deployment
+
+v2.3.6
+------
+
+* [ADD] offitial pypi upload
+* [FIX] appveyor test deploy05; [FIX] long description02
+* [FIX] appveyor test deploy; [FIX] long description
+* [FIX] .pypirc file
+* [FIX][ADD] twine as test dependency
+* [ADD] appveyor test deploy 01
+* [FIX] fix issue #6. Debug print remained in the write process
+* Update CODE\_OF\_CONDUCT.md
+* Update issue templates
+* [CLN] clean up around the example scripts
+* [FIX] python example issue: #7, [TEST] appveyor codecov
+* [TEST] fix appveyor codecov command
+* [ADD] codecov; update readme
+* [REF] refactor init functions
+* [FIX] Deprecation of the time.clock()
+* [TEST] fix appvevor
+* [TEST] fix appvevor
+* [TEST] fix appveyor and travis
+* [TST] fixes for travis and appveyor
+* [FIX] setup.cfg, add test extras
+* [TEST] add CI test: appveyor and travis SH
+* [TEST] add CI test: travis-ci
+
+v2.3.5
+------
+
+* [UDT] Readme, add release chapter
+* [FIX] TEST of test\_command\_list\_split, escape character change; [FIX] process killing. Based on issue: Pywin32-224 TerminateProcess Function Moved #5
+
+v2.3.4
+------
+
+* [FIX] Windows escape characters
+* [FIX] removing debug print from wexpect; [UDT] cmd example, double backslash needed
+* [UDT] update README to python-3
+* [FIX] command and args now can be given in one string
+* [ADD] first unittests copied from pexpect
+* [UDT] examples to python3; [FIX] which command uses shutils.which
+
+v2.3.3
+------
+
+* [ADD] First working version on python-3.x
+* [FIX] setup.cfg
+* uninstall working
+* [FIX] remove bytes encoding: use str everywhere; [STS] cmd.py passes
+* 2to3 runned
+
+v2.3.2
+------
+
+* [ADD] pbr for coherent versioning
+* [FIX] classifiers
+* [ADD] coherent versions using pbr
+* [ADD] common versioning
+* [CLN] Replace wildcard imports to standard import
+* [UDT] version 0.0.2
+* [CLN] README
+* [ADD] examples
+* [UDT] updated wexpect with a working one
+* [ADD] setup script; now can be installed via pip install
+* [ADD] License
+* [ADD] README
+* Added in wexpect.py to repo
+* Initial commit
