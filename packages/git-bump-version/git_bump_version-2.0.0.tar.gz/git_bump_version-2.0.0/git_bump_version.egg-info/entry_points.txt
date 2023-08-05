@@ -1,0 +1,3 @@
+[console_scripts]
+git_bump_version = git_bump_version.__init__:main
+

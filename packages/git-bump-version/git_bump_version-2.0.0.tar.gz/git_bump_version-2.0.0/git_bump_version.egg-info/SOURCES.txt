@@ -1,0 +1,11 @@
+.gitignore
+README.md
+setup.py
+git_bump_version/__init__.py
+git_bump_version.egg-info/PKG-INFO
+git_bump_version.egg-info/SOURCES.txt
+git_bump_version.egg-info/dependency_links.txt
+git_bump_version.egg-info/entry_points.txt
+git_bump_version.egg-info/requires.txt
+git_bump_version.egg-info/top_level.txt
+tests/test_main.py
