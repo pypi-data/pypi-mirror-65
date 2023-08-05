@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+bin/test_chattyraspi
+chattyraspi/__init__.py
+chattyraspi/client.py
+chattyraspi/device.py
+chattyraspi.egg-info/PKG-INFO
+chattyraspi.egg-info/SOURCES.txt
+chattyraspi.egg-info/dependency_links.txt
+chattyraspi.egg-info/not-zip-safe
+chattyraspi.egg-info/requires.txt
+chattyraspi.egg-info/top_level.txt

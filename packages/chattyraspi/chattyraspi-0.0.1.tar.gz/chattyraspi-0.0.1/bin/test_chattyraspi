@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+from logging.config import fileConfig
+
+import click
+import typing
+
+from chattyraspi.client import Client
+from chattyraspi.device import DevicesConfiguration
+
+
+@click.command()
+@click.option('--logging_conf', help='Full path of logging configuration file')
+@click.option('--config', help='the path of your devices configuration YAML file', required=True)
+def test_devices(
+        logging_conf: typing.Optional[str],
+        config: typing.Optional[str]):
+    if logging_conf:
+        fileConfig(logging_conf, disable_existing_loggers=False)
+
+    config = DevicesConfiguration(config)
+    client = Client(config)
+
+    statuses = dict()
+
+    def _turn_on(device_id: str):
+        print('Device {} turned ON'.format(device_id))
+        statuses[device_id] = True
+
+    def _turn_off(device_id: str):
+        print('Device {} turned OFF'.format(device_id))
+        statuses[device_id] = False
+
+    def _fetch_is_power_on(device_id: str) -> bool:
+        print('Device {} requested power status'.format(device_id))
+        status = statuses[device_id]
+        print('Returning', status)
+        return status
+
+    for device_id in map(lambda d: d['device_id'], config.get_configuration()['Devices']):
+        statuses[device_id] = False
+        client.set_on_turn_on(device_id, _turn_on)
+        client.set_on_turn_off(device_id, _turn_off)
+        client.set_fetch_is_power_on(device_id, _fetch_is_power_on)
+    client.listen()
+
+
+if __name__ == '__main__':
+    test_devices()
