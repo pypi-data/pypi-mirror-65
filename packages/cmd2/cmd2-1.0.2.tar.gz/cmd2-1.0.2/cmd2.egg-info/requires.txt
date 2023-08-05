@@ -1,0 +1,38 @@
+attrs>=16.3.0
+colorama>=0.3.7
+pyperclip>=1.6
+setuptools>=34.4
+wcwidth>=0.1.7
+
+[:sys_platform=='win32']
+pyreadline
+
+[dev]
+pytest
+codecov
+pytest-cov
+pytest-mock
+tox
+flake8
+sphinx
+sphinx-rtd-theme
+sphinx-autobuild
+doc8
+invoke
+twine>=1.11
+
+[dev:python_version < "3.6"]
+mock
+
+[test]
+codecov
+coverage
+pytest
+pytest-cov
+pytest-mock
+
+[test:python_version < "3.6"]
+mock
+
+[test:sys_platform == "darwin"]
+gnureadline
