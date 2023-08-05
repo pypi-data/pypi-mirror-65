@@ -1,0 +1,34 @@
+
+* Changelog
+
+Adapted from [[https://keepachangelog.com][keepachangelog.com]] for org-mode.
+
+Adheres to [[https://github.com/salotz/rfcs/blob/master/rfcs/salotz.002_semantic-changelog.org][RFC: salotz.002_semantic-changelog]].
+
+See the git commit log history for full details.
+
+** [0.0.1] - Unreleased
+
+First functional release.
+
+*** Breakages
+
+*** Regressions
+
+*** Growth
+
+- Command line tool: ~refugue~
+- tool configurable with ~refugue.toml~
+- networks configurable with ~network.config.py~ files
+- images configurable with ~image.config.py~ files
+- default network and image configurations through standard configuration directory
+- supports use of rsync
+- fabric allows remote execution of commands
+- pretty decent documentation introducing the motivation and background
+- both remote source and target supported
+- can choose subtrees of an image for sync
+
+
+** [0.0.0a0.dev0] - 2020-03-09
+
+Prehistory

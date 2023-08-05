@@ -1,0 +1,316 @@
+* User's Guide
+
+** Background
+
+~Refugue~ is about managing unique source trees of files, called
+*images* and replicating them around to physical locations, called
+*peers*.
+
+An image might be a complete collection of an individuals files and
+thus may be very large. Thus we must allow for some sort of
+"narrowing" or filtering of the complete image to smaller working sets
+that are tailored to the capabilities and needs of individual peers
+(e.g. laptop vs. NFS server).  These narrowed collections are called
+*working sets* (sometimes abbreviated *wsets*) and the instance of a
+working set on a peer is called a *replica*.
+
+A collection of replicas is a sort of private network by which you can
+call them by name. Because this network is private and the members of
+it are fairly fixed we can enumerate the possible ways replicas can be
+located, dependent on the context from which commands are
+issued. ~refugue~ leverages the use of these *locators* to allow for
+transparent transferring of files (according to a variety of
+synchronization protocols) between replicas by using only private,
+uniform *pet-names* to refer to them. This allows you to refer to both
+an attached thumb drive and a server across the internet by a simple
+name of your choice. We do not have need of services such as DNS
+because authority of mapping pet-names lies completely in the
+user/configurer of the ~refugue~ system; i.e. a configuration file.
+
+The policies surrounding the control of the configuration file itself
+are completely up to the ~refugue~ user.  It can be in a VCS like ~git~
+or carried around in a thumb drive needing only small amount of manual
+work to "bootstrap" entry to the private network.
+
+By using a remote execution framework like ~fabric~ the configuration
+file only need be present and installed in the system from which
+commands are issued. 
+
+This system need not even be a peer in the replica network!
+
+Another important feature for efficient file transfer over
+heterogeneous network connections is agnosticism to the actual
+transport backend. The best option can be intelligently guessed
+(currently just ~rsync~ everywhere) or specified by connection pairs
+or individual transfers.
+
+Because replica's are allowed to diverge in their contents there will
+need to be strategies for merging replicas and dealing with conflicts,
+just as systems like ~git~ do. ~refugue~ is not meant to actually deal
+with source code (or other line based plaintext documents) like a VCS
+but rather with bulk data and so the methods will vary.
+
+Dealing with merge conflicts for general purpose data is still
+something that no available tools do very effectively and so
+discipline and careful protocols about when and where data is moved
+must still be observed in order to minimize the possibility of
+divergence between replicas.
+
+The main goal of refugue is not to make resolving merge conflicts
+easier but rather to make it easier to adhere to file movement
+disciplines which make merge conflicts more rare.
+
+To avoid loss of data we suggest using a deduplicating snapshotting
+backup tool like ~duplicity~ so that in the worst case the image state
+can be rolled back (in a separate replica to the ~HEAD~ one) to retrieve
+lost data which can then be reincorporated to the live image.
+
+It is the goal of refugue however to provide some facilities for
+synchronization and merge conflicts through customizable protocols
+which we will call *sync policies*.
+
+This is still an active point of "research" for the project and so
+the API will probably be in flux until a major release.
+
+
+*** Implementation
+
+Currently, refugue only requires ~rsync~, Python 3, some helper libraries,
+and that your peers are POSIX-like systems.
+
+This implementation is still proof-of-concept and many ideas haven't
+been fully worked out. But ideally should be general enough to support
+a variety of operating systems and file systems.
+
+We also would like to keep the underlying transport backends abstract
+and allow for different strategies which are network sensitive to
+allow for efficient transfers as well support a variety of
+*sync-policies*.
+
+For now the transfer backend and *sync-protocol* options are what can
+be achieved with ~rsync~ and remote execution is done through the
+~fabric~ library.
+
+
+** Configuration
+
+~Refugue~ is parametrized by three different varieties of config files
+(*tool-config*, *network-config*, *image-config*) along with a couple
+command line flags.
+
+The tool config is a [[https://github.com/toml-lang/toml][TOML]] format file which configures the behavior of
+the ~refugue~ command line tool and is not necessary.
+
+The other config files are necessary and are important inputs to the
+program. Without them ~refugue~ can't really do anything.
+
+If either of the network or image config files are not provided to the
+command then they will attempted to be read from the configuration
+directory (~$HOME/.config/refugue~).
+
+The *network-config* is read from
+~$HOME/.config/refugue/network.config.py~.
+
+And the *image-config* is read from
+~$HOME/.config/refugue/images/default.image.config.py~.
+
+See ~info/examples/user_config~ for example configuration files to
+follow along with in the [[*Concepts][Concepts]] section.
+
+** Concepts
+
+*** The Network of Peers
+
+~Refugue~ functions within a set of known peers. A single network is
+defined and configured in a configuration file.
+
+Currently the format is just in python which allows for generating
+networks if you want, but may not be compatible with your security
+model. Static config options are likely in the future once APIs
+stabilize.
+
+By default there is a user network in the refugue config file called
+~network.config.py~.
+
+Peers are a name (technically a *petname* which is controlled by the
+user and no one else) and what ammounts to a URI for setting up
+connections to these peers via ~fabric~. Peers can be referenced by
+any number of aliases as well.
+
+~refugue~ will dynamically figure out which URIs to actually generate
+at invocation time depending on the host you are running from. This
+means you never have to actually type full URIs to move data. That is
+WAN, LAN, and even PCI networks are all treated the same.
+
+There are two types of peers: hosts (~HOSTS~)and drives (~DRIVES~).
+
+**** Host Peers
+
+Host peers are actual computers can be connected to over a network
+(i.e. TCP/IP).
+
+Can have a "node" alias which is the name for which ~platform.node()~
+will refer to. This can be useful for having your own petnames within
+refugue if the underlying host name is not something that matches
+this. Also useful for referencing a cluster as one host.
+
+**** Drive Peers
+
+Drive peers are peers that are stupid disks (e.g. external hard drive
+or thumb drive) which have no permanent network connection. They are
+said to be on the "sneaker net".
+
+Support for drive peers is a major advantage of refugue.
+
+While not supported as of now, it should be possible to dynamically
+resolve the location of a drive across the network to known host peers
+and address it in this way.
+
+**** Peer Mounting
+
+All peers support mounting to the current filesystem. You configure
+~refugue~ to define default mount directories for these peers
+(~PEER_MOUNT_PREFIX_TYPES~) based on the relation ship between the
+types.
+
+The peer being mounted is called the *alien* peer and the current one
+is called the *native* one.
+
+This is mostly used for removable drives and mounting them at a
+location like ~/media/$USER~.
+
+# TODO: talk about generating fstabs from configuration files. Is this
+# a refugue thing to do?
+
+But this can also be used for mounting network filesystems through
+e.g. ~sftp~.
+
+Individual mount points can also be specified for specific
+alien-native pairs (~PEER_MOUNTS~).
+
+**** Peer Connections
+
+To connect to peers for remote invocation a set of *connections*
+should be defined and associated with host peers (~CONNECTIONS~).
+
+The protocol also allows for the definition of connections to non-peer
+hosts to allow for network hopping etc.
+
+*** Images, Replicas, Working Sets, and Sync Pairs
+
+**** Images
+
+The next most important concept is that of an *image*.
+
+For a given network there can possibly be any number of images
+depending on you use cases.  Each image is configured in a python
+config file and is contained in the directory called ~images~ in the
+config dir by default. Additionally, for user configurations the
+~default.image.config.py~ will be used if none are specified
+differently.
+
+An image is just a collection of replicas (~REPLICAS~) but is what you
+would conceptually think of as a full working copy of the files.
+
+
+**** Replicas
+
+Because these files can live anywhere on a peer filesystem each
+replica is associated with a prefix path which gives the point at
+which it's file subtree begins (~REPLICA_PREFIXES~).
+
+As mentioned above replicas define a concrete copy of a single source
+tree of files that is filtered to a *working set*. It is critical to
+make the distinction between a replica and a working set. A replica is
+/concrete/ in that it refers to specific bits on a disk and must
+always be associated with a peer. Whereas working sets are abstract
+and refer to the set of files in an image after the application of the
+narrowings/filters. In practice this means that a working set is just
+a collection of filters.
+
+Replicas must always be associated with a peer and so their names must
+contain the peer.
+
+Peers can contain multiple replicas though and these separate replicas
+are named by *refinements* which look similar to file paths.
+
+**** Working Sets
+
+Working sets (as of now and likely to change) are simply a collection
+of a list of exclude (~REPLICA_EXCLUDES~) and include
+(~REPLICA_INCLUDES~) patterns exactly as ~rsync~ interprets them.
+
+It is similar to unix-like file globbing. But can be a little tricky to get right.
+
+This most probably will change in the future with a more general
+syntax probably based on regexes, PEGs, or custom file hierarchy
+schemas.
+
+
+**** Sync Pairs
+
+A sync pair is simply a non-commutative (i.e. order matters) pairing
+of two replicas along with the policies for synchronizing them.
+
+Pairs are made in the ~PAIR_OPTIONS~ value which has 3-tuple keys
+corresponding to:
+
+- source replica
+- target replica
+- associativity indicator
+
+# TOREV: should prbably get rid of this part and in the code and let
+# python code deal with it
+The associativity indicator can be used to indicate which direction
+the pair implies. The possible values are:
+
+- ~-->~ :: one-way from source to target
+- ~<-->~ :: both ways
+
+The ~<-->~ is just a short cut so that you don't have to permute your
+pairs if the sync options are the same.
+
+If a specific sync pair is not given the default will be applied.
+
+The default is either the ~DEFAULT_PAIR_OPTIONS~ value in the config
+file or the safest default hardcoded into the CLI program (i.e. no
+flags with backup is always the safest).
+
+The two values each sync pair must have are the ~sync~ policy options
+and the ~transport~ policy options.
+
+**** Sync Policies
+
+# TODO: 
+
+Four options:
+
+- inject
+- clobber
+- clean
+- prune
+
+Explain..
+
+**** Transport Policies
+
+This is mostly self-explanatory and allows for configuration of
+details that are orthogonal to the actual final state of the replicas.
+
+***** Backups
+
+The ~backup~ option is just what is implemented by rsync. You can
+choose from either renaming or using a backup dir.
+
+Renaming strategy copies ever file before overwriting it and appends a
+~.refugue-backup~ suffix to it.
+
+
+NOTE: currently the 'dir' method is not tested.
+
+The 'dir' option will save all backups to a configured
+directory. Default this is ~$HOME/.local/share/refugue/backups/~.
+
+***** Compression
+
+Just set 'auto' and the ~-z~ option will be passed to rsync.
