@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: django-personals
+Version: 0.0.1a1
+Summary: Django personal information schemas
+Home-page: https://github.com/sasriawesome/django_personals
+Maintainer: Rizki Sasri Dwitama
+Maintainer-email: sasri.project@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: Django (>=2.2)
+
+# Django Numerators
+Django Numerators track autonumber style inner_id for model record
+This repository contains a [Numerator](https://github.com/sasriawesome/django_numerators) model utils to create nice formatted Inner ID.
+
+## Installation
+```
+$ pip install django-personals
+```
+or
+```
+$ pip install git+https://github.com/sasriawesome/django_personals.git#egg=django-personals
+```
+
+## Usage
+Look at example .. :)
+
