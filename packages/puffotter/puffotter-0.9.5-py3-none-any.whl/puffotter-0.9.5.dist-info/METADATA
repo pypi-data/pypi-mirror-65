@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: puffotter
+Version: 0.9.5
+Summary: Convenience library for python
+Home-page: https://gitlab.namibsun.net/namibsun/python/puffotter
+Author: Hermann Krumrey
+Author-email: hermann@krumreyh.com
+License: GNU GPL3
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+Requires-Dist: sentry-sdk
+Requires-Dist: requests
+Requires-Dist: colorama
+Provides-Extra: crypto
+Requires-Dist: bcrypt ; extra == 'crypto'
+Provides-Extra: flask
+Requires-Dist: flask ; extra == 'flask'
+Requires-Dist: flask-sqlalchemy ; extra == 'flask'
+Requires-Dist: flask-login ; extra == 'flask'
+Requires-Dist: cheroot ; extra == 'flask'
+Requires-Dist: werkzeug ; extra == 'flask'
+Requires-Dist: sentry-sdk[flask] ; extra == 'flask'
+Requires-Dist: blinker ; extra == 'flask'
+
+# puffotter
+
+|master|develop|
+|:----:|:-----:|
+|[![build status](https://gitlab.namibsun.net/namibsun/python/puffotter/badges/master/build.svg)](https://gitlab.namibsun.net/namibsun/python/puffotter/commits/master)|[![build status](https://gitlab.namibsun.net/namibsun/python/puffotter/badges/develop/build.svg)](https://gitlab.namibsun.net/namibsun/python/puffotter/commits/develop)|
+
+![Logo](resources/logo/logo-readme.png)
+
+A python library for common convenience functions.
+
+## Further Information
+
+* [Changelog](CHANGELOG)
+* [License (GPLv3)](LICENSE)
+* [Gitlab](https://gitlab.namibsun.net/namibsun/python/puffotter)
+* [Github](https://github.com/namboy94/puffotter)
+* [Progstats](https://progstats.namibsun.net/projects/puffotter)
+* [PyPi](https://pypi.org/project/puffotter)
+
+
