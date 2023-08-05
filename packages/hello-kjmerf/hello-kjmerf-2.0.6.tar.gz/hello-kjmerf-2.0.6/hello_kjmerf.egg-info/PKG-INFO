@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: hello-kjmerf
+Version: 2.0.6
+Summary: A package that says hello to kjmerf
+Home-page: https://github.com/kjmerf/hello_kjmerf
+Author: Kevin Merfeld
+Author-email: kevinjmerfeld@gmail.com
+License: UNKNOWN
+Description: # hello pypi
+        This package says hello to kjmerf!
+        
+        I made it to test deployments to PyPI using CircleCI.
+        
+        Check it out! https://pypi.org/project/hello-kjmerf/
+        
+        Ben is here to say hello to kjmerf also!
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
