@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: zqpy
+Version: 0.1.19
+Summary: const tools manager
+Home-page: https://gitee.com/qingBB/zqpy
+Author: ZhouQing
+Author-email: 1620829248@qq.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: setuptools
+Requires-Dist: qrcode
+Requires-Dist: Pillow
+
+
+# 概括
+这是一个自己总结的常用的python库
+安装地址为:
+    pip install -i https://test.pypi.org/simple/ zqpy
+    或
+    pip install zqpy
+    若是更新
+    pip install --upgrade zqpy
+
+## 说明
+setup.py 参考git  https://github.com/navdeep-G/setup.py
+
+### 参数说明
+Fun.png
+### 错误反馈
+QQ:1620829248
+

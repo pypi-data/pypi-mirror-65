@@ -1,0 +1,2 @@
+class StringServiceClass(object):
+    pass
