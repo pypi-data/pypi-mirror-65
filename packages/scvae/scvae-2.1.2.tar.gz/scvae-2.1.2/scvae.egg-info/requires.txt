@@ -1,0 +1,16 @@
+importlib_resources>=1.0
+loompy>=2.0
+numpy>=1.16
+matplotlib>=2.0
+pandas>=0.24
+pillow>=5.4
+scikit-learn>=0.20
+scipy>=1.2
+seaborn>=0.9
+tables>=3.5
+tensorflow<2,>=1.15.2
+tensorflow-probability==0.7
+
+[docs]
+pygments>=2.4
+sphinx>=2.2
