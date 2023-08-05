@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: abacat
+Version: 0.0.1a0
+Summary: abacat - A BActerial genome Curation and Annotation Toolkit
+Home-page: https://github.com/vinisalazar/abacat
+Author: Vini Salazar
+Author-email: viniws@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Requires-Dist: biopython
+Requires-Dist: pandas
+Requires-Dist: argparse
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: pytest
+
+UNKNOWN
+
+
