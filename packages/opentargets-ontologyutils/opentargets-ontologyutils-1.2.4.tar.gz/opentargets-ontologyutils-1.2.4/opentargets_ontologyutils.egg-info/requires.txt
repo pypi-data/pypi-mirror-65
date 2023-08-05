@@ -1,0 +1,11 @@
+opentargets-urlzsource==1.0.0
+rdflib
+future
+
+[dev]
+pytest<4.1.0,>=4.0.0
+pytest-cov
+pylint
+codecov
+tox
+pipdeptree
