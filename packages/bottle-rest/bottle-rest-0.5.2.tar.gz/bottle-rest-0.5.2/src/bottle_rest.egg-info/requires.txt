@@ -1,0 +1,9 @@
+setuptools
+bottle
+
+[docs]
+sphinx
+sphinxcontrib-napoleon
+
+[test]
+pytest
