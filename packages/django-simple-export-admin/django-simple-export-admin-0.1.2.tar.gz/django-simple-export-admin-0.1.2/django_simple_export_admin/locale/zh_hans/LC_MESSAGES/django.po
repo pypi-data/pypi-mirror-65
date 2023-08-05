@@ -1,0 +1,36 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-02 23:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+#: .\django_simple_export_admin\admin.py:108
+#, python-format
+msgid "No export setings for: %s."
+msgstr "没有此类型的导出配置：%s"
+
+#: .\django_simple_export_admin\admin.py:111
+msgid "No export permission."
+msgstr "没有此导出权限。"
+
+#: .\django_simple_export_admin\admin.py:116
+#, python-format
+msgid "Something failed while do exporting: %s."
+msgstr "在生成导出文件时有异常发生，错误提示信息为：%s。"
+
+#: .\django_simple_export_admin\admin.py:220
+msgid "Export"
+msgstr "导出"
