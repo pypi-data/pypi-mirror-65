@@ -1,0 +1,9 @@
+six
+monotonic
+
+[:python_version == "2.7"]
+futures
+typing
+
+[prctl]
+prctl
