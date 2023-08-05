@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "libhreels"
+version = "0.9.10"
+description = "Handling, simulating, and plotting HREELS and Auger spectroscopy data"
+authors = ["Wolf Widdra <wolf.widdra@physik.uni-halle.de>"]
+include = ["*.*"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+matplotlib = "^3.2.1"
+scipy = "^1.4.1"
+#elog = {url = "https://github.com/paulscherrerinstitute/py_elog/archive/master.zip"}
+requests = "^2.23.0"
+argparse = "^1.4.0"
+PyQt5 = "5.13"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+
+[tool.poetry.scripts]
+run = "libhreels.HREELS:myMain"
+dielectrics = "libhreels.dielectrics:myMain"
+view = "libhreels.ViewHREELS:myMain"
+calc = "libhreels.calcHREELS:myMain"
+viewAuger = "libhreels.ViewAuger:myMain"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
