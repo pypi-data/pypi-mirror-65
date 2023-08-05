@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: resnest
+Version: 0.0.1
+Summary: ResNeSt
+Home-page: https://github.com/zhanghang1989/ResNeSt
+Author: Hang Zhang
+Author-email: zhanghang0704@gmail.com
+License: Apache-2.0
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Requires-Dist: nose
+Requires-Dist: torch (>=1.4.0)
+Requires-Dist: Pillow
+Requires-Dist: scipy
+Requires-Dist: requests
+
+UNKNOWN
+
+
