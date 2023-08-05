@@ -1,0 +1,23 @@
+[package]
+name = "simplet2s-capi"
+version = "0.2.0"
+authors = ["Messense Lv <messense@icloud.com>"]
+edition = "2018"
+publish = false
+
+[dependencies]
+c_fixed_string = "0.2"
+
+[dependencies.simplet2s]
+version = "0.2"
+path = "../"
+
+[build-dependencies]
+cbindgen = "0.14"
+
+[lib]
+name = "simplet2s"
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
