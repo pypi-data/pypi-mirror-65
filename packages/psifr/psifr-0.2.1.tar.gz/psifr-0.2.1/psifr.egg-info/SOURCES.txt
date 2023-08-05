@@ -1,0 +1,17 @@
+README.md
+setup.py
+psifr/__init__.py
+psifr/fr.py
+psifr/transitions.py
+psifr.egg-info/PKG-INFO
+psifr.egg-info/SOURCES.txt
+psifr.egg-info/dependency_links.txt
+psifr.egg-info/requires.txt
+psifr.egg-info/top_level.txt
+psifr/data/Morton2013.csv
+psifr/tests/__init__.py
+psifr/tests/test_category_crp.py
+psifr/tests/test_lag_crp.py
+psifr/tests/test_merge.py
+psifr/tests/test_pair_crp.py
+psifr/tests/test_transitions.py
