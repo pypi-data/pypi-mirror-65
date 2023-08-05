@@ -1,0 +1,6 @@
+#!/bin/bash
+
+version="0.0.8"
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+python $DIR/gynx_run.py "$@"
