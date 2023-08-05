@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: topic-ontologies
+Version: 0.1.296
+Summary: Topic Ontologies
+Home-page: https://git.webis.de/arguana/topic-ontologies-for-argumentation
+Author: Yamen Ajjour
+Author-email: yajjour@hotmail.com
+License: UNKNOWN
+Description: Configuration Topic Ontologies. 
+        
+        
+        
+        # Topic-Ontologies-NodeJs
+        
+        Tool to convert various *corpora* of documents into CSV-files structured as *argument-id,argument* and or *document-id,document*.
+        
+        ### Config
+        Config files have to be placed in the *conf* folder and follow the the following example:
+        ```
+        # path to the sourcefolder (mandatory)
+        source=data/corpus-upittsburgh-arguing-subjectivity/
+        
+        # output csv file for the documents (either this or arugments has be present)
+        preprocessed-documents=preprocessed/corpus-upittsburgh-arguing-subjectivity-preprocessed-documents.csv
+        # output csv file for the arguments (either this or documents has be present)
+        preprocessed-arguments=preprocessed/corpus-upittsburgh-arguing-subjectivity-preprocessed-arguments.csv
+        
+        # script for the preprocessing (mandatory)
+        preprocessing-script=corpus-upittsburgh-arguing-subjectivity
+        ```
+        
+        ### Run
+        Install NodeJS
+        
+        For all configs present in the *conf*-folder:
+        ```
+        npm run preprocess
+        ```
+        
+        For specific *.conf*-files (automatically searches for the *.conf*-files in the *conf*-folder):
+        ```
+        npm run preprocess kialo.conf aifdb.conf
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
