@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: mdh
+Version: 0.1.2
+Summary: modified dh
+Home-page: https://pypi.org/project/mdh/
+License: MIT
+Keywords: serial manipulators,robotics,kinematics,dh
+Author: walchko
+Author-email: walchko@users.noreply.github.com
+Requires-Python: >=3.6
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: attrs (>=19.0)
+Requires-Dist: numpy (>=1.9)
+Requires-Dist: scipy (>=1.0)
+Project-URL: Repository, https://github.com/MultipedRobotics/dh
+Description-Content-Type: text/markdown
+
+# Modified Denavit–Hartenberg (mdh)
+
+[![Actions Status](https://github.com/MultipedRobotics/dh/workflows/CheckPackage/badge.svg)](https://github.com/MultipedRobotics/dh/actions)
+![GitHub](https://img.shields.io/github/license/multipedrobotics/dh)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mdh)
+![PyPI](https://img.shields.io/pypi/v/mdh)
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/DHParameter.png" width="600px">
+
+[Modified Denavit-Hartenberg parameters](https://en.wikipedia.org/wiki/Denavit%E2%80%93Hartenberg_parameters#Modified_DH_parameters)
+
+## Inspiration
+
+You should probably use one of these, they inspired me to write a simpler
+module for my needs:
+
+- [pybotics](https://github.com/nnadeau/pybotics)
+- [pytransform3d](https://github.com/rock-learning/pytransform3d)
+
