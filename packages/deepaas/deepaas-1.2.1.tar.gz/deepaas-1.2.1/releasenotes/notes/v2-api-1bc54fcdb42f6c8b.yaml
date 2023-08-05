@@ -1,0 +1,36 @@
+---
+features:
+  - New V2 version of the API. This is a major change that is not backwards
+    compatible. We also have moved away from Flask to aiohttp in order to
+    support async requests. Please read these notes carefully so that you can
+    upgrade your model along with this new version.
+  - Moved from the OpenAPI Specification version 3 and Swagger UI 3.X.
+  - Added new ``--predict-workers`` and ``--train-workers`` options, allowing
+    to specify the number of workers that will be used for model operations
+    (train, predict).
+  - New warm method allow to initialize the model before the API is spawned.
+upgrade:
+  - The namespace has changed. Now we load models in the ``deepaas.v2.model``
+    namespace. It is still possible to use the old namespace, but this is
+    depreacated.
+  - The API that the entrypoint must provide has changed. Please refer to the
+    V2 documentation for more details.
+  - We have changed the way the arguments (both for train and predict methods)
+    are generated. Now you must define two methods ``get_train_args`` and
+    ``get_predict_args`` that must return a dictionary of ``webargs`` fields,
+    so you will have direct control over the arguments and how they are being
+    created. Using the old and now deprecated ``get_*_args`` is still possible,
+    but there are two caveats. The arguments will be defined as strings and
+    this will be removed in the future.
+  - Now ``predict_data`` and ``predict_url`` does no longer exist. Now we only
+    define a ``predict`` method. The argument holding the data to perform the
+    prediction or inference has to be defined by means of the corresponding
+    ``add_predict_args`` function.
+deprecations:
+  - The V1 version of the API is no longer active by defualt and will be
+    removed in the next major release.
+  - The ``deepaas.model`` entrypoint is now deprecated, please move your models
+    to  ``deepaas.v2.model``.
+  - The way of returning a plain dictionary by ``get_train_args`` and
+    ``get_test_args`` is deprecated. Please use a dictionary of
+    ``webargs.fields`` instead.
