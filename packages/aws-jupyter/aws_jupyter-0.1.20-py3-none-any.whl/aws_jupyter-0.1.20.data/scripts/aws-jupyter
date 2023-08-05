@@ -1,0 +1,89 @@
+#!python
+
+import aws_jupyter
+from aws_jupyter.check_cluster import main_check_cluster
+from aws_jupyter.create_cluster import main_create_cluster
+from aws_jupyter.credentials import main_check_access
+from aws_jupyter.diagnose import main_diagnose
+from aws_jupyter.run_cluster import main_run_cluster, run_cluster
+from aws_jupyter.retrieve_files import main_retrieve_files
+from aws_jupyter.send_files import main_send_files
+from aws_jupyter.set_config import main_set_config
+from aws_jupyter.ssh_headnode import main_ssh_headnode
+from aws_jupyter.terminate_cluster import main_terminate_cluster
+import argparse
+import os
+import sys
+
+
+class AwsJupyter:
+    def __init__(self):
+        parser = argparse.ArgumentParser(
+            description="Launch Jupyter on AWS",
+            usage="aws-jupyter <task> [<args>]\nRun with -h to see supported tasks",
+        )
+        parser.add_argument(
+            "task",
+            help="Task to perform, should be one of 'config', 'access', 'create', 'check', \
+                'terminate', 'run', 'ssh', 'retrieve', 'send-dir', 'diagnose'")
+        config = parser.parse_args(sys.argv[1:2])
+        raw_task = config.task
+        task = raw_task.replace('-', '_')
+        if not hasattr(self, task):
+            print(config)
+            print("Error: Cannot reconize the task type '{}'.".format(raw_task))
+            parser.print_help()
+            exit(1)
+        # use dispatch pattern to invoke method with same name
+        getattr(self, task)()
+
+    def config(self):
+        main_set_config()
+
+    def create(self):
+        if main_check_access():
+            main_create_cluster()
+
+    def check(self):
+        (config, status) = main_check_cluster()
+        if status is None:
+            ready, total = 0, 0
+        else:
+            ready, total = status
+        if ready > 0 and ready == total:
+            print("Cluster is running (yet might still being initialized). \
+                   I will try to start Jupyter notebook now.")
+            script_dir = os.path.join(os.path.dirname(aws_jupyter.__file__), "scripts")
+            config["files"] = ["./neighbors.txt"]
+            config["script"] = os.path.join(script_dir, "install-jupyter-tmsn.sh")
+            config["output"] = True
+            is_worked = run_cluster(config, first_node_only=False)
+            if not is_worked:
+                sys.exit(1)
+        elif total > 0:
+            print("Cluster is not ready. Please check again later.")
+            sys.exit(1)
+
+    def diagnose(self):
+        main_diagnose()
+
+    def terminate(self):
+        main_terminate_cluster()
+
+    def run(self):
+        main_run_cluster()
+
+    def send_dir(self):
+        main_send_files()
+
+    def ssh(self):
+        main_ssh_headnode()
+
+    def retrieve(self):
+        main_retrieve_files()
+
+    def access(self):
+        main_check_access()
+
+if __name__ == '__main__':
+    AwsJupyter()
