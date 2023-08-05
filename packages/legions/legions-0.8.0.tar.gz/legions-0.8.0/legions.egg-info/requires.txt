@@ -1,0 +1,5 @@
+web3==5.7.0
+python-nubia==0.2b2
+
+[:python_version >= "3.6"]
+dataclasses
