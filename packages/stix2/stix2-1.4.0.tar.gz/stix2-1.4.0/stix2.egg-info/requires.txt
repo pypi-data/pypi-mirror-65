@@ -1,0 +1,16 @@
+python-dateutil
+pytz
+requests
+simplejson
+six
+stix2-patterns
+
+[:python_version < "3.4"]
+enum34
+
+[semantic]
+haversine
+fuzzywuzzy
+
+[taxii]
+taxii2-client
