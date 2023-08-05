@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: serverly
+Version: 0.2.0
+Summary: A really simple-to-use HTTP-server
+Home-page: https://github.com/mithem/PyServer
+Author: mithem
+Author-email: miguel.themann@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# serverly
+
+A wrapper-kindof-thing that makes using servers in Python severly easier.
+
+IMPORTANT NOTE for v0.2.0: This update removed backwards-compability for functions written for previous versions of serverly. You now NEED to return a response object.
+
+
