@@ -1,0 +1,128 @@
+      subroutine PetscLimiterSetFromOptions(a,z)
+      use petscdmdef
+       PetscLimiter a ! PetscLimiter
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLimiterDestroy(a,z)
+      use petscdmdef
+       PetscLimiter a ! PetscLimiter
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLimiterCreate(a,b,z)
+      use petscdmdef
+      MPI_Comm a ! MPI_Comm
+       PetscLimiter b ! PetscLimiter
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLimiterLimit(a,b,c,z)
+      use petscdmdef
+       PetscLimiter a ! PetscLimiter
+       PetscReal b ! PetscReal
+       PetscReal c ! PetscReal
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetFromOptions(a,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetUp(a,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVDestroy(a,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVCreate(a,b,z)
+      use petscdmdef
+      MPI_Comm a ! MPI_Comm
+       PetscFV b ! PetscFV
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetLimiter(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscLimiter b ! PetscLimiter
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVGetLimiter(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscLimiter b ! PetscLimiter
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetNumComponents(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscInt b ! PetscInt
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVGetNumComponents(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscInt b ! PetscInt
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetSpatialDimension(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscInt b ! PetscInt
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVGetSpatialDimension(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscInt b ! PetscInt
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetComputeGradients(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVGetComputeGradients(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetQuadrature(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscQuadrature b ! PetscQuadrature
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVGetQuadrature(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscQuadrature b ! PetscQuadrature
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVGetDualSpace(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscDualSpace b ! PetscDualSpace
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVSetDualSpace(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscDualSpace b ! PetscDualSpace
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVRefine(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscFV b ! PetscFV
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscFVLeastSquaresSetMaxFaces(a,b,z)
+      use petscdmdef
+       PetscFV a ! PetscFV
+       PetscInt b ! PetscInt
+        PetscErrorCode z
+       end subroutine

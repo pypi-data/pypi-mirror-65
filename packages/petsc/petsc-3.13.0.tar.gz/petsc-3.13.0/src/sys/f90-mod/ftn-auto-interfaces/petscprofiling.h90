@@ -1,0 +1,131 @@
+      subroutine PetscLogSetThreshold(a,b,z)
+      use petscsysdef
+       PetscLogDouble a ! PetscLogDouble
+       PetscLogDouble b ! PetscLogDouble
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogTraceBegin(a,z)
+      use petscsysdef
+       FILE a ! FILE
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogActions(a,z)
+      use petscsysdef
+       PetscBool a ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogObjects(a,z)
+      use petscsysdef
+       PetscBool a ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogStageSetActive(a,b,z)
+      use petscsysdef
+       PetscLogStage a ! PetscLogStage
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogStageGetActive(a,b,z)
+      use petscsysdef
+       PetscLogStage a ! PetscLogStage
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogStageSetVisible(a,b,z)
+      use petscsysdef
+       PetscLogStage a ! PetscLogStage
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogStageGetVisible(a,b,z)
+      use petscsysdef
+       PetscLogStage a ! PetscLogStage
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventSetCollective(a,b,z)
+      use petscsysdef
+       PetscLogEvent a ! PetscLogEvent
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventIncludeClass(a,z)
+      use petscsysdef
+       PetscClassId a ! PetscClassId
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventExcludeClass(a,z)
+      use petscsysdef
+       PetscClassId a ! PetscClassId
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventActivate(a,z)
+      use petscsysdef
+       PetscLogEvent a ! PetscLogEvent
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventDeactivate(a,z)
+      use petscsysdef
+       PetscLogEvent a ! PetscLogEvent
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventSetActiveAll(a,b,z)
+      use petscsysdef
+       PetscLogEvent a ! PetscLogEvent
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventActivateClass(a,z)
+      use petscsysdef
+       PetscClassId a ! PetscClassId
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscLogEventDeactivateClass(a,z)
+      use petscsysdef
+       PetscClassId a ! PetscClassId
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoEnabled(a,b,z)
+      use petscsysdef
+       PetscClassId a ! PetscClassId
+       PetscBool b ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoAllow(a,z)
+      use petscsysdef
+       PetscBool a ! PetscBool
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoGetInfo(a,b,c,d,e,z)
+      use petscsysdef
+       PetscBool a ! PetscBool
+       PetscBool b ! PetscBool
+       PetscBool c ! PetscBool
+       PetscBool d ! PetscBool
+       PetscInfoCommFlag e ! PetscInfoCommFlag
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoSetFilterCommSelf(a,z)
+      use petscsysdef
+       PetscInfoCommFlag a ! PetscInfoCommFlag
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoSetFromOptions(a,z)
+      use petscsysdef
+       PetscOptions a ! PetscOptions
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoDestroy(z)
+      use petscsysdef
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoDeactivateClass(a,z)
+      use petscsysdef
+       PetscClassId a ! PetscClassId
+        PetscErrorCode z
+       end subroutine
+      subroutine PetscInfoActivateClass(a,z)
+      use petscsysdef
+       PetscClassId a ! PetscClassId
+        PetscErrorCode z
+       end subroutine
