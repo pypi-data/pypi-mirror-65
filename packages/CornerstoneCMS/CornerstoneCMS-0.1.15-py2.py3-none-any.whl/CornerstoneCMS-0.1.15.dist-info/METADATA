@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: CornerstoneCMS
+Version: 0.1.15
+Summary: A simple content management system for churches
+Home-page: https://cornerstonecms.org
+Author: Raoul Snyman
+License: GPLv3+
+Project-URL: Code, https://gitlab.com/cornerstonecms/cornerstonecms
+Project-URL: Issue tracker, https://gitlab.com/cornerstonecms/cornerstonecms/issues
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Content Management System
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+Requires-Dist: Flask
+Requires-Dist: Flask-Admin
+Requires-Dist: Flask-Migrate
+Requires-Dist: Flask-SQLAlchemy
+Requires-Dist: Flask-Themes2
+Requires-Dist: Flask-User
+Requires-Dist: pyyaml
+Requires-Dist: serpent
+Requires-Dist: unidecode
+Provides-Extra: dev
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest (>=3) ; extra == 'dev'
+
+CornerstoneCMS
+==============
+
+CornerstoneCMS is a really simple content management system for churches. It has only two components to it, pages and
+sermons. Sermons are hosted on Simplecast.
+
+
+Installing
+----------
+
+Install and update using `pip`_::
+
+   $ pip install -U CornerstoneCMS
+
+
+Set up
+------
+
+To set up CornerstoneCMS for your site, you can either manually create a configuration file, or run a configuration
+wizard.
+
+Configuration wizard
+~~~~~~~~~~~~~~~~~~~~
+
+CornerstoneCMS comes with a short configuration wizard which will create a configuration file for you::
+
+   $ python -m cornerstone.conf
+
+Manual configuration
+~~~~~~~~~~~~~~~~~~~~
+Set up CornerstoneCMS by creating a configuration file like ``cornerstone.conf``:
+
+.. code-block:: ini
+
+   [flask]
+   secret_key = <create a secret for sessions etc>
+
+   [sqlalchemy]
+   database_uri = sqlite:///cornerstone.sqlite
+
+   [cornerstone]
+   title = My Church Name
+
+
+Deploying to Production
+-----------------------
+
+CornerstoneCMS is a WSGI application, and needs to be deployed to a WSGI server. Create a file called ``wsgi.py`` and
+point your WSGI server to the file.
+
+.. code-block:: python
+
+   from cornerstone.app import create_app
+
+   application = create_app('/path/to/yourfile.conf')
+
+
+Links
+-----
+
+* Website: https://cornerstonecms.org/
+* License: https://gitlab.com/cornerstonecms/cornerstonecms/blob/master/LICENSE
+* Issue tracker: https://gitlab.com/cornerstonecms/cornerstonecms/issues
+
+
+.. _pip: https://pip.pypa.io/
+
+
