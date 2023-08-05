@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+clienttracker/__init__.py
+clienttracker/admin.py
+clienttracker/apps.py
+clienttracker/models.py
+clienttracker/tests.py
+clienttracker/urls.py
+clienttracker/views.py
+clienttracker/static/js/tracer.js
+django_client_tracker.egg-info/PKG-INFO
+django_client_tracker.egg-info/SOURCES.txt
+django_client_tracker.egg-info/dependency_links.txt
+django_client_tracker.egg-info/top_level.txt
