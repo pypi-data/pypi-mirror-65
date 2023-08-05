@@ -1,0 +1,91 @@
+CHANGES
+=======
+
+0.2.3
+-----
+
+* using pbr to compare versions instead of packaging
+
+0.2.2
+-----
+
+* sending correct server version
+
+0.2.1
+-----
+
+* exposing if the server is serializing naively, added the posibility to detect and expose settable properties
+
+0.2.0
+-----
+
+* moved property to be more inline with methods, added url\_prefix to the datamodel export, exposing the datamodel version, added patches, only applying patches if the sqla version is equal or over 1.3.0
+* capturing the whole view instead specific configuration
+
+0.1.7
+-----
+
+* Using environBuilder
+
+0.1.6
+-----
+
+* removed version constraint for cereal-lazer
+
+0.1.5
+-----
+
+* bumping cereal version
+* added option to commit before returning a method call
+
+0.1.4
+-----
+
+* integraded latest version of cereal lazer
+* catching internal server errors and returning it as a more legable error message
+
+0.1.3
+-----
+
+* not taking excluded relations into account when catching the model configuration as it serves no purpose
+
+0.1.2
+-----
+
+* added patches file
+* allowing to query model properties
+
+0.1.1
+-----
+
+* (de)serializing the entire object instead of the id to allow returning non committed objects
+* Typos
+
+0.1.0
+-----
+
+* corrected travis file
+* bugfixes
+
+0.0.3
+-----
+
+* update ci file
+
+0.0.2
+-----
+
+* using correct license in setup.cfg
+
+0.0.1
+-----
+
+* adjusted to enpoint rename
+* adding flask sqlalchemy to dev requirements
+* using correct requests flask adapter
+* preparing CI
+* removed useless env arguments
+* fixed an issue where registering a model after the datamodel object has been initialized, would crash the process
+* refactored model registration to not have to rely on a 'first request' to initialize
+* cleaned up code
+* First commit thx to cookiecutter
