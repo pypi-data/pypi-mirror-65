@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: spaste
+Version: 0.0.3
+Summary: The official client for spaste.io
+Home-page: https://spaste.io
+Author: spaste
+Author-email: hello@spaste.io
+License: UNKNOWN
+Keywords: shell
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Version Control
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: asyncio
+Requires-Dist: colorful
+Requires-Dist: websockets
+
+Spaste
+=========
+
+The official client for `spaste.io <https://spaste.io>`__.
+
+Installation
+------------
+
+It's recommended that you use Python 3.
+
+You can install Spaste from
+`PyPI <https://pypi.org/project/spaste/>`__:
+
+.. code:: bash
+
+    pip install spaste
+
+Usage
+-----
+
+See the instructions on `spaste.io <https://spaste.io>`__ for more
+information about Spaste. For more information on how to use the command
+line tool itself, see the built-in help:
+
+.. code:: bash
+
+    spaste --help
+
