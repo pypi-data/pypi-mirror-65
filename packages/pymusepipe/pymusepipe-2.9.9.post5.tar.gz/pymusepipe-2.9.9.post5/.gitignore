@@ -1,0 +1,17 @@
+# Compiled python modules.
+*.pyc
+
+# Setuptools distribution folder.
+dist/
+old_stuff/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+
+# Old files
+*.old
+# notes
+*.help
+
+# gvim swap
+*.py.swp
