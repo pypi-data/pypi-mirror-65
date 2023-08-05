@@ -1,0 +1,7 @@
+ossaudit
+pyyaml>=4.1
+coverage
+black; python_version >= '3.6'
+flake8
+
+-r requirements.txt

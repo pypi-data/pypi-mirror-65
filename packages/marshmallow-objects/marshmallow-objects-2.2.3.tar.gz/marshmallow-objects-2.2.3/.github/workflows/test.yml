@@ -1,0 +1,59 @@
+name: Test Pull Request
+
+on:
+  - pull_request
+env:
+  PYTHON: 3.8
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ env.PYTHON }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r test-requirements.txt
+      - name: Audit Python packages for known vulnerabilities
+        run: |
+          if ! RES=$(ossaudit --installed --config setup.cfg); then
+            RES="${RES//'%'/'%25'}"
+            RES="${RES//$'\n'/'%0A'}"
+            RES="${RES//$'\r'/'%0D'}"
+            echo "::error ::${RES}"
+            exit 1
+          fi
+          echo ${RES}
+      - name: Lint with flake8
+        run: flake8 --show-source
+      - name: Format with black
+        run: black --check $(git diff --name-only --diff-filter=AM ${{ github.base_ref }} -- "*.py")
+      - name: Run unit tests with coverage
+        run: |
+          coverage run --source=marshmallow_objects setup.py test
+          coverage xml -i
+      - name: Codecov
+        uses: codecov/codecov-action@v1
+
+  test-extra:
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.5, 3.6, 3.7]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyyaml
+      - name: Run unit tests
+        run: python -m unittest
