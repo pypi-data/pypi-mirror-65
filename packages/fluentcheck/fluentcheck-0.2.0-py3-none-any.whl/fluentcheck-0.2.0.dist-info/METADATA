@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: fluentcheck
+Version: 0.2.0
+Summary: Fluent assertions framework for Python
+Home-page: https://github.com/csparpa/fluentcheck
+Author: Claudio Sparpaglione
+Author-email: csparpa@gmail.com
+License: MIT License
+Keywords: check python fluent fluent-interface assertion-library assertions testing fluent-assertions fluentcheck
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >3.5.0
+Requires-Dist: pyyaml (>=4.2b1)
+
+UNKNOWN
+
+
