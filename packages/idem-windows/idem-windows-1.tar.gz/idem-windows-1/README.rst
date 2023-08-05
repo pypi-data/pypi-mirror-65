@@ -1,0 +1,59 @@
+***********
+POP_WINDOWS
+***********
+**Grains, execution modules, and state modules common to all windows systems**
+
+INSTALLATION
+============
+
+
+Pip install grains::
+
+    pip install -e git+https://gitlab.com/saltstack/pop/grains.git#egg=chunkies
+
+Clone the `pop_windows` repo and install with pip::
+
+    git clone https://gitlab.com/saltstack/pop/pop_windows.git
+    pip install -e pop_windows
+
+EXECUTION
+=========
+After installation the `grains` command should now be available
+
+TESTING
+=======
+install `requirements-test.txt` with pip and run pytest::
+
+    pip install -r pop_windows\requirements-test.txt
+    pytest pop_windows\tests
+
+VERTICAL APP-MERGING
+====================
+Instructions for extending pop-windows into an OS or distro specific pop project
+
+Install pop::
+
+    pip install --upgrade pop
+
+Create a new directory for the project::
+
+    mkdir pop_{specific_windows_system}
+    cd pop_{specific_windows_system}
+
+
+Use `pop-seed` to generate the structure of a project that extends `grains` and `idem`::
+
+    pop-seed -t v pop_{specific_windows_system} -d grains exec states
+
+* "-t v" specifies that this is a vertically app-merged project
+*  "-d grains exec states" says that we want to implement the dynamic names of "grains", "exec", and "states"
+
+Add "pop_windows" to the requirements.txt::
+
+    echo "pop_windows @ git+https://gitlab.com/saltstack/pop/pop_windows.git" >> requirements.txt
+
+And that's it!  Go to town making grains, execution modules, and state modules specific to your unique windows system.
+Follow the conventions you see in pop_windows.
+
+For information about running idem states and execution modules check out
+https://idem.readthedocs.io
