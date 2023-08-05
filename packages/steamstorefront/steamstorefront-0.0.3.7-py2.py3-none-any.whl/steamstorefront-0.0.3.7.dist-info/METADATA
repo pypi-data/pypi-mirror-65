@@ -1,0 +1,118 @@
+Metadata-Version: 2.1
+Name: steamstorefront
+Version: 0.0.3.7
+Summary: Steam Store Front is an easy to use package to get game or app details from steam store.
+Home-page: https://github.com/santoshpanna/steamstorefront
+Author: Santosh Panna
+Author-email: santoshpanna.sp@gmail.com
+License: MIT license
+Keywords: steamstorefront
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+Requires-Dist: beautifulsoup4 (>=4.7.0)
+Requires-Dist: fuzzywuzzy (>=0.17.0)
+Requires-Dist: html5lib (>=1.0.0)
+Requires-Dist: python-Levenshtein (>=0.12.0)
+Requires-Dist: requests (>=2.21.0)
+Requires-Dist: w3lib (>=1.19.0)
+
+=================
+Steam Store Front
+=================
+
+.. image:: https://img.shields.io/pypi/v/steamstorefront.svg?style=flat-square
+        :target: https://pypi.python.org/pypi/steamstorefront
+
+.. image:: https://img.shields.io/travis/com/santoshpanna/steamstorefront?style=flat-square
+        :target: https://travis-ci.com/santoshpanna/SteamStoreFront
+
+.. image:: https://img.shields.io/readthedocs/steamstorefront?style=flat-square
+        :target: https://steamstorefront.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+Steam Store Front is an easy to use package to get game or app details from steam store.
+
+.. note:: It is not a client. You cannot interact with steam to make purchase or do actions which requires login.*
+
+* Free software: MIT license
+* Documentation: https://steamstorefront.readthedocs.io
+
+Features
+********
+- Supports apps
+- Supports packages
+- Supports bundles
+
+Todo
+****
+- more details about app from other souces
+- support for pages like developers, publishers, sales etc
+
+Installation
+************
+.. code-block:: console
+
+    pip install steamstorefront
+
+Usage
+*****
+Constructor:
+
+.. code-block:: python
+
+    import steamstorefront
+
+    ssf = steamstorefront.SteamStoreFront(appid=203160, category="app")
+
+    ssf.getName()
+    ssf.getPrice()
+
+Function:
+
+.. code-block:: python
+
+    from steamstorefront import SteamStoreFront
+
+    ssf = SteamStoreFront()
+
+    ssf.getName(appid=203160, category="app")
+    ssf.getPrice(appid=203160, category="app")
+
+When quering data for same app:
+
+.. code-block:: python
+
+    from steamstorefront import SteamStoreFront
+
+    ssf = SteamStoreFront()
+
+    ssf.getName(appid=203160, category="app")
+    # it stores the appid and category so no need to pass it twice
+    ssf.getPrice()
+
+When quering for different app:
+
+.. code-block:: python
+
+    from steamstorefront import SteamStoreFront
+
+    ssf = SteamStoreFront()
+
+    ssf.getName(appid=203160, category="app")
+    ssf.getName(appid=730, category="app")
+
+Credits
+*******
+ - `Cookiecutter <https://github.com/audreyr/cookiecutter>`_
+
+
