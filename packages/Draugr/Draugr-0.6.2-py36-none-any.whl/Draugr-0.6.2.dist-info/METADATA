@@ -1,0 +1,126 @@
+Metadata-Version: 2.1
+Name: Draugr
+Version: 0.6.2
+Summary: A package for plotting directly in your terminal
+Home-page: https://github.com/cnheider/draugr
+Author: Christian Heider Nielsen
+Author-email: christian.heider@alexandra.dk
+Maintainer: Christian Heider Nielsen
+Maintainer-email: christian.heider@alexandra.dk
+License: Apache License, Version 2.0
+Download-URL: https://github.com/cnheider/draugr/releases
+Keywords: python reinforcement-learning interface api
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: apppath
+Requires-Dist: warg
+Requires-Dist: numpy
+Requires-Dist: six
+Requires-Dist: sklearn
+Requires-Dist: pynput
+Requires-Dist: matplotlib
+Provides-Extra: all
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: pandas ; extra == 'all'
+Requires-Dist: scikit-learn ; extra == 'all'
+Requires-Dist: numpy ; extra == 'all'
+Requires-Dist: torch ; extra == 'all'
+Requires-Dist: pip (>=19.0.3) ; extra == 'all'
+Requires-Dist: wheel (>=0.33.0) ; extra == 'all'
+Requires-Dist: twine (>=1.13.0) ; extra == 'all'
+Requires-Dist: black (>=18.9b0) ; extra == 'all'
+Requires-Dist: pytest (>=4.3.0) ; extra == 'all'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'all'
+Requires-Dist: coveralls (>=1.6.0) ; extra == 'all'
+Requires-Dist: opencv-python ; extra == 'all'
+Requires-Dist: tensorboardX ; extra == 'all'
+Requires-Dist: tensorboard ; extra == 'all'
+Requires-Dist: sphinx (==1.8.5) ; extra == 'all'
+Requires-Dist: m2r ; extra == 'all'
+Requires-Dist: sphinxcontrib-programoutput ; extra == 'all'
+Requires-Dist: pytest (>=4.4.1) ; extra == 'all'
+Requires-Dist: mock ; extra == 'all'
+Requires-Dist: pytest-runner ; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: pip (>=19.0.3) ; extra == 'dev'
+Requires-Dist: wheel (>=0.33.0) ; extra == 'dev'
+Requires-Dist: twine (>=1.13.0) ; extra == 'dev'
+Requires-Dist: black (>=18.9b0) ; extra == 'dev'
+Requires-Dist: pytest (>=4.3.0) ; extra == 'dev'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'dev'
+Requires-Dist: coveralls (>=1.6.0) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx (==1.8.5) ; extra == 'docs'
+Requires-Dist: m2r ; extra == 'docs'
+Requires-Dist: sphinxcontrib-programoutput ; extra == 'docs'
+Provides-Extra: drawers
+Requires-Dist: torch ; extra == 'drawers'
+Provides-Extra: setup
+Requires-Dist: pytest-runner ; extra == 'setup'
+Provides-Extra: tests
+Requires-Dist: pytest (>=4.4.1) ; extra == 'tests'
+Requires-Dist: mock ; extra == 'tests'
+Provides-Extra: torch
+Requires-Dist: matplotlib ; extra == 'torch'
+Requires-Dist: opencv-python ; extra == 'torch'
+Requires-Dist: torch ; extra == 'torch'
+Requires-Dist: tensorboardX ; extra == 'torch'
+Requires-Dist: tensorboard ; extra == 'torch'
+Provides-Extra: writers
+Requires-Dist: matplotlib ; extra == 'writers'
+Requires-Dist: pandas ; extra == 'writers'
+Requires-Dist: scikit-learn ; extra == 'writers'
+Requires-Dist: numpy ; extra == 'writers'
+
+
+![valknut](.github/images/valknut.svg)
+
+# Draugr
+
+![Python package](https://github.com/cnheider/draugr/workflows/Python%20package/badge.svg)
+
+| Version | Docs | Tests | Coverage | Style | PyPI | Python | PyTorch | Docker |
+|---------|------|-------|----------|-------|------|--------|---------|--------|
+| [![Version](https://img.shields.io/static/v1?label=&message=0.1.1&color=377EF0&style=for-the-badge)](https://github.com/../../releases) | [![Documentation](https://img.shields.io/static/v1?label=&message=docs&color=EE4C2C&style=for-the-badge)](https://...github.io/../)  | ![Tests](https://github.com/../../workflows/test/badge.svg) | [![codecov](https://codecov.io/gh/../../branch/master/graph/badge.svg?token=..)](https://codecov.io/gh/../..) | [![codebeat badge](https://codebeat.co/badges/..)](https://codebeat.co/projects/github-com-..-..-master) | [![PyPI](https://img.shields.io/static/v1?label=&message=PyPI&color=377EF0&style=for-the-badge)](https://pypi.org/project/torchlayers/) | [![Python](https://img.shields.io/static/v1?label=&message=>=3.7&color=377EF0&style=for-the-badge&logo=python&logoColor=F8C63D)](https://www.python.org/) | [![PyTorch](https://img.shields.io/static/v1?label=&message=>=1.3.0&color=EE4C2C&style=for-the-badge)](https://pytorch.org/) | [![Docker](https://img.shields.io/static/v1?label=&message=docker&color=309cef&style=for-the-badge)](https://hub.docker.com/r/../..) |
+
+
+A utility package for...
+ - pytorch stuff
+ - visualisations
+ - plotting directly in your terminal
+ - python in general
+ - opencv images
+ - numpy array functions
+
+
+https://en.wikipedia.org/wiki/Draugr
+
+```bash
+pip install draugr
+```
+
+OR
+
+```bash
+pip install "draugr[writers]"
+```
+
+for writer functionalities and their dependencies
+
+### [Drawers](draugr/drawers)
+
+## [Samples](samples)
+
+

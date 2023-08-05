@@ -1,0 +1,3 @@
+[console_scripts]
+draugr-tb = draugr.entry_points.tensorboard_entry_point:main
+
