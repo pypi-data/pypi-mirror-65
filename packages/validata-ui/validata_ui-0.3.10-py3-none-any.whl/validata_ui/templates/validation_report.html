@@ -1,0 +1,176 @@
+{% extends "base_template.html" %}
+
+{% import 'schema_info_macros.html' as schema_info_macros %}
+{% import 'validation_macros.html' as macros %}
+
+{% block title %}{{ section_title }} – {{ schema_info.title }}{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+  #table-errors td h2 {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  ul.structure_errors li p {
+      margin-bottom: 0;
+  }
+
+  @media print {
+    .hidden-print {
+      display: none;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <p class="text-muted">Validation effectuée {{ validation_date }}</p>
+
+    {% if source.type == 'url' %}
+    <p class="hidden-print">
+        <a class="btn btn-outline-secondary" href="{{ pdf_report_url }}" target="_blank">
+            Télécharger en PDF
+        </a>
+    </p>
+    {% endif %}
+
+    <div class="row my-4">
+        {# Schema info #}
+        <div class="col-lg-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    {{ schema_info_macros.html(schema_info, None, None, schema_current_version, doc_url) }}
+                </div>
+            </div>
+        </div>
+        {# Validation stats #}
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Fichier {% if report.error_count == 0 %}valide{% else %}invalide{% endif %}
+                    </h2>
+
+                    {% if display_badge %}
+                    <p><img src="{{ badge_url }}" alt="{{ badge_msg }}" /></p>
+                    {% endif %}
+
+                    <p>
+                        <code>
+                        {% if source.type == 'file' %}
+                            {{ source.filename }}
+                        {% elif source.type == 'url' %}
+                            <a href="{{source.url}}" target="_blank">{{source.filename}}</a>
+                        {% endif %}
+                        </code>
+                        ({{ report.table.col_count }} colonnes × {{ report.table.row_count }} lignes)
+                    </p>
+
+                    {% if report.error_count == 0 %}
+                    <p>Aucune erreur détectée</p>
+                    {% else %}
+                    {{ macros.error_statistics(report) }}
+                    <p>
+                        {% set error_count = report.table['error-stats']['count'] %}
+                        Total :
+                        {% if error_count == 1 %}
+                        1 erreur détectée
+                        {% else %}
+                        {{ error_count }} erreurs détectées
+                        {% endif %}
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mx-4">
+    {% if report.table.errors.structure %}
+    <h3 class="my-4">Erreurs de structure ({{ report.table['error-stats']['structure-errors']['count'] }})</h3>
+    <p>Prévisualisation du fichier source avec structure invalide (en-têtes)</p>
+
+    {# source header display #}
+    <div class="mb-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-sm table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        {% for h, err in source_data.source_header_info %}
+                        <th{% if err %} class="table-danger"{% endif %}>{{ h }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    {% if report.repair_actions %}
+    <div id="repair_actions" class="my-4 actions">
+        <div class="col-lg-6 alert alert-warning">
+            <p>
+                La structure de votre fichier a été automatiquement remaniée
+                <a id="repair_details_link" class="float-right" href="#" title="Voir les détails">détails</a>
+            </p>
+            <div id="repair_details_panel" class="d-none">
+                <ul>
+                {% for action in report.repair_actions %}
+                <li>{{ action | commonmark2html | safe}}</li>
+                {% endfor %}
+                </ul>
+                <p>
+                    Il vous appartient d'apporter ces modifications sur votre fichier pour rendre sa structure
+                    valide selon le schéma.
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+
+{# Display body errors #}
+<div class="mx-4">
+    <h3 class="my-4">
+    {% if report.table.errors.body %}
+        {% set value_errors = report.table['error-stats']['value-errors'] %}
+        Erreurs de contenu ({{ value_errors['count'] }} sur {{ value_errors['rows-count'] }} ligne{% if value_errors['rows-count'] > 1 %}s{% endif %})
+    {% else %}
+        {% if report.table.errors.structure %}
+            Aucune erreur de contenu
+        {% else %}
+            Aucune erreur détectée
+        {% endif %}
+    {% endif %}
+    </h3>
+    <p>Prévisualisation du fichier source
+    {% if report.repair_actions %}avec structure réparée{% endif %}
+    {% if not report.table.errors.body %}
+     (affichage de {{ source_data.preview_rows_nb }}
+            ligne{% if source_data.preview_rows_nb > 1 %}s{% endif %}
+            sur {{ source_data.rows_nb }} au total)
+    {% endif %}
+    </p>
+    {% if report.table.errors.body %}
+    {{ macros.body_errors(report, source_data, print_mode) }}
+    {% else %}
+    {{ macros.preview(report, source_data) }}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='validata_popover.js') }}"></script>
+<script>
+// Show detail on 'détails' link click
+$('#repair_details_link').click(function(e) {
+    e.preventDefault();
+    $(this).addClass("d-none");
+    $("#repair_details_panel").addClass('d-block');
+})
+</script>
+{% endblock %}
