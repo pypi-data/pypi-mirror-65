@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: fa-common
+Version: 0.4.5
+Summary: FastAPI Common Framework
+Home-page: https://gitlab.com/csiro-geoanalytics/python-shared/fastapi-common-framework
+Maintainer: Samuel Bradley
+Maintainer-email: sam.bradley@csiro.au
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5, <4
+Description-Content-Type: text/markdown
+Requires-Dist: pyjwt
+Requires-Dist: python-jose
+Requires-Dist: python-dotenv
+Requires-Dist: loguru
+Requires-Dist: python-multipart
+Requires-Dist: email-validator
+Requires-Dist: six
+Requires-Dist: fastapi (>=0.52.0)
+Requires-Dist: aiohttp
+Requires-Dist: ujson
+Requires-Dist: humps
+Provides-Extra: gcp
+Requires-Dist: google-cloud-storage ; extra == 'gcp'
+Requires-Dist: google-cloud-logging ; extra == 'gcp'
+Requires-Dist: google-cloud-firestore ; extra == 'gcp'
+Requires-Dist: firebase-admin ; extra == 'gcp'
+Requires-Dist: requests ; extra == 'gcp'
+Provides-Extra: minio
+Requires-Dist: minio ; extra == 'minio'
+Provides-Extra: mongo
+Requires-Dist: motor ; extra == 'mongo'
+Requires-Dist: pymongo ; extra == 'mongo'
+Provides-Extra: sentry
+Requires-Dist: sentry-sdk ; extra == 'sentry'
+Provides-Extra: windows
+Requires-Dist: win32-setctime ; extra == 'windows'
+
+# FastAPI Common Framework
+
+[![PyPI version](https://badge.fury.io/py/fa-common.svg)](https://badge.fury.io/py/fa-common)
+[![coverage report](https://gitlab.com/csiro-geoanalytics/python-shared/fastapi-common-framework/badges/master/coverage.svg)](https://gitlab.com/csiro-geoanalytics/python-shared/fastapi-common-framework/-/commits/master)
+
+## Version: 0.4.5
+
+This is the common API framework used by the CSIRO geoanalytics software team. Not currently designed for use outside of the CSIRO geoanalytics team.
+
+Code and concepts borrow heavily from [FastAPI Contrib](https://pypi.org/project/fastapi-contrib/) I suggest you check them out if you are looking for a user friendly open source FastAPI Utility framework.
+
+
