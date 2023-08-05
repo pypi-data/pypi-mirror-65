@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: asyncfileserver
+Version: 0.1.2
+Summary: File Server
+Home-page: https://github.com/tarc/asyncfileserver
+Author: Tarcísio Genaro Rodrigues
+Author-email: tarcisio.genaro@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/tarc/asyncfileserver/archive/v0.0.1.tar.gz
+Project-URL: Bug Reports, https://github.com/pypa/sampleproject/issues
+Project-URL: Funding, https://donate.pypi.org
+Project-URL: Say Thanks!, http://saythanks.io/to/example
+Project-URL: Source, https://github.com/pypa/sampleproject/
+Description: ![Test and Coverage Measuring](https://github.com/tarc/asyncfileserver/workflows/Test%20and%20Coverage%20Measuring/badge.svg?branch=master) [![codecov](https://codecov.io/gh/tarc/asyncfileserver/branch/master/graph/badge.svg)](https://codecov.io/gh/tarc/asyncfileserver)
+        
+        # Simple File Server Featuring Python Async Constructs
+        
+        This is a toy project to excercise the new async facilities from python 3.5+.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Communications :: File Sharing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
