@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: scilib
+Version: 0.0.10
+Summary: scilib
+Home-page: https://github.com/phyng/scilib
+License: MIT
+Author: phyng
+Author-email: phyngk@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: jupyter (>=1.0.0,<2.0.0)
+Requires-Dist: matplotlib (>=3.2.1,<4.0.0)
+Requires-Dist: numpy (>=1.18.2,<2.0.0)
+Requires-Dist: orjson (>=2.6.3,<3.0.0)
+Requires-Dist: pandas (>=1.0.3,<2.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: scipy (>=1.4.1,<2.0.0)
+Requires-Dist: xlrd (>=1.2.0,<2.0.0)
+Project-URL: Repository, https://github.com/phyng/scilib
+Description-Content-Type: text/markdown
+
+
+# scilib
+
+[![Github](https://github.com/phyng/scilib/workflows/test/badge.svg)](https://github.com/phyng/scilib/actions) [![Pypi](https://img.shields.io/pypi/v/scilib.svg?style=flat&label=PyPI)](https://pypi.org/project/scilib/)
+
+## documentation
+
+https://phyng.com/scilib/
+
+## install
+
+```bash
+# use pip
+pip install scilib
+
+# or use poetry
+poetry add scilib
+```
+
+## test
+
+```bash
+npm test
+npm test_coverage
+```
+
+## usage
+
+### import wos data to ElasticSearch
+
+```bash
+env ES_API=http://localhost:9205 python -m scripts.import_to_es --from /path/to/wos_data/ --index wos
+```
+
