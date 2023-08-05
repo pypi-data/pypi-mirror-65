@@ -1,0 +1,17 @@
+{% extends 'peregrine/site_page.html' %}
+
+{% block jumbotron_bottom %}
+    <hr class="my-4">
+    <p>
+    by
+    {% for author in page.authors.all %}
+        {% if not forloop.first %}
+        , 
+        {% endif %}
+        {{ author.username }}
+    {% empty %}
+        Nobody
+    {% endfor %}
+    on {{ page.post_date }}
+    </p>
+{% endblock jumbotron_bottom %}
