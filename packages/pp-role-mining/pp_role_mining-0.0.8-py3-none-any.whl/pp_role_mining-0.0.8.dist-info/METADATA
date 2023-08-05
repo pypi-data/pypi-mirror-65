@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pp-role-mining
+Version: 0.0.8
+Summary: Privacy Aware Role Mining in PM4Py
+Home-page: https://github.com/m4jidRafiei/privacyAware-roleMining
+Author: Majid Rafiei
+Author-email: majid.rafiei@pads.rwth-aachen.de
+License: GPL 3.0
+Project-URL: Source, https://github.com/m4jidRafiei/privacyAware-roleMining
+Platform: UNKNOWN
+Requires-Dist: pm4py (==1.2.10)
+Requires-Dist: distributed (==1.21.8)
+Requires-Dist: pycrypto (==2.6.1)
+Requires-Dist: p-privacy-metadata (==0.0.3)
+Requires-Dist: networkx (==2.3)
+Requires-Dist: matplotlib (==2.2.2)
+Requires-Dist: pyvis (==0.1.4.1)
+
+Project that implements Privacy Aware Role Mining in PM4Py.
+
+
