@@ -1,0 +1,23 @@
+numpy>=1.13.1
+
+[all]
+pytest>=3.9
+
+[all:python_version >= "3"]
+numba>=0.46.0
+pandas>=0.24.0
+numexpr
+autograd
+
+[dev]
+
+[dev:python_version >= "3"]
+numba>=0.46.0
+pandas>=0.24.0
+numexpr
+autograd
+
+[docs]
+
+[test]
+pytest>=3.9
