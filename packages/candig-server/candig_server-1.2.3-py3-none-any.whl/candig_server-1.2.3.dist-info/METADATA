@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: candig-server
+Version: 1.2.3
+Summary: Server implementation of the CanDIG APIs
+Home-page: https://github.com/CanDIG/candig-server
+Author: CanDIG Team
+Author-email: info@distributedgenomics.ca
+License: Apache License 2.0
+Keywords: genomics,candig
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Dist: candig-common (==1.0.0)
+Requires-Dist: candig-schemas (==1.0.1)
+Requires-Dist: Werkzeug (==0.15.5)
+Requires-Dist: MarkupSafe (==1.1.1)
+Requires-Dist: itsdangerous (==1.1.0)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: pycryptodome (==3.9.7)
+Requires-Dist: Mako (==1.1.1)
+Requires-Dist: Beaker (==1.11.0)
+Requires-Dist: funcsigs (==1.0.2)
+Requires-Dist: alabaster (==0.7.12)
+Requires-Dist: cryptography (==2.8)
+Requires-Dist: pyasn1 (==0.4.8)
+Requires-Dist: pyasn1-modules (==0.2.8)
+Requires-Dist: ipaddress (==1.0.23)
+Requires-Dist: cffi (==1.11.5)
+Requires-Dist: pycparser (==2.19)
+Requires-Dist: Jinja2 (==2.11.1)
+Requires-Dist: future (==0.15.2)
+Requires-Dist: pyjwkest (==1.4.2)
+Requires-Dist: PyJWT (==1.7.1)
+Requires-Dist: peewee (==3.13.1)
+Requires-Dist: gunicorn (==19.9.0)
+Requires-Dist: pandas (==1.0.1)
+Requires-Dist: pronto (==1.1.2)
+Requires-Dist: Flask-Cors (==3.0.8)
+Requires-Dist: Flask (==1.1.1)
+Requires-Dist: protobuf (==3.3.0)
+Requires-Dist: humanize (==0.5.1)
+Requires-Dist: pysam (==0.9.1.4)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: requests-futures (==1.0.0)
+Requires-Dist: oic (==0.15.1)
+Requires-Dist: pyOpenSSL (==18.0.0)
+Requires-Dist: lxml (==4.5.0)
+Requires-Dist: pyBigWig (==0.3.17)
+Requires-Dist: sphinx-argparse
+Requires-Dist: RDFLib (==4.2.2)
+Requires-Dist: numpy
+
+==============================
+CanDIG Server
+==============================
+
+.. image:: https://img.shields.io/travis/CanDIG/candig-server/master.svg
+   :alt: Current build status on Travis-CI, click for more
+   :target: https://travis-ci.org/CanDIG/candig-server
+
+.. image:: https://img.shields.io/codecov/c/github/CanDIG/candig-server/master.svg
+   :alt: Current code coverage of master branch, click for details
+   :target: https://codecov.io/gh/CanDIG/candig-server
+
+.. image:: https://img.shields.io/readthedocs/candig-server/v1.1.0   
+   :alt: Read the Docs (version)
+   :target: https://candig-server.readthedocs.io
+
+This is the CanDIG server implementation, a core component of the Canadian health and genomic data sharing platform. It has been built on the `ga4gh-server <https://github.com/ga4gh/ga4gh-server>`_ with extended functionality on metadata support, federated queries, improved search capabilities, etc.
+
+To learn more about the CanDIG project or to contact us, please visit https://www.distributedgenomics.ca.
+

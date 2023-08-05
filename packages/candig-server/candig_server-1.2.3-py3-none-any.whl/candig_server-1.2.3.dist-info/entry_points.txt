@@ -1,0 +1,8 @@
+[console_scripts]
+candig_configtest = candig.server.cli.configtest:configtest_main
+candig_repo = candig.server.cli.repomanager:repo_main
+candig_server = candig.server.cli.server:server_main
+ga4gh_configtest = candig.server.cli.configtest:configtest_main
+ga4gh_repo = candig.server.cli.repomanager:repo_main
+ga4gh_server = candig.server.cli.server:server_main
+
