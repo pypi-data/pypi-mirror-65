@@ -1,0 +1,492 @@
+{
+    "id": 2163245835432,
+    "scene_width": 640000,
+    "scene_height": 640000,
+    "nodes": [
+        {
+            "name": "tank1",
+            "id": 2163245854280,
+            "type": "tank",
+            "pos_x": 505.10410156249964,
+            "pos_y": -28.495849609375,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 500,
+            "height": 500,
+            "isValueMarkEnable": true,
+            "value": 50,
+            "minValue": 0,
+            "maxValue": 100,
+            "unit": "cm",
+            "sockets": [
+                {
+                    "id": 2163245885424,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "pump2163381590280",
+            "id": 2163381590280,
+            "type": "pump",
+            "pos_x": 504.02009999999984,
+            "pos_y": -439.3627,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 150,
+            "height": 300,
+            "isValueMarkEnable": true,
+            "unit": "L/min",
+            "sockets": [
+                {
+                    "id": 2163381590224,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 2163381590392,
+                    "index": 1,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "one-way valve1545620421376",
+            "id": 1545620421376,
+            "type": "one-way valve",
+            "pos_x": 506.08984375,
+            "pos_y": -709.1210937499998,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 100,
+            "height": 200,
+            "isValueMarkEnable": false,
+            "sockets": [
+                {
+                    "id": 1545620421712,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 1545620422216,
+                    "index": 1,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "relief valve1545620422160",
+            "id": 1545620422160,
+            "type": "relief valve",
+            "pos_x": -142.26171874999994,
+            "pos_y": -628.4374999999998,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 250,
+            "height": 250,
+            "isValueMarkEnable": false,
+            "sockets": [
+                {
+                    "id": 1545620432600,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 1545620432656,
+                    "index": 1,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "servo valve1545620434336",
+            "id": 1545620434336,
+            "type": "servo valve",
+            "pos_x": 650.7446289062499,
+            "pos_y": -1710.3942871093743,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 1250,
+            "height": 312.5,
+            "isValueMarkEnable": true,
+            "value": 0.0,
+            "minValue": -100,
+            "maxValue": 100,
+            "unit": "mA",
+            "sockets": [
+                {
+                    "id": 1545620434448,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 1545620434504,
+                    "index": 1,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 1545484062168,
+                    "index": 2,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 1545484062000,
+                    "index": 3,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "accumulator1545620434392",
+            "id": 1545620434392,
+            "type": "accumulator",
+            "pos_x": -691.7419433593747,
+            "pos_y": -1340.1489257812507,
+            "pos_rotation": 720.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 150,
+            "height": 375.0,
+            "isValueMarkEnable": false,
+            "sockets": [
+                {
+                    "id": 1545620434616,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "gauge1545620434672",
+            "id": 1545620434672,
+            "type": "gauge",
+            "pos_x": -440.093994140625,
+            "pos_y": -1698.547363281249,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 150,
+            "height": 300,
+            "isValueMarkEnable": true,
+            "value": 0.0,
+            "minValue": 0,
+            "maxValue": 30,
+            "unit": "MPa",
+            "sockets": [
+                {
+                    "id": 1545620434784,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "simple tank1545620434728",
+            "id": 1545620434728,
+            "type": "simple tank",
+            "pos_x": -112.30468749999991,
+            "pos_y": -366.2109374999999,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 125,
+            "height": 62.5,
+            "isValueMarkEnable": false,
+            "sockets": [
+                {
+                    "id": 1545620434840,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "filter1545620377672",
+            "id": 1545620377672,
+            "type": "filter",
+            "pos_x": 506.64062499999983,
+            "pos_y": -980.4687499999998,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 100,
+            "height": 160.0,
+            "isValueMarkEnable": false,
+            "sockets": [
+                {
+                    "id": 1545620377784,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 1545620377840,
+                    "index": 1,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "gauge1545620380080",
+            "id": 1545620380080,
+            "type": "gauge",
+            "pos_x": 1434.234619140625,
+            "pos_y": -1696.8994140624993,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 150,
+            "height": 300,
+            "isValueMarkEnable": true,
+            "value": 0.0,
+            "minValue": 0,
+            "maxValue": 30,
+            "unit": "MPa",
+            "sockets": [
+                {
+                    "id": 1545620380248,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "simple tank1545620379968",
+            "id": 1545620379968,
+            "type": "simple tank",
+            "pos_x": 833.4350585937492,
+            "pos_y": -1029.418945312499,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 125,
+            "height": 62.5,
+            "isValueMarkEnable": false,
+            "sockets": [
+                {
+                    "id": 1545620379800,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "pistonRight1",
+            "id": 1545620378456,
+            "type": "piston right",
+            "pos_x": 639.2517089843745,
+            "pos_y": -2635.406494140623,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 1500,
+            "height": 300.0,
+            "isValueMarkEnable": true,
+            "value": 50,
+            "minValue": 0,
+            "maxValue": 100,
+            "unit": "cm",
+            "sockets": [
+                {
+                    "id": 1545620379632,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 1545620379912,
+                    "index": 1,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "gaugeA",
+            "id": 1545620380920,
+            "type": "gauge",
+            "pos_x": -276.18408203124966,
+            "pos_y": -2647.3999023437464,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 150,
+            "height": 300,
+            "isValueMarkEnable": true,
+            "value": 20,
+            "minValue": 0,
+            "maxValue": 30,
+            "unit": "MPa",
+            "sockets": [
+                {
+                    "id": 1545620381032,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "gaugeB",
+            "id": 1545620379072,
+            "type": "gauge",
+            "pos_x": 1645.294189453123,
+            "pos_y": -2640.319824218746,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 150,
+            "height": 300,
+            "isValueMarkEnable": true,
+            "value": 20,
+            "minValue": 0,
+            "maxValue": 30,
+            "unit": "MPa",
+            "sockets": [
+                {
+                    "id": 1545620381536,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "id": 2163381590336,
+            "name": "edge_default2163381590336",
+            "edge_type": 3,
+            "start": 2163381590392,
+            "end": 2163245885424,
+            "direction": 0
+        },
+        {
+            "id": 1545620422384,
+            "name": "edge_default1545620422384",
+            "edge_type": 3,
+            "start": 1545620422216,
+            "end": 2163381590224,
+            "direction": 0
+        },
+        {
+            "id": 1545620377728,
+            "name": "edge_default1545620377728",
+            "edge_type": 3,
+            "start": 1545620377840,
+            "end": 1545620421712,
+            "direction": 0
+        },
+        {
+            "id": 1545620377896,
+            "name": "edge_default1545620377896",
+            "edge_type": 3,
+            "start": 1545620434840,
+            "end": 1545620432656,
+            "direction": 0
+        },
+        {
+            "id": 1545620377952,
+            "name": "edge_default1545620377952",
+            "edge_type": 3,
+            "start": 1545620421712,
+            "end": 1545620432600,
+            "direction": 0
+        },
+        {
+            "id": 1545620378176,
+            "name": "edge_default1545620378176",
+            "edge_type": 3,
+            "start": 1545620434616,
+            "end": 1545620377784,
+            "direction": 0
+        },
+        {
+            "id": 1545620378232,
+            "name": "edge_default1545620378232",
+            "edge_type": 3,
+            "start": 1545620434504,
+            "end": 1545620377784,
+            "direction": 0
+        },
+        {
+            "id": 1545620379464,
+            "name": "edge_default1545620379464",
+            "edge_type": 3,
+            "start": 1545620434448,
+            "end": 1545620379800,
+            "direction": 0
+        },
+        {
+            "id": 1545620379856,
+            "name": "edge_default1545620379856",
+            "edge_type": 3,
+            "start": 1545620379800,
+            "end": 1545620380248,
+            "direction": 0
+        },
+        {
+            "id": 1545620378008,
+            "name": "edge_default1545620378008",
+            "edge_type": 3,
+            "start": 1545620377784,
+            "end": 1545620434784,
+            "direction": 0
+        },
+        {
+            "id": 1545620379576,
+            "name": "edge1",
+            "edge_type": 3,
+            "start": 1545620379632,
+            "end": 1545484062168,
+            "direction": 0.0
+        },
+        {
+            "id": 1545620379352,
+            "name": "edge_default1545620379352",
+            "edge_type": 3,
+            "start": 1545484062000,
+            "end": 1545620379912,
+            "direction": 0
+        },
+        {
+            "id": 1545620380640,
+            "name": "edge_default1545620380640",
+            "edge_type": 3,
+            "start": 1545484062168,
+            "end": 1545620381032,
+            "direction": 0
+        },
+        {
+            "id": 1545620381144,
+            "name": "edge_default1545620381144",
+            "edge_type": 3,
+            "start": 1545484062000,
+            "end": 1545620381536,
+            "direction": 0
+        }
+    ]
+}
