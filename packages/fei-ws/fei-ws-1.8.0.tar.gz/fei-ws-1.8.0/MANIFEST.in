@@ -1,0 +1,4 @@
+include *.txt
+include fei_ws/wsdl *.wsdl
+recursive-include docs *.txt
+prune dist

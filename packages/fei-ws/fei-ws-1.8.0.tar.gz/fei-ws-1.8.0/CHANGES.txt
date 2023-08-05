@@ -1,0 +1,49 @@
+=======
+Changes
+=======
+
+
+1.0 - January 19, 2017
+======================
+* Initial release.
+
+1.1 - January 19, 2017
+======================
+* Replaced suds by suds-jurko.
+
+1.2 - January 19, 2017
+======================
+* Caching WS message types for better speed.
+
+1.4 - April 19, 2019
+======================
+* Remove client 10 from package, only client11 remains
+* Made package python 2.7 and 3.6 compatible
+
+1.4.1 - April 19, 2019
+======================
+* Update setup.py and metadata information
+
+1.5.0 - April 21, 2019
+======================
+* Added python logging to modules
+* Add FEI api error classes
+* Refactor base message handling
+* Add missing API Endpoints
+* Use local stored WSDL for generating client
+
+1.5.1 - April 21, 2019
+======================
+* Add missing wsdl files to manifest
+
+1.6.0 - April 25, 2019
+======================
+* Fix caching of WSDL files
+* Add config setting for using local WSDL files
+* Add name normalization routines to base client
+* Add config settings for normalization exceptions
+
+1.7.0 - March 3, 2020
+======================
+* Fix tests for WS Client
+* Add support for FEI EntrySys V3
