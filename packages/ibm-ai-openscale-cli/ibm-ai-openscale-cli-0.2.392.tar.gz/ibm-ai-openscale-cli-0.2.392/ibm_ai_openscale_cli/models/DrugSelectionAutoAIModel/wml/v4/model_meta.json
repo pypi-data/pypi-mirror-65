@@ -1,0 +1,109 @@
+{
+    "type": "wml-hybrid_0.1",
+    "runtime_uid": "hybrid_0.1",
+    "name": "DrugSelectionAutoAIModel",
+    "description": "Given patient data, determines best heart drug",
+    "training_data_references": [
+        {
+            "connection": {
+                "endpoint_url": "",
+                "access_key_id": "",
+                "secret_access_key": ""
+            },
+            "location": {
+                "bucket": "",
+                "path": ""
+            },
+            "type": "fs",
+            "schema": {
+                "id": "4cdb0a0a-1c69-43a0-a8c0-3918afc7d45f",
+                "fields": [
+                    {
+                        "metadata": {
+                            "name": "AGE",
+                            "scale": 0
+                        },
+                        "name": "AGE",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "metadata": {
+                            "name": "SEX",
+                            "scale": 0
+                        },
+                        "name": "SEX",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "metadata": {
+                            "name": "BP",
+                            "scale": 0
+                        },
+                        "name": "BP",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "metadata": {
+                            "name": "CHOLESTEROL",
+                            "scale": 0
+                        },
+                        "name": "CHOLESTEROL",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "metadata": {
+                            "name": "NA",
+                            "scale": 6
+                        },
+                        "name": "NA",
+                        "nullable": true,
+                        "type": "decimal(12,6)"
+                    },
+                    {
+                        "metadata": {
+                            "name": "K",
+                            "scale": 6
+                        },
+                        "name": "K",
+                        "nullable": true,
+                        "type": "decimal(13,6)"
+                    }
+                ],
+                "type": "struct"
+            }
+        }
+    ],
+    "input_data_schema": {
+        "id": "auto_ai_kb_input_schema",
+        "fields": [
+            {
+              "name": "AGE",
+              "type": "int64"
+            },
+            {
+              "name": "SEX",
+              "type": "object"
+            },
+            {
+              "name": "BP",
+              "type": "object"
+            },
+            {
+              "name": "CHOLESTEROL",
+              "type": "object"
+            },
+            {
+              "name": "NA",
+              "type": "float64"
+            },
+            {
+              "name": "K",
+              "type": "float64"
+            }
+        ]
+    }
+}

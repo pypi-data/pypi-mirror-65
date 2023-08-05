@@ -1,0 +1,117 @@
+[ {
+       	"binding_id": "TBD",
+       	"subscription_id": "TBD",
+       	"deployment_id": "TBD",
+       	"input_data_type": "structured",
+       	"request_id": "TBD",
+       	"scoring_id": "002acaf7d1df44e4a57d56e5654591c1-1",
+       	"status": "FINISHED",
+	"created_at": "2019-09-16T17:50:28.780929Z",
+	"created_by": "IBMid-0000000000",
+	"finished_at": "2019-09-16T17:51:44.801454Z",
+        "object_hash": "8507177031982905198",
+        "explanation_type": "lime_contrastive",
+       	"explanation": {
+            "entity": {
+                "asset": {
+                    "id": "aa5fd956-ed13-47ab-890a-5b4d16648702",
+                    "name": "GermanCreditRiskModelYPQA",
+                    "type": "numeric_categorical",
+                    "deployment": {"id": "d200db81-de73-4788-baee-b5b1acf024d1", "name": "GermanCreditRiskModelYPQA"}
+                },
+                "status": {"state": "finished", "cem_state": "finished", "lime_state": "finished"},
+                "perturbed": false,
+                "predictions": [
+                    {
+                        "value": "Risk",
+                        "probability": 0.6747201279603495,
+                        "explanation_features": [
+                            {"weight": 0.19147123626234236, "feature_name": "Age", "feature_range": {"min": "44.00", "min_inclusive": false}},
+                            {"weight": 0.16834496989855477, "feature_name": "CheckingStatus", "feature_value": "no_checking"},
+                            {"weight": 0.13580573571399, "feature_name": "EmploymentDuration", "feature_value": "greater_7"},
+                            {"weight": 0.10414233226938541, "feature_name": "LoanAmount", "feature_range": {"min": "5355.00", "min_inclusive": false}},
+                            {"weight": -0.09865400625890207, "feature_name": "OthersOnLoan", "feature_value": "none"},
+                            {"weight": 0.08728451859978871, "feature_name": "CurrentResidenceDuration", "feature_range": {"max": "4.00", "min": "3.00", "max_inclusive": true, "min_inclusive": false}},
+                            {"weight": 0.07620771789838811, "feature_name": "OwnsProperty", "feature_value": "unknown"},
+                            {"weight": 0.0563407262118182, "feature_name": "LoanDuration", "feature_range": {"max": "29.00", "min": "21.00", "max_inclusive": true, "min_inclusive": false}},
+                            {"weight": -0.04304377549120763, "feature_name": "Sex", "feature_value": "male"},
+                            {"weight": 0.038704981395622735, "feature_name": "InstallmentPercent", "feature_range": {"min": "4.00", "min_inclusive": false}}
+                        ]
+                    },
+                    {"value": "No Risk", "probability": 0.3252798720396505}
+                ],
+                "input_features": [
+                    {"name": "CheckingStatus", "value": "no_checking", "feature_type": "categorical"},
+		    {"name": "LoanDuration", "value": "26", "feature_type": "numerical"},
+		    {"name": "CreditHistory", "value": "prior_payments_delayed", "feature_type": "categorical"},
+		    {"name": "LoanPurpose", "value": "radio_tv", "feature_type": "categorical"},
+		    {"name": "LoanAmount", "value": "5723", "feature_type": "numerical"},
+		    {"name": "ExistingSavings", "value": "100_to_500", "feature_type": "categorical"},
+		    {"name": "EmploymentDuration", "value": "greater_7", "feature_type": "categorical"},
+		    {"name": "InstallmentPercent", "value": "5", "feature_type": "numerical"},
+		    {"name": "Sex", "value": "male", "feature_type": "categorical"},
+		    {"name": "OthersOnLoan", "value": "none", "feature_type": "categorical"},
+		    {"name": "CurrentResidenceDuration", "value": "4", "feature_type": "numerical"},
+		    {"name": "OwnsProperty", "value": "unknown", "feature_type": "categorical"},
+		    {"name": "Age", "value": "45", "feature_type": "numerical"},
+		    {"name": "InstallmentPlans", "value": "none", "feature_type": "categorical"},
+		    {"name": "Housing", "value": "free", "feature_type": "categorical"},
+		    {"name": "ExistingCreditsCount", "value": "2", "feature_type": "numerical"},
+		    {"name": "Job", "value": "skilled", "feature_type": "categorical"},
+		    {"name": "Dependents", "value": "1", "feature_type": "numerical"},
+		    {"name": "Telephone", "value": "yes", "feature_type": "categorical"},
+		    {"name": "ForeignWorker", "value": "no", "feature_type": "categorical"}
+		],
+		"explanation_type": "lime_contrastive",
+		"contrastive_explanation": {
+		    "is_pn_closest_point_to_pp": true,
+		    "pertinent_negative_features": [
+                        {"importance": "0.0", "feature_name": "CheckingStatus", "feature_value": "no_checking"},
+			{"importance": "0.4479593500502765", "feature_name": "LoanDuration", "feature_value": "21.0"},
+			{"importance": "0.0", "feature_name": "CreditHistory", "feature_value": "prior_payments_delayed"},
+			{"importance": "0.0", "feature_name": "LoanPurpose", "feature_value": "radio_tv"},
+			{"importance": "0.9985996907362865", "feature_name": "LoanAmount", "feature_value": "3238.5"},
+			{"importance": "0.0", "feature_name": "ExistingSavings", "feature_value": "100_to_500"},
+			{"importance": "0.819090220685844", "feature_name": "EmploymentDuration", "feature_value": "1_to_4"},
+			{"importance": "1.77464997097053", "feature_name": "InstallmentPercent", "feature_value": "3.0"},
+			{"importance": "0.0", "feature_name": "Sex", "feature_value": "male"},
+			{"importance": "0.0", "feature_name": "OthersOnLoan", "feature_value": "none"},
+			{"importance": "0.8963861929012028", "feature_name": "CurrentResidenceDuration", "feature_value": "3.0"},
+			{"importance": "1.122934964121564", "feature_name": "OwnsProperty", "feature_value": "car_other"},
+			{"importance": "0.8452711761921764", "feature_name": "Age", "feature_value": "36.0"},
+			{"importance": "0.0", "feature_name": "InstallmentPlans", "feature_value": "none"},
+			{"importance": "1.3449654803484923", "feature_name": "Housing", "feature_value": "own"},
+			{"importance": "1.768788834252876", "feature_name": "ExistingCreditsCount", "feature_value": "1.0"},
+			{"importance": "0.0", "feature_name": "Job", "feature_value": "skilled"},
+			{"importance": "0.0", "feature_name": "Dependents", "feature_value": "1.0"},
+			{"importance": "0.7869369691342051", "feature_name": "Telephone", "feature_value": "none"},
+			{"importance": "0.0", "feature_name": "ForeignWorker", "feature_value": "no"}
+		    ],
+		    "pertinent_positive_features": [
+                        {"importance": "0.0", "feature_name": "CheckingStatus", "feature_value": "no_checking"},
+			{"importance": "0.0", "feature_name": "LoanDuration", "feature_value": "26"},
+			{"importance": "0.0", "feature_name": "CreditHistory", "feature_value": "prior_payments_delayed"},
+			{"importance": "0.0", "feature_name": "LoanPurpose", "feature_value": "radio_tv"},
+			{"importance": "0.0", "feature_name": "LoanAmount", "feature_value": "5723"},
+			{"importance": "0.0", "feature_name": "ExistingSavings", "feature_value": "100_to_500"},
+			{"importance": "0.0", "feature_name": "EmploymentDuration", "feature_value": "greater_7"},
+			{"importance": "0.0", "feature_name": "InstallmentPercent", "feature_value": "5"},
+			{"importance": "0.0", "feature_name": "Sex", "feature_value": "male"},
+			{"importance": "0.0", "feature_name": "OthersOnLoan", "feature_value": "none"},
+			{"importance": "0.0", "feature_name": "CurrentResidenceDuration", "feature_value": "4"},
+			{"importance": "0.0", "feature_name": "OwnsProperty", "feature_value": "unknown"},
+			{"importance": "0.0", "feature_name": "Age", "feature_value": "45"},
+			{"importance": "0.0", "feature_name": "InstallmentPlans", "feature_value": "none"},
+			{"importance": "0.0", "feature_name": "Housing", "feature_value": "free"},
+			{"importance": "0.0", "feature_name": "ExistingCreditsCount", "feature_value": "2"},
+			{"importance": "0.0", "feature_name": "Job", "feature_value": "skilled"},
+			{"importance": "0.0", "feature_name": "Dependents", "feature_value": "1"},
+			{"importance": "0.0", "feature_name": "Telephone", "feature_value": "yes"},
+			{"importance": "0.0", "feature_name": "ForeignWorker", "feature_value": "no"}
+		    ],
+		    "pertinent_negative_prediction": "No Risk"
+		}
+            }
+        }
+} ]
+

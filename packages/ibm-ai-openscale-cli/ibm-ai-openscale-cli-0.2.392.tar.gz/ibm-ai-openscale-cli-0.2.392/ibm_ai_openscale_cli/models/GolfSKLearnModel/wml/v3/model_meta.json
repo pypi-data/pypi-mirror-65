@@ -1,0 +1,322 @@
+{
+    "author": {
+        "name": "Aaron Baughman"
+    },
+    "framework": {
+        "name": "scikit-learn",
+        "runtimes": [
+            {
+                "name": "python",
+                "version": "3.6"
+            }
+        ],
+        "version": "0.19"
+    },
+    "input_data_schema": {
+        "features": {
+            "fields": [
+                {
+                    "name": "crowd_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "gesture_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "face_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "speaker_sound_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "age",
+                    "type": "int64"
+                },
+                {
+                    "name": "country",
+                    "type": "int64"
+                },
+                {
+                    "name": "years_professional",
+                    "type": "int64"
+                },
+                {
+                    "name": "tourn_entered",
+                    "type": "int64"
+                },
+                {
+                    "name": "play_status",
+                    "type": "int64"
+                },
+                {
+                    "name": "hole",
+                    "type": "int64"
+                },
+                {
+                    "name": "ground",
+                    "type": "int64"
+                },
+                {
+                    "name": "stroke",
+                    "type": "int64"
+                },
+                {
+                    "name": "par_number",
+                    "type": "float64"
+                },
+                {
+                    "name": "hole_yardage",
+                    "type": "float64"
+                },
+                {
+                    "name": "hit_bunker",
+                    "type": "float64"
+                },
+                {
+                    "name": "hit_fairway",
+                    "type": "float64"
+                },
+                {
+                    "name": "green_in_regulation",
+                    "type": "float64"
+                },
+                {
+                    "name": "putts",
+                    "type": "float64"
+                },
+                {
+                    "name": "sand_save",
+                    "type": "float64"
+                },
+                {
+                    "name": "player_rank",
+                    "type": "float64"
+                },
+                {
+                    "name": "player_in_top10",
+                    "type": "float64"
+                },
+                {
+                    "name": "player_tied",
+                    "type": "float64"
+                },
+                {
+                    "name": "in_water",
+                    "type": "float64"
+                },
+                {
+                    "name": "ball_position",
+                    "type": "float64"
+                },
+                {
+                    "name": "shot_length",
+                    "type": "float64"
+                },
+                {
+                    "name": "penalty",
+                    "type": "int64"
+                },
+                {
+                    "name": "last_shot",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_eagle_or_better",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_birdie",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_par",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_bogey",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_double_bogey_or_worse",
+                    "type": "int64"
+                },
+                {
+                    "name": "close_approach",
+                    "type": "int64"
+                },
+                {
+                    "name": "long_putt",
+                    "type": "int64"
+                }
+            ],
+            "type": "DataFrame"
+        },
+        "labels": {
+            "fields": [
+                {
+                    "name": "total_label",
+                    "type": "float64"
+                }
+            ],
+            "type": "DataFrame"
+        }
+    },
+    "label_column": "total_label",
+    "model_type": "standard",
+    "name": "MastersSVCHighlights",
+    "training_data_schema": {
+        "features": {
+            "fields": [
+                {
+                    "name": "crowd_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "gesture_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "face_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "speaker_sound_score",
+                    "type": "float64"
+                },
+                {
+                    "name": "age",
+                    "type": "int64"
+                },
+                {
+                    "name": "country",
+                    "type": "int64"
+                },
+                {
+                    "name": "years_professional",
+                    "type": "int64"
+                },
+                {
+                    "name": "tourn_entered",
+                    "type": "int64"
+                },
+                {
+                    "name": "play_status",
+                    "type": "int64"
+                },
+                {
+                    "name": "hole",
+                    "type": "int64"
+                },
+                {
+                    "name": "ground",
+                    "type": "int64"
+                },
+                {
+                    "name": "stroke",
+                    "type": "int64"
+                },
+                {
+                    "name": "par_number",
+                    "type": "float64"
+                },
+                {
+                    "name": "hole_yardage",
+                    "type": "float64"
+                },
+                {
+                    "name": "hit_bunker",
+                    "type": "float64"
+                },
+                {
+                    "name": "hit_fairway",
+                    "type": "float64"
+                },
+                {
+                    "name": "green_in_regulation",
+                    "type": "float64"
+                },
+                {
+                    "name": "putts",
+                    "type": "float64"
+                },
+                {
+                    "name": "sand_save",
+                    "type": "float64"
+                },
+                {
+                    "name": "player_rank",
+                    "type": "float64"
+                },
+                {
+                    "name": "player_in_top10",
+                    "type": "float64"
+                },
+                {
+                    "name": "player_tied",
+                    "type": "float64"
+                },
+                {
+                    "name": "in_water",
+                    "type": "float64"
+                },
+                {
+                    "name": "ball_position",
+                    "type": "float64"
+                },
+                {
+                    "name": "shot_length",
+                    "type": "float64"
+                },
+                {
+                    "name": "penalty",
+                    "type": "int64"
+                },
+                {
+                    "name": "last_shot",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_eagle_or_better",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_birdie",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_par",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_bogey",
+                    "type": "int64"
+                },
+                {
+                    "name": "is_double_bogey_or_worse",
+                    "type": "int64"
+                },
+                {
+                    "name": "close_approach",
+                    "type": "int64"
+                },
+                {
+                    "name": "long_putt",
+                    "type": "int64"
+                }
+            ],
+            "type": "DataFrame"
+        },
+        "labels": {
+            "fields": [
+                {
+                    "name": "total_label",
+                    "type": "float64"
+                }
+            ],
+            "type": "DataFrame"
+        }
+    }
+}

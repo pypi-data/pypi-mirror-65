@@ -1,0 +1,142 @@
+{
+    "type": "scikit-learn_0.20",
+    "runtime_uid": "scikit-learn_0.20-py3.6",
+    "author": {
+        "email": "",
+        "name": "IBM"
+    },
+    "description": "Classifies a person who takes credit in bank to a good or bad credit risk group",
+    "label_column": "Risk",
+    "training_data_references": [
+        {
+            "connection": {
+                "endpoint_url": "",
+                "access_key_id": "",
+                "secret_access_key": ""
+            },
+            "location": {
+                "bucket": "",
+                "path": ""
+            },
+            "type": "fs",
+            "schema": {
+                "id": "4cdb0a0a-1c69-43a0-a8c0-3918afc7d45f",
+                "fields": [
+                    {
+                        "name": "CheckingStatus",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoanDuration",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "CreditHistory",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoanPurpose",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "LoanAmount",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "ExistingSavings",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "EmploymentDuration",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "InstallmentPercent",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Sex",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "OthersOnLoan",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "CurrentResidenceDuration",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "OwnsProperty",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Age",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "InstallmentPlans",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Housing",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ExistingCreditsCount",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Job",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Dependents",
+                        "nullable": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "Telephone",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ForeignWorker",
+                        "nullable": true,
+                        "type": "string"
+                    },
+                    {
+                        "metadata": {
+                            "modeling_role": "target",
+                            "values": [
+                                "No Risk",
+                                "Risk"
+                            ]
+                        },
+                        "name": "Risk",
+                        "nullable": true,
+                        "type": "string"
+                    }
+                ],
+                "type": "struct"
+            }
+        }
+    ]
+}
