@@ -1,0 +1,14 @@
+{% if not lists %}
+    {% autoescape off%}{{empty_display_message}}{% endautoescape %}
+{% else %}
+    <ul class="static-list item-list">
+        {% for item in lists %}
+        <li>
+            {% if item.label %}
+            <span class="{{item.label_class|default:"label label-primary"}}">{{item.label}}</span>
+            {% endif %}
+            <a href="{{item.url|default:"#"}}" {% if item.target %}target="{{item.target}}"{% endif %}>{{item.title}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}

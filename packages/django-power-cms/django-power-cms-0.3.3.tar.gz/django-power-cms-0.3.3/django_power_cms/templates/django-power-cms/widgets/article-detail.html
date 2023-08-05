@@ -1,0 +1,33 @@
+<div class="article-detail">{% load i18n %}
+    <div class="article-detail-header">
+        <h3>{{article.title}}</h3>
+    </div>
+    {% if show_published_time %}
+    <div class="article-detail-info">
+        {% if show_published_time %}<span>{% trans "Article Published Time:" %}</span><span>{{article.published_time}}</span>{% endif %}
+        {% if show_author %}<span>{% trans "Article Author:" %}</span><span>{{article.author}}</span>{% endif %}
+    </div>
+    {% endif %}
+    {% if show_description %}
+    <div class="article-detail-description">
+        {% autoescape off %}{{article.description}}{% endautoescape %}
+    </div>
+    {% endif %}
+    <div class="article-detail-body">
+    {% autoescape off %}{{article.content}}{% endautoescape %}
+    </div>
+    {% if show_prev_and_next_links %}
+    <div class="article-detail-links">
+        {% if prev %}
+        <div class="article-detail-link-prev">
+            {% trans "Prev Article:" %}<a href="?article_id={{prev.pk}}">{{prev.title}}</a>
+        </div>
+        {% endif %}
+        {% if next %}
+        <div class="article-detail-link-next">
+            {% trans "Next Article:" %}<a href="?article_id={{next.pk}}">{{next.title}}</a>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>

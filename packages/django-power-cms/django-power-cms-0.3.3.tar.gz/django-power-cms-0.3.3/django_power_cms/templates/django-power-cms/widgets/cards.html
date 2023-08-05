@@ -1,0 +1,25 @@
+<style>
+.django-power-cms-card-group-{{pk}} a.django-power-cms-card {
+    width: {{card_width}};
+    height: {{card_height}};
+}
+.django-power-cms-card-group-{{pk}} .django-power-cms-card-title {
+    height: {{title_height}};
+    line-height: {{title_height}};
+}
+.django-power-cms-card-group-{{pk}} .django-power-cms-card-image {
+    width: {{image_width}};
+    height: {{image_height}};
+}
+</style>
+
+<div class="django-power-cms-card-group django-power-cms-card-group-{{pk}}">
+    {% for card in cards %}
+    <a href="{{card.url}}" {% if card.open_url_in_new_window %}target="_blank"{% endif %} class="django-power-cms-card ">
+        <img class="django-power-cms-card-image" src="{{card.image.url}}" alt="card.title" />
+        <h5 class="django-power-cms-card-title">{{card.title}}</h5>
+        {% if card.description %}<p class="django-power-cms-card-description">{{card.description}}</p>{% endif %}
+    </a>
+    {% endfor %}
+    <div class="django-power-cms-card-clean"></div>
+</div>

@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.django-power-cms-body {
+    margin: 0 20px;
+}
+.django-power-cms-main {
+    clear: both;
+    margin-top: 20px;
+}
+.django-power-cms-main-left{
+    width: 300px;
+    float: left;
+}
+.django-power-cms-main-right{
+    margin-left: 320px;
+}
+.django-power-cms-main-right-inner{
+    width: 100%;
+}
+
+.django-power-cms-main-left-content,
+.django-power-cms-main-right-content {
+    margin-bottom: 20px;
+}
+.django-power-cms-footer {
+    clear: both;
+    margin: 0 auto 50px auto;
+}
+.django-power-cms-footer-content {
+    margin-bottom: 20px;
+}

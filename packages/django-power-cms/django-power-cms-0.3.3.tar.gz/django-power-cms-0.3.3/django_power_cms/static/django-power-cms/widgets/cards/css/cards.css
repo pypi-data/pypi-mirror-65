@@ -1,0 +1,32 @@
+
+.django-power-cms-card-group a.django-power-cms-card {
+    color: #333;
+    text-decoration: none;
+}
+.django-power-cms-card {
+    display: block;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+    padding: 10px;
+    float: left;
+}
+.django-power-cms-card-image {
+    float: left;
+    margin-right: 10px;
+}
+.django-power-cms-card-title {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 300;
+}
+.django-power-cms-card-description {
+    font-size: 14px;
+}
+.django-power-cms-card-clean {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    display: block;
+}

@@ -1,0 +1,44 @@
+{% extends "django-power-cms/templates/blank.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static "django-power-cms/templates/left-portlet/css/left-portlet.css" %}" />
+{% endblock %}
+
+
+{% block body %}
+<div class="django-power-cms-topbar">
+    {% for item in widgets.topbars %}
+    <div class="django-power-cms-topbar-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+    {% endfor %}
+</div>
+<div class="django-power-cms-body">
+
+    <div class="django-power-cms-header">
+    {% for item in widgets.headers %}
+    <div class="django-power-cms-header-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+    {% endfor %}
+    </div>
+
+    <div class="django-power-cms-main">
+        <div class="django-power-cms-main-left">
+            {% for item in widgets.left_portlets %}
+            <div class="django-power-cms-main-left-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+            {% endfor %}
+        </div>
+        <div class="django-power-cms-main-right"><div class="django-power-cms-main-right-inner">
+            {% for item in widgets.mains %}
+            <div class="django-power-cms-main-right-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+            {% endfor %}
+        </div></div>
+    </div>
+
+    <div class="django-power-cms-footer">
+        {% for item in widgets.footers %}
+        <div class="django-power-cms-footer-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
+

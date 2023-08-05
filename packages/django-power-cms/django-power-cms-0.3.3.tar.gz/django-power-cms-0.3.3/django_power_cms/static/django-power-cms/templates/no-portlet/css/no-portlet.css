@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.djangl-power-cms-body {
+    margin: 0 20px;
+}
+.djangl-power-cms-main {
+    margin-bottom: 20px;
+}
+.djangl-power-cms-footer {
+    clear: both;
+    margin: 0 auto 50px auto;
+}
+.djangl-power-cms-footer-content {
+    margin-bottom: 20px;
+}

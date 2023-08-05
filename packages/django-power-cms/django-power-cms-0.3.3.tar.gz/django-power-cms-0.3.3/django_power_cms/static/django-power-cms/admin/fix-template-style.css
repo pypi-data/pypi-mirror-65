@@ -1,0 +1,18 @@
+#result_list th,
+#result_list td {
+    vertical-align: middle;
+}
+
+#result_list .template-preview-image{
+    width: 200px;
+    height: 160px;
+}
+
+.template-preview-image {
+    width: 300px;
+}
+
+fieldset .fieldBox {
+    margin-right: 0;
+    width: 50%;
+}

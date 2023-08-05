@@ -1,0 +1,11 @@
+{% load django_power_cms_tags %}
+
+{% if title %}<span class="power-widget-header-title">{% autoescape off %}{{title}}{% endautoescape %}</span>{% endif %}
+
+{% for link in top_left_links %}
+<a class="power-widget-header-top-left-link" href="{{link.url|smarturl}}" {% if link.target %}target="{{link.target}}"{% endif %}>{% if link.icon %}<i class="{{link.icon}}"></i>{% endif %}{% autoescape off %}{{link.title}}{% endautoescape %}</a>
+{% endfor %}
+
+{% for link in top_right_links %}
+<a class="power-widget-header-top-right-link" href="{{link.url|smarturl}}" {% if link.target %}target="{{link.target}}"{% endif %}>{% if link.icon %}<i class="{{link.icon}}"></i>{% endif %}{% autoescape off %}{{link.title}}{% endautoescape %}</a>
+{% endfor %}

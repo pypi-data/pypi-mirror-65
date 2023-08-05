@@ -1,0 +1,22 @@
+<table class="table">{% load i18n django_simple_tags %}
+<tr>
+    <th>{% trans "Name" %}</th>
+    <td>{{item.name}}</td>
+</tr>
+<tr>
+    <th>{% trans "Code" %}</th>
+    <td>{{item.code}}</td>
+</tr>
+<tr>
+    <th>{% trans "Index Page Code" %}</th>
+    <td>{{item.index_page_code}}</td>
+</tr>
+<tr>
+    <th>{% trans "Published" %}</th>
+    <td>{{item.published|show_boolean_icon}}</td>
+</tr>
+<tr>
+    <th>{% trans "Preview" %}</th>
+    <td><a href="{{item.get_absolute_url}}" target="_blank">{% trans "Preview" %}</a></td>
+</tr>
+</table>

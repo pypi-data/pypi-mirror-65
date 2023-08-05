@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<div id="carousel{{pk}}" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        {% for image in images %}
+        <li data-target="#carousel{{pk}}" data-slide-to="{{forloop.counter}}" {% if forloop.first %}class="active"{% endif %}></li>
+        {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+        {% for image in images %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="{{image.image.url}}" class="d-block w-100" />
+        </div>
+        {% endfor %}
+    </div>
+    <a class="left carousel-control-prev" href="#carousel{{pk}}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control-next" href="#carousel{{pk}}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

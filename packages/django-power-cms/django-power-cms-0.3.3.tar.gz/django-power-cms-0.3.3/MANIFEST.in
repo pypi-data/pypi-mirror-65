@@ -1,0 +1,8 @@
+include MANIFEST.in
+include README.md
+include requirements.txt
+graft django_power_cms
+exclude django_power_cms_demo
+exclude django_power_cms_example
+global-exclude __pycache__
+global-exclude *.py[co]

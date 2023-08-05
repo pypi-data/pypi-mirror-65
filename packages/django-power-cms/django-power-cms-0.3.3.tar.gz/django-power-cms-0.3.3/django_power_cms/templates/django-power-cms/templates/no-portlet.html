@@ -1,0 +1,37 @@
+{% extends "django-power-cms/templates/blank.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" type="text/css" href="{% static "django-power-cms/templates/no-portlet/css/no-portlet.css" %}" />
+{% endblock %}
+
+
+{% block body %}
+<div class="djangl-power-cms-topbar">
+    {% for item in widgets.topbars %}
+    <div class="djangl-power-cms-topbar-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+    {% endfor %}
+</div>
+<div class="djangl-power-cms-body">
+
+    <div class="djangl-power-cms-header">
+        {% for item in widgets.headers %}
+        <div class="djangl-power-cms-header-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+        {% endfor %}
+    </div>
+
+    <div class="djangl-power-cms-main">
+        {% for item in widgets.mains %}
+        <div class="djangl-power-cms-main-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+        {% endfor %}
+    </div>
+
+    <div class="djangl-power-cms-footer">
+        {% for item in widgets.footers %}
+        <div class="djangl-power-cms-footer-content">{% autoescape off %}{{item}}{% endautoescape %}</div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,5 @@
+<div class="power-widget {% if widget_with_border %}with-border{% endif %} {{widget_class}}" style="{{widget_style}}" id="widget{{pk}}">
+{% if header%}<div class="power-widget-header {{widget_header_class}}" style="{{widget_header_style}}">{% autoescape off %}{{header}}{% endautoescape %}</div>{% endif %}
+{% if body%}<div class="power-widget-body {{widget_body_class}}" style="{% if widget_body_padding %}padding: {{widget_body_padding}}{% endif %} {{widget_body_style}}">{% autoescape off %}{{body}}{% endautoescape %}</div>{% endif %}
+{% if footer%}<div class="power-widget-footer {{widget_footer_class}}" style="{{widget_footer_style}}">{% autoescape off %}{{footer}}{% endautoescape %}</div>{% endif %}
+</div>

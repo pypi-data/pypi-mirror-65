@@ -1,0 +1,22 @@
+<div class="topbar "><div class="topbar-inner">{% load i18n %}
+    <div class="brands">
+        {% for brand in brands %}
+        <a href="{{brand.url}}" class="brand">
+            {% if brand.image and brand.image.url %}
+            <img src="{{brand.image.url}}" class="brand-image" />
+            {% endif %}
+            {% if brand.title %}
+            <span class="brand-title">{{brand.title}}</span>
+            {% endif %}
+        </a>
+        {% endfor %}
+        
+        {% for link in welcome_links %}
+        <a href="{{link.url|default:"#"}}" class="welcome-link {{link.class}}">{{link.title}}</a>
+        {% if not forloop.last %}<span class="welcome-link-sep">/</span>{% endif %}
+        {% endfor %}
+        
+        {% if welcome_message %}<span class="welcome-message">{{welcome_message}}</span>{% endif %}
+
+    </div>
+</div></div>

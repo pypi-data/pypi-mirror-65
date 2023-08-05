@@ -1,0 +1,62 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block object-tools %}
+{{block.super}}
+<style>
+.manage-links {
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 20px;
+}
+.manage-links + form{
+    clear: both;
+    padding-top: 20px;
+}
+.manage-link{
+    width: 25%;
+    float: left;
+}
+a.manage-link-inner{
+    display: block;
+    height: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #79aec8;
+    color: #fff;
+    line-height: 80px;
+    font-size: 26px;
+    text-align: center;
+}
+a.manage-link-inner:hover,
+a.manage-link-inner:active,
+a.manage-link-inner:visited,
+a.manage-link-inner:focus{
+    text-decoration: none;
+}
+
+</style>
+<div class="manage-links">
+    <div class="manage-link">
+        <a class="manage-link-inner link1" href="{% url "admin:django_power_cms_page_changelist" %}">
+            <i class="fas fa-object-group"></i>
+            {% trans "Page Manager" %}
+        </a>
+    </div>
+    <div class="manage-link">
+        <a class="manage-link-inner link2" href="{% url "admin:django_power_cms_widget_changelist" %}">
+            <i class="fas fa-th"></i>
+            {% trans "Widget Manager" %}
+        </a>
+    </div>
+    <div class="manage-link">
+        <a class="manage-link-inner link3" href="{% url "admin:django_power_cms_article_changelist" %}">
+            <i class="fas fa-newspaper"></i>
+            {% trans "Article Manager" %}
+        </a>
+    </div>
+    <div class="manage-link">
+        <a class="manage-link-inner link4" href="#"></a>
+    </div>
+</div>
+{% endblock %}
