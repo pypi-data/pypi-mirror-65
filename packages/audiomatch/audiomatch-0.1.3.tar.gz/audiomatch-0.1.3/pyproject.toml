@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "audiomatch"
+version = "0.1.3"
+description = "A small command-line tool to find similar audio files"
+keywords = ["duplicate", "detection", "audio", "fingerprinting", "command-line"]
+readme = "README.rst"
+authors = ["Aleksei Maslakov <lesha.maslakov@gmail.com>"]
+license = "MIT"
+packages = [
+    { include = "audiomatch", from = "src" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Multimedia :: Sound/Audio :: Analysis",
+    "Typing :: Typed",
+]
+
+[tool.poetry.scripts]
+audiomatch = "audiomatch.cli:invoke"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+tox = "^3.14.6"
+pre-commit = "^2.2.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
