@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: portmod
+Version: 2.0b0
+Summary: A CLI tool to manage mods for OpenMW
+Home-page: https://gitlab.com/portmod/portmod
+Author: Portmod Authors
+Author-email: incoming+portmod-portmod-9660349-issue-@incoming.gitlab.com
+License: GPLv3
+Download-URL: https://gitlab.com/portmod/portmod/-/releases
+Platform: UNKNOWN
+Requires-Dist: patool
+Requires-Dist: colorama
+Requires-Dist: appdirs
+Requires-Dist: black
+Requires-Dist: GitPython
+Requires-Dist: PyYAML
+Requires-Dist: progressbar2
+Requires-Dist: RestrictedPython (>=4.0)
+Requires-Dist: redbaron
+Requires-Dist: requests
+Requires-Dist: python-sat ; platform_system != "Windows"
+Requires-Dist: pywin32 ; platform_system == "Windows"
+Requires-Dist: python-sat (==0.1.5.dev4) ; platform_system == "Windows"
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: setuptools-scm ; extra == 'test'
+
+UNKNOWN
+
+
