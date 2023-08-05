@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: globalframework
+Version: 1.0.2013.5
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: wheel
+Requires-Dist: cryptography (==2.7.0)
+Requires-Dist: psycopg2 (==2.8.4)
+Requires-Dist: pyodbc (==4.0.26)
+Requires-Dist: pymysql (==0.9.3)
+Requires-Dist: mysql-connector-python (==8.0.16)
+Requires-Dist: pymemcache (==2.2.0)
+Requires-Dist: celery (==4.3.0)
+
+UNKNOWN
+
+
