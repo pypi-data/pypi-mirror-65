@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: studioml
+Version: 0.0.19
+Summary: TensorFlow model and data management tool
+Home-page: https://github.com/studioml/studio
+Author: Illia Polosukhin
+Author-email: illia.polosukhin@gmail.com
+License: Apache License, Version 2.0
+Keywords: TensorFlow studioml StudioML Studio Keras scikit-learn
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.4
+Requires-Dist: pip (==20.0.2)
+Requires-Dist: setuptools-scm
+Requires-Dist: setuptools-scm-git-archive
+Requires-Dist: configparser
+Requires-Dist: numpy
+Requires-Dist: h5py
+Requires-Dist: pillow
+Requires-Dist: flask
+Requires-Dist: jinja2
+Requires-Dist: cma
+Requires-Dist: apscheduler
+Requires-Dist: pycryptodome
+Requires-Dist: requests
+Requires-Dist: requests-toolbelt
+Requires-Dist: python-jwt
+Requires-Dist: sseclient
+Requires-Dist: timeout-decorator
+Requires-Dist: terminaltables
+Requires-Dist: google-api-python-client
+Requires-Dist: google-cloud-storage (<=1.5.0)
+Requires-Dist: google-cloud-pubsub (<=0.28.3)
+Requires-Dist: google-gax (<=0.15.14)
+Requires-Dist: google-auth-httplib2
+Requires-Dist: oauth2client (==3.0.0)
+Requires-Dist: boto3
+Requires-Dist: rsa (==3.4.2)
+Requires-Dist: awscli
+Requires-Dist: filelock
+Requires-Dist: pygtail
+Requires-Dist: pika (==1.1.0)
+Requires-Dist: cachetools (==2.0.1)
+Requires-Dist: tensorflow (==1.15.2)
+
+UNKNOWN
+
+
