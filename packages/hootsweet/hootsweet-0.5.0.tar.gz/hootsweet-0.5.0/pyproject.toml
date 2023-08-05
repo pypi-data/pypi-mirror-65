@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "hootsweet"
+version = "0.5.0"
+description = "A python library for the HootSuite REST API."
+authors = ["Ciaran McCormick <ciaran@ciaranmccormick.com>"]
+readme = "README.md"
+
+keywords = ["hootsuite", "api", "social"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Natural Language :: English"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+requests= "^2.23"
+requests_oauthlib = "^1.3.0"
+cherrypy = "^18.5.0"
+pytz = "^2019.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pre-commit = "^2.1.1"
+pytest-socket = "^0.3.3"
+coverage = {extras = ["toml"], version = "^5.0.3"}
+tox = "^3.14.5"
+tox-pyenv = "^1.1.0"
+
+[tool.coverage.run]
+source = [".",]
+
+[tool.coverage.report]
+omit = ["*/.pyenv/*", "get_tokens.py"]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+isolated_build = true
+envlist = py36, py37, py38
+
+[testenv]
+whitelist_externals = poetry
+commands =
+    poetry install -v
+    poetry run pytest tests/
+"""
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
