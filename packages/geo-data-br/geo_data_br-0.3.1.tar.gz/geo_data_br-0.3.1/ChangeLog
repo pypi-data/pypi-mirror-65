@@ -1,0 +1,45 @@
+CHANGES
+=======
+
+0.3.1
+-----
+
+* Changing name of preserved index
+* Adding support for series and dataframes as input types
+* Actual deduplicated data
+* Deduplicating udh data to prevent bugs when using data\_on\_points, adding deploy data functionality
+* Making bash scripts via python to be OS independent and add clarity
+* add Municipios\_Brasil to repo
+* improve README on installation
+
+0.2.4
+-----
+
+* excluding data from package (package was too big)
+
+0.2.2
+-----
+
+* build docker image before deploy
+
+0.2.1
+-----
+
+* fix
+
+0.2
+---
+
+* downloading data from github
+* Added data to package, and preparing to deploy to pypi
+
+0.1.0
+-----
+
+* fixed empty points error
+* simplified dockerfile
+* starting lib, tests and documentation
+* adding skeleton for a python lib
+* add readme
+* starting repo, adding notebooks that download and explore data from www.atlasbrasil.org.br
+* Initial commit
