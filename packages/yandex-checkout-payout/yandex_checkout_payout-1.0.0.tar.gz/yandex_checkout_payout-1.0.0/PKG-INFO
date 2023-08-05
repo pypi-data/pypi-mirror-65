@@ -1,0 +1,191 @@
+Metadata-Version: 2.1
+Name: yandex_checkout_payout
+Version: 1.0.0
+Summary: UNKNOWN
+Home-page: https://github.com/yandex-money/yandex-checkout-payout-sdk-python
+Author: Yandex Money
+Author-email: cms@yamoney.ru
+License: MIT license
+Description: # Yandex.Checkout Payout API Python Client Library
+        
+        [![Build Status](https://travis-ci.org/yandex-money/yandex-checkout-payout-sdk-python.svg?branch=master)](https://travis-ci.org/yandex-money/yandex-checkout-payout-sdk-python)
+        [![Latest Stable Version](https://img.shields.io/pypi/v/yandex-checkout-payout.svg)](https://pypi.org/project/yandex-checkout-payout/)
+        [![Total Downloads](https://img.shields.io/pypi/dm/yandex-checkout-payout.svg)](https://pypi.org/project/yandex-checkout-payout/)
+        [![License](https://img.shields.io/pypi/l/yandex-checkout-payout.svg)](https://github.com/yandex-money/yandex-checkout-payout-sdk-python)
+        
+        [Russian](https://github.com/yandex-money/yandex-checkout-payout-sdk-python/blob/master/README.md) | English
+        
+        Client to work on [Mass Payment Protocol](https://kassa.yandex.ru/tech/payout/config.html)
+        
+        ## Opportunities
+        You can with this SDK:
+        1. [Generate a certificate](https://kassa.yandex.ru/tech/ssl.html)п»ї for interaction with Yandex.Checkout.
+        2. [Transfer money](https://kassa.yandex.ru/tech/payout/payments.html) to individuals for wallets in Yandex.Money, mobile phone numbers, Bank cards and accounts (makeDeposition).
+        3. [To test the possibility of transfer of remittances](https://kassa.yandex.ru/tech/payout/payments.html#payments__testdeposition) to wallets in Yandex.Money (testDeposition).
+        4. [Keep track of the balance of payments](https://kassa.yandex.ru/tech/payout/balance-request.html) (balance).
+        5. [Receive notifications](https://kassa.yandex.ru/tech/payout/notification-error.html) the unsuccessful status of transfers to a Bank account, card, or mobile phone (errorDepositionNotification).
+        
+        ## Requirements
+        * Python 3.5 (Рё РІС‹С€Рµ)
+        * pip
+        
+        ## Installation
+        ### Under console using pip
+        
+        1. Install pip.
+        2. In the console, run the following command:
+        ```bash
+        pip install --upgrade yandex_checkout_payout
+        ```
+        
+        ### Under console using easy_install
+        1. Install easy_install.
+        2. In the console, run the following command:
+        ```bash
+        easy_install --upgrade yandex_checkout_payout
+        ```
+        
+        ### Manually
+        1. In the console, run the following command:
+        ```bash
+        wget https://github.com/yandex-money/yandex-checkout-payout-sdk-python/archive/master.zip
+        tar zxf yandex_checkout-master.tar.gz
+        cd yandex_checkout-master
+        python setup.py install
+        ```
+        
+        ## Getting a certificate for authenticating requests
+        To interact with Yandex.The cashier must obtain a certificate. For this:
+        1. Create a private key and a certificate request (CSR).
+        2. Fill out the certificate application form.
+        3. Exchange data with Yandex.Money.
+        
+        ### Step 1. Creating a private key and CSR
+        
+        #### Using the SDK method
+        1. Import classes to create CSR
+        ```python
+        from yandex_checkout_payout.domain.models.organization import Organization
+        from yandex_checkout_payout.payout import Payout
+        ```
+        
+        2. Create an instance of the `Organization` class with data for creating the request. All data must be entered in Latin.
+        ```python
+        org = Organization({
+            "org_name": "Yandex Money",             # Organization Name (Latin)
+            "common_name": "/business/yandexmoney", # Common Name, for example the name of your organization; must start with В«/business/В»
+            "email": "cms@yamoney.ru"               # Email
+        })
+        ```
+        3. Create a CSR and a private key.
+        ```python
+        # Specify the location where the files should be saved and the password for the private key (if necessary)
+        Payout.get_csr(org, './files/output', '12345')
+        ```
+        As a result, the SDK will generate a private key, CSR, and a text file with an electronic signature (necessary for further steps).
+        
+        #### Via the console
+        1. In the console, go to your project folder.
+        ```bash
+        cd '<your project folder>'
+        ```
+        
+        2. Execute the command:
+        ```
+        ym-payout -getcsr
+        ```
+        
+        3. Enter data for the certificate, following the instructions on the screen. The text must be entered in Latin letters.
+        As a result, the SDK will generate a private key, CSR, and a text file with an electronic signature (necessary for further steps).
+        
+        ### Step 2. Filling out the certificate application
+        [Download the application](https://kassa.yandex.ru/docs/ssl_cert_form.doc) to the certificate, fill it out and print it out. Sign and seal the document. Scan.
+        
+        | **Parameter**                                    | **Description**                                                                                                                                                                                                                                                                                                                                                             |
+        |:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | CN                                               | Must match the value of the Common Name parameter (eg, YOUR name). For example, */business/predpriyatie*.                                                                                                                                                                                                                                                                   |
+        | Electronic signature of the certificate request  | The text view obtained in the previous step.                                                                                                                                                                                                                                                                                                                                |
+        | Organization name in Latin letters               | Must match the value of the Organization Name parameter (eg, company) *Internet Widgits Pty Ltd*.                                                                                                                                                                                                                                                                           |
+        | The reason for the request                       | Possible options: <ul><li>*initial* вЂ” to get the first certificate;</li><li>*scheduled replacement* вЂ” to replace a certificate that has expired;</li><li>*replacement of a compromised* вЂ” to replace a previously issued certificate in the event of a security breach;</li><li>*adding a server* вЂ” to use the new certificate on additional servers or services.</li></ul> |
+        | Contact person (full name, phone number, e-mail) | Contact a specialist to contact you if you have any questions about the issued certificate.                                                                                                                                                                                                                                                                                 |
+        
+        ### Step 3. Data exchange with Yandex.Money
+        Send the certificate request file (request.csr) and a scan of the request by email to your Yandex Manager.Box office.
+        In response to the request, the Manager will send a file with the certificate within 2 business days. The certificate is valid for 1 year.
+        Place the received certificate on your server
+        
+        ## Start of work
+        1. Determine what types of payments you need and whether you want to check your balance.
+        2. Import required classes
+        ```python
+        from yandex_checkout_payout.domain.common.keychain import KeyChain
+        from yandex_checkout_payout.configuration import Configuration
+        from yandex_checkout_payout.payout import Payout
+        ```
+        
+        3. Import the classes you need to solve your problems.
+        4. Create an instance of the `KeyChain` class by passing the path to the public key, the path to the private key, and, if necessary, the password for the private key.
+        ```python
+        keychain = KeyChain('publicCert.cer', 'privateCert.pem', 'password')
+        ```
+        
+        5. Create an instance of the `Client` class and pass the gateway ID from the [merchant profile](https://kassa.yandex.ru/my) Yandex.Money and instance of the `KeyChain` class.
+        ```python
+        Configuration.configure('000000', keychain)
+        ```
+        
+        6. Call the appropriate method. [More information about making payments](https://kassa.yandex.ru/tech/payout/config.html)
+        
+        #### Example of payment to a Bank account
+        ```python
+        # Importing classes
+        from yandex_checkout_payout.configuration import Configuration
+        from yandex_checkout_payout.payout import Payout
+        from yandex_checkout_payout.domain.common.keychain import KeyChain
+        from yandex_checkout_payout.domain.models.recipients.bank_account_recipient import BankAccountRecipient
+        
+        # Creating a housekeeper and saving settings
+        keychain = KeyChain('./files/250000.cer', './files/privateKey.pem', '12345')
+        Configuration.configure(250000, keychain)
+        
+        # Getting the current balance
+        balance = Payout.get_balance()
+        
+        # The compilation of data on the beneficiary
+        recipient = BankAccountRecipient()
+        recipient.pof_offer_accepted = True
+        recipient.bank_name = 'Barclays'
+        recipient.bank_city = 'London'
+        recipient.bank_cor_account = '30101810400000000225'
+        recipient.customer_account = '40817810255030943620'
+        recipient.bank_bik = '042809679'
+        recipient.payment_purpose = 'Refund under the agreement 25-001, without VAT'
+        recipient.pdr_first_name = 'John'
+        recipient.pdr_last_name = 'Watson'
+        recipient.pdr_doc_number = '4002109067'
+        recipient.pdr_doc_issue_date = '1999-07-30'
+        recipient.pdr_address = 'Baker street, 221'
+        recipient.pdr_birth_date = '1987-05-24'
+        recipient.sms_phone_number = '79653457676'
+        
+        # Preparing a request to create a payout
+        request = MakeDepositionRequest()
+        request.agent_id = 250000
+        request.client_order_id = '215d8da0-000f-50be-b000-0003308c89be'
+        request.request_dt = '2020-03-04T15:39:45.456+03:00'
+        request.payment_params = recipient
+        
+        # The carrying out of the payment
+        result = Payout.create_deposition(request)
+        ```
+        
+Keywords: yandex,checkout,payout,sdk,python
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: Russian
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
