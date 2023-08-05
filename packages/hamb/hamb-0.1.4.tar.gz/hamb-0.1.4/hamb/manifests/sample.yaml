@@ -1,0 +1,19 @@
+mssql_sql_comp_test:
+    label: "mssql_sql_compare_test"
+    type: "sql_compare"
+    conn_a: "mssql"
+    script_a: "CREATE TABLE #TEST ([name] varchar(256)); SELECT count(*) from #TEST;"
+    conn_b: "mssql"
+    script_b: "CREATE TABLE #TEST ([name] varchar(256)); SELECT count(*) from #TEST;"
+    pct_diff: True
+    warning_threshold: 1
+    failure_threshold: 101
+
+mssql_sql_comp_list_test:
+    label: "mssql_sql_compare_list_test"
+    type: "sql_compare"
+    conn_a: "mssql"
+    script_a: "CREATE TABLE #TEST ([name] varchar(256)); SELECT count(*) from #TEST;"
+    conn_b: "mssql"
+    script_b: "CREATE TABLE #TEST ([name] varchar(256)); SELECT count(*) from #TEST;"
+    pct_diff: False

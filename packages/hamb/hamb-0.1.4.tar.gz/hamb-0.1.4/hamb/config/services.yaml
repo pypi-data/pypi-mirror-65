@@ -1,0 +1,20 @@
+ # This would be the default handler if none specified
+default:
+    success:
+      - email_handler: "admin@yourdomain.com"
+    warning:
+      - email_handler: "support@yourdomain.com"
+    failure:
+      - email_handler: "support@yourdomain.com"
+      - jenkins_handler: "failed build"
+
+# This is the specfic handler config for manifests/sample.yaml
+# Should match the filename in manifest folder.
+sample:
+    success:
+      - email_handler: "sales@yourdomain.com"
+    warning:
+      - email_handler: "sales.support@yourdomain.com"
+      - sns_handler: "topic_id"
+    failure:
+      - email_handler: "sales.support@yourdomain.com sales@yourdomain.com"

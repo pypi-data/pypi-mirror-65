@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import sys
+from hamb import module
+
+module.main(sys.argv[1:])

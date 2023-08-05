@@ -1,0 +1,9 @@
+check_test_compare_list:
+    label: "check_test_compare_list"
+    type: "sql_compare_list"
+    conn_a: "cosmo"
+    script_a: "select 1"
+    conn_b: "cosmo"
+    script_b:  "select 1"
+    warning_threshold: 1
+    failure_threshold: 1
