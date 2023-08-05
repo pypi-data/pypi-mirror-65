@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: mbed-tools-lib
+Version: 1.2.0
+Summary: A library of shared Mbed tools functionality.
+Home-page: https://github.com/ARMmbed/mbed-tools-lib
+Author: Mbed team
+Author-email: support@mbed.com
+License: Apache 2.0
+Keywords: Arm Mbed OS MbedOS Arm Mbed OS MbedOS Arm Mbed OS MbedOS Mbed OS lib
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Embedded Systems
+Requires-Python: >=3.6,<4
+Description-Content-Type: text/markdown
+Requires-Dist: python-dotenv
+
+# Mbed Tools Library
+
+![Package](https://img.shields.io/badge/Package-mbed--tools--lib-lightgrey)
+[![Documentation](https://img.shields.io/badge/Documentation-GitHub_Pages-blue)](https://armmbed.github.io/mbed-tools-lib)
+[![PyPI](https://img.shields.io/pypi/v/mbed-tools-lib)](https://pypi.org/project/mbed-tools-lib/)
+[![PyPI - Status](https://img.shields.io/pypi/status/mbed-tools-lib)](https://pypi.org/project/mbed-tools-lib/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mbed-tools-lib)](https://pypi.org/project/mbed-tools-lib/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/ARMmbed/mbed-tools-lib/blob/master/LICENSE)
+
+[![Build Status](https://dev.azure.com/mbed-tools/mbed-tools-lib/_apis/build/status/ARMmbed.mbed-tools-lib?branchName=master&stageName=CI%20Checkpoint)](https://dev.azure.com/mbed-tools/mbed-tools-lib/_build/latest?definitionId=1&branchName=master)
+[![Test Coverage](https://codecov.io/gh/ARMmbed/mbed-tools-lib/branch/master/graph/badge.svg)](https://codecov.io/gh/ARMmbed/mbed-tools-lib)
+[![Maintainability](https://api.codeclimate.com/v1/badges/18c13e9ee7ba963c81e9/maintainability)](https://codeclimate.com/github/ARMmbed/mbed-tools-lib/maintainability)
+
+## Overview
+
+**This package provides a library of common code shared by Mbed OS tooling packages.**
+
+It is expected that this package will be used by developers of Mbed OS tooling rather than by users of Mbed OS. For
+a command line interface for Mbed OS please see the package [mbed-tools](https://github.com/ARMmbed/mbed-tools).
+
+## Releases
+
+For release notes and a history of changes of all **production** releases, please see the following:
+
+- [Changelog](https://github.com/ARMmbed/mbed-tools-lib/blob/master/CHANGELOG.md)
+
+For a the list of all available versions please, please see the:
+
+- [PyPI Release History](https://pypi.org/project/mbed-tools-lib/#history)
+
+## Versioning
+
+The version scheme used follows [PEP440](https://www.python.org/dev/peps/pep-0440/) and 
+[Semantic Versioning](https://semver.org/). For production quality releases the version will look as follows:
+
+- `<major>.<minor>.<patch>`
+
+Beta releases are used to give early access to new functionality, for testing and to get feedback on experimental 
+features. As such these releases may not be stable and should not be used for production. Additionally any interfaces
+introduced in a beta release may be removed or changed without notice. For **beta** releases the version will look as
+follows:
+
+- `<major>.<minor>.<patch>-beta.<pre-release-number>`
+
+## Installation
+
+It is recommended that a virtual environment such as [Pipenv](https://github.com/pypa/pipenv/blob/master/README.md) is
+used for all installations to avoid Python dependency conflicts.
+
+To install the most recent production quality release use:
+
+```
+pip install mbed-tools-lib
+```
+
+To install a specific release:
+
+```
+pip install mbed-tools-lib==<version>
+```
+
+## Usage
+
+Interface definition and usage documentation (for developers of Mbed OS tooling) is available for the most recent
+production release here:
+
+- [GitHub Pages](https://armmbed.github.io/mbed-tools-lib)
+
+## Project Structure
+
+The follow described the major aspects of the project structure:
+
+- `azure-pipelines/` - CI configuration files for Azure Pipelines.
+- `docs/` - Interface definition and usage documentation.
+- `examples/` - Usage examples.
+- `mbed_tools_lib/` - Python source files.
+- `news/` - Collection of news files for unreleased changes.
+- `tests/` - Unit and integration tests.
+
+## Getting Help
+
+- For interface definition and usage documentation, please see [GitHub Pages](https://armmbed.github.io/mbed-tools-lib).
+- For a list of known issues and possible work arounds, please see [Known Issues](KNOWN_ISSUES.md).
+- To raise a defect or enhancement please use [GitHub Issues](https://github.com/ARMmbed/mbed-tools-lib/issues).
+- To ask a question please use the [Mbed Forum](https://forums.mbed.com/).
+
+## Contributing
+
+- Mbed OS is an open source project and we are committed to fostering a welcoming community, please see our
+  [Code of Conduct](https://github.com/ARMmbed/mbed-tools-lib/blob/master/CODE_OF_CONDUCT.md) for more information.
+- For ways to contribute to the project, please see the [Contributions Guidelines](https://github.com/ARMmbed/mbed-tools-lib/blob/master/CONTRIBUTING.md)
+- For a technical introduction into developing this package, please see the [Development Guide](https://github.com/ARMmbed/mbed-tools-lib/blob/master/DEVELOPMENT.md)
+
+
