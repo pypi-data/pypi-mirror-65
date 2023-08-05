@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pyaf
+Version: 1.2.1
+Summary: Python Automatic Forecasting
+Home-page: https://github.com/antoinecarme/pyaf
+Author: Antoine CARME
+Author-email: antoine.carme@laposte.net
+License: BSD 3-clause
+Keywords: arx automatic-forecasting autoregressive benchmark cycle decomposition exogenous forecasting heroku hierarchical-forecasting horizon jupyter pandas python scikit-learn seasonal time-series transformation trend web-service
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: sklearn
+Requires-Dist: matplotlib
+Requires-Dist: pydot
+Requires-Dist: dill
+Requires-Dist: pathos
+Requires-Dist: sqlalchemy
+
+UNKNOWN
+
+
