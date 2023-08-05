@@ -1,0 +1,3 @@
+graft tuxpub/static
+graft tuxpub/templates
+global-exclude *.pyc
