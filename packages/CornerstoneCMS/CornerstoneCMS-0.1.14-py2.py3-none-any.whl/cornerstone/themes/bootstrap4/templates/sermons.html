@@ -1,0 +1,38 @@
+{% extends theme('base.html') %}
+{% block content %}
+<div class="container">
+  <h1>Sermons</h1>
+  {% for sermon in pagination.items %}
+  <article id="sermon-{{sermon.id}}" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{sermon.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">On {{sermon.date.strftime('%B %-d, %Y')}} by {{sermon.preacher}}</h6>
+      <p class="card-text">
+        <iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/{{sermon.simplecast_id}}?dark=false"></iframe>
+      </p>
+    </div>
+  </article>
+  {% endfor %}
+  <nav aria-label="Pagination">
+    <ul class="pagination justify-content-end">
+      <li class="page-item {% if not pagination.has_prev %}disabled{% endif %}">
+        <a class="page-link" href="{{ url_for('sermons.list', page=pagination.prev_num) }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {%- for page in pagination.iter_pages() %}
+      {% if page %}
+      <li class="page-item {% if page == pagination.page %}active{% endif %}"><a class="page-link" href="{{ url_for('sermons.list', page=page) }}">{{page}}</a></li>
+      {% else %}
+      <li class="page-item disabled">...</li>
+      {% endif %}
+      {%- endfor %}
+      <li class="page-item {% if not pagination.has_next %}disabled{% endif %}">
+        <a class="page-link" href="{{ url_for('sermons.list', page=pagination.next_num) }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+{% endblock %}
