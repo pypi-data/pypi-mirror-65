@@ -1,0 +1,17 @@
+[console_scripts]
+enough = enough.cmd:main
+
+[enough.cli]
+create = enough.cli.create:Create
+host_create = enough.cli.host:Create
+host_delete = enough.cli.host:Delete
+host_inventory = enough.cli.host:Inventory
+manage = enough.cli.manage:Manage
+playbook = enough.cli.playbook:Playbook
+
+[enough.internal.cli]
+build_image = enough.internal.cli.docker:Build
+create_service = enough.internal.cli.docker:Create
+create_test_subdomain = enough.internal.cli.test:CreateTestSubdomain
+install = enough.internal.cli.install:InstallScript
+

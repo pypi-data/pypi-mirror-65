@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:10.6
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
+    env_file:
+      - db.env
+
+  app:
+    image: nextcloud:apache-cron
+    restart: always
+    volumes:
+      - nextcloud:/var/www/html
+    ports:
+      - 8080:80
+    environment:
+      - VIRTUAL_HOST={{ vhost_fqdn }}
+      - POSTGRES_HOST=db
+    env_file:
+      - db.env
+    depends_on:
+      - db
+
+volumes:
+  db:
+  nextcloud:

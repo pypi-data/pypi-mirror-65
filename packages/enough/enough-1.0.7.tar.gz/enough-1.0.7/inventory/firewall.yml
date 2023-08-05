@@ -1,0 +1,68 @@
+# ssh
+firewall_ssh_server_group:
+  hosts:
+    api-host:
+    bind-host:
+    postfix-host:
+    icinga-host:
+    forum-host:
+    wazuh-host:
+    weblate-host:
+    gitlab-host:
+    runner-host:
+    packages-host:
+    website-host:
+    chat-host:
+
+# postfix
+firewall_postfix_server_group:
+  hosts:
+    postfix-host:
+
+firewall_postfix_client_group:
+  children:
+    firewall_ssh_server_group:
+
+# DNS
+firewall_dns_server_group:
+  hosts:
+    bind-host:
+
+# icinga2
+firewall_icinga2_server_group:
+  hosts:
+    icinga-host:
+
+firewall_icinga2_client_group:
+  children:
+    firewall_ssh_server_group:
+
+# wazuh
+firewall_wazuh_server_group:
+  hosts:
+    wazuh-host:
+
+firewall_wazuh_client_group:
+  children:
+    firewall_ssh_server_group:
+
+# web
+firewall_web_server_group:
+  hosts:
+    api-host:
+    chat-host:
+    forum-host:
+    gitlab-host:
+    icinga-host:
+    packages-host:
+    weblate-host:
+    website-host:
+
+# icmp
+firewall_icmp_server_group:
+  children:
+    firewall_ssh_server_group:
+
+firewall_icmp_client_group:
+  hosts:
+    icinga-host:
