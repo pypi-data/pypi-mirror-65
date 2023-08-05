@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+djangokantanoidc.egg-info/PKG-INFO
+djangokantanoidc.egg-info/SOURCES.txt
+djangokantanoidc.egg-info/dependency_links.txt
+djangokantanoidc.egg-info/requires.txt
+djangokantanoidc.egg-info/top_level.txt
+kantanoidc/__init__.py
+kantanoidc/apps.py
+kantanoidc/client.py
+kantanoidc/errors.py
+kantanoidc/urls.py
+kantanoidc/views.py
