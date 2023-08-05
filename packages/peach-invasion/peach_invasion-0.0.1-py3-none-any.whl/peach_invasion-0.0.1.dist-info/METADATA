@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: peach-invasion
+Version: 0.0.1
+Summary: Peach invasion 2D game with pygame
+Home-page: https://github.com/olbed/peach_invasion
+Author: olbed
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pygame (<2,>=1.9.6)
+
+# 🍑 Peach Invasion 🍆 ️
+
+2D game with pygame
+
+- Enter - Start
+- Space - Fire
+- Arrows - Move
+- Esc - Exit
+
+![screenshot](screenshot.png)
+
+
