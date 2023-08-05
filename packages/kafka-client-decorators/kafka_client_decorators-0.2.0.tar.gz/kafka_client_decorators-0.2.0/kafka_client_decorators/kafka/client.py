@@ -1,0 +1,135 @@
+#!/usr/bin/python
+# -*- coding: <encoding name> -*-
+
+from .consumer_job import ConsumerJob 
+from .producer import Producer
+from .logging_helper import getLogger
+from time import sleep
+
+from threading import Thread
+
+class Client(Thread):
+    def __init__(self, connection_args, list_topics_receive, list_topics_send ):
+        self.logger = getLogger(__name__)
+        self.logger.info( f"Creating cliet, listen topics: {[t.topic for t in list_topics_receive]} send topics: {[t.topic for t in list_topics_send]}" )
+        
+        self.__started__  = True
+        self.__conumers_started = None
+        self.__list_topics_receive__ = list_topics_receive
+        self.__connection_args__ = connection_args 
+        self.__list_topics_send__ = { p.topic: (p, None) for p in list_topics_send }
+        Thread.__init__(self)
+
+    def getConnection(self):
+        return self.__connection_args__
+        
+    def __createConsumers__( self ):
+        self.logger.info( "Creating consumers" )
+        conn = self.__connection_args__ 
+        consumers = []
+        
+        for cConf in self.__list_topics_receive__:
+            try:
+                job = ConsumerJob( self, cConf )
+                consumers.append( job )
+            except Exception as e:
+                self.logger.exception( f"Cant create consumer, topic: {cConf.topic} {type(e)} {e}" )
+                consumers = []
+                break
+            except:
+                self.logger.exception( f"Cant create consumer, topic: {cConf.topic}" )
+                consumers = []
+                break
+        self.__conumers_started__ = True
+        return consumers
+        
+    def __startConsumers__( self, consumers ):
+        self.logger.info( f"Staring consumers" )
+        for c in consumers:
+            c.start()
+    
+    def __stopConsumer__( self, consumers ):
+        self.logger.info( f"Stopping consumers" )
+        for st in consumers:
+            if st is not None:
+                st.stop()
+            
+    def __waitConsumer__( self, consumers ):
+        if self.__started__  is False:
+            self.__stopConsumer__( consumers )
+        
+        init = False
+        oneFailed = False
+        for t in consumers:
+            if t.is_alive() is True: 
+                t.join(0.01)
+            if t.is_alive() is True:
+                init = True
+            else:
+                oneFailed = True
+        if oneFailed == True:
+            self.__stopConsumer__( consumers )
+        return init
+                        
+    def __waitConsumersFinish__( self, consumers ):
+        self.logger.info( f"Waiting consumers finished" )
+        init = True
+        while init is True:
+            init = self.__waitConsumer__( consumers )
+        self.__conumers_started__ = False
+        self.logger.info( f"All consumers finished" )
+            
+    def __waitProducersFinish__( self ):
+        self.logger.info( f"Waiting Producers finished" )
+        init = True
+        while self.__conumers_started__  is True:
+            sleep(0.01)
+        for p in self.__list_topics_send__.values():
+            if p[1] is not None:
+                p[1].stop()
+        self.logger.info( f"All producers finished" )
+                          
+    def run(self):
+        self.logger.info( f"Start App" )
+        self.__started__  = True
+        
+        while self.__started__  == True:
+            try:
+                sleep(0.1)
+                consumers = self.__createConsumers__( )
+                self.__startConsumers__( consumers )
+                self.__waitConsumersFinish__( consumers )
+                self.__waitProducersFinish__( )
+            except Exception as e:
+                self.logger.exception( f"App error: {type(e)} {e}" )
+            except:
+                self.logger.exception( f"App error" )
+        self.logger.info( f"App finished" )
+
+    def producer(self, topic, *func_args, **func_kargs ):
+        self.logger.debug( f"Send message to topic{ topic }" )
+        pConf, p = self.__list_topics_send__[topic]
+        success = True
+        try:
+            if p is None: 
+                p = Producer( self, pConf )
+                self.__list_topics_send__[topic] = (pConf, p)
+                
+            p.produce( *func_args, **func_kargs )
+        except (Exception) as e:
+            self.logger.exception( f"Cant send topic: {topic} error: {type(e)} {e}" )
+            success = False
+        except:
+            self.logger.exception( "Send error" )
+            success = False
+        return success
+
+    def stop(self):
+        self.__started__  = False
+        
+    def wait(self):
+        while self.is_alive( ) is True:
+            self.join( 0.01 )
+        
+    def is_fineshed(self):
+        return self.is_alive( ) != True
