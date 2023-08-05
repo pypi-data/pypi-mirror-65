@@ -1,0 +1,14 @@
+pyramid
+pyramid_mako
+pyramid_tm
+SQLAlchemy
+transaction
+zope.sqlalchemy
+waitress
+pygments
+paramiko==2.7.1
+alembic
+apscheduler==2.1.2
+redis==3.3.11
+kombu==4.6.7
+pyramid-scheduler==0.3.4
