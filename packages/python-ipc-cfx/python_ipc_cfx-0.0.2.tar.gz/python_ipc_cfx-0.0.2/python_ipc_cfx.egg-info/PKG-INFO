@@ -1,0 +1,28 @@
+Metadata-Version: 1.2
+Name: python-ipc-cfx
+Version: 0.0.2
+Summary: Python implementation of the IPC-CFX standard
+Home-page: https://github.com/iotile/python-ipc-cfx
+Author: Arch
+Author-email: info@archsys.io
+License: proprietary
+Description: Python IPC-CFX
+        --------------------------
+        
+        Python implementation of the IPC-CFX standard.
+        
+        http://www.connectedfactoryexchange.com/CFXDemo/sdk/html/R_Project_CFXSDK.htm
+        
+        See https://www.archsys.io
+        
+Keywords: iotile,arch,industrial
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5, <4
