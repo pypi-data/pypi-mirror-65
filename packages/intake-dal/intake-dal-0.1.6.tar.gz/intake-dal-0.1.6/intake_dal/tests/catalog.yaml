@@ -1,0 +1,46 @@
+metadata:
+  hierarchical_catalog: True
+  data_schema:
+    #   FUTURE: This could be a link to a kafka schema registry
+    #   kafka_schema_registry: http://url
+    entity.user.user_events: >
+      {"fields": [{"name": "userid", "type": "long"},
+                  {"name": "home_id", "type": "int"},
+                  {"name": "action", "type": ["string"]},
+                  {"name": "timestamp", "type": ["null", {"logicalType": "timestamp-millis", "type": "long"}]}
+                  ],
+       "name": "Root",
+       "type": "record"}
+entity:
+  user:
+    user_events:
+      driver: dal
+      description: "user_events description"
+      args:
+        default: 'local'
+        storage:
+          local: 'csv://{{ CATALOG_DIR }}/data/user_events.csv'
+          batch: 'parquet://{{ CATALOG_DIR }}/data/user_events.parquet'
+          in_mem: 'in-memory-kvs://foo'
+          local_test: 'csv://{{ CATALOG_DIR }}/{{ data_path }}/user_events.csv'
+          serving: 'dal-online://https://featurestore.url.net#userid'
+      parameters:
+        data_path:
+          description: should be 'data'
+          type: str
+        date:
+          description: should be '2019-08-12'
+          type: str
+      metadata:
+        dal-online:
+          write_delay_between_chunks_milliseconds: 50
+          write_chunk_size: 10
+          write_parallelism: 2
+dataset_without_avro:
+  driver: dal
+  args:
+    storage:
+      batch:
+        url: 'parquet://{{ CATALOG_DIR }}/data/user_events.parquet'
+        args:
+          engine: 'fastparquet'
