@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: sopel-pypi
+Version: 0.1.0
+Summary: A Sopel 7.0+ plugin to show information about linked PyPI packages.
+Home-page: https://github.com/sopel-irc/sopel-pypi
+Author: dgw
+Author-email: dgw@technobabbl.es
+License: Eiffel Forum License, version 2
+Description: # sopel-pypi
+        
+        A Sopel 7.0+ plugin to show information about linked PyPI packages.
+        
+        
+        NEWS
+        ====
+        
+        Version 0.1.0
+        -------------
+        
+        Initial release.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: Eiffel Forum License (EFL)
+Classifier: License :: OSI Approved :: Eiffel Forum License
+Classifier: Topic :: Communications :: Chat :: Internet Relay Chat
