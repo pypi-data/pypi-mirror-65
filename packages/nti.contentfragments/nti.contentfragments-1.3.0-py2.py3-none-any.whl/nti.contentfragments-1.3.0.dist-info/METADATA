@@ -1,0 +1,164 @@
+Metadata-Version: 2.1
+Name: nti.contentfragments
+Version: 1.3.0
+Summary: NTI ContentFragments
+Home-page: https://github.com/NextThought/nti.contentfragments
+Author: Jason Madden
+Author-email: jason@nextthought.com
+License: Apache
+Keywords: Content fragments semantic typing interfaces classes sanitize censor
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: setuptools
+Requires-Dist: html5lib
+Requires-Dist: lxml (>=4.2.5)
+Requires-Dist: repoze.lru (>=0.6)
+Requires-Dist: zope.component (>=4.6.1)
+Requires-Dist: zope.event (>=4.4.0)
+Requires-Dist: zope.interface (>=5.0.0)
+Requires-Dist: zope.mimetype (>=2.4.0)
+Requires-Dist: zope.security (>=5.1.1)
+Requires-Dist: zope.cachedescriptors (>=4.3.1)
+Requires-Dist: nti.schema (>=1.14.0)
+Requires-Dist: datrie (>=0.8.2) ; platform_python_implementation == "CPython"
+Provides-Extra: docs
+Requires-Dist: repoze.sphinx.autointerface ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pyhamcrest ; extra == 'test'
+Requires-Dist: zope.testing ; extra == 'test'
+Requires-Dist: nti.testing ; extra == 'test'
+Requires-Dist: zope.testrunner ; extra == 'test'
+
+======================
+ nti.contentfragments
+======================
+
+.. image:: https://img.shields.io/pypi/v/nti.contentfragments.svg
+        :target: https://pypi.python.org/pypi/nti.contentfragments/
+        :alt: Latest release
+
+.. image:: https://img.shields.io/pypi/pyversions/nti.contentfragments.svg
+        :target: https://pypi.org/project/nti.contentfragments/
+        :alt: Supported Python versions
+
+.. image:: https://travis-ci.org/NextThought/nti.contentfragments.svg?branch=master
+        :target: https://travis-ci.org/NextThought/nti.contentfragments
+
+.. image:: https://coveralls.io/repos/github/NextThought/nti.contentfragments/badge.svg
+        :target: https://coveralls.io/github/NextThought/nti.contentfragments
+
+.. image:: https://readthedocs.org/projects/nticontentfragments/badge/?version=latest
+        :target: https://nticontentfragments.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+Support for working with string-based content in a Zope3/ZTK
+environment.
+
+Overview
+========
+
+In a client/server environment dealing with various types of content
+from users, it's important to know what not just the Python type of a
+particular string is, but also what the *semantic* type of the string
+is: HTML, plain text, LaTeX, etc.
+
+This package defines interfaces and classes to be able to record this
+information. It also features a framework for transforming between the
+various supported semantic types (e.g., HTML to plain text).
+
+Other features:
+
+- Support for making arbitrary incoming HTML safe (sanitizing it).
+- Support for very configurable (optionally) event-based profanity
+  censoring that integrates with nti.schema/zope.schema.
+
+See `the documentation <http://nticontentfragments.readthedocs.io/en/latest/>`_ for more details.
+
+
+=========
+ Changes
+=========
+
+1.3.0 (2020-04-06)
+==================
+
+- Add support for Python 3.8.
+
+- Depend on zope.interface 5.0.
+
+- Update the datrie dependency. See https://github.com/NextThought/nti.contentfragments/issues/24
+
+- Make ``IUnicodeContentFragment`` extend
+  ``zope.interface.common.collections.ISequence`` instead of the
+  semi-deprecated ``zope.interface.common.sequence.IReadSequence``.
+
+- Replace custom interfaces ``IString``, ``IUnicode`` and ``IBytes``
+  with aliases for ``INativeString``, ``ITextString`` and
+  ``IByteString`` from ``zope.interface.common.builtins``. These
+  custom aliases are now deprecated. See https://github.com/NextThought/nti.contentfragments/issues/23.
+
+- Fix unicode normalization breaking schema fields with zope.schema
+  6.0. See https://github.com/NextThought/nti.contentfragments/issues/26
+
+- Ensure all objects have consistent resolution orders.
+
+1.2.1 (2019-11-07)
+==================
+
+- Remove a word from the censored word list. See issue https://github.com/NextThought/nti.contentfragments/issues/22.
+
+
+1.2.0 (2018-10-15)
+==================
+
+- Add support for Python 3.7. Note that ``datrie`` is not yet
+  available for Python 3.7.
+
+- Add support for PyPy3.
+
+- Add interfaces for all schema fields defined in
+  ``nti.contentfragments.schema`` and make the respective classes
+  implement them.
+
+1.1.1 (2018-06-29)
+==================
+
+- Packaging: Do not use ``html5lib[datrie]`` and instead copy that
+  dependency into our own dependencies to workaround a buildout error.
+  See https://github.com/NextThought/nti.contentfragments/issues/17
+
+
+1.1.0 (2017-06-14)
+==================
+
+- Remove dependency of ``dolmen.builtins``. The interfaces
+  ``IUnicode``, ``IBytes`` and ``IString`` are now always defined by this package.
+
+- Add support for Python 3.6.
+
+
+1.0.0 (2016-08-19)
+==================
+
+- Add support for Python 3.
+- Stop configuring plone.i18n. It's a big dependency and doesn't work
+  on Python 3.
+- Introduce our own interfaces for IUnicode and IString, subclassing
+  dolmen.builtins.IUnicode and IString, respectively, if possible.
+- The word lists used in censoring are cached in memory.
+- ``nti.contentfragments.html._Serializer`` has been renamed and
+  is no longer public.
+- Depend on zope.mimetype >= 2.1.0 for better support of Python 3.
+
+
