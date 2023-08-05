@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: file-cache
+Version: 0.2.1
+Summary: Cache dataframe with local hd5 file, and reduce the memory by convert type for number
+Home-page: https://github.com/Flyfoxs/file_cache
+Author: Felix Li
+Author-email: lilao@163.com
+License: MIT
+Keywords: pandas file cache python file_cache
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: termcolor (>=1.1)
+Requires-Dist: Pillow (==6.2.2)
+Requires-Dist: yacs (>=0.1.6)
+Requires-Dist: tabulate
+Requires-Dist: easydict
+Requires-Dist: nibabel
+Requires-Dist: pydicom
+Requires-Dist: cloudpickle
+Requires-Dist: matplotlib
+Requires-Dist: tqdm (>4.29.0)
+Requires-Dist: tensorboard
+Requires-Dist: fvcore
+Requires-Dist: future
+Requires-Dist: pydot
+Requires-Dist: SimpleITK
+Requires-Dist: plotly
+
+File_cache can help you cache the pandas result with hd5 file, You can get demo from: https://github.com/Flyfoxs/file_cache/blob/master/demo.ipynb
+
+
