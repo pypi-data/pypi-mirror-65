@@ -1,0 +1,6 @@
+python-dotenv
+Click==7.0
+mbed-tools-lib
+
+[:python_version < "3.7"]
+dataclasses
