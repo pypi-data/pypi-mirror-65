@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: vk-dev
+Version: 1.0.1
+Summary: Package for creating VK bots
+Home-page: https://github.com/Rhinik/vk_bot
+Author: Yan
+Author-email: deknowny@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: idna (==2.9)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: urllib3 (==1.25.8)
+
+# vk_dev
+Localizations:
+* [README on Russian](./README_RU.md)
+
+## Info
+> *What true convenience is?*
+
+You have a lot of *doorways* to try amazing python package for developing with API VKontakte. By using the flavor of python this library let you write on readable style without complications when need write fast ~or when you are at 0 days~ and refactor your project conveniencly and with idea.
+
+## Installation
+```bash
+pip3 install vk_dev
+```
+## Example
+```python
+import vk_dev
+
+api, handler = vk_dev.Auth(
+    token='token',
+    group_id=192979547,
+    v=5.103
+)
+lp = handler.LongPoll()
+
+## You can create own decorators
+@vk_dev.cond.Path('direct')
+@vk_dev.cond.Prefix('/', '.')
+@lp.message_new()
+def reaction(event, pl):
+    """
+    This function will work if
+    message was sended to direct and
+    starts at `/` or `.`
+    """
+
+    ## Send response to the interlocutor
+    api.messages.send(
+        peer_id=event.object.message.peer_id,
+        message='Hello there',
+        random_id=vk_dev.random_id()
+    )
+
+if __name__ == '__main__':
+    lp()
+```
+## Documentation
+* [Wiki](https://github.com/Rhinik/vk_dev/wiki)
+
+
