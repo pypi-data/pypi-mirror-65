@@ -1,0 +1,10 @@
+[console_scripts]
+convert-annotations = wai.annotations.main:sys_main
+
+[wai.annotations.formats]
+adams = wai.annotations.adams:ADAMSFormatSpecifier
+coco = wai.annotations.coco:COCOFormatSpecifier
+roi = wai.annotations.roi:ROIFormatSpecifier
+tfrecords = wai.annotations.tf:TFFormatSpecifier
+vgg = wai.annotations.vgg:VGGFormatSpecifier
+
