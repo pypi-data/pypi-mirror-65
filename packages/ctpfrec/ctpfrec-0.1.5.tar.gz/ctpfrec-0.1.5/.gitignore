@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.directory
+*.c
+*.so
+*.dll
+
+# dist files
+dist/
+*.zip
+*.tar.gz
+
+MANIFEST
+
+build/*
+ctpfrec.egg-info/
