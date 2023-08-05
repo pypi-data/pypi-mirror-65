@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: thexp
+Version: 1.1.22
+Summary: An useful torch tool for your experiment.
+Home-page: https://github.com/sailist/thexp
+Author: sailist
+Author-email: sailist@outlook.com
+License: Apache License 2.0
+Keywords: thexp
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: torch
+Requires-Dist: fire
+Requires-Dist: tensorboard
+Requires-Dist: watchdog
+Requires-Dist: docopt
+
+UNKNOWN
+
+
