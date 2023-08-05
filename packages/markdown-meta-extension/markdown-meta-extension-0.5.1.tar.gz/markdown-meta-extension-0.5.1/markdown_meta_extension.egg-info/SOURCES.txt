@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+markdown_meta_extension/__init__.py
+markdown_meta_extension/importing.py
+markdown_meta_extension.egg-info/PKG-INFO
+markdown_meta_extension.egg-info/SOURCES.txt
+markdown_meta_extension.egg-info/dependency_links.txt
+markdown_meta_extension.egg-info/entry_points.txt
+markdown_meta_extension.egg-info/requires.txt
+markdown_meta_extension.egg-info/top_level.txt
+markdown_meta_extension/plugins/__init__.py
+markdown_meta_extension/plugins/file_system_plugin.py
+markdown_meta_extension/plugins/jinja_template_plugin.py
+markdown_meta_extension/plugins/module_plugin.py
+markdown_meta_extension/plugins/package_plugin.py
+markdown_meta_extension/plugins/spec.py

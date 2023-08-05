@@ -1,0 +1,7 @@
+[console_scripts]
+markdown-meta-extension = markdown_meta_extension:markdown_meta_extension_parser
+markdown-meta-extension-glob = markdown_meta_extension:markdown_meta_extension_glob_parser
+
+[markdown.extensions]
+markdown_meta_extension = markdown_meta_extension.__init__
+
