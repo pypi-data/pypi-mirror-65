@@ -1,0 +1,4 @@
+[console_scripts]
+capture = pylibpcap.command:pylibpcap_sniff
+mpcap = pylibpcap.command:main
+
