@@ -1,0 +1,20 @@
+LICENSE
+MANIFEST.in
+README.md
+UPDATES
+setup.py
+nestedhyperline/__init__ .py
+nestedhyperline/argument_quality.py
+nestedhyperline/ncv_optimizer.py
+nestedhyperline/reg_params.py
+nestedhyperline/regressor_select.py
+nestedhyperline/results.py
+nestedhyperline.egg-info/PKG-INFO
+nestedhyperline.egg-info/SOURCES.txt
+nestedhyperline.egg-info/dependency_links.txt
+nestedhyperline.egg-info/requires.txt
+nestedhyperline.egg-info/top_level.txt
+nestedhyperline/regressors/__init__.py
+nestedhyperline/regressors/elastic_ncv_regressor.py
+nestedhyperline/regressors/lasso_ncv_regressor.py
+nestedhyperline/regressors/ridge_ncv_regressor.py
