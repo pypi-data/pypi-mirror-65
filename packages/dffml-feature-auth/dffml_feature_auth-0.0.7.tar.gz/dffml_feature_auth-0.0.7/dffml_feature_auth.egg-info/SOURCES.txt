@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+dffml_feature_auth/__init__.py
+dffml_feature_auth/version.py
+dffml_feature_auth.egg-info/PKG-INFO
+dffml_feature_auth.egg-info/SOURCES.txt
+dffml_feature_auth.egg-info/dependency_links.txt
+dffml_feature_auth.egg-info/entry_points.txt
+dffml_feature_auth.egg-info/top_level.txt
+dffml_feature_auth/feature/__init__.py
+dffml_feature_auth/feature/definitions.py
+dffml_feature_auth/feature/log.py
+dffml_feature_auth/feature/operations.py
+tests/__init__.py
+tests/test_df.py
