@@ -1,0 +1,17 @@
+# No datasources
+
+model_store:
+  location: ./model_store  # TODO: maybe support sftp or other remote locations...
+
+model:
+  name: LameModel
+  version: '0.0.1'  # use semantic versioning (<breaking>.<adding>.<fix>), first segment will be used in url as .../vX
+  module: addition_model  # same as file name without .py
+  train_options: {}
+  predict_options: {}
+
+api:
+  name: add  # name of the service api, also what comes in the URL after the first /
+  raml: addition.raml
+  preload_datasources: False  # Load datasources into memory before any predictions. Only makes sense with caching.
+  root_path: .  # (optional) set root directory in which Flasks looks for static, templates directories to serve.
