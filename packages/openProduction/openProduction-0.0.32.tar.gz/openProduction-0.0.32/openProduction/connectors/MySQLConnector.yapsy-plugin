@@ -1,0 +1,8 @@
+[Core]
+Name = MySQL connector
+Module = MySQLConnector
+
+[Documentation]
+Author = Markus Proeller
+Version = 0.1
+Description = Use a SQL database for data persistence

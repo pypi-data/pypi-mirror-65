@@ -1,0 +1,8 @@
+[Core]
+Name = File System Connector
+Module = FileSystemConnector
+
+[Documentation]
+Author = Markus Proeller
+Version = 0.1
+Description = A file system based connector
