@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: vnumdata
+Version: 0.0.1
+Summary: A simple package for calculating a single number and create in my Udemy course
+Home-page: UNKNOWN
+Author: Vignesh K
+Author-email: abc@xyz.com
+License: UNKNOWN
+Keywords: package numbers calculations
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# VnumData Documentation
+***
+## Installation
+vnumdata can be installed using python pip. The package is hosted on [PYPI](https://pypi.org/) and [PYPI-test](https://test.pypi.org/)
+```sh
+pip install vnumdata
+```
+***
+## Usage
+Initialization is not required for using methods in vnumdata
+```python
+from vnumdata import calculate
+
+# Calculate square of a number
+print(calculate.calculateSquare(8))
+# 64
+
+# Calculate cube of a number
+print(calculate.calculateCube(8))
+# 512
+```
+***
+
