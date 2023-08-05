@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: window-blinds-rpi
+Version: 0.1.113.dev0
+Summary: In development, automation...
+Home-page: https://github.com/tinezivic/window_blinds_rpi
+Author: Tine Živič
+Author-email: tine.zivic@gmail.com
+License: MPL-2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Topic :: Home Automation
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: pandas
+Requires-Dist: RPi.GPIO
+Requires-Dist: asyncio
+Requires-Dist: bitstring
+Requires-Dist: smbus2
+
+# Window Blinds RPi
+This will be pip modul for controlling window blinds ...
+
+It is in development ...
+
+
