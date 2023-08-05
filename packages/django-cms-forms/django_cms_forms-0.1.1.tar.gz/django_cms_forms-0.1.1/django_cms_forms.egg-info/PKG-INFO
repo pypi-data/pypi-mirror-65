@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: django-cms-forms
+Version: 0.1.1
+Summary: Set of Django CMS plugins for creating forms
+Home-page: https://github.com/sim1234/cms_forms
+Author: Szymon Zmilczak
+Author-email: szymon.zmilczak@gmail.com
+Maintainer: Szymon Zmilczak
+Maintainer-email: szymon.zmilczak@gmail.com
+License: MIT
+Description: # Django CMS Forms
+        
+        ![Test pipeline](https://github.com/sim1234/cms_forms/workflows/Test%20pipeline/badge.svg)
+        [![codecov](https://codecov.io/gh/sim1234/cms_forms/branch/master/graph/badge.svg?token=SP8ZN53C11)](https://codecov.io/gh/sim1234/cms_forms)
+        
+        Source: [https://github.com/sim1234/cms_forms/](https://github.com/sim1234/cms_forms/)
+        
+Keywords: django,django cms,cms,forms
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
