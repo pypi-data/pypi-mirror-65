@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.cron" id="cron_generate_invoice">
+            <field name="method">sale.sale|process_all_pending_payments</field>
+            <field name="interval_number" eval="3"/>
+            <field name="interval_type">minutes</field>
+	</record>
+    </data>
+</tryton>
