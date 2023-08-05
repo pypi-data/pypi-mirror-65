@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "astrosql"
+version = "1.0.1"
+description = "SQL database introspection and methods in Python to access existing astronomy databases."
+authors = ["Keto Zhang <keto.zhang@gmail.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+peewee = "^3.13.2"
+termcolor = "^1.1.0"
+pymysql = "^0.9.3"
+astropy = "^4.0.1"
+numpy = "^1.18.2"
+pandas = "^1.0.3"
+requests = "^2.23.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
