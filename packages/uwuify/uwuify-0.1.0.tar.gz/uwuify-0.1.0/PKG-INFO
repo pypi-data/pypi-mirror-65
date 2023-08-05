@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: uwuify
+Version: 0.1.0
+Summary: uwuifys text
+Home-page: https://github.com/StarrFox/uwuify
+Author: StarrFox
+License: UNKNOWN
+Description: # uwuify
+        
+        Command line uwuification
+        
+        # Installation
+        ```shell
+        # Stable
+        pip install -U uwuify
+        
+        # Dev
+        pip install -U git+https://starrfox/uwuify@master
+        ```
+        
+        # Usage
+        ```shell
+        echo hello | uwuify - -
+        # outputs hewwo in console
+        
+        uwuify input.txt output.txt
+        # contents of input.txt uwuifed into output.txt
+        ```
+        or
+        ```python
+        from uwuify import uwu_text
+        
+        print(uwu_text('hello'))
+        # hewwo
+        ```
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
