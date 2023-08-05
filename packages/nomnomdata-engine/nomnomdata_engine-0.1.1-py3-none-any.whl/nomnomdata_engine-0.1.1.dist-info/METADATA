@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: nomnomdata-engine
+Version: 0.1.1
+Summary: Package containing tooling for developing nominode engines
+Home-page: https://gitlab.com/nomnomdata/tools/nomnomdata-engine
+Author: Nom Nom Data Inc
+Author-email: info@nomnomdata.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2.6.1)
+Requires-Dist: pytest (>=3.8.0)
+Requires-Dist: pytest-cov (>=2.6.0)
+Requires-Dist: httmock (>=1.2.6)
+Requires-Dist: nomnomdata-cli (>=0.1.0)
+
+Package for developing nominode engines
+
+
