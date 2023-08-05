@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+
+[tool.black]
+line-length = 100
+
+
+[tool.flit.metadata]
+module = "pickle_cacher"
+author = "Bao Wei"
+author-email = "baowei.ur521@gmail.com"
+requires = ["atomic-write-path >= 1.0", "wrapt >= 1.12"]
+
+
+[tool.nitpick]
+style = "https://raw.githubusercontent.com/dycw/nitpick/master/nitpick-style.toml"
