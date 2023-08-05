@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: meru
+Version: 0.2.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Roland von Ohlen
+Author-email: work@rvo.name
+License: proprietary
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Requires-Dist: ciso8601 (==2.1.3)
+Requires-Dist: pyzmq (==19.0.0)
+Provides-Extra: develop
+Requires-Dist: asynctest (==0.13.0) ; extra == 'develop'
+Requires-Dist: git-pylint-commit-hook (==2.5.1) ; extra == 'develop'
+Requires-Dist: pytest-asyncio (==0.10.0) ; extra == 'develop'
+Requires-Dist: pytest-cov (==2.7.1) ; extra == 'develop'
+Requires-Dist: pytest-freezegun (==0.4.1) ; extra == 'develop'
+Requires-Dist: pytest-mock (==2.0.0) ; extra == 'develop'
+Requires-Dist: pytest (==5.1.1) ; extra == 'develop'
+Requires-Dist: setuptools-scm (==3.2.0) ; extra == 'develop'
+
+UNKNOWN
+
+
