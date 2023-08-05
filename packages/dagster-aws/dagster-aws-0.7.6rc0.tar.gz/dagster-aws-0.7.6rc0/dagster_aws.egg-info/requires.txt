@@ -1,0 +1,8 @@
+boto3==1.9.*
+dagster
+psycopg2-binary
+requests
+terminaltables
+
+[pyspark]
+dagster-pyspark
