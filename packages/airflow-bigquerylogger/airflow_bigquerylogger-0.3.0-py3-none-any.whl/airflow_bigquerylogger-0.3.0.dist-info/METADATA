@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: airflow-bigquerylogger
+Version: 0.3.0
+Summary: BigQuery logger handler for Airflow
+Home-page: UNKNOWN
+Author: Gabriele Diener
+Author-email: gabriele.diener@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: apache-airflow (>=1.10.0)
+Requires-Dist: apache-airflow[gcp] (>=1.10.0)
+
+# BigQuery logger handler for Airflow
+
+## Installation
+
+`pip install airflow-bigquerylogger`
+
+## Configuration
+
+```bash
+AIRFLOW__CORE__REMOTE_LOGGING='true'
+AIRFLOW__CORE__REMOTE_BASE_LOG_FOLDER='gs://bucket/path'
+AIRFLOW__CORE__REMOTE_LOG_CONN_ID='gcs_log'
+AIRFLOW__CORE__LOGGING_CONFIG_CLASS='bigquerylogger.config.LOGGING_CLASS'
+AIRFLOW__CORE__LOG_BIGQUERY_DATASET='dataset.table'
+AIRFLOW__CORE__LOG_BIGQUERY_LIMIT=50
+```
+
+## Credits
+
+Thanks to https://medium.com/bluecore-engineering/kubernetes-pod-logging-in-the-airflow-ui-ed9ca6f37e9d
+
+
+Unable to delete logs from BigQuery {} because:\n\n
+                         *** Rows that were written to a table recently via streaming
+                         (using the tabledata.insertall method) cannot be modified using
+                         UPDATE, DELETE, or MERGE statements.
+                         I recommend setting up a table retention!
+
