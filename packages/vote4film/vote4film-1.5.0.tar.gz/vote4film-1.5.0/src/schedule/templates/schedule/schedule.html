@@ -1,0 +1,63 @@
+{% extends "web/base.html" %}
+
+{% load humanize %}
+
+
+{% block secondary_nav %}
+  {% if is_vote_available %}
+    <a tabindex="5"
+       class="nav__item nav__item--secondary"
+       href="{% url 'votes:vote-create' %}">
+      Vote For Films
+      <span class="nav__highlight">&ensp;</span>
+    </a>
+  {% elif not has_registered and event %}
+    <a tabindex="6"
+       class="nav__item nav__item--secondary"
+       href="{{ next_event_register_url }}">
+      Register for Next Event
+      <span class="nav__highlight">&ensp;</span>
+    </a>
+  {% endif %}
+{% endblock secondary_nav %}
+
+
+{% block content %}
+  <h1>Upcoming</h1>
+  {% if event %}
+    <h2>The next event is {{ event.date|naturalday|capfirst }}</h2>
+  {% else %}
+    <p>There is no upcoming event in the calender.</p>
+  {% endif %}
+
+  {% if has_registered and not is_vote_available %}
+    {% if film %}
+      {% include "votes/includes/film_card.html" with film=film only %}
+    {% else %}
+      <p>No upcoming film.
+    {% endif %}
+  {% elif event and not has_registered %}
+    <p>
+      You must <a href="{{ next_event_register_url }}">update the calender</a>
+      in order to see the what the upcoming film <em>might be</em>.
+  {% elif not has_fully_voted %}
+    <p>
+      You must <a href="{% url 'votes:vote-create' %}">vote for all films</a>
+      in order to see the what the upcoming film <em>might be</em>.
+  {% endif %}
+
+  {% if event %}
+    <h2>Register</h2>
+    <ol>
+      {% for user in present_users %}
+        <li>🗹 {{ user.username }}
+      {% endfor %}
+      {% for user in absent_users %}
+        <li>🗷 {{ user.username }}
+      {% endfor %}
+      {% for user in unknown_users %}
+        <li>☐ {{ user.username }}
+      {% endfor %}
+    </ol>
+  {% endif %}
+{% endblock %}
