@@ -1,0 +1,4 @@
+[console_scripts]
+ohmyddl = ohmyddl.__main__:web
+ohmyddl-cli = ohmyddl.__main__:main
+
