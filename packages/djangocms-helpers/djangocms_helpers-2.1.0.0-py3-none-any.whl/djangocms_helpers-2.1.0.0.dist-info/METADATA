@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: djangocms-helpers
+Version: 2.1.0.0
+Summary: A set of fixes, patches and utils for django-cms
+Requires-Dist: django (<3,>=2.2)
+Requires-Dist: django-fieldsignals (>=0.4.0)
+Requires-Dist: django-meta
+
+Source Code = https://gitlab.com/what-digital/djangocms-helpers
+Home-page: https://gitlab.com/what-digital/djangocms-helpers
+Author: Victor
+Author-email: victor@what.digital
+License: MIT
+Description: UNKNOWN
+Keywords: django
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python3
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django CMS
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
