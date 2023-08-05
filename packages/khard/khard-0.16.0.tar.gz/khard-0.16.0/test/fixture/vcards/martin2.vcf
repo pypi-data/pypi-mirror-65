@@ -1,0 +1,30 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Dr. Martin F. Krafft
+N:Krafft;Martin;Felix;Dr.
+ADR;PREF=1;TYPE=work,intl,parcel,postal:;;Widenmayerstraße 17;München;;80538;de
+ADR;PREF=2;TYPE=home,intl,parcel,postal:;c/o Thomas Krafft;Agnesstraße 56;München;;80798;de
+ADR;PREF=99;TYPE=postal:;Scanbox #02357;Ehrenbergstraße 16a;Berlin;;10245;de
+ADR;PREF=1;TYPE=home,parcel,postal:;;15 Stafford Street;Mount Victoria;Wellington;6011;nz
+BDAY:19790214
+EMAIL;TYPE=home:madduck@madduck.net
+EMAIL;TYPE=work:mail@martin-krafft.net
+KEY;VALUE=uri:http://martin-krafft.net/contact/999bbcc4.gpg
+IMPP:xmpp:madduck@madduck.net
+NICKNAME:madduck
+SEX:1
+SOURCE:http://martin-krafft.net/contact/mkrafft.vcf
+TEL;PREF=1;TYPE=VOICE,MSG:+41 32 5119511
+TEL;PREF=1;TYPE=VOICE,MSG:+49 89 420951852
+TEL;PREF=1;TYPE=VOICE:sip:madduck@madduck.net
+TEL;PREF=2;TYPE=VOICE,CELL,TEXT:+49 177 8508032
+TEL;PREF=2;TYPE=VOICE,CELL,TEXT:+64 21 1100938
+TEL;PREF=3;TYPE=VOICE,WORK:+64 4 8032251
+TEL;TYPE=FAX:+49 89 46229839
+URL;PREF=1;TYPE=work:http://martin-krafft.net
+URL;PREF=2;TYPE=home:http://madduck.net
+X-ANNIVERSARY:20120203
+X-TWITTER:martinkrafft
+X-MATRIX:@madduck:madduck.net
+UID:urn:uuid:e3043d60-2fda-489d-a863-2f150a03cd9b
+END:VCARD

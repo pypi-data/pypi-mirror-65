@@ -1,0 +1,8 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.9.5//EN
+UID:person-with-labeled-private-date
+FN:person with labeled private date
+item1.X-ABDATE;TYPE=pref:2019-10-17
+item1.X-ABLABEL:fancy date
+END:VCARD
