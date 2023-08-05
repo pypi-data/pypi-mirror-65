@@ -1,0 +1,11 @@
+#!/bin/sh
+
+PANIC=$(python2 -c "import imp;print(imp.find_module('panic')[1])")
+
+CMD="python2 $PANIC/gui/gui.py"
+
+echo ${CMD} $*
+$CMD $*
+
+
+
