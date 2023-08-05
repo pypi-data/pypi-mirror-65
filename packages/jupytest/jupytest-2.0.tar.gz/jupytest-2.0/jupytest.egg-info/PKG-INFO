@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: jupytest
+Version: 2.0
+Summary: Unit and integration testing in a Jupyter notebook
+Home-page: https://github.com/hamelin/jupytest
+Author: Benoit Hamelin
+Author-email: benoit@benoithamelin.com
+License: BSD 3-Clause
+Description: You like the super-short try-until-succeed development cycle that comes from
+        implementing code in a Jupyter notebook? You would also like to perform your
+        development with a bit of discipline, writing repeatable unit and integration
+        tests as you go? This Python package is for you.
+        
+        You can start your notebook by instantiating a test suite, and as you
+        test-driven-develop your code (or something), you add tests to that suite.
+        These tests are run as you go. The test suite accumulates your test results
+        and can produce a report at the end. The package also includes an executable
+        script that will take your notebook of tests as input, run it all from the
+        command line, and write a nice result report to the shell -- or some raw test
+        result data structure, if that's how you fly.
+        
+        Find out more on `jupytest <https://github.com/hamelin/jupytest>`_'s Github
+        repository.
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
