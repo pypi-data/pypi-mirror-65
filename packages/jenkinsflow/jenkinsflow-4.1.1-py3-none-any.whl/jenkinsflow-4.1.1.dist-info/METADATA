@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: jenkinsflow
+Version: 4.1.1
+Summary: Python API with high level build flow constructs (parallel/serial) for Jenkins (and Hudson).
+Home-page: https://github.com/lhupfeldt/jenkinsflow
+Author: Lars Hupfeldt Nielsen
+Author-email: lhn@hupfeldtit.dk
+License: BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.6.0
+Description-Content-Type: text/x-rst
+Requires-Dist: atomicfile (<=2.0,>=1.0)
+Requires-Dist: click (>=6.0)
+Requires-Dist: tenjin (>=1.1.1)
+Requires-Dist: requests (<=3.0,>=2.20)
+Requires-Dist: psutil (>=5.6.6)
+Requires-Dist: setproctitle (>=1.1.10)
+Requires-Dist: bottle (>=0.12.1)
+Provides-Extra: test
+Requires-Dist: pytest (<5.4,>=5.3.5) ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.4.0) ; extra == 'test'
+Requires-Dist: pytest-instafail (>=0.3.0) ; extra == 'test'
+Requires-Dist: pytest-xdist (>=1.16) ; extra == 'test'
+Requires-Dist: click (>=6.0) ; extra == 'test'
+Requires-Dist: tenjin (>=1.1.1) ; extra == 'test'
+Requires-Dist: bottle (>=0.12) ; extra == 'test'
+Requires-Dist: objproxies (>=0.9.4) ; extra == 'test'
+Requires-Dist: sphinx (>=2.2.1) ; extra == 'test'
+Requires-Dist: sphinxcontrib-programoutput (>=0.13) ; extra == 'test'
+
+|Build Status| |Coverage| |Documentation Status| |PyPi Package| |License|
+
+jenkinsflow
+===========
+
+Python API with high level build flow constructs (parallel/serial) for
+Jenkins (and Hudson). Allows full scriptable control over the execution
+of Jenkins jobs. Also allows running 'jobs' without using Jenkins (for
+testing without reloading Jenkins jobs).
+
+See INSTALL.md for installation and test setup. See demo/... for some
+usage examples. I don't test continuously on Hudson, but patches are
+welcome.
+
+Thanks to Aleksey Maksimov for contributing various bits, including the
+graph visualization.
+
+.. |Build Status| image:: https://api.travis-ci.org/lhupfeldt/jenkinsflow.svg?branch=master
+   :target: https://travis-ci.org/lhupfeldt/jenkinsflow
+.. |Documentation Status| image:: https://readthedocs.org/projects/jenkinsflow/badge/?version=stable
+   :target: https://jenkinsflow.readthedocs.org/en/stable/
+.. |PyPi Package| image:: https://badge.fury.io/py/jenkinsflow.svg
+   :target: https://badge.fury.io/py/jenkinsflow
+.. |Coverage| image:: https://coveralls.io/repos/github/lhupfeldt/jenkinsflow/badge.svg?branch=master
+   :target: https://coveralls.io/github/lhupfeldt/jenkinsflow?branch=master
+.. |License| image:: https://img.shields.io/github/license/lhupfeldt/jenkinsflow.svg
+   :target: https://github.com/lhupfeldt/jenkinsflow/blob/master/LICENSE.TXT
+
+
