@@ -1,0 +1,18 @@
+ptyprocess
+pyyaml>=5.1
+six
+transitions
+apscheduler
+psutil
+python-dateutil
+pyserial
+
+[:python_version < "3"]
+trollius
+deepdiff==3.3.0
+
+[:python_version == "2.7"]
+futures>=3.0.0
+
+[:python_version > "3"]
+deepdiff
