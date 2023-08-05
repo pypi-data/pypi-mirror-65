@@ -1,0 +1,16 @@
+README.md
+setup.py
+bert_seq2seq/__init__.py
+bert_seq2seq/bert_dataset.py
+bert_seq2seq/bert_encoder.py
+bert_seq2seq/config.py
+bert_seq2seq/seq2seq_model.py
+bert_seq2seq/tokenizer.py
+bert_seq2seq/utils.py
+bert_seq2seq.egg-info/PKG-INFO
+bert_seq2seq.egg-info/SOURCES.txt
+bert_seq2seq.egg-info/dependency_links.txt
+bert_seq2seq.egg-info/top_level.txt
+bert_seq2seq/model/__init__.py
+bert_seq2seq/model/bert_model.py
+bert_seq2seq/model/roberta_model.py
