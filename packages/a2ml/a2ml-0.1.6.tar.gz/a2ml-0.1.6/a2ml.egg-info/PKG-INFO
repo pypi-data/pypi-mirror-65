@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: a2ml
+Version: 0.1.6
+Summary: A2ML ("Automate AutoML") is a set of scripts to automate Automated Machine Learning workflows from multiple vendors.
+Home-page: https://github.com/augerai/a2ml
+Author: Auger AI
+Author-email: hello@auger.ai
+License: MIT
+Description: A2ML ("Automate AutoML") is a set of scripts to automate Automated Machine Learning workflows from multiple vendors.
+Keywords: augerai aa2ml.cmdl.cmdl:cmdluger ai machine learning automl deeplearn api sdk
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3
+Provides-Extra: testing
+Provides-Extra: docs
+Provides-Extra: azure
+Provides-Extra: azure-local
+Provides-Extra: google
+Provides-Extra: all
