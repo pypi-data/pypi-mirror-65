@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: nsvision
+Version: 0.0.1
+Summary: nsvision - Computer Vision Wrapper built on top of PIL, cv2 and Numpy
+Home-page: https://github.com/Nsemble/nsvision
+Author: Nsemble.ai
+Author-email: admin@nsemble.ai
+License: MIT
+Description: # nsvision
+        nsvision - Computer Vision Wrapper built on top of PIL, cv2 and Numpy
+        
+        ## Installation:
+        ```bash
+        pip install nsvision
+        ```
+        
+        ## Usage:
+        
+        1. Python
+        ```python
+        import nsvision as nv
+        ```
+        
+        2. Command line (split data script)
+        
+        * Syntax
+        
+        ```bash
+        split_data -d path_to_data_folder -r ratio_in_tuple_string
+        ```
+        
+        * example
+        
+        ```bash
+        split_data -d "./cats_vs_dogs" -r "(70,10,10,10)"
+        ```
+Platform: UNKNOWN
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
