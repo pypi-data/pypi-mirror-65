@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: cmdline-image-processor
+Version: 0.2.2
+Summary: Python command line application which analyses images data
+Home-page: https://github.com/webdevAlina1107/ImageAnalysis
+Author: Fugol Alina, Taran Anatoly
+Author-email: webdevAlina@gmail.com
+License: MIT
+Download-URL: https://github.com/webdevAlina1107/ImageAnalysis/archive/0.2.2.tar.gz
+Keywords: IMAGE PROCESSING,CMD,UTILITY,RASTER
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: Click (==7.0)
+Requires-Dist: matplotlib (==3.2.0)
+Requires-Dist: tabulate (==0.8.6)
+Requires-Dist: pandas (==1.0.1)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: rasterio (==1.0.24)
+Requires-Dist: numpy (==1.18.1)
+Provides-Extra: excel
+Requires-Dist: xlsxwriter ; extra == 'excel'
+
+Image processing library
+========================
+
+Brief description
+-----------------
+
+Utility which allows you to store and process field's images.
+Visualize images data using convenient command line interface.
+
+Requirements
+------------
+
+To use this utility you should have installed GDAL and rasterio >= 1.0.24
+
+Utility features
+================
+
+Import
+------
+
+-  Import picture
+-  Import set of pictures
+-  Import with caching statistical data
+
+Export
+------
+
+-  Export images on a certain timeline by id
+-  Export all images into folder
+
+Processing
+----------
+
+-  Calculate all statistical data and print it to screen
+-  Caching calculations into database
+
+Visualization
+-------------
+
+-  Histogram to visualize cloudiness of images on a timeline
+-  Histogram to visualize image bits occurrences of an image
+-  Diagram to visualize multiple data sets statistical data
+
+View database
+-------------
+
+-  Print out all database records onto screen
+-  View head N records
+-  Filter images by multiple ids
+-  Filter images by date
+
+
+
