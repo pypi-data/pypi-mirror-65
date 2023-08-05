@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pysortexif
+Version: 0.2.0
+Summary: Simple package to move photographs to folders, depending on exif timestamp
+Home-page: https://github.com/wiso/pysortexif
+Author: Ruggero Turra
+Author-email: giurrero@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: exifread
+Requires-Dist: pyexiftool
+
+[![Build Status](https://travis-ci.org/wiso/pysortexif.svg?branch=master)](https://travis-ci.org/wiso/pysortexif) [![Coverage Status](https://coveralls.io/repos/github/wiso/pysortexif/badge.svg?branch=master)](https://coveralls.io/github/wiso/pysortexif?branch=master)
+
+# pysortexif
+Organize photographs in folders using exif information
+
+## How to install
+
+pip install pysortexif
+
