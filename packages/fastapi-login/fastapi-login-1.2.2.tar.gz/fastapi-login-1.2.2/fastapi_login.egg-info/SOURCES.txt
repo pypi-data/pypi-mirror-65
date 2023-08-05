@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+fastapi_login/__init__.py
+fastapi_login/exceptions.py
+fastapi_login/fastapi_login.py
+fastapi_login.egg-info/PKG-INFO
+fastapi_login.egg-info/SOURCES.txt
+fastapi_login.egg-info/dependency_links.txt
+fastapi_login.egg-info/not-zip-safe
+fastapi_login.egg-info/requires.txt
+fastapi_login.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_login_manager.py
