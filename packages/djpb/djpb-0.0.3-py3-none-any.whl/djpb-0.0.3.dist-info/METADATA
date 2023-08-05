@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: djpb
+Version: 0.0.3
+Summary: UNKNOWN
+Home-page: https://github.com/scientifichackers/djpb
+Author: Dev Aggarwal,
+Author-email: devxpy@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.8.0
+Requires-Dist: django
+Requires-Dist: protobuf
+Provides-Extra: dev
+Requires-Dist: twine ; extra == 'dev'
+Provides-Extra: drf
+Requires-Dist: django-rest-framework ; extra == 'drf'
+
+UNKNOWN
+
+
