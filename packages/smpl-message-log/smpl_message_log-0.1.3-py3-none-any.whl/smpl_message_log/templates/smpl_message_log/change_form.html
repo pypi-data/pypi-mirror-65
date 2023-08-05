@@ -1,0 +1,58 @@
+{% extends "admin/change_form.html" %}
+
+{% block after_related_objects %}
+<style>
+.message-log-container {
+    max-height: 500px;
+    overflow-y: scroll;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+.message-log-container table {
+    width: 100%;
+}
+.message-log-container table tr td p {
+    margin: 0;
+    padding: 0;
+}
+.message-log-container table tr.level-INFO {
+    background: #d9edf7;
+    color: #31708f;
+}
+.message-log-container table tr.level-ERROR, .message-log-container table tr.level-CRITICAL {
+    background: #ebcccc;
+    color: #a94442;
+}
+.message-log-container table tr.level-DEBUG {
+    background: #fcf8e3;
+    color: #8a6d3b;
+}
+.message-log-container table tr.level-SUCCESS {
+    background: #dff0d8;
+    color: #3c763d;
+}
+.message-log-container table tr td code {
+    display: block;
+    margin-top: 5px;
+    background: #fff;
+    padding: 5px;
+    white-space: pre;
+}
+</style>
+<div class="message-log-container">
+    <table>
+        <colgroup>
+            <col style="width: 80px">
+            <col style="width: 150px">
+            <col>
+        </colgroup>
+        {% for message in original.messages.all %}
+            <tr class="level-{{ message.level }}">
+                <td>{{ message.level }}</td>
+                <td>{{ message.created }}</td>
+                <td>{{ message.as_html|safe }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
