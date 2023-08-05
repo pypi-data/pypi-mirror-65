@@ -1,0 +1,13 @@
+numpy
+
+[dev]
+sphinx
+recommonmark
+sphinx_rtd_theme
+pydoc-markdown
+black
+pytest-cov
+pytest
+gitpython
+coveralls
+coverage<=4.5.4
