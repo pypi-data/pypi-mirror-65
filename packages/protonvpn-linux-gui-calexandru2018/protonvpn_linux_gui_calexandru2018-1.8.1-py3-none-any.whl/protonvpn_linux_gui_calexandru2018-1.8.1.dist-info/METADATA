@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: protonvpn-linux-gui-calexandru2018
+Version: 1.8.1
+Summary: Unofficial Linux GUI client for ProtonVPN
+Home-page: https://github.com/calexandru2018/protonvpn-linux-gui
+Author: calexandru2018
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: X11 Applications :: GTK
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Requires-Dist: protonvpn-cli (==2.2.2)
+Requires-Dist: requests (==2.23.0)
+
+
+The Unofficial Linux GUI for ProtonVPN.
+
+For further information and a usage guide, please view the project page:
+
+https://github.com/calexandru2018/protonvpn-linux-gui
+
+
