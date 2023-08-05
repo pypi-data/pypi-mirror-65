@@ -1,0 +1,4 @@
+[console_scripts]
+oligodimer = oligodimer.cmd.oligodimercli:main
+oligodimer-cfg = oligodimer.web.config:prepare
+
