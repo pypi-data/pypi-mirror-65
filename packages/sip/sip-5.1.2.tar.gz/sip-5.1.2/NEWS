@@ -1,0 +1,24 @@
+v5.1.2 3rd April 2020
+  - The latest version of the module ABI is v12.7.2.
+  - The examples are now included in the sdist.
+  - Bug fixes.
+
+v5.1.1 31st January 2020
+  - Bug fixes.
+
+v5.1.0 6th January 2020
+  - Added the 'minimum-glibc-version' project option to specify the minimum
+    GLIBC version required by the project.  This is used to determine the
+    correct platform tag to use for Linux wheels.
+  - Added the 'build-tag' project option to specify the build tag to be used in
+    the name of a wheel.  sip-wheel has a corresponding '--build-tag' command
+    line option.
+  - The values of list options in pyproject.toml files can now contain
+    environment markers as defined in PEP 508.
+  - Added Project.project_path() to the API.
+
+v5.0.1 19th December 2019
+  - Bug fixes.
+
+v5.0.0 4th October 2019
+  - The release of SIP v5.

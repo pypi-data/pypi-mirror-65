@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Legacy Command Line Tools &#8212; SIP v5.1.2 Reference Guide</title>
+    <link rel="stylesheet" href="_static/riverbank.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="_static/logo_tn.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Specification Files" href="specification_files.html" />
+    <link rel="prev" title="Command Line Tools" href="command_line_tools.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="specification_files.html" title="Specification Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="command_line_tools.html" title="Command Line Tools"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SIP v5.1.2 Reference Guide</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="legacy-command-line-tools">
+<h1>Legacy Command Line Tools<a class="headerlink" href="#legacy-command-line-tools" title="Permalink to this headline">¶</a></h1>
+<p>The command line tools described in this section are provided as an aid in
+moving projects from the SIP v4 build system (such as it is) to the SIP v5
+build system.  They will be removed in SIP v6.</p>
+<div class="section" id="sip5">
+<h2><strong class="program">sip5</strong><a class="headerlink" href="#sip5" title="Permalink to this headline">¶</a></h2>
+<p><strong class="program">sip5</strong> is a drop-in replacement for the <strong class="program">sip</strong> code generator
+included with SIP v4.</p>
+<p>The syntax of the <strong class="program">sip5</strong> command line is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sip5</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="p">[</span><span class="n">specification</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">specification</span></code> is the name of the specification file for the module.  If it
+is omitted then <code class="docutils literal notranslate"><span class="pre">stdin</span></code> is used.</p>
+<p>The full set of command line options is:</p>
+<dl class="option">
+<dt id="cmdoption-sip5-h">
+<code class="sig-name descname">-h</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a help message.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-v">
+<code class="sig-name descname">-V</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the SIP version number.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-a">
+<code class="sig-name descname">-a</code><code class="sig-prename descclassname"> FILE</code><a class="headerlink" href="#cmdoption-sip5-a" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the QScintilla API file to generate.  This file contains a
+description of the module API in a form that the QScintilla editor
+component can use for auto-completion and call tips.  (The file may also be
+used by the SciTE editor but must be sorted first.)  By default the file is
+not generated.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-abi-version">
+<code class="sig-name descname">--abi-version</code><code class="sig-prename descclassname"> VERSION</code><a class="headerlink" href="#cmdoption-sip5-abi-version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The version of the ABI implemented by the <code class="xref py py-mod docutils literal notranslate"><span class="pre">sip</span></code> module is <code class="docutils literal notranslate"><span class="pre">VERSION</span></code>.
+By the default the latest version is used.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-b">
+<code class="sig-name descname">-B</code><code class="sig-prename descclassname"> TAG</code><a class="headerlink" href="#cmdoption-sip5-b" title="Permalink to this definition">¶</a></dt>
+<dd><p>The tag is added to the list of <em>backstops</em>.  The option may be given more
+than once if multiple timelines have been defined.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-c">
+<code class="sig-name descname">-c</code><code class="sig-prename descclassname"> DIR</code><a class="headerlink" href="#cmdoption-sip5-c" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the directory (which must exist) into which all of the
+generated C or C++ code is placed.  By default no code is generated.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-d">
+<code class="sig-name descname">-D</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code is generated for a debug build of Python.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-e">
+<code class="sig-name descname">-e</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Support for C++ exceptions is enabled.  This causes all calls to C++ code
+to be enclosed in <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks and C++ exceptions to be
+converted to Python exceptions.  By default exception support is disabled.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-f">
+<code class="sig-name descname">-f</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warnings are handled as if they were errors and the program terminates.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-g">
+<code class="sig-name descname">-g</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-g" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Python GIL is released before making any calls to the C/C++ library
+being wrapped and reacquired afterwards.  See <a class="reference internal" href="other_topics.html#ref-gil"><span class="std std-ref">The Python Global Interpreter Lock</span></a> and the
+<a class="reference internal" href="annotations.html#function-annotation-ReleaseGIL"><code class="xref std std-fanno docutils literal notranslate"><span class="pre">ReleaseGIL</span></code></a> and <a class="reference internal" href="annotations.html#function-annotation-HoldGIL"><code class="xref std std-fanno docutils literal notranslate"><span class="pre">HoldGIL</span></code></a> annotations.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-i">
+<code class="sig-name descname">-I</code><code class="sig-prename descclassname"> DIR</code><a class="headerlink" href="#cmdoption-sip5-i" title="Permalink to this definition">¶</a></dt>
+<dd><p>The directory is added to the list of directories searched when looking for
+a specification file given in an <a class="reference internal" href="directives.html#std:directive-%Include"><code class="xref std std-directive docutils literal notranslate"><span class="pre">%Include</span></code></a> or
+<a class="reference internal" href="directives.html#std:directive-%Import"><code class="xref std std-directive docutils literal notranslate"><span class="pre">%Import</span></code></a> directive.  Directory separators must always be <code class="docutils literal notranslate"><span class="pre">/</span></code>.
+This option may be given any number of times.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-j">
+<code class="sig-name descname">-j</code><code class="sig-prename descclassname"> FILES</code><a class="headerlink" href="#cmdoption-sip5-j" title="Permalink to this definition">¶</a></dt>
+<dd><p>The generated code is split into the given number of files.  This makes it
+easier to use the parallel build facility of most modern implementations of
+<code class="docutils literal notranslate"><span class="pre">make</span></code>.  By default 1 file is generated for each C structure or C++
+class.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-n">
+<code class="sig-name descname">-n</code><code class="sig-prename descclassname"> NAME</code><a class="headerlink" href="#cmdoption-sip5-n" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fully qualified name of the <code class="xref py py-mod docutils literal notranslate"><span class="pre">sip</span></code> module (i.e. including the
+package name).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-o">
+<code class="sig-name descname">-o</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-o" title="Permalink to this definition">¶</a></dt>
+<dd><p>Docstrings will be automatically generated that describe the signature of
+all functions, methods and constructors.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-p">
+<code class="sig-name descname">-P</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-p" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default SIP generates code to provide access to protected C++ functions
+from Python.  On some platforms (notably Linux, but not Windows) this code
+can be avoided if the <code class="docutils literal notranslate"><span class="pre">protected</span></code> keyword is redefined as <code class="docutils literal notranslate"><span class="pre">public</span></code>
+during compilation.  This can result in a significant reduction in the size
+of a generated Python module.  This option disables the generation of the
+extra code.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-r">
+<code class="sig-name descname">-r</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Debugging statements that trace the execution of the bindings are
+automatically generated.  By default the statements are not generated.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-s">
+<code class="sig-name descname">-s</code><code class="sig-prename descclassname"> SUFFIX</code><a class="headerlink" href="#cmdoption-sip5-s" title="Permalink to this definition">¶</a></dt>
+<dd><p>The suffix to use for generated C or C++ source files.  By default <code class="docutils literal notranslate"><span class="pre">.c</span></code>
+is used for C and <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> for C++.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-t">
+<code class="sig-name descname">-t</code><code class="sig-prename descclassname"> TAG</code><a class="headerlink" href="#cmdoption-sip5-t" title="Permalink to this definition">¶</a></dt>
+<dd><p>The SIP version tag (declared using a <a class="reference internal" href="directives.html#std:directive-%Timeline"><code class="xref std std-directive docutils literal notranslate"><span class="pre">%Timeline</span></code></a> directive) or
+the SIP platform tag (declared using the <a class="reference internal" href="directives.html#std:directive-%Platforms"><code class="xref std std-directive docutils literal notranslate"><span class="pre">%Platforms</span></code></a> directive)
+to generate code for.  This option may be given any number of times so long
+as the tags do not conflict.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-w">
+<code class="sig-name descname">-w</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sip5-w" title="Permalink to this definition">¶</a></dt>
+<dd><p>The display of warning messages is enabled.  By default warning messages
+are disabled.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-x">
+<code class="sig-name descname">-x</code><code class="sig-prename descclassname"> FEATURE</code><a class="headerlink" href="#cmdoption-sip5-x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The feature (declared using the <a class="reference internal" href="directives.html#std:directive-%Feature"><code class="xref std std-directive docutils literal notranslate"><span class="pre">%Feature</span></code></a> directive) is
+disabled.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="id1">
+<code class="sig-name descname">-X</code><code class="sig-prename descclassname"> ID:FILE</code><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd><p>The extract (defined with the <a class="reference internal" href="directives.html#std:directive-%Extract"><code class="xref std std-directive docutils literal notranslate"><span class="pre">%Extract</span></code></a> directive) with the
+identifier <code class="docutils literal notranslate"><span class="pre">ID</span></code> is written to the file <code class="docutils literal notranslate"><span class="pre">FILE</span></code>.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-sip5-y">
+<code class="sig-name descname">-y</code><code class="sig-prename descclassname"> FILE</code><a class="headerlink" href="#cmdoption-sip5-y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the Python type hints stub file to generate.  This file
+contains a description of the module API that is compliant with PEP 484.
+By default the file is not generated.</p>
+</dd></dl>
+
+<p>Command line options can also be placed in a file and passed on the command
+line using the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> prefix.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Legacy Command Line Tools</a><ul>
+<li><a class="reference internal" href="#sip5"><strong class="program">sip5</strong></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="command_line_tools.html"
+                        title="previous chapter">Command Line Tools</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="specification_files.html"
+                        title="next chapter">Specification Files</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="specification_files.html" title="Specification Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="command_line_tools.html" title="Command Line Tools"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SIP v5.1.2 Reference Guide</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Riverbank Computing Limited.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.2.
+    </div>
+  </body>
+</html>
