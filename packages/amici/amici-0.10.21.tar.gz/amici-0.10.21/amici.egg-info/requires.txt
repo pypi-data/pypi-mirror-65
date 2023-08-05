@@ -1,0 +1,12 @@
+sympy
+python-libsbml
+h5py
+pandas
+pkgconfig
+wurlitzer
+
+[petab]
+petab==0.1.7
+
+[pysb]
+pysb>=1.11.0
