@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: sqlight
+Version: 2.0.1
+Summary: A lightweight wrapper around SQLite, MySQL, PostgreSQL.
+Home-page: https://github.com/laomafeima/sqlight
+Author: laoma
+License: http://www.apache.org/licenses/LICENSE-2.0
+Project-URL: Documentation, https://github.com/laomafeima/sqlight
+Project-URL: Source, https://github.com/laomafeima/sqlight
+Description: # SQLight
+        A lightweight wrapper around SQLite, MySQL, PostgreSQL.
+        
+        
+        ## Install
+        
+        ```
+        pip3 install sqlight
+        ```
+        
+        ## Usgae
+        
+        ```
+        import sqlight
+        
+        conn = sqlight.Connection("sqlite:///:memory:?isolation_level=DEFERRED")
+        conn.connect()
+        result = conn.get("select * from test where id = ?", 1)
+        
+        ```
+        For more examples, please read to tests
+        
+        
+Keywords: sqlite sqlite3 mysql postgresql postgre lightweight wrapper
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
