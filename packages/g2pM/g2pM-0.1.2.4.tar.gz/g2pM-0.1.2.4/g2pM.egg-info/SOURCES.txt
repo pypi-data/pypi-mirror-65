@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+g2pM/__init__.py
+g2pM/char2idx.pkl
+g2pM/class2idx.pkl
+g2pM/digest_cedict.pkl
+g2pM/g2pM.py
+g2pM/np_ckpt.pkl
+g2pM.egg-info/PKG-INFO
+g2pM.egg-info/SOURCES.txt
+g2pM.egg-info/dependency_links.txt
+g2pM.egg-info/top_level.txt
