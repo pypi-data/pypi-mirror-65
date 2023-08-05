@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: figure-sdk
+Version: 0.3.0
+Summary: Figure SDK for Python
+Home-page: https://github.com/Postcard/figure-sdk-python
+Author: Figure
+Author-email: benoit@figure.co
+License: MIT
+Download-URL: https://github.com/Postcard/figure-sdk-python/archive/v0.2.0.tar.gz
+Keywords: figure api sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.23.0)
+
+UNKNOWN
+
+
