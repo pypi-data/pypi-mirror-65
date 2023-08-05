@@ -1,0 +1,11 @@
+python-dotenv
+pysm
+discord.py
+
+[dev]
+black
+pytest
+pytest-asyncio
+pytest-cov
+pytest-xdist
+bump2version
