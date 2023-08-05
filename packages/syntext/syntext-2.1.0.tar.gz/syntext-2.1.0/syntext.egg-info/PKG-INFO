@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: syntext
+Version: 2.1.0
+Summary: A markdownish markup language.
+Home-page: http://darrenmulholland.com/docs/syntext/
+Author: Darren Mulholland
+Author-email: UNKNOWN
+License: Public Domain
+Description: 
+        Syntext
+        =======
+        
+        Syntext is a lightweight, markdownish markup language for generating HTML from
+        plain text. This package can be used as both a command line tool and an importable library.
+        
+        On the command line::
+        
+            $ syntext < input.txt > output.html
+        
+        As a library::
+        
+            >>> import syntext
+            >>> html = syntext.render(text)
+        
+        See the `package documentation <http://darrenmulholland.com/docs/syntext/>`_ or the
+        project's `Github homepage <https://github.com/dmulholland/syntext>`_ for
+        further details.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: Public Domain
+Classifier: Topic :: Text Processing :: Markup :: HTML
