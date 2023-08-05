@@ -1,0 +1,15 @@
+# Core library
+numpy
+colr
+srsly
+pydantic>=1.0.0
+click
+wasabi
+
+# OpenAI Gym environments
+gym
+
+# ML model agents
+tensorflow>=2.1.0
+tensorflow_probability
+keras-self-attention
