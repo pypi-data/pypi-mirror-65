@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: unetpy
+Version: 3.1.0
+Summary: Unet Python Gateway
+Home-page: https://github.com/org-arl/unet-contrib/tree/master/unetsocket/python
+Author: Mandar Chitre, Prasad Anjangi
+Author-email: mandar@arl.nus.edu.sg, prasad@subnero.com
+License: BSD (3-clause)
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3
+Requires-Dist: numpy (>=1.11)
+Requires-Dist: fjagepy (>=1.7.0)
+
+Python API for UnetStack
+========================
+
+This python package `unetpy` provides UnetSocket APIs to interact with any modems running UnetStack. The `unetpy` package is built upon `fjagepy`. This package allows the developers and users to interact with the modem using an interface implementd in python. All the requests made to the modem are using JSON messages. The relevant JSON messages are constructed and sent over some low level networked connection like TCP. The UnetStack server running on the modem understands these messages, takes corresponding actions and returns the notifications and/or responses back in the form of JSON messages which are parsed by `unetpy`.
+
+
+Usage
+-----
+
+Installation::
+
+    pip install unetpy
+
+To import all general modules::
+
+    from unetpy import *
+
+Sample notebook:
+
+    `python-gateway-tutorial.ipynb <https://github.com/org-arl/unet-contrib/blob/master/unetsocket/python/python-gateway-tutorial.ipynb>`_
+
+Useful links
+------------
+
+        * `unetpy home <https://github.com/org-arl/unet-contrib/tree/master/contrib/Unet-Python-API>`_
+        * `Unet project home <http://www.unetstack.net>`_
+
+
