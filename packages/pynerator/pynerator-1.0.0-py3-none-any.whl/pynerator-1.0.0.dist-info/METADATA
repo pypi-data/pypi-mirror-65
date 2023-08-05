@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: pynerator
+Version: 1.0.0
+Summary: A GUI for generate random passwords
+Home-page: https://github.com/jeffrichardchemistry/pynerator
+Author: Jefferson Richard
+Author-email: jrichardquimica@gmail.com
+License: GNU General Public License v3.0
+Keywords: Password random generate GUI
+Platform: UNKNOWN
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: PyQt5 (==5.10)
+
+# About
+<p>Pynerator is a simple application to generate random passwords/codes, desenvolved using python and pyqt5.</p>
+
+# Install
+<b>Via pip</b><br>
+pip3 install pynerator
+
+<b>Via github</b><br>
+git clone https://github.com/jeffrichardchemistry/pynerator
+
+cd pynerator
+
+python3 setup.py install
+
+# Run
+<b>In a terminal</b>
+
+python3 -m pynerator
+
+<b>As a module</b><br>
+from pynerator import pyneratorgui
+
+pyneratorgui.runGUI()
+
+
