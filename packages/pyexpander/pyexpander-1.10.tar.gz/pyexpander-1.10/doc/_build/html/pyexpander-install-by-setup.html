@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing pyexpander by running setup.py &mdash; pyexpander 1.10 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="python2" href="modules.html" />
+    <link rel="prev" title="Installing pyexpander" href="pyexpander-install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyexpander
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to pyexpander</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#macro-substitution">Macro substitution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference-expander.html">pyexpander reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference-expander.html#a-note-on-python-versions">A note on Python versions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#short-version">Short version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#background">Background</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference-expander.html#syntax-of-the-pyexpander-language">Syntax of the pyexpander language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#the-meaning-of-the-dollar-sign">The meaning of the dollar sign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#comments">Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#commands">Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#executing-python-statements">Executing python statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#line-continuation">Line continuation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#substitutions">Substitutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#default-values-for-variables">Default values for variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#variable-scopes">Variable scopes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#extending-the-pyexpander-language">Extending the pyexpander language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#conditionals">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#while-loops">While loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#for-loops">For loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#macros">macros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#include-files">Include files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#safe-mode">Safe mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#commands-for-epics-macro-substitution">Commands for EPICS macro substitution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference-expander.html#internals">Internals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#pyexpander-parser">pyexpander.parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#pyexpander-lib">pyexpander.lib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference-expander.html#scripts-provided-by-the-package">Scripts provided by the package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#expander-py">expander.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference-expander.html#msi2pyexpander-py">msi2pyexpander.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="epics-support.html">EPICS support in pyexpander</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="epics-support.html#setting-the-name-of-the-template-file">Setting the name of the template file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="epics-support.html#the-subst-command">The “subst” command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="epics-support.html#the-pattern-command">The “pattern” command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="epics-support.html#differences-to-the-epics-msi-tool">Differences to the EPICS msi tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python3.html">pyexpander for users not familiar with python version 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python3.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python3.html#comments">Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python3.html#a-word-on-indentation">A word on indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python3.html#defining-variables">Defining variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python3.html#literals">Literals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python3.html#setting-more-than-one-variable">Setting more than one variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python3.html#simple-expressions">Simple expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python3.html#mathematical-functions">Mathematical functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python3.html#string-expressions">String expressions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python3.html#for-loops">For loops</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expander-options.html">expander.py and expander2.py command line options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#h"><code class="docutils literal notranslate"><span class="pre">-h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#summary"><code class="docutils literal notranslate"><span class="pre">--summary</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#f-file-file-file"><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">FILE</span> <span class="pre">--file</span> <span class="pre">FILE</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#encoding"><code class="docutils literal notranslate"><span class="pre">--encoding</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#output-encoding"><code class="docutils literal notranslate"><span class="pre">--output-encoding</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#eval"><code class="docutils literal notranslate"><span class="pre">--eval</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#i-path-include-path"><code class="docutils literal notranslate"><span class="pre">-I</span> <span class="pre">PATH</span> <span class="pre">--include</span> <span class="pre">PATH</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#s-simple-vars"><code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">--simple-vars</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#a-auto-continuation"><code class="docutils literal notranslate"><span class="pre">-a</span> <span class="pre">--auto-continuation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#i-auto-indent"><code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">--auto-indent</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="expander-options.html#no-stdin-msg"><code class="docutils literal notranslate"><span class="pre">--no-stdin-msg</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="msi2pyexpander-options.html">msi2pyexpander.py and msi2pyexpander2.py command line options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="msi2pyexpander-options.html#h"><code class="docutils literal notranslate"><span class="pre">-h</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="msi2pyexpander-options.html#summary"><code class="docutils literal notranslate"><span class="pre">--summary</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="msi2pyexpander-options.html#s-substitutionfile"><code class="docutils literal notranslate"><span class="pre">-S</span> <span class="pre">--substitutionfile</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="msi2pyexpander-options.html#o-file-outputfile-file"><code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">FILE</span> <span class="pre">--outputfile</span> <span class="pre">FILE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyexpander-install.html">Installing pyexpander</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyexpander-install.html#parts-of-pyexpander">Parts of pyexpander</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyexpander-install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyexpander-install.html#install-from-pypi-with-pip">Install from pypi with pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyexpander-install.html#install-from-a-debian-package">Install from a debian package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyexpander-install.html#install-from-a-rpm-package">Install from a rpm package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyexpander-install.html#install-from-source-tar-gz-or-zip-file">Install from source (tar.gz or zip file)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing pyexpander by running setup.py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-from-source-tar-gz-or-zip-file">Install from source (tar.gz or zip file)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-as-root-to-default-directories">Install as root to default directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-to-a-separate-directory">Install to a separate directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-in-your-home">Install in your home</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">python2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyexpander.html">pyexpander package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyexpander.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyexpander.html#module-pyexpander.lib">pyexpander.lib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyexpander.html#module-pyexpander.parser">pyexpander.parser module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyexpander.html#module-pyexpander">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">pyexpander license</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyexpander</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installing pyexpander by running setup.py</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pyexpander-install-by-setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-pyexpander-by-running-setup-py">
+<h1>Installing pyexpander by running setup.py<a class="headerlink" href="#installing-pyexpander-by-running-setup-py" title="Permalink to this headline">¶</a></h1>
+<p>Note that installing pyexpander this way is a kind of last resort method. You
+usually want to install the program with pip or as a debian or rpm package.
+These methods are described in:</p>
+<p><a class="reference external" href="pyexpander-install">Installing pyexpander</a>.</p>
+<div class="section" id="install-from-source-tar-gz-or-zip-file">
+<h2>Install from source (tar.gz or zip file)<a class="headerlink" href="#install-from-source-tar-gz-or-zip-file" title="Permalink to this headline">¶</a></h2>
+<p>Download the file here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sourceforge.net/projects/pyexpander/files/?source=navbar">pyexpander downloads at Sourceforge</a></p></li>
+</ul>
+<p>unpack the tar.gz file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">xzf</span> <span class="o">&lt;</span><span class="n">PACKAGENAME</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>or unpack the zip file with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unzip</span> <span class="o">&lt;</span><span class="n">PACKAGENAME</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The pyexpander distribution contains the install script “setup.py”. If you install
+pyexpander from source you always invoke this script with some command line options.</p>
+<p>The following chapters are just <em>examples</em> how you could install pyexpander. For a
+complete list of all possibilities see
+<a class="reference external" href="https://docs.python.org/3/install/index.html#install-index">Installing Python Modules</a>.</p>
+<p>The python interpreter you use to start setup.py determines the python version
+(2 or 3) for which pyexpander is installed.</p>
+<p>Note that the python2 version of pyexpander is deprecated. Python 2 will not be
+supported in future versions.</p>
+<p>In order to install for python 3.x use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In order to install for python 2.x use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python2</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Whenever <code class="docutils literal notranslate"><span class="pre">python</span></code> is mentioned in a command line in the following text remember
+to use <code class="docutils literal notranslate"><span class="pre">python2</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span></code> instead.</p>
+<div class="section" id="install-as-root-to-default-directories">
+<h3>Install as root to default directories<a class="headerlink" href="#install-as-root-to-default-directories" title="Permalink to this headline">¶</a></h3>
+<p>This method will install pyexpander on your systems default python library and
+binary directories.</p>
+<p>Advantages:</p>
+<ul class="simple">
+<li><p>You don’t have to modify environment variables in order to use pyexpander.</p></li>
+<li><p>All users on your machine can easily use pyexpander.</p></li>
+</ul>
+<p>Disadvantages:</p>
+<ul class="simple">
+<li><p>You must have root or administrator permissions to install pyexpander.</p></li>
+<li><p>Files of pyexpander are mixed with other files from your system in the same
+directories making it harder to uninstall pyexpander.</p></li>
+</ul>
+<p>For installing pyexpander this way, as user “root” enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-to-a-separate-directory">
+<h3>Install to a separate directory<a class="headerlink" href="#install-to-a-separate-directory" title="Permalink to this headline">¶</a></h3>
+<p>In this case all files of pyexpander will be installed to a separate directory.</p>
+<p>Advantages:</p>
+<ul class="simple">
+<li><p>All pyexpander files are below a directory you specify, making it easy to uninstall
+pyexpander.</p></li>
+<li><p>If you have write access that the directory, you don’t need root or
+administrator permissions.</p></li>
+</ul>
+<p>Disadvantages:</p>
+<ul class="simple">
+<li><p>Each user on your machine who wants to use pyexpander must have the correct
+settings of the environment variables PATH and PYTHONPATH.</p></li>
+</ul>
+<p>For installing pyexpander this way, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">prefix</span> <span class="o">&lt;</span><span class="n">DIR</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where &lt;DIR&gt; is your install directory.</p>
+<p>In order to use pyexpander, you have to change the environment variables PATH and
+PYTHONPATH. Here is an example how you could do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=&lt;DIR&gt;/bin:$PATH
+export PYTHONPATH=&lt;DIR&gt;/lib/python&lt;X.Y&gt;/site-packages:$PYTHONPATH
+</pre></div>
+</div>
+<p>where &lt;DIR&gt; is your install directory and &lt;X.Y&gt; is your python version number.
+You get your python version with this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;from sys import *;stdout.write(&quot;</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="se">\n</span><span class="s1">&quot;%version_info[:2])&#39;</span>
+</pre></div>
+</div>
+<p>You may want to add the environment settings (“export…”) to your shell setup,
+e.g. $HOME/.bashrc or, if your are the system administrator, to the global
+shell setup.</p>
+</div>
+<div class="section" id="install-in-your-home">
+<h3>Install in your home<a class="headerlink" href="#install-in-your-home" title="Permalink to this headline">¶</a></h3>
+<p>In this case all files of pyexpander are installed in a directory in your home called
+“pyexpander”.</p>
+<p>Advantages:</p>
+<ul class="simple">
+<li><p>All pyexpander files are below $HOME/pyexpander, making it easy to uninstall pyexpander.</p></li>
+<li><p>You don’t need root or administrator permissions.</p></li>
+</ul>
+<p>Disadvantages:</p>
+<ul class="simple">
+<li><p>Only you can use this installation.</p></li>
+<li><p>You need the correct settings of environment variables PATH and
+PYTHONPATH.</p></li>
+</ul>
+<p>For installing pyexpander this way, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python setup.py install --home $HOME/pyexpander
+</pre></div>
+</div>
+<p>You must set your environment like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$HOME/pyexpander/bin:$PATH
+export PYTHONPATH=$HOME/pyexpander/lib/python:$PYTHONPATH
+</pre></div>
+</div>
+<p>You may want to add these lines to your shell setup, e.g. $HOME/.bashrc.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modules.html" class="btn btn-neutral float-right" title="python2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyexpander-install.html" class="btn btn-neutral float-left" title="Installing pyexpander" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Helmholtz-Zentrum Berlin GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
