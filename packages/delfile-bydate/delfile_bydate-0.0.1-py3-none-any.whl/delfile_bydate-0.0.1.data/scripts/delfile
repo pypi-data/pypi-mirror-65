@@ -1,0 +1,16 @@
+#!python
+import argparse
+
+# Instantiate the parser
+parser = argparse.ArgumentParser(description='Optional app description')
+parser.add_argument('--p', type=str,
+                    help='part file')
+parser.add_argument('--y', type=str,
+                    help='year of create')
+parser.add_argument('--m', type=str,
+                    help='month of create')
+parser.add_argument('--d', type=str,
+                    help='day of create')
+args = parser.parse_args()
+import delfile_bydate.app as apps
+apps.delete(args.p,args.y,args.m,args.d)
