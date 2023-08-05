@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: sob
+Version: 0.2.13
+Summary: A framework for serializing/deserializing JSON/YAML into python class instances and vice versa
+Home-page: https://github.com/davebelais/sob.git
+Author: David Belais
+Author-email: david@belais.me
+License: MIT
+Keywords: rest api serialization serialize
+Platform: UNKNOWN
+Requires-Python: >=3.6, <4
+Requires-Dist: pyyaml (>=5.3)
+Requires-Dist: iso8601 (>=0.1.12)
+Requires-Dist: more-itertools (>=8.2.0)
+Provides-Extra: dev
+Requires-Dist: wheel (>=0.34.2) ; extra == 'dev'
+Requires-Dist: tox (>=3.14.5) ; extra == 'dev'
+Requires-Dist: pytest (>=5.4.1) ; extra == 'dev'
+Requires-Dist: flake8 (>=3.7.9) ; extra == 'dev'
+Requires-Dist: setuptools-setup-versions (>=0.0.30) ; extra == 'dev'
+Requires-Dist: readme-md-docstrings (>=0.0.8) ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: tox (>=3.14.5) ; extra == 'test'
+Requires-Dist: pytest (>=5.4.1) ; extra == 'test'
+Requires-Dist: flake8 (>=3.7.9) ; extra == 'test'
+Requires-Dist: setuptools-setup-versions (>=0.0.30) ; extra == 'test'
+Requires-Dist: readme-md-docstrings (>=0.0.8) ; extra == 'test'
+
+UNKNOWN
+
+
