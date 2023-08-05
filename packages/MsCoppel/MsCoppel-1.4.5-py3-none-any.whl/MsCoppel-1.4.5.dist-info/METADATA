@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: MsCoppel
+Version: 1.4.5
+Summary: Libreria para microservicios basados en mensajes desdes de una cola de mensajes
+Home-page: UNKNOWN
+Author: Enoi Barrera Guzman
+Author-email: zafiro3000x@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: kafka-python (==2.0.1)
+Requires-Dist: Logbook
+Requires-Dist: asyncio-nats-client (==0.9.2)
+Requires-Dist: jaeger-client (==4.1.0)
+Requires-Dist: fluent-logger (==0.9.3)
+Requires-Dist: Flask (==1.1.1)
+Requires-Dist: coloredlogs (==14.0)
+Requires-Dist: colorama (==0.4.0)
+Requires-Dist: Pygments (==2.6.1)
+
+UNKNOWN
+
+
