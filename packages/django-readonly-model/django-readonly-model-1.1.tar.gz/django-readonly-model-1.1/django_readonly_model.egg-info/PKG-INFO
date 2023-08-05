@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: django-readonly-model
+Version: 1.1
+Summary: The easiest way to create read-only models for django
+Home-page: https://github.com/dorosch/django-readonly-model
+Author: Andrey Doroschenko
+Author-email: dorosch.github.io@yandex.ru
+License: MIT
+Project-URL: Source, https://github.com/dorosch/django-readonly-model
+Description: # django-readonly-model
+        
+        [![Build Status](https://travis-ci.org/dorosch/django-readonly-model.svg?branch=master)](https://travis-ci.org/dorosch/django-readonly-model)
+        [![codecov](https://codecov.io/gh/dorosch/django-project-start/branch/master/graph/badge.svg)](https://codecov.io/gh/dorosch/django-project-start)
+        
+        The easiest way to create read-only models
+        
+        
+        ## Installation
+        
+        Install using `pip`...
+        
+            pip install django-readonly-model
+        
+        
+        ## Example
+        
+        Add `'django_readonly_model'` to your `INSTALLED_APPS` setting.
+        
+            INSTALLED_APPS = [
+                ...
+                'readonly_model',
+            ]
+        
+        And just use:
+        
+        ```python
+        from django.db import models
+        
+        class YourModel(models.Model):
+            """Some fields..."""
+        
+            class Meta:
+                read_only_model = True
+        ```
+        
+Platform: UNKNOWN
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
