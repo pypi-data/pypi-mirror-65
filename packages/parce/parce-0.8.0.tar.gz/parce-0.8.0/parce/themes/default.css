@@ -1,0 +1,244 @@
+/*
+ * Default CSS theme for parce.
+ *
+ * Name "default"
+ * Also serves as template for other themes.
+ */
+
+
+/*
+ * Defaults for a parce DIV/window etc.
+ */
+
+.parce {
+    background: ivory;
+    color: black;
+    font: monospace 12pt;
+}
+
+.parce.current-line {
+    background: rgb(255, 255, 224, 0.5) /* lightyellow with .5 alpha */
+}
+
+.parce.current-line:focus {
+    background: lightyellow;
+}
+
+.parce::selection {
+    background: lightgray;
+    color: white;
+}
+
+.parce::selection:focus {
+    background: dodgerblue;
+    color: white;
+}
+
+
+
+
+/*
+ * inheriting from Name
+ */
+
+.parce
+.name {
+    color: indianred;
+}
+
+.parce
+.attribute {
+    color: dodgerblue;
+}
+
+.parce
+.builtin {
+    color: mediumvioletred;
+}
+
+.parce
+.class {
+    color: darkblue;
+}
+
+.parce
+.symbol {
+    color: darkblue;
+}
+
+.parce
+.constant {
+    color: steelblue;
+}
+
+.parce
+.decorator {
+    color: forestgreen;
+}
+
+.parce
+.exception {
+    color: crimson;
+    font-weight: 600;
+}
+
+.parce
+.function {
+    font-weight: bold;
+    color: mediumblue;
+}
+
+.parce
+.identifier {
+    font-weight: 600;
+    color: saddlebrown;
+}
+
+.parce
+.property {
+    font-weight: 600;
+    color: brown;
+}
+
+.parce
+.tag {
+    color: darkblue;
+    font-weight: 600;
+}
+
+.parce
+.variable {
+    color: blue;
+}
+
+
+/*
+ * inheriting from Delimiter
+ */
+
+.parce
+.operator {
+    color: #592200;
+}
+
+.parce
+.delimiter.operator {
+    color: black;
+    font-weight: 400;
+}
+
+
+/*
+ * inheriting from Literal
+ */
+
+.parce
+.boolean {
+    font-weight: 600;
+    color: slateblue;
+}
+
+.parce
+.char {
+    font-weight: 600;
+    color: darkred;
+}
+
+.parce
+.number {
+    color: darkgoldenrod;
+}
+
+.parce
+.string {
+    color: red;
+}
+
+.parce
+.verbatim {
+    color: darkslategray;
+}
+
+.parce
+.color {
+    color: darkorange;
+}
+
+.parce
+.email {
+    color: royalblue;
+}
+
+.parce
+.url {
+    color: royalblue;
+    text-decoration: dotted underline;
+}
+
+
+/*
+ * Base style classes
+ */
+
+.parce
+.whitespace {
+
+}
+
+.parce
+.text {
+
+}
+
+.parce
+.comment {
+    font-family: serif;
+    font-style: italic;
+    color: dimgray;
+}
+
+.parce
+.delimiter {
+    font-weight: 600;   /* almost bold */
+    color: black;
+}
+
+.parce
+.error {
+    color: red;
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
+.parce
+.escape {
+    color: darkcyan;
+    font-weight: 600;   /* almost bold */
+}
+
+.parce
+.keyword {
+    font-weight: bold;
+    color: black;
+}
+
+.parce
+.literal {
+
+}
+
+.parce
+.pseudo {
+    color: limegreen;
+}
+
+.parce
+.template {
+
+}
+
+.parce
+.alert {
+    color: firebrick;
+    font-weight: bold;
+}
