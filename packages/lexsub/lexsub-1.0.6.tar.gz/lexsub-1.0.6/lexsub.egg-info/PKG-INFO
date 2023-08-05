@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: lexsub
+Version: 1.0.6
+Summary: State of the art Lexical Substitution in Context
+Home-page: https://github.com/anishacharya/LexSub
+Author: Anish Acharya
+Author-email: anishacharya@utexas.edu
+License: UNKNOWN
+Description: ## Setup 
+        ``` 
+        pip3 install lexsub
+         
+        Release: https://pypi.org/project/lexsub/   
+        Version: 1.0.5 
+        ```
+        
+        ## Background
+        The Lexical Substitution task involves selecting and ranking lexical paraphrases for a target word in a given sentential context. In the task, annotators and systems find an alternative substitute word or phrase for a target word in context.
+        The task involves both finding the synonyms and disambiguating the context.
+        To give an example:
+        ```
+        Context: The wine was too strong to drink.
+        Target Word: strong
+        
+        Predicted Candidates (Ranked): 
+        powerful 
+        potent 
+        warm
+        hot 
+        solid 
+        hard 
+        ```
+        
+        *Powerful* and *potent* are much better replacements as indicated by 
+        the score next to them as well. Whereas, all are viable 
+        replacement candidates given the context from a language modeling
+        perspective.   
+        Now notice two important things that is interesting: 
+        * Not all synonyms fit in the context.  
+        (direct lexical substitutions aka synonyms won’t always work)
+        * Not all words that fit in the context preserve the meaning 
+        of the sentence. (LM score doesn’t always correlate)  
+        
+        ## Datasets: 
+        A. *Lexical Substitution*:
+        * [SEMEVAL-2007](http://www.dianamccarthy.co.uk/task10index.html)
+        * [Coinco](https://www.ims.uni-stuttgart.de/en/research/resources/corpora/coinco/)
+        
+        B. *Word Sense Disambiguation:*
+        * [WIC](https://pilehvar.github.io/wic/)
+        * [WSD](http://lcl.uniroma1.it/wsdeval/home)
+        
+        
+        ## References: 
+        1. [SOTA-BERT](https://www.aclweb.org/anthology/P19-1328.pdf)
+        2. [Pre-BERT-SOTA,Melamud](https://www.aclweb.org/anthology/N16-1131.pdf) 
+        3. [PIC- Katrin](https://u.cs.biu.ac.il/~melamuo/publications/melamud_vsm15.pdf)
+        4. [SemBERT, AAAI 2020](https://arxiv.org/pdf/1909.02209.pdf)
+        5. [LIBERT](https://arxiv.org/pdf/1909.02339.pdf) 
+        6. [Morgifier LSTM, ICLR 2020](https://arxiv.org/pdf/1909.01792.pdf)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
