@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+versioneer.py
+protosanity/__init__.py
+protosanity/_version.py
+protosanity/basic.py
+protosanity/protoc.py
+protosanity.egg-info/PKG-INFO
+protosanity.egg-info/SOURCES.txt
+protosanity.egg-info/dependency_links.txt
+protosanity.egg-info/not-zip-safe
+protosanity.egg-info/requires.txt
+protosanity.egg-info/top_level.txt
