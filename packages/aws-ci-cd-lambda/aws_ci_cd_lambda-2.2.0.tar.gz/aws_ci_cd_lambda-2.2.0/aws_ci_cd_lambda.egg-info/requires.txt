@@ -1,0 +1,10 @@
+aws_cdk.core==1.27.0
+aws_cdk.aws_iam==1.27.0
+aws_cdk.custom_resources==1.27.0
+aws_cdk.aws_lambda==1.27.0
+aws_cdk.aws_codecommit==1.27.0
+aws_cdk.aws_codebuild==1.27.0
+aws_cdk.aws_codepipeline==1.27.0
+aws_cdk.aws_codepipeline_actions==1.27.0
+aws_cdk.aws_ec2==1.27.0
+aws-empty-bucket<3.0.0,>=2.0.0

@@ -1,0 +1,3 @@
+include *.txt
+recursive-include aws_ci_cd_lambda *.py
+recursive-include aws_ci_cd_lambda *.sh
