@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: ktnumpy
+Version: 0.1.4
+Summary: Kotlin bindings for Numpy
+Home-page: https://github.com/Kotlin/kotlin-numpy
+Author: JetBrains
+Author-email: UNKNOWN
+License: Apache 2.0
+Platform: Windows
+Platform: Linux
+Platform: Mac OS-X
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Java
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Requires-Dist: numpy (>=1.17)
+
+UNKNOWN
+
+
