@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ory-keto-client
+Version: 0.5.3a2
+Summary: ORY Keto
+Home-page: https://github.com/ory/sdk
+Author: ORY
+Author-email: hi@ory.sh
+License: Apache 2.0
+Keywords: OpenAPI,OpenAPI-Generator,ORY Keto
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+
+Ory Keto is a cloud native access control server providing best-practice patterns (RBAC, ABAC, ACL, AWS IAM Policies, Kubernetes Roles, ...) via REST APIs.  # noqa: E501
+
+
