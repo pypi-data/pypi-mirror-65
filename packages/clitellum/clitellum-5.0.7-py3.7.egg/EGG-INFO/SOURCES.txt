@@ -1,0 +1,17 @@
+README.md
+setup.py
+clitellum/__init__.py
+clitellum/exceptions.py
+clitellum/handlers.py
+clitellum/logger_manager.py
+clitellum/microservices.py
+clitellum/services.py
+clitellum.egg-info/PKG-INFO
+clitellum.egg-info/SOURCES.txt
+clitellum.egg-info/dependency_links.txt
+clitellum.egg-info/requires.txt
+clitellum.egg-info/top_level.txt
+clitellum/channels/__init__.py
+clitellum/channels/amqp.py
+clitellum/channels/channel.py
+clitellum/channels/configuration.py
