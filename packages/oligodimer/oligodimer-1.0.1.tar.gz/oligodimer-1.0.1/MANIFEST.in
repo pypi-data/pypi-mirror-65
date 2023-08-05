@@ -1,0 +1,3 @@
+recursive-include oligodimer/web/static *
+include oligodimer/web/templates/*
+include oligodimer/web/web_config_sample.json

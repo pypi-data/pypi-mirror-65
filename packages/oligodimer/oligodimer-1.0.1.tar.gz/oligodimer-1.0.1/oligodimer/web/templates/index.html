@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title> PrimerServer </title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">   <!-- For IE -->
+        <meta name="renderer" content="webkit">   <!-- For some Chinese web browser -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile device -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" >
+        <!-- Bootstrap-Select plugin CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.min.css') }}" >
+        
+        <!-- font-awesome CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        
+        <!-- JQuery Validation CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/validationEngine.jquery.css') }}" />
+        
+        <!-- Fork me on github -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/gh-fork-ribbon.min.css') }}" />
+        
+        <!-- Back to Top -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/back-to-top.css') }}" />
+        
+        <!-- Own CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container" role="main">
+            <h1>
+                OligoDimer
+                <span class="badge">v{{ver}}</span>
+                <small>Detecting Dimers among Multiple Oligo Sequences</small>
+            </h1>
+
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" id="form-dimer">
+                <div class="row">
+                    <div class="col-md-4">
+                        <fieldset>
+                            <legend><span id="textarea-title">Input</span>
+                                <small><span class="glyphicon glyphicon-question-sign help-icon" data-toggle="modal"
+                                data-target="#input-help"></span></small>
+                            </legend>
+                            <div class="row">
+                                <textarea class="form-control monospace-style validate[required, maxSize[100000]]" rows="20"
+                                style="background-color: #c1f5f7"
+                                placeholder="Refer the help icon to see input format" 
+                                name="query"></textarea>
+                            </div>
+                            <div class="row form-group">
+                                <label class="col-sm-4 control-label">Min. Tm:</label>
+                                <div class="input-group col-sm-4">
+                                    <input type="text" name="min_Tm" value=35 
+                                    class="form-control save-input validate[required, custom[integer]]" />
+                                    <span class="input-group-addon">(&deg;C)</span>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-primary" /> 
+                            <input type="reset"  value="Reset" class="btn btn-default" />
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <i id="running-indicator" class="fa fa-spinner fa-spin fa-4x hidden"></i>
+                        <div class="table-responsive hidden"  id="dimers-result">
+                            <h3>Dimers</h3>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ID 1</th>
+                                        <th>Seq 1</th>
+                                        <th>ID 2</th>
+                                        <th>Seq 2</th>
+                                        <th>Tm (&deg;C)</th>
+                                        <th>Structure</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        <!-- Template for the result HTML: error, for JS use only -->
+        <div class="hidden" id="result-template-error">
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+
+        <!-- Modal for help information -->
+        <div class="modal fade" id="input-help" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Input Help</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 class="page-header">Input format</h4>
+                    <p>Format: One oligo per line, space delimited <code>ID OligoSeq</code></p>
+                    <p>Example:</p>
+                    <pre>
+S1	TGTGATAGAGCCATGCCTA
+S2	ACACTATCTCGGTACGGAT
+S3	TAGGCATGGCTCTATCACA
+S4	TATTTTTGGCTCTATCACA</pre>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // script root
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+
+        <!-- jQuery -->
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <!-- Bootstrap JS -->
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <!-- jQuery Validation -->
+        <script src="{{ url_for('static', filename='js/jquery.validationEngine.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.validationEngine-en.js') }}"></script>
+        <!-- jQuery Saves Form State -->
+        <script src="{{ url_for('static', filename='js/jquery.phoenix.min.js') }}"></script>
+        <!-- Back to Top -->
+        <script src="{{ url_for('static', filename='js/back-to-top.js') }}"></script>
+        <!-- Own JS -->
+        <script src="{{ url_for('static', filename='js/oligodimer.js') }}"></script>
+        
+        <a class="github-fork-ribbon" href="https://github.com/billzt/OligoDimer" title="Fork me on GitHub" \
+        target="_blank">Fork me on GitHub</a>
+
+        <!-- This fake div hidden preloads our web font! -->
+        <div class="div-fake-hidden">
+            <i class="fa fa-spinner fa-spin fa-4x"></i>
+            <span class="glyphicon glyphicon-ok check-mark"></span>
+        </div>
+    </body>
+</html>
