@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: eehelper
+Version: 0.0.1
+Summary: Helper library for Google Earth Engine python API scripts
+Home-page: https://github.com/masseyr/eehelper
+Author: Richard Massey
+Author-email: rm885@nau.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2.7.11
+Description-Content-Type: text/markdown
+Requires-Dist: earthengine-api (>=0.1.175)
+
+# eehelper
+
+Helper library for Google Earth Engine python API scripts
+
+Install using 
+
+`pip install eehelper`
+
+
