@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: plenopticam
+Version: 0.4.1
+Summary: Light field photography application
+Home-page: http://github.com/hahnec/plenopticam
+Author: Christopher Hahne
+Author-email: inbox@christopherhahne.de
+License: GNU GPL V3.0
+Description: PlenoptiCam is an open-source software (macOS, Win or Linux) for scientific light field computation with cross-platform compatibility, few dependencies and a lean graphical user interface.
+        Raw exposures from a plenoptic camera require four-dimensional image alignment in order to be decoded as a light field. Provided software addresses this by its ability to calibrate an image taken by a plenoptic camera and extract sub-aperture images or synthetically focused photographs.
+        This application is meant for researchers, developers, beginners and other fiddlers who like to experiment with light field technology. Its scope comprises custom-types of plenoptic cameras and is thus not limited to Lytro's image data.
+Keywords: lightfield plenoptic rendering engine image processing software application lytro toolbox calibration light field depth refocusing refocus baseline disparity resolution
+Platform: UNKNOWN
+Description-Content-Type: text/x-rst
