@@ -1,0 +1,8 @@
+include README.md
+include COPYRIGHT.txt
+include LICENSE.txt
+exclude .gitignore
+include versioneer.py
+include pixie16/_version.py
+recursive-include docs *
+prune docs/build
