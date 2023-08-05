@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: flipt-grpc-python
+Version: 0.1.0
+Summary: 
+License: Apache-2.0
+Author: David Cramer
+Author-email: dcramer@gmail.com
+Requires-Python: >=2.7,<3.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: grpcio (>=1.28.1,<2.0.0)
+Requires-Dist: grpcio-tools (>=1.28.1,<2.0.0)
+Requires-Dist: protoc-gen-swagger (>=0.1.0,<0.2.0)
