@@ -1,0 +1,5 @@
+[console_scripts]
+tofu-custom = tofu.scripts.tofucustom:main
+tofucalc = tofu.scripts.tofucalc:main
+tofuplot = tofu.scripts.tofuplot:main
+
