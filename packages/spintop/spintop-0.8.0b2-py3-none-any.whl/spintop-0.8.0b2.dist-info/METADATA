@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: spintop
+Version: 0.8.0b2
+Summary: Spintop, the remote supervisor of SpinHub
+Home-page: UNKNOWN
+Author: William Laroche
+Author-email: william.laroche@tackv.ca
+Maintainer: William Laroche
+Maintainer-email: william.laroche@tackv.ca
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: anytree
+Requires-Dist: appdirs
+Requires-Dist: click
+Requires-Dist: cryptography
+Requires-Dist: dataclasses (>=0.6)
+Requires-Dist: dataclasses-serialization
+Requires-Dist: marshmallow-dataclass
+Requires-Dist: gitpython
+Requires-Dist: jinja2
+Requires-Dist: marshmallow (>=3.5)
+Requires-Dist: pkginfo
+Requires-Dist: PyJWT
+Requires-Dist: psutil
+Requires-Dist: pyyaml
+Requires-Dist: python-dateutil
+Requires-Dist: requests
+Requires-Dist: tabulate
+Requires-Dist: tblib
+Requires-Dist: incremental-module-loader
+Requires-Dist: simple-memory-cache
+Requires-Dist: singer-target-postgres
+Requires-Dist: xmltodict
+Provides-Extra: postgres
+Requires-Dist: sqlalchemy ; extra == 'postgres'
+
+UNKNOWN
+
+
