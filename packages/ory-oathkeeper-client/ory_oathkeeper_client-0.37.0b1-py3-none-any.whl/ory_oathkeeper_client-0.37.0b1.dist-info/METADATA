@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ory-oathkeeper-client
+Version: 0.37.0b1
+Summary: ORY Oathkeeper
+Home-page: https://github.com/ory/sdk
+Author: ORY
+Author-email: hi@ory.am
+License: UNKNOWN
+Keywords: OpenAPI,OpenAPI-Generator,ORY Oathkeeper
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+
+ORY Oathkeeper is a reverse proxy that checks the HTTP Authorization for validity against a set of rules. This service uses Hydra to validate access tokens and policies.  # noqa: E501
+
+
