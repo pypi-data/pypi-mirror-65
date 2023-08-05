@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: djangocms-mediaplayer
+Version: 1.1.0
+Summary: A simple and highly customizable audio and video player plugin for the DjangoCMS.
+Home-page: https://github.com/domlysi/djangocms_mediaplayer
+Author: Dominik Lysiak
+Author-email: dominik.lysiak@freenet.de
+License: MIT
+Description: # Media Player Plugin (DjangoCMS)   
+        
+        > A simple but effective and highly customizable media player for DjangoCMS 
+        
+        [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+        
+        Customize your HTML media player easily through overriding the css styles or create custom Templates for your Player.
+        
+        ### Dependencies
+        - django
+        - django-cms
+        - django-sekizai
+        - django-filer
+        
+        
+        **Demo**
+        
+        ![Recordit GIF](https://thumbs.gfycat.com/ClearcutKindBactrian-size_restricted.gif)
+        
+        
+        ---
+        
+        ## Installation
+        
+        - Install from PyPI (or you [manually download from PyPI](https://pypi.org/project/djangocms-mediaplayer/)):
+        ```shell script
+        pip install djangocms-mediaplayer
+        ```
+        
+        - Add `mediaplayer` to you INSTALLED_APPS in django's `settings.py`
+        ```python
+        INSTALLED_APPS = (
+            # other apps
+            "mediaplayer",
+        )
+        ```
+        
+        - Run `migrate`
+        ```shell script
+        python manage.py migrate
+        ```
+        
+        ## License
+        
+        [MIT](LICENSE)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Provides-Extra: test
