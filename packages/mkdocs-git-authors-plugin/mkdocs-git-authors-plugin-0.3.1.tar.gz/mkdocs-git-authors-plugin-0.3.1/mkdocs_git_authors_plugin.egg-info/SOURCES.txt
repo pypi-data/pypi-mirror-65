@@ -1,0 +1,17 @@
+README.md
+setup.py
+mkdocs_git_authors_plugin/__init__.py
+mkdocs_git_authors_plugin/plugin.py
+mkdocs_git_authors_plugin/util.py
+mkdocs_git_authors_plugin.egg-info/PKG-INFO
+mkdocs_git_authors_plugin.egg-info/SOURCES.txt
+mkdocs_git_authors_plugin.egg-info/dependency_links.txt
+mkdocs_git_authors_plugin.egg-info/entry_points.txt
+mkdocs_git_authors_plugin.egg-info/requires.txt
+mkdocs_git_authors_plugin.egg-info/top_level.txt
+mkdocs_git_authors_plugin/git/__init__.py
+mkdocs_git_authors_plugin/git/author.py
+mkdocs_git_authors_plugin/git/command.py
+mkdocs_git_authors_plugin/git/commit.py
+mkdocs_git_authors_plugin/git/page.py
+mkdocs_git_authors_plugin/git/repo.py

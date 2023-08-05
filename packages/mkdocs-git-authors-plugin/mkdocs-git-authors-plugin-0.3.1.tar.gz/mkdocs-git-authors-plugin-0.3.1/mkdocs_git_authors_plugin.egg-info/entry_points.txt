@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+git-authors = mkdocs_git_authors_plugin.plugin:GitAuthorsPlugin
+
