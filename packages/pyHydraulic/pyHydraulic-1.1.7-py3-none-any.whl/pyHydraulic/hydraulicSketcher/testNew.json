@@ -1,0 +1,111 @@
+{
+    "id": 2669321096832,
+    "scene_width": 640000,
+    "scene_height": 640000,
+    "nodes": [
+        {
+            "name": "flow meter2669321121184",
+            "id": 2669321121184,
+            "type": "flow meter",
+            "pos_x": 609.5292091369625,
+            "pos_y": -330.99784851074196,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 200,
+            "height": 400,
+            "value": 0.0,
+            "minValue": 0,
+            "maxValue": 100.0,
+            "unit": "mL",
+            "sockets": [
+                {
+                    "id": 2669321134208,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                },
+                {
+                    "id": 2669321134264,
+                    "index": 1,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "picture2667385910888",
+            "id": 2667385910888,
+            "type": "picture",
+            "pos_x": -476.83715820312466,
+            "pos_y": 484.28773880004826,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 1890,
+            "height": 1890,
+            "text": "Hello world!",
+            "picturePath": "./images/icons/\u5357\u5de5\u6821\u5fbd\u7ea2\u5e95.png",
+            "sockets": []
+        },
+        {
+            "name": "text2667385911112",
+            "id": 2667385911112,
+            "type": "text",
+            "pos_x": 759.9592208862299,
+            "pos_y": -37.25290298461911,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 775,
+            "height": 100,
+            "text": "Hello world!",
+            "sockets": []
+        },
+        {
+            "name": "accumulator2667385836208",
+            "id": 2667385836208,
+            "type": "accumulator",
+            "pos_x": -894.0696716308587,
+            "pos_y": -864.2673492431635,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 300,
+            "height": 750.0,
+            "sockets": [
+                {
+                    "id": 2667385912456,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        },
+        {
+            "name": "gauge2667385912568",
+            "id": 2667385912568,
+            "type": "gauge",
+            "pos_x": 89.40696716308592,
+            "pos_y": -1147.3894119262688,
+            "pos_rotation": 0.0,
+            "pos_scale": 1.0,
+            "layer": 0.0,
+            "width": 300,
+            "height": 600,
+            "value": 0,
+            "minValue": 0,
+            "maxValue": 30,
+            "unit": "MPa",
+            "sockets": [
+                {
+                    "id": 2667385912680,
+                    "index": 0,
+                    "multi_edges": true,
+                    "socket_type": 2
+                }
+            ]
+        }
+    ],
+    "edges": []
+}

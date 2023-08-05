@@ -1,0 +1,84 @@
+{
+	"tank1": {
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 0
+	},
+	"pistonRight1":{
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 0
+	},
+	"gaugeA":{"value":0},
+	"gaugeB":{"value":0},
+	"servo valve1":{"value":-30},
+	"edge1":{"direction":1}
+}
+
+{
+	"tank1": {
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 20
+	},
+	"pistonRight1":{
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 20
+	},
+	"gaugeA":{"value":5},
+	"gaugeB":{"value":5},
+	"servo valve1":{"value":-20},
+	"edge1":{"direction":1}
+}
+{
+	"tank1": {
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 30
+	},
+	"pistonRight1":{
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 30
+	},
+	"gaugeA":{"value":10},
+	"gaugeB":{"value":10},
+	"servo valve1":{"value":-10},
+	"edge1":{"direction":1}
+}
+
+{
+	"tank1": {
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 40
+	},
+	"pistonRight1":{
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 40
+	},
+	"gaugeA":{"value":15},
+	"gaugeB":{"value":15},
+	"servo valve1":{"value":0},
+	"edge1":{"direction":1}
+}
+
+{
+	"tank1": {
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 50
+	},
+	"pistonRight1":{
+		"minValue": 0,
+		"maxValue": 100,
+		"value": 50
+	},
+	"gaugeA":{"value":20},
+	"gaugeB":{"value":20},
+	"servo valve1":{"value":10},
+	"edge1":{"direction":1}
+}
+
