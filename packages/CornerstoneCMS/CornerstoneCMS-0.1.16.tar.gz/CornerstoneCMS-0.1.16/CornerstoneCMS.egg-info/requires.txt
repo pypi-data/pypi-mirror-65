@@ -1,0 +1,15 @@
+Flask
+Flask-Admin
+Flask-Migrate
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-Themes2
+Flask-User
+pyyaml
+serpent
+unidecode
+werkzeug==0.16.1
+
+[dev]
+pytest-cov
+pytest>=3
