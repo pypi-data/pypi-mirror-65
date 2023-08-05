@@ -1,0 +1,45 @@
+<!--TRANSITION WITH REASON DIALOG -->
+<pl-chat-new-chat
+        *ngIf="isNewChatDialogShown()"
+        (create)="dialogConfirmed($event)"
+        (cancel)="dialogCanceled()"
+        [data]="newChatDialogData">
+
+</pl-chat-new-chat>
+
+<div class="peek-nav-section"
+     *ngIf="!isNewChatDialogShown()">
+    <!--
+        The following 'div' groups button to the left of the Nav Bar.
+        Can contain one to many buttons
+    -->
+    <div class="btn-group pull-right"
+         role="group">
+        <button class="nav-section-btn"
+                (click)="newChatClicked()">
+            <fa name="plus"></fa> New Chat
+        </button>
+    </div>
+</div>
+<div class="peek-nav-bar-padding" *ngIf="!isNewChatDialogShown()"></div>
+
+<div class="plugin-chat-list">
+    <!-- Use the template tag syntax, as this works with nativescript too -->
+    <ng-template ngFor let-chat [ngForOf]="chats" let-i="index">
+        <div class="chat-list-messages"
+             [class.bg-info]="!isChatRead(chat)"
+             [class.bg-secondary]="isChatRead(chat)"
+             (click)="chatClicked(chat)">
+
+                <!-- Unread indicator -->
+                <fa class="chat-list-icon" name="comment-o" *ngIf="!isChatRead(chat)"></fa>
+            <div class="chat-list-group">
+
+                <!-- Other Users -->
+                <span class="chat-list-title" *ngFor="let user of otherChatUsers(chat)">
+                    {{userDisplayName(user)}} ({{user.userId}})
+                </span>
+            </div>
+        </div>
+    </ng-template>
+</div>
