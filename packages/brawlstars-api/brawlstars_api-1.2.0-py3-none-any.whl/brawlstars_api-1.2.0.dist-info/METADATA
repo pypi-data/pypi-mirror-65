@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: brawlstars-api
+Version: 1.2.0
+Summary: Brawl Stars API
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Keywords: Swagger,Brawl Stars API
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+Requires-Dist: aiohttp
+
+Brawl Stars API  # noqa: E501
+
+
