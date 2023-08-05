@@ -1,0 +1,49 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc 
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:ionelmc/cookiecutter-pylibrary project-path
+#
+# See:
+#    https://pypi.python.org/pypi/cookiecutter
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=project-path/.cookiecutterrc gh:ionelmc/cookiecutter-pylibrary
+
+default_context:
+
+    appveyor:                  'yes'
+    c_extension_cython:        'no'
+    c_extension_optional:      'no'
+    c_extension_support:       'no'
+    codacy:                    'no'
+    codeclimate:               'no'
+    codecov:                   'yes'
+    command_line_interface:    'no'
+    command_line_interface_bin_name: 'asn1'
+    coveralls:                 'no'
+    distribution_name:         'asn1'
+    email:                     'sebastien@andrivet.com'
+    full_name:                 'Sebastien Andrivet'
+    github_username:           'andrivet'
+    landscape:                 'no'
+    package_name:              'asn1'
+    project_name:              'Python-ASN1'
+    project_short_description: 'Python-ASN1 is a simple ASN.1 encoder and decoder for Python 2.6+ and 3.3+.'
+    release_date:              'today'
+    repo_name:                 'python-asn1'
+    requiresio:                'yes'
+    scrutinizer:               'no'
+    sphinx_doctest:            'yes'
+    sphinx_theme:              'sphinx-py3doc-enhanced-theme'
+    test_matrix_configurator:  'no'
+    test_matrix_separate_coverage: 'no'
+    test_runner:               'pytest'
+    travis:                    'yes'
+    version:                   '2.0.0b1'
+    website:                   'https://github.com/andrivet/python-asn1'
+    year:                      '2007-2016'
