@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: sphinx-scylla-theme
+Version: 0.1.0
+Summary: 
+Author: Nick Volynkin
+Author-email: nick.volynkin@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: sphinx (==1.8.0)
