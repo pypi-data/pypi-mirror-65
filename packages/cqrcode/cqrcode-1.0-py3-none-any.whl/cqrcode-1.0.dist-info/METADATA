@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: cqrcode
+Version: 1.0
+Summary: Generate a QR code that can adapt to the cylinder
+Home-page: https://pypi.org/project/cqrcode/
+Author: jiaming
+Author-email: 837357785@qq.com
+License: MIT
+Keywords: cylinder qrcode
+Platform: UNKNOWN
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Utilities
+Requires-Dist: Pillow (>=6.1.0)
+Requires-Dist: pyzbar (>=0.1.8)
+Requires-Dist: qrcode (>=6.1)
+Requires-Dist: matplotlib (>=3.0.3)
+Requires-Dist: opencv-python (>=4.1.1.26)
+
+V 1.00 - cqrcode
+
+----------------
+
+这是一个生成柱体二维码的程序。
+
+目前能够生成的柱体二维码信息：
+
++ 仅支持二维码编码样式Ⅱ，即部分特殊字符，大写英语字母以及数字编码。
++ 自适应 Version 1~11版本二维码。
++ 具有运行界面。
++ 数据容量范围：6~66 bytes。
++ 没有纠错系统。
++ 没有掩码。
+
+
