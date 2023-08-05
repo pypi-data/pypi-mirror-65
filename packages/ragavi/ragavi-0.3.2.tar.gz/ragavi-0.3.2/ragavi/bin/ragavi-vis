@@ -1,0 +1,11 @@
+#!/usr/bin/env python3.6
+
+from ragavi.arguments import vis_argparser
+#from ragavi.visibilities import main
+
+parser = vis_argparser()
+
+if __name__ == "__main__":
+    options = parser.parse_args()
+    from ragavi.visibilities import main
+    main(options=options)
