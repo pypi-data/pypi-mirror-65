@@ -1,0 +1,191 @@
+Metadata-Version: 2.1
+Name: fpd
+Version: 0.1.10
+Summary: FPD: Fast pixelated detector data storage, analysis and visualisation.
+Home-page: http://gitlab.com/fpdpy/fpd
+Author: Gary Paterson
+Author-email: gary.paterson@glasgow.ac.uk
+License: GPL v3
+Keywords: microscopy,STEM,TEM,fast pixelated detector,fpd,data storage,EMD,hdf5,data analysis,differential phase contrast,DPC,segmented DPC,pixelated DPC,virtual detector,lattice analyis,strain analysis
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Physics
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Requires-Dist: matplotlib
+Requires-Dist: h5py
+Requires-Dist: tqdm
+Requires-Dist: hyperspy
+
+News
+====
+**7 April 2020** - Release 0.1.10 (see [changelog](https://fpdpy.gitlab.io/fpd/changelog.html) for details), updated [notebook](https://gitlab.com/fpdpy/fpd-demos), and a new preprint: **Fast Pixelated Detectors in Scanning Transmission Electron Microscopy. Part II: Post Acquisition Data Processing, Visualisation, and Structural Characterisation, [arXiv (2020)](https://arxiv.org/abs/2004.02777).**
+
+1 March 2020 - Release 0.1.9 with many new features and improvements - see [changelog](https://fpdpy.gitlab.io/fpd/changelog.html) for details.
+
+**18 November 2019** - New preprint: **Fast Pixelated Detectors in Scanning Transmission Electron Microscopy. Part I: Data Acquisition, Live Processing and Storage, [arXiv (2019)](https://arxiv.org/abs/1911.11560).**
+
+4 November 2019 - Release 0.1.8: updates for compatibility with most recent skimage and numpy. 
+
+See https://fpdpy.gitlab.io/fpd/news.html for earlier news.
+
+
+FPD package
+===========
+The fpd package provides code for the storage, analysis and visualisation
+of data from fast pixelated detectors. The data storage uses the hdf5 based 
+EMD file format, and the conversion currently supports the Merlin readout from 
+Medipix3 detectors. Differential phase contrast imaging and several other common
+data analyses, like radial distributions, virtual apertures, and lattice analysis,
+are also implemented, along with many utilities.
+
+The package is relatively lightweight, with most of its few dependencies being
+standard scientific libraries. All calculations run on CPUs and many use 
+out-of-core processing, allowing data to be visualised and processed on anything
+from very modest to powerful hardware.
+
+A degree of optimisation through parallelisation has been implemented. The 
+development environment is Linux; the efficiency may vary on Windows because
+of how forking works, but the Windows 10 Linux subsystem has been reported to
+work well.
+
+
+Citing
+------
+If you find this software useful and use it to produce results in a 
+puplication, please consider citing the website or related paper(s).
+
+An example bibtex entry with the date in the note field yet to be specified:
+
+```
+@Misc{fpd,
+    Title                    = {{FPD: Fast pixelated detector data storage, analysis and visualisation}},
+    howpublished             = {\url{https://gitlab.com/fpdpy/fpd}},
+    note                     = {{Accessed} todays date}
+}
+```
+
+Aspects of the library are covered in papers:
+
+- Fast Pixelated Detectors in Scanning Transmission Electron Microscopy. Part I: Data Acquisition, Live Processing and Storage, [arXiv (2019)](https://arxiv.org/abs/1911.11560).
+
+- Fast Pixelated Detectors in Scanning Transmission Electron Microscopy. Part II: Post Acquisition Data Processing, Visualisation, and Structural Characterisation, [arXiv (2020)](https://arxiv.org/abs/2004.02777).
+
+
+Publications
+------------
+Some of the known scientific papers that used the fpd library are listed below.
+If you use the library for results contributing to a publication, please pass
+the paper details to developers for inclusion in this list.
+
+- Order and disorder in the magnetization of the chiral crystal CrNb3S6, [Phys. Rev. B 99, 224429 (2019)](https://doi.org/10.1103/PhysRevB.99.224429).
+
+- Heisenberg pseudo-exchange and emergent anisotropies in field-driven pinwheel artificial spin ice, [Phys. Rev. B 100, 174410 (2019)](https://doi.org/10.1103/PhysRevB.100.174410).
+
+- Strain Anisotropy and Magnetic Domains in Embedded Nanomagnets, [Small, 1904738 (2019)](https://doi.org/10.1002/smll.201904738).
+
+- Sub-100 nanosecond temporally resolved imaging with the Medipix3 direct electron detector, [Ultramicroscopy, 210, 112917 (2020)](https://doi.org/10.1016/j.ultramic.2019.112917).
+
+- Tensile deformations of the magnetic chiral soliton lattice probed by Lorentz transmission electron microscopy, [arXiv (2019)](https://arxiv.org/abs/1911.09634).
+
+- Spontaneous creation and annihilation dynamics and strain-limited stability of magnetic skyrmions, [arXiv (2019)](https://arxiv.org/abs/1911.10094).
+
+- Fast Pixelated Detectors in Scanning Transmission Electron Microscopy. Part I: Data Acquisition, Live Processing and Storage, [arXiv (2019)](https://arxiv.org/abs/1911.11560).
+
+- Fast Pixelated Detectors in Scanning Transmission Electron Microscopy. Part II: Post Acquisition Data Processing, Visualisation, and Structural Characterisation, [arXiv (2020)](https://arxiv.org/abs/2004.02777).
+
+
+Installation
+------------
+The package currently supports both python versions 2.7 and 3.x. Hyperspy is
+used in a few places but most of the fpd module can be used without it being 
+installed (simply install the package dependencies manually and ignore them when
+using pip by adding ``--no-deps`` to the install command).
+
+Installation from source:
+
+```bash
+pip3 install --user .
+```
+
+Instalation from PyPI (https://pypi.org/project/fpd/):
+
+```bash
+pip3 install --user fpd
+```
+
+``-U`` can be added to force an upgrade / reinstall; in combination with ``--no-deps``,
+only the ``fpd`` package will be reinstalled.
+
+The package can be removed with:
+
+```bash
+pip3 uninstall fpd
+```
+
+
+Usage
+-----
+In python or ipython:
+
+```python
+import fpd
+d = fpd.DPC_Explorer(-64)
+```
+
+```python
+import fpd.fpd_processing as fpdp
+rtn = fpdp.phase_correlation(data, 32, 32)
+```
+where `data` is any array-like object. For example, this can be an in-memory 
+numpy array, an hdf5 object on disk, or a dask array, such as that used in 
+'lazy' hyperspy signals.
+
+All functions and classes are documented and can be read, for example, in `ipython`
+by appending a `?` to the object. E.g.:
+
+```python
+import fpd
+fpd.DPC_Explorer?
+```
+
+Documentation
+-------------
+Release: https://fpdpy.gitlab.io/fpd/
+
+Development version: https://gitlab.com/fpdpy/fpd/builds/artifacts/master/file/pages_development/index.html?job=pages_development
+
+Notebook demos: https://gitlab.com/fpdpy/fpd-demos.
+
+Further documentation and examples will be made available over time.
+
+
+Related projects
+----------------
+
+https://www.gla.ac.uk/schools/physics/research/groups/mcmp/researchareas/pixstem/
+
+http://quantumdetectors.com/stem/
+
+https://gitlab.com/fast_pixelated_detectors/merlin_interface
+
+https://gitlab.com/fast_pixelated_detectors/fpd_live_imaging
+
+https://gitlab.com/pixstem/pixstem
+
+https://emdatasets.com/format
+
+http://hyperspy.org/
+
+http://gwyddion.net/
+
+More packages will be added to the https://gitlab.com/fast_pixelated_detectors
+group as they develop.
+
+
+
