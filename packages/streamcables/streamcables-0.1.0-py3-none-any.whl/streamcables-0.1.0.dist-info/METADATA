@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: streamcables
+Version: 0.1.0
+Summary: Syndicate audio streaming metadata to webservices.
+Home-page: UNKNOWN
+License: MIT
+Author: Sander van Dragt
+Author-email: sander@vandragt.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: appdirs (>=1.4,<2.0)
+Requires-Dist: beautifulsoup4 (>=4.8,<5.0)
+Requires-Dist: maya (>=0.6.1,<0.7.0)
+Requires-Dist: requests (>=2.23,<3.0)
+Requires-Dist: toml (>=0.10.0,<0.11.0)
+Requires-Dist: tweepy (>=3.8,<4.0)
