@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+bin/snoopdroid
+snoopdroid/__init__.py
+snoopdroid/acquisition.py
+snoopdroid/constants.py
+snoopdroid/koodous.py
+snoopdroid/ui.py
+snoopdroid/utils.py
+snoopdroid/virustotal.py
+snoopdroid.egg-info/PKG-INFO
+snoopdroid.egg-info/SOURCES.txt
+snoopdroid.egg-info/dependency_links.txt
+snoopdroid.egg-info/requires.txt
+snoopdroid.egg-info/top_level.txt
