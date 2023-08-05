@@ -1,0 +1,8 @@
+
+[async]
+aiohttp[speedups]
+nest_asyncio
+
+[docs]
+sphinx
+sphinx-rtd-theme
