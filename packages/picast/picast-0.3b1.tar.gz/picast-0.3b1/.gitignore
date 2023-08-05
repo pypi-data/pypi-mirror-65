@@ -1,0 +1,17 @@
+*.pyc
+.venv
+venv
+build
+dist
+tmp
+*.egg-info
+.idea
+__pycache__
+__pypackages__
+.benchmarks
+.coverage
+*.egg-info
+.tox
+/docs/_build
+type_info.json
+.mypy_cache
