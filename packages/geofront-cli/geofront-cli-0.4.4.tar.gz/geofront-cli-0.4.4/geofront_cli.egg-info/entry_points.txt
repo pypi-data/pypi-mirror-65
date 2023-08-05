@@ -1,0 +1,5 @@
+
+        [console_scripts]
+        geofront-cli = geofrontcli.cli:main
+        gfg = geofrontcli.cli:main_go
+    
