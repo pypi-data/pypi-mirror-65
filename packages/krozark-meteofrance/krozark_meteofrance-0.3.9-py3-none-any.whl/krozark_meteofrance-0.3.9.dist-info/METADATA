@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: krozark-meteofrance
+Version: 0.3.9
+Summary: Meteo-France weather forecast
+Home-page: https://github.com/Krozark/meteofrance-py
+Author: victorcerutti
+Author-email: maxime.barbier1991+meteofrance@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: pytz
+
+Extract Meteo-France current weather and 1 hour rain forecast
+
+
