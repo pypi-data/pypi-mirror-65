@@ -1,0 +1,22 @@
+[bandersnatch_filter_plugins.v2.metadata]
+regex_project_metadata = bandersnatch_filter_plugins.metadata_filter:RegexProjectMetadataFilter
+
+[bandersnatch_filter_plugins.v2.project]
+blacklist_project = bandersnatch_filter_plugins.blacklist_name:BlacklistProject
+regex_project = bandersnatch_filter_plugins.regex_name:RegexProjectFilter
+whitelist_project = bandersnatch_filter_plugins.whitelist_name:WhitelistProject
+
+[bandersnatch_filter_plugins.v2.release]
+blacklist_release = bandersnatch_filter_plugins.blacklist_name:BlacklistRelease
+exclude_platform = bandersnatch_filter_plugins.filename_name:ExcludePlatformFilter
+latest_release = bandersnatch_filter_plugins.latest_name:LatestReleaseFilter
+prerelease_release = bandersnatch_filter_plugins.prerelease_name:PreReleaseFilter
+regex_release = bandersnatch_filter_plugins.regex_name:RegexReleaseFilter
+
+[bandersnatch_filter_plugins.v2.release_file]
+regex_release_file_metadata = bandersnatch_filter_plugins.metadata_filter:RegexReleaseFileMetadataFilter
+version_range_release_file_metadata = bandersnatch_filter_plugins.metadata_filter:VersionRangeReleaseFileMetadataFilter
+
+[console_scripts]
+bandersnatch = bandersnatch.main:main
+
