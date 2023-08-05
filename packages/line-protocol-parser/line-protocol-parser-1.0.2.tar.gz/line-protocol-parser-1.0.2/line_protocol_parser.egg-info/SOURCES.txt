@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+include/line_protocol_parser.h
+line_protocol_parser/__init__.py
+line_protocol_parser/_info.py
+line_protocol_parser.egg-info/PKG-INFO
+line_protocol_parser.egg-info/SOURCES.txt
+line_protocol_parser.egg-info/dependency_links.txt
+line_protocol_parser.egg-info/top_level.txt
+src/line_protocol_parser.c
+src/module.c
+tests/__init__.py
+tests/test_parse_line.py
