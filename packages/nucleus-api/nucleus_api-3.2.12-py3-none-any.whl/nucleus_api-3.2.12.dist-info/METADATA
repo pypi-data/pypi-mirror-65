@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: nucleus-api
+Version: 3.2.12
+Summary: Nucleus API
+Home-page: https://www.sumup.ai
+Author: SumUp Analytics
+Author-email: info@sumup.ai
+License: UNKNOWN
+Keywords: Swagger,Nucleus API
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+Requires-Dist: numpy
+
+Nucleus text analytics APIs from SumUp Analytics. Example and documentation: https://www.sumup.ai/apis/#nucleus-documentation
+
+
