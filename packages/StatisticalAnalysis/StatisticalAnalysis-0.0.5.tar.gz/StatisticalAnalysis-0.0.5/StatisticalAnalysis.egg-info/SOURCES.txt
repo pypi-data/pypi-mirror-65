@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+StatisticalAnalysis/__init__.py
+StatisticalAnalysis/statisticalComparison.py
+StatisticalAnalysis.egg-info/PKG-INFO
+StatisticalAnalysis.egg-info/SOURCES.txt
+StatisticalAnalysis.egg-info/dependency_links.txt
+StatisticalAnalysis.egg-info/entry_points.txt
+StatisticalAnalysis.egg-info/top_level.txt
+StatisticalAnalysis/stac/__init__.py
+StatisticalAnalysis/stac/nonparametric_tests.py
+StatisticalAnalysis/stac/parametric_tests.py
+StatisticalAnalysis/stac/unit_tests.py
