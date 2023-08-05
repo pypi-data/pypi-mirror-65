@@ -1,0 +1,10 @@
+Django>=1.8
+
+[testing]
+django
+jinja2
+django-jinja
+pytest
+pytest-django
+pytest-cov
+pytest-xdist
