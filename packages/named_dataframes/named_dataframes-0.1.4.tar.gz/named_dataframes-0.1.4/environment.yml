@@ -1,0 +1,21 @@
+name: named-dataframes
+
+dependencies:
+  - python=3.7.*
+  - pip
+  - pip:
+
+    - pandas >= 0.25
+
+    # testing
+    - hypothesis
+    - pytest
+    - pytest-cov
+    - pytest-randomly
+    - pytest-xdist == 1.29
+
+    # publishing
+    - bump2version
+    - flit
+    - keyring
+    - pre-commit

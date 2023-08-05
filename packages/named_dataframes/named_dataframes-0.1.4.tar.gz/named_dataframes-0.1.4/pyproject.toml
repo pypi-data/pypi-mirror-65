@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+
+[tool.black]
+line-length = 100
+
+
+[tool.flit.metadata]
+module = "named_dataframes"
+author = "Bao Wei"
+author-email = "baowei.ur521@gmail.com"
+requires = ["pandas >= 0.25"]
+
+
+[tool.nitpick]
+style = "https://raw.githubusercontent.com/dycw/nitpick/master/nitpick-style.toml"
