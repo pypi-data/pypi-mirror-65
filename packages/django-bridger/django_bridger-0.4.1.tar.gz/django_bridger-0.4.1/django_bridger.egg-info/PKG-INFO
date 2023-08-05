@@ -1,0 +1,28 @@
+Metadata-Version: 1.2
+Name: django-bridger
+Version: 0.4.1
+Summary: The bridge between a Django Backend and a Javascript based Frontend
+Home-page: UNKNOWN
+Author: Christopher Wittlinger @ Intellineers GmbH & Co.KG
+Author-email: c.wittlinger@intellineers.com
+License: BSD-3-Clause
+Description: ![CI](https://github.com/intellineers/django-bridger/workflows/CI/badge.svg)
+        [![codecov](https://codecov.io/gh/intellineers/django-bridger/branch/master/graph/badge.svg)](https://codecov.io/gh/intellineers/django-bridger)
+        [![Documentation Status](https://readthedocs.org/projects/django-bridger/badge/?version=latest)](https://django-bridger.readthedocs.io/en/latest/?badge=latest)
+        [![PyPI](https://img.shields.io/pypi/v/django-bridger?color=%23386fa4)](https://pypi.org/project/django-bridger/)
+        
+        
+        # Django Bridger
+        A django app, that bridges the gap between the backend and frontend to enable automatic creation of frontend apps.
+        
+        ### This is a Pre-Release Version and should not be used in production!!!
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.6.7
