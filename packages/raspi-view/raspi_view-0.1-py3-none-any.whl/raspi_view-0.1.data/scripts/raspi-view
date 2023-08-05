@@ -1,0 +1,36 @@
+#!python
+import argparse
+from main.main_loop import MainLoop
+from main.install import install, uninstall
+
+if __name__=="__main__":
+    parser = argparse.ArgumentParser(description='Starts or installs raspi-view.')
+    parser.add_argument('-s', '--start',
+                        dest='start',
+                        action='store_true',
+                        help='starts the raspi-view directly'
+                        )
+    parser.add_argument('-i', '--install',
+                        dest='install',
+                        action='store_true',
+                        help='installs the raspi-view for a linux system as a service'
+                        )
+    parser.add_argument('-u', '--uninstall',
+                        dest='uninstall',
+                        action='store_true',
+                        help='uninstalls the previously installed raspi-view'
+                        )
+
+    args = parser.parse_args()
+
+    if args.start and args.install:
+        print('You can either start or install.')
+
+    if args.start:
+        MainLoop().spin()
+
+    if args.install:
+        install()
+
+    if not args.start and not args.install:
+        parser.print_help()
