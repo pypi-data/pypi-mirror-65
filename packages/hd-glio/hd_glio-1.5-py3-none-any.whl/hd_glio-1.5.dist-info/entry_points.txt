@@ -1,0 +1,4 @@
+[console_scripts]
+hd_glio_predict = hd_glio.hd_glio_predict:main
+hd_glio_predict_folder = hd_glio.hd_glio_predict_folder:main
+
