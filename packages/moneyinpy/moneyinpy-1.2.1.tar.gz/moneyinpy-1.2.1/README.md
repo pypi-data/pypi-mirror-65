@@ -1,0 +1,39 @@
+
+
+Money.py
+
+This is a simple accounts program
+
+To install - download money.py and start it with python or idle into a directory of your choice
+
+You will see asmall menu.
+
+To set up - click on setup and then set database name. This will set up the database file moneysql in your chosen directory
+
+The will be two tables , accounts and balances.
+ 
+Then click on setup and then set start balance. Enter balance = your start balance.
+
+See description below on how it works
+
+To enter an account line , click on Data Entry and then Add Entry. You will see a little entry box - enter all the details NOTE THE SEQ MUST BE 2 FOR THE FIRST ENTRY AND ONE MORE THAN THE PREVIOUS ENTRY FOR ALL SUBSEQUENT LINS. Also NOTE that a number MUST be entered for both debit and credit, if you do not want to enter both then put a 0 in the unwanted entry. 
+
+To see listing of your accouts click on details and then statement. If the list is too ling for the page then click on blanck space and then use the up and down keys on the keyboard
+
+version 1.2.1 is Beta so if you find any problems then contact me on terryhugheskirkcudbright@yahoo.co.uk
+
+this version has some extra listings
+
+This is the way it works
+
+When you enter the start balance it puts a record in the table balances with a seq of 1 and a balance of whatever you set
+
+When you enter the first account line with seq =2 it reads the record from balances and adds or deletes debit and credit. It the adds another record in balances with seq = 2
+
+When you add the next account line with seq = 3 it again reads the record (seq=2) from balances, adds or subtracts debit and credit and writes record with seq= 3 into balances
+
+Each subsequent account line does the same thing so that the table balances keeps up to date.
+
+
+
+
