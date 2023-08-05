@@ -1,0 +1,8 @@
+{% load i18n %}
+{% spaceless %}
+    {% if record.joint_applicant %}
+        {% trans "US Joint" %}
+    {% else %}
+        {% trans "US Individual" %}
+    {% endif %}
+{% endspaceless %}
