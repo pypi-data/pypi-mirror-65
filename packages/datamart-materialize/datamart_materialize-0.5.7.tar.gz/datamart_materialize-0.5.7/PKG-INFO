@@ -1,0 +1,34 @@
+Metadata-Version: 1.2
+Name: datamart_materialize
+Version: 0.5.7
+Summary: Materialization library for Datamart
+Home-page: https://gitlab.com/ViDA-NYU/datamart/datamart
+Author: Remi Rampin
+Author-email: remi.rampin@nyu.edu
+Maintainer: Remi Rampin
+Maintainer-email: remi.rampin@nyu.edu
+License: BSD-3-Clause
+Project-URL: Homepage, https://gitlab.com/ViDA-NYU/datamart/datamart
+Project-URL: Source, https://gitlab.com/ViDA-NYU/datamart/datamart
+Project-URL: Tracker, https://gitlab.com/ViDA-NYU/datamart/datamart/issues
+Description: Datamart materialization library
+        ================================
+        
+        This library can materialize datasets from Auctus, NYU's Datamart system. You can use it to materialize search results directly on your side without relying on the server. It is also used internally by the service to materialize datasets (the ``/download`` endpoint downloads the dataset using this library then sends it to you).
+        
+        See also:
+        
+        * `The datamart-rest library for search/augmentation <https://pypi.org/project/datamart-rest/>`__
+        * `The datamart-profiler library, used to profile datasets for search <https://pypi.org/project/datamart-profiler/>`__
+        * `The datamart-augmentation library, used to performs data augmentation with a dataset from Auctus <https://pypi.org/project/datamart-augmentation/>`__
+        * `Auctus, NYU's Datamart system <https://auctus.vida-nyu.org/>`__
+        * `Our project on GitLab <https://gitlab.com/ViDA-NYU/datamart/datamart>`__
+        
+Keywords: datamart
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
