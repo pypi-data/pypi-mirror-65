@@ -1,0 +1,1 @@
+#greenplum-db-6.0.0-beta.6-rhel7-x86_64.rpm
