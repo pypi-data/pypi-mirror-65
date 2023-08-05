@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "spotifier"
+version = "0.1.0"
+description = "A Spotify Web API Library for Modern Python"
+authors = ["Shunta Komatsu <shuntak217@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/skmatz/spotifier"
+keywords = [
+    "Spotify",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+mypy_extensions = "^0.4.3"
+requests = "^2.23.0"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+flake8 = "^3.7.9"
+isort = "^4.3.21"
+mypy = "^0.770"
+pytest = "^5.4.1"
+
+[tool.black]
+line-length = 120
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
