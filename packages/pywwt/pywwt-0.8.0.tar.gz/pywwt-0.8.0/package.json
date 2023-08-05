@@ -1,0 +1,44 @@
+{
+  "name": "pywwt",
+  "version": "0.8.0",
+  "description": "AAS WorldWide Telescope from Python",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension",
+    "widgets"
+  ],
+  "homepage": "https://github.com/WorldWideTelescope/pywwt",
+  "bugs": {
+    "url": "https://github.com/WorldWideTelescope/pywwt/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WorldWideTelescope/pywwt"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib/*.js"
+  ],
+  "scripts": {
+    "build": "npm run build:labextension && npm run build:nbextension",
+    "build:labextension": "cd pywwt && rimraf labextension && mkdir labextension && cd labextension && npm pack ../..",
+    "build:nbextension": "webpack",
+    "clean": "npm run clean:labextension && npm run clean:nbextension",
+    "clean:labextension": "rimraf pywwt/labextension",
+    "clean:nbextension": "rimraf pywwt/nbextension/static/index.js"
+  },
+  "dependencies": {
+    "@jupyter-widgets/base": "^2  || ^3"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "source-map-loader": "^0.2.1",
+    "webpack": "^3.4.1"
+  },
+  "jupyterlab": {
+    "extension": "lib/plugin"
+  }
+}
