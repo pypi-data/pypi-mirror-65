@@ -1,0 +1,9 @@
+include LICENSE.md
+include README.md
+include bgen_reader/interface.h
+include bgen_reader/partition.c
+include bgen_reader/partition.h
+include bgen_reader/samples.c
+include bgen_reader/samples.h
+include build_ext.py
+include version.py
