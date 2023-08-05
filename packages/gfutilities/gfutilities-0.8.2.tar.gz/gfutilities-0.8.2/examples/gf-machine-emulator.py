@@ -1,0 +1,28 @@
+#!/usr/bin/python
+"""
+(C) Copyright 2020
+Scott Wiederhold, s.e.wiederhold@gmail.com
+https://community.openglow.org
+
+SPDX-License-Identifier:    MIT
+"""
+import logging
+
+from gfutilities.configuration import *
+from gfutilities import ServiceConnector, Emulator
+
+parse('gf-machine-emulator.cfg')
+
+logging.basicConfig(format='(%(levelname)s) %(module)s:%(funcName)s %(message)s')
+logger = logging.getLogger("openglow")
+logger.setLevel(log_level(get_cfg('LOGGING.CONSOLE_LEVEL')))
+
+if get_cfg('LOGGING.FILE'):
+    fh = logging.FileHandler(get_cfg('LOGGING.FILE'))
+    fh.setLevel(log_level(get_cfg('LOGGING.LEVEL')))
+    fh.setFormatter(logging.Formatter('%(asctime)s (%(levelname)s) %(module)s:%(funcName)s %(message)s'))
+    logger.addHandler(fh)
+
+service = ServiceConnector()
+service.connect()
+service.run(Emulator())

@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: gfutilities
+Version: 0.8.2
+Summary: Glowforge Utilities
+Home-page: https://github.com/ScottW514/Glowforge-Utilities
+Author: Scott Wiederhold
+Author-email: s.e.wiederhold@gmail.com
+License: MIT
+Description: A small collection of utilties to aid in firmware development for the Glowforge laser cutter.
+        
+        This project is not affiliated nor endorsed by Glowforge, Inc.
+        
+        As Glowforge's own software is in continuous BETA, so will this software.
+        It is recommended not to rely on this code for production as Glowforge does
+        not publish their protocols nor do they provide any change notices.
+        
+        As a result, this code may break without warning.
+        
+        USE AT YOUR OWN RISK!
+        
+Keywords: Glowforge OpenGlow
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development :: Embedded Systems
