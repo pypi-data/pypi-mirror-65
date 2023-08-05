@@ -1,0 +1,50 @@
+Metadata-Version: 1.2
+Name: hiq-projectq
+Version: 0.6.2.post0
+Summary: ProjectQ - An open source software framework for quantum computing
+Home-page: http://www.projectq.ch
+Author: ProjectQ
+Author-email: info@projectq.ch
+License: Apache 2
+Project-URL: Documentation, https://projectq.readthedocs.io/en/latest/
+Project-URL: Issue Tracker, https://github.com/ProjectQ-Framework/ProjectQ/
+Description: ProjectQ - An open source software framework for quantum computing
+        ==================================================================
+        
+        Important
+        ---------
+        
+        This package offers the same functionality as the official `ProjectQ <https://pypi.org/project/projectq/>`__
+        package. It is however based on a development version that may contain some changes/bugfixes in order to better
+        integrate with other packages developped by `Huawei-HiQ <https://github.com/Huawei-HiQ>`__.
+        
+        
+        Changelog
+        ---------
+        
+        v0.6.2 (2020-04-02)
+        ~~~~~~~~~~~~~~~~~~~
+        
+        * Enhancements
+        
+          * Added JSONBackend
+        
+        ..
+        
+        * Bug Fixes
+        
+          * Fix libs/histogram under Python 2.7
+        
+        v0.6.1 (2020-03-20)
+        ~~~~~~~~~~~~~~~~~~~
+        
+        * Enhancements
+        
+          * Migrated HiQ-ProjectQ to a namespace package for compatibility with other HiQ packages.
+        
+        v0.6.0 (2020-03-17)
+        ~~~~~~~~~~~~~~~~~~~
+        
+        * Update HiQ-ProjectQ with ProjectQ v0.5.0
+        
+Platform: UNKNOWN
