@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: peach-invasion
+Version: 0.1.0
+Summary: Peach invasion 2D game with pygame
+Home-page: https://github.com/olbed/peach_invasion
+Author: olbed
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pygame (<2,>=1.9.6)
+
+# 🍑 Peach Invasion 🍆 ️
+
+2D game with pygame
+
+## Install
+```shell script
+pip install -U peach_invasion
+```
+
+## Run
+```shell script
+peach_invasion
+```
+
+- Enter - Start
+- Space - Fire
+- Arrows - Move
+- Esc - Exit
+
+![screenshot](https://raw.githubusercontent.com/olbed/peach_invasion/master/peach_invasion/static/images/screenshot.png)
+
+
