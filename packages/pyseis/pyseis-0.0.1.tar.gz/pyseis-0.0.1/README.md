@@ -1,0 +1,3 @@
+# SeisPy
+
+The SeisPy Readme
