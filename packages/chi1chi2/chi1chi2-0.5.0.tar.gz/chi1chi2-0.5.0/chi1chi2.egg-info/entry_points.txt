@@ -1,0 +1,8 @@
+[console_scripts]
+chi.analyze = chi1chi2.analyze:run
+chi.from_cif = chi1chi2.from_cif:run
+chi.from_crystal = chi1chi2.from_crystal:run
+chi.from_fra = chi1chi2.from_fra:run
+chi.input_preparator = chi1chi2.input_preparator:run
+chi.main = chi1chi2.main:run
+
