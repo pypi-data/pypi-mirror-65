@@ -1,0 +1,90 @@
+#!python
+import argparse
+import sys
+import os
+
+ncd_root = os.path.dirname(os.path.abspath(sys.argv[0]))
+ncd_pkg = os.path.join(ncd_root, 'netcontrold')
+sys.path.insert(0, ncd_pkg)
+
+from netcontrold.app import ncd
+from netcontrold.lib import util
+
+USAGE = "usage: ncd_ctl CMD\n" \
+        "\n" \
+        "CMD in one of the below:\n" \
+        "  start\n" \
+        "  stop\n" \
+        "  restart\n" \
+        "  status\n" \
+        "  config show\n" \
+        "  config rebalance <on|off>\n" \
+        "  config rebalance_quick <on|off>\n" \
+        "  config trace <on|off>\n" \
+        "  config verbose <on|off>\n" \
+        "  version\n" \
+        ""
+
+try:
+    assert (len(sys.argv) >= 2)
+
+    if sys.argv[1] in ('start', 'stop', 'restart', 'status', 'version'):
+        assert (len(sys.argv) == 2)
+
+    elif sys.argv[1] == 'config':
+        if (len(sys.argv) == 3):
+            assert (sys.argv[2] == 'show')
+        else:
+            assert (len(sys.argv) == 4)
+            assert (sys.argv[2] in ('rebalance', 'rebalance_quick', 'trace', 'verbose'))
+            assert (sys.argv[3] in ('on', 'off'))
+
+    else:
+        assert (False)
+
+except AssertionError:
+    sys.stderr.write(USAGE)
+    sys.exit(1)
+
+pid_file = '/var/run/netcontrold/ncd.pid'
+os.makedirs(os.path.dirname(pid_file), exist_ok=True)
+
+main_srv = util.Service(ncd.ncd_main,
+                        ['-s', '10', '-q'],
+                        '/var/run/netcontrold/ncd.pid')
+
+if sys.argv[1] == 'start':
+    main_srv.start()
+
+elif sys.argv[1] == 'restart':
+    main_srv.restart()
+
+elif sys.argv[1] == 'stop':
+    main_srv.stop()
+
+elif sys.argv[1] == 'status':
+    main_srv.status()
+
+elif sys.argv[1] == 'config':
+    if sys.argv[2] == 'show':
+        main_srv.config()
+
+    else:
+        flag = True
+        if sys.argv[3] == 'off':
+            flag = False
+
+        if sys.argv[2] == 'verbose':
+            main_srv.verbose(flag)
+        elif sys.argv[2] == 'rebalance':
+            main_srv.rebalance(flag)
+        elif sys.argv[2] == 'rebalance_quick':
+            main_srv.rebalance_quick(flag)
+        else:
+            main_srv.trace(flag)
+
+elif sys.argv[1] == 'version':
+    main_srv.version()
+
+sys.exit(0)
+
