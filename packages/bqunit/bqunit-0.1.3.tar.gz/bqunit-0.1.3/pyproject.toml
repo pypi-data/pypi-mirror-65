@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "bqunit"
+version = "0.1.3"
+description = "Testing framework for BigQuery SQL"
+authors = ["to-lz1 <m.toriyama000@gmail.com>"]
+readme = "README.rst"
+repository = "https://github.com/to-lz1/bqunit"
+keywords = ["BigQuery", "sql", "test"]
+license = "MIT License"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Utilities",
+  "Topic :: Software Development :: Testing"
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+google-cloud-bigquery = "^1.24.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.4.4"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
