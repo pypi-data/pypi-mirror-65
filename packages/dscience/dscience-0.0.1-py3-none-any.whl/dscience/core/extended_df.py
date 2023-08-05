@@ -1,0 +1,320 @@
+from __future__ import annotations
+from typing import Sequence, Set, Any, Union, Iterable
+import pandas as pd
+from natsort import ns, natsorted
+from pandas.core.frame import DataFrame as _InternalDataFrame
+from dscience.tools.common_tools import CommonTools
+from dscience.core.exceptions import MissingColumnError, ConstructionError
+import dscience.core.abcd as abcd
+
+
+class PrettyFrame(_InternalDataFrame, abcd.ABC):
+	"""
+	A DataFrame with an overridden _repr_html_ that shows the dimensions at the top.
+	"""
+
+	@property
+	def _constructor_expanddim(self):
+		# this raises a NotImplementedError in _InternalDataFrame, so let's override it here to prevent tools and IDEs from complaining
+		raise ValueError()
+
+	def _repr_html_(self):
+		"""
+		Renders HTML for display() in Jupyter notebooks.
+		Jupyter automatically uses this function.
+		:return: Just a string, which will be wrapped in HTML
+		"""
+		return "<strong>{}: {}</strong>\n{}".format(
+			self.__class__.__name__,
+			self._dims(),
+			super()._repr_html_(),
+			len(self)
+		)
+
+	def _dims(self) -> str:
+		"""
+		:return: A text description of the dimensions of this DataFrame
+		"""
+		# we could handle multi-level columns, but they're quite rare, and the number of rows is probably obvious when looking at it
+		if len(self.index.names) > 1:
+			return "{} rows × {} columns, {} index columns".format(len(self), len(self.columns), len(self.index.names))
+		else:
+			return "{} rows × {} columns".format(len(self), len(self.columns))
+
+
+class BaseFrame(PrettyFrame, abcd.ABC):
+	"""
+	An abstract Pandas DataFrame subclass with additional methods.
+	"""
+	def __init__(self, data=None, index=None, columns=None, dtype=None, copy=False):
+		super().__init__(data=data, index=index, columns=columns, dtype=dtype, copy=copy)
+
+	@classmethod
+	def read_csv(cls, *args, **kwargs):
+		return cls._change(pd.read_csv(*args, **kwargs))
+
+	@classmethod
+	def read_hdf(cls, *args, **kwargs):
+		return cls._change(pd.read_hdf(*args, **kwargs))
+
+	@classmethod
+	def _change(cls, df):
+		df.__class__ = cls
+		return df
+
+	def n_rows(self) -> int:
+		return len(self)
+
+	def n_columns(self) -> int:
+		return len(self.columns)
+
+	def n_index_columns(self) -> int:
+		return len(self.index.names)
+
+	def only(self, column: str) -> Any:
+		"""
+		Returns the single unique value in a column.
+		Raises an error if zero or more than one value is in the column.
+		:param column: The name of the column
+		:return: The value
+		"""
+		return CommonTools.only(self[column].unique())
+
+
+class ConvertibleFrame(BaseFrame, abcd.ABC):
+	"""
+	An extended DataFrame with convert() and vanilla() methods.
+	"""
+	pass
+
+	@classmethod
+	@abcd.override_recommended
+	def convert(cls, df: pd.DataFrame):
+		"""
+		Converts a vanilla Pandas DataFrame to cls.
+		Sets the index appropriately, permitting the required columns and index names to be either columns or index names.
+		Explicitly sets df.__class__ to cls; this is done IN PLACE. This will generally not affect the passed df functinally, but could.
+		:param df: The Pandas DataFrame or member of cls; will have its __class_ change but will otherwise not be affected
+		:return: A non-copy
+		"""
+		df.__class__ = cls
+		return df
+
+	def cfirst(self, cols: Union[str, int, Sequence[str]]):
+		"""
+		Returns a new DataFrame with the specified columns appearing first.
+		:param cols: A list of columns
+		:return: A non-copy
+		"""
+		if isinstance(cols, str) or isinstance(cols, int): cols = [cols]
+		if len(self) == 0:  # will break otherwise
+			return self
+		else:
+			return self.convert(self[cols + [c for c in self.columns if c not in cols]])
+
+	def sort_natural(self, column: str, alg: int = ns.INT):
+		df = self.copy().reset_index()
+		zzz = natsorted([s for s in df[column]], alg=alg)
+		df['__sort'] = df[column].map(lambda s: zzz.index(s))
+		df.__class__ = self.__class__
+		df = df.sort_values('__sort').drop_cols(['__sort', 'level_0', 'index'])
+		return self.convert(df)
+
+	def sort_natural_index(self, alg: int = ns.INT):
+		df = self.copy().reset_index()
+		zzz = natsorted([s for s in df.index], alg=alg)
+		df['__sort'] = df.index.map(lambda s: zzz.index(s))
+		df.__class__ = self.__class__
+		df = df.sort_values('__sort').drop_cols(['__sort', 'level_0', 'index'])
+		return self.convert(df)
+
+	def drop_cols(self, cols: Iterable[str]):
+		df = self.copy()
+		if isinstance(cols, str): cols = [cols]
+		for c in cols:
+			if c in self.columns:
+				df = df.drop(c, axis=1)
+		return self.convert(df)
+
+	@classmethod
+	def read_csv(cls, *args, **kwargs):
+		return cls.convert(pd.read_csv(*args, **kwargs))
+
+	@classmethod
+	def read_hdf(cls, *args, **kwargs):
+		# noinspection PyTypeChecker
+		df: pd.DataFrame = pd.read_hdf(*args, **kwargs)
+		return cls.convert(df)
+
+	@classmethod
+	@abcd.override_recommended
+	def vanilla(cls, df: BaseFrame) -> pd.DataFrame:
+		"""
+		Converts a vanilla Pandas DataFrame to cls.
+		Returns a copy (see note below though).
+		:param df: The ConvertibleFrame or member of cls; will have its __class_ change but will otherwise not be affected
+		:return: A true, shallow copy with its __class__ set to pd.DataFrame
+		"""
+		df = df.copy()
+		df.__class__ = pd.DataFrame
+		return df
+
+	def to_vanilla(self, df: BaseFrame) -> pd.DataFrame:
+		"""
+		Instance alias of BaseFrame.vanilla.
+		Returns a copy (see note below though).
+		:param df: The ConvertibleFrame or member of cls; will have its __class_ change but will otherwise not be affected
+		:return: A true, shallow copy with its __class__ set to pd.DataFrame
+		"""
+		return self.__class__.vanilla(df)
+
+
+class SimpleFrame(ConvertibleFrame):
+	"""
+	A concrete BaseFrame that does not require special columns.
+	Overrides a number of DataFrame methods to convert before returning.
+	"""
+
+	def __getitem__(self, item):
+		if isinstance(item, str) and item in self.index.names:
+			return self.index.get_level_values(item)
+		else:
+			return super(SimpleFrame, self).__getitem__(item)
+
+	def drop_duplicates(self, **kwargs):
+		return self._change(super().drop_duplicates(**kwargs))
+
+	def reindex(self, *args, **kwargs):
+		return self._change(super().reindex(*args, **kwargs))
+
+	def sort_values(self, by, axis=0, ascending=True, inplace=False,  kind='quicksort', na_position='last'):
+		return self._change(super().sort_values(by=by, axis=axis, ascending=ascending, inplace=inplace, kind=kind, na_position=na_position))
+
+	def reset_index(self, level=None, drop=False, inplace=False, col_level=0, col_fill=''):
+		return self._change(super().reset_index(level=level, drop=drop, inplace=inplace, col_level=col_level, col_fill=col_fill))
+
+	def set_index(self, keys, drop=True, append=False, inplace=False, verify_integrity=False):
+		return self._change(super().set_index(keys=keys, drop=drop, append=append, inplace=inplace, verify_integrity=verify_integrity))
+
+	def dropna(self, axis=0, how='any', thresh=None, subset=None, inplace=False):
+		return self._change(super().dropna(axis=axis, how=how, thresh=thresh, subset=subset, inplace=inplace))
+
+	def fillna(self, value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs):
+		return self._change(super().fillna(value=value, method=method, axis=axis, inplace=inplace, limit=limit, downcast=downcast, **kwargs))
+
+	def ffill(self, axis=None, inplace=False, limit=None, downcast=None):
+		return self._change(super().ffill(axis=axis, inplace=inplace, limit=limit, downcast=downcast))
+
+	def bfill(self, axis=None, inplace=False, limit=None, downcast=None):
+		return self._change(super().bfill(axis=axis, inplace=inplace, limit=limit, downcast=downcast))
+
+	def abs(self):
+		return self._change(super().abs())
+
+	def rename(self, *args, **kwargs):
+		return self._change(super().rename(*args, **kwargs))
+
+	def replace(self, to_replace=None, value=None, inplace=False, limit=None, regex=False, method='pad'):
+		return self._change(super().replace(to_replace=to_replace, value=value, inplace=inplace, limit=limit, regex=regex, method=method))
+
+	def applymap(self, func):
+		return self._change(super().applymap(func))
+
+	def astype(self, dtype, copy=True, errors='raise', **kwargs):
+		return self._change(super().astype(dtype=dtype, copy=copy, errors=errors, **kwargs))
+
+	def drop(self, labels=None, axis=0, index=None, columns=None, level=None, inplace=False, errors='raise'):
+		return self._change(super().drop(labels=labels, axis=axis, index=index, columns=columns, level=level, inplace=inplace, errors=errors))
+
+
+#@abcd.final
+class FinalFrame(SimpleFrame):
+	"""
+	A ready-to-go SimpleFrame that should not be overridden.
+	"""
+
+
+class OrganizingFrame(ConvertibleFrame):
+	"""
+	A concrete BaseFrame that has required columns and index names.
+	"""
+
+	@classmethod
+	def convert(cls, df: pd.DataFrame, require_full: bool = False):
+		"""
+		Converts a vanilla Pandas DataFrame to cls.
+		Returns a copy (see note below though).
+		Sets the index appropriately, permitting the required columns and index names to be either columns or index names.
+		Explicitly sets df.__class__ to cls; this is done IN PLACE. This will generally not affect the passed df functinally, but could.
+		:param df: The Pandas DataFrame or member of cls; will have its __class_ change but will otherwise not be affected
+		:param require_full: Raise a InvalidExtendedDataFrameError if a required column or index name is missing
+		:return: A copy
+		"""
+		if not isinstance(df, pd.DataFrame):
+			raise TypeError("Can't convert {} to {}".format(type(df), cls.__name__))
+		# first always reset the index so we can manage what's in the index vs columns
+		def drop(d):
+			for x in cls.columns_to_drop():
+				if x in d.columns:
+					d = d.drop(x, axis=1)
+			return d
+		df = drop(drop(df).reset_index())
+		# check that it has every required column and index name
+		if require_full:
+			cls._check(df, set(list(cls.required_index_names()) + list(cls.required_columns())))
+		# set index columns and used preferred order
+		res = []
+		# here we keep the order of reserved if it contains all of required
+		for c in list(cls.reserved_index_names()) + list(cls.required_index_names()):
+			if c not in res and c in df.index.names:
+				res.append(c)
+		if len(res) > 0:  # raises an error otherwise
+			df = df.set_index(res)
+		# now set the regular column order
+		res = []  # re-use the same variable name
+		for c in list(cls.reserved_columns()) + list(cls.required_columns()):
+			if c not in res and c in df.columns:
+				res.append(c)
+		# now change the class
+		df.__class__ = cls
+		df = df.cfirst(res)
+		return df
+
+	def sort_values(self, by, axis=0, ascending=True, inplace=False, kind='quicksort', na_position='last'):
+		got = super().sort_values(by=by, axis=axis, ascending=ascending, inplace=inplace, kind=kind, na_position=na_position)
+		got.__class__ = self.__class__
+		return got
+
+	@classmethod
+	@abcd.override_recommended
+	def required_columns(cls) -> Sequence[str]:
+		return []
+
+	@classmethod
+	@abcd.override_recommended
+	def reserved_columns(cls) -> Sequence[str]:
+		return []
+
+	@classmethod
+	@abcd.override_recommended
+	def reserved_index_names(cls) -> Sequence[str]:
+		return []
+
+	@classmethod
+	@abcd.override_recommended
+	def required_index_names(cls) -> Sequence[str]:
+		return []
+
+	@classmethod
+	@abcd.override_recommended
+	def columns_to_drop(cls) -> Sequence[str]:
+		return []
+
+	@classmethod
+	def _check(cls, df, required: Set[str]):
+		for c in required:
+			if c not in df.columns:
+				raise MissingColumnError("Missing column or index name {}".format(c), key=c)
+
+
+__all__ = ['BaseFrame', 'SimpleFrame', 'FinalFrame', 'OrganizingFrame', 'ConvertibleFrame']

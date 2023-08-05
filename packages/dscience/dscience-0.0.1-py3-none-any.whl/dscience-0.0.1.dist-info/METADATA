@@ -1,0 +1,119 @@
+Metadata-Version: 2.1
+Name: dscience
+Version: 0.0.1
+Summary: A collection of Python snippets for the Kokel Lab
+Home-page: https://github.com/kokellab/dscience
+Author: Douglas Myers-Turnbull
+Maintainer: Douglas Myers-Turnbull
+License: Apache 2.0
+Download-URL: https://github.com/kokellab/dscience/archive/0.0.1.tar.gz
+Project-URL: package, https://pypi.org/project/dscience
+Project-URL: build, https://travis-ci.org/kokellab/dscience
+Project-URL: docs, https://dscience.readthedocs.io
+Project-URL: source, https://github.com/kokellab/dscience
+Project-URL: issues, https://github.com/kokellab/dscience/issues
+Keywords: utilities,data science,pandas
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Requires-Python: >=3.7,<3.9
+Description-Content-Type: text/markdown
+Requires-Dist: dill (<1.0,>=0.3)
+Requires-Dist: jsonpickle (<2.0,>=1.3)
+Requires-Dist: natsort (<8.0,>=7.0)
+Requires-Dist: numpy (<2.0,>=1.18)
+Requires-Dist: pandas (<2.0,>=1.0)
+Requires-Dist: requests (<3.0,>=2.23)
+Provides-Extra: all
+Requires-Dist: colorama (<1.0,>=0.4.3) ; extra == 'all'
+Requires-Dist: deprecated (<2.0,>=1.2) ; extra == 'all'
+Requires-Dist: overrides (<3.0,>=2.8) ; extra == 'all'
+Requires-Dist: psutil (<6.0,>=5.7) ; extra == 'all'
+Requires-Dist: toml (<1.0,>=0.10) ; extra == 'all'
+Requires-Dist: PyMySQL (<1.0,>=0.9) ; extra == 'all'
+Requires-Dist: peewee (<4.0,>=3.13) ; extra == 'all'
+Requires-Dist: sshtunnel (<1.0,>=0.1.5) ; extra == 'all'
+Requires-Dist: joblib (<1.0,>=0.14) ; extra == 'all'
+Requires-Dist: matplotlib (<4.0,>=3.2) ; extra == 'all'
+Requires-Dist: scikit-image (<1.0,>=0.16) ; extra == 'all'
+Requires-Dist: scikit-learn (<1.0,>=0.22) ; extra == 'all'
+Requires-Dist: scipy (<2.0,>=1.4) ; extra == 'all'
+Requires-Dist: ipython (<8.0,>=7.13) ; extra == 'all'
+Requires-Dist: hypothesis (<6.0,>=5.8) ; extra == 'all'
+Requires-Dist: pytest (<6.0,>=5.4) ; extra == 'all'
+Requires-Dist: goatools (<2.0,>=1.0) ; extra == 'all'
+Requires-Dist: uniprot (<2.0,>=1.3) ; extra == 'all'
+Provides-Extra: biochem
+Requires-Dist: goatools (<2.0,>=1.0) ; extra == 'biochem'
+Requires-Dist: uniprot (<2.0,>=1.3) ; extra == 'biochem'
+Provides-Extra: db
+Requires-Dist: PyMySQL (<1.0,>=0.9) ; extra == 'db'
+Requires-Dist: peewee (<4.0,>=3.13) ; extra == 'db'
+Requires-Dist: sshtunnel (<1.0,>=0.1.5) ; extra == 'db'
+Provides-Extra: extra
+Requires-Dist: colorama (<1.0,>=0.4.3) ; extra == 'extra'
+Requires-Dist: deprecated (<2.0,>=1.2) ; extra == 'extra'
+Requires-Dist: overrides (<3.0,>=2.8) ; extra == 'extra'
+Requires-Dist: psutil (<6.0,>=5.7) ; extra == 'extra'
+Requires-Dist: toml (<1.0,>=0.10) ; extra == 'extra'
+Provides-Extra: jupyter
+Requires-Dist: ipython (<8.0,>=7.13) ; extra == 'jupyter'
+Provides-Extra: numeric
+Requires-Dist: joblib (<1.0,>=0.14) ; extra == 'numeric'
+Requires-Dist: matplotlib (<4.0,>=3.2) ; extra == 'numeric'
+Requires-Dist: scikit-image (<1.0,>=0.16) ; extra == 'numeric'
+Requires-Dist: scikit-learn (<1.0,>=0.22) ; extra == 'numeric'
+Requires-Dist: scipy (<2.0,>=1.4) ; extra == 'numeric'
+Provides-Extra: test
+Requires-Dist: hypothesis (<6.0,>=5.8) ; extra == 'test'
+Requires-Dist: pytest (<6.0,>=5.4) ; extra == 'test'
+
+# dscience
+
+[![Build status](https://img.shields.io/pypi/status/dscience)](https://pypi.org/project/dscience/)
+[![Latest version on
+PyPi](https://badge.fury.io/py/dscience.svg)](https://pypi.org/project/dscience/)
+[![Supported Python
+versions](https://img.shields.io/pypi/pyversions/dscience.svg)](https://pypi.org/project/dscience/)
+[![Documentation
+status](https://readthedocs.org/projects/dscience/badge/?version=latest&style=flat-square)](https://readthedocs.org/projects/dscience/)
+[![Travis](https://travis-ci.org/kokellab/dscience.svg?branch=master)](https://travis-ci.org/kokellab/dscience)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+A lightweight Python 3 library for everyday coding, data science, and bioinformatics.
+Integrated with Numpy and Pandas 1.0+, with few other dependencies.
+
+Provides:
+- Many utility functions, data types, and decorators
+- Exceptions that store useful attributes to help calling code recover
+- Pandas DataFrames with required columns / enforced structure and extra methods
+- Simple utilities for Jupyter notebooks
+- Algorithms, bioinformatics resources, and machine learning support
+
+
+## contributing
+
+This project is under active development. [New issues](https://github.com/kokellab/dscience/issues) and pull requests are welcome.
+We use tabs for indentation and will eventually use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
+## license
+
+The authors release these contents and documentation files under the terms of the [Apache License, version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+The project was developed to support research at the Kokel Lab, fulfill requirements for [UCSF QBC](http://qbc.ucsf.edu/) PhD programs, and be useful to the public.
+
+Authors and contributors:
+- Douglas Myers-Turnbull (primary)
+- Chris Ki (contributor)
+- Cole Helsell (contributor)
+
+
