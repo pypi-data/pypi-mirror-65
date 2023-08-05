@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: toggl-to-redmine
+Version: 1.4.0
+Summary: Easily import time entries from Toggl to Redmine
+Home-page: https://github.com/eduardocanellas/toggl-to-redmine
+Author: Eduardo Canellas
+Author-email: eduardocanellas@id.uff.br
+License: UNKNOWN
+Description: # Toggl to Redmine
+        
+        Essa aplicaÃ§Ã£o Ã© um _fork_ do projeto "Automatic Toggl Import" feito pelo Rodrigo Marques. Seu intuito Ã© oferecer uma versÃ£o em linha de comando para o lanÃ§amento automatizado de horas do Toggl para o Redmine.
+        
+        ## InstalaÃ§Ã£o
+        
+        Com o Python instalado, rode o seguinte comando no PowerShell: `pip install --upgrade toggl_to_redmine`.
+        
+        ApÃ³s a instalaÃ§Ã£o feita pelo pip, Ã© exibido um _warning_ sobre adicionar o caminho para o executÃ¡vel no _path_. Copie esse caminho, vÃ¡ atÃ© as variÃ¡veis de ambiente de sua conta e adicione ao _path_ esse caminho. Basta pesquisar "variÃ¡veis de ambiente" no Windows para encontrar a configuraÃ§Ã£o.
+        
+        Abra uma nova instÃ¢ncia do PowerShell e execute `toggl_to_redmine --help`. Se aparecer a mensagem de ajuda, a instalaÃ§Ã£o foi bem sucedida.
+        
+        ## Como Usar
+        
+        Basta rodar o comando `toggl_to_redmine` que as horas do dia atual registradas no Toggl serÃ£o importadas para o Redmine. Na primeira vez, o programa pede os dados de configuraÃ§Ã£o para o usuÃ¡rio, que ficam armazenados em `"$HOME\.config\toggl-to-redmine.txt"`. Ã‰ possÃ­vel utilizar opÃ§Ãµes (`--since`, `--until`) para determinar o lanÃ§amento de horas de um intervalo de dias.
+        
+        ## Arquitetura
+        
+        Todo o cÃ³digo fonte relacionado ao _import_ de horas foi desacoplado da plataforma na qual o usuÃ¡rio estÃ¡ interagindo. No projeto Toggl-to-redmine-core encontra-se toda a lÃ³gica da aplicaÃ§Ã£o, enquanto que nesse repositÃ³rio hÃ¡ a ferramenta CLI que interage com o usuÃ¡rio.
+        
+        ## TODO
+        
+        * Adicionar _option_ para solicitar _reset_ de configuraÃ§Ã£o?
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
