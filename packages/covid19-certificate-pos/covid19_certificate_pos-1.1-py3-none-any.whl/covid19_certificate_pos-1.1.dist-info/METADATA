@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: covid19-certificate-pos
+Version: 1.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Emmanuel C
+Author-email: manuco@users.noreply.github.com
+License: GPL v3
+Download-URL: https://github.com/manuco/covid19_certificate_pos/archive/1.1.tar.gz
+Platform: UNKNOWN
+Requires-Dist: python-escpos (<3.1,>=3.0a)
+Requires-Dist: PyQt5 (<5.15)
+
+Covid 19 Certificate on POS Printer
+=====================================
+
+This software lets you print your own required Covid 19 certificate to go out on a Point Of Sale printer, that is a little Epson (or compatible) printer used in many stores or other point of sales to print customer receipts.
+
+
+
