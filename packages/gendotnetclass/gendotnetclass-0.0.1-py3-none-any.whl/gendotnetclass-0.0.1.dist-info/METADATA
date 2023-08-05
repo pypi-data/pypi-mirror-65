@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gendotnetclass
+Version: 0.0.1
+Summary: Generate code for dotnet
+Home-page: https://github.com/sculouis/GenDotnetClass
+Author: Louis Chen
+Author-email: scu.louis@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/gendotnetclass/
+Keywords: GenDotNetCode,GenDotNetCodeSearch,GenDotNetCodeStack
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: openpyxl (>=2.6.2pytest==5.4.0mako==1.1.2dependency-injector==3.15.6PyYAML==5.3.1)
+
+### Generate Dotnet Code 
+* First of all create xlsx for define table structure
+* requirements.txt define python's library
+* dependency-injector about IOC pattern build system
+* current state .net Code First Class Code Generate
+* .net code Webapi code generate
+
+
+
