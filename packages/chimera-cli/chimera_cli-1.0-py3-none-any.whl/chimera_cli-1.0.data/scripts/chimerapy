@@ -1,0 +1,6 @@
+#! bash
+if [[ ! $@ ]]; then 
+    python -m chimera_cli -h
+else
+    python -m chimera_cli $@
+fi
