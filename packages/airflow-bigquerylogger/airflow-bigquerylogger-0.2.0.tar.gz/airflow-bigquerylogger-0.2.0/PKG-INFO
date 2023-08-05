@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: airflow-bigquerylogger
+Version: 0.2.0
+Summary: BigQuery logger handler for Airflow
+Home-page: UNKNOWN
+Author: Gabriele Diener
+Author-email: gabriele.diener@gmail.com
+License: UNKNOWN
+Description: # BigQuery logger handler for Airflow
+        
+        pip install airflow-bigquerylogger
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
