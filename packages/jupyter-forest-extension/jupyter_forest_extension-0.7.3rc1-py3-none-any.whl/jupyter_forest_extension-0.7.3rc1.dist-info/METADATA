@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: jupyter-forest-extension
+Version: 0.7.3rc1
+Summary: Jupyter Notebook extension for Rigetti Forest
+Home-page: https://www.rigetti.com
+Author: Rigetti Computing
+Author-email: soft-apps@rigetti.com
+License: Apache-2.0
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Dist: docker
+Requires-Dist: dotmap
+Requires-Dist: notebook
+Requires-Dist: tornado
+Requires-Dist: simplejson
+Requires-Dist: pypi-simple
+Requires-Dist: aiohttp
+Requires-Dist: cachetools
+Requires-Dist: jupyterlab
+
+..  Copyright 2019-2020 Rigetti Computing
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+Description
+-----------
+This python package is a Jupyter notebook extension that supports the @qcs/jupyterlab-forest-extension in JupyterLab.
+
+License
+-------
+jupyter-forest-extension is licensed under the
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+
