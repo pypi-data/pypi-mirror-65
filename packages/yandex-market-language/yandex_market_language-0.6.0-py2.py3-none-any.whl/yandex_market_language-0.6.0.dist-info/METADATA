@@ -1,0 +1,121 @@
+Metadata-Version: 2.1
+Name: yandex-market-language
+Version: 0.6.0
+Summary: Yandex Market Language for Python provides user-friendly interface for parsing or creating XML files.
+Home-page: https://github.com/stefanitsky/yandex_market_language
+Author: Alexandr Stefanitsky-Mozdor
+Author-email: stefanitsky.mozdor@gmail.com
+License: GNU General Public License v3
+Keywords: yandex_market_language
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+
+=======================================
+Yandex Market Language (YML) for Python
+=======================================
+
+
+.. image:: https://img.shields.io/pypi/v/yandex_market_language.svg
+        :target: https://pypi.python.org/pypi/yandex_market_language
+
+.. image:: https://travis-ci.com/stefanitsky/yandex_market_language.svg?branch=master
+        :target: https://travis-ci.com/stefanitsky/yandex_market_language
+
+.. image:: https://codecov.io/gh/stefanitsky/yandex_market_language/branch/master/graph/badge.svg
+        :target: https://codecov.io/gh/stefanitsky/yandex_market_language
+
+.. image:: https://readthedocs.org/projects/yandex-market-language/badge/?version=latest
+        :target: https://yandex-market-language.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/stefanitsky/yandex_market_language/shield.svg
+     :target: https://pyup.io/repos/github/stefanitsky/yandex_market_language/
+     :alt: Updates
+
+
+
+Yandex Market Language for Python provides user-friendly interface for parsing or creating XML files.
+
+
+* Free software: GNU General Public License v3
+* Documentation: https://yandex-market-language.readthedocs.io.
+* Usage: https://yandex-market-language.readthedocs.io/en/latest/usage.html
+
+
+Features
+--------
+
+* The ability to convert from XML to dictionary and vice versa using models.
+* Parse XML file into the ready-to-use Feed model.
+* Convert dict-like objects into the ready-to-use XML file.
+* Validation for in-out data.
+
+
+TODO
+----
+
+* [ ] Full models validation support as in the Yandex.Market.
+* [ ] Simplify models (code refactoring + DRY).
+* [ ] Add custom exceptions on parse / convert to get more information.
+* [ ] Documentation in Russian.
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.6.0 (2020-04-06)
+------------------
+* Added all missed models: Gifts & Promos.
+* Added cbid warning message on set (field is deprecated).
+* Added creation of an XML file from the Feed model.
+
+0.5.0 (2020-04-02)
+------------------
+* Added missed offers of types: audiobook, artist.title, medicine, event-ticket & alco.
+* Some fixes for fields.
+
+0.4.0 (2020-04-01)
+------------------
+* Added xml parsing for all models, except: Gifts, Promos and another types of offers like audiobooks, medicine etc.
+* Fixed fields parsing for datetime fields & fields that can be None.
+* Added new field for offer: supplier.
+
+0.3.0 (2020-03-30)
+------------------
+
+* All missing fields and models were added for the BaseOffer.
+* SimplifiedOffer is now fully supported for xml / dict.
+* Custom exception classes removed and replaced with ValidationError.
+
+0.2.0 (2020-03-29)
+------------------
+
+* Added models for xml to dict and backward support: Category, Currency, Feed, Option (delivery / pickup), Price.
+* Added basic models implementation (WIP): Shop, Offers.
+* Added basic validation support (WIP, will be improved after finishing of models).
+
+0.1.0 (2020-03-28)
+------------------
+
+* First release on PyPI.
+
+
