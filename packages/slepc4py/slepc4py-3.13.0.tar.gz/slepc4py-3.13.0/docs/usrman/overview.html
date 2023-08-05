@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Overview &#8212; SLEPc for Python 3.13.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="SLEPc for Python" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="SLEPc for Python"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SLEPc for Python 3.13.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p><em>SLEPc for Python</em> (slepc4py) is a Python package that provides
+convenient access to the functionality of SLEPc.</p>
+<p>SLEPc <a class="footnote-reference brackets" href="#id3" id="id1">1</a>, <a class="footnote-reference brackets" href="#id4" id="id2">2</a> implements algorithms and tools for the numerical
+solution of large, sparse eigenvalue problems on parallel
+computers. It can be used for linear eigenvalue problems in either
+standard or generalized form, with real or complex arithmetic.
+It can also be used for computing a partial SVD of a large, sparse,
+rectangular matrix, and to solve nonlinear eigenvalue problems
+(polynomial or general). Additionally, SLEPc provides solvers for
+the computation of the action of a matrix function on a vector.</p>
+<p>SLEPc is intended for computing a subset of the spectrum of a matrix
+(or matrix pair). One can for instance approximate the largest
+magnitude eigenvalues, or the smallest ones, or even those eigenvalues
+located near a given region of the complex plane. Interior eigenvalues
+are harder to compute, so SLEPc provides different methodologies. One
+such method is to use a spectral transformation. Cheaper alternatives
+are also available.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>J. E. Roman, C. Campos, E. Romero, A. Tomas.
+SLEPc Users Manual. DSIC-II/24/02 - Revision 3.5
+D. Sistemas Informáticos y Computación, Universitat Politècnica de
+València. 2014.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Vicente Hernandez, Jose E. Roman and Vicente Vidal.
+SLEPc: A Scalable and Flexible Toolkit for the Solution of
+Eigenvalue Problems, ACM Trans. Math. Softw. 31(3), pp. 351-362,
+2005.</p>
+</dd>
+</dl>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>Currently, the following types of eigenproblems can be addressed:</p>
+<ul class="simple">
+<li><p>Standard eigenvalue problem, <em>Ax=kx</em>, either for Hermitian or
+non-Hermitian matrices.</p></li>
+<li><p>Generalized eigenvalue problem, <em>Ax=kBx</em>, either Hermitian
+positive-definite or not.</p></li>
+<li><p>Partial singular value decomposition of a rectangular matrix,
+<em>Au=sv</em>.</p></li>
+<li><p>Polynomial eigenvalue problem, <em>P(k)x=0</em>.</p></li>
+<li><p>Nonlinear eigenvalue problem, <em>T(k)x=0</em>.</p></li>
+<li><p>Computing the action of a matrix function on a vector, <em>w=f(alpha A)v</em>.</p></li>
+</ul>
+<p>For the linear eigenvalue problem, the following methods are available:</p>
+<ul class="simple">
+<li><p>Krylov eigensolvers, particularly Krylov-Schur, Arnoldi, and
+Lanczos.</p></li>
+<li><p>Davidson-type eigensolvers, including Generalized Davidson and
+Jacobi-Davidson.</p></li>
+<li><p>Subspace iteration and single vector iterations (inverse iteration,
+RQI).</p></li>
+<li><p>Conjugate gradient for the minimization of the Rayleigh quotient.</p></li>
+<li><p>A contour integral solver.</p></li>
+</ul>
+<p>For singular value computations, the following alternatives can be
+used:</p>
+<ul class="simple">
+<li><p>Use an eigensolver via the cross-product matrix <em>A’A</em> or the cyclic
+matrix <em>[0 A; A’ 0]</em>.</p></li>
+<li><p>Explicitly restarted Lanczos bidiagonalization.</p></li>
+<li><p>Implicitly restarted Lanczos bidiagonalization (thick-restart
+Lanczos).</p></li>
+</ul>
+<p>For polynomial eigenvalue problems, the following methods are available:</p>
+<ul class="simple">
+<li><p>Use an eigensolver to solve the generalized eigenvalue problem
+obtained after linearization.</p></li>
+<li><p>TOAR and Q-Arnoldi, memory efficient variants of Arnoldi for polynomial
+eigenproblems.</p></li>
+</ul>
+<p>Computation of interior eigenvalues is supported by means of the
+following methodologies:</p>
+<ul class="simple">
+<li><p>Spectral transformations, such as shift-and-invert. This technique
+implicitly uses the inverse of the shifted matrix <em>(A-tI)</em> in order
+to compute eigenvalues closest to a given target value, <em>t</em>.</p></li>
+<li><p>Harmonic extraction, a cheap alternative to shift-and-invert that
+also tries to approximate eigenvalues closest to a target, <em>t</em>, but
+without requiring a matrix inversion.</p></li>
+</ul>
+<p>Other remarkable features include:</p>
+<ul class="simple">
+<li><p>High computational efficiency, by using NumPy and SLEPc under the
+hood.</p></li>
+<li><p>Data-structure neutral implementation, by using efficient sparse
+matrix storage provided by PETSc. Implicit matrix representation is
+also available by providing basic operations such as matrix-vector
+products as user-defined Python functions.</p></li>
+<li><p>Run-time flexibility, by specifying numerous setting at the command
+line.</p></li>
+<li><p>Ability to do the computation in parallel.</p></li>
+</ul>
+</div>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<p>SLEPc provides the following components, which are mirrored by slepc4py
+for its use from Python. The first five components are solvers for
+different classes of problems, while the rest can be considered
+auxiliary object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">EPS</dt>
+<dd class="field-odd"><p>The Eigenvalue Problem Solver is the component that provides all
+the functionality necessary to define and solve an
+eigenproblem. It provides mechanisms for completely specifying
+the problem: the problem type (e.g. standard symmetric), number
+of eigenvalues to compute, part of the spectrum of
+interest. Once the problem has been defined, a collection of
+solvers can be used to compute the required solutions.  The
+behaviour of the solvers can be tuned by means of a few
+parameters, such as the maximum dimension of the subspace to be
+used during the computation.</p>
+</dd>
+<dt class="field-even">SVD</dt>
+<dd class="field-even"><p>This component is the analog of EPS for the case of Singular
+Value Decompositions. The user provides a rectangular matrix and
+specifies how many singular values and vectors are to be
+computed, whether the largest or smallest ones, as well as some
+other parameters for fine tuning the computation. Different
+solvers are available, as in the case of EPS.</p>
+</dd>
+<dt class="field-odd">PEP</dt>
+<dd class="field-odd"><p>This component is the analog of EPS for the case of Polynomial
+Eigenvalue Problems. The user provides the coefficient matrices of
+the polynomial. Several parameters can be specified, as in
+the case of EPS. It is also possible to indicate whether the
+problem belongs to a special type, e.g., symmetric or gyroscopic.</p>
+</dd>
+<dt class="field-even">NEP</dt>
+<dd class="field-even"><p>This component covers the case of general nonlinear eigenproblems,
+T(lambda)x=0.</p>
+</dd>
+<dt class="field-odd">MFN</dt>
+<dd class="field-odd"><p>This component provides the functionality for computing the action
+of a matrix function on a vector. Given a matrix A and a vector b,
+the call MFNSolve(mfn,b,x) computes x=f(A)b, where f is a function
+such as the exponential.</p>
+</dd>
+<dt class="field-even">ST</dt>
+<dd class="field-even"><p>The Spectral Transformation is a component that provides
+convenient implementations of common spectral
+transformations. These are simple transformations that map
+eigenvalues to different positions, in such a way that
+convergence to wanted eigenvalues is enhanced. The most common
+spectral transformation is shift-and-invert, that allows for the
+computation of eigenvalues closest to a given target value.</p>
+</dd>
+<dt class="field-odd">BV</dt>
+<dd class="field-odd"><p>This component encapsulates the concept of a set of Basis Vectors
+spanning a vector space. This component provides convenient access
+to common operations such as orthogonalization of vectors. The
+BV component is usually not required by end-users.</p>
+</dd>
+<dt class="field-even">DS</dt>
+<dd class="field-even"><p>The Dense System (or Direct Solver) component, used internally to
+solve dense eigenproblems of small size that appear in the course
+of iterative eigensolvers.</p>
+</dd>
+<dt class="field-odd">FN</dt>
+<dd class="field-odd"><p>A component used to define mathematical functions. This is required
+by the end-user for instance to define function T(.) when solving
+nonlinear eigenproblems with NEP in split form.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#components">Components</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">SLEPc for Python</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="next chapter">Tutorial</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/overview.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="SLEPc for Python"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SLEPc for Python 3.13.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Lisandro Dalcin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Installation &#8212; SLEPc for Python 3.13.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Citations" href="citing.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="citing.html" title="Citations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SLEPc for Python 3.13.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-pip-or-easy-install">
+<h2>Using <strong>pip</strong> or <strong>easy_install</strong><a class="headerlink" href="#using-pip-or-easy-install" title="Permalink to this headline">¶</a></h2>
+<p>You can use <strong class="program">pip</strong> to install <code class="xref py py-mod docutils literal notranslate"><span class="pre">slepc4py</span></code> and its
+dependencies (<code class="xref py py-mod docutils literal notranslate"><span class="pre">mpi4py</span></code> is optional but highly recommended):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install [--user] numpy mpi4py
+$ pip install [--user] petsc petsc4py
+$ pip install [--user] slepc slepc4py
+</pre></div>
+</div>
+<p>Alternatively, you can use <strong class="program">easy_install</strong> (deprecated):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ easy_install [--user] slepc4py
+</pre></div>
+</div>
+<p>If you already have working PETSc and SLEPc installs, set environment
+variables <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">SLEPC_DIR</span></code> and <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PETSC_DIR</span></code> (and perhaps
+<span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PETSC_ARCH</span></code> for non-prefix installs) to appropriate values
+and next use <strong class="program">pip</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export SLEPC_DIR=/path/to/slepc
+$ export PETSC_DIR=/path/to/petsc
+$ export PETSC_ARCH=arch-linux2-c-opt
+$ pip install [--user] petsc4py slepc4py
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-distutils">
+<h2>Using <strong>distutils</strong><a class="headerlink" href="#using-distutils" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<p>You need to have the following software properly installed in order to
+build <em>SLEPc for Python</em>:</p>
+<ul class="simple">
+<li><p>Any <a class="reference external" href="http://www.mpi-forum.org">MPI</a> implementation <a class="footnote-reference brackets" href="#id2" id="id1">1</a> (e.g., <a class="reference external" href="http://www.mpich.org">MPICH</a> or <a class="reference external" href="http://www.open-mpi.org">Open MPI</a>),
+built with shared libraries.</p></li>
+<li><p>A matching version of <a class="reference external" href="http://www.mcs.anl.gov/petsc/">PETSc</a> built with shared libraries.</p></li>
+<li><p>A matching version of <a class="reference external" href="https://slepc.upv.es">SLEPc</a> built with shared libraries.</p></li>
+<li><p><a class="reference external" href="http://www.numpy.org">NumPy</a> package.</p></li>
+<li><p><a class="reference external" href="http://bitbucket.org/petsc/petsc4py">petsc4py</a> package.</p></li>
+</ul>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Unless you have appropriately configured and built SLEPc and
+PETSc without MPI (configure option <code class="docutils literal notranslate"><span class="pre">--with-mpi=0</span></code>).</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">2</span></dt>
+<dd><p>You may need to use a parallelized version of the Python
+interpreter with some MPI-1 implementations (e.g. MPICH1).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="downloading">
+<h3>Downloading<a class="headerlink" href="#downloading" title="Permalink to this headline">¶</a></h3>
+<p>The <em>SLEPc for Python</em> package is available for download at the
+project website generously hosted by Bitbucket. You can use
+<strong class="program">curl</strong> or <strong class="program">wget</strong> to get a release tarball.</p>
+<ul>
+<li><p>Using <strong class="program">curl</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl -O https://gitlab.com/slepc/slepc4py/-/archive/X.Y.Z.tar.gz
+</pre></div>
+</div>
+</li>
+<li><p>Using <strong class="program">wget</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget https://gitlab.com/slepc/slepc4py/-/archive/X.Y.Z.tar.gz
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="building">
+<h3>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h3>
+<p>After unpacking the release tarball:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tar -zxf slepc4py-X.Y.tar.gz
+$ cd slepc4py-X.Y
+</pre></div>
+</div>
+<p>the distribution is ready for building.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Mac OS X</strong> users employing a Python distribution built
+with <strong>universal binaries</strong> may need to set the environment
+variables <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MACOSX_DEPLOYMENT_TARGET</span></code>, <span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">SDKROOT</span></code>,
+and <span class="target" id="index-5"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">ARCHFLAGS</span></code> to appropriate values. As an example,
+assume your Mac is running <strong>Snow Leopard</strong> on a <strong>64-bit Intel</strong>
+processor and you want to override the hard-wired cross-development
+SDK in Python configuration, your environment should be modified
+like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export MACOSX_DEPLOYMENT_TARGET=10.6
+$ export SDKROOT=/
+$ export ARCHFLAGS=&#39;-arch x86_64&#39;
+</pre></div>
+</div>
+</div>
+<p>Some environment configuration is needed to inform the location of
+PETSc and SLEPc. You can set (using <strong class="command">setenv</strong>,
+<strong class="command">export</strong> or what applies to you shell or system) the
+environment variables <span class="target" id="index-6"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">SLEPC_DIR`</span></code>, <span class="target" id="index-7"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PETSC_DIR</span></code>, and
+<span class="target" id="index-8"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PETSC_ARCH</span></code> indicating where you have built/installed SLEPc
+and PETSc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export SLEPC_DIR=/usr/local/slepc
+$ export PETSC_DIR=/usr/local/petsc
+$ export PETSC_ARCH=arch-linux2-c-opt
+</pre></div>
+</div>
+<p>Alternatively, you can edit the file <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> and provide the
+required information below the <code class="docutils literal notranslate"><span class="pre">[config]</span></code> section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">config</span><span class="p">]</span>
+<span class="n">slepc_dir</span>  <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">slepc</span>
+<span class="n">petsc_dir</span>  <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">petsc</span>
+<span class="n">petsc_arch</span> <span class="o">=</span> <span class="n">arch</span><span class="o">-</span><span class="n">linux2</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">opt</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Finally, you can build the distribution by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python setup.py build
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing">
+<h3>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h3>
+<p>After building, the distribution is ready for installation.</p>
+<p>If you have root privileges (either by log-in as the root user of by
+using <strong class="command">sudo</strong>) and you want to install <em>SLEPc for Python</em> in
+your system for all users, just do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python setup.py install
+</pre></div>
+</div>
+<p>The previous steps will install the <code class="xref py py-mod docutils literal notranslate"><span class="pre">slepc4py</span></code> package at standard
+location <code class="file docutils literal notranslate"><em><span class="pre">prefix</span></em><span class="pre">/lib/python</span><em><span class="pre">X</span></em><span class="pre">.</span><em><span class="pre">X</span></em><span class="pre">/site-packages</span></code>.</p>
+<p>If you do not have root privileges or you want to install <em>SLEPc for
+Python</em> for your private use, just do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python setup.py install --user
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#using-pip-or-easy-install">Using <strong>pip</strong> or <strong>easy_install</strong></a></li>
+<li><a class="reference internal" href="#using-distutils">Using <strong>distutils</strong></a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#downloading">Downloading</a></li>
+<li><a class="reference internal" href="#building">Building</a></li>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="previous chapter">Tutorial</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="citing.html"
+                        title="next chapter">Citations</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/install.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="citing.html" title="Citations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">SLEPc for Python 3.13.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Lisandro Dalcin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
