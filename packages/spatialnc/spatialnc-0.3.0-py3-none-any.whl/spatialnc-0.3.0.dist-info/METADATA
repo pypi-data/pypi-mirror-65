@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: spatialnc
+Version: 0.3.0
+Summary: Python library for handling spatial data in netcdfs specifically for modeling using SMRF/AWSM
+Home-page: https://github.com/micahjohnson150/spatialnc
+Author: Micah Johnson
+Author-email: micah.johnson150@gmail.com
+License: MIT license
+Keywords: spatialnc
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+
+=========
+spatialnc
+=========
+
+
+.. image:: https://img.shields.io/pypi/v/spatialnc.svg
+        :target: https://pypi.python.org/pypi/spatialnc
+
+
+Python library for handling spatial data in netcdfs specifically for modeling
+using SMRF/AWSM.
+
+
+* Free software: MIT license
+* Documentation: https://spatialnc.readthedocs.io.
+
+
+Features
+--------
+
+* IPW class - Python interface for opening files created by the Image Processing Workbench
+* Netcdf Manipulation - A topo class for managing non-time dependent data in netcdf form.
+* Netcdf Projections - Capable of adding UTM projection information to Netcdf so they can be read in by GDAL, QGIS, and other platforms
+* NetCDF analysis
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2019-01-31)
+------------------
+
+* First release on PyPI.
+
+0.2.0 (2019-01-31)
+------------------
+
+* Added spatial data extracted from basin_setup.
+* Added IPW class from SMRF
+* Added topo class from awsm
+
+0.3.0 (2020-04-02)
+------------------
+
+* Added projection retrieval from netcdf
+* Added in a netcdf copying and masking function
+* Readability improvements
+* Added in nc_stats cli tool
+* Added in linting with isort and autopep8
+* Fixes for issues: 1_, 2_, 3_, 6_ 
+
+.. _1: https://github.com/USDA-ARS-NWRC/spatialnc/issues/1
+.. _2: https://github.com/USDA-ARS-NWRC/spatialnc/issues/2
+.. _3: https://github.com/USDA-ARS-NWRC/spatialnc/issues/3
+.. _6: https://github.com/USDA-ARS-NWRC/spatialnc/issues/6
+
+
+0.4.0 (TBD)
+------------------
+
+
