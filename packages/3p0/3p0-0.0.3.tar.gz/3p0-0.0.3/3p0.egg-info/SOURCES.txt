@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+3p0.egg-info/PKG-INFO
+3p0.egg-info/SOURCES.txt
+3p0.egg-info/dependency_links.txt
+3p0.egg-info/not-zip-safe
+3p0.egg-info/top_level.txt
+pythreepio/__init__.py
+pythreepio/errors.py
+pythreepio/threepio.py
+pythreepio/utils.py
+static/__init__.py
+static/mapped_commands_full.json
+tests/__init__.py
+tests/test_pythreepio.py
