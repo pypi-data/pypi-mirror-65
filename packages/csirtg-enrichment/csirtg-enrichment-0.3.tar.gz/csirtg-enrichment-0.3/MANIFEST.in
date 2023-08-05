@@ -1,0 +1,11 @@
+include versioneer.py
+include .coveragerc
+include README.md COPYING LICENSE
+include requirements.txt dev_requirements.txt
+include VERSION
+include MANIFEST.in
+recursive-include test *
+global-exclude *.retry
+global-exclude *.pyc
+global-exclude __pycache__
+include csirtg_enrichment/_version.py
