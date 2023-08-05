@@ -1,0 +1,150 @@
+Metadata-Version: 2.1
+Name: feyn
+Version: 1.1.0b1
+Summary: High level Python interface to abzu qlattice
+Home-page: UNKNOWN
+Author: Abzu
+Author-email: support@abzu.ai
+License: CC BY-ND 4.0
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: numpy
+Requires-Dist: networkx
+Requires-Dist: sklearn
+Requires-Dist: graphviz
+Requires-Dist: matplotlib
+Requires-Dist: ipython
+
+# Feyn: AI by Abzu
+
+Feyn is a Python library that pushes machine learning to a new level by taking strong inspiration from quantum physics. A Feyn-model is based on the [path integral formulation](https://en.wikipedia.org/wiki/Path_integral_formulation) of quantum physics originally proposed by the American physicist Richard P. Feynman.
+
+Feyn-model is in many ways similar to Neural Network (or Deep Learning) models, so some of the concepts may be familiar to you already. But at it's core, the Feyn-model introduces a new way to work with your data together with a revolutionary way to accumulate and transfer learnings.
+
+But let's start with the basics.
+
+To generate a Feyn-model you need access to a Qlattice, short for Quantum Lattice. A QLattice is a high-performance quantum simulator that runs on dedicated hardware. To learn more about getting access to a QLattice, visit [www.abzu.ai](https://www.abzu.ai)
+
+The other needed component is this Python package (feyn) that runs on your computer and accumulate learnings from your data. These learnings are communicated to your QLattice over the network.
+
+A _QLattice_ is the heart of a Feyn-model. The QLattice is divided into 2 different parts: the _registers_ and the _interactions_.
+
+The _registers_ are what we use to interact with the QLattice. They are the input and output interface of a Feyn-model. There are different register types, but the basics are `continuous` and `categorical`. The output register is always `continuous`. More on this later.
+
+The _interactions_ layer is where the learnings are stored and is what we use to extract the QGraphs.
+
+The _QGraph_ represents *all* possible graphs, from the input registers to the output register. In human words that means *all* possible explanations for the given output with the given inputs, suggested by the qlattice.
+
+## Getting started: Feyn in 1 min
+
+Ok, all this sounds good! But in practice how does this work?
+
+Let us walk through a simple classification problem, step by step.
+
+For this quick walk-through we will pick a simple classification problem. The breast cancer dataset which is bundled with `sklearn`.
+
+This will show you the core concepts in building a graph to execute predictions, that you can deploy to your application.
+
+### Connect to your QLattice
+
+```python
+from feyn import QLattice
+
+qlattice = QLattice(url = "<URL to your qlattice>")
+qlattice
+```
+
+### Add registers
+
+Read the example dataset and add a `register` for each column in the dataset.
+
+The registers describes your problem. Which features goes in, and which feature do you want to predict. Often the same as the columns in your dataset.
+
+```python
+import sklearn.datasets
+import pandas as pd
+
+breast_cancer = sklearn.datasets.load_breast_cancer()
+
+# Convert to a pandas dataframe
+df = pd.DataFrame(breast_cancer.data,columns=breast_cancer.feature_names)
+df['target'] = pd.Series(breast_cancer.target)
+df.head()
+
+in_registers = []
+
+# Create an input register for each input feature
+for feature in breast_cancer.feature_names:
+    in_registers.append(qlattice.add_register(label=feature, register_type="cont"))
+
+# Turn the target column into an output register
+out_reg = qlattice.add_register(label='target')
+```
+
+Now the `QLattice` is prepared for your problem.
+
+### Train locally and update learnings remotely
+
+Next, run for some epochs, where you retrieve a new `QGraph`, tune it, and update the `QLattice` with the learnings from the best graph.
+
+The update calls will bias the `QLattice` from your learnings. Meaning that next time you call `qlattice.get_qgraph`, the new `QGraph` will fit your problem better.
+
+Notice, that the `QLattice` lives remotely on the Abzu cluster, but it never sees your local data. The dataset stays on your premise. So, you train locally, and just transmit your learnings to the `QLattice`. That is the way the `QLattice` gets better at producing `QGraphs` that fits your problem.
+
+```python
+from sklearn.model_selection import train_test_split
+
+X = df[breast_cancer.feature_names]
+y = df["target"]
+
+X_test, X_train, y_test, y_train = train_test_split(X, y, test_size=0.33)
+
+for _ in range(10):
+    # Get a QGraph full of graphs between your inputs and output from the remote QLattice.
+    # This QGraph will be biased towards what was learned from the previous `update` calls.
+    qgraph = qlattice.get_qgraph(in_registers, out_reg)
+
+    # Now tune the local QGraph with your local data
+    qgraph.tune(X_train, y_train, epochs=10)
+
+    # Select the graph with lowest loss as the best solution.
+    # You could consider other attributes as your "best" (accuracy, complexity, etc.).
+    best_graph = qgraph.graphs[0]
+
+    # Teach the QLattice about this solution, so that it gets biased towards solutions similar to this.
+    qlattice.update(best_graph)
+```
+
+### Evaluate
+
+Finally, evaluate the results in the test dataset.
+This is also how you utilize the tuned `graph` for predictions in your application.
+
+```python
+from feyn import tools
+
+# Use the graph to produce predictions. This graph is similar your model in other framework.
+# It is the thing you can save to a file, and deploy to your application or production environment.
+predictions = best_graph.predict(X_test)
+
+# This is a classification problem, but we are using a regression model to solve it.
+# There are many ways to do this. In this example we will round to nearest integer (the class).
+predictions = predictions.round()
+
+tools.plot_confusion_matrix(y_true=y_test,
+                            y_pred=predictions,
+                            title="Evaluation Results")
+```
+
