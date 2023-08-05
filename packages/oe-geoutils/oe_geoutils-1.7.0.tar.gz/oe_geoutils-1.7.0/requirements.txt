@@ -1,0 +1,21 @@
+# geometry
+geoalchemy2==0.6.3
+# See https://github.com/OnroerendErfgoed/oe_geoutils/issues/93
+geojson==2.4.1
+Shapely==1.6.4.post2
+pyproj==2.2.2
+# workaround colander issue https://github.com/Pylons/colander/issues/294
+iso8601==0.1.12
+colander==1.7.0
+
+# pyramid
+pyramid==1.10.4
+requests==2.22.0
+
+# crabpy
+pycountry==18.5.26
+crabpy==0.12.0
+crabpy_pyramid==0.8.1
+
+#OE utils
+oe_utils==1.6.1
