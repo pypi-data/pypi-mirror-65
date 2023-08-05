@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: gym-cap32
+Version: 1.0.2
+Summary: Gym environment for Amstrad CPC.
+Home-page: https://github.com/pypa/sampleproject
+Author: Theo De castro Pinto, Wilfried Augeard
+Author-email: decastrotheo960@gmail.com
+License: UNKNOWN
+Description: # OpenAI Gym Envs
+        
+        [Link to doc](https://github.com/openai/gym/blob/master/docs/creating-environments.md)
+        
+        ## Installation
+        
+        First install OpenAI Gym :
+        
+        .. code-block:: console
+        
+            $ pip3 install --no-cache-dir --upgrade gym
+        
+        Then install the AmLE :
+        
+        .. code-block:: console
+        
+            $ pip3 install --no-cache-dir --upgrade amle-py
+        
+        Finally instal the amle environment for OpenAi Gym :
+        
+        .. code-block:: console
+        
+            $ pip3 install --no-cache-dir --upgrade gym-cap32
+        
+        ## Examples
+        
+        You can run two different examples with the two given games. To run them make sure to have installed everything required above. Then in Examples/ :
+        
+        .. code-block:: console
+        
+            $ python3 <example-file>
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
