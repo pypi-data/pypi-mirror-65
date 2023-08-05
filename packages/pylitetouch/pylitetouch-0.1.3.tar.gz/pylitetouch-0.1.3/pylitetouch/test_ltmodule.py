@@ -1,0 +1,39 @@
+
+from pylitetouch import LiteTouch
+import time
+
+host = '192.168.1.65'
+port = 10001
+
+load = 105
+lvl = 20
+kp = '14'
+but = '9'
+kb = kp + '_' + but
+
+def callback(msg, args):
+    """Show the message are arguments."""
+    print(msg, args)
+
+
+
+LT = LiteTouch(host,port,callback)
+LT
+time.sleep(.3)
+#LT.toggle_switch(kp,but)
+
+#LT.set_loadlevel(load,lvl)
+
+#LT.set_loadon(load)
+LT.get_led_state(kb)
+LT.set_clock()
+#LT.set_loadoff(load)
+
+
+
+print('Waiting for Messages')
+time.sleep(10)
+
+print('Close Connection')
+LT.close()
+
