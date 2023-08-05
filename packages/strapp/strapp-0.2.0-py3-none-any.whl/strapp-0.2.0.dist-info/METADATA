@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: strapp
+Version: 0.2.0
+Summary: 
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: click
+Provides-Extra: flask
+Provides-Extra: sentry
+Provides-Extra: sqlalchemy
+Requires-Dist: click; extra == "click"
+Requires-Dist: dataclasses; (python_version >= "3.6" and python_version < "3.7") and (extra == "click" or extra == "flask")
+Requires-Dist: flask; extra == "flask"
+Requires-Dist: flask_reverse_proxy; extra == "flask"
+Requires-Dist: sentry-sdk; extra == "sentry"
+Requires-Dist: sqlalchemy; extra == "sqlalchemy"
