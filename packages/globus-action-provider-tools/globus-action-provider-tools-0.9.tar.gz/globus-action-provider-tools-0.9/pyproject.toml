@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "globus-action-provider-tools"
+version = "0.9"
+description = "Tools to help developers build services that implement the Action Provider specification."
+authors = [
+    "Jim Pruyne <pruyne@globus.org>",
+]
+keywords = [
+  "globus",
+  "automation",
+  "workflow",
+  "action_provider"
+  ]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: Free To Use But Restricted",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+  ]
+
+readme = "README.rst"
+
+[tool.poetry.scripts]
+whattimeisit-provider = "examples.flask.whattimeisitrightnow.app.app:main"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+"dogpile.cache"="^0.7.1"
+globus-sdk="^1.9"
+# globus-nexus-client="^0.2.8"
+jsonschema = "^3"
+pyyaml = "^5.3.1"
+
+[tool.poetry.dev-dependencies]
+python-language-server = "^0"
+pyls-black = "^0"
+pyls-isort = "^0"
+pyls-mypy = "^0"
+# flake8 = "^3.7"
+flake8-bugbear = "^20"
+importmagic = "^0"
+epc = "^0"
+pytest = "^5"
+werkzeug = "^1"
+flask = "^1"
+isodate = "^0.6.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
