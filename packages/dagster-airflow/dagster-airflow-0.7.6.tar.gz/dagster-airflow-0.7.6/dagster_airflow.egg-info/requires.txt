@@ -1,0 +1,9 @@
+six
+dagster==0.7.6
+dagster-graphql==0.7.6
+docker
+python-dateutil>=2.8.0
+
+[kubernetes]
+kubernetes>=3.0.0
+cryptography>=2.0.0
