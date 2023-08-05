@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyfony-bundles
+Version: 0.2.1
+Summary: Pyfony Framwork bundles base package
+Home-page: https://github.com/DataSentics/pyfony-bundles
+License: MIT
+Author: Jiri Koutny
+Author-email: jiri.koutny@datasentics.com
+Requires-Python: >=3.7.3,<3.8.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: injecta (>=0.6.0,<0.8.0)
+Requires-Dist: python-box (>=3.4.0,<3.5.0)
+Requires-Dist: tomlkit (>=0.5.0,<0.6.0)
+Project-URL: Repository, https://github.com/DataSentics/pyfony-bundles
+Description-Content-Type: text/markdown
+
+Pyfony Framework bundles base package
