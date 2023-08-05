@@ -1,0 +1,6 @@
+{% if config_images %}
+    {% include "common_config/partials/image_inlines.html" with images=view.common_config_images %}
+{% endif %}
+{% if config_attachments %}
+{% include "common_config/partials/attachment_inlines.html" with attachments=view.common_config_attachments%}
+{% endif %}

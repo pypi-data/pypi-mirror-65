@@ -1,0 +1,80 @@
+{% load common_config_tags static %}
+<div class="multi_attachment_upload_widget col-md-8 form-group" data-data='{{ attachments.all|dump_attachments_json }}'
+     data-fieldname="{{ fieldname|default:"attachments" }}">
+
+    <label class="col-sm-4 col-md-4 control-label" style="padding-top:0;">附件</label>
+    <div class="items col-sm-8 col-md-8">
+        <a class="btn_add" style="font-weight: bold">添加</a> （单文件大小不能超过50M）
+    </div>
+</div>
+{#<script src="{% static "qiye/js/SimpleAjaxUploader.min.js" %}"></script>#}
+<script>
+    $(function () {
+        var MultiFileUploadWidget = {
+            addItem: function (data) {
+                var h = '<div class="item"><i class="iconfont icon-fujian" style="margin-right:5px"></i><a style="color:#000" href="' + data.url + '" target="_blank"><input type="hidden" name="' + this.fieldName + '" value="' + data.id + '">' + data.name + '</a><a class="delete" style="cursor:pointer">删除</a></div>'
+                this.$items.append(h)
+            },
+            init: function (container) {
+                this.container = container
+                this.$items = container.find(".items")
+                this.data = data = container.data("data")
+                this.fieldName = container.data("fieldname")
+                for (var i in data) {
+                    this.addItem(data[i])
+                }
+                this.bindEvents()
+            },
+            bindEvents: function () {
+                var container = this.container
+
+                container.on("click", '.delete', function () {
+                    $(this).parent().remove();
+                })
+                var btn = container.find('.btn_add'),
+                    progressBar = $('#progressBar'),
+                    progressOuter = $('#progressOuter'),
+                    msgBox = $('#msgBox');
+
+                var uploader = new ss.SimpleUpload({
+                    button: btn,
+                    url: '{% url "common_config:attachment-upload" %}',
+                    name: 'file',
+                    responseType: 'json',
+                    multiple: true,
+                    maxSize: 51200,
+                    onProgress: function (pct,filename) {
+                        var inf;
+                        var tet;
+                        if (pct <= 100) {
+                            inf = "info"
+                            tet = filename + '已上传' + pct + "%"
+                        }
+                        bootstrapWarn({
+                            type: inf,
+                            text: tet,
+                        })
+                    },
+
+                    onComplete: function (filename, response) {
+
+                        if (response.error_code === 0) {
+                            bootstrapWarn({
+                                type: "success",
+                                text: filename + "上传成功",
+                            })
+                            var file = response.file
+                            MultiFileUploadWidget.addItem(file)
+                        }
+                    },
+                    onError: function () {
+                        msgBox.innerHTML = '上传失败，请联系管理员';
+                    }
+                });
+            }
+        };
+
+        MultiFileUploadWidget.init($(".multi_attachment_upload_widget"))
+
+    });
+</script>

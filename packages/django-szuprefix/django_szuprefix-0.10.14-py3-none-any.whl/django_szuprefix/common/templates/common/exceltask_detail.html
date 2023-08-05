@@ -1,0 +1,46 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+    <style>
+        .page {
+            min-height: 500px;
+        }
+    </style>
+    <h1>{{ object.name }}</h1>
+    <table class="table">
+        <tr>
+            <td>状态</td>
+            <td>{{ object.get_status_display }}</td>
+        </tr>
+        <tr>
+            <td>Excel文件</td>
+            <td>
+                {% if object.status == 4 %}
+                    {% with object.attachments.first as attach %}
+                        <a href="{{ attach.file.url }}">{{ attach.file.name }}<p>点击开始下载</p></a>
+
+                    {% endwith %}
+                {% else %}
+                    还在执行中，请等待，或者<a href="javascript:window.location.reload()">手动刷新</a>看看。
+                {% endif %}</td>
+        </tr>
+        <tr>
+            <td>记录数</td>
+            <td>{{ object.params.object_ids|length }}</td>
+        </tr>
+        <tr>
+            <td>创建时间</td>
+            <td>{{ object.create_time }}</td>
+        </tr>
+
+    </table>
+{% endblock %}
+
+{% block extrascripts %}
+    <script>
+    {% if object.status != 4 %}
+        setTimeout(function () {
+            window.location.reload();
+        }, 60000)
+    {% endif %}
+    </script>
+{% endblock %}
