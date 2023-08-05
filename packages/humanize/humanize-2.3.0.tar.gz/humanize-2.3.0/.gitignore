@@ -1,0 +1,13 @@
+*.egg-info*
+*.pot
+*.py[co]
+*.sw[po]
+.coverage
+.eggs
+.testmondata
+.tox
+build
+dist
+docs/_build*
+htmlcov
+tags
