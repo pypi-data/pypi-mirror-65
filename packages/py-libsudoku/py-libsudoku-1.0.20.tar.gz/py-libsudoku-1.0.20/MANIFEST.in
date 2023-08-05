@@ -1,0 +1,4 @@
+include README.md CMakeLists.txt
+recursive-include src *.h *.cpp
+recursive-include pybind11 *.h CMakeLists.txt *.cmake *.cmake.in
+recursive-include libsudoku *.h *.hpp *.cpp CMakeLists.txt
