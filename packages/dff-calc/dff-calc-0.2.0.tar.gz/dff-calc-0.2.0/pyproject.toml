@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "dff-calc"
+version = "0.2.0"
+description = "Calculate dF/F for neural calcium traces"
+authors = ["HagaiHargil <hagaihargil@gmail.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+numpy = "^1.18.2"
+pandas = "^1.0.3"
+scipy = "^1.4.1"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+mypy = "^0.770"
+flake8 = "^3.7.9"
+pylint = "^2.4.4"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
