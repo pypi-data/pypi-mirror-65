@@ -1,0 +1,42 @@
+<div class="pl-inbox">
+    <div class="title" *ngIf="noItems()">There are no tasks <fa name="smile-o"></fa></div>
+
+    <div class="pl-inbox-item" *ngFor="let task of tasks; odd as odd; even as even"
+         [class.bg-success]="!task.isCompleted() && task.isPrioritySuccess()"
+         [class.bg-info]="!task.isCompleted() && task.isPriorityInfo()"
+         [class.bg-warning]="!task.isCompleted() && task.isPriorityWarning()"
+         [class.bg-danger]="!task.isCompleted() && task.isPriorityDanger()"
+         [class.bg-odd]="odd" [class.bg-even]="even"
+         (click)="taskClicked(task)">
+
+        <fa class="pl-inbox-icon" *ngIf="task.isTask() && !task.isCompleted()"
+            name="square-o"></fa>
+        <fa *ngIf="task.isTask() && task.isCompleted()"
+            name="check-square-o"></fa>
+
+        <fa class="pl-inbox-icon" *ngIf="task.isMessage() && !task.isCompleted()"
+            name="comment-o"></fa>
+        <div class="pl-inbox-info">
+            <div class="pl-inbox-title">{{task.title}}</div>
+
+            <div class="pl-inbox-description">{{task.description}}</div>
+
+            <fa *ngIf="hasRoute(task)"
+                class="pl-inbox-read-more"
+                name="chevron-right"></fa>
+
+            <div class="pl-inbox-date-time">
+                {{timePast(task)}} ago {{dateTime(task)}}
+            </div>
+        </div>
+
+        <img *ngIf="task.imagePath" [src]="task.imagePath">
+
+        <div class="btn-group" *ngIf="!task.isActioned()">
+            <button *ngFor="let action of task.actions"
+                    (click)="actionClicked(task, action); $event.stopPropagation();"
+                    class="btn btn-sm">{{action.title}}
+            </button>
+        </div>
+    </div>
+</div>
