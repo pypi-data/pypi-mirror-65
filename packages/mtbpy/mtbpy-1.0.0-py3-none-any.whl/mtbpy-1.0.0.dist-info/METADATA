@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: mtbpy
+Version: 1.0.0
+Summary: Module for communicating with Minitab from Python scripts executed via the PYSC command.
+Home-page: https://support.minitab.com/minitab/19/python-integration/
+Author: Minitab, LLC
+Author-email: techsupport@minitab.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6.1
+Description-Content-Type: text/markdown
+Requires-Dist: protobuf (>=3.8.0)
+Requires-Dist: grpcio (>=1.26.0)
+Provides-Extra: develop
+Requires-Dist: grpcio-tools ; extra == 'develop'
+
+# mtbpy
+
+The `mtbpy` package contains the `mtbpy` Python module, which provides the ability for Python
+scripts to communicate with Minitab Statistical Software when executed via MSS's `PYSC` command.
+
