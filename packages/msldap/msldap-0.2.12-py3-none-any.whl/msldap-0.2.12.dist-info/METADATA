@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: msldap
+Version: 0.2.12
+Summary: Python library to play with MS LDAP
+Home-page: https://github.com/skelsec/msldap
+Author: Tamas Jos
+Author-email: info@skelsec.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: asn1crypto
+Requires-Dist: minikerberos (==0.2.1)
+Requires-Dist: aiocmd
+Requires-Dist: asciitree
+Requires-Dist: asysocks
+Requires-Dist: winacl (>=0.0.2)
+Requires-Dist: prompt-toolkit (<3.0.0)
+Requires-Dist: tqdm
+Requires-Dist: winsspi (>=0.0.8); platform_system == "Windows"
+
+Python library to play with MS LDAP
+
+
