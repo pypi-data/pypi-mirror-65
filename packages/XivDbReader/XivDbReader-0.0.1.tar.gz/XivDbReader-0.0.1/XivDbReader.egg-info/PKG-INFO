@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: XivDbReader
+Version: 0.0.1
+Summary: Web scraping package to read the Final Fantasy XIV DB.
+Home-page: https://github.com/luther38/XivDbReader
+Author: James Tombleson
+Author-email: jtombleson38@gmail.com
+License: UNKNOWN
+Description: # XivDbReader
+        
+        This is a python module that goes and extracts data from Final Fantasy XIV official database.  The goal is to extract the data and store it in a DB to be reused.
+        
+        ## Requirements
+        
+        Python 3
+        requests
+        BeautifulSoup
+        
+        ## Getting Started
+        
+        
+        
+        ## How to use
+        
+        ``` python
+        from XivDbReader import Reader
+        from XivDbReader.collections import *
+        from typing import List
+        
+        read = Reader()
+        
+        # Returns items extracted from the list pages
+        itemLinks: List = read.getItems(itemType="arms")
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
