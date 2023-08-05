@@ -1,0 +1,18 @@
+.DS_Store
+**/.DS_Store
+
+# jupyter notebook
+.ipynb_checkpoints/*
+**/.ipynb_checkpoints/**
+
+# terminal environment
+**/__pycache__/**
+
+# pycharm
+.idea/*
+**/.idea/*
+
+# distribution
+build/
+dist/
+*.egg-info/
