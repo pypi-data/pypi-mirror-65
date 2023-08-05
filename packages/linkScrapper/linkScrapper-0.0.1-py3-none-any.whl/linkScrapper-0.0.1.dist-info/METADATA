@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: linkScrapper
+Version: 0.0.1
+Summary: With this package you can get all links inside a https link and retrieve them as an array
+Home-page: https://github.com/augustt0/linkScrapper
+Author: augustt0
+Author-email: bigeagleteam@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: bs4
+Requires-Dist: urllib2
+Requires-Dist: re
+
+# LinkScrapper
+
+### Usage:
+
+After importing the package you should call 'getLinks(link)' and this will retrieve an array with all links
+of the website you provied.
+
+### This only works on https by the moment.
+
+
+### Author: Augusto Cabrera
+### BigEagle
+
