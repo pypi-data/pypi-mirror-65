@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: edx-search
+Version: 1.3.4
+Summary: Search and index routines for index access
+Home-page: https://github.com/edx/edx-search
+Author: edX
+Author-email: oscm@edx.org
+License: AGPL
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Requires-Dist: Django
+Requires-Dist: event-tracking
+Requires-Dist: six
+Requires-Dist: elasticsearch (<2.0.0,>=1.0.0)
+
+UNKNOWN
+
+
