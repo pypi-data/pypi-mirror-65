@@ -1,0 +1,16 @@
+setuptools>=38.3.0
+appconfigpy<2,>=1.0.1
+click<8,>=6.2
+colorama<1,>=0.3.7
+Logbook<2,>=0.12.3
+DateTimeRange<2,>=1.0.0
+msgfy<1,>=0.0.6
+path<14,>=13.0.0
+pathvalidate<3,>=2.2.2
+PyGithub<2,>=1.43.7
+retryrequests<1,>=0.0.2
+typepy<2,>=1.0.0
+typing-extensions>=3.7.4
+
+[test]
+pytest
