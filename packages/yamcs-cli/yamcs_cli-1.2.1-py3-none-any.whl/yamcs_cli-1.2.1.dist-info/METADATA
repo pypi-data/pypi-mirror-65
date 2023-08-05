@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: yamcs-cli
+Version: 1.2.1
+Summary: Yamcs Command-Line Tools
+Home-page: https://github.com/yamcs/yamcs-cli
+Author: Space Applications Services
+Author-email: yamcs@spaceapplications.com
+License: LGPL
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: yamcs-client
+Provides-Extra: kerberos
+Requires-Dist: yamcs-client-kerberos ; extra == 'kerberos'
+
+# Command-Line Interface
+
+## Development Setup
+
+Install build dependencies (you may want to do this in a virtualenv):
+
+    pip install -r requirements.txt
+
+
+Install `yamcs-cli` from the source base:
+
+    python setup.py develop
+
+Changes to any source file have immediate impact.
+
+
