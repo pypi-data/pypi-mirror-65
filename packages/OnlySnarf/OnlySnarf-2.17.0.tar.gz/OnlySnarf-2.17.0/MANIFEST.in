@@ -1,0 +1,11 @@
+# Config
+include OnlySnarf/src/*
+include OnlySnarf/bin/*
+
+exclude OnlySnarf/notes.py
+
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
