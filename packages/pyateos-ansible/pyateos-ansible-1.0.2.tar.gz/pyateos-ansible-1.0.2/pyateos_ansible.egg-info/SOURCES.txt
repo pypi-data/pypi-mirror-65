@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+pyateos/__init__.py
+pyateos/modules/__init__.py
+pyateos/modules/eos_pyateos.py
+pyateos_ansible.egg-info/PKG-INFO
+pyateos_ansible.egg-info/SOURCES.txt
+pyateos_ansible.egg-info/dependency_links.txt
+pyateos_ansible.egg-info/requires.txt
+pyateos_ansible.egg-info/top_level.txt
