@@ -1,0 +1,4 @@
+[console_scripts]
+oj-prepare = onlinejudge_prepare.main:main
+oj-template = onlinejudge_template.main:main
+
