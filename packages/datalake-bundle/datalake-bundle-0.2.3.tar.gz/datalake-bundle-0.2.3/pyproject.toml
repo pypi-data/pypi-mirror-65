@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "datalake-bundle"
+version = "0.2.3"
+description = "DataLake bundle for the Pyfony Framework"
+readme = "README.md"
+repository = "https://github.com/DataSentics/datalake-bundle"
+
+license = "MIT"
+
+authors = [
+    "Jiri Koutny <jiri.koutny@datasentics.com>"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+include = ["*.yaml"]
+
+packages = [
+    { include = "datalakebundle", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "~3.7.3"
+pyfony-bundles = "0.2.*"
+console-bundle = "0.2.*"
+databricks-bundle = "^0.2.4 || 0.3.*"
+
+[tool.poetry.dev-dependencies]
+pylint = "2.4.*"
+pyfony = "^0.4.0"
+pytest = "5.2.*"
+databricks-connect = "^6.4.0"
+py4j = "^0.10.9"
+
+[app]
+container-init = ["datalakebundle.containerInit", "initContainer"]

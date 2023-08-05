@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: datalake-bundle
+Version: 0.2.3
+Summary: DataLake bundle for the Pyfony Framework
+Home-page: https://github.com/DataSentics/datalake-bundle
+License: MIT
+Author: Jiri Koutny
+Author-email: jiri.koutny@datasentics.com
+Requires-Python: >=3.7.3,<3.8.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: console-bundle (>=0.2.0,<0.3.0)
+Requires-Dist: databricks-bundle (>=0.2.4,<0.4.0)
+Requires-Dist: pyfony-bundles (>=0.2.0,<0.3.0)
+Project-URL: Repository, https://github.com/DataSentics/datalake-bundle
+Description-Content-Type: text/markdown
+
+DataLake bundle for the Pyfony Framework
+
