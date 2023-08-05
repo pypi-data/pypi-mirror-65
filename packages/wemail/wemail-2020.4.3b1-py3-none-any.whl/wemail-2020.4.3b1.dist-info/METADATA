@@ -1,0 +1,347 @@
+Metadata-Version: 2.1
+Name: wemail
+Version: 2020.4.3b1
+Summary: UNKNOWN
+Home-page: https://github.com/waynew/wemail
+Author: Wayne Werner
+Author-email: wayne@waynewerner.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: build
+Requires-Dist: wheel ; extra == 'build'
+Provides-Extra: html
+Requires-Dist: mistletoe ; extra == 'html'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: aiosmtpd ; extra == 'test'
+Requires-Dist: mistletoe ; extra == 'test'
+
+# WEmail
+
+(Or, Wayne's Email)
+
+I really love command line tools. Alpine has been a favorite of mine and Mutt
+is also a rather useful mail client. But I wanted to do some things
+differently, so I'm working on this project, WEmail.
+
+It's designed for use with my other project [Orouboros][1], a mailserver that
+cheerfully violates all kinds of standards for MTAs.
+
+
+To get started, you'll want to create a `~/.wemailrc` file. It's a JSON file,
+because aside from the pesky inability to have trailing commas, it's pretty
+good otherwise. Here's a sample one to get you started:
+
+```
+{
+    "ABORT_TIMEOUT": 2,
+    "MAILDIR": "~/mymail/",
+    "DEFAULT_FROM": "person@example.com",
+    "person@example.com": {
+        "HEADERS": {
+            "From": "person@example.com",
+            "To": "",
+            "X-CommonMark": "True",
+            "Subject": ""
+        },
+        "SMTP_HOST": "example.com",
+        "SMTP_PORT": 1234,
+        "SMTP_USE_TLS": true,
+        "SMTP_USERNAME": "person",
+        "SMTP_PASSWORD": "this is not a real password",
+        "":""
+    }
+}
+```
+
+Oh yeah, you can add `"":""` at the end of your blocks, because I don't care
+about them, and that lets you put commas at the end of everything else.
+
+Anyway, after that you just `python3 -m pip install --user wemail` and then run
+`wemail`.
+
+Now you can run `check` to check your email, and `proc` to process your email.
+While not everything has a `help`, hopefully there should be enough to get you
+going. And if you get stuck, feel free to send *me* an email - you can find my
+address in `setup.py`. Oooh, maybe I should add a command that lets you send me
+an email for help!
+
+
+[1]: https://pypi.org/project/orouboros/
+
+
+---
+
+The changelog format is based on [Keep 
+a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+This project uses [CalVer][calver] - YYYY.0M.0D(.MICRO)
+
+## [2020.03.31]
+
+### Added
+
+- Added `--wrap` argument for reading emails that are too wide.
+
+## [2020.03.30]
+
+### Changed
+
+- Failures on filter now prints messages.
+
+## [2020.03.27]
+
+### Removed
+
+- Removed older interface.
+
+### Added
+
+- Added ability to call filters - use `"filters": ["command", "arg",
+  "--option"]` in `.wemailrc`. Filters get passed each folder, and a
+  non-zero exit code will abort further processing.
+- Can add `"default_part": "1"` to `.wemailrc` to automatically open the
+  `text/plain` part of the message.
+- `-p/--part` option added to `read`, which overrides the `default_part`
+  option.
+
+### Changed
+
+- Changed to [CalVer][calver] versioning.
+- Sender address now comes from config.
+
+### Fixed
+
+- Sent emails now get a pretty name.
+- Space after `Which part?`
+- Date now shows up when reading email.
+
+## [0.4.0] - 2010-01-17
+
+## Added
+
+- `raw` command to view the original message.
+
+## Fixed
+
+- reply/reply_all use appropriate recipients
+- Content with too-long lines no longer show up with quoted-printable (`=20`)
+  formatting
+
+## [0.3.0] - 2020-01-03
+
+### Changed
+
+- WEmail interface is re-written. Rather than a prompt style program, arguments
+  are passed via command line. Run `wemail --help` for more info.
+
+## [0.2.0] - 2019-11-14
+
+### Added
+
+- `filter` command - filters all messages in current folder.
+- `ext` command - allows viewing different parts in external viewers/editors.
+
+### Changed
+
+- No longer wrap body lines, because it was wrapping the wrong way.
+- `ls` display no longer shows filename, but email subject
+
+## [0.1.18] - 2019-07-24
+
+### Added
+
+- `links` command now parses URLs from the message body.
+
+### Changed
+
+- `body` now displays the message body interactively if it's too long. It also
+  wraps the message at 120 characters wide, or the width of the terminal -
+  whichever is smaller.
+- Header wraps message body, so truncating should be a lot nicer. Also wraps.
+
+## [0.1.17] - 2019-06-18
+
+### Fixed
+
+- Update from the prompt no longer quits if there are no updates.
+
+## [0.1.16] - 2019-06-18
+
+### Fixed
+
+- Update from the prompt now actually works, instead of throwing an error.
+
+## [0.1.15] - 2019-06-18
+
+### Changed
+
+- Saving without a folder now saves to `saved-mail`
+
+## [0.1.14] - 2019-06-18
+
+### Fixed
+
+- Forwarding and replying now both allow attachments and CommonMark rendering.
+
+### Changed
+
+- Message now prints when you're up to date.
+- From address tries to default to ones found in config.
+
+## [0.1.13] - 2019-06-18
+
+### Added
+
+- `update` command lets you check for updates without exiting the program.
+
+## [0.1.12] - 2019-06-18
+
+### Added
+
+- Uses linux escape sequences to (try) and set the terminal title.
+- Can now add attachments! Simply add `Attachment: /path/to/file` in the
+  headers and they will be replaced by the appropriate attachments. Images
+  can be inlined to CommonMarked email via something like so:
+
+      Attachment: /path/to/image.png; inline=true; name="example.png"
+
+      Hey, here is an inline image:
+      ![Alt text](cid:example.png)
+
+  The only important thing is that `cid:<this part>` matches whatever is in the
+  `name="<this part>"`.
+
+### Fixed
+
+- Resuming draft works properly.
+- With only one draft, resuming no longer asks a second time.
+- No longer multiply headers.
+- Display failed body seek on KeyError, instead of crash.
+
+### Changed
+
+- Temp file when composing now has `.eml` suffix, to trigger email-like
+  behaviors in editors that honor that kind of thing.
+- Save raw message as draft after compose, rather than rendered.
+
+
+## [0.1.11] - 2019-06-06
+
+### Added
+
+- compose now has an address book autocomplete function, using `ADDRESS_BOOK`
+  in the config file.
+
+### Fixed
+
+- For messages without any kind of body, now show a list of message parts, if
+  any.
+
+### Changed
+
+- Added spacer line between header and body.
+
+## [0.1.10] - 2019-06-05
+
+### Added
+
+- Email forwarding.
+- `r` shortcut for reply.
+- Ability to save and resume drafts, queue messages for later sending, and edit
+  files generally.
+- README for pypi and GitHub.
+
+### Fixed
+
+- On failure to send, display failure message instead of crash.
+- Properly display recipient headers when doing `proc`.
+
+### Changed
+
+- Default to `mistletoe` for the CommonMark renderer, because tables are
+  cooler. But fallback to commonmark, if available.
+- Show message body (up to 20 lines) when doing `proc`.
+
+
+## [0.1.9]
+
+### Fixed
+
+- Fix `~`-prefixed maildir paths.
+
+## [0.1.8]
+
+### Added
+
+- Ability to do a quick command, e.g. `proc reply` to quickly reply to the
+  first message.
+- Added `On <date> at <time>, <sender> wrote:` to reply text.
+
+
+## [0.1.7]
+
+### Changed
+
+- Removed testing To: email and CC: field.
+
+## [0.1.6]
+
+### Added
+
+- Config file! ~/.wemailrc, a JSON file
+- Composing emails! works with `c` or `compose'
+- Replying to emails! When processing emails now it's possible to reply
+  using `reply`.
+
+## [0.1.5]
+
+### Added
+
+- Setting `WEMAIL_CHECK_FOR_UPDATES` env var now allows automagic upgrades.
+- `version` command now displays WEmail version.
+
+## [0.1.4]
+
+### Added
+
+- `body` shortcut, to print the message body.
+
+## [0.1.3]
+
+### Added
+
+- `p1` shortcut to view the first part of a message, probably `text/plain`.
+- `D` shortcut added to delete a message without confirmation.
+- '-v'/ '--version' command to check version.
+
+## [0.1.2]
+
+### Added
+
+- Ability to change directories.
+- `headers` command (alias `h`) to (re-)dislpay message headers.
+
+## [0.1.1] - 2019.05.14
+
+### Changed
+
+- Fixed date header fallback.
+- Fixed subject encoding fallback.
+
+## [0.1.0] - 2019.05.12
+
+Minimally useful product released.
+
+### Added
+
+- Ability to process a maildir-style folder.
+- Ability to view parts of messages.
+- Ability to save messages in new directories.
+
+
+calver: https://calver.org/
+
+
