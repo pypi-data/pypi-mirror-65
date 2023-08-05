@@ -1,0 +1,77 @@
+1.0.1
+build translate_api on 10,10,2017.
+
+...(history)
+
+2.2.2
+add `proxy`.
+
+2.4.0
+add `youdao`.
+
+2.4.2
+translate.google()
+
+2.4.4
+simple README.rst
+add github homepage
+
+3.0.0
+Due to incompatible code changes made in version 2.4.2, I should not upgrade the minor version number,
+but the major version number. This is a modification. Thanks for Sabrina's reminding.
+
+4.0.0
+`translate_api` --> 'translators'
+Implementing multiple translators is my pursuit, and the existing module name is ambiguous,
+so upgrading the module name is something I have been exploring and thinking about.
+Now the name `translators` is more in line with the meaning of the module itself,
+and now I have no hesitation to upgrade, although the code upgrade and optimization is limited.
+
+upgraded `Warning`.
+
+4.0.1
+fix "translators.google.cn"
+
+4.0.2
+On PYPI, rst --> md.
+
+4.0.4
+print --> raise,warn
+add 'zh-cn'
+del client=t
+
+4.0.6
+raise fixed
+add license in code
+
+4.0.8
+recover youdao()
+
+4.1.0
+add tencent()
+
+4.2.0
+add alibaba()
+use **kwargs
+proxy --> proxies
+make the license more formal
+
+4.2.2
+from_language default 'auto'
+
+4.3.0
+add baidu()
+
+4.3.2
+apis.py (Framing)
+
+4.4.0
+add bing()
+add sogou()
+
+4.4.2
+make 'get_language_url' of alibaba stronger.
+make xpath pattern of bing stronger.
+
+4.4.3
+fix youdao when from_language='auto' and youdao can not recognize which is language of query_text.
