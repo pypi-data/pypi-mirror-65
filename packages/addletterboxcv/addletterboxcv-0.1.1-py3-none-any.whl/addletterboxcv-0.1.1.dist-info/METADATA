@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: addletterboxcv
+Version: 0.1.1
+Summary: Add a letterbox to the video and scale it to the specified size.
+Home-page: https://github.com/makutamoto/addletterboxcv
+Author: Makutamoto
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/makutamoto/addletterboxcv/issues
+Project-URL: Source, https://github.com/makutamoto/addletterboxcv
+Keywords: video letterbox resize
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Multimedia :: Video :: Conversion
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: tqdm
+
+# Add Letterbox CV
+Add a letterbox to the video and scale it to the specified size.  
+Note: this program does not support audio.
+
+## Usage
+```
+usage: addletterboxcv [-h] --dimension WIDTH HEIGHT
+                   [--interpolation {NEAREST,LINEAR,AREA,CUBIC,LANCZOS4}]
+                   [--codec CODEC]
+                   video output
+```
+
