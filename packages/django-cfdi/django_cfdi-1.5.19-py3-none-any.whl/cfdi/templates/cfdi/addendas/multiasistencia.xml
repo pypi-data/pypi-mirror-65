@@ -1,0 +1,37 @@
+<cfdi:Addenda>
+  <Multiasistencia xmlns="http://www.diverza.com/ns/addenda/multiasistencia/1" xsi:schemaLocation="http://www.diverza.com/ns/addenda/multiasistencia/1 schema.xsd" Version="1.0" Tipo="Asistencia" Proveedor="{{ clave_proveedor }}" Siniestro="{{ no_siniestro }}" SubTotal="{{ importe}}" IVA="{{ iva }}" IVARet="{{ retencion_iva }}" ISRRet="{{ retencion_isr }}" Total="{{ total }}" OrdenPago="{{ orden_pago }}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+
+    {% if codigo_nags %}
+      <Cristales Deducible="{{ cristales_deducible }}" CodigoNAGS="{{ codigo_nags }}"/>
+    {% endif %}
+
+    {% if costo_honorarios %}
+      <Honorarios>
+        <Servicio OrdenDePagoHonorarios="1" Costo="{{ costo_honorarios }}"/>
+      </Honorarios>
+    {% endif %}
+
+    {% if costo_gruas %}
+      <Gruas>
+        <Servicio Costo="{{ costo_gruas }}"/>
+      </Gruas>
+    {% endif %}
+
+    {% if costo_asistencia %}
+      <Asistencia>
+        <Servicio Costo="{{ costo_asistencia }}"/>
+      </Asistencia>
+    {% endif %}
+
+    {% if costo_reparaciones %}
+      <Reparaciones NumValuacionInicial="{{ num_valuacion_inicial }}" Costo="{{ costo_reparaciones }}">
+        <ValeRefacciones Costo="{{ costo_reparaciones }}"/>
+      </Reparaciones>
+    {% endif %}
+
+    {% if costo_gmedicos %}
+      <GMedicos PaseMedico="{{ pase_medico }}" Costo="{{ costo_gmedicos }}"/>
+    {% endif %}
+  </Multiasistencia>
+</cfdi:Addenda>
