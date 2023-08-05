@@ -1,0 +1,7 @@
+[console_scripts]
+liteconfig = litepipeline.tool.liteconfig:main
+litemanager = litepipeline.manager.manager:main
+litenode = litepipeline.node.node:main
+litepipeline = litepipeline.tool.litepipeline:main
+liteviewer = litepipeline.viewer.viewer:main
+
