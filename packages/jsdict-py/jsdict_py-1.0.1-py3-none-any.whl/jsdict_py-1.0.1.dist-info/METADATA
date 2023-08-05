@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: jsdict-py
+Version: 1.0.1
+Summary: Javascript-syle Dictionaries in Python
+Home-page: https://github.com/zevaryx/jsdict
+Author: zevaryx
+Author-email: zevaryx@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# jsdict
+
+Javascript-style Dictionaries for Python
+
+
+## Usage
+
+```py
+from jsdict import JsDict
+
+d = JsDict({"key1": 2, "key2": 3})
+
+print(d.key1)
+# 2
+print(d)
+# {'key1': 2, 'key2': 3}
+
+d.key3 = {"key4": 5}
+print(d)
+# {'key1': 2, 'key2': 3, 'key3': {'key4': 5}}
+
+d.key3.key5 = 6
+print(d)
+# {'key1': 2, 'key2': 3, 'key3': {'key4': 5, 'key5': 6}}
+```
+
+
