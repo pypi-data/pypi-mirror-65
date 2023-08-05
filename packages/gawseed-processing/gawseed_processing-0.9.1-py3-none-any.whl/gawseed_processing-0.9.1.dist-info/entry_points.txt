@@ -1,0 +1,5 @@
+[console_scripts]
+aggregator.py = gawseed.scripts.aggregator:main
+featureCounter.py = gawseed.scripts.featureCounter:main
+relationshipAnalysis.py = gawseed.scripts.relationshipAnalysis:main
+
