@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: madprofiling
+Version: 0.1
+Summary: Con profiling tenemos una vista 360° del data set. Sabemos el formato de cada campo (‘type’), sabemos si el campo es categorico o no (‘categorical’), sabemos el total de registros de cada campo (‘total’), el número de registros únicos por campo (‘unique’), el número de registros nulos por campo (‘null’), el número de registros tipo ‘na’ por campo y finalmente el porcentaje de registros tipo null y tipo na por campo.
+Home-page: https://github.com/megelon/MADict
+Author: Miguel Angel Diaz Rodriguez
+Author-email: ma.diaz216@uniandes.edu.co
+License: MIT
+Download-URL: https://github.com/megelon/MADict/archive/v_02.tar.gz
+Description: UNKNOWN
+Keywords: PROFILING,DATA,UNDERSTANDING
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
