@@ -1,0 +1,10 @@
+requests
+lxml
+pyquery
+parse
+w3lib
+bs4
+fire
+
+[:python_version < "3.5"]
+typing
