@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: validata-core
+Version: 0.5.7
+Summary: Validata Core library
+Home-page: https://git.opendatafrance.net/validata/validata-core/
+Author: Validata team
+Author-email: admin-validata@jailbreak.paris
+License: AGPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: ezodf
+Requires-Dist: goodtables
+Requires-Dist: importlib-resources
+Requires-Dist: lxml
+Requires-Dist: requests
+Requires-Dist: tableschema
+Requires-Dist: tablib[pandas]
+Requires-Dist: tabulator
+Requires-Dist: toolz
+Requires-Dist: python-stdnum
+
+# Validata validation core
+
+[![PyPI](https://img.shields.io/pypi/v/validata-core.svg)](https://pypi.python.org/pypi/validata-core)
+
+Validata validation library built over Goodtables.
+
+## Try
+
+Create a virtualenv, run the script against fixtures:
+
+```bash
+mkvirtualenv validata
+pip install -e .
+validata --schema /path/to/schema.json table.csv
+```
+
+## Testing
+
+```bash
+pip install pytest
+pytest --doctest-modules
+```
+
+## See also
+
+- https://github.com/frictionlessdata/goodtables-py
+- https://git.opendatafrance.net/validata/goodtables-checks-schema/
+
+

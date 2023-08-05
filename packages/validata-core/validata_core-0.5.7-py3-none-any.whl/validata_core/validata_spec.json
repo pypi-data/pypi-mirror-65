@@ -1,0 +1,30 @@
+{
+    "version": "0.0.1",
+    "errors": {
+        "unknown-csv-dialect": {
+            "name": "Unknown CSV dialect",
+            "type": "source",
+            "context": "table"
+        },
+        "invalid-column-delimiter": {
+            "name": "Wrong column delimiter",
+            "type": "source",
+            "context": "table"
+        },
+        "missing-headers": {
+            "name": "Missing headers",
+            "type": "structure",
+            "context": "head"
+        },
+        "extra-headers": {
+            "name": "Extra headers",
+            "type": "structure",
+            "context": "head"
+        },
+        "wrong-headers-order": {
+            "name": "Wrong headers order",
+            "type": "structure",
+            "context": "head"
+        }
+    }
+}
