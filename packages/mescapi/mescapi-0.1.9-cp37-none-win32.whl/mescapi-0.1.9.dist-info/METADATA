@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: mescapi
+Version: 0.1.9
+Summary: Python API for MESc
+Home-page: https://femtonics.eu
+Maintainer: Femtonics Ltd.
+Maintainer-email: support@femtonics.eu
+License: UNKNOWN
+Platform: nt
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Programming Language :: Python :: 3
+Requires-Python: ==3.6.*, ==3.7.*, ==3.8.*
+Requires-Dist: pyside2 (==5.14.1)
+
+# MESc API
+
+``` pip install MEScAPI ```
+
