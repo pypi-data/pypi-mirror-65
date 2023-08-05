@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: django-kubernetes-manager
+Version: 0.3.0
+Summary: A Django app to manage kubernetes clusters and objects.
+Home-page: UNKNOWN
+Author: Bradley Reimers
+Author-email: bradley@introspectdata.com
+License: MIT
+Project-URL: Documentation, https://django-kubernetes-manager.readthedocs.io/en/latest/
+Project-URL: Sponsor, https://introspectdata.com
+Project-URL: Source, https://github.com/IntrospectData/django-kubernetes-manager
+Project-URL: Tracker, https://github.com/IntrospectData/django-kubernetes-manager/issues
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Requires-Dist: django-extensions
+Requires-Dist: drf-yasg
+Requires-Dist: djangorestframework
+Requires-Dist: kubernetes
+
+
+Django Kubernetes Manager 0.3.0
+=================================
+
+
+.. image:: images/dkm-logo.png
+   :width: 600
+   :alt: DjangoKubernetesManager
+
+
+Django Kubernetes Manager is an open source project to wrap the complexity of Kubernetes management in the simplicity of Django Rest Framework.
+
+Introduction
+-------------
+
+Our engineering team has developed several data processing apps, and
+found celery wasn't quite enough for dispatching heavier tasks.
+We decided to try Kubernetes Jobs, and while pleased with performance,
+wanted a less verbose, more object oriented way to interact with our clusters.
+
+And thus Django Kubernetes Manager was spawned. Using Django Rest Framework and
+the kubernetes client library, our devs came up with the idea to treat each object
+we'd be deploying as a Model instance, and use the DRF viewsets and actions to
+create an RESTful API framework from which we could extend for each projects
+particular needs.
+
+
+License
+--------
+This project is license under the MIT license.
+
+
+Please see the license dir for dependency licenses.
+
+Docs
+-------
+ReadTheDocs_
+
+.. _ReadTheDocs: https://django-kubernetes-manager.readthedocs.io/en/latest/index.html
+
+Installation
+---------------
+Install the app using pip::
+
+  $ pip install django-kubernetes-manager
+
+Getting Started
+---------------
+1. Add "kubernetes_manager" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'kubernetes_manager',
+    ]
+
+2. Include the kubernetes_manager URLconf in your project urls.py like this::
+
+    path('dkm/', include('kubernetes_manager.urls')),
+
+3. To create models in your database, run::
+
+    python manage.py migrate
+
+    * Requires Postgresql or other database with JSON support.
+
+4. Start the development server and visit http://127.0.0.1:8000/admin/
+   to configure a TargetCluster (you'll need the Admin app enabled).
+
+5. Create, update, delete, deploy, or remove a Kubernetes object
+   using the api :)
+
+
