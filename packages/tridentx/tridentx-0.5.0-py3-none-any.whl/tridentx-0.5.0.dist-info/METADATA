@@ -1,0 +1,59 @@
+Metadata-Version: 2.0
+Name: tridentx
+Version: 0.5.0
+Summary: Multiverse for Deep Learning Developers without Pitfall
+Home-page: UNKNOWN
+Author: Allan Yiin
+Author-email: allan@datadecision.ai
+License: MIT
+Download-URL: https://test.pypi.org/project/tridentx
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Provides-Extra: visualize
+Provides-Extra: tests
+Requires-Dist: numpy (>=1.13.3)
+Requires-Dist: scikit-image (>=0.14)
+Requires-Dist: pillow (>=4.1.1scipy>=1.2)
+Requires-Dist: six (>=1.9.0)
+Requires-Dist: tqdm
+Requires-Dist: pyyaml
+Requires-Dist: h5py
+Requires-Dist: requests
+Provides-Extra: tests
+Requires-Dist: pytest; extra == 'tests'
+Requires-Dist: pytest-pep8; extra == 'tests'
+Requires-Dist: pytest-xdist; extra == 'tests'
+Requires-Dist: flaky; extra == 'tests'
+Requires-Dist: pytest-cov; extra == 'tests'
+Requires-Dist: pandas; extra == 'tests'
+Requires-Dist: requests; extra == 'tests'
+Requires-Dist: markdown; extra == 'tests'
+Provides-Extra: visualize
+Requires-Dist: pydot (>=1.2.4); extra == 'visualize'
+
+### Trident 
+
+### Learning Trident 
+
+You can learn more about using and contributing to CNTK with the following resources:
+
+* [General documentation](https://docs.microsoft.com/en-us/cognitive-toolkit/)
+* [CNTK Examples](./exsamples_cntk)
+* [Pytorch Examples](./exsamples_tensorflow)
+* [Tensorflow Examples](./exsamples_pytorch)
+* [Pretrained models](./PretrainedModels)
+* [License](./LICENSE.md)
+
+
+
+
