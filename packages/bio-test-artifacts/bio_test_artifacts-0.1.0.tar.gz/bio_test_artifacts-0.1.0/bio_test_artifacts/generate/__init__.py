@@ -1,0 +1,3 @@
+from bio_test_artifacts.generate.fasta import fasta_generate
+from bio_test_artifacts.generate.counts import counts_tsv_generate
+from bio_test_artifacts.generate.fastq import fastq_generate
