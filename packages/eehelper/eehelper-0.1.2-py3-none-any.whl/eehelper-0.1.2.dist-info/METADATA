@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: eehelper
+Version: 0.1.2
+Summary: Helper library for Google Earth Engine python API scripts
+Home-page: https://github.com/masseyr/eehelper
+Author: Richard Massey
+Author-email: rm885@nau.edu
+License: MIT License
+Keywords: geospatial earthengine spatial google earth science satellite landsat modis
+Platform: UNKNOWN
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: earthengine-api (>=0.1.175)
+
+# eehelper v0.1.2
+
+[![DOI](https://zenodo.org/badge/252678920.svg)](https://zenodo.org/badge/latestdoi/252678920)
+
+Helper library for Google Earth Engine python API scripts
+
+Install using 
+
+`pip install eehelper`
+
+
