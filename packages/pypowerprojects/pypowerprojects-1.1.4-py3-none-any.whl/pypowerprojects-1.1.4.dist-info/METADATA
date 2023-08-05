@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pypowerprojects
+Version: 1.1.4
+Summary: A Python Library for 3 Projects : Gmail, Captcha and TicTacToe Game
+Home-page: https://github.com/tirth-2001/ttt.git
+Author: PyPower Projects
+Author-email: projectspypower@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pyttsx3
+Requires-Dist: captcha
+Requires-Dist: opencv-python
+Requires-Dist: pillow
+Requires-Dist: wget
+
+# PyPower Projects
+## A Python Library for 3 Projects : Gmail, Image & Audio Captcha and TicTacToe Game
+# How To Use :
+## 1. Install the library pypowerprojects : pip install pypowerprojects
+## 2. Go to python bash(command prompt) and execute the following commands :
+## from pypowerprojects import gmail
+## from pypowerprojects import captcha
+## from pypowerprojects import tictactoe
+
+
+
