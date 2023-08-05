@@ -1,0 +1,11 @@
+requests~=2.22
+urllib3~=1.25
+setuptools
+click==7.0
+tabulate==0.8.6
+packaging==19.2
+requests-toolbelt==0.9.1
+tqdm==4.41.0
+azure-storage-blob==12.1.0
+bson==0.5.9
+moment==0.8.2
