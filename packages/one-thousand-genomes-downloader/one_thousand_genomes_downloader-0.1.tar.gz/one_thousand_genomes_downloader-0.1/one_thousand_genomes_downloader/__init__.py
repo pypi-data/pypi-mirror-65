@@ -1,0 +1,1 @@
+from one_thousand_genomes_downloader.utilities import OneThousandGenomesDownloader
