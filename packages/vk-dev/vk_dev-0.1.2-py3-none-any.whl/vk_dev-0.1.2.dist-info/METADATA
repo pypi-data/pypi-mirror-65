@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: vk-dev
+Version: 0.1.2
+Summary: Package for creating VK bots
+Home-page: https://github.com/Rhinik/vk_bot
+Author: Yan
+Author-email: deknowny@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: idna (==2.9)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: urllib3 (==1.25.8)
+
+UNKNOWN
+
+
