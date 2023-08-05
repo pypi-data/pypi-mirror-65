@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: velodyn
+Version: 0.1.0
+Summary: Dynamical systems approaches for RNA velocity analysis
+Home-page: http://github.com/calico/velodyn
+Author: Jacob C. Kimmel
+Author-email: jacobkimmel@gmail.com
+License: Apache
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.6
+Requires-Dist: anndata (>=0.6.22.post1)
+Requires-Dist: h5py (>=2.10.0)
+Requires-Dist: loompy (>=2.0.16)
+Requires-Dist: matplotlib (>=3.0.2)
+Requires-Dist: numpy (>=1.17.4)
+Requires-Dist: pandas (>=0.23.4)
+Requires-Dist: scanpy (>=1.4)
+Requires-Dist: scikit-learn (>=0.21.3)
+Requires-Dist: scipy (>=1.2.0)
+Requires-Dist: scvelo (>=0.1.16.dev41+74978dd)
+Requires-Dist: seaborn (>=0.9.0)
+Requires-Dist: pathos (>=0.2.5)
+
+
+RNA velocity infers a rate of change for each transcript in an RNA-sequencing experiment based on the ratio of intronic to exonic reads. This inferred velocity vectors serves as a prediction for the future transcriptional state of a cell, while the current read counts serve as a measurement of the instantaneous state. Qualitative analysis of RNA velocity has been used to establish the order of gene expression states in a sequence, but quantitative analysis has generally been lacking.
+
+
+
+velodyn adopts formalisms from dynamical systems to provide a quantitative framework for RNA velocity analysis. The tools provided by velodyn along with their associated usage are described below. All velodyn tools are designed to integrate with the scanpy ecosystem and anndata structures.
+
+
+
+We have released velodyn in association with a recent pre-print. Please cite our pre-print if you find velodyn useful for your work.
+
+
+
+Differentiation reveals the plasticity of age-related change in murine muscle progenitors
+
+Jacob C Kimmel, David G Hendrickson, David R Kelley
+
+bioRxiv 2020.03.05.979112; doi: https://doi.org/10.1101/2020.03.05.979112
+
+
