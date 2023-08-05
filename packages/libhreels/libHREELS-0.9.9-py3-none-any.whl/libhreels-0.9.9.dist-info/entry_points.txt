@@ -1,0 +1,7 @@
+[console_scripts]
+calc=libHREELS.calcHREELS:myMain
+dielectrics=libHREELS.dielectrics:myMain
+run=libHREELS.HREELS:myMain
+view=libHREELS.ViewHREELS:myMain
+viewAuger=libHREELS.ViewAuger:myMain
+
