@@ -1,0 +1,7 @@
+[console_scripts]
+s-docker = slalom.dataops.dockerutils:main
+s-infra = slalom.dataops.infra:main
+s-io = slalom.dataops.io:main
+s-spark = slalom.dataops.sparkutils:main
+s-tap = slalom.dataops.taputils:main
+
