@@ -1,0 +1,68 @@
+[paths]
+source = clu
+
+[run]
+omit =
+    */__init__.py
+    clu/__version__.py
+    clu/constants/data.py
+    clu/constants/exceptions.py
+    clu/constants/polyfills.py
+    clu/csv.py
+    clu/repl/banners.py
+    clu/fs/sourcetree.py
+    clu/scripts/forkumask.py
+    clu/scripts/show-consts.py
+    clu/scripts/show-modules.py
+    clu/scripts/xdg-runtime.py
+    clu/testing/hook.py
+    clu/testing/obsolete.py
+    clu/testing/pytest.py
+
+dynamic_context = test_function
+
+source = clu
+branch = True
+parallel = False
+
+[report]
+omit =
+    */__init__.py
+    clu/__version__.py
+    clu/constants/data.py
+    clu/constants/exceptions.py
+    clu/constants/polyfills.py
+    clu/csv.py
+    clu/repl/banners.py
+    clu/fs/sourcetree.py
+    clu/scripts/forkumask.py
+    clu/scripts/show-consts.py
+    clu/scripts/show-modules.py
+    clu/scripts/xdg-runtime.py
+    clu/testing/hook.py
+    clu/testing/obsolete.py
+    clu/testing/pytest.py
+
+show_missing = False
+ignore_errors = True
+precision = 2
+
+exclude_lines =
+    pragma: no cover
+    if DEBUG
+    if __name__ == .__main__.:
+    def test
+    def show
+    def inner_repr
+    def __reduce__
+    raise NotImplementedError
+
+[html]
+directory = "coverage_html"
+
+[xml]
+output = "coverage.xml"
+
+[json]
+output = "coverage.json"
+pretty_print = true

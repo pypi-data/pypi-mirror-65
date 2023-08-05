@@ -1,0 +1,24 @@
+# Album: Bird, Artist: Cherubino, Composer: Travis
+
+dist: xenial
+language: python
+
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.7-dev"
+  - "3.8-dev"
+  - "pypy3.6"
+
+install:
+  - pip install -r requirements/dev.txt
+
+# - pip install -U .
+
+script:
+  - check-manifest -v
+  - pytest
+
+notifications:
+  email: false

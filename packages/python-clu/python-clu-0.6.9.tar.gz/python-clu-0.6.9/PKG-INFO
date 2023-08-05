@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: python-clu
+Version: 0.6.9
+Summary: CLU - Common Lightweight Utilities, or Command-Line Utilities (your pick)
+Home-page: https://github.com/fish2000/clu
+Author: Alexander Böhn
+Author-email: fish2000@gmail.com
+License: MIT
+Download-URL: https://github.com/fish2000/clu/zipball/master
+Description: CLU – Common Lightweight Utilities (née Command-Line Utilities)
+        ==================================================
+        
+        This is a packaged-up and sanely version-controlled version of [the Python tools I wrote for my REPLs](https://github.com/fish2000/homage/blob/master/.script-bin/replutilities.py), divided up into
+        a bunch of subordinate packages.
+        
+        If you assumed that the project name was a Tron reference, you are in fact correct.
+Keywords: command utilities clu fish2000 command-line modules predicates REPL tools
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Utilities
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
