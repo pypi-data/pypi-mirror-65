@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+pylsd/__init__.py
+pylsd/lsd.py
+pylsd/bindings/__init__.py
+pylsd/bindings/lsd_ctypes.py
+pylsd/lib/darwin/liblsd.dylib
+pylsd/lib/linux/liblsd.so
+pylsd/lib/win32/x64/lsd.dll
+pylsd_nova.egg-info/PKG-INFO
+pylsd_nova.egg-info/SOURCES.txt
+pylsd_nova.egg-info/dependency_links.txt
+pylsd_nova.egg-info/top_level.txt
