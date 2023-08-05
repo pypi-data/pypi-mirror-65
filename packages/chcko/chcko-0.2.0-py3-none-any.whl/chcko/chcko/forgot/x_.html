@@ -1,0 +1,25 @@
+<script>
+    function validate() {
+        if (document.forgot.email.value == "") {
+            alert("{{temail}}");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<p>{{tforgot}}</p>
+
+% if not_found:
+<strong>{{tnotfound}}</strong> 
+% end
+
+<form method="POST" name="forgot" onsubmit="return validate()">
+    <p>
+    <label for="email">{{temail}}*</label>&nbsp;<input type="email" value="{{ email }}" name="email"/>
+    </p>
+    <p><input id="nbutton" class="grid_10" style="text-align:center" type="submit" value="{{tsend}}"/></p>
+    <br>
+</form>
+
+% include('chcko/main')
