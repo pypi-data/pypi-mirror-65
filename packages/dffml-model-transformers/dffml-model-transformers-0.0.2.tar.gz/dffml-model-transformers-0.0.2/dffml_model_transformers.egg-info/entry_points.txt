@@ -1,0 +1,3 @@
+[dffml.model]
+ner_tagger = dffml_model_transformers.ner.ner_model:NERModel
+

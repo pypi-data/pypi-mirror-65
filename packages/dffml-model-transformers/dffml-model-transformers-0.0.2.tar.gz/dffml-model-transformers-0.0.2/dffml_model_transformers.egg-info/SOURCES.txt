@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+dffml_model_transformers/__init__.py
+dffml_model_transformers/version.py
+dffml_model_transformers.egg-info/PKG-INFO
+dffml_model_transformers.egg-info/SOURCES.txt
+dffml_model_transformers.egg-info/dependency_links.txt
+dffml_model_transformers.egg-info/entry_points.txt
+dffml_model_transformers.egg-info/requires.txt
+dffml_model_transformers.egg-info/top_level.txt
+tests/__init__.py
+tests/test_ner_integration.py
+tests/test_ner_model.py
