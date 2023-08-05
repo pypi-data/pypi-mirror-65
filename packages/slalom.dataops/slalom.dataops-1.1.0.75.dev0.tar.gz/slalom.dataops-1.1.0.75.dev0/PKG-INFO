@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: slalom.dataops
+Version: 1.1.0.75.dev0
+Summary: Slalom GGP libary for DataOps automation
+Home-page: https://bitbucket.org/slalom-consulting/dataops-tools/
+Author: AJ Steers
+Author-email: aj.steers@slalom.com
+License: MIT
+Download-URL: https://github.com/slalom-ggp/dataops-tools/archive/v_0.1.tar.gz
+Description: UNKNOWN
+Keywords: DATAOPS,SLALOM,DATA,AUTOMATION,CI/CD,DEVOPS
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: Pandas
+Provides-Extra: Azure
+Provides-Extra: S3
+Provides-Extra: AWS
+Provides-Extra: Spark
