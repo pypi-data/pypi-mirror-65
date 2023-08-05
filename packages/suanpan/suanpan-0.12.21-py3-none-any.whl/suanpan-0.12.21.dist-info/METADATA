@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: suanpan
+Version: 0.12.21
+Summary: Suanpan SDK
+Home-page: UNKNOWN
+Author: majik
+Author-email: me@yamajik.com
+License: See License
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: imageio (>=2.4.1)
+Requires-Dist: numpy (>=1.16.2)
+Requires-Dist: opencv-python-headless (>=4.1.2)
+Requires-Dist: pandas (<1.0,>=0.23.4)
+Requires-Dist: tqdm (>=4.28.1)
+Requires-Dist: retrying (>=1.3.3)
+Requires-Dist: pyodps (>=0.8.0)
+Requires-Dist: tabulate (>=0.8.3)
+Requires-Dist: colorama (>=0.4.1)
+Requires-Dist: lostc (>=0.1.0)
+Requires-Dist: addict (>=2.2.0)
+Requires-Dist: timeout-decorator (>=0.4.1)
+Requires-Dist: xlwt (>=1.3.0)
+Requires-Dist: openpyxl (>=3.0.2)
+Requires-Dist: xlrd (>=1.0.0)
+Requires-Dist: oss2 (>=2.9.1)
+Requires-Dist: minio (>=4.0.11)
+Requires-Dist: redis (>=3.2.0)
+Requires-Dist: mysql-connector-python (>=8.0.16)
+Requires-Dist: psycopg2-binary (>=2.8.2)
+Requires-Dist: sasl (>=0.2.1)
+Requires-Dist: thrift-sasl (>=0.3.0)
+Requires-Dist: thrift (>=0.11.0)
+Requires-Dist: pyhive[hive] (>=0.6.1)
+Requires-Dist: pyzmq (>=18.1.0)
+
+# AiLab
+
+
