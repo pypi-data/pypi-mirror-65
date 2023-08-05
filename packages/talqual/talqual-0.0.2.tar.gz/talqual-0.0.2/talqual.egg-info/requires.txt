@@ -1,0 +1,15 @@
+anytree<2.7.0
+chameleon
+click
+pyyaml
+
+[test]
+sphinx
+pytest
+pytest-html
+pytest-cov
+pytest-flake8
+pytest-mock
+pytest-selenium
+flake8-isort
+transcrypt
