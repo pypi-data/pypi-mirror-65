@@ -1,0 +1,59 @@
+# IDS XS TOOLS - UiS
+Class and functions for processing images and puck objects
+
+## installation
+
+pip install IDS-XS-TOOLS-UiS
+
+
+
+## contents
+
+ImageFunctions
+    
+    Functions to capture image, find pucks and test if image is blurry.
+
+Puck Class
+
+    Used to define a Puck object. 
+    Happens automatically when a puck is detected using QR-Reader.
+    
+    Puck class contains:
+    puck number
+    puck position
+    puck angle
+    puck height
+
+
+#### function examples;
+
+
+
+**capture_image(cam, gripper_height)**  
+Captures an image and returns image array
+Gripper height is needed.
+
+**findPucks(cam, robot, robtarget_pucks, cam_comp=False)**  
+Finds all pucks in the frame of the camera by capturing an image and scanning the image for QR codes.
+After the codes have been pinpointed, a series of transformations happen to finally create robtargets
+which can be sent to RobotWare.
+Robot, previous found pucks and wether camera compensation has been performed or not is needed.
+
+**set_position(self, position)**  
+Set the [x,y] coordinate belonging  to the puck.
+
+## example of use
+
+    # Two ways to import:
+    import ids_xs_tools
+    
+    # or
+    from ids_xs_tools import ImageFunctions, Puck
+
+	# Then again two ways to excecute wanted commands:
+	ids_xs_tools.ImageFunctions.findPucks(config.cam, norbert, robtarget_pucks, 195)
+	
+	# or
+	ImageFunctions.findPucks(config.cam, norbert, robtarget_pucks, 195)
+	
+
