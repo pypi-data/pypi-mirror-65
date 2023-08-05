@@ -1,0 +1,14 @@
+aiohttp~=3.0
+Deprecated
+
+[examples]
+aiomonitor
+click
+click-log
+click-completion
+
+[tests]
+pytest
+pytest-asyncio
+pytest-cov
+packaging
