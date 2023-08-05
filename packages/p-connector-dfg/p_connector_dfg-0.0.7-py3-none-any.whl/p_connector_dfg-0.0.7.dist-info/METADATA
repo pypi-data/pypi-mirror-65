@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: p-connector-dfg
+Version: 0.0.7
+Summary: Privacy-preserving Process Discovery Using Connector Method
+Home-page: https://github.com/m4jidRafiei/privacyAware-ConnectorMethod_DFG
+Author: Majid Rafiei
+Author-email: majid.rafiei@pads.rwth-aachen.de
+License: GPL 3.0
+Project-URL: Source, https://github.com/m4jidRafiei/privacyAware-ConnectorMethod_DFG
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pm4py (==1.2.10)
+Requires-Dist: pandas (==0.24.2)
+Requires-Dist: pycrypto (==2.6.1)
+Requires-Dist: numpy (==1.18.1)
+Requires-Dist: p-privacy-metadata (==0.0.3)
+
+Project that implements privacy-preserving process discovery using connector method.
+
+
