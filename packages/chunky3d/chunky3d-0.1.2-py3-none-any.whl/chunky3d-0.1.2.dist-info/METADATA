@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: chunky3d
+Version: 0.1.2
+Summary: A 3D array-like NumPy-based data structure for large sparsely-populated volumes
+Home-page: UNKNOWN
+License: MIT
+Project-URL: Source, https://github.com/K3D-tools/chunky3d
+Project-URL: Tracker, https://github.com/K3D-tools/chunky3d/issues
+Keywords: 3d,array,chunked,sparse
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Topic :: Multimedia :: Graphics :: 3D Modeling
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: dill
+Requires-Dist: msgpack
+Requires-Dist: msgpack-numpy
+Requires-Dist: numba
+Requires-Dist: psutil
+Requires-Dist: scipy
+Provides-Extra: all
+Requires-Dist: itk ; extra == 'all'
+Requires-Dist: itk-thickness3d ; extra == 'all'
+Requires-Dist: networkx ; extra == 'all'
+Requires-Dist: SimpleITK ; extra == 'all'
+Requires-Dist: vtk ; extra == 'all'
+
+# chunky3d
+A 3D array-like NumPy-based data structure for large sparsely-populated volumes
+
+## Build
+[![Build Status](https://travis-ci.org/K3D-tools/chunky3d.svg?branch=master)](https://travis-ci.org/K3D-tools/chunky3d)
+
+# Introduction
+
+This library provides a data structure, `Sparse`, which represents 3D volumetric data
+and supports a subset of `np.ndarray` features.
+
+## Example
+
+```
+>>> import numpy as np
+>>> from chunky3d import Sparse
+
+>>> s = Sparse(shape=(64, 64, 64))
+>>> s[0, 0, 0]
+0
+
+>>> s.dtype
+numpy.float64
+
+>>> s.nchunks
+8
+
+>>> s.nchunks_initialized
+0
+
+>>> s[1, 2, 3] = 3
+>>> s.nchunks_initialized
+1
+
+>>> s[:2, 2, 3:5]
+array([[0., 0.],
+       [3., 0.]])
+```
+
+# Features
+
+* `chunky3d.sparse_func` - a collection of functions for analyzing chunked arrays, including 
+  morphological operations (opening, closing), thinning, connected components
+* Fast load and save using `msgpack`
+* Operations on arrays using `.run()`, with possible acceleration using `multiprocessing`
+* `multiprocessing`-based acceleration in most of existing `sparse_func`
+* Accelerated lookup using `numba`
+* Interpolation (point probe)
+* Origin and spacing: representing 3D space with non-uniform spacing for different axes
+* Easy visualization of arrays with `dtype=np.uint8` via `chunky3d.k3d_connector.get_k3d_object()`
+
+
