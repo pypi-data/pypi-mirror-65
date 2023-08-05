@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: twill
+Version: 2.0
+Summary: twill web browsing and testing language and associated utilities.
+Home-page: https://github.com/twill-tools/twill
+Author: C. Titus Brown, Ben R. Taylor et al.
+Author-email: titus@idyll.org
+Maintainer: C. Titus Brown
+Maintainer-email: titus@idyll.org
+License: MIT
+Download-URL: https://pypi.org/project/twill/
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Other Scripting Engines
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Testing
+Description-Content-Type: text/markdown
+Requires-Dist: lxml (<5,>=4)
+Requires-Dist: requests (<3,>=2)
+Requires-Dist: pyparsing (<3,>=2)
+Provides-Extra: docs
+Requires-Dist: sphinx (<3,>=2.4) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (<1,>=0.4) ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest (<5,>=4.6) ; extra == 'tests'
+Requires-Dist: pytidylib (<0.4,>=0.3) ; extra == 'tests'
+Requires-Dist: quixote (<3,>=2.9) ; extra == 'tests'
+Requires-Dist: wsgi-intercept (<2,>=1.4) ; extra == 'tests'
+Provides-Extra: tidy
+Requires-Dist: pytidylib (<0.4,>=0.3) ; extra == 'tidy'
+
+twill: a simple scripting language for web browsing
+===================================================
+
+twill is a simple scripting language intended for programmatic or automated browsing of web sites.
+
+The current version 2.0 of twill is based on the latest 1.8 version which uses [requests](https://2.python-requests.org/) and [lxml](https://lxml.de/) instead of [mechanize](http://wwwsearch.sourceforge.net/mechanize/), plus ideas from other forks and add-ons like [retwill](https://bitbucket.org/brandizzi/retwill/) or [flunc](https://www.coactivate.org/projects/flunc/project-home). This version supports Python version 2.7 and 3.5 to 3.8. There are also plans to create a version 3.0 of twill that will support only Python 3.6 or higher.
+
+See the [changelog](https://twill-tools.github.io/twill/changelog.html) for a summary of the things that have been changed and improved in version 2.0.
+
+The [documentation](https://twill-tools.github.io/twill/) is included in the distribution and provided online.
+
+Copyright (c) by C. Titus Brown et al.
+
+Newer versions have been created and are maintained by [Christoph Zwerschke](https://github.com/Cito).
+
+twill is available for use, modification, and distribution under the MIT license.
+
+
