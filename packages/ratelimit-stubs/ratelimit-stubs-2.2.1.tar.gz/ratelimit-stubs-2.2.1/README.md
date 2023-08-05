@@ -1,0 +1,1 @@
+# Stub for [ratelimit](https://github.com/tomasbasham/ratelimit)
