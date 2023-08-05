@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: corona_api
+Version: 0.6.4
+Summary: An asynchronous wrapper for the corona.lmao.ninja API written in Python.
+Home-page: https://github.com/apex2504/python-corona-api
+Author: Rob Wainwright
+Author-email: wainwrightbobby@gmail.com
+License: MIT
+Description: # python-corona-api
+        An asynchronous wrapper for the [NovelCOVID API](https://github.com/NovelCOVID/API) written in Python.
+        
+        This is designed for bots using [discord.py](https://github.com/Rapptz/discord.py) but there is no discord-specific code so you are free to use this in any project as required. 
+        
+        # Requirements
+         - Python 3.5 or above
+         - aiohttp (`python3 -m pip install -U aiohttp`)
+        
+        # Installation
+        ### Using pip (recommended)
+         - `python3 -m pip install -U corona_api`
+         
+        # Support
+        Get support for this over on [Discord](https://takagisan.xyz/support).
+         
+        # Examples
+        ### Discord bot
+        There is an example cog for your Discord bot [here](https://github.com/apex2504/python-corona-api/blob/master/examples/discord_cog.py).
+        
+Keywords: coronavirus,covid-19
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
