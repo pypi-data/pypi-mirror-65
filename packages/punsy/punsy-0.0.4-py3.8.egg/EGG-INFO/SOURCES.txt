@@ -1,0 +1,16 @@
+README.md
+setup.py
+punsy/__init__.py
+punsy/cmu.py
+punsy.egg-info/PKG-INFO
+punsy.egg-info/SOURCES.txt
+punsy.egg-info/dependency_links.txt
+punsy.egg-info/entry_points.txt
+punsy.egg-info/top_level.txt
+punsy/data/cmudict-0.7b.utf8
+punsy/structs/__init__.py
+punsy/structs/suffix_trie.py
+punsy/structs/trie.py
+test/__init__.py
+test/structs/__init__.py
+test/structs/test_trie.py
