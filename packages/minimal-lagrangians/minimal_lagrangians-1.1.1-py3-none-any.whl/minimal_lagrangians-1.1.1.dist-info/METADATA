@@ -1,0 +1,219 @@
+Metadata-Version: 2.1
+Name: minimal-lagrangians
+Version: 1.1.1
+Summary: A Python program to generate the Lagrangians for dark matter models
+Home-page: https://gitlab.com/Socob/minimal-lagrangians
+Author: Simon May
+Author-email: simon.may@mpa-garching.mpg.de
+License: GNU GPLv3
+Keywords: particle physics,beyond the standard model,dark matter
+Platform: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+
+# minimal-lagrangians
+This is a Python program which allows one to specify the field content of an extension
+of the Standard Model of particle physics (SM) and, using this information, generates the
+most general renormalizable Lagrangian that describes such a model. As the program was
+written for the study of minimal dark matter models with radiative neutrino masses,
+it can handle additional fields with the following properties:
+- scalar or Weyl fermion fields
+- SU(3) singlets
+- SU(2) singlets, doublets or triplets
+- arbitrary hypercharge
+- charged under a global ℤ₂ symmetry
+- charged under an arbitrary number of global U(1) symmetries
+
+## Requirements
+The program requires Python 3 (tested with Python ≥ 3.4).
+No external libraries are necessary.
+
+## Installation
+`minimal-lagrangians` is [available on pip](https://pypi.org/project/minimal-lagrangians/), so it can simply be installed by running
+
+    pip install minimal-lagrangians
+
+## Usage
+`minimal-lagrangians` only prints the potential involving at least one new (i. e. non-SM) field,
+i. e. the kinetic terms and the Standard Model Lagrangian are omitted. The models are
+not checked for anomalies (tools like SARAH can be used for this purpose).
+
+The new models are currently defined in the file [`data.py`](data.py). Models can be
+added in a user-defined file (to be used with the `--model-file` option, see below) in
+the following form:
+```python
+[
+	BSMModel('<model_name>', (
+		    # list of fields
+		    # type       name   SU(2) rep.  hypercharge
+		    # for a scalar field, e.g. a scalar doublet with hypercharge 1:
+		    ScalarField ('S',   2,          Y=1),
+		    # for a fermion field, e.g. a fermion singlet with hypercharge 0:
+		    FermionField('F',   1,          Y=0),
+		    # ℤ₂-even scalar field:
+		    ScalarField ('S',   1,          Y=0, z2=1),
+		    # …
+		),
+		# optional: parameter values for different hypercharge assignments (offsets), e.g.
+		(0, 2, …)
+	),
+	# …
+]
+```
+
+To add fields with global U(1) charges, use the optional parameter `u1`:
+```python
+        # type       name   SU(2) rep.  hypercharge  U(1) charges
+        # for a scalar field, e.g. a scalar doublet with hypercharge 1:
+        ScalarField ('S',   2,          Y=1,         u1=[ 1, 3, …]),
+        # for a fermion field, e.g. a fermion singlet with hypercharge 0:
+        FermionField('F',   1,          Y=0,         u1=[-1, 2, …]),
+```
+The Standard Model fields are assumed to be neutral (`z2=1`, U(1) charges zero) under the new global symmetries.
+
+Information on how to run the program on the command line can be obtained with
+`minimal-lagrangians -h`:
+>     usage: minimal-lagrangians [-h] [--format {LaTeX,SARAH,plain}]
+>                                [--model-file [path/to/file.py]]
+>                                [--omit-equivalent-scalars]
+>                                [--omit-self-interaction] [--list-discarded-terms]
+>                                [--sarah-no-scalar-cpv] [--version]
+>                                model [parameter α]
+>     
+>     A Python program to generate the Lagrangians for dark matter models
+>     
+>     positional arguments:
+>       model                 name of the model whose Lagrangian is to be generated
+>                             (specify “list” in order to list all available models)
+>       parameter α           value of the model parameter α (determines
+>                             hypercharges of the fields)
+>     
+>     optional arguments:
+>       -h, --help            show this help message and exit
+>       --format {LaTeX,SARAH,plain}
+>                             output format for the generated Lagrangian (default:
+>                             plain)
+>       --model-file [path/to/file.py]
+>                             file containing user-defined models; a file is only
+>                             read if this option is present (default: ./models.py)
+>       --omit-equivalent-scalars
+>                             keep only scalar fields from the model which have
+>                             unique quantum numbers and absolute hypercharge values
+>                             (omit duplicates)
+>       --omit-self-interaction
+>                             omit pure self-interactions of the new fields in the
+>                             Lagrangian, that is, output only interaction terms
+>                             which involve both SM and new fields (default: output
+>                             all terms)
+>       --list-discarded-terms
+>                             list redundant terms which were discarded from the
+>                             Lagrangian due to identities
+>       --sarah-no-scalar-cpv
+>                             assume that there is no CP violation causing mixing
+>                             between scalar and pseudoscalar fields for SARAH
+>                             output
+>       --version             show program’s version number and exit
+
+
+Test cases can be run using
+
+    ./test.py
+
+Among other checks, this currently tests whether the program produces the correct
+Lagrangian for the following models:
+- T1-3-B with α = 0, which is studied in [(Fiaschi, Klasen, May; arXiv:1812.11133 [hep-ph])][1].
+- T1-1-A with α = 0, as given in [(Farzan; arXiv:0908.3729 [hep-ph])][2], which
+  presents an implementation of this model.
+- The models given in [(Cheung, Sanford; arXiv:1311.5896 [hep-ph])][3]:
+  - singlet–doublet fermion model (SDF, “model A”)
+  - singlet–doublet scalar model (SDS, “model B”)
+  - singlet–triplet scalar model (STS, “model C”)
+- The Higgs triplet model (→ seesaw type II), see e. g.
+  [(Kanemura, Yagyu; arXiv:1201.6287 [hep-ph])][4].
+
+## Examples
+For example, running
+
+    minimal-lagrangians --omit-equivalent-scalars T1-1-A 0
+
+prints the Lagrangian for the model T1-1-A with α = 0 from
+[(Restrepo, Zapata, Yaguna; arXiv:1308.3655 [hep-ph])][5]:
+>      - M_ϕ'² ϕ'^† ϕ' - ½ M_φ² φ²
+>      - (λ₁ (H ϕ') φ + H.c.)
+>      - λ₂ (H^† H) (ϕ'^† ϕ') - λ₃ (H^† ϕ') (ϕ'^† H) - λ₄ (ϕ'^† ϕ')² - λ₅ (H^† H) φ² - λ₆ (ϕ'^† ϕ') φ² - (λ₇ (H ϕ')² + H.c.) - λ₈ φ⁴
+>      - (½ M_ψ ψ ψ + H.c.)
+>      - (y₁ (ϕ'^† L) ψ + H.c.)
+
+Running
+
+    minimal-lagrangians STS
+
+prints the Lagrangian for model C (singlet–triplet scalar) from
+[(Cheung, Sanford; arXiv:1311.5896 [hep-ph])][3]:
+>      - ½ M_T² Tr(T²) - ½ M_S² S²
+>      - λ₁ H^† T² H - λ₂ (H^† T H) S - λ₃ (H^† H) S² - λ₄ Tr(T²)² - λ₅ Tr(T²) S² - λ₆ S⁴
+
+## Source files
+- [`minimal-lagrangians.py`](minimal-lagrangians.py):
+  The main executable file, responsible for parsing command line arguments and starting execution of the selected model
+- [`minimal-lagrangians`](minimal-lagrangians):
+  A symbolic link to [`minimal-lagrangians.py`](minimal-lagrangians.py)
+- [`test.py`](test.py):
+  The program’s test suite
+- [`setup.py`](setup.py):
+  The [`setuptools`](https://pypi.org/project/setuptools) script used to create the program’s distribution package
+- Directory [`min_lag/`](min_lag/):
+  The main program package
+  - [`min_lag/__init__.py`](min_lag/__init__.py):
+    Python package file for the [`min_lag`](min_lag/) package
+  - [`min_lag/data.py`](min_lag/data.py):
+    Contains the predefined models
+  - [`min_lag/fields.py`](min_lag/fields.py):
+    Contains the class definitions `Field` objects, such as `ScalarField` or `FermionField`
+  - [`min_lag/models.py`](min_lag/models.py):
+    Contains the class definitions `Model` and `BSMModel` objects, as well as the definition of the Standard Model (`STANDARD_MODEL`)
+  - [`min_lag/terms.py`](min_lag/terms.py):
+    Contains the class definitions for Lagrangians and their terms (`Lagrangian`, `InvariantTerm`)
+  - [`min_lag/unicode_util.py`](min_lag/unicode_util.py):
+    Contains some small utility functions dealing with to Unicode characters, and related data
+  - [`min_lag/version.py`](min_lag/version.py):
+    Contains the program’s version number; generated by [`setup.py`](setup.py)
+  - Directory [`min_lag/output/`](min_lag/output/):
+    Contains the different output modules
+    - [`min_lag/output/__init__.py`](min_lag/output/__init__.py):
+      Contains the base (abstract) class definition for the formatter classes and other common output definitions
+    - [`min_lag/output/LaTeX.py`](min_lag/output/LaTeX.py):
+      Contains the output module for the LaTeX output format
+    - [`min_lag/output/plain.py`](min_lag/output/plain.py):
+      Contains the output module for the (Unicode) plain text output format
+    - Directory [`min_lag/output/SARAH/`](min_lag/output/SARAH/):
+      Contains the code and data for the SARAH output format
+      - [`min_lag/output/SARAH/__init__.py`](min_lag/output/SARAH/__init__.py):
+        Contains the code for the SARAH output format
+      - Directory [`min_lag/output/SARAH/data/`](min_lag/output/SARAH/data/):
+        Contains data files for the SARAH output format
+        - [`min_lag/output/SARAH/data/model.m`](min_lag/output/SARAH/data/model.m):
+          Template for the main SARAH model file
+        - [`min_lag/output/SARAH/data/parameters.m`](min_lag/output/SARAH/data/parameters.m):
+          Template for the SARAH model file `parameters.m`
+        - [`min_lag/output/SARAH/data/particles.m`](min_lag/output/SARAH/data/particles.m):
+          Template for the SARAH model file `particles.m`
+        - [`min_lag/output/SARAH/data/SPheno.m`](min_lag/output/SARAH/data/SPheno.m):
+          Template for the SARAH model file `SPheno.m`
+
+
+[1]: https://arxiv.org/abs/1812.11133
+[2]: https://arxiv.org/abs/0908.3729
+[3]: https://arxiv.org/abs/1311.5896
+[4]: https://arxiv.org/abs/1201.6287
+[5]: https://arxiv.org/abs/1308.3655
+
+
+
