@@ -1,0 +1,24 @@
+numpy>=1.13
+astropy>=3.2
+astropy-healpix>=0.2
+scipy>=0.9
+
+[docs]
+sphinx-astropy
+pytest
+pyvo
+matplotlib
+
+[test]
+pytest-astropy
+pytest-arraydiff
+pytest-cov
+pyvo
+asdf
+gwcs
+
+[test:platform_machine != "i686"]
+sunpy
+
+[test:sys_platform != "win32" and python_version != "3.8"]
+shapely
