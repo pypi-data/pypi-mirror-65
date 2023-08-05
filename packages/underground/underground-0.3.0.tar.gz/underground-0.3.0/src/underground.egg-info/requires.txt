@@ -1,0 +1,15 @@
+requests>=2.22
+google>=2.0
+gtfs-realtime-bindings>=0.0.6
+protobuf3-to-dict>=0.1.5
+click>=7.0
+pydantic>=0.31.1
+pytz>=2019.2
+
+[dev]
+pytest>=5.0
+tox>=3.13
+black>=19.10b0
+pytest-cov>=2.8
+codecov>=2.0
+requests-mock>=1.7.0
