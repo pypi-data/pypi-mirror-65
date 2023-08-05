@@ -1,0 +1,8 @@
+pip>=8
+boto3
+
+[dev]
+flake8
+pytest
+pytest-cov
+moto
