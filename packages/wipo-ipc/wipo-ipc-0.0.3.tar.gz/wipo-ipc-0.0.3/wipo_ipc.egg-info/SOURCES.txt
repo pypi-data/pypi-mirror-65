@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+tests/__init__.py
+tests/test_description.py
+tests/test_ipc.py
+tests/test_tools.py
+wipo_ipc/__init__.py
+wipo_ipc/description.py
+wipo_ipc/ipc.py
+wipo_ipc/tools.py
+wipo_ipc.egg-info/PKG-INFO
+wipo_ipc.egg-info/SOURCES.txt
+wipo_ipc.egg-info/dependency_links.txt
+wipo_ipc.egg-info/top_level.txt
+wipo_ipc/data/all_ipc.csv
