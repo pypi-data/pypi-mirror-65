@@ -1,0 +1,10 @@
+[console_scripts]
+divik = divik._cli.divik:main
+dunn-divik = divik._cli.dunn_divik:main
+fit-clusters = divik._cli.fit_clusters:main
+inspect = divik._cli.inspect:main
+kmeans = divik._cli.auto_kmeans:main
+linkage = divik._cli.linkage:main
+spectral = divik._cli.spectral:main
+visualize = divik._cli.visualize:main
+
