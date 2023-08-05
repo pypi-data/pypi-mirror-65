@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: dropkick
+Version: 1.0.1
+Summary: Automated scRNA-seq filtering
+Home-page: https://github.com/KenLauLab/dropkick
+Author: Cody Heiser
+Author-email: codyheiser49@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6
+Requires-Dist: numpy (>=1.9.2)
+Requires-Dist: scipy (>=0.14.1)
+Requires-Dist: pandas
+Requires-Dist: scikit-learn (>=0.18.0)
+Requires-Dist: scikit-image
+Requires-Dist: matplotlib (>=3.0.3)
+Requires-Dist: scanpy
+
+![alt text](data/dropkick_logo.png)
+
+### Automated cell filtering for single-cell RNA sequencing data.
+
+[![Latest Version][pypi-image]][pypi-url]
+
+---
+`dropkick` works primarily with [**Scanpy**](https://icb-scanpy.readthedocs-hosted.com/en/stable/)'s `AnnData` objects, and accepts input files in `.h5ad` or flat (`.csv`, `.tsv`) format. It also writes outputs to `.h5ad` files when called from the terminal.
+
+Installation via `pip` or from source requires a Fortran compiler. For Mac users, `brew install gcc` will take care of this.
+
+#### Install from PyPI:
+```bash
+pip install dropkick
+```
+
+#### Or compile from source:
+```bash
+git clone https://github.com/KenLauLab/dropkick.git
+cd dropkick
+python setup.py install
+```
+
+---
+`dropkick` can be run as a command line tool, or interactively with the [`scanpy`](https://icb-scanpy.readthedocs-hosted.com/en/stable/) single-cell analysis suite.
+
+#### Usage from command line:
+```bash
+python -m dropkick path/to/counts.h5ad
+```
+
+Output will be saved in a new `.h5ad` file containing __dropkick__ scores, labels, and model parameters.
+
+See [`dropkick_tutorial.ipynb`](dropkick_tutorial.ipynb) for an interactive walkthrough of the `dropkick` pipeline and its outputs.
+
+[pypi-image]: https://img.shields.io/pypi/v/dropkick
+[pypi-url]: https://pypi.python.org/pypi/dropkick/
+
+
