@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+include requirements.txt
+recursive-include djangopost/migrations *
+recursive-include djangopost/rest_api *
+recursive-include djangopost/templates/djangoadmin/djangopost *

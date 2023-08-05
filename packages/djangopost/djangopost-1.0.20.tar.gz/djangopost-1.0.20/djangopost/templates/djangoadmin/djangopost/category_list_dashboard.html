@@ -1,0 +1,39 @@
+{% extends 'djangoadmin/base/body/index_admin.html' %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+{% include "djangoadmin/widgets/header_search_by_object.html" %}
+<!-- Start table here. -->
+<div class="accordion" id="AccordionCategoryListDashboard">
+<table class="table table-hover border mb-1">
+    <thead class="bg-light">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Verification</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for category_list in category_list %}
+      <tr data-toggle="collapse" data-target="#collapse{{category_list.id}}" aria-expanded="false" aria-controls="collapse{{category_list.id}}">
+        <td>{{ category_list.title|truncatechars_html:45 }}</td>
+        <td>{{ category_list.author }}</td>
+        <td>{{ category_list.verification }}</td>
+        <td>{{ category_list.status }}</td>
+      </tr>
+      <tr class="collapse p-0" id="collapse{{category_list.id}}" data-parent="#AccordionCategoryListDashboard">
+        <td colspan="4" class="p-0">
+          <ul class="nav p-0">
+            <li class="nav-item"><a class="nav-link py-1" href="{{ category_list.get_absolute_url_for_category_update_view }}">Edit</a></li>
+            <li class="nav-item"><a class="nav-link py-1" href="{{ category_list.get_absolute_url_for_category_delete_view }}">Delete</a></li>
+            <li class="nav-item"><a class="nav-link py-1" href="{{ category_list.get_absolute_url_for_category_detail_view }}" target="_blank">View</a></li>
+          </ul>
+        </td>
+      </tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+<!-- end table here. -->
+{% endblock body %}

@@ -1,0 +1,41 @@
+{% extends 'djangoadmin/base/body/index_admin.html' %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+{% include "djangoadmin/widgets/header_search_by_object.html" %}
+<!-- Start table here. -->
+<div class="accordion" id="AccordianForArticleListDashboard">
+<table class="table table-hover border mb-1">
+<thead class="bg-light">
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Category</th>
+    <th scope="col">Author</th>
+    <th scope="col">Verification</th>
+    <th scope="col">Status</th>
+  </tr>
+</thead>
+<tbody>
+{% for article_filter in article_filter %}
+  <tr data-toggle="collapse" data-target="#collapse{{article_filter.id}}" aria-expanded="false" aria-controls="collapse{{article_filter.id}}">
+    <td>{{ article_filter.title|truncatechars_html:35 }}</td>
+    <td>{{ article_filter.category }}</td>
+    <td>{{ article_filter.author }}</td>
+    <td>{{ article_filter.verification }}</td>
+    <td>{{ article_filter.status }}</td>
+  </tr>
+  <tr class="collapse p-0" id="collapse{{article_filter.id}}" data-parent="#AccordianForArticleListDashboard">
+    <td colspan="5" class="p-0">
+      <ul class="nav p-0">
+        <li class="nav-item"><a class="nav-link py-1" href="{{ article_filter.get_absolute_url_for_article_update_view }}">Edit</a></li>
+        <li class="nav-item"><a class="nav-link py-1" href="{{ article_filter.get_absolute_url_for_article_delete_view }}">Delete</a></li>
+        <li class="nav-item"><a class="nav-link py-1" href="{{ article_filter.get_absolute_url_for_article_detail_view }}" target="_blank">View</a></li>
+      </ul>
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+<!-- end table here. -->
+{% endblock body %}
