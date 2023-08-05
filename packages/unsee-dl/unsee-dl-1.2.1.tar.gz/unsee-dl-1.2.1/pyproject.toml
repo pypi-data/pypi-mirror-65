@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "unsee-dl"
+version = "1.2.1"
+description = "unsee.cc downloader"
+license = "MIT"
+authors = ["Andrea Salamone <andrea.sala96@gmail.com>"]
+
+readme = "README.md"
+homepage = "https://github.com/andsala/unsee-dl"
+repository = "https://github.com/andsala/unsee-dl"
+keywords = ['unsee', 'download']
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Environment :: Console',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.6',
+    'Topic :: Utilities'
+]
+packages = [
+    { include = "main.py" },
+    { include = "unsee_dl" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+aiohttp = "^3.6.2"
+cchardet = "^2.1.6"
+aiodns = "^2.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+requests = "^2.23"
+
+[tool.poetry.scripts]
+unsee-dl = 'main:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
