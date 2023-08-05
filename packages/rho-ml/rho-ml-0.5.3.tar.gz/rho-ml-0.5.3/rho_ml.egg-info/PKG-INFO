@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: rho-ml
+Version: 0.5.3
+Summary: Standard framework for wrapping ML and other algorithms
+Home-page: https://bitbucket.org/rhoai/rho-ml
+Maintainer: Rho AI Corporation
+License: Commercial
+Description: # rho-ml
+        
+        A standard interface for machine learning models. 
+        
+        ## Testing
+        
+        To run the tests you need to have `pyenv` running on your system and `tox` in
+        your environment.
+        
+        Refer to RhoAI documentation for instructions on installing `pyenv` correctly.
+        
+        After `pyenv` is installed, then install `tox`
+        
+            $ pip install tox
+        
+        Then install the different python versions in `pyenv`
+        
+            $ pyenv install 3.3.6 3.4.4 3.5.1
+        
+        Now, run the tests:
+        
+            $ tox
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: test
+Provides-Extra: dev

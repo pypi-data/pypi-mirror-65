@@ -1,0 +1,11 @@
+attrs
+marshmallow
+
+[dev]
+honcho
+
+[test]
+pytest
+tox
+coverage
+hypothesis
