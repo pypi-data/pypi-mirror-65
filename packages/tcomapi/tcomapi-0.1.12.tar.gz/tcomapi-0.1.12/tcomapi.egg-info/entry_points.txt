@@ -1,0 +1,4 @@
+[console_scripts]
+kgd = tcomapi.kgd.__main__:main
+sgov = tcomapi.sgov.__main__:main
+
