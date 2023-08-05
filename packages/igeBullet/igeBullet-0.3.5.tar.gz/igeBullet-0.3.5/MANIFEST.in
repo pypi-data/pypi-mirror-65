@@ -1,0 +1,7 @@
+include LICENSE
+include MANIFEST.in
+include README.md
+include setup.py
+recursive-include bullet *.h
+include igeBullet.h
+include igeBullet_doc_en.h
