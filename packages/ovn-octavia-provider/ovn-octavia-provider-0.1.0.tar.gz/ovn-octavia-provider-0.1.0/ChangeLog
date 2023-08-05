@@ -1,0 +1,31 @@
+CHANGES
+=======
+
+0.1.0
+-----
+
+* Add missing requirements
+* Stop using Octavia network driver
+* Respect SSL devstack configuration
+* Add unit tests for hacking/checks.py
+* Add tempest gate, devstack plugin and sample devstack config
+* Add configuration page to docs
+* Use queue library directly
+* Do not try to refresh vips on OVN LB that will be deleted
+* Enable cover job
+* Add admin and contributor documentation
+* Wrap IPv6 address with brackets
+* Fix Exception string arguments
+* Centralize traffic when LB and member has FIP
+* Don't fail if VIP already exist or has been deleted before
+* Ensure setup.cfg packages matches root directory
+* Don't send malformed status update to Octavia
+* Fix py2 vs py3 dict keys comparison in functional test
+* Cache OvnProviderHelper object in OvnProviderDriver
+* Don't fail in case subnet or Logical Switch not found
+* Add support for multiple L4 protocols withing same LB
+* Import OVN LB functional tests
+* Move OVN Octavia Provider driver code to this repository
+* Set basepython in tox.ini to python3
+* Initialize repository
+* Added .gitreview
