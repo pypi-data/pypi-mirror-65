@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: cache-guiosoft
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/guionardo/py-cache-guiosoft
+Author: Guionardo Furlan
+Author-email: guionardo@gmail.com
+License: MIT
+Project-URL: Documentation, https://github.com/guionardo/py-cache-guiosoft/wiki
+Project-URL: Source, https://github.com/guionardo/py-cache-guiosoft
+Description: # CACHE GUIOSOFT
+        
+        Caching data using files or redis
+        
+        
+Keywords: cache
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6.*
+Description-Content-Type: text/markdown
