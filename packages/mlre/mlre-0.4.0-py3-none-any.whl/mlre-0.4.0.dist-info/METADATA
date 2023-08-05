@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: mlre
+Version: 0.4.0
+Summary: Machine Learning Research Environment
+Home-page: https://github.com/cabrust/mlre
+Author: Clemens-Alexander Brust
+Author-email: cabrust@pm.me
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: Flask (==1.1.1)
+
+# MLRE: Machine Learning and Research Environment.
+[![Build Status](https://travis-ci.org/cabrust/mlre.svg?branch=master)](https://travis-ci.com/cabrust/mlre)
+[![Build Status (Develop)](https://travis-ci.org/cabrust/mlre.svg?branch=develop)](https://travis-ci.com/cabrust/mlre)
+[![codecov](https://codecov.io/gh/cabrust/mlre/branch/master/graph/badge.svg)](https://codecov.io/gh/cabrust/mlre)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fce3f41be52403aaa260/maintainability)](https://codeclimate.com/github/cabrust/mlre/maintainability)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
+MLRE is a collection of tools that may help machine learning researchers and developers.
+
+## Radar
+Radar is a networked event reporting library. Its main feature is the freeze frame support, where with each event we record observations from the environment to aid in debugging. This type of tracing is inspired by the automotive industry.
+
+#### Starting the Radar API server:
+``` shell script
+FLASK_APP=mlre.radar.radar_app:create_default_app flask run
+```
+
+
