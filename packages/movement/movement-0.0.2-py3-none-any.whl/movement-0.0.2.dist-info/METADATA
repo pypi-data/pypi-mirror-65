@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: movement
+Version: 0.0.2
+Summary: Movement analysis
+Home-page: https://github.com/adamltyson/movement
+Author: Adam Tyson
+Author-email: adam.tyson@ucl.ac.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Requires-Dist: imlib
+Requires-Dist: numpy
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: recommonmark ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: pydoc-markdown ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: gitpython ; extra == 'dev'
+Requires-Dist: coveralls ; extra == 'dev'
+Requires-Dist: coverage (<=4.5.4) ; extra == 'dev'
+
+UNKNOWN
+
+
