@@ -1,0 +1,13 @@
+appdirs
+colorama>=0.3.3
+jinja2
+six
+pep517<0.7.0"
+pytoml
+virtualenv<20
+
+[:python_version < "3.4"]
+enum34
+
+[:sys_platform != "nt"]
+sh>=1.10
