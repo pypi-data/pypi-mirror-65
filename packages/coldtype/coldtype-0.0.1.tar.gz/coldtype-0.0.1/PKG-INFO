@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: coldtype
+Version: 0.0.1
+Summary: 
+Author: Rob Stenson
+Author-email: rob@goodhertz.com
+Requires-Python: >=3.6.8
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: booleanOperations (>=0.9.0,<0.10.0)
+Requires-Dist: fontPens (>=0.2.4,<0.3.0)
+Requires-Dist: fontTools (>=4.7.0,<5.0.0)
+Requires-Dist: freetype-py (>=2.1.0,<3.0.0)
+Requires-Dist: noise (>=1.2.2,<2.0.0)
+Requires-Dist: skia-pathops (>=0.4.0,<0.5.0)
+Requires-Dist: uharfbuzz (>=0.9.1,<0.10.0)
+Requires-Dist: unicodedata2 (>=13.0.0,<14.0.0)
+Requires-Dist: watchdog (>=0.10.2,<0.11.0)
+Requires-Dist: websockets (>=8.1,<9.0)
