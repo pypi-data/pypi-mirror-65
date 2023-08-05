@@ -1,0 +1,4 @@
+[console_scripts]
+gammalearn = gammalearn.experiment_runner:main
+gexplore-net = gammalearn.explore_trained_net_features:main
+

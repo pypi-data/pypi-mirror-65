@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: Gammalearn
+Version: 0.4a3
+Summary: A framework to easily train deep learning model on Imaging Atmospheric Cherenkov Telescopes data
+Home-page: https://gitlab.lapp.in2p3.fr/GammaLearn/GammaLearn
+Author: M. Jacquemont, T. Vuillaume
+Author-email: jacquemont@lapp.in2p3.fr
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: torch (>=1.4)
+Requires-Dist: tensorboard
+Requires-Dist: torchvision
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: tables
+Requires-Dist: sphinxcontrib-katex
+Requires-Dist: pytorch-ignite
+Requires-Dist: indexedconv
+Requires-Dist: ctapipe
+Requires-Dist: ctaplot
+
+UNKNOWN
+
+
