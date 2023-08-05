@@ -1,0 +1,4 @@
+---
+#
+firewall_enabled: "{% if infrastructure_driver == 'openstack' %}true{% else %}false{% endif %}"
+# firewall_enabled: "false"

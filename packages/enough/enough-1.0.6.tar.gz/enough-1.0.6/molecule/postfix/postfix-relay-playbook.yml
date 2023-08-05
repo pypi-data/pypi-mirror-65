@@ -1,0 +1,96 @@
+---
+- name: install certificate if needed
+  hosts: 'postfix-host'
+
+  roles:
+    - role: firewall
+      vars:
+        firewall_server: "{{ inventory_hostname }}"
+        firewall_clients: [ 0.0.0.0/0 ]
+        firewall_protocols: [ tcp ]
+        firewall_ports: [ 80, 443 ]
+        firewall_rule_state: present
+        firewall_changed_when: false
+      delegate_to: localhost
+      become: false
+
+    - role: certificate
+      become: true
+      vars:
+        certificate_fqdn: "postfix-host.{{ domain }}"
+
+    - role: firewall
+      vars:
+        firewall_server: "{{ inventory_hostname }}"
+        firewall_clients: [ 0.0.0.0/0 ]
+        firewall_protocols: [ tcp ]
+        firewall_ports: [ 80, 443 ]
+        firewall_rule_state: absent
+        firewall_changed_when: false
+      delegate_to: localhost
+      become: false
+
+- name: install and configure postfix relay
+  hosts: 'postfix-host'
+  become: true
+
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+  roles:
+    - role: debops.postfix/env
+
+    - role: debops.secret
+      secret__directories:
+        - '{{ postfix__secret__directories     | d([])}}'
+
+    - role: debops.postfix
+      postfix__mailname: '{{ domain }}'
+      postfix__fqdn: '{{ inventory_hostname }}.{{ domain }}'
+      postfix__mastercf:
+        - name: 'smtps'
+          state: 'present'
+          options:
+            - smtpd_sasl_auth_enable: False
+            - name: 'smtpd_relay_restrictions'
+              state: 'comment'
+      base__maincf:
+        - name: 'smtpd_relay_restrictions'
+          value: "{% if letsencrypt_staging | default(false) %}check_recipient_access inline:{{'{'}}dachary.org=OK{{'}'}} defer{% endif %}"
+          state: "{% if letsencrypt_staging | default(false) %}present{% else %}absent{% endif %}"
+        - name: 'mynetworks'
+          value:
+            - name: '0.0.0.0/0'
+      TLS__maincf:
+        - name: 'smtpd_tls_security_level'
+          value: 'encrypt'
+          comment: |
+            This enforce TLS usage.
+            According to RFC 2487 this MUST NOT be applied in case
+            of a publicly-referenced Postfix SMTP server.
+          section: 'smtpd-tls'
+        - name: 'smtpd_tls_cert_file'
+          value: '/etc/certificates/postfix-host.{{ domain }}.crt'
+          section: 'smtpd-tls'
+        - name: 'smtpd_tls_key_file'
+          value: '/etc/certificates/postfix-host.{{ domain }}.key'
+          section: 'smtpd-tls'
+        - name: 'smtpd_tls_CAfile'
+          value: '/etc/certificates/postfix-host.{{ domain }}.chain.crt'
+          section: 'smtpd-tls'
+      postfix__maincf: "{{ base__maincf + TLS__maincf }}"
+      postfix__restrictions_maincf: [ ]
+
+    - role: postfix_relay_monitoring
+
+  tasks:
+
+    - name: set SPF DNS record
+      nsupdate:
+        server: "{{ hostvars['bind-host']['ansible_host'] }}"
+        zone: "{{ domain }}"
+        record: "{{ domain }}."
+        ttl: 1800
+        type: TXT
+        value: "v=spf1 mx ip4:{{ ansible_host }} ~all"
+      delegate_to: bind-host

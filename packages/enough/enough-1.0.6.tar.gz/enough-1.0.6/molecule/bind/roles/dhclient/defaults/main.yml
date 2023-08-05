@@ -1,0 +1,2 @@
+---
+bind_server_ip_for_clients: "{{ hostvars['bind-host']['ansible_host'] }}"

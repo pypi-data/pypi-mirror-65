@@ -1,0 +1,66 @@
+---
+- name: find the name of the attached disk
+  shell: |
+    for d in /dev/vda /dev/sdb ; do
+       test -e $d && echo -n $d && exit 0
+    done
+  register: attached_disk
+  changed_when: False
+
+- name: apt-get install cryptsetup-run
+  apt:
+    name: cryptsetup-run
+    state: present
+
+- name: create keyfile for {{ attached_disk.stdout }}
+  shell: |
+    set -ex
+    if test -f /etc/cryptsetup/keyfile ; then
+       echo OK
+    else
+       mkdir /etc/cryptsetup
+       dd if=/dev/urandom of=/etc/cryptsetup/keyfile bs=32 count=1
+       echo Changed
+    fi
+  register: result
+  changed_when: '"Changed" in result.stdout'
+
+- name: encrypt {{ attached_disk.stdout }}
+  shell: |
+    set -ex
+    dev={{ attached_disk.stdout }}
+    if cryptsetup isLuks $dev ; then
+       echo OK
+    else
+       cryptsetup luksFormat --batch-mode $dev /etc/cryptsetup/keyfile
+       echo Changed
+    fi
+  register: result
+  changed_when: '"Changed" in result.stdout'
+
+- name: map {{ attached_disk.stdout }} at boot
+  shell: |
+    set -ex
+    dev={{ attached_disk.stdout }}
+    uuid=$(blkid --output value $dev | head -1)
+    if grep -q $uuid /etc/crypttab ; then
+       echo OK
+    else
+       echo spare UUID=$uuid /etc/cryptsetup/keyfile luks > /etc/crypttab
+       cryptdisks_start spare
+       echo Changed
+    fi
+  register: result
+  changed_when: '"Changed" in result.stdout'
+
+- name: mkfs.ext4 /dev/mapper/spare
+  filesystem:
+    fstype: ext4
+    dev: /dev/mapper/spare
+
+- name: mount /dev/mapper/spare {{ encrypted_device_mount_point }}
+  mount:
+    path: "{{ encrypted_device_mount_point }}"
+    src: /dev/mapper/spare
+    fstype: ext4
+    state: mounted
