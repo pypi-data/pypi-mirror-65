@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: deckz
+Version: 1.0.0
+Summary: Tool to handle multiple beamer decks.
+Home-page: https://github.com/m09/deckz
+Author: m09
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs
+Requires-Dist: click
+Requires-Dist: coloredlogs
+Requires-Dist: Jinja2
+Requires-Dist: pygit2
+Requires-Dist: PyYAML
+
+# `deckz`
+
+[![CI Status](https://github.com/m09/deckz/workflows/CI/badge.svg)](https://github.com/m09/deckz/actions?query=workflow%3ACI)
+[![CD Status](https://github.com/m09/deckz/workflows/CD/badge.svg)](https://github.com/m09/deckz/actions?query=workflow%3ACD)
+
+Tool to handle multiple beamer decks with multiple users and shared slides.
+
+## Installation
+
+With `pip`:
+
+    pip install deckz
+
+## Usage
+
+    deckz --help
+
+
