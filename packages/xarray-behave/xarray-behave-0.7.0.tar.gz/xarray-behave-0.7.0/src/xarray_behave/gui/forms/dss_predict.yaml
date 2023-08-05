@@ -1,0 +1,39 @@
+main:
+
+- name: model_path
+  label: model
+  type: file_open
+  default: " "
+
+- name: event
+  label: Event name
+  type: string
+  default: DeepSS
+
+- name: event_category
+  label: Event ategory
+  type: string
+  default: segment
+
+- name: threshold
+  label: Detection threshold
+  type: float
+  default: 0.5
+  range: 0,1
+
+- name: hold_time
+  label: Hold time (seconds)
+  type: float
+  default: 0
+  range: 0,1000000
+
+- name: min_dur
+  label: Minimal duration (seconds)
+  type: float
+  default: 0
+  range: 0,1000000
+
+- name: save_button
+  label: Run inference
+  type: button
+  default: main action
