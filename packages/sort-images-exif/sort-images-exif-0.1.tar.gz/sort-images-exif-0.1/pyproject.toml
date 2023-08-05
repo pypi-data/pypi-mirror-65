@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "sort-images-exif"
+description = "Sort images"
+version = "0.1"
+license = "MIT"
+authors = ["Alexander K."]
+readme = "README.md"
+repository = "https://github.com/devkral/sort-images-exif"
+classifiers = [
+    "Intended Audience :: System Administrators",
+    "Environment :: Console",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Education",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3"
+]
+
+keywords = [
+]
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+exif = "*"
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
