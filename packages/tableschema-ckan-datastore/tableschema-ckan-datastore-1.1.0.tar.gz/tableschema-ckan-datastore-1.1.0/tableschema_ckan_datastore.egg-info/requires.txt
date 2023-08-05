@@ -1,0 +1,11 @@
+six>=1.9
+tableschema>=1.0
+
+[develop]
+mock
+pylama
+pytest
+pytest-cov
+tox
+python-dotenv
+requests-mock
