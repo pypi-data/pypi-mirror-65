@@ -1,0 +1,10 @@
+[console_scripts]
+assert-news = mbed_tools_ci_scripts.assert_news:main
+create-news-file = mbed_tools_ci_scripts.create_news_file:main
+generate-docs = mbed_tools_ci_scripts.generate_docs:main
+generate-news = mbed_tools_ci_scripts.generate_news:main
+generate-spdx = mbed_tools_ci_scripts.report_third_party_ip:main
+get-config = mbed_tools_ci_scripts.get_config:main
+license-files = mbed_tools_ci_scripts.license_files:main
+tag-and-release = mbed_tools_ci_scripts.tag_and_release:main
+
