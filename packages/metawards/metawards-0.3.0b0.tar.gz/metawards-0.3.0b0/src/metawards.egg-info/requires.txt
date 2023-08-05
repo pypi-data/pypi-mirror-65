@@ -1,0 +1,8 @@
+
+[dev]
+pytest>=5.1
+flake8>=3.7
+
+[docs]
+sphinx
+sphinx-rtd-theme
