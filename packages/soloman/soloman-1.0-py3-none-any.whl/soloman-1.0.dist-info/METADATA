@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: soloman
+Version: 1.0
+Summary: For the love of python and qml
+Home-page: https://github.com/deuteronomy-works/soloman
+Author: Amoh - Gyebi Godwin Ampofo Michael
+Author-email: amohgyebigodwin@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/deuteronomy-works/soloman/issues/
+Project-URL: Documentation, https://github.com/deuteronomy-works/soloman/wiki/
+Project-URL: Source Code, https://github.com/deuteronomy-works/soloman/
+Keywords: audio,pyaudio,ffmpeg,qml,pyffmpeg
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pyaudio
+Requires-Dist: pyffmpeg
+
+# soloman
+For the love of python and qml
+
+## Installation
+    pip install soloman
+
+## Usage
+```python
+from soloman import Audio
+
+
+aud = Audio()
+aud.play('/path/to/music.mp3')
+```
+
+## Wiki
+The wiki can be located [here](https://github.com/deuteronomy-works/soloman/wiki)
+
+
