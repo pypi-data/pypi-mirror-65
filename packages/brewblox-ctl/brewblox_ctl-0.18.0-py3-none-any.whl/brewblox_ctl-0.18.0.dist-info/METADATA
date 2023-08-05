@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: brewblox-ctl
+Version: 0.18.0
+Summary: Brewblox management tool
+License: GPL-3.0
+Author: BrewPi
+Author-email: development@brewpi.com
+Requires-Python: >=3.5
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: pprint (>=0.1,<0.2)
+Requires-Dist: python-dotenv[cli] (>=0.12.0,<0.13.0)
+Requires-Dist: pyyaml (>=5.3.1,<6.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+# BrewBlox CLI management tool
+
+The primary tool for installing and managing BrewBlox. Uses Click.
+
+Install-specific commands are defined in [brewblox-ctl-lib](https://github.com/BrewBlox/brewblox-ctl-lib).
+
+Wraps multiple docker-compose commands to provide a one-stop tool.
+
+Provides the `http` CLI utility tool as a more specific and less cryptic alternative to `curl`.
+
