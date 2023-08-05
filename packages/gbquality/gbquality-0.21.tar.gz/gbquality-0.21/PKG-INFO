@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: gbquality
+Version: 0.21
+Summary: Python translation of the original MATLAB code for the GB measure.
+Home-page: https://github.com/AndLen/gbquality
+Author: Andrew Lensen
+Author-email: Andrew.Lensen@ecs.vuw.ac.nz
+License: MIT
+Download-URL: https://github.com/AndLen/gbquality/archive/v0.11.tar.gz
+Description: # gbquality
+        
+        This is a python "translation" of the original MATLAB code for the Q <sub>GB</sub> measure of global quality assessment
+         of Non-Linear Dimensionality Reduction (NLDR). 
+        
+        The [original paper](https://doi.org/10.1016/j.neucom.2010.10.011) (author-provided [PDF](http://gr.xjtu.edu.cn/c/document_library/get_file?folderId=495355&name=DLFE-8842.pdf)) should be cited:
+        
+            Please cite: "Deyu Meng, Yee Leung, Zongben Xu.
+            A new quality assessment criterion for nonlinear dimensionality reduction, Neurocomputing, 2011, 74(6): 941-948."
+        
+        The [MATLAB code](http://gr.xjtu.edu.cn/c/document_library/get_file?folderId=495355&name=DLFE-8841.rar) 
+        was written by [Deyu Meng](http://www.cs.cmu.edu/~deyum/Publications.htm). The Python code is an  adaptation by Andrew Lensen.
+        
+        The code is packaged as gbquality on [pypi](https://pypi.org/project/gbquality/) and so can be installed in the normal way with `pip install gbquality`
+Keywords: NLDR,manifold learning,global quality
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
