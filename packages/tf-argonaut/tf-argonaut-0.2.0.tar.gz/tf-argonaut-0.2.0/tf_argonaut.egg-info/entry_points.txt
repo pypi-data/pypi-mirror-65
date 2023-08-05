@@ -1,0 +1,3 @@
+[console_scripts]
+argo-datavis = argonaut.utils.visualization:visualize_dataset
+
