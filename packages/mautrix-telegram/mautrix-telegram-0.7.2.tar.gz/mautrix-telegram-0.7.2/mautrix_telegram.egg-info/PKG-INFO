@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: mautrix-telegram
+Version: 0.7.2
+Summary: A Matrix-Telegram hybrid puppeting/relaybot bridge.
+Home-page: https://github.com/tulir/mautrix-telegram
+Author: Tulir Asokan
+Author-email: tulir@maunium.net
+License: UNKNOWN
+Description: # mautrix-telegram
+        ![Languages](https://img.shields.io/github/languages/top/tulir/mautrix-telegram.svg)
+        [![License](https://img.shields.io/github/license/tulir/mautrix-telegram.svg)](LICENSE)
+        [![Release](https://img.shields.io/github/release/tulir/mautrix-telegram/all.svg)](https://github.com/tulir/mautrix-telegram/releases)
+        [![GitLab CI](https://mau.dev/tulir/mautrix-telegram/badges/master/pipeline.svg)](https://mau.dev/tulir/mautrix-telegram/container_registry)
+        [![Maintainability](https://img.shields.io/codeclimate/maintainability/tulir/mautrix-telegram.svg)](https://codeclimate.com/github/tulir/mautrix-telegram)
+        
+        A Matrix-Telegram hybrid puppeting/relaybot bridge.
+        
+        ### [Wiki](https://github.com/tulir/mautrix-telegram/wiki)
+        
+        ### [Features & Roadmap](https://github.com/tulir/mautrix-telegram/blob/master/ROADMAP.md)
+        
+        ## Discussion
+        Matrix room: [`#telegram:maunium.net`](https://matrix.to/#/#telegram:maunium.net)
+        
+        Telegram chat: [`mautrix_telegram`](https://t.me/mautrix_telegram) (bridged to Matrix room)
+        
+        ## Preview
+        ![Preview](https://raw.githubusercontent.com/tulir/mautrix-telegram/master/preview.png)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Topic :: Communications :: Chat
+Classifier: Framework :: AsyncIO
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: all
+Provides-Extra: hq_thumbnails
+Provides-Extra: metrics
+Provides-Extra: postgres
+Provides-Extra: speedups
+Provides-Extra: webp_convert
