@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: tftp-pilot
+Version: 0.1.0
+Summary: Dynamic TFTP implementation for PXE Pilot. Based on fbtftp.
+Home-page: https://github.com/ggiamarchi/tftp-pilot
+Author: Guillaume Giamarchi
+Author-email: guillaume.giamarchi@gmail.com
+License: MIT
+Description: # TFTP Pilot
+        
+        TFTP Pilot is a dynamic TFTP server implementation to integrate with PXE Pilot.
+        
+        It is based on the [fbtftp](https://github.com/facebook/fbtftp) framework.
+        
+Keywords: pxe boot netboot tftp grub
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: System :: Boot
+Classifier: Topic :: System :: Boot :: Init
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Operating System
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
