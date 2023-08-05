@@ -1,0 +1,2 @@
+"use strict";Dashboard.confirm=function(message,title,callback){require(["confirm"],(function(confirm){confirm(message,title).then((function(){callback(!0)}),(function(){callback(!1)}))}))},Dashboard.showLoadingMsg=function(){require(["loading"],(function(loading){loading.show()}))},Dashboard.hideLoadingMsg=function(){require(["loading"],(function(loading){loading.hide()}))};
+//# sourceMappingURL=dashboard.js.map

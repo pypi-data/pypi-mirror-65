@@ -1,0 +1,2 @@
+define(["exports","multi-download"],(function(_exports,_multiDownload){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0}),_exports.download=function download(items){window.NativeShell?items.map((function(item){window.NativeShell.downloadFile(item.url)})):(0,_multiDownload.default)(items.map((function(item){return item.url})))},_multiDownload=function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}(_multiDownload)}));
+//# sourceMappingURL=filedownloader.js.map
