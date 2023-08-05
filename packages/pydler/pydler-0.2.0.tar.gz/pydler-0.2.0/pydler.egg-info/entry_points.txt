@@ -1,0 +1,4 @@
+[console_scripts]
+pydler = pydler.run:app
+pydler-server = pydler.server:run
+
