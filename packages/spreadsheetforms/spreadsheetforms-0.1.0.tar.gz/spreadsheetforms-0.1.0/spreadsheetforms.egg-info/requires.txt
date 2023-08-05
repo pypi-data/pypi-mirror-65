@@ -1,0 +1,7 @@
+openpyxl>=3.0
+
+[dev]
+pytest
+flake8
+isort
+black
