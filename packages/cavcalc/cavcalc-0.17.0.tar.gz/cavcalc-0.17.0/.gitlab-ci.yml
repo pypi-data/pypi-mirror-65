@@ -1,0 +1,27 @@
+before_script:
+  - python --version
+  - apt-get update -qy
+  - apt-get install -y python-dev python-pip
+  - pip install click
+  - pip install .
+
+stages:
+  - test
+
+test-unit:
+  image: python:latest
+  stage: test
+  script:
+    - python -m tests run unit
+
+test-integration:
+  image: python:latest
+  stage: test
+  script:
+    - python -m tests run integration
+
+test-validation:
+  image: python:latest
+  stage: test
+  script:
+    - python -m tests run validation
