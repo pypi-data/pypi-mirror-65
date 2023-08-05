@@ -1,0 +1,23 @@
+Metadata-Version: 1.2
+Name: structureboost
+Version: 0.0.5
+Summary: StructureBoost is a Python package for gradient boosting
+                   using categorical structure.  See documentation at:
+                   https://structureboost.readthedocs.io/
+Home-page: https://github.com/numeristical/structureboost
+Author: Brian Lucena
+Author-email: brianlucena@gmail.com
+License: MIT
+Description: # structureboost
+        Gradient boosting using categorical structure
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
