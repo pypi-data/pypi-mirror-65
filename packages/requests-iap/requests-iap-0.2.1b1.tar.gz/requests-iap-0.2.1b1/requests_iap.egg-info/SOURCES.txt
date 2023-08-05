@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+requirements.in
+setup.py
+test-requirements.in
+requests_iap/__init__.py
+requests_iap/iapauth.py
+requests_iap.egg-info/PKG-INFO
+requests_iap.egg-info/SOURCES.txt
+requests_iap.egg-info/dependency_links.txt
+requests_iap.egg-info/requires.txt
+requests_iap.egg-info/top_level.txt
+test/__init__.py
+test/test_nothing.py
