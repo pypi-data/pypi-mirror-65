@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>API Shark - Test Coverage Report</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+	<script src="https://raw.githubusercontent.com/chartjs/Chart.js/master/test/utils.js"></script>
+    <style>
+    	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.fa-check {
+  color: green;
+}
+
+.fa-remove {
+  color: red;
+}
+.panel-body {
+  display: flex;
+  height: 180px;
+  justify-content: space-between;
+}
+span[class*=&quot;-os&quot;] {
+  font-size: 14px;
+  font-weight: 300;
+  font-size: 14px;
+  color: black;
+}
+span[class*=&quot;-os&quot;] span {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+.categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 75%;
+  padding: 39px 50px 41px 26px;
+}
+.category {
+  display: flex;
+  flex-direction: column;
+}
+.category span:last-child {
+  font-weight: 300;
+  font-size: 14px;
+  opacity: 0.6;
+  color: #423937;
+  margin-bottom: 6px;
+}
+.category span:first-child {
+  font-size: 20px;
+  font-weight: 300;
+  color: black;
+}
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: 5;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.accordion1 {
+  background-color: #eee;
+  color: green;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: 10;
+  text-align: right;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+<br>
+<div class="container">
+  <img src="https://www.cloudvector.com/wp-content/uploads/2020/02/Cloud-Vector-Color-Logo-1.png" width="90" height="70" align="right">
+    <center><h2>CloudVector API Shark - Test Coverage Report</h2></center>
+  <br><br>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td>
+                <div class="categories">
+                    <div class="category">
+                          <span>API Shark Test window: {{ api_test_window }}</span>
+                            <span>APIs: {{ api_stats.get("total_apis_captured",0) }} | Parameters: {{ total_mandatory_params.get("apishark",0) + total_optional_params.get("apishark",0)}} | APIs with Auth: {{ api_security_Details["apishark"]["auth"] }} | API Calls: {{ api_stats.get("total_api_events_captured",0) }}</span>
+                    </div>
+                    <div class="category">
+                          <span>API Baseline file: {{ input_api_spec }}</span>
+                            <span>APIs: {{ api_stats.get("total_apis_in_spec",0) }} | Parameters: {{ total_mandatory_params.get("inspec",0) + total_optional_params.get("inspec",0)}} | APIs with Auth: {{ api_security_Details["inspec"]["auth"] }} </span>
+                    </div>
+                </div>
+                </td>
+                <td>
+                    <div align="center">
+                          <span><h1>{{ api_stats.get("overall_coverage_score")|int }}</h1></span>
+                            <span>Overall Coverage Score</span>
+                    </div>
+                </td>
+            </tr>
+        </table><br>
+<!--            <div class="category">-->
+<!--              <span>{{ api_stats.get("total_apis_in_spec",0) }}</span>-->
+<!--                <span>APIs in SPEC</span>-->
+<!--            </div>-->
+<!--            <div class="category">-->
+<!--              <span>{{ api_stats.get("total_apis_captured",0) }}</span>-->
+<!--                <span>APIs captured in APIShark</span>-->
+<!--            </div>-->
+<!--           <div class="category">-->
+<!--              <font color="blue"><span>{{ api_stats.get("apis_in_spec_not_captured")|length }}</span></font>-->
+<!--                <span>APIs in SPEC but not APIShark</span>-->
+<!--            </div>-->
+<!--        <div class="category">-->
+<!--              <span>{{ api_stats.get("total_api_events_captured",0) }}</span>-->
+<!--                <span>Events for APIs in SPEC and APIShark</span>-->
+<!--            </div>-->
+
+    </div><br><br><br><br>
+    <table><tr>
+        <td>    <div id="apicoveragechart" style="width:70% height:50%">
+		            <canvas id="apicoverage"></canvas>
+	            </div>
+        </td>
+                <td>    <div id="m_paramscoveragechart" style="width:70% height:50%">
+		            <canvas id="m_paramsoverage"></canvas>
+	            </div>
+        </td></tr><tr>
+                <td>    <div id="o_paramscoveragechart" style="width:70% height:50%">
+		            <canvas id="o_paramsoverage"></canvas>
+	            </div>
+        </td>
+                <td>    <div id="respcoveragechart" style="width:70% height:50%">
+		            <canvas id="respcoverage"></canvas>
+	            </div>
+        </td>
+        </tr></table>
+    <br>
+    <div id="chart-container"><canvas id="myChart" height="300"></canvas></div><br>
+    <div id="canvas-holder" style="width:70% height:70%">
+        <canvas id="paramchart_m"></canvas></div><hr>
+<!--    <table><tr><td><div id="canvas-holder" style="width:40% height:50%">-->
+<!--        <canvas id="paramchart_m"></canvas></div></td><td>-->
+<!--    <div id="canvas-holder1" style="width:40% height:50%">-->
+<!--        <canvas id="paramchart_o"></canvas>-->
+<!--	</div></td></tr>-->
+<!--    </table><hr>-->
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var color = Chart.helpers.color;
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['TotalAPIs', 'Total Mandatory Parameters', 'Response Codes', 'Total Optional Parameters', 'APIs with Auth','APIs with NoAuth'],
+        datasets: [{
+            label: 'Baseline',
+            data: [{{ api_stats.get("total_apis_in_spec",0) }},
+            {{ total_mandatory_params.get("inspec",0) }},
+            {{ api_spec_stats.get("total_response_codes",0) }},
+            {{ total_optional_params.get("inspec",0) }},
+            {{ api_security_Details["inspec"]["auth"] }},
+            {{ api_security_Details["inspec"]["noauth"] }}],
+            backgroundColor: 'rgba(0, 48, 87, 1)',
+            borderColor: 'rgba(0, 48, 87, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'APIShark',
+            data: [{{ api_stats.get("total_apis_captured",0) }},
+            {{ total_mandatory_params.get("apishark",0) }},
+            {{ api_stats.get("total_response_codes",0) }},
+            {{ total_optional_params.get("apishark",0) }},
+            {{ api_security_Details["apishark"]["auth"] }},
+            {{ api_security_Details["apishark"]["noauth"] }}
+            ],
+            backgroundColor: 'rgba(117, 120, 123, 1)',
+            borderColor: 'rgba(117, 120, 123, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+    responsive: true,
+    maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+var ctx = document.getElementById('paramchart_m').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['1 parameter', '2 parameters', '3 parameters', '4 parameters','5+ parameters'],
+        datasets: [{
+            label: 'APIShark',
+            data: [{{ api_spec_stats["total_mandatory_parameters"]["one"] }},
+            {{ api_spec_stats["total_mandatory_parameters"]["two"] }},
+            {{ api_spec_stats["total_mandatory_parameters"]["three"] }},
+            {{ api_spec_stats["total_mandatory_parameters"]["four"] }},
+            {{ api_spec_stats["total_mandatory_parameters"]["five+"] }}],
+            backgroundColor: [
+                'rgba(117, 120, 123, 1)',
+                'rgba(122, 154, 1, 1)',
+                'rgba(93, 71, 119, 1)',
+                'rgba(255, 163, 0, 1)',
+                'rgba(0, 48, 87, 1)',
+                'rgba(175, 39, 47, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    title: {
+						display: true,
+						text: 'Mandatory Parameters captured'
+					},
+    responsive: true,
+    maintainAspectRatio: false
+    }
+});
+
+<!--var ctx = document.getElementById('paramchart_o').getContext('2d');-->
+<!--var myChart = new Chart(ctx, {-->
+<!--    type: 'doughnut',-->
+<!--    data: {-->
+<!--        labels: ['1 parameter', '2 parameters', '3 parameters', '4 parameters','5+ parameters'],-->
+<!--        datasets: [{-->
+<!--            label: 'Baseline',-->
+<!--            data: [{{ api_stats["total_optional_parameters"]["one"] }},-->
+<!--            {{ api_stats["total_optional_parameters"]["two"] }},-->
+<!--            {{ api_stats["total_optional_parameters"]["three"] }},-->
+<!--            {{ api_stats["total_optional_parameters"]["four"] }},-->
+<!--            {{ api_stats["total_optional_parameters"]["five+"] }}],-->
+<!--            backgroundColor: [-->
+<!--                'rgba(255, 99, 132, 0.2)',-->
+<!--                'rgba(54, 162, 235, 0.2)',-->
+<!--                'rgba(255, 206, 86, 0.2)',-->
+<!--                'rgba(75, 192, 192, 0.2)',-->
+<!--                'rgba(153, 102, 255, 0.2)',-->
+<!--                'rgba(255, 159, 64, 0.2)'-->
+<!--            ],-->
+<!--            borderWidth: 1-->
+<!--        },-->
+<!--        {-->
+<!--            label: 'APIShark',-->
+<!--            data: [{{ api_spec_stats["total_optional_parameters"]["one"] }},-->
+<!--            {{ api_spec_stats["total_optional_parameters"]["two"] }},-->
+<!--            {{ api_spec_stats["total_optional_parameters"]["three"] }},-->
+<!--            {{ api_spec_stats["total_optional_parameters"]["four"] }},-->
+<!--            {{ api_spec_stats["total_optional_parameters"]["five+"] }}],-->
+<!--            backgroundColor: [-->
+<!--                'rgba(255, 99, 132, 0.2)',-->
+<!--                'rgba(54, 162, 235, 0.2)',-->
+<!--                'rgba(255, 206, 86, 0.2)',-->
+<!--                'rgba(75, 192, 192, 0.2)',-->
+<!--                'rgba(153, 102, 255, 0.2)',-->
+<!--                'rgba(255, 159, 64, 0.2)'-->
+<!--            ],-->
+<!--            borderWidth: 1-->
+<!--        }]-->
+<!--    },-->
+<!--    options: {-->
+<!--    responsive: true,-->
+<!--    maintainAspectRatio: false,-->
+<!--        scales: {-->
+<!--            yAxes: [{-->
+<!--                ticks: {-->
+<!--                    beginAtZero: true-->
+<!--                }-->
+<!--            }]-->
+<!--        }-->
+<!--    }-->
+<!--});-->
+
+var ctx = document.getElementById('apicoverage').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Covered', 'Missed'],
+        datasets: [{
+            data: [{{ api_stats.get("apis_in_spec_captured") }},
+            {{ api_stats.get("apis_in_spec_not_captured")|length }}],
+            backgroundColor: [
+                'rgba(0, 48, 87, 1)',
+                'rgba(175, 39, 47, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+            legend: {
+						display: false,
+					},
+	scales: {
+        	yAxes: [{
+            	ticks: {
+                	beginAtZero: true
+            	  	}
+        		}]
+    		},
+            title: {
+						display: true,
+						text: 'API endpoint Coverage'
+					},
+			responsive: true,
+    maintainAspectRatio: false,
+    }
+});
+
+var ctx = document.getElementById('m_paramsoverage').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Covered', 'Missed'],
+        datasets: [{
+            data: [{{ api_stats.get("cumulative_total_mandatory") }},
+            {{ api_spec_stats.get("cumulative_total_mandatory")-api_stats.get("cumulative_total_mandatory") }}],
+            backgroundColor: [
+                'rgba(0, 48, 87, 1)',
+                'rgba(175, 39, 47, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+            legend: {
+						display: false,
+					},
+            title: {
+						display: true,
+						text: 'API Mandatory Parameters Coverage'
+					},
+					responsive: true,
+					scales: {
+						x: {
+							stacked: true,
+						},
+						y: {
+							stacked: true
+						}
+					},
+    maintainAspectRatio: false,
+    }
+});
+
+var ctx = document.getElementById('o_paramsoverage').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Covered', 'Missed'],
+        datasets: [{
+            data: [{{ api_stats.get("cumulative_total_optional") }},
+            {{ api_spec_stats.get("cumulative_total_optional")-api_stats.get("cumulative_total_optional") }}],
+            backgroundColor: [
+                'rgba(0, 48, 87, 1)',
+                'rgba(175, 39, 47, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+            title: {
+						display: true,
+						text: 'API Optional Parameters Coverage'
+					},
+            legend: {
+						display: false,
+					},
+					responsive: true,
+    maintainAspectRatio: false,
+    }
+});
+
+var ctx = document.getElementById('respcoverage').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Covered', 'Missed'],
+        datasets: [{
+            data: [{{ api_stats.get("total_response_codes") }},
+            Math.abs({{ api_spec_stats.get("total_response_codes") }}-{{ api_stats.get("total_response_codes") }})],
+            backgroundColor: [
+                'rgba(0, 48, 87, 1)',
+                'rgba(175, 39, 47, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+            legend: {
+						display: false,
+					},
+            title: {
+						display: true,
+						text: 'API Response Code Coverage'
+					},
+					responsive: true,
+    maintainAspectRatio: false,
+    }
+});
+
+</script>
+    	<div id="container" style="width: 100%;">
+    <p>API Coverage details:</p>
+    {% for api, details in api_details.items() %}
+        {% if api not in api_stats.get("apis_in_spec_not_captured") %}
+            <button class="accordion"><a name="{{ api }}">{{ api }}</a>&nbsp;<font size="2">(Events count:{{ details.get("events_count") }})</font><font size="2" style="float: right;">
+        <i>mandatory: {{ details.get("mandatory_params_in_spec")|length }}
+            {% if details.get("mandatory_missing") >0 %}
+                <font color="red">({{ details.get("mandatory_missing")}})</font>
+            {% endif %}
+            &nbsp;optional: {{ details.get("optional_params_in_spec")|length }}
+            {% if details.get("optional_missing") >0 %}
+                <font color="red">({{ details.get("optional_missing")}})</font>
+            {% endif %}
+            | <i>Response Codes</i> {% if details.get("respcode_coverage") in ["100","?"] %}
+                        <i class="fa fa-check"></i>
+                    {% else %}
+                        <i class="fa fa-remove"></i>
+                    {% endif %}</i></font>
+    </button>
+<div class="panel">
+  <p>
+            <table>
+                <tr>
+                    <td>mandatory</td>
+                    <td>{% for param in details.get("mandatory_params_in_spec") %}
+                    {% if param not in ["_","coverage"] %}
+                        {{ param }}
+                    {% endif %}
+                        {% if details.get("mandatory") %}
+                            {% if details["mandatory"][param] == "recorded" and param not in ["_","coverage"] %}
+                                <i class="fa fa-check"></i>
+                            {% elif details["mandatory"][param] == "not recorded" and param not in ["_","coverage"] %}
+                                <i class="fa fa-remove"></i>
+                            {% endif %}
+                        {% else %}
+                            <i class="fa fa-remove"></i>
+                        {% endif %}
+                        &nbsp;-&nbsp;
+                    {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>optional</td>
+                    <td>{% for param in details.get("optional_params_in_spec") %}
+                    {% if param not in ["_","coverage"] %}
+                        {{ param }}
+                    {% endif %}
+                        {% if details.get("optional") %}
+                            {% if details["optional"][param] == "recorded" and param not in ["_","coverage"] %}
+                                <i class="fa fa-check"></i>
+                            {% elif details["optional"][param] == "not recorded" and param not in ["_","coverage"] %}
+                                <i class="fa fa-remove"></i>
+                            {% endif %}
+                        {% else %}
+                            <i class="fa fa-remove"></i>
+                        {% endif %}
+                        &nbsp;-&nbsp;
+                    {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Response Codes</td>
+                    <td>{% if details.get("respcode_inspec",[])|length ==0 %}
+                            {% for respcode in details.get("respcode_recorded",[]) %}
+                                {{ respcode }} <i>?</i>
+                                    &nbsp;
+                            {% endfor %}
+                        {% else %}
+                            {% for respcode in details.get("respcode_inspec") %}
+                                {{ respcode }}
+                                    {%if respcode in details.get("respcode_recorded") %}
+                                        <i class="fa fa-check"></i>
+                                    {% else %}
+                                        <i class="fa fa-remove"></i>
+                                    {% endif %}
+                                    &nbsp;
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </li>
+          <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-success" role="progressbar" aria-valuenow="{{ details['coverage']|int }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ details['coverage']|int }}%">
+                        mandatory params (coverage: {{ details['coverage'] }}%)
+                </div>
+            </div>
+        <div class="progress">
+              <div class="progress-bar progress-bar-success progress-bar-info" role="progressbar" aria-valuenow="{{ details['optional_coverage']|int }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ details['optional_coverage']|int }}%">
+                        optional params (coverage: {{ details['optional_coverage'] }}%)
+                </div>
+            </div>
+</p>
+</div>
+        {% endif %}{% endfor %}
+
+    <br><hr>
+    <h2>Missing API(s) details:</h2>
+        <button class="accordion">APIs in SPEC but not captured <b>({{ api_stats.get("apis_in_spec_not_captured")|length }})</b></button>
+<div class="panel">
+  <p>    {% for api in api_stats.get("apis_in_spec_not_captured") %}
+            {{ api }}&nbsp;|&nbsp;
+         {% endfor %}</p>
+</div>
+    <hr>
+    <h2>Missing Parameter(s) details:</h2>
+
+    <button class="accordion">Missing 1 mandatory parameter <b>({{ api_stats["total_mandatory_missing"]["one"] }})</b></button>
+<div class="panel">
+  <p>    {% for api, details in api_details.items() %}
+            {% if details.get("mandatory_missing",[]) == 1 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+
+<button class="accordion">Missing 2 mandatory parameters <b>({{ api_stats["total_mandatory_missing"]["two"] }})</b></button>
+<div class="panel">
+  <p>    {% for api, details in api_details.items() %}
+            {% if details.get("mandatory_missing",[]) == 2 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+
+<button class="accordion">Missing 3 mandatory parameters <b>({{ api_stats["total_mandatory_missing"]["three"] }})</b></button>
+<div class="panel">
+    <p>    {% for api, details in api_details.items() %}
+            {% if details.get("mandatory_missing",[]) == 3 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+    <button class="accordion">Missing 4 mandatory parameters <b>({{ api_stats["total_mandatory_missing"]["four"] }})</b></button>
+<div class="panel">
+    <p>    {% for api, details in api_details.items() %}
+            {% if details.get("mandatory_missing",[]) == 4 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+    <button class="accordion">Missing 5 or more mandatory parameters <b>({{ api_stats["total_mandatory_missing"]["five+"] }})</b></button>
+<div class="panel">
+    <p>    {% for api, details in api_details.items() %}
+            {% if details.get("mandatory_missing",[]) >= 5 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+
+    <button class="accordion1">Missing 1 optional parameter <b>({{ api_stats["total_optional_missing"]["one"] }})</b></button>
+<div class="panel">
+      <p>    {% for api, details in api_details.items() %}
+            {% if details.get("optional_missing",[]) == 1 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+
+<button class="accordion1">Missing 2 optional parameters <b>({{ api_stats["total_optional_missing"]["two"] }})</b></button>
+<div class="panel">
+        <p>    {% for api, details in api_details.items() %}
+            {% if details.get("optional_missing",[]) == 2 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+
+<button class="accordion1">Missing 3 optional parameters <b>({{ api_stats["total_optional_missing"]["three"] }})</b></button>
+<div class="panel">
+      <p>    {% for api, details in api_details.items() %}
+            {% if details.get("optional_missing",[]) == 3 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+    <button class="accordion1">Missing 4 optional parameters <b>({{ api_stats["total_optional_missing"]["four"] }})</b></button>
+<div class="panel">
+          <p>    {% for api, details in api_details.items() %}
+            {% if details.get("optional_missing",[]) == 4 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+    <button class="accordion1">Missing 5 or more optional parameters <b>({{ api_stats["total_optional_missing"]["five+"] }})</b></button>
+<div class="panel">
+      <p>    {% for api, details in api_details.items() %}
+            {% if details.get("optional_missing",[]) >= 5 %}
+                <a href="#{{ api }}">{{ api }}</a> &nbsp;|&nbsp;
+            {% endif %}
+         {% endfor %}</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+var acc1 = document.getElementsByClassName("accordion1");
+var i;
+
+for (i = 0; i < acc1.length; i++) {
+  acc1[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+</div>
+<hr>
+    <center><h4> Community Edition: <a href="{{ ce_url }}">{{ ce_url }}</a>  </h4>
+    <h4> Recording: {{ ce_recorder }} </h4></center>
+<hr>
+</body>
+</html>
