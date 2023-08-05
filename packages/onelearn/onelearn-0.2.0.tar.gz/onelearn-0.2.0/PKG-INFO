@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: onelearn
+Version: 0.2.0
+Summary: onelearn is a small python package for online learning
+Home-page: https://onelearn.readthedocs.io
+Keywords: machine-learning,online-learning-algorithms,python,random-forest,classification,regression
+Author: Stéphane Gaïffas
+Author-email: stephane.gaiffas@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: bokeh (>=1.3.4,<2.0.0)
+Requires-Dist: colorcet (>=2.0.2,<3.0.0)
+Requires-Dist: matplotlib (>=3.1,<4.0)
+Requires-Dist: numba (>=0.48,<0.49)
+Requires-Dist: numpy (>=1.17.4,<2.0.0)
+Requires-Dist: scikit-learn (>=0.22,<0.23)
+Requires-Dist: scipy (>=1.3.2,<2.0.0)
+Requires-Dist: seaborn (>=0.9,<0.10)
+Requires-Dist: streamlit (>=0.49.0,<0.50.0)
+Requires-Dist: tqdm (>=4.36,<5.0)
+Project-URL: Documentation, https://onelearn.readthedocs.io
+Project-URL: Repository, https://github.com/onelearn/onelearn
+Description-Content-Type: text/markdown
+
+
+[![Build Status](https://travis-ci.com/onelearn/onelearn.svg?branch=master)](https://travis-ci.com/onelearn/onelearn)
+[![Documentation Status](https://readthedocs.org/projects/onelearn/badge/?version=latest)](https://onelearn.readthedocs.io/en/latest/?badge=latest)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/onelearn)
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/onelearn)
+[![GitHub stars](https://img.shields.io/github/stars/onelearn/onelearn)](https://github.com/onelearn/onelearn/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/onelearn/onelearn)](https://github.com/onelearn/onelearn/issues)
+[![GitHub license](https://img.shields.io/github/license/onelearn/onelearn)](https://github.com/onelearn/onelearn/blob/master/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/github/onelearn/onelearn/badge.svg?branch=master)](https://coveralls.io/github/onelearn/onelearn?branch=master)
+
+# onelearn: Online learning in Python
+
+[Documentation](https://onelearn.readthedocs.io) | [Reproduce experiments](https://onelearn.readthedocs.io/en/latest/experiments.html) |
+
+onelearn stands for ONE-shot LEARNning. It is a small python package for **online learning** 
+with Python. It provides :
+
+- **online** (or **one-shot**) learning algorithms: each sample is processed **once**, only a 
+  single pass is performed on the data
+- including **multi-class classification** and regression algorithms
+- For now, only *ensemble* methods, namely **Random Forests**
+
+## Installation
+
+The easiest way to install onelearn is using pip
+
+    pip install onelearn
+
+
+But you can also use the latest development from github directly with
+
+    pip install git+https://github.com/onelearn/onelearn.git
+
+## References
+
+    @article{mourtada2019amf,
+      title={AMF: Aggregated Mondrian Forests for Online Learning},
+      author={Mourtada, Jaouad and Ga{\"\i}ffas, St{\'e}phane and Scornet, Erwan},
+      journal={arXiv preprint arXiv:1906.10529},
+      year={2019}
+    }
+ 
