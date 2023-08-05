@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: bbb-scrape
+Version: 0.3.2
+Summary: Scrape BBB meeting
+Home-page: https://github.com/wallento/bbb-scrape
+Author: Stefan Wallentowitz
+Author-email: stefan.wallentowitz@hm.edu
+License: UNKNOWN
+Description: # Scrape Big Blue Button (BBB) meeting
+        
+        Scrape a BBB meeting. Currently only supports:
+        
+         - Extract slides and create video with proper timing
+         - Download desk sharing and webcam videos if present
+         - Render slide annotations and polls
+        
+        Upcoming features:
+        
+         - Render new video with combined elements
+         - Render chat
+        
+        Installation:
+        
+        ```
+        pip install bbb-scrape
+        ```
+        
+        You also need inkscape (image conversion in the background) and ffmpeg (rendering) installed.
+        
+        Use:
+        
+        ```
+        bbb-scrape <hostname> <meetingid>
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown

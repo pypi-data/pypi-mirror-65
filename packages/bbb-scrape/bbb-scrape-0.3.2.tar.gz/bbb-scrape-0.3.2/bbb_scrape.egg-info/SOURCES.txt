@@ -1,0 +1,13 @@
+.gitignore
+LICENSE
+README.md
+setup.py
+bbb_scrape.egg-info/PKG-INFO
+bbb_scrape.egg-info/SOURCES.txt
+bbb_scrape.egg-info/dependency_links.txt
+bbb_scrape.egg-info/entry_points.txt
+bbb_scrape.egg-info/requires.txt
+bbb_scrape.egg-info/top_level.txt
+bbbscrape/__init__.py
+bbbscrape/main.py
+bbbscrape/version.py
