@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: fairensics
+Version: 0.0.2
+Summary: A library for fair machine learning.
+Home-page: https://github.com/nikikilbertus/fairensics
+Author: Niki Kilbertus
+Author-email: nk470@cam.ac.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: cvxpy
+Requires-Dist: dccp
+Requires-Dist: sklearn
+Requires-Dist: aif360
+
+UNKNOWN
+
+
