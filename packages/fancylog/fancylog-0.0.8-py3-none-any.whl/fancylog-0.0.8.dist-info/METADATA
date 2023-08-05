@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: fancylog
+Version: 0.0.8
+Summary: Fancier logging in Python
+Home-page: https://github.com/adamltyson/fancylog
+Author: Adam Tyson
+Author-email: adam.tyson@ucl.ac.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.6
+Requires-Dist: packaging
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: coveralls ; extra == 'dev'
+
+UNKNOWN
+
+
