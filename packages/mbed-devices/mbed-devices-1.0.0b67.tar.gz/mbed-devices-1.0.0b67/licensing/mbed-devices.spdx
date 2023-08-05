@@ -1,0 +1,655 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: mbed-devices-1.0.0b67
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdx/spdxdocs/mbed-devices-1.0.0b67-8b16566e-74d6-4860-8691-eed283c1e3f2
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+ExternalDocumentRef: pyudev-0.22.0 http://spdx.org/spdxdocs/pyudev-0.22.0-64927eec-c915-d59f-d6ec-c4baa1513031 SHA1:5752d72e7650a2f522e085e0bc7eeba1419bb66e
+ExternalDocumentRef: psutil-5.7.0 http://spdx.org/spdxdocs/psutil-5.7.0-4aa6cda5-e706-bd83-8f09-2f89065c2bb8 SHA1:a31ab5c05c2228913a84c2211372e5ab0947cb96
+ExternalDocumentRef: tabulate-0.8.7 http://spdx.org/spdxdocs/tabulate-0.8.7-f6dd9dde-d957-68d2-cb72-eced4cf526c6 SHA1:39a64a8953fff7b28acecf1e02fd967fdf301d16
+ExternalDocumentRef: typing-extensions-3.7.4.2 http://spdx.org/spdxdocs/typing-extensions-3.7.4.2-b61c47bc-af97-ddcb-afca-99ce36af796f SHA1:5f5c2ee0de6dbd077ae424825ee5867a986612d7
+ExternalDocumentRef: mbed-tools-lib-1.2.0 http://spdx.org/spdxdocs/mbed-tools-lib-1.2.0-74dcf14a-51cd-622b-4fa3-bc7b1699bcaa SHA1:7dc2ca1e08d4937ceb039c9fcbc00c408aebb167
+ExternalDocumentRef: mbed-targets-1.0.0b147 http://spdx.org/spdxdocs/mbed-targets-1.0.0b147-e5954685-b1a8-8a4e-b622-c808dff67f80 SHA1:11ef72a57a7cf0c84237f3226fd0ce5a7799ed52
+ExternalDocumentRef: Click-7.0 http://spdx.org/spdxdocs/Click-7.0-bb45852b-b033-4661-55f3-288440de0ec7 SHA1:1103459fce3ac1016656f456de1c3b0916da4f46
+ExternalDocumentRef: python-dotenv-0.12.0 http://spdx.org/spdxdocs/python-dotenv-0.12.0-d7725d68-3e3a-a3c4-e32f-b3c6bc58b7a3 SHA1:375a114cd6e9f370c9778fdbdc1d60fa257e38f3
+ExternalDocumentRef: six-1.14.0 http://spdx.org/spdxdocs/six-1.14.0-e53710fe-412b-efad-e2c1-83b4299900da SHA1:9887f22c4da154ba9795a0806d0cf9074aae1266
+ExternalDocumentRef: requests-2.23.0 http://spdx.org/spdxdocs/requests-2.23.0-7c90ec2c-9b99-e44c-159d-a68f2a5c765b SHA1:159ae498393bef5d59b47a86ca92f6f90cd74de9
+ExternalDocumentRef: mbed-project-0.1.0b14 http://spdx.org/spdxdocs/mbed-project-0.1.0b14-f07a16b5-50bd-3188-703c-c1ccaa32edb1 SHA1:cda3e86d9b050b0e9548f45adcfa643d54e125e2
+ExternalDocumentRef: Click-7.0 http://spdx.org/spdxdocs/Click-7.0-bb45852b-b033-4661-55f3-288440de0ec7 SHA1:1103459fce3ac1016656f456de1c3b0916da4f46
+ExternalDocumentRef: pdoc3-0.7.5 http://spdx.org/spdxdocs/pdoc3-0.7.5-75b7d2cd-5b14-6eee-652d-4562669f5cd2 SHA1:586b0ad56dfac23714e0b7d8188ea3b1670cb60d
+ExternalDocumentRef: urllib3-1.25.8 http://spdx.org/spdxdocs/urllib3-1.25.8-e49b52f9-0471-6874-e8df-018d4148ef9e SHA1:9b34842163eb8b621bb78d69ccdebf29c8b0627e
+ExternalDocumentRef: chardet-3.0.4 http://spdx.org/spdxdocs/chardet-3.0.4-4cfc5f3b-869d-9f39-7e77-9acb3368681a SHA1:d4b488df240b29e7540b523095478099a170962e
+ExternalDocumentRef: idna-2.9 http://spdx.org/spdxdocs/idna-2.9-a0fb897a-d89c-cd93-9315-7e5651d9ab55 SHA1:581da4a7594d104310c274b4e48c33d65d26b8fc
+ExternalDocumentRef: certifi-2020.4.5.1 http://spdx.org/spdxdocs/certifi-2020.4.5.1-d4f6b7a9-9fbb-7948-95f9-68aae88e297b SHA1:d8ee47d04664ee74c5ad0efc605aaf6b32dd05b0
+ExternalDocumentRef: git-python-1.0.3 http://spdx.org/spdxdocs/git-python-1.0.3-faa4d35a-ae12-f967-fe41-9439cebde8ae SHA1:f1f8ab89e8421d2b1b864c8c92e39a9d0a36ec8c
+ExternalDocumentRef: Mako-1.1.2 http://spdx.org/spdxdocs/Mako-1.1.2-985967a1-f5a1-6060-bd79-6a31bf69d6c2 SHA1:40c82079da4623a4fa6015d25a9d16cc1c3417fa
+ExternalDocumentRef: Markdown-3.2.1 http://spdx.org/spdxdocs/Markdown-3.2.1-28bcf261-4939-e2ba-03b8-cc6c355eb51c SHA1:453df288ee5afdbcef5cfd1e700c27dcaac57b54
+ExternalDocumentRef: GitPython-3.1.0 http://spdx.org/spdxdocs/GitPython-3.1.0-2f9bdbfd-604c-9d0d-230c-5969a4170381 SHA1:74dfd639834f40697271534668bd697195eab467
+ExternalDocumentRef: MarkupSafe-1.1.1 http://spdx.org/spdxdocs/MarkupSafe-1.1.1-933be105-705d-8bdf-6004-9645c7c99d72 SHA1:802de4173d878f85c05f00b9a373b56deb17138d
+ExternalDocumentRef: setuptools-46.1.3 http://spdx.org/spdxdocs/setuptools-46.1.3-d43aedce-1a6f-36bc-c3ee-6250f40b5284 SHA1:7a4c926e04146f49e13b97809cb61ac8879fa0a5
+ExternalDocumentRef: gitdb-4.0.2 http://spdx.org/spdxdocs/gitdb-4.0.2-126d78c7-8ebe-f438-2cdc-2b3afcc80f02 SHA1:066ec15bd2f45c17711e3c6d084032d9a0a8e92f
+ExternalDocumentRef: smmap-3.0.1 http://spdx.org/spdxdocs/smmap-3.0.1-af69513f-f141-c5a1-2601-75a107dc5be6 SHA1:928a21635f20de0a94de3e786a99c660fee89381
+
+
+# Creation Info
+
+Creator: Person: Mbed team (support@mbed.com)
+Creator: Organization: Arm Mbed (support@mbed.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-07T12:36:23Z
+
+
+# Review
+
+Reviewer: Person: Monty Bot (monty-bot@arm.com)
+ReviewDate: 2020-04-07T12:36:23Z
+
+
+# Package
+
+PackageName: mbed-devices
+SPDXID: SPDXRef-0f174e1e-8eeb-4344-b22b-88d6fb842eac
+PackageVersion: 1.0.0b67
+PackageDownloadLocation: NONE
+FilesAnalyzed: True
+PackageSummary: <text>This package allows to list Mbed OS devices which are connected to the host computer.</text>
+PackageFileName: mbed-devices
+PackageOriginator: Person: Mbed team (support@mbed.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: ac38210aa206622f81923169855283aeb3727e1d
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: Apache 2.0
+PackageLicenseConcluded: Apache 2.0 AND Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+PackageHomePage: https://github.com/ARMmbed/mbed-devices
+
+
+# File
+
+FileName: ./mbed_devices/__init__.py
+SPDXID: SPDXRef-13c629b0-29e8-e054-9ac1-c610b5f73c1d
+FileType: SOURCE
+FileChecksum: SHA1: aff676a0d8ddc4eab7d64ab45e83b77100897399
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/__main__.py
+SPDXID: SPDXRef-a53965cd-5274-0087-2b16-3f4fcc601233
+FileType: SOURCE
+FileChecksum: SHA1: fcc3714f0dfd6c1d2b4c0d37c28aa143ffdca7f9
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/__init__.py
+SPDXID: SPDXRef-b3425e07-be3d-2457-b1af-80a2bcf0915d
+FileType: SOURCE
+FileChecksum: SHA1: 42e8af887e0213a263843ee65781eb6bd97ba85f
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/base_detector.py
+SPDXID: SPDXRef-b03c16f9-0e75-418e-b5c8-3effc57fa852
+FileType: SOURCE
+FileChecksum: SHA1: 5c21ebd21bee55d7f233c7acc444cb6ba891a963
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/candidate_device.py
+SPDXID: SPDXRef-9ce0789b-d5ca-09d6-34d4-93763cb21c92
+FileType: SOURCE
+FileChecksum: SHA1: 46f32c31785121c1ae2b051119b6190a12b1ed10
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/darwin/__init__.py
+SPDXID: SPDXRef-debf0fe5-dee2-8579-784d-05a09434a1a6
+FileType: SOURCE
+FileChecksum: SHA1: 729bb3aebc8e2e16f2e49b04129fc335852a5994
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/darwin/device_detector.py
+SPDXID: SPDXRef-faf9c267-e549-2424-64ff-ceb8019dad84
+FileType: SOURCE
+FileChecksum: SHA1: e2745b7ea6d1ddb96cdff69514b9e0866e9258a4
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/darwin/diskutil.py
+SPDXID: SPDXRef-451378e0-18cb-c0b6-f63c-d7779396d407
+FileType: SOURCE
+FileChecksum: SHA1: 5b4652ed214b0c664ffa8d975e34944fe96f58b6
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/darwin/ioreg.py
+SPDXID: SPDXRef-d49ffd44-0b73-276c-9519-e6d9fb3834d6
+FileType: SOURCE
+FileChecksum: SHA1: 50bd0e22d9e45fc8d691daced7f26dda6a3d2982
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/darwin/system_profiler.py
+SPDXID: SPDXRef-1454d362-9747-0147-f4c8-a9337b2e6ee1
+FileType: SOURCE
+FileChecksum: SHA1: cd9885e9012b591aa9198ad11091f31b0b39b7df
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/detect_candidate_devices.py
+SPDXID: SPDXRef-ec4a44af-494d-98ed-76d7-1427c78500cb
+FileType: SOURCE
+FileChecksum: SHA1: 0295de8ed5390eae8a0126bcc42f0c07e0943ec4
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/exceptions.py
+SPDXID: SPDXRef-a0336adc-2d51-6105-1834-dcdca7c2554c
+FileType: SOURCE
+FileChecksum: SHA1: 0e6ccd41d16d5cfcecf5ea3e476eac0b025f0831
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/htm_file.py
+SPDXID: SPDXRef-1f9d1fa9-0b10-ee19-9265-b1214ffb9327
+FileType: SOURCE
+FileChecksum: SHA1: 23cb2a9d52eab7e236ad6f1c907d264886c00ed9
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/linux/__init__.py
+SPDXID: SPDXRef-89d40023-ff8e-5dfe-f973-b1956e67ad86
+FileType: SOURCE
+FileChecksum: SHA1: e7840e3ccff20554c02b5181dbff9f32ce040e7b
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/linux/device_detector.py
+SPDXID: SPDXRef-8717dce4-891e-1329-bdc3-1d32a7147f0d
+FileType: SOURCE
+FileChecksum: SHA1: abefedfab6bd7597bd8fe8f375009e73b03f120d
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/mbed_tools/__init__.py
+SPDXID: SPDXRef-3871538c-55b0-3dfd-b7a6-2b9511b3d47d
+FileType: SOURCE
+FileChecksum: SHA1: dc9740578d36d1e121a0903e0c8360c0843fdfd4
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/mbed_tools/list_connected_devices.py
+SPDXID: SPDXRef-08e3ea01-12c1-e3b0-9740-a86d08ef38b4
+FileType: SOURCE
+FileChecksum: SHA1: 49debdc21851c2fe981801a5b350cbd3eeb03d8d
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/resolve_target.py
+SPDXID: SPDXRef-bf60fb44-c610-7b3f-801c-839436933bd7
+FileType: SOURCE
+FileChecksum: SHA1: 75cd62ea1f09b64d5f6c3ae7ba331cfbd3a74f55
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/utils/__init__.py
+SPDXID: SPDXRef-6586a6f5-879f-b13c-9dfb-50b3fcd081f5
+FileType: SOURCE
+FileChecksum: SHA1: f5d35986c455104662fe505d2c8bc3bc79ae6ed0
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/utils/python_helpers.py
+SPDXID: SPDXRef-382fab30-31a5-1a26-8e86-73fb816bf9b4
+FileType: SOURCE
+FileChecksum: SHA1: bc6ce1881b9b6aa0ae8be500bb60614a56c70b11
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/__init__.py
+SPDXID: SPDXRef-59c4d3b7-bfea-e9fa-9690-a6fe313e9e1b
+FileType: SOURCE
+FileChecksum: SHA1: 96052dcf3087bc09f48de35a4c194b8f83a746c2
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/component_descriptor.py
+SPDXID: SPDXRef-d752ba20-2a27-d6dc-e9ea-758ef5d162d3
+FileType: SOURCE
+FileChecksum: SHA1: c70c1a72b4d4a169967d127197d71b35d5a48fd7
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/component_descriptor_utils.py
+SPDXID: SPDXRef-aab20487-9eb3-804a-4c52-aed78f3986c8
+FileType: SOURCE
+FileChecksum: SHA1: e3f500b74a7493058257e2c40cf83db2227c8641
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/device_detector.py
+SPDXID: SPDXRef-1561bc91-09de-8c44-acff-137a07a68fbe
+FileType: SOURCE
+FileChecksum: SHA1: 0fa01b821b934b84732649eb7a91193b79cdfe6f
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/device_instance_id.py
+SPDXID: SPDXRef-ef0bb570-0d3b-7a66-c5a2-17592f5d2e47
+FileType: SOURCE
+FileChecksum: SHA1: d49d6566f488cd824d7fb4493d9e1c56a79790c8
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/disk_aggregation.py
+SPDXID: SPDXRef-d0c43b6b-79c0-1282-a0f1-cdd4c72e6ba8
+FileType: SOURCE
+FileChecksum: SHA1: 34d72127deca721a8e9fc52f5134b4fcfb799704
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/disk_drive.py
+SPDXID: SPDXRef-bcaf3937-6057-7d5f-ecb8-8e2866d15f12
+FileType: SOURCE
+FileChecksum: SHA1: 1cb1e8d29dcecd75ec0454855e6f8c4eb3cd60c0
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/disk_partition.py
+SPDXID: SPDXRef-61550ab3-64fd-26a8-d814-0f91be638c12
+FileType: SOURCE
+FileChecksum: SHA1: b45541dde5e047718959a23d746ff43f9173d742
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/disk_partition_logical_disk_relationships.py
+SPDXID: SPDXRef-afb62a00-fa94-6c4f-8bc9-6de8c00ef739
+FileType: SOURCE
+FileChecksum: SHA1: 6adf214b1090bf2702ca4b8b700905382af8df31
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/logical_disk.py
+SPDXID: SPDXRef-cbd43fbf-093b-9d90-4e32-1ad7fdc2ccf6
+FileType: SOURCE
+FileChecksum: SHA1: d46c89a91aeb761df54a3807fe0ce2e771a74949
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/serial_port.py
+SPDXID: SPDXRef-63654d0f-59ac-1054-a40f-275fc4636bca
+FileType: SOURCE
+FileChecksum: SHA1: ebfb57a505facc88faa0a40cd2484b8aba6c1e1d
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/serial_port_data_loader.py
+SPDXID: SPDXRef-cb59c4f9-e149-c68e-8318-3c8292a0f1bf
+FileType: SOURCE
+FileChecksum: SHA1: 915438fcf14bf26478e42d7d05169d4c4f5cccce
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/system_data_loader.py
+SPDXID: SPDXRef-593c79c2-45b9-0947-87a8-cb0f55206767
+FileType: SOURCE
+FileChecksum: SHA1: 425d52f2375f6d406e03e0f5330d031172a192c0
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/usb_controller.py
+SPDXID: SPDXRef-e96d0fa9-a095-f6cf-5184-169954a1df62
+FileType: SOURCE
+FileChecksum: SHA1: 7b0abd24f1f8bc5592f4e3a3359612d5ec469392
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/usb_data_aggregation.py
+SPDXID: SPDXRef-a125335e-3195-d55e-a90d-d75a12e63393
+FileType: SOURCE
+FileChecksum: SHA1: 6fe7058c87ec2e4485411fb3e4c39eac4ba96cdb
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/usb_device_identifier.py
+SPDXID: SPDXRef-5cfcb752-f885-e5ff-b994-9f90a41fde23
+FileType: SOURCE
+FileChecksum: SHA1: 979207cd61c594220aaf129636d025da43039144
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/usb_hub.py
+SPDXID: SPDXRef-61e58174-3a80-a5cb-0421-03da42c9a36c
+FileType: SOURCE
+FileChecksum: SHA1: 7b982211b16d5db8df8d95aec9708923ce1c65a9
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/usb_hub_data_loader.py
+SPDXID: SPDXRef-a5a7e01c-d926-107d-8b64-cd7785964930
+FileType: SOURCE
+FileChecksum: SHA1: d745c73d760f3d93c82dae19676bf661cd2c1227
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/volume_set.py
+SPDXID: SPDXRef-064dbab6-bd5e-627b-814f-300e9c8c36ea
+FileType: SOURCE
+FileChecksum: SHA1: 334c4131777f127525e9c0d3fd1764469df8234e
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_internal/windows/windows_identifier.py
+SPDXID: SPDXRef-83f88e95-e284-8e97-ddc1-b42654897a97
+FileType: SOURCE
+FileChecksum: SHA1: a46b679cba4c5e465d78767709744e2f7c00dc90
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/_version.py
+SPDXID: SPDXRef-dbfa574c-d987-a8dc-d9f9-e5183931b825
+FileType: SOURCE
+FileChecksum: SHA1: c85515d60274a7126d256b981f6db783ac381325
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/device.py
+SPDXID: SPDXRef-6502aeb9-c9f7-d7d1-9383-4d0719863639
+FileType: SOURCE
+FileChecksum: SHA1: bff86ef21bcdfa3eb5360b0449ebd7787175a024
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/exceptions.py
+SPDXID: SPDXRef-8d3c5711-f2a4-e365-e72d-c7e3d502ec2e
+FileType: SOURCE
+FileChecksum: SHA1: 08dad5e6a8464ae49585e600c36b881101d99426
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/mbed_devices.py
+SPDXID: SPDXRef-0c4301bc-e251-a9e6-c365-8f041f3822b0
+FileType: SOURCE
+FileChecksum: SHA1: b500b97e29340ab337d46fb5ec4d3f37ce0ef58a
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_devices/mbed_tools.py
+SPDXID: SPDXRef-1fd94ae2-7b88-c7e6-e957-ef404d2da0a8
+FileType: SOURCE
+FileChecksum: SHA1: 3a19b8a1cb75602ce862c5b592eeb97cd8bce0d7
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+

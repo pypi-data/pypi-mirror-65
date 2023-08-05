@@ -1,0 +1,50 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: psutil-5.7.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdxdocs/psutil-5.7.0-4aa6cda5-e706-bd83-8f09-2f89065c2bb8
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+
+
+# Creation Info
+
+Creator: Person: Giampaolo Rodola (g.rodola@gmail.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-07T12:36:23Z
+
+
+# Package
+
+PackageName: psutil
+SPDXID: SPDXRef-psutil
+PackageVersion: 5.7.0
+PackageDownloadLocation: NONE
+PackageSummary: <text>Cross-platform lib for process and system monitoring in Python.</text>
+PackageFileName: psutil
+PackageOriginator: Person: Giampaolo Rodola (g.rodola@gmail.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: NOASSERTION
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: BSD
+PackageLicenseConcluded: BSD
+PackageLicenseInfoFromFiles: BSD
+PackageCopyrightText: NOASSERTION
+PackageHomePage: https://github.com/giampaolo/psutil
+
+
+# File
+
+FileName: UNKNOWN
+SPDXID: SPDXRef-ad921d60-4863-6625-8809-553a3db49a4a
+FileType: SOURCE
+FileChecksum: SHA1: 0
+LicenseConcluded: BSD
+LicenseInfoInFile: BSD
+FileCopyrightText: NONE
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+

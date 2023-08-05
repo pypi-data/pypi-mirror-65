@@ -1,0 +1,16 @@
+python-dotenv
+Click==7.0
+mbed-targets
+mbed-tools-lib
+typing-extensions
+tabulate
+
+[:platform_system == "Linux"]
+psutil
+pyudev
+
+[:platform_system == "Windows"]
+pywin32
+
+[:python_version < "3.7"]
+dataclasses
