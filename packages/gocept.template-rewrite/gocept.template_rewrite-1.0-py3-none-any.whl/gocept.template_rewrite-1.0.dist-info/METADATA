@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: gocept.template-rewrite
+Version: 1.0
+Summary: A tool to rewrite parts of template files (DTML, ZPT).
+Home-page: https://github.com/gocept/gocept.template_rewrite/
+Author: gocept <mail@gocept.com>
+Author-email: mail@gocept.com
+License: MIT
+Keywords: Zope DTML ZPT pagetemplates migrate Python 3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Zope
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Text Processing :: Filters
+Requires-Python: >=3.6, <4
+Requires-Dist: setuptools
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+
+=======================
+gocept.template_rewrite
+=======================
+
+.. image:: https://travis-ci.org/gocept/gocept.template_rewrite.svg?branch=master
+    :target: https://travis-ci.org/gocept/gocept.template_rewrite
+
+.. image:: https://coveralls.io/repos/github/gocept/gocept.template_rewrite/badge.svg
+    :target: https://coveralls.io/github/gocept/gocept.template_rewrite
+
+A tool to rewrite parts of template files (DTML, ZPT and XPT).
+
+The initial use case is to have a pluggable system to convert Python 2
+expressions in templates to Python 3.
+
+This package runs on Python 3.6 up to 3.8.
+
+
+Requirements
+============
+
+For the rewrite to work properly, it is necessary to have this structure
+``attr="value"`` for attributes in tags with no whitespaces around the ``=``,
+as otherwise the values will get lost.
+
+Caveats
+=======
+
+- During rewrite double hyphens within HTML-comments are removed as the Chameleon
+  engine in Zope 4 (and the `actual specification`_) is very strict about it.
+
+- The underlying lib2to3 does not take into account, that the `cmp` function
+  is no longer available in Python 3.
+
+- This tool converts Python 2 to Python 3 - that means the code may not be
+  compatible with Python 2 any more. For these edge cases manual changes are required to make it
+  compatible with both versions.
+
+.. _actual specification: http://www.htmlhelp.com/reference/wilbur/misc/comment.html
+
+
+==================================
+Developing gocept.template_rewrite
+==================================
+
+:Author:
+    `gocept <http://gocept.com/>`_ <mail@gocept.com>
+
+:Issues:
+    https://github.com/gocept/gocept.template_rewrite/issues
+
+:Source code:
+    https://github.com/gocept/gocept.template_rewrite
+
+:Current change log:
+    https://raw.githubusercontent.com/gocept/gocept.template_rewrite/master/CHANGES.rst
+
+:Installation:
+    ``pip3 install gocept.template_rewrite``
+
+:Run the tests:
+    ``$ tox``
+
+
+======================================
+Change log for gocept.template_rewrite
+======================================
+
+1.0 (2020-04-07)
+================
+
+- Print exact location of error in case of problems parsing Page Templates.
+
+- Add parameter `--collect-errors` that continues to parse all given files and
+  prints all found parsing errors but exits with an error and does not replace
+  any files if an error was found. This replaces the argument
+  `--only-show-errors` present in earlier versions. This allows to create a
+  full list of errors to be fixed before a rewrite is possible.
+
+- Add notes about more caveats.
+
+- File discovery now also includes TrustedFSPageTemplate files, which
+  are registered with the file ending `.xpt`.
+
+
