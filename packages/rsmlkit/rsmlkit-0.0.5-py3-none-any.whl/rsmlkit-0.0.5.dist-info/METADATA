@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: rsmlkit
+Version: 0.0.5
+Summary: Auxialiary package for running experiments
+Home-page: https://github.com/raeidsaqur/rsmlkit
+Author: Raeid Saqur
+Author-email: rsaqur@cs.princeton.edu
+License: UNKNOWN
+Keywords: machine learning,data science,research,toolkit
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: networkx
+Requires-Dist: scikit-learn
+Requires-Dist: scikit-image
+Requires-Dist: requests
+Requires-Dist: plyfile
+Requires-Dist: pandas
+Requires-Dist: h5py
+
+# rsmlkit
+RSMLKit
+
+
