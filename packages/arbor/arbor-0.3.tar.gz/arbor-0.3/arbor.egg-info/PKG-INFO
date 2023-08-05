@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: arbor
+Version: 0.3
+Summary: High performance simulation of networks of multicompartment neurons.
+Home-page: https://github.com/arbor-sim/arbor
+Author: The lovely Arbor devs.
+License: UNKNOWN
+Project-URL: Source, https://github.com/arbor-sim/arbor
+Project-URL: Documentation, https://arbor.readthedocs.io
+Project-URL: Bug Reports, https://github.com/arbor-sim/arbor/issues
+Description: # Arbor
+        
+        The Arbor Python package is a wrapper around the high-performance C++ library Arbor, for
+        constructing and running simulations multi-compartment neuron models, from single cell models
+        to large networks.
+        
+        Documentation is available online at [Read the Docs](https://arbor.readthedocs.io/en/latest/python.html).
+        
+        [Submit a ticket](https://github.com/arbor-sim/arbor) if you have any questions or want help.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
