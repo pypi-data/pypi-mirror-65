@@ -1,0 +1,47 @@
+<style type="text/css">
+.break_before { page-break-before: always; }
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#9ABAD9;margin:0px auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:12px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:12px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#409cff;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<h2 class="break_before"> Test {{ object_id }} </h2>
+<h3> {{ test_name }} </h3>
+<table class="tg">
+  <tr>
+    <th class="tg-0pky">Test ID</th>
+    <td class="tg-0pky">{{ object_id }}</td>
+  </tr>
+  <!--<tr>
+    <th class="tg-0pky">Test Name</th>
+    <td class="tg-0pky">{{ test_name }}</td>
+  </tr> -->
+  <tr>
+    <th class="tg-0pky">Fully Tested<br>Requirements</th>
+    <td class="tg-0pky">
+    	<ol>
+    	{% for rft in requirements_fully_tested %}
+    		<li> {{ rft }} </li>
+    	{% endfor %}
+    	<ol>
+    </td>
+  </tr>
+  <tr>
+    <th class="tg-0pky">Partially Tested<br>Requirements</th>
+    <td class="tg-0pky">
+    	<ol>
+    	{% for rpt in requirements_partially_tested %}
+    		<li> {{ rpt }} </li>
+    	{% endfor %}
+    	<ol>
+    </td>
+  </tr>
+  <tr>
+    <th class="tg-0pky">Precondition</th>
+    <td class="tg-0pky">{{ markdown(precondition) }}</td>
+  </tr>
+  <tr>
+    <th class="tg-0pky">Test Description</th>
+    <td class="tg-0pky">{{ markdown(test_descrition) }}</td>
+  </tr>
+</table>
