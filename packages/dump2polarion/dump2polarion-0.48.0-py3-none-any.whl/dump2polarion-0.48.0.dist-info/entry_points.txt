@@ -1,0 +1,4 @@
+[console_scripts]
+csv2sqlite.py = dump2polarion.csv2sqlite_cli:main
+polarion_dumper.py = dump2polarion.dumper_cli:main
+
