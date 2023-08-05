@@ -1,0 +1,17 @@
+# Core library
+numpy
+colr
+srsly
+pydantic>=1.0.0
+click
+wasabi
+
+# OpenAI Gym environments
+# 
+# > 0.12.5 has a conflicting version of cloudpickle with TensorFlow 2.0.0
+gym<=0.12.5
+
+# ML model agents
+tensorflow>=2.1.0
+tensorflow_probability
+keras-self-attention
