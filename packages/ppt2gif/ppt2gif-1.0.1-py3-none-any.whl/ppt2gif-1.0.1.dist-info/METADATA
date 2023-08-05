@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ppt2gif
+Version: 1.0.1
+Summary: https://github.com/AdjWang/ppt2gif
+Home-page: https://github.com/AdjWang/ppt2gif
+Author: AdjWang
+Author-email: 491918260@qq.com
+License: MIT Licence
+Keywords: pip,ppt,gif
+Platform: Windows
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm (>=4.28.1)
+Requires-Dist: imageio (>=2.4.1)
+Requires-Dist: pypiwin32 (>=223)
+
+github 链接: https://github.com/AdjWang/ppt2gif 说明详见`README.md`
+
+
