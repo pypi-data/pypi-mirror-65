@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: sciutil
+Version: 1.0.1
+Summary: Utility functions for the sci* packages.
+Home-page: https://github.com/ArianeMora/sciutil
+Author: Ariane Mora
+Author-email: ariane.mora@uq.net.au
+License: GPL3
+Project-URL: Bug Tracker, https://github.com/ArianeMora/sciutil/issues
+Project-URL: Documentation, https://github.com/ArianeMora/sciutil
+Project-URL: Source Code, https://github.com/ArianeMora/sciutil
+Keywords: util
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# sciutil
+
+[![codecov.io](https://codecov.io/github/ArianeMora/sciutil/coverage.svg?branch=master)](https://codecov.io/github/ArianeMora/sciutil?branch=master)
+[![PyPI](https://img.shields.io/pypi/v/sciutil)](https://pypi.org/project/sciutil/)
+
+Utility functions for my sci* packages.
+
+## Installation
+* PyPI: `pip install sciutil`
+
+## Usage
+Create an instance of SciUtil class with your chosen configs (or none for the default) and use the helper 
+functions to print coloured messages, save data and generate labels.
+
+Run `python -m sciutil` for help and list of functions.
+
