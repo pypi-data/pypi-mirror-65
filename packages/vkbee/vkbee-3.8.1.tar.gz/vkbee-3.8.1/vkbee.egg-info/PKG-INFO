@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: vkbee
+Version: 3.8.1
+Summary: Simple Async VKLibrary faster than vk_api
+Home-page: https://github.com/asyncvk/vkbee
+Author-email: cryptoyamafox@gmail.com
+License: Mozilla Public License 2.0
+Project-URL: Github, https://github.com/asyncvk/vkbee
+Project-URL: Documentation, https://github.com/asyncvk/vkbee
+Description: ﻿<head>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        </head>
+        
+        ![vkbee](https://github.com/asyncvk/vkbee/blob/master/vkbee/bgtio.png?raw=true)
+        
+        [Documentation](https://asyncvk.github.io)
+        
+        [Example Bot](https://pastebin.com/raw/hxhXPyb9)
+        
+        [VK](https://vk.me/join/AJQ1d0zSjRa17i3RkVt3m5KH)
+        
+        <p align="center">
+            <img alt="Made with Python" src="https://img.shields.io/badge/Made%20with-Python-%23FFD242?logo=python&logoColor=white">
+            <img alt="Downloads" src="https://pepy.tech/badge/vkbee">
+        </p>
+        
+        
+        
+        
+        # vkbee
+        
+        ## Ultra-Fast speed by uvloop
+        
+        <p>You need add definer in your code</p>
+        
+        ```python
+        uvspeed = True
+        import vkbee
+        ```
+        
+        ## Установка
+        ```bash
+        pip3 install vkbee
+        ```
+        ## Установка стабилного лонгпула
+        ```bash
+        pip3 install vkbee==1.6
+        ```
+        
+        
+        Simple Async VKLibrary faster than vk_api
+        # Пример работы
+        ```python
+        import asyncio
+        import vkbee
+        
+        async def main(loop):
+            token = "сюдатокен"
+            vk_s = vkbee.VkApi(token, loop=loop)
+            vk = vk_s.get_api()
+            await vk_s.messages.send(
+                chat_id=1,
+                message='VKBEE',
+                random_id=0
+            )
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main(loop))
+        loop.close()
+        ```
+        
+        
+        
+        
+Keywords: vk api framework python
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
