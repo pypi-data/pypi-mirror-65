@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: regapp-tools
+Version: 0.1.8
+Summary: Commandline tools to work with the bwIDM regApp (aka LDAP Facade)
+Home-page: https://git.scc.kit.edu/feudal/regapp-tools
+Author: Marcus Hardt
+Author-email: hardt@kit.edu
+License: MIT
+Project-URL: Bug Tracker, https://git.scc.kit.edu/feudal/regapp-tools/-/issues
+Project-URL: Documentation, https://git.scc.kit.edu/feudal/regapp-tools
+Description: # regapp-tools
+        
+        These is a collection of (python for the moment) tools for regapp.
+        
+        Main goal of this package is to have them easily installable via:
+        
+        ```
+            pip install regapp-tools
+        ```
+        
+        The initial tools are:
+        
+        - subiss-to-unix that allows finding a user that was registered via OIDC
+          in regapp. Examples:
+        
+          - `subiss-to-unix <sub>@<iss>`
+          - `subiss-to-unix 6c611e2a-2c1c-487f-9948-c058a36c8f0e@https://login.helmholtz-data-federation.de/oauth2`
+        
+        - ssh-key-retriever (there is a go version in an rpm package available
+          elsewhere). This one is for retrieving ssh-keys that users have
+          registered in reg-app. Examples:
+        
+          - `ssh-key-retriever <username>`
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Systems Administration :: Authentication/Directory
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown; charset=UTF-8

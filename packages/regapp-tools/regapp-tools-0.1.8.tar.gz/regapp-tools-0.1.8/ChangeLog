@@ -1,0 +1,49 @@
+CHANGES
+=======
+
+v0.1.8
+------
+
+* allow \_ and - in config file name
+
+v0.1.7
+------
+
+* chck if config fiel was found
+
+v0.1.6
+------
+
+* add missing load and test routines
+
+v0.1.5
+------
+
+* check for the existence of config file entries and exit gracefully
+
+v0.1.4
+------
+
+* rename for the sake of setuptools
+
+v0.1.3
+------
+
+* - -> \_
+
+v0.1.2
+------
+
+* add ssh-key-retriever
+
+v0.1.1
+------
+
+* remove unnecessary imports
+
+v0.1
+----
+
+* cleanup; restructure; ensure base functionality is preserved
+* initial
+* initial

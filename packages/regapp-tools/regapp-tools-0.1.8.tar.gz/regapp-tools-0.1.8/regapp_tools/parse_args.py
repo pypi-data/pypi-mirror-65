@@ -1,0 +1,39 @@
+# pylint
+# vim: tw=100 foldmethod=indent
+# pylint: disable=bad-continuation, invalid-name, superfluous-parens
+# pylint: disable=bad-whitespace, mixed-indentation
+# pylint: disable=redefined-outer-name, logging-not-lazy, logging-format-interpolation
+# pylint: disable=missing-docstring, trailing-whitespace, trailing-newlines, too-few-public-methods
+
+import logging
+import argparse
+
+from .helpers import remove_quotes
+
+logger = logging.getLogger(__name__)
+
+def parseOptions():
+    '''Parse the commandline options'''
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--rest_user',   '-u',             help='username for LDF rest interface')
+    parser.add_argument('--rest_passwd', '-p',             help='passwdname for LDF rest interface')
+    parser.add_argument('--iss'                  , action="append")
+    parser.add_argument('--bwidmOrgId'           , default="hdf")
+    parser.add_argument('--base_url'             , default="https://bwidm-test.scc.kit.edu/rest/")
+    parser.add_argument('--verify_tls'           , default=True    , action="store_false" , help='disable verify')
+    parser.add_argument('--verbose', '-v'        , default=0   , action="count", help="Verbosity")
+    parser.add_argument('--debug',   '-d'        , default=False   , action="store_true" )
+    parser.add_argument('--config', '-c'         , default="regapp_tools.conf")
+    parser.add_argument(dest='sub_iss'           , help='Content of $REMOTE_USER. For testing use "test-offline" and "test-id"')
+
+    # sanitize some args:
+    args = parser.parse_args()
+    args.base_url   = args.base_url.rstrip('/')
+    args.bwidmOrgId = remove_quotes(args.bwidmOrgId)
+
+    return args
+
+# reparse args on import
+args = parseOptions()
