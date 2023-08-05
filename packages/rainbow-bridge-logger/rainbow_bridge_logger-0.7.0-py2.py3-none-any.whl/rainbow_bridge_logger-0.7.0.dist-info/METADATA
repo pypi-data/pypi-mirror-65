@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: rainbow-bridge-logger
+Version: 0.7.0
+Summary: Improved wrapper for native logger of Python 3
+Home-page: https://github.com/mamerisawesome/rainbow-bridge-logger
+License: MIT
+Keywords: logging,colored,logger,python,rainbow,logging-wrapper
+Author: Almer Mendoza
+Author-email: atmalmer23@gmail.com
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/mamerisawesome/rainbow-bridge-logger
+Description-Content-Type: text/x-rst
+
+
+
+Rainbow Bridge Logger
+=================================
+A wrapper for the native logging module of Python.
+
+.. code-block:: python
+
+    from rainbow import RainbowLogger
+
+    # __name__ will get the current context
+    # but you can pass any text you want, for identification
+    logger = RainbowLogger(__name__)
+
+    logger.info('my info')
+    logger.warning('my warn')
+    logger.error('my error')
+    logger.debug('my debug')
+
