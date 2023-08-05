@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: graphql-error-logger
+Version: 0.0.1
+Summary: Log expection from the GraphQL python server
+Home-page: https://github.com/brotich/graphql_error_logger
+Author: Brian Rotich
+Author-email: opensource@brianrotich.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: flask-graphql (>=2.0.0)
+
+UNKNOWN
+
+
