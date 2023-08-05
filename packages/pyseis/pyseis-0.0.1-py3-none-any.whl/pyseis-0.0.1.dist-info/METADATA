@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pyseis
+Version: 0.0.1
+Summary: Seismology visualization
+Home-page: https://github.com/lsawade/how_to_make_a_python_package
+Author: Lucas Sawade
+Author-email: lsawade@princeton.edu
+License: GNU Lesser General Public License, Version 3
+Keywords: Seismology,Visualization,Command Line Tool
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: obspy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: py ; extra == 'tests'
+
+# SeisPy
+
+The SeisPy Readme
+
