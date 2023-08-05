@@ -1,0 +1,16 @@
+README.md
+setup.py
+bamread/__init__.py
+bamread/read.py
+bamread/version.py
+bamread/src/__init__.py
+bamread/src/bamwrite.pyx
+bwread/__init__.py
+bwread/read.py
+bwread/version.py
+bwread.egg-info/PKG-INFO
+bwread.egg-info/SOURCES.txt
+bwread.egg-info/dependency_links.txt
+bwread.egg-info/requires.txt
+bwread.egg-info/top_level.txt
+bwread/src/bwread.c
