@@ -1,0 +1,61 @@
+Metadata-Version: 1.2
+Name: gcloud-rest-taskqueue
+Version: 4.1.0
+Summary: Asyncio Python Client for Google Cloud Task Queue
+Home-page: https://github.com/talkiq/gcloud-rest
+Author: TalkIQ
+Author-email: engineering@talkiq.com
+License: MIT License
+Description: (Asyncio OR Threadsafe) Python Client for Google Cloud Task Queue
+        =================================================================
+        
+        |pypi| |pythons-aio| |pythons-rest|
+        
+        Installation
+        ------------
+        
+        .. code-block:: console
+        
+            $ pip install --upgrade gcloud-{aio,rest}-taskqueue
+        
+        Usage
+        -----
+        
+        We're still working on documentation -- for now, you can use the `smoke tests`_
+        as an example.
+        
+        Contributing
+        ------------
+        
+        Please see our `contributing guide`_.
+        
+        .. _contributing guide: https://github.com/talkiq/gcloud-rest/blob/master/.github/CONTRIBUTING.rst
+        .. _smoke tests: https://github.com/talkiq/gcloud-rest/tree/master/taskqueue/tests/integration
+        
+        .. |pypi| image:: https://img.shields.io/pypi/v/gcloud-rest-taskqueue.svg?style=flat-square
+            :alt: Latest PyPI Version (gcloud-rest-taskqueue)
+            :target: https://pypi.org/project/gcloud-rest-taskqueue/
+        
+        .. |pythons-aio| image:: https://img.shields.io/pypi/pyversions/gcloud-rest-taskqueue.svg?style=flat-square&label=python (aio)
+            :alt: Python Version Support (gcloud-rest-taskqueue)
+            :target: https://pypi.org/project/gcloud-rest-taskqueue/
+        
+        .. |pythons-rest| image:: https://img.shields.io/pypi/pyversions/gcloud-rest-taskqueue.svg?style=flat-square&label=python (rest)
+            :alt: Python Version Support (gcloud-rest-taskqueue)
+            :target: https://pypi.org/project/gcloud-rest-taskqueue/
+        
+Platform: Posix; MacOS X; Windows
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet
+Requires-Python: >= 2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*
