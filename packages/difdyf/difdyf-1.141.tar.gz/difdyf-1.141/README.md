@@ -1,0 +1,27 @@
+# difdyf
+
+
+calculate differential geometry content
+
+
+`difdyf` 是一个计算不同度规场，坐标系下各种张量的库
+
+更多功能正在添加中
+
+
+### 使用方式
+
+```
+import difdyf as df
+g,symb=sphereMetric()## 生成球坐标度规场g，symb=【'r','theta','phi'】
+T=getChristSymb(g,symb)## 生成球坐标下克氏算符
+R=getRiemannCurvature(T,symb)## 生成球坐标黎曼曲率张量
+##输入度规场g可任意指定，需要是一个2维字符串值的字典，例如g['r']['r']='1'
+```
+
+
+### 安装
+
+```
+$ pip install difdyf
+```
