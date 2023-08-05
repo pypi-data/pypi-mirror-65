@@ -1,0 +1,19 @@
+#!python
+
+"""
+Command line. See makefile2dot --help.
+"""
+
+import argparse
+from makefile2dot import makefile2dot
+
+PARSER = argparse.ArgumentParser(description="Stuff")
+PARSER.add_argument('--direction', dest='direction', default="BT",
+                    help="direction to draw graph ('BT', 'TB', 'LR', or 'RL')")
+
+PARSER.add_argument('--shape', dest='shape', default="box",
+                    help="shape of the node (e.g. box, polygon, ellipse, etc)")
+
+ARGS = PARSER.parse_args()
+
+makefile2dot(direction=ARGS.direction, shape=ARGS.shape)
