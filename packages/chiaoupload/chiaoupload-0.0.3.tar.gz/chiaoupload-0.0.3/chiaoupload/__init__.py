@@ -1,0 +1,1 @@
+from chiaoupload import hello
