@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: django-country-utils
+Version: 0.2.11
+Summary: Support for generic apps of country, currencies and phonecodes.
+Home-page: https://github.com/okchaty/django-country
+Author: Chaty
+Author-email: develop@okchaty.com
+License: MIT License
+Description: # Django-country-utils
+        
+        Package to add Country , Currency and PhoneCode apps
+        to django.
+        
+        ## Installation
+        
+        To install this package run
+        `pip install django-country-utils`
+        
+        ## Usage
+        
+        To use it add to settings.py
+        
+        ``` python
+        
+        INSTALLED_APPS = [
+            ...
+            'currency',
+            'country',
+            'phonecode',
+            ...
+        ]
+        
+        ```
+        
+        To use it add to settings.py
+        
+        ``` python
+        python manage.py loaddata country
+        ```
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
