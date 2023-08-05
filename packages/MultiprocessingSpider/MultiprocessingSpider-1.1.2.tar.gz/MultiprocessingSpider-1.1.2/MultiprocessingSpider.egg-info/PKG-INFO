@@ -1,0 +1,212 @@
+Metadata-Version: 2.1
+Name: MultiprocessingSpider
+Version: 1.1.2
+Summary: A multiprocessing web crawling and web scraping framework.
+Home-page: https://github.com/Xpp521/MultiprocessingSpider
+Author: Xpp
+Author-email: Xpp233@foxmail.com
+License: GPLv3
+Project-URL: Source, https://github.com/Xpp521/MultiprocessingSpider
+Project-URL: Tracker, https://github.com/Xpp521/MultiprocessingSpider/issues
+Project-URL: Documentation, https://github.com/Xpp521/MultiprocessingSpider/wiki
+Description: # MultiprocessingSpider
+        [[简体中文版]](https://github.com/Xpp521/MultiprocessingSpider/blob/master/README_cn.md "中文版")
+        ## Description
+        MultiprocessingSpider is a simple and easy to use web crawling and web scraping framework.
+        
+        ## Architecture
+        ![Architecture](https://raw.githubusercontent.com/Xpp521/Images/master/MultiprocessingSpider_Architecture.jpg)
+        
+        ## Dependencies
+        - requests
+        
+        ## Installation
+        ```
+        pip install MultiprocessingSpider
+        ```
+        
+        ## Basic Usage
+        #### MultiprocessingSpider
+        ```python
+        from MultiprocessingSpider.spiders import MultiprocessingSpider
+        from MultiprocessingSpider.packages import TaskPackage, ResultPackage
+        
+        
+        class MyResultPackage(ResultPackage):
+            def __init__(self, prop1, prop2, sleep=True):
+                super().__init__(sleep)
+                self.prop1 = prop1
+                self.prop2 = prop2
+        
+        
+        class MySpider(MultiprocessingSpider):
+            start_urls = ['https://www.a.com/page1']
+        
+            proxies = [
+                {"http": "http://111.111.111.111:80"},
+                {"http": "http://123.123.123.123:8080"}
+            ]
+        
+            def router(self, url):
+                return self.parse
+        
+            def parse(self, response):
+                # Parsing task or new page from "response"
+                ...
+                # Yield a task package
+                yield TaskPackage('https://www.a.com/task1')
+                ...
+                # Yield a url or a url list
+                yield 'https://www.a.com/page2'
+                ...
+                yield ['https://www.a.com/page3', 'https://www.a.com/page4']
+        
+            @classmethod
+            def subprocess_handler(cls, package, sleep_time, timeout, retry):
+                url = package.url
+                # Request "url" and parse data
+                ...
+                # Return result package
+                return MyResultPackage('value1', 'value2')
+        
+            @staticmethod
+            def process_result_package(package):
+                # Processing result package
+                if 'value1' == package.prop1:
+                    return package
+                else:
+                    return None
+        
+        
+        if __name__ == '__main__':
+            s = MySpider()
+        
+            # Start the spider
+            s.start()
+        
+            # Block current process
+            s.join()
+        
+            # Export results to csv file
+            s.to_csv('result.csv')
+        
+            # Export results to json file
+            s.to_json('result.json')
+        ```
+        #### FileSpider
+        ```python
+        from MultiprocessingSpider.spiders import FileSpider
+        from MultiprocessingSpider.packages import FilePackage
+        
+        
+        class MySpider(FileSpider):
+            start_urls = ['https://www.a.com/page1']
+        
+            stream = True
+        
+            buffer_size = 1024
+        
+            overwrite = False
+        
+            def router(self, url):
+                return self.parse
+        
+            def parse(self, response):
+                # Parsing task or new page from "response"
+                ...
+                # Yield a file package
+                yield FilePackage('https://www.a.com/file.png', 'file.png')
+                ...
+                # Yield a new url or a url list
+                yield 'https://www.a.com/page2'
+                ...
+                yield ['https://www.a.com/page3', 'https://www.a.com/page4']
+        
+        
+        if __name__ == '__main__':
+            s = MySpider()
+        
+            # Add a url
+            s.add_url('https://www.a.com/page5')
+        
+            # Start the spider
+            s.start()
+        
+            # Block current process
+            s.join()
+        ```
+        #### FileDownloader
+        ```python
+        from MultiprocessingSpider.spiders import FileDownloader
+        
+        
+        if __name__ == '__main__':
+            d = FileDownloader()
+        
+            # Start the downloader
+            d.start()
+            
+            # Add a file
+            d.add_file('https://www.a.com/file.png', 'file.png')
+            
+            # Block current process
+            d.join()
+        ```
+        More examples → [GitHub](https://github.com/Xpp521/MultiprocessingSpider/tree/master/examples "Examples")
+        ### License
+        [GPLv3.0](https://github.com/Xpp521/MultiprocessingSpider/blob/master/LICENSE.md "License")  
+        This is a free library, anyone is welcome to modify : )
+        # Release Note
+        ## v1.1.2
+        #### Refactor
+        - Remove property "name" from "FileDownloader".
+        - Complete class "UserAgentGenerator" in "MultiprocessingSpider.Utils".
+        - Continue to optimize the setter method of each property. An exception will be raised if the value is invalid. "sleep_time" now can be set to 0.
+        - Change the sleep strategy of subprocess, subprocess will sleep after receiving the task package to prevent multiple requests from being sent at the same time.
+        ___
+        ## v1.1.1
+        #### Bug Fixes
+        - Fix "start_urls" invalidation.
+        ___
+        ## v1.1.0
+        #### Features
+        - Add overwrite option for "FileSpider".
+        - Add routing system. After overriding "router" method, you can yield a single url or a url list in your parse method.
+        #### Bug Fixes
+        - Fix retry message display error.
+        #### Refactor
+        - Optimize setter method. Now you can do this: spider.sleep_time = ' 5'.
+        - Will not resend request when "status_code" is not between 200 and 300.
+        ##### a) MultiprocessingSpider
+        - Rename property "handled_url_table" to "handled_urls".
+        - Remove method "parse", add "example_parse_method".
+        - "User-Agent" in "web_headers" is now generated randomly.
+        - Change url_table parsing order, current rule: "FIFP" (first in first parse).
+        ##### b) FileDownloader
+        - Remove "add_files" method.
+        ___
+        ## v1.0.0
+        - The first version.
+Keywords: crawler,spider,requests,multiprocessing
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows :: Windows NT/2000
+Classifier: Operating System :: POSIX
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3
+Description-Content-Type: text/markdown
