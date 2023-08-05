@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: tagup
+Version: 0.1.1
+Summary: Reference implementation of the Tagup Language
+Home-page: https://fairburn.dev/tagup/
+License: MIT
+Keywords: markup,language,templating
+Author: Garrett Fairburn
+Author-email: garrett@fairburn.dev
+Requires-Python: >=3,<4
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: lark-parser (>=0.8.5,<0.9.0)
+Description-Content-Type: text/markdown
+
+# tagup
+
+**tagup** is a Python module which provides a reference implementation of the [Tagup Language](https://fairburn.dev/tagup/).
+
+This module currently implements [version 1.0.0](https://fairburn.dev/tagup/1.0.0/) of the Tagup Language.
+
+## Changelog
+
+**v0.1.1**
+
+- Added non-standard option to trim whitespace from arguments before tag evaluation.
+- Fixed bug where whitespace was considered when specifying a name/position for argument substitution.
+
+**v0.1.0**
+
+- Initial release.
+
