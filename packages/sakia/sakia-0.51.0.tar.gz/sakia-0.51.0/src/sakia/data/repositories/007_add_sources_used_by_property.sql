@@ -1,0 +1,5 @@
+BEGIN TRANSACTION;
+
+ALTER TABLE sources ADD COLUMN used_by VARCHAR(255) default null;
+
+COMMIT;
