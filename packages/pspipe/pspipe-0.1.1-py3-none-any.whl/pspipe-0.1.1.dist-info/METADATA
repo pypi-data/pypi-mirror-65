@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pspipe
+Version: 0.1.1
+Summary: 
+Author: "Florent Mertens"
+Author-email: "florent.mertens@gmail.com"
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: astropy (>=4.0,<5.0)
+Requires-Dist: asyncssh (>=2.0,<3.0)
+Requires-Dist: matplotlib (>=3.2.0,<4.0.0)
+Requires-Dist: progressbar2 (>=3.47,<4.0)
+Requires-Dist: python-casacore (>=3.2.0,<4.0.0)
+Requires-Dist: tables (>=3.6.1,<4.0.0)
+Requires-Dist: toml (>=0.10.0,<0.11.0)
