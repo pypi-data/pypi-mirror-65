@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: caelus
+Version: 0.0.2
+Summary: Multi-cloud utils package
+Home-page: https://github.com/dariopascu/caelus
+Author: dariopascu
+License: MIT License
+Download-URL: https://github.com/dariopascu/caelus/archive/v0.0.1.tar.gz
+Description: # caelus
+        Caelus is a framework that allows you to interact with the main clouds through a common interface
+        
+Keywords: cloud,aws,azure,gcp
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: aws
+Provides-Extra: az
+Provides-Extra: storage
