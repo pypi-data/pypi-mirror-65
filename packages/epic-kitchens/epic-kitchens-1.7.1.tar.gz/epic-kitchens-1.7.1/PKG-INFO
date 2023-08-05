@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: epic-kitchens
+Version: 1.7.1
+Summary: EPIC Kitchens action dataset support library
+Home-page: http://github.com/epic-kitchens/epic-lib
+Author: EPIC KITCHENS
+Author-email: uob-epic-kitchens2018@bristol.ac.uk
+License: MIT
+Project-URL: Bug Tracker, https://github.com/epic-kitchens/epic-lib/issues
+Project-URL: Documentation, https://epic-kitchens.readthedocs.io
+Project-URL: Dataset Website, https://epic-kitchens.github.io/
+Project-URL: Source Code, http://github.com/epic-kitchens/epic-lib
+Description: UNKNOWN
+Keywords: dataset,egocentric,action-recogntion,epic,epic-kitchens
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: dev
+Provides-Extra: visualisation

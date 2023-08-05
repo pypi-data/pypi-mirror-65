@@ -1,0 +1,4 @@
+[console_scripts]
+gulp_epic = epic_kitchens.gulp:main
+segment_epic = epic_kitchens.preprocessing.split_segments:main
+
