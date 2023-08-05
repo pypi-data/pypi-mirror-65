@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: mautrix-telegram
+Version: 0.7.2
+Summary: A Matrix-Telegram hybrid puppeting/relaybot bridge.
+Home-page: https://github.com/tulir/mautrix-telegram
+Author: Tulir Asokan
+Author-email: tulir@maunium.net
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Topic :: Communications :: Chat
+Classifier: Framework :: AsyncIO
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: SQLAlchemy (<2,>=1.2.3)
+Requires-Dist: aiohttp (<4,>=3.0.1)
+Requires-Dist: alembic (<2,>=1.0.0)
+Requires-Dist: commonmark (<0.10,>=0.8.1)
+Requires-Dist: mautrix (<0.5,>=0.4.0)
+Requires-Dist: python-magic (<0.5,>=0.4.15)
+Requires-Dist: ruamel.yaml (<0.17,>=0.15.35)
+Requires-Dist: telethon-session-sqlalchemy (<0.3,>=0.2.14)
+Requires-Dist: telethon (<1.11,>=1.10)
+Provides-Extra: all
+Requires-Dist: Brotli ; extra == 'all'
+Requires-Dist: Pillow (<7,>=4.3.0) ; extra == 'all'
+Requires-Dist: aiodns ; extra == 'all'
+Requires-Dist: cchardet ; extra == 'all'
+Requires-Dist: cryptg (<0.3,>=0.1) ; extra == 'all'
+Requires-Dist: moviepy (<2.0,>=1.0) ; extra == 'all'
+Requires-Dist: prometheus-client (<0.8.0,>=0.6.0) ; extra == 'all'
+Requires-Dist: psycopg2-binary (<3,>=2) ; extra == 'all'
+Provides-Extra: hq_thumbnails
+Requires-Dist: moviepy (<2.0,>=1.0) ; extra == 'hq_thumbnails'
+Provides-Extra: metrics
+Requires-Dist: prometheus-client (<0.8.0,>=0.6.0) ; extra == 'metrics'
+Provides-Extra: postgres
+Requires-Dist: psycopg2-binary (<3,>=2) ; extra == 'postgres'
+Provides-Extra: speedups
+Requires-Dist: Brotli ; extra == 'speedups'
+Requires-Dist: aiodns ; extra == 'speedups'
+Requires-Dist: cchardet ; extra == 'speedups'
+Requires-Dist: cryptg (<0.3,>=0.1) ; extra == 'speedups'
+Provides-Extra: webp_convert
+Requires-Dist: Pillow (<7,>=4.3.0) ; extra == 'webp_convert'
+
+# mautrix-telegram
+![Languages](https://img.shields.io/github/languages/top/tulir/mautrix-telegram.svg)
+[![License](https://img.shields.io/github/license/tulir/mautrix-telegram.svg)](LICENSE)
+[![Release](https://img.shields.io/github/release/tulir/mautrix-telegram/all.svg)](https://github.com/tulir/mautrix-telegram/releases)
+[![GitLab CI](https://mau.dev/tulir/mautrix-telegram/badges/master/pipeline.svg)](https://mau.dev/tulir/mautrix-telegram/container_registry)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/tulir/mautrix-telegram.svg)](https://codeclimate.com/github/tulir/mautrix-telegram)
+
+A Matrix-Telegram hybrid puppeting/relaybot bridge.
+
+### [Wiki](https://github.com/tulir/mautrix-telegram/wiki)
+
+### [Features & Roadmap](https://github.com/tulir/mautrix-telegram/blob/master/ROADMAP.md)
+
+## Discussion
+Matrix room: [`#telegram:maunium.net`](https://matrix.to/#/#telegram:maunium.net)
+
+Telegram chat: [`mautrix_telegram`](https://t.me/mautrix_telegram) (bridged to Matrix room)
+
+## Preview
+![Preview](https://raw.githubusercontent.com/tulir/mautrix-telegram/master/preview.png)
+
+
