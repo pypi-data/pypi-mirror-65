@@ -1,0 +1,13 @@
+backports-datetime-fromisoformat
+cachecontrol
+commonmark
+ezodf
+flask
+lxml
+python-dotenv
+requests
+sentry-sdk[flask]==0.14.3
+toml
+tabulator
+opendataschema<0.6,>=0.5.5
+validata_core<0.6,>=0.5.0
