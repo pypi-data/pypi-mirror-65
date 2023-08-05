@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: pykonker
+Version: 1.3.0
+Summary: provides a simple interface to connect, send and receive information from Konker REST API
+Home-page: https://github.com/KonkerLabs/pykonker
+Author: Alexandre Junqueira
+Author-email: alexjunq@konkerlabs.com
+License: UNKNOWN
+Description: # Objective
+        
+        This library creates a python wrapper over Konker API to allow easier usage and integration 
+        with Konker REST API
+        
+        # Sample Usage
+        
+        from pykonker.main.api import Client
+        
+        konker = Client()
+        konker.login(username='', password='')
+        applications = konker.getApplications()
+        devices = konker.getAllDevicesForApplication('default')
+        data = konker.readData(guid=devices[0]['guid'])
+        
+        # Change and publish the library on PyPi
+        
+        make shell
+        make pylint module 
+        * NOTE: solve problems identified by lint process .. after that it will generate the module to be published
+        make upload
+        
+        after that, the module will be available on pip 
+        
+        
+        pip install pykonker
+        
+        or 
+        
+        pip install --upgrade pykonker 
+        
+        
+        # References
+        
+        https://www.konkerlabs.com/developers/developers-en.html
+        https://konker.atlassian.net/wiki/spaces/DEV/pages/28180518/Guia+de+Uso+da+Plataforma+Konker
+        https://api.demo.konkerlabs.net/v1/swagger-ui.html
+        
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
