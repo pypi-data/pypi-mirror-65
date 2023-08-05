@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ql-orange
+Version: 1.0.3
+Summary: 
+Author: quantlane.com
+Author-email: info@quantlane.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: aiohttp (>=3.3.2)
+Requires-Dist: aiohttp-cors
+Requires-Dist: appdirs
+Requires-Dist: click (>=6.5)
+Requires-Dist: mypy_extensions (>=0.4.3)
+Requires-Dist: pathspec (>=0.6)
+Requires-Dist: regex (>=2019.8)
+Requires-Dist: toml (>=0.9.4)
+Requires-Dist: typed-ast (==1.4.0)
+Requires-Dist: typing_extensions (>=3.7.4)
