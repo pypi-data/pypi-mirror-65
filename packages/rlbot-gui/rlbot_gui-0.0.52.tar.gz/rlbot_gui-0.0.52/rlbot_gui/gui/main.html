@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+
+	<link rel="icon" type="image/png" sizes="192x192" href="imgs/rlbot_logo.png">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+	<link rel="stylesheet" href="css/vue-material.min.css"/>
+	<link rel="stylesheet" href="css/vue-fonts.css"/>
+	<link rel="stylesheet" href="css/black-green-light.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/appearance-editor.css"/>
+
+	<title>RLBot</title>
+
+</head>
+<body id="rlbotgui">
+	<div id="app" :style="bodyStyle">
+
+<!--		https://stackoverflow.com/a/55296309/280852-->
+		<keep-alive include="match-setup,sandbox">
+			<router-view @background-change="changeBackgroundImage"></router-view>
+		</keep-alive>
+
+	</div>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/vue-router.js"></script>
+	<script type="text/javascript" src="js/httpVueLoader.js"></script>
+    <script type="text/javascript" src="js/vue-material.min.js"></script>
+    <script type="text/javascript" src="js/Sortable.min.js"></script>
+    <script type="text/javascript" src="js/vuedraggable.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src='js/konva.min.js'></script>
+	<script type="text/javascript" src='js/vue-konva.min.js'></script>
+</body>
+</html>
