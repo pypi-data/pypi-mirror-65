@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: mipt-npm-optics
+Version: 0.0.1.dev4
+Summary: Python scripts for optics lab
+Home-page: http://npm.mipt.ru/
+Author: Mikhail Zelenyi
+Author-email: mihail.zelenyy@phystech.edu
+License: MIT License
+Keywords: optics
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: pyqt5
+Requires-Dist: appdirs
+
+# python-optics-lab
+
+## Установка
+
+### Windows
+
+Устнавливем [Anaconda](https://www.anaconda.com/) для Python3.
+В директории с файлом `setup.py` открываем терминал и вводи команду:
+```
+pip install -e .
+```
+Затем запускаем программу:
+```
+python3 main.py
+```
+
+### Ubuntu
+
+#### Системный питон
+
+```
+sudo apt-get install python3-pip
+```
+В директории с файлом `setup.py` открываем терминал и вводи команду:
+```
+pip3 install -e .
+```
+Затем запускаем программу:
+```
+python3 main.py
+```
+### Установка зависимостей вручную
+```
+conda install pyqt numpy scipy matplotlib appdirs
+```
+или
+```
+pip3 install pyqt5 numpy scipy matplotlib appdirs
+```
+
