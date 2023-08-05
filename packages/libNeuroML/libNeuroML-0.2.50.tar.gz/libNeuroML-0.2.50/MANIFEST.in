@@ -1,0 +1,12 @@
+include README.md
+include requirements.txt
+include AUTHORS
+include LICENSE
+include doc/*.txt
+include doc/Makefile
+include doc/conf.py
+include doc/*.png
+include neuroml/nml/README
+include neuroml/test/*
+include neuroml/examples
+recursive-include *.nml
