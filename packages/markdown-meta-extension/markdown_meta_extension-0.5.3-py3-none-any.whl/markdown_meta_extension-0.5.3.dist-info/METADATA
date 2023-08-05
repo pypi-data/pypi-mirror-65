@@ -1,0 +1,323 @@
+Metadata-Version: 2.1
+Name: markdown-meta-extension
+Version: 0.5.3
+Summary: Markdown Meta Extension for using Python functions and classes from within documents.
+Home-page: https://gitlab.com/markdown-meta-extension/markdown-meta-extension
+Author: Martin Schorfmann
+Author-email: schorfma@uni-bremen.de
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Text Processing :: Markup
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+Requires-Dist: Click
+Requires-Dist: jinja2
+Requires-Dist: Markdown
+Requires-Dist: MarkupSafe
+Requires-Dist: pathvalidate
+Requires-Dist: PyYAML
+Provides-Extra: pelican
+Requires-Dist: pelican ; extra == 'pelican'
+
+
+[![pipeline status](https://gitlab.com/markdown-meta-extension/markdown-meta-extension/badges/master/pipeline.svg)](https://gitlab.com/markdown-meta-extension/markdown-meta-extension/-/commits/master)
+
+# Markdown Meta Extension
+
+<img src="https://gitlab.com/markdown-meta-extension/markdown-meta-extension/-/raw/master/MarkdownMetaExtension-Banner.png" width="600px" />
+
+The _Markdown Meta Extension_, a _Python-Markdown_ extension, enables users to use _Python_ functions and classes from within _Markdown_ documents and assign results to variables.
+
+This software has been created by _Martin Schorfmann_ (@schorfma) for his bachelor thesis at the [_Universität Bremen_](https://www.uni-bremen.de/) with the following title:
+
+> _Markdown Meta Extension: Providing programmable Content in Markdown Documents_
+
+## Getting Started
+
+### Prerequisites
+
+You need to have a working installation of
+
+* _Python_ ≥ ``3.7.0``
+
+### Installation
+
+#### Install from PyPI
+
+Execute the following command to install the _Markdown Meta Extension_ from [_PyPI_](https://pypi.org/project/markdown-meta-extension/).
+
+```bash
+$ pip install markdown-meta-extension
+```
+
+#### Install from the GitLab repository
+
+Execute the following command to install the _Markdown Meta Extension_ from this _Git_ repository.
+
+```bash
+$ pip install git+https://gitlab.com/markdown-meta-extension/markdown-meta-extension.git
+```
+
+#### Install from downloaded source
+
+Execute the following command in the main directory of the downloaded repository for manual installation of _Markdown Meta Extension_.
+
+```bash
+$ pip install .
+```
+
+## Usage
+
+### Usage as _Python-Markdown_ extension
+
+The extension name for use with _Python-Markdown_ is ``markdown_meta_extension``.
+
+The extension can be used with _Python-Markdown_ as follows:
+
+```python
+import markdown
+
+parser = markdown.Markdown(extensions=["markdown_meta_extension"])
+# Convert a Markdown Meta Extension string
+parser.convert("""
+---
+now: datetime:datetime.now
+---
+
+{{ now }}
+""")
+```
+
+### Usage of the _CLI_ command
+
+1. Navigate to the directory the document is in.
+2. Install requirements of custom _Python_ modules, if needed.
+3. Convert the document using the command ``markdown-meta-extension``
+
+```bash
+$ cd ./example
+$ pip install -r requirements.txt
+$ markdown-meta-extension ./document.md --yes
+Output path document.html is assumed.
+3 callables were imported.
+19 calls were made.
+File document.html will be overwritten.
+Output written to file document.html
+```
+
+#### Available options
+
+```bash
+$ markdown-meta-extension --help
+Usage: markdown-meta-extension [OPTIONS] INPUT_PATH
+
+  CLI command for converting an input Markdown file to an output HTML file.
+
+  [...]
+
+Options:
+  -o, --output PATH  The optional path for the HTML output.
+  -q, --quiet        Mute all command line output.
+  -v, --verbose      Display additional command line output and file contents.
+  -y, --yes          Confirm overwriting existing output file.
+  --help             Show this message and exit.
+```
+
+## Tutorial
+
+### Import Front Matter
+
+The _Markdown_ document needs to start with a _YAML_ front matter, in which the import statements are assigned to variables:
+
+```yaml
+---
+Date: datetime:date                     # Import of class from an installed package
+now: datetime:datetime.now              # Import of a class method
+echo: ./echo_module.py:echo_function    # Import of a function from a file system module
+demo: ./jinja_template.html:demo_macro  # Import of a Jinja macro from a Jinja HTML Template
+---
+```
+
+The import statements use a ``:`` to separate the top-level package or file name from the remaining import statement.
+
+For relative import paths the current working directory (where the command is executed) is the base for the relative paths.
+
+The possible import types are the following:
+
+* Installed _Python_ package
+    - Any defined variable or callable
+* _Python_ module in file system
+    - Any defined variable or callable
+* _Jinja_ _HTML_ template
+    - _Jinja_ Macro defined in template
+
+### Outsourcing Common Imports
+
+```yaml
+import:
+- ../base_imports.yaml
+- ./more_specific_imports.yaml
+echo: ./echo_module.py:echo_function
+```
+
+It is possible to outsource commonly used imports into dedicated _YAML_ files.
+The outsourced imports are imported in order, potentially overwriting duplicate keys with the import defined the later file or the front matter itself.
+
+### Call Blocks
+
+Call blocks are used to invoke a callable with potential parameters.
+Any import key or variable can be either directly invoked or subscripted to invoke a method or attribute.
+The parameters can be either a _YAML_ list or mapping. If no parameters are needed they can be omitted entirely.
+
+If no assignment to a variable is made, the result gets displayed unless the invocation returns an empty result.
+When assigning the result to a variable, a _Force Display Flag_ (``!``) is needed to display the result.
+
+```markdown
+{{! variable_name = ClassName.class_method_name
+argument: value
+}}
+```
+
+#### Calling a function without parameters
+
+```markdown
+{{ now }}
+```
+
+#### Calling a function with parameters
+
+```markdown
+Block with list parameters:
+
+{{ echo
+- My Message
+}}
+```
+
+```markdown
+Inline with list parameters:
+
+{{ echo [My Message] }}
+```
+
+```markdown
+Block with mapping parameters:
+
+{{ echo
+message: My Message
+}}
+```
+
+```markdown
+Inline with mapping parameters:
+
+{{ echo {message: My Message} }}
+```
+
+#### Instantiating a class
+
+```markdown
+{{! board = ChessBoard }}
+```
+
+```markdown
+{{ board.move
+move: a2a4
+}}
+```
+
+### Nesting
+
+Call blocks can be nested if needed. It is important, that they are explicitly marked as strings in _YAML_
+
+```markdown
+{{ sum
+- 42
+- "{{ my_number }}"
+}}
+```
+
+### Variable Blocks
+
+Variable blocks allow for defining multiple variables in one block.
+
+```
+{{
+number: 42
+quote: |
+  First Line.
+  Second Line.
+pi: "{{ get_pi }}"
+budget: |
+  {{ money
+  value: 12.34
+  currency: EUR
+  }}
+}}
+```
+
+### Standalone Documents
+
+Standalone documents are used to insert the result document in a _Jinja_ template together with additional meta data variables.
+
+```yaml
+---
+meta-data:
+  template: ./template.html
+  title: The Title
+  author: The Author
+today: datetime:date.today
+# ...
+```
+
+#### Outsourced Meta Data Imports
+
+The outsourcing of meta data follows the same rules like the outsourcing of imports.
+
+```yaml
+meta-data-import:
+- ../base-information.yaml
+- ./external-data.yaml
+meta-data:
+  title: Another Title
+today: datetime:date.today
+# ...
+```
+
+### Behavior
+
+If an object has an ``__html__()`` method, it is used as a representation.
+The string representation ``__str__()``is used as a fallback.
+
+The syntax to access attributes and methods can also be used to access the ``__getitem__()`` builtin method.
+
+Some data types have a default display behavior.
+For example lists of items are displayed as an _HTML_ unordered list when used in a block, and as comma-separated values when used inline.
+
+## Examples
+
+Seven examples have been implemented in the subdirectories of the directory [``examples``](./examples)
+
+## Used Libraries
+
+Without these libraries the development of the _Markdown Meta Extension_ would not have been possible. Thanks to their authors and contributors!
+
+* [``Python-Markdown``](https://python-markdown.github.io/)
+* [``Click``](https://palletsprojects.com/p/click/)
+* [``Jinja``](https://palletsprojects.com/p/jinja/)
+* [``MarkupSafe``](https://palletsprojects.com/p/markupsafe/)
+* [``PyYAML``](https://pyyaml.org/)
+* [``pathvalidate``](https://github.com/thombashi/pathvalidate)
+
+### Libraries used in Tests
+
+* [``beautifulsoup4``](https://www.crummy.com/software/BeautifulSoup/)
+* [``lxml``](https://lxml.de/)
+* [``parse``](https://github.com/r1chardj0n3s/parse)
+
+
