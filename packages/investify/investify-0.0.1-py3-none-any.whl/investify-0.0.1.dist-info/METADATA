@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: investify
+Version: 0.0.1
+Summary: Get automated price alert based on investing.com prices
+Author: Abhishek Guha
+Author-email: abhi.workspace@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: twilio (>=6.38.0,<7.0.0)
