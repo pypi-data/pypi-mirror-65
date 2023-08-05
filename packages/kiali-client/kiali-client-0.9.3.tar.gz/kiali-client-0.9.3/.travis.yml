@@ -1,0 +1,13 @@
+language: python
+python:
+- '3.6'
+script:
+- python setup.py install
+deploy:
+  provider: pypi
+  user: gbaufake
+  password:
+    secure: LycM4yjsGVJ/wfbwVRCImAzMEZCWi+fJ6ZWVjybdYllo4rqNisPtE6h7QO7KR7LPjMEV1e//Ah6QmCKf42FA4y80e/25tY+ecqNPRp8N+zRtxQke10uUFQJkjN5CWwK2OmG0zB/ewQn0XiBaXgmhK7MOF9B2OTy4bW000pIMFw42jiVMdYNtQhSnM8T/gbOJ7T5J6tORcWPYrEWXjAr/5nb0eXHSzHmDv+NVMkHi72u2qa+oINEX2PaBU2wR83MzUezeRaKg6E5vuQVuGht5rwiepFRigWJ7z63WVXkuu4Fzypm+b+nFKKbDn3sde3AGK2ss2n9718PWjAeh9aAxedBtVRZDlI8gX1SFIk3ZBP5FFZG1cr85KhEIYz/guN6NlTO0evbv1HKyxPidwHrGWB7azH9uBppO4Q3iK1ZPtXO51Z6A9pdTK7/bLPC+NMvtbuJz5BWi/NwPtQkL2jn2j3bvJCOf6chh9e4/TqCO4Pk0q43OTt8VXzLG6kjEqP0fWFBsK9OmVp1XJ94lEiEXSOeXstX9AGXDNsQSCYwUx7J03z7JvKwu9Fj6nxrVsuMKEokj+3Yvmk5GgFymPbAgW4aqMiFz00WOmnha2N4qCF/o/TTmXMLIns0hjOAY423DSAU4wVS3D55uNtQC7poVZQ/3jMi9gJxwRKENeO+SMdQ=
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
