@@ -1,0 +1,5 @@
+# Include the README, COMPILE
+include realoot/*.md
+include realoot/main/*.pyd
+include realoot/main/*.so
+include realoot/examples/*.xml
