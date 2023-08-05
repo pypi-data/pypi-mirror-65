@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "apologies"
+version = "0.1.12"
+description = "Python code to play a game similar to Sorry"
+authors = ["Kenneth J. Pronovici <pronovic@ieee.org>"]
+license = "Apache-2.0"
+readme = "PyPI.md"
+homepage = "https://apologies.readthedocs.io"
+repository = "https://github.com/pronovic/apologies"
+include = ["LICENSE", "apologies/py.typed", ]
+classifiers=[
+   "Programming Language :: Python :: 3",
+   "License :: OSI Approved :: Apache Software License",
+   "Operating System :: OS Independent",
+   "Environment :: Console",
+   "Intended Audience :: Developers",
+   "Natural Language :: English",
+   "Topic :: Games/Entertainment :: Board Games",
+   "Topic :: Software Development :: Libraries",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+attrs = "^19.3.0"
+cattrs = "^1.0.0"
+pendulum = "^2.1.0"
+orjson = "^2.6.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+coverage = "^5.0.3"
+tox = "^3.14.5"
+pylint = "^2.4.4"
+sphinx = "^2.4.4"
+toml = "^0.10.0"
+pre-commit = "^2.2.0"
+black = "^19.10b0"
+mypy = "^0.770"
+isort = "^4.3.21"
+sphinx-autoapi = "^1.2.1"
+
+[tool.black]
+line-length = 132
+target-version = ['py37', 'py38']
+include = '(src\/scripts\/.*$|\.pyi?$)'
+exclude = '''
+/(
+    \.git
+  | __pycache__
+  | \.tox
+  | build
+  | dist
+  | docs
+)/
+'''
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
