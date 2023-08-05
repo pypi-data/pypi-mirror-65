@@ -1,0 +1,35 @@
+import setuptools
+
+setuptools.setup(name='cqrcode',
+                 version='1.0',
+                 description='Generate a QR code that can adapt to the cylinder',
+                 long_description=open('README.md', 'r', encoding='utf-8').read(),
+                 author='jiaming',
+                 author_email='837357785@qq.com',
+                 url = 'https://pypi.org/project/cqrcode/',
+                 license='MIT',
+                 packages=setuptools.find_packages(),
+                 zip_safe=False,
+                 include_package_data=True,
+                 install_requires = [
+                    'Pillow>=6.1.0',
+                    'pyzbar>=0.1.8',
+                    'qrcode>=6.1',
+                    'matplotlib>=3.0.3',
+                    'opencv-python>=4.1.1.26',
+                 ],
+                 keywords='cylinder qrcode',
+                 classifiers=[
+                     "Natural Language :: Chinese (Simplified)",
+                     "Development Status :: 3 - Alpha",
+                     "Operating System :: OS Independent",
+                     "Programming Language :: Python",
+                     "Programming Language :: Python :: 3.4",
+                     "Programming Language :: Python :: 3.5",
+                     "Programming Language :: Python :: 3.6",
+                     "Programming Language :: Python :: 3.7",
+                     "Programming Language :: Python :: 3.8",
+                     "License :: OSI Approved :: MIT License",
+                     "Topic :: Utilities"
+                 ],
+)
