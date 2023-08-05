@@ -1,0 +1,213 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python/3.8.1 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.4.34
+        azure-mgmt-resource/8.0.1 Azure-SDK-For-Python
+      accept-language:
+      - en-US
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz?api-version=2019-10-01
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz","tagName":"tagxyz","count":{"type":"Total","value":0},"values":[]}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '142'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Thu, 02 Apr 2020 07:50:46 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1198'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python/3.8.1 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.4.34
+        azure-mgmt-resource/8.0.1 Azure-SDK-For-Python
+      accept-language:
+      - en-US
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz/tagValues/value1?api-version=2019-10-01
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz/tagValues/value1","tagValue":"value1","count":{"type":"Total","value":0}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '148'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Thu, 02 Apr 2020 07:50:47 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1197'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python/3.8.1 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.4.34
+        azure-mgmt-resource/8.0.1 Azure-SDK-For-Python
+      accept-language:
+      - en-US
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/tagNames?api-version=2019-10-01
+  response:
+    body:
+      string: '{"value":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/ms-resource-usage","tagName":"ms-resource-usage","count":{"type":"Total","value":1},"values":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/ms-resource-usage/tagValues/azure-cloud-shell","tagValue":"azure-cloud-shell","count":{"type":"Total","value":1}}]},{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tag1","tagName":"tag1","count":{"type":"Total","value":3},"values":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tag1/tagValues/Red","tagValue":"Red","count":{"type":"Total","value":3}}]},{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tag2","tagName":"tag2","count":{"type":"Total","value":3},"values":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tag2/tagValues/White","tagValue":"White","count":{"type":"Total","value":3}}]},{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz","tagName":"tagxyz","count":{"type":"Total","value":0},"values":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz/tagValues/value1","tagValue":"value1","count":{"type":"Total","value":0}}]},{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/What
+        Is Cleanup Service","tagName":"What Is Cleanup Service","count":{"type":"Total","value":1},"values":[{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/What
+        Is Cleanup Service/tagValues/https://aka.ms/WhatIsCleanupService","tagValue":"https://aka.ms/WhatIsCleanupService","count":{"type":"Total","value":1}}]}]}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '1610'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Thu, 02 Apr 2020 07:50:48 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python/3.8.1 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.4.34
+        azure-mgmt-resource/8.0.1 Azure-SDK-For-Python
+      accept-language:
+      - en-US
+    method: DELETE
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz/tagValues/value1?api-version=2019-10-01
+  response:
+    body:
+      string: ''
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '0'
+      date:
+      - Thu, 02 Apr 2020 07:50:49 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-deletes:
+      - '14998'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python/3.8.1 (Windows-10-10.0.18362-SP0) msrest/0.6.11 msrest_azure/0.4.34
+        azure-mgmt-resource/8.0.1 Azure-SDK-For-Python
+      accept-language:
+      - en-US
+    method: DELETE
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/tagNames/tagxyz?api-version=2019-10-01
+  response:
+    body:
+      string: ''
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '0'
+      date:
+      - Thu, 02 Apr 2020 07:50:51 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-deletes:
+      - '14997'
+    status:
+      code: 200
+      message: OK
+version: 1
