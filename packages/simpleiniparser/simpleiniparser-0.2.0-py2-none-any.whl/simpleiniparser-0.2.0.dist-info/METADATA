@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: simpleiniparser
+Version: 0.2.0
+Summary: Simple tooling to seamlessly parse ini file
+Home-page: https://github.com/cgte/simpleiniparser
+Author: Colin Goutte
+Author-email: colin.goutte@free.fr
+License: Apache 2
+Keywords: ini utilities
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+
+It may feel boring to rewrite a parser fore every project you start.
+
+Filling your ini file with pythonic values will make you save time.
+
+Does the boring stuff for you as long as you behave like a conscenting adult.
+
+```python
+
+  >>> config = """
+  ... [SECTION]
+  ... intvalue=2
+  ... floatvalue=7.8
+  ... stringvalue=some_value
+  ... cr_list = item1
+  ...           item2
+  ... boolean=False
+  ... comma_list_s='abc','def'
+  ... comma_list_i=1,2,3
+  ... comma_list_f=1.0,2.5,3
+  ... """
+  ...
+
+  >>> from simpleiniparser.simple_iniconfig_parser import from_string
+  >>> config = from_string(config)
+
+  >>> config['SECTION']['floatvalue']
+  7.8
+  >>> config['SECTION']['cr_list']
+  ['item1', 'item2']
+
+"""
+
+```
+
+
