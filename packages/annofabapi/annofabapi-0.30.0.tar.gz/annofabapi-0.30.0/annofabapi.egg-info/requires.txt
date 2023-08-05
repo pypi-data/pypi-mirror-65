@@ -1,0 +1,7 @@
+requests
+python-dateutil
+backoff
+dataclasses-json
+
+[:python_version < "3.7"]
+dataclasses
