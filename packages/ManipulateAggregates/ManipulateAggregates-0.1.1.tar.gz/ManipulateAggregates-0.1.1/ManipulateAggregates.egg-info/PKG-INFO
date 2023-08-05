@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: ManipulateAggregates
+Version: 0.1.1
+Summary: Manipulate molecular DOF and scan PES of aggregates
+Home-page: https://github.com/razziel89/ManipulateAggregates
+Author: Torsten Sachse
+License: UNKNOWN
+Description: # GENERAL
+        
+        Please see the documentation for all detailed descriptions of
+        ManipulateAggregates on <https://razziel89.github.io/ManipulateAggregates/>
+        (provided via GitHub pages).
+        
+        # Contributing
+        
+        Contributions are very welcome!
+        Please simply open a pull request.
+        If you would like to make large-ish contributions, it might be prudent to first
+        contact the maintainer to better co-ordinate those efforts.
+        
+        This project uses the following auto-formatter:
+        * Python code: black (the uncompromising Python code formatter)
+          <https://github.com/psf/black>
+        
+        Please make sure to auto-format your pull request with those options.
+        Furthermore, please document any code you add.
+        Happy contributing!
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
