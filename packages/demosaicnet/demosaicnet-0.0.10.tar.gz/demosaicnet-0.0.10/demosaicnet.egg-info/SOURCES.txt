@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+demosaicnet/__init__.py
+demosaicnet/dataset.py
+demosaicnet/modules.py
+demosaicnet/mosaic.py
+demosaicnet/version.py
+demosaicnet.egg-info/PKG-INFO
+demosaicnet.egg-info/SOURCES.txt
+demosaicnet.egg-info/dependency_links.txt
+demosaicnet.egg-info/requires.txt
+demosaicnet.egg-info/top_level.txt
+demosaicnet/data/bayer.pth
+demosaicnet/data/test_input.png
+demosaicnet/data/xtrans.pth
+scripts/demosaicnet_demo
