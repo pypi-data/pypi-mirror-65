@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: component-contribution
+Version: 0.3.0b6
+Summary: Cache application for compounds, reactions, and enzymes
+Home-page: https://github.com/eladnoor/component-contribution
+Author: 
+Requires-Dist: equilibrator-cache (==0.3.0b6)
+Requires-Dist: path (>=13.2.0)
+Requires-Dist: uncertainties (>=3.1)
+Provides-Extra: deployment
+Requires-Dist: click ; extra == 'deployment'
+Requires-Dist: click-log ; extra == 'deployment'
+Requires-Dist: openbabel (>=2.4.1) ; extra == 'deployment'
+Requires-Dist: python-dateutil ; extra == 'deployment'
+Requires-Dist: requests ; extra == 'deployment'
+Requires-Dist: tqdm ; extra == 'deployment'
+Requires-Dist: periodictable ; extra == 'deployment'
+Provides-Extra: development
+Requires-Dist: black ; extra == 'development'
+Requires-Dist: isort ; extra == 'development'
+Requires-Dist: tox ; extra == 'development'
+
+Elad Noor
+Moritz E. Beber
+Author-email: 
+noor@imsb.biol.ethz.ch
+morbeb@biosustain.dtu.dk
+License: MIT License
+Download-URL: https://eladnoor.github.io/component-contribution/
+Description: UNKNOWN
+Keywords: component contribution,Gibbs energy,biochemical reaction,eQuilibrator,cache
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Provides-Extra: development
+Provides-Extra: deployment
