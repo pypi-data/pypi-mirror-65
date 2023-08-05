@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: emmental
+Version: 0.0.6
+Summary: A framework for building multi-modal multi-task learning systems.
+Home-page: https://github.com/SenWu/emmental
+Author: Sen Wu
+Author-email: senwu@cs.stanford.edu
+License: MIT
+Project-URL: Tracker, https://github.com/SenWu/emmental/issues
+Project-URL: Source, https://github.com/SenWu/emmental
+Keywords: emmental,multi task learning,deep learing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Requires-Dist: numpy (<2.0,>=1.11)
+Requires-Dist: pyyaml (<6.0,>=5.1)
+Requires-Dist: scikit-learn (<0.30.0,>=0.20.0)
+Requires-Dist: scipy (<2.0.0,>=1.1.0)
+Requires-Dist: tensorboard (<3.0.0,>=1.15.0)
+Requires-Dist: torch (<2.0.0,>=1.3.1)
+Requires-Dist: tqdm (<5.0.0,>=4.36.0)
+
+|Emmental|
+==========
+
+|CI-CD| |CodeClimate| |Coveralls| |ReadTheDocs| |PyPI| |PyPIVersion| |GitHubStars| |License| |CodeStyle|
+
+Emmental is a framework for building multi-modal multi-task learning systems.
+
+Note that Emmental is still *actively under development*, so feedback and
+contributions are welcome. Submit bugs in the Issues_ section or feel free to
+submit your contributions as a pull request.
+
+Getting Started
+---------------
+
+Check out our `Getting Started Guide`_ to get up and running with Emmental.
+
+Learning how to use Emmental
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The `Emmental tutorials`_ cover the Emmental workflow, showing how to build
+multi-modal multi-task learning systems.
+
+Reference
+---------
+
+`Emmental: A framework for building multi-modal multi-task learning systems`::
+
+    @misc{wu2019emmental,
+      title={Emmental: A framework for building multi-modal multi-task learning systems},
+      author={Wu, Sen},
+      year={2019},
+    }
+
+
+.. |Emmental| image:: docs/static/img/emmental-logo.png
+   :target: https://github.com/SenWu/emmental
+.. |CodeClimate| image:: https://img.shields.io/codeclimate/maintainability/SenWu/emmental.svg
+   :alt: Code Climate
+   :target: https://codeclimate.com/github/SenWu/emmental
+.. |CI-CD| image:: https://img.shields.io/github/workflow/status/SenWu/emmental/ci.svg
+    :target: https://github.com/SenWu/emmental/actions
+.. |Coveralls| image:: https://img.shields.io/coveralls/github/SenWu/emmental.svg
+   :target: https://coveralls.io/github/SenWu/emmental
+.. |ReadTheDocs| image:: https://img.shields.io/readthedocs/emmental.svg
+   :target: https://emmental.readthedocs.io/
+.. |PyPI| image:: https://img.shields.io/pypi/v/emmental.svg
+   :target: https://pypi.org/project/emmental/
+.. |PyPIVersion| image:: https://img.shields.io/pypi/pyversions/emmental.svg
+   :target: https://pypi.org/project/emmental/
+.. |GitHubStars| image:: https://img.shields.io/github/stars/SenWu/emmental.svg
+   :target: https://github.com/SenWu/emmental/stargazers
+.. |License| image:: https://img.shields.io/github/license/SenWu/emmental.svg
+   :target: https://github.com/SenWu/emmental/blob/master/LICENSE
+.. |CodeStyle| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/ambv/black
+
+.. _Getting Started Guide: https://emmental.readthedocs.io/en/latest/user/getting_started.html
+.. _Emmental tutorials: https://github.com/SenWu/emmental-tutorials
+.. _Issues: https://github.com/SenWu/emmental/issues/
+
+
