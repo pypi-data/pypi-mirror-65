@@ -1,0 +1,4 @@
+VERSION = "2.3.1"
+PACKAGE_VERSION = "2.3.1"
+BUILD = ""
+IS_RELEASE = False
