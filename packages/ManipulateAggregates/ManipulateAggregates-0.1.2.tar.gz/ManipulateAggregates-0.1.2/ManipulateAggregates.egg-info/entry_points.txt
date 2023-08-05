@@ -1,0 +1,5 @@
+[console_scripts]
+energyscan = ManipulateAggregates.bin.energyscan:entrypoint
+hashsort = ManipulateAggregates.bin.hashsort:entrypoint
+manipagg = ManipulateAggregates.bin.manipagg:entrypoint
+
