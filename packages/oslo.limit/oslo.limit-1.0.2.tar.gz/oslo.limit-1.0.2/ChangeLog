@@ -1,0 +1,86 @@
+CHANGES
+=======
+
+1.0.2
+-----
+
+* Update to hacking 3.0
+* Update hacking for Python3
+* Use unittest.mock instead of third party mock
+* Update the minversion parameter
+* ignore reno generated artifacts
+* drop use of six
+
+1.0.1
+-----
+
+* oslo.limit mistakenly released as 1.0.0 (release note)
+* remove outdated header
+
+1.0.0
+-----
+
+* [ussuri][goal] Drop python 2.7 support and testing
+* Trivial cleanup for tox
+
+0.3.0
+-----
+
+* Add devstack job to .zuul.conf
+* Add flat enforcer
+* Fetch unified limits from keystone
+* Pick between Flat and StrictTwoLevel enforcement
+* Add ksa connection logic
+* tox: Keeping going with docs
+
+0.2.0
+-----
+
+* Update master for stable/train
+
+0.1.1
+-----
+
+* Add Python 3 Train unit tests
+
+0.1.0
+-----
+
+* Rename filter\_resource resource\_filters
+* Add skeleton enforce() method to Enforcer
+* Remove \_\_enter\_\_ and \_\_exit\_\_ methods from Enforcer
+* Remove verification functionality
+* Remove ProjectClaim object from oslo.limit
+* Sync Sphinx requirement
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Update the min version of tox
+* Drop py35 jobs
+* Add py36 and py37 tox envs
+* Add python3.7 job on Stein+
+* add python 3.7 unit test job
+* Update hacking version
+* fix the url in doc
+* Use template for lower-constraints
+* Update mailinglist from dev to discuss
+* Clean up .gitignore references to personal tools
+* Fix doc grammar/spelling nits
+* Use openstackdocstheme for documentation
+* Add a conceptual overview to docs
+* Render API reference documentation
+* Ignore documentation builds
+* Add opts file
+* add lib-forward-testing-python3 test job
+* add python 3.6 unit test job
+* import zuul job settings from project-config
+* fix doc gate
+* ADD i18n file
+* Fix CI
+* Add .zuul.yaml
+* Implement basic Enforcer context manager
+* Implement ProjectClaim objects
+* Convert tox.ini to using stestr
+* Update url in HACKING.rst
+* fix tox python3 overrides
+* Init repo
+* Added .gitreview
