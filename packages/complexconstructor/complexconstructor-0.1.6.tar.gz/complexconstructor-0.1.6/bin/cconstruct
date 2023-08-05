@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import complexconstructor.argparser as argparser
+import complexconstructor.logProgress as logProgress
+from complexconstructor.utilities import *
+
+# Read the command line arguments and check format
+options = argparser.readArgs()
+inputData = checkCommands(options)  
+
+# Store input information 
+inputFiles=inputData[0]
+pdb_files = inputFiles[:-1]
+fasta_file = inputFiles[-1]
+st_file=inputData[1] # if there is not stoichiometry = None
+out_directory=inputData[2] 
+
+# Identify common elements between different pairs
+a = data_extraction(pdb_files,fasta_file,inputData[3])
+b = seq_dictionary(a)
+
+# Add possible stoichimetry 
+stoich=stoichometry(st_file,b)
+if inputData[3]:
+    logProgress.progress(out_directory,b,stoich)
+
+# Build the structure
+mycomplex=constructor(b,stoich,inputData[3])
+
+# Write results in output directory
+resultFile=out_directory+"_model.pdb"
+# write_pdb(mycomplex,out_directory,resultFile)
+path = out_directory+"/"+resultFile
+write_pdb(mycomplex,path)
+if inputData[3]:
+    logProgress.end(out_directory, resultFile)
