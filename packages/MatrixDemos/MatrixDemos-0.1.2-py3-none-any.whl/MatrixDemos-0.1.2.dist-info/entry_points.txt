@@ -1,0 +1,10 @@
+[console_scripts]
+matrix_analogclock = matrixdemos.scripts.AnalogClock:main
+matrix_animations = matrixdemos.scripts.Animations:main
+matrix_digitalclock = matrixdemos.scripts.DigitalClock:main
+matrix_scrolling = matrixdemos.scripts.Scrolling:main
+matrix_slideshow = matrixdemos.scripts.Slideshow:main
+matrix_snakegame = matrixdemos.scripts.SnakeyGame:main
+matrix_stars = matrixdemos.scripts.Stars:main
+matrix_textswarm = matrixdemos.scripts.TextSwarm:main
+
