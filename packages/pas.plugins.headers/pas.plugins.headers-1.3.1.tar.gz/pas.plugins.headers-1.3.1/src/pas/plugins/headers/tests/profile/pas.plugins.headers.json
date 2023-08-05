@@ -1,0 +1,20 @@
+{
+    "purge": true,
+    "allowed_roles": [
+        "Member",
+        "Zebra"
+    ],
+    "deny_unauthorized": true,
+    "create_ticket": true,
+    "memberdata_to_header": [
+        "uid|HEADER_uid|lower",
+        "fullname|HEADER_firstname HEADER_lastname"
+    ],
+    "redirect_url": "https://maurits.vanrees.org",
+    "required_headers": [
+        "uid",
+        "test"
+    ],
+    "roles_header": "roles",
+    "userid_header": "uid"
+}

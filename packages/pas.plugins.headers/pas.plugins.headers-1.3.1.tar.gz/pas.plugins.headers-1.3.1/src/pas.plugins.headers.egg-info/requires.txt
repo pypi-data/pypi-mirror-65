@@ -1,0 +1,9 @@
+Products.GenericSetup>=1.8.2
+Products.PluggableAuthService
+setuptools
+six>=1.12.0
+
+[test]
+plone.api
+plone.app.testing
+plone.testing
