@@ -1,0 +1,4 @@
+[pandalone.xleash.plugins]
+pandas_filters = pandalone.xleash._pandas_filters:load_as_xleash_plugin [pandas]
+xlrd_be = pandalone.xleash.io._xlrd:load_as_xleash_plugin [xlrd]
+
