@@ -1,0 +1,108 @@
+#!/usr/bin/env python
+
+"""
+This script deforms an image according to an input deformation field using SPAM functions
+Copyright (C) 2020 SPAM Contributors
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+This script can be very useful for generating deformed images to calculate a residual field
+
+The current implementation will mesh correlation points with tetrahedra and deform them with displacements,
+this has the advantage of speed, but the interpolation of displacements is approximative.
+
+We don't use the more accurate `spam.DIC.deformationFunction.applyPhiField` which is slow for large images
+
+"""
+from __future__ import print_function
+
+import numpy
+import argparse
+import spam.helpers
+import spam.mesh
+import spam.label
+import spam.DIC
+import spam.deformation
+import tifffile
+
+# Define argument parser object
+parser = argparse.ArgumentParser(description="spam-deformImageFromField "+spam.helpers.optionsParser.GLPv3descriptionHeader +\
+                                             "This deforms our input image according to some measured kinematics.\n"+\
+                                             "If a registration is given, it is wholly applied, otherwise if a displacement"+\
+                                             "field is given, it is triangulated and the displacements are applied",
+                                 formatter_class=argparse.RawTextHelpFormatter)
+
+# Parse arguments with external helper function
+args = spam.helpers.optionsParser.deformImageFromFieldParser(parser)
+
+# Read displacements file
+TSV = spam.helpers.readCorrelationTSV(args.PHIFILE.name, fieldBinRatio=args.PHIFILE_BIN_RATIO, readFs=True, readEverything=False, readConvergence=True)
+
+im = tifffile.imread(args.inFile.name)
+
+# in case of a registration (assuming it's applied in the middle of the volume)
+if TSV['PhiField'].shape[0] == 1:
+    print("Registration mode, assuming Phi should be applied in the middle")
+    imdef = spam.DIC.applyPhi(im, Phi=TSV['PhiField'][0])
+
+else:
+    # Define a linear mask for points
+    mask = numpy.zeros(TSV['fieldCoords'].shape[0], dtype=bool)
+
+    # Accept points that have converged
+    mask[TSV['returnStatus']==2] = True
+
+    if args.RADIUS is not None:
+        # Also exclude based on radius
+        radius = args.RADIUS
+        y = TSV['fieldCoords'][:,1].copy()
+        y -= (im.shape[1]-1)/2.0
+        x = TSV['fieldCoords'][:,2].copy()
+        x -= (im.shape[2]-1)/2.0
+        r = numpy.sqrt( numpy.square(x) + numpy.square(y))
+        mask[r > args.RADIUS] = False
+
+    print("Proportion of correlation points included {:0.0f}%".format(100*(mask.sum()/(len(mask)-1))))
+
+    # update points
+    points = TSV['fieldCoords'][mask]
+    # update displacements
+    disp = TSV['PhiField'][mask][:,0:3,-1]
+    print("\tnPoints = ",points.shape[0])
+
+    # 2019-12-10 EA and OS: triangulate in the deformed configuration
+    conn = spam.mesh.triangulate(points+disp, alpha=args.TRI_ALPHA)
+    print("\tnTets = ",conn.shape[0])
+
+    print("\tGenerating labelled tet image... ", end='')
+    # 2019-12-10 EA and OS: label tetrahedra in deformed configuration
+    tetLabel = spam.label.labelTetrahedra(im.shape, points+disp, conn)
+    print("done")
+
+    print("Interpolating image... ", end='')
+    imdef = numpy.zeros_like(im, dtype='<f4')
+
+    # 2019-12-10 EA and OS: look up pixels, remember im is the reference configuration that we are deforming
+    spam.DIC.DICToolkit.applyMeshTransformation(im.astype('<f4'),
+                                                tetLabel.astype("<u4"),
+                                                imdef,
+                                                conn.astype("<u4"),
+                                                (points+disp).astype("<f8"),
+                                                disp.astype("<f8"))
+    print("done")
+
+print("Saving deformed image:\n\t{}".format(args.OUT_DIR + "/" + args.PREFIX + ".tif"))
+tifffile.imsave(args.OUT_DIR + "/" + args.PREFIX + ".tif", imdef.astype(im.dtype))
