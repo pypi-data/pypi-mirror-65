@@ -1,0 +1,25 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Insee IRIS Geolocalization">
+    <meta name="keywords" content="Insee,IRIS,geolocalization,data,datavisualization,statistics,python,postgresql,GIS,census">
+    <meta name="author" content="damien garaud">
+    {% include 'pyris-css.html' %}
+
+    <title>pyris INSEE IRIS</title>
+  </head>
+
+  <body>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+
+  {% include 'pyris-js.html' %}
+
+  {% block appjs %}
+  {% endblock %}
+
+</html>
