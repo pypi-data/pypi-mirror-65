@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: restd
+Version: 0.0.4
+Summary: Flexible and extensible REST
+Home-page: https://github.com/cdoconno/restd
+Author: Chris O'Connor
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Framework :: Flake8
+Classifier: Framework :: tox
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml
+Requires-Dist: requests
+
+# restd
+A REST daemon with plugin support for route actions
+
+
