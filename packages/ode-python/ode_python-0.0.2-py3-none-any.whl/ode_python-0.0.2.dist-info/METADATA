@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: ode-python
+Version: 0.0.2
+Summary: Open Dynamics Engine (ODE) python binding.
+Home-page: https://github.com/qoosky/ode-python
+Author: Qoosky
+Author-email: qoosky.webshop@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+# ode-python
+
+This is yet another Python binding of [Open Dynamics Engine (ODE)](https://www.ode.org/).
+
+# Instalation
+
+Python3 on Linux system is required.
+
+	pip3 install ode-python
+
+Please install ODE or cmake beforehand. pip3 first tries to build and install ODE using cmake if ODE cannot be found on the system.
+
+For example, on debian:
+
+	apt install cmake
+
+or
+
+	apt install libode-dev
+
+# Uploading to PyPI
+
+Please refer to [this page](https://packaging.python.org/tutorials/packaging-projects/).
+
+	python3 -m pip install --user --upgrade setuptools wheel
+	python3 -m pip install --user --upgrade twine
+
+	python3 setup.py sdist bdist_wheel
+
+	python3 -m twine upload --repository testpypi dist/*
+	python3 -m twine upload --repository pypi dist/*
+
+
