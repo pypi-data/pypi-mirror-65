@@ -1,0 +1,1305 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/remo_whiskers_green_large_v20.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>API - remo docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/test.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#class-remoapiapi" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Application header -->
+<header class="md-header header-custom" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <a href="../.."
+           title="remo docs"
+           aria-label="remo docs"
+           class="md-header-nav__button md-logo">
+          
+          <img alt="logo" height="40px" width="127px" src="../../img/remo-logo.png" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+               for="__drawer"></label>
+      </div>
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch links-container vertical-align-middle">
+        <div class="md-flex__ellipsis md-header-nav__title links-container "
+             data-md-component="title">
+          <a class="remo-link vertical-align-middle" href="https://support.remo.ai" target="_blank">Support</a>
+          <a class="remo-link vertical-align-middle text-underline" href="">Docs</a>
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        
+        <label class="md-icon md-icon--search md-header-nav__button"
+               for="__search"></label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="remo docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../img/remo-logo.png" width="48" height="48">
+      
+    </a>
+    remo docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Quick Start" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python Library
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python Library
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk-intro/" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_remo-python/" title="Intro Tutorial" class="md-nav__link">
+      Intro Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial_upload_annotations/" title="Upload Annotations Tutorial" class="md-nav__link">
+      Upload Annotations Tutorial
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../annotation-tool/" title="Annotation tool" class="md-nav__link">
+      Annotation tool
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../annotation-formats/" title="Annotation formats" class="md-nav__link">
+      Annotation formats
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced-topics/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Python Library Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Python Library Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sdk/" title="SDK" class="md-nav__link">
+      SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dataset/" title="Dataset" class="md-nav__link">
+      Dataset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../image/" title="Image" class="md-nav__link">
+      Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../annotation_set/" title="Annotation set" class="md-nav__link">
+      Annotation set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../annotation/" title="Annotation" class="md-nav__link">
+      Annotation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        API
+      </label>
+    
+    <a href="./" title="API" class="md-nav__link md-nav__link--active">
+      API
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-remoapiapi" class="md-nav__link">
+    class remo.api.API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add_annotation" class="md-nav__link">
+    add_annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bulk_upload_files" class="md-nav__link">
+    bulk_upload_files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chunks" class="md-nav__link">
+    chunks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_annotation_set" class="md-nav__link">
+    create_annotation_set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_dataset" class="md-nav__link">
+    create_dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_dataset" class="md-nav__link">
+    delete_dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export_annotations" class="md-nav__link">
+    export_annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_annotation_info" class="md-nav__link">
+    get_annotation_info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_annotation_set" class="md-nav__link">
+    get_annotation_set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_dataset" class="md-nav__link">
+    get_dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_image" class="md-nav__link">
+    get_image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_image_content" class="md-nav__link">
+    get_image_content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_annotation_set_classes" class="md-nav__link">
+    list_annotation_set_classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_annotation_sets" class="md-nav__link">
+    list_annotation_sets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_dataset_contents" class="md-nav__link">
+    list_dataset_contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_dataset_contents_by_folder" class="md-nav__link">
+    list_dataset_contents_by_folder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_dataset_images" class="md-nav__link">
+    list_dataset_images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_datasets" class="md-nav__link">
+    list_datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search_images" class="md-nav__link">
+    search_images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split_files_by_size" class="md-nav__link">
+    split_files_by_size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_file" class="md-nav__link">
+    upload_file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_files" class="md-nav__link">
+    upload_files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_local_files" class="md-nav__link">
+    upload_local_files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_urls" class="md-nav__link">
+    upload_urls
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-remoapibaseapi" class="md-nav__link">
+    class remo.api.BaseAPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    post
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    url
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-remoapiuploadstatus" class="md-nav__link">
+    class remo.api.UploadStatus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progress" class="md-nav__link">
+    progress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../task/" title="Annotation tasks" class="md-nav__link">
+      Annotation tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../class_encodings/" title="Class encodings" class="md-nav__link">
+      Class encodings
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-remoapiapi" class="md-nav__link">
+    class remo.api.API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add_annotation" class="md-nav__link">
+    add_annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bulk_upload_files" class="md-nav__link">
+    bulk_upload_files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chunks" class="md-nav__link">
+    chunks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_annotation_set" class="md-nav__link">
+    create_annotation_set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_dataset" class="md-nav__link">
+    create_dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_dataset" class="md-nav__link">
+    delete_dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export_annotations" class="md-nav__link">
+    export_annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_annotation_info" class="md-nav__link">
+    get_annotation_info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_annotation_set" class="md-nav__link">
+    get_annotation_set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_dataset" class="md-nav__link">
+    get_dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_image" class="md-nav__link">
+    get_image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_image_content" class="md-nav__link">
+    get_image_content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_annotation_set_classes" class="md-nav__link">
+    list_annotation_set_classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_annotation_sets" class="md-nav__link">
+    list_annotation_sets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_dataset_contents" class="md-nav__link">
+    list_dataset_contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_dataset_contents_by_folder" class="md-nav__link">
+    list_dataset_contents_by_folder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_dataset_images" class="md-nav__link">
+    list_dataset_images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_datasets" class="md-nav__link">
+    list_datasets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search_images" class="md-nav__link">
+    search_images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split_files_by_size" class="md-nav__link">
+    split_files_by_size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_file" class="md-nav__link">
+    upload_file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_files" class="md-nav__link">
+    upload_files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_local_files" class="md-nav__link">
+    upload_local_files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_urls" class="md-nav__link">
+    upload_urls
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-remoapibaseapi" class="md-nav__link">
+    class remo.api.BaseAPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    post
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    url
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-remoapiuploadstatus" class="md-nav__link">
+    class remo.api.UploadStatus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progress" class="md-nav__link">
+    progress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>API</h1>
+                
+                <p>The API class is in charge of calling remo end-points.
+You shouldn’t need to look here, except if you want to implement new end-points.</p>
+<h2 id="class-remoapiapi">class remo.api.API<a class="headerlink" href="#class-remoapiapi" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">remo</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="add_annotation">add_annotation<a class="headerlink" href="#add_annotation" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">add_annotation</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">annotation_set_id</span><span class="p">,</span> <span class="n">image_id</span><span class="p">,</span> <span class="n">existing_annotations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="bulk_upload_files">bulk_upload_files<a class="headerlink" href="#bulk_upload_files" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">bulk_upload_files</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">files_to_upload</span><span class="p">,</span> <span class="n">annotation_task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">folder_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">annotation_set_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="chunks">chunks<a class="headerlink" href="#chunks" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">chunks</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="create_annotation_set">create_annotation_set<a class="headerlink" href="#create_annotation_set" title="Permanent link">&para;</a></h2>
+<p>Creates a new empty annotation set
+:param - annotation_task: str.</p>
+<blockquote>
+<p>name of the annotation task</p>
+</blockquote>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">create_annotation_set</span><span class="p">(</span><span class="n">annotation_task</span><span class="p">,</span> <span class="n">dataset_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[])</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>dataset_id</strong> (<em>-</em>) – int.
+the id of the dataset to create new annotation set</p>
+</li>
+<li>
+<p><strong>name</strong> (<em>-</em>) – str.
+Name of the annotation set to create.</p>
+</li>
+<li>
+<p><strong>classes</strong> (<em>-</em>) – list of str.
+list of classes.
+Example: [‘Cat’, ‘Dog’]</p>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<hr />
+<h2 id="create_dataset">create_dataset<a class="headerlink" href="#create_dataset" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">create_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="delete_dataset">delete_dataset<a class="headerlink" href="#delete_dataset" title="Permanent link">&para;</a></h2>
+<p>Deletes dataset</p>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">delete_dataset</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><strong>Parameters</strong></p>
+<p><strong>dataset_id</strong> – dataset id</p>
+</li>
+</ul>
+</details>
+<hr />
+<h2 id="export_annotations">export_annotations<a class="headerlink" href="#export_annotations" title="Permanent link">&para;</a></h2>
+<p>Exports annotations in given format</p>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">export_annotations</span><span class="p">(</span><span class="n">annotation_set_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">annotation_format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="n">export_coordinates</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="n">full_path</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>annotation_set_id</strong> – annotation set id</p>
+</li>
+<li>
+<p><strong>annotation_format</strong> – can be one of [‘json’, ‘coco’, ‘csv’], default=’json’</p>
+</li>
+<li>
+<p><strong>full_path</strong> – uses full image path (e.g. local path), can be one of [‘true’, ‘false’], default=’false’</p>
+</li>
+<li>
+<p><strong>export_coordinates</strong> – converts output values to percentage or pixels, can be one of [‘pixel’, ‘percent’], default=’pixel’</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Returns</strong></p>
+<p>annotation file content</p>
+</li>
+</ul>
+</details>
+<hr />
+<h2 id="get_annotation_info">get_annotation_info<a class="headerlink" href="#get_annotation_info" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">get_annotation_info</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">annotation_set_id</span><span class="p">,</span> <span class="n">image_id</span><span class="p">)</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>dataset_id</strong> – dataset id</p>
+</li>
+<li>
+<p><strong>annotation_set_id</strong> – annotation set id</p>
+</li>
+<li>
+<p><strong>image_id</strong> – image id</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Returns: annotations info</p>
+</details>
+<hr />
+<h2 id="get_annotation_set">get_annotation_set<a class="headerlink" href="#get_annotation_set" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">get_annotation_set</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="get_dataset">get_dataset<a class="headerlink" href="#get_dataset" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">get_dataset</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="get_image">get_image<a class="headerlink" href="#get_image" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">get_image</span><span class="p">(</span><span class="n">image_id</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="get_image_content">get_image_content<a class="headerlink" href="#get_image_content" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">get_image_content</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="list_annotation_set_classes">list_annotation_set_classes<a class="headerlink" href="#list_annotation_set_classes" title="Permanent link">&para;</a></h2>
+<p>Lists annotation set classes</p>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">list_annotation_set_classes</span><span class="p">(</span><span class="n">annotation_set_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><strong>Parameters</strong></p>
+<p><strong>annotation_set_id</strong> – int.</p>
+</li>
+</ul>
+<p>Returns: list of classes</p>
+</details>
+<hr />
+<h2 id="list_annotation_sets">list_annotation_sets<a class="headerlink" href="#list_annotation_sets" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">list_annotation_sets</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="list_dataset_contents">list_dataset_contents<a class="headerlink" href="#list_dataset_contents" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">list_dataset_contents</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="list_dataset_contents_by_folder">list_dataset_contents_by_folder<a class="headerlink" href="#list_dataset_contents_by_folder" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">list_dataset_contents_by_folder</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">folder_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="list_dataset_images">list_dataset_images<a class="headerlink" href="#list_dataset_images" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">list_dataset_images</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="list_datasets">list_datasets<a class="headerlink" href="#list_datasets" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">list_datasets</span><span class="p">()</span>
+</code></pre></div>
+
+</details>
+<h2 id="search_images">search_images<a class="headerlink" href="#search_images" title="Permanent link">&para;</a></h2>
+<p>Search images given a list of classes and tasks
+:param classes: string or list of strings - search for images which match all given classes
+:param task: string - annotation task
+:param dataset_id: int - performs search in given dataset otherwise in all datasets
+:param limit: int - limits search result</p>
+<p>Returns: dictionary of image_id, dataset_id, name, preview, annotations, classes, dimensions</p>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">search_images</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dataset_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="split_files_by_size">split_files_by_size<a class="headerlink" href="#split_files_by_size" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">split_files_by_size</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="upload_file">upload_file<a class="headerlink" href="#upload_file" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">upload_file</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">annotation_task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">folder_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="upload_files">upload_files<a class="headerlink" href="#upload_files" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">upload_files</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">files_to_upload</span><span class="o">=</span><span class="p">[],</span> <span class="n">annotation_task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">folder_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">annotation_set_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="upload_local_files">upload_local_files<a class="headerlink" href="#upload_local_files" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">upload_local_files</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">local_files</span><span class="p">,</span> <span class="n">annotation_task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">folder_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">annotation_set_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="upload_urls">upload_urls<a class="headerlink" href="#upload_urls" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">upload_urls</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">urls</span><span class="p">,</span> <span class="n">annotation_task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">folder_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">annotation_set_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="class-remoapibaseapi">class remo.api.BaseAPI<a class="headerlink" href="#class-remoapibaseapi" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">remo</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">BaseAPI</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="delete">delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">delete</span><span class="p">(</span>\<span class="o">*</span><span class="n">args</span><span class="p">,</span> \<span class="o">*</span>\<span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="get">get<a class="headerlink" href="#get" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">get</span><span class="p">(</span>\<span class="o">*</span><span class="n">args</span><span class="p">,</span> \<span class="o">*</span>\<span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="post">post<a class="headerlink" href="#post" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">post</span><span class="p">(</span>\<span class="o">*</span><span class="n">args</span><span class="p">,</span> \<span class="o">*</span>\<span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="url">url<a class="headerlink" href="#url" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">url</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> \<span class="o">*</span><span class="n">args</span><span class="p">,</span> \<span class="o">*</span>\<span class="o">*</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="class-remoapiuploadstatus">class remo.api.UploadStatus<a class="headerlink" href="#class-remoapiuploadstatus" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">remo</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">UploadStatus</span><span class="p">(</span><span class="n">total_count</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="progress">progress<a class="headerlink" href="#progress" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">progress</span><span class="p">()</span>
+</code></pre></div>
+
+</details>
+<h2 id="update">update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h2>
+<details class="abstract"><summary>documentation</summary><div class="codehilite"><pre><span></span><code><span class="n">update</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../annotation/" title="Annotation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Annotation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../task/" title="Annotation tasks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Annotation tasks
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.df00da5d.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

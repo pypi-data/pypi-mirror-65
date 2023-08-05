@@ -1,0 +1,1130 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/remo_whiskers_green_large_v20.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Api - remo docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/test.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#annotations" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+  Copyright (c) 2016-2020 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Application header -->
+<header class="md-header header-custom" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <a href="../.."
+           title="remo docs"
+           aria-label="remo docs"
+           class="md-header-nav__button md-logo">
+          
+          <img alt="logo" height="40px" width="127px" src="../../img/remo-logo.png" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+               for="__drawer"></label>
+      </div>
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch links-container vertical-align-middle">
+        <div class="md-flex__ellipsis md-header-nav__title links-container "
+             data-md-component="title">
+          <a class="remo-link vertical-align-middle" href="https://support.remo.ai" target="_blank">Support</a>
+          <a class="remo-link vertical-align-middle text-underline" href="">Docs</a>
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink vertical-align-middle">
+        
+        <label class="md-icon md-icon--search md-header-nav__button"
+               for="__search"></label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="remo docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../img/remo-logo.png" width="48" height="48">
+      
+    </a>
+    remo docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Quick Start" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python Library
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python Library
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk-intro/" title="First steps" class="md-nav__link">
+      First steps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro_to_remo-python/" title="Intro Tutorial" class="md-nav__link">
+      Intro Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorial_upload_annotations/" title="Upload Annotations Tutorial" class="md-nav__link">
+      Upload Annotations Tutorial
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../annotation-tool/" title="Annotation tool" class="md-nav__link">
+      Annotation tool
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../annotation-formats/" title="Annotation formats" class="md-nav__link">
+      Annotation formats
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../advanced-topics/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Python Library Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Python Library Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/sdk/" title="SDK" class="md-nav__link">
+      SDK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/dataset/" title="Dataset" class="md-nav__link">
+      Dataset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/image/" title="Image" class="md-nav__link">
+      Image
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/annotation_set/" title="Annotation set" class="md-nav__link">
+      Annotation set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/annotation/" title="Annotation" class="md-nav__link">
+      Annotation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/task/" title="Annotation tasks" class="md-nav__link">
+      Annotation tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sdk/class_encodings/" title="Class encodings" class="md-nav__link">
+      Class encodings
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upload-annotations" class="md-nav__link">
+    Upload annotations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-files" class="md-nav__link">
+    Upload files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-local-files-upload-from-url" class="md-nav__link">
+    Link local files / upload from URL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    Tags
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-tag-to-the-image-in-paticular-annotation-set" class="md-nav__link">
+    Add tag to the image in paticular annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-tag-from-the-image" class="md-nav__link">
+    Remove tag from the image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-new-class" class="md-nav__link">
+    Create new class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotation-set" class="md-nav__link">
+    Annotation set
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-new-annotation-set" class="md-nav__link">
+    Create new annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-annotation-set" class="md-nav__link">
+    Rename annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-class-to-annotation-set" class="md-nav__link">
+    Add new class to annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-class-in-annotation-set" class="md-nav__link">
+    Rename class in annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-class-from-annotation-set" class="md-nav__link">
+    Delete class from annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-tags-in-annotation-set" class="md-nav__link">
+    List tags in annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-tag-in-annotation-set" class="md-nav__link">
+    Rename tag in annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-tag-from-annotation-set" class="md-nav__link">
+    Delete tag from annotation set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-annotations" class="md-nav__link">
+    Export annotations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-annotation-sets" class="md-nav__link">
+    List annotation sets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h2 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h2>
+<h3 id="upload-annotations">Upload annotations<a class="headerlink" href="#upload-annotations" title="Permanent link">&para;</a></h3>
+<h4 id="upload-files">Upload files<a class="headerlink" href="#upload-files" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">POST /api/dataset/1/upload/?annotation_set_id=3</span>
+
+<span class="err">payload {</span>
+<span class="err">    &quot;files&quot;: binary data,</span>
+<span class="err">    &quot;annotation_task&quot;: &quot;Object detection,</span>
+<span class="err">    &quot;folder_id&quot;: 2</span>
+<span class="err">}</span>
+
+<span class="err">Optional parameters: </span>
+<span class="err">    annotation_set_id, annotation_task - without this parameters user simply uploads files</span>
+<span class="err">    folder_id - allow to add files in particular folder</span>
+</code></pre></div>
+
+
+<h4 id="link-local-files-upload-from-url">Link local files / upload from URL<a class="headerlink" href="#link-local-files-upload-from-url" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">POST /api/dataset/1/upload/?folder_id=2&amp;annotation_set_id=3</span>
+
+<span class="err">payload {</span>
+<span class="err">    &quot;local_files&quot;: [&#39;/home/ubuntu/dataset/D1&#39;],</span>
+<span class="err">    &quot;annotation_task&quot;: &quot;Object detection,</span>
+<span class="err">    &quot;urls&quot;: [&#39;http://...&#39;]</span>
+<span class="err">}</span>
+
+<span class="err">Optional parameters: </span>
+<span class="err">    annotation_set_id, annotation_task - without this parameters user simply uploads files</span>
+<span class="err">    folder_id - allow to add files in particular folder</span>
+<span class="err">    local_files - list of pathes to local files/folders</span>
+<span class="err">    urls - list of links to archive/image/annotation files</span>
+</code></pre></div>
+
+
+<h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
+<h4 id="add-tag-to-the-image-in-paticular-annotation-set">Add tag to the image in paticular annotation set<a class="headerlink" href="#add-tag-to-the-image-in-paticular-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">POST /api/v1/ui/annotation-sets/32/images/562892/tags/</span>
+
+<span class="err">payload {“name”:“cat”}</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;id&quot;:49,</span>
+<span class="err">    &quot;name&quot;:&quot;cat&quot;,</span>
+<span class="err">    &quot;annotation_set&quot;:32,</span>
+<span class="err">    &quot;image&quot;:562892</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="remove-tag-from-the-image">Remove tag from the image<a class="headerlink" href="#remove-tag-from-the-image" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">DELETE /api/v1/ui/annotation-sets/32/images/562892/tags/48/</span>
+</code></pre></div>
+
+
+<h3 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h3>
+<h4 id="create-new-class">Create new class<a class="headerlink" href="#create-new-class" title="Permanent link">&para;</a></h4>
+<p>Creates new class in common class list.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">POST /api/common-class/</span>
+
+<span class="err">payload: {name: &quot;New class name&quot;}</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;id&quot;:961,</span>
+<span class="err">    &quot;name&quot;:&quot;New class name&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h3 id="annotation-set">Annotation set<a class="headerlink" href="#annotation-set" title="Permanent link">&para;</a></h3>
+<p>Annotation sets can be one of this type:
+    1 - Object detection
+    2 - Instance segmentation
+    3 - Image classification</p>
+<h4 id="create-new-annotation-set">Create new annotation set<a class="headerlink" href="#create-new-annotation-set" title="Permanent link">&para;</a></h4>
+<p>Creates new annotation set for given annotation task, dataset, and list of classes.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">POST /api/v1/ui/annotation-sets/</span>
+
+<span class="err">payload: {</span>
+<span class="err">    &quot;annotation_task&quot;: &quot;Object detection&quot;,</span>
+<span class="err">    &quot;classes&quot;:[&quot;Dog&quot;, &quot;Cat&quot;, &quot;Cow&quot;],</span>
+<span class="err">    &quot;dataset_id&quot;:&quot;4&quot;,</span>
+<span class="err">    &quot;name&quot;:&quot;New annotation set name&quot;,</span>
+<span class="err">}</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;id&quot;: 88,</span>
+<span class="err">    &quot;name&quot;: &quot;New annotation set name&quot;,</span>
+<span class="err">    &quot;task&quot;: &quot;Object detection&quot;,</span>
+<span class="err">    &quot;dataset_id&quot;: 4,</span>
+<span class="err">    &quot;classes&quot;:[</span>
+<span class="err">        {&quot;id&quot;: 335, &quot;name&quot;: &quot;Cat&quot;}, {&quot;id&quot;: 1, &quot;name&quot;: &quot;Dog&quot;}, {&quot;id&quot;: 185, &quot;name&quot;: &quot;Cow&quot;}</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+
+
+<span class="err">@deprecated</span>
+<span class="err">POST /api/annotation-set/</span>
+
+<span class="err">payload: {</span>
+<span class="err">    &quot;task&quot;:3,</span>
+<span class="err">    &quot;classes&quot;:[</span>
+<span class="err">        {&quot;id&quot;:961,&quot;name&quot;:&quot;New class name&quot;}</span>
+<span class="err">    ],</span>
+<span class="err">    &quot;dataset&quot;:&quot;4&quot;,</span>
+<span class="err">    &quot;name&quot;:&quot;New annotation set name&quot;,</span>
+<span class="err">    &quot;type&quot;:&quot;image&quot;</span>
+<span class="err">}</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;id&quot;:154,</span>
+<span class="err">    &quot;name&quot;:&quot;New annotation set name&quot;,</span>
+<span class="err">    &quot;released_at&quot;:null,</span>
+<span class="err">    &quot;updated_at&quot;:&quot;2019-12-26T05:34:48.531184Z&quot;,</span>
+<span class="err">    &quot;task&quot;:3,</span>
+<span class="err">    &quot;dataset&quot;:4,</span>
+<span class="err">    &quot;last_annotated_date&quot;:null,</span>
+<span class="err">    &quot;classes&quot;:[</span>
+<span class="err">        {&quot;id&quot;:961,&quot;name&quot;:&quot;New class name&quot;}</span>
+<span class="err">    ],</span>
+<span class="err">    &quot;is_last_modified&quot;:false,</span>
+<span class="err">    &quot;type&quot;:&quot;image&quot;,</span>
+<span class="err">    &quot;is_public&quot;:false</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="rename-annotation-set">Rename annotation set<a class="headerlink" href="#rename-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">PUT /api/v1/ui/annotation-sets/42/</span>
+
+<span class="err">payload: {&quot;name&quot;: &quot;New name&quot;}</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;id&quot;: 42,</span>
+<span class="err">    &quot;name&quot;: &quot;New name&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="add-new-class-to-annotation-set">Add new class to annotation set<a class="headerlink" href="#add-new-class-to-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="n">POST</span>  <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">ui</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="k">sets</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">classes</span><span class="o">/</span>
+
+<span class="n">payload</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;new class name&quot;</span><span class="err">}</span>
+
+<span class="n">Response</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;New class name&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="rename-class-in-annotation-set">Rename class in annotation set<a class="headerlink" href="#rename-class-in-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="n">Renames</span> <span class="k">existing</span> <span class="k">class</span> <span class="k">with</span> <span class="n">id</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="k">to</span> <span class="k">class</span> <span class="k">with</span> <span class="n">name</span> <span class="s1">&#39;Dog&#39;</span>
+
+<span class="n">PUT</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">ui</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="k">sets</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">classes</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span>
+
+<span class="n">payload</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Dog&quot;</span><span class="err">}</span>
+
+<span class="n">Response</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;id&quot;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span> <span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="ss">&quot;Dog&quot;</span><span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="delete-class-from-annotation-set">Delete class from annotation set<a class="headerlink" href="#delete-class-from-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">DELETE /api/v1/ui/annotation-sets/1/classes/2/</span>
+</code></pre></div>
+
+
+<h4 id="list-tags-in-annotation-set">List tags in annotation set<a class="headerlink" href="#list-tags-in-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/annotation-sets/1/tags/</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;count&quot;:7,</span>
+<span class="err">    &quot;next&quot;:null,</span>
+<span class="err">    &quot;previous&quot;:null,</span>
+<span class="err">    &quot;results&quot;:[</span>
+<span class="err">        {&quot;id&quot;:4, &quot;name&quot;:&quot;food&quot;},</span>
+<span class="err">        {&quot;id&quot;:13, &quot;name&quot;:&quot;zero&quot;},</span>
+<span class="err">        {&quot;id&quot;:6, &quot;name&quot;:&quot;outside&quot;},</span>
+<span class="err">        {&quot;id&quot;:1, &quot;name&quot;:&quot;test&quot;},</span>
+<span class="err">        {&quot;id&quot;:2, &quot;name&quot;:&quot;cat&quot;},</span>
+<span class="err">        {&quot;id&quot;:8, &quot;name&quot;:&quot;one&quot;},</span>
+<span class="err">        {&quot;id&quot;:5, &quot;name&quot;:&quot;inhouse&quot;}</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="rename-tag-in-annotation-set">Rename tag in annotation set<a class="headerlink" href="#rename-tag-in-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="n">Renames</span> <span class="k">existing</span> <span class="n">tag</span> <span class="k">with</span> <span class="n">id</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="k">to</span> <span class="n">tag</span> <span class="k">with</span> <span class="n">name</span> <span class="s1">&#39;Dog&#39;</span>
+
+<span class="n">PUT</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">ui</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="k">sets</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span>
+
+<span class="n">payload</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Dog&quot;</span><span class="err">}</span>
+
+<span class="n">Response</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;id&quot;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span> <span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="ss">&quot;Dog&quot;</span><span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="delete-tag-from-annotation-set">Delete tag from annotation set<a class="headerlink" href="#delete-tag-from-annotation-set" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">DELETE /api/v1/ui/annotation-sets/1/tags/2/</span>
+</code></pre></div>
+
+
+<h4 id="export-annotations">Export annotations<a class="headerlink" href="#export-annotations" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="n">Exports</span> <span class="n">annotations</span> <span class="k">in</span> <span class="n">giving</span> <span class="n">format</span>
+
+<span class="k">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">ui</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="k">sets</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">export</span><span class="o">/?</span><span class="n">annotation_format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="o">&amp;</span><span class="n">full_path</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="o">&amp;</span><span class="n">export_coordinates</span><span class="o">=</span><span class="s1">&#39;percent&#39;</span>
+
+<span class="k">Parameters</span><span class="p">:</span>
+    <span class="n">annotation_format</span><span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="n">one</span> <span class="k">of</span> <span class="p">[</span><span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="s1">&#39;coco&#39;</span><span class="p">,</span> <span class="s1">&#39;csv&#39;</span><span class="p">],</span> <span class="k">default</span><span class="o">=</span><span class="s1">&#39;json&#39;</span>
+    <span class="n">full_path</span><span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="n">one</span> <span class="k">of</span> <span class="p">[</span><span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;false&#39;</span><span class="p">],</span> <span class="k">default</span><span class="o">=</span><span class="s1">&#39;false&#39;</span>
+    <span class="n">export_coordinates</span><span class="p">:</span> <span class="n">can</span> <span class="n">be</span> <span class="n">one</span> <span class="k">of</span> <span class="p">[</span><span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="s1">&#39;percent&#39;</span><span class="p">],</span> <span class="k">default</span><span class="o">=</span><span class="s1">&#39;pixel&#39;</span>
+</code></pre></div>
+
+
+<h4 id="list-annotation-sets">List annotation sets<a class="headerlink" href="#list-annotation-sets" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/datasets/4/annotation-sets/?limit=10</span>
+
+<span class="err">Response: { </span>
+<span class="err">    &quot;count&quot;:2,</span>
+<span class="err">    &quot;next&quot;:null,</span>
+<span class="err">    &quot;previous&quot;:null,</span>
+<span class="err">    &quot;results&quot;:[ </span>
+<span class="err">        { </span>
+<span class="err">            &quot;id&quot;:36,</span>
+<span class="err">            &quot;name&quot;:&quot;segmentation&quot;,</span>
+<span class="err">            &quot;released_at&quot;:null,</span>
+<span class="err">            &quot;updated_at&quot;:&quot;2019-12-16T13:25:44.765252Z&quot;,</span>
+<span class="err">            &quot;task&quot;:{ </span>
+<span class="err">                &quot;id&quot;:2, &quot;name&quot;:&quot;Instance segmentation&quot;, &quot;type&quot;:&quot;instance_segmentation&quot;</span>
+<span class="err">            },</span>
+<span class="err">            &quot;total_images&quot;:21,</span>
+<span class="err">            &quot;last_annotated_date&quot;:&quot;2019-12-16T13:25:44.765127Z&quot;,</span>
+<span class="err">            &quot;is_public&quot;:false,</span>
+<span class="err">            &quot;is_completed&quot;:false,</span>
+<span class="err">            &quot;statistics&quot;:{ </span>
+<span class="err">                &quot;annotated_images_count&quot;:1,</span>
+<span class="err">                &quot;top3_classes&quot;:[ </span>
+<span class="err">                    {&quot;name&quot;:&quot;dog&quot;,&quot;count&quot;:2},</span>
+<span class="err">                    {&quot;name&quot;:&quot;Pizza&quot;,&quot;count&quot;:1}</span>
+<span class="err">                ],</span>
+<span class="err">                &quot;total_classes&quot;:2,</span>
+<span class="err">                &quot;total_annotation_objects&quot;:8</span>
+<span class="err">            }</span>
+<span class="err">        },</span>
+<span class="err">        { </span>
+<span class="err">            &quot;id&quot;:51,</span>
+<span class="err">            &quot;name&quot;:&quot;Andrea TEST&quot;,</span>
+<span class="err">            &quot;released_at&quot;:null,</span>
+<span class="err">            &quot;updated_at&quot;:&quot;2019-12-17T14:36:37.687804Z&quot;,</span>
+<span class="err">            &quot;task&quot;:{ </span>
+<span class="err">                &quot;id&quot;:1, &quot;name&quot;:&quot;Object detection&quot;, &quot;type&quot;:&quot;object_detection&quot;</span>
+<span class="err">            },</span>
+<span class="err">            &quot;total_images&quot;:21,</span>
+<span class="err">            &quot;last_annotated_date&quot;:&quot;2019-12-17T14:36:37.687692Z&quot;,</span>
+<span class="err">            &quot;is_public&quot;:false,</span>
+<span class="err">            &quot;is_completed&quot;:false,</span>
+<span class="err">            &quot;statistics&quot;:{ </span>
+<span class="err">                &quot;annotated_images_count&quot;:1,</span>
+<span class="err">                &quot;top3_classes&quot;:[ </span>
+<span class="err">                    {&quot;name&quot;:&quot;long_class_name_very_longssss&quot;,&quot;count&quot;:5},</span>
+<span class="err">                    {&quot;name&quot;:&quot;dog&quot;,&quot;count&quot;:4}</span>
+<span class="err">                ],</span>
+<span class="err">                &quot;total_classes&quot;:2,</span>
+<span class="err">                &quot;total_annotation_objects&quot;:21</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h2 id="images">Images<a class="headerlink" href="#images" title="Permanent link">&para;</a></h2>
+<h4 id="cache-image">Cache image<a class="headerlink" href="#cache-image" title="Permanent link">&para;</a></h4>
+<p>Caches image on backend, needed for deep zooming on annotation tool for high resolution images.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/images/1095611/cache/</span>
+</code></pre></div>
+
+
+<h4 id="downsample-image">Downsample image<a class="headerlink" href="#downsample-image" title="Permanent link">&para;</a></h4>
+<p>Crop image starting from position (source_x, source_y) with width=source_width and height=source_height
+and downscale it by factor downscale=0.7</p>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/images/1095614/downsample/?source_x=1000&amp;source_y=2600&amp;source_width=1100&amp;source_height=1100&amp;downscale=0.7</span>
+
+<span class="err">Response: image fragment</span>
+</code></pre></div>
+
+
+<h2 id="datasets">Datasets<a class="headerlink" href="#datasets" title="Permanent link">&para;</a></h2>
+<h4 id="list-datasets">List datasets<a class="headerlink" href="#list-datasets" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/datasets/?is_public=false&amp;is_archived=false&amp;limit=10</span>
+<span class="err">Parameters:</span>
+<span class="err">[optional]  is_public       (true | false)      - filters public/private datasets</span>
+<span class="err">[optional]  is_archived     (true | false)      - filters archived/active datasets</span>
+<span class="err">[optional]  limit           (positive integer)  - limits results number of datasets</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;count&quot;:6,</span>
+<span class="err">    &quot;next&quot;:null,</span>
+<span class="err">    &quot;previous&quot;:null,</span>
+<span class="err">    &quot;results&quot;:[</span>
+<span class="err">        {</span>
+<span class="err">            &quot;id&quot;:3,</span>
+<span class="err">            &quot;name&quot;:&quot;Open Images V5&quot;,</span>
+<span class="err">            &quot;owner&quot;:&quot;Remo Admin&quot;,</span>
+<span class="err">            &quot;is_archived&quot;:false,</span>
+<span class="err">            &quot;image_thumbnails&quot;:[</span>
+<span class="err">                &quot;http://image-url&quot;,</span>
+<span class="err">            ],</span>
+<span class="err">            &quot;quantity&quot;:21619,</span>
+<span class="err">            &quot;size_in_bytes&quot;:6714851753,</span>
+<span class="err">            &quot;created_at&quot;:&quot;2019-05-26T20:18:13.721502Z&quot;,</span>
+<span class="err">            &quot;updated_at&quot;:&quot;2019-12-27T07:14:14.596622Z&quot;,</span>
+<span class="err">            &quot;license&quot;:null,</span>
+<span class="err">            &quot;is_public&quot;:true,</span>
+<span class="err">            &quot;is_readonly&quot;:false</span>
+<span class="err">        },</span>
+<span class="err">        ...</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="list-dataset-contents-folders-and-images">List dataset contents (folders and images)<a class="headerlink" href="#list-dataset-contents-folders-and-images" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/datasets/4/contents/?limit=25</span>
+<span class="err">Parameters:</span>
+<span class="err">[optional]  limit           (positive integer)  - limits results number</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;count&quot;:15,</span>
+<span class="err">    &quot;next&quot;:null,</span>
+<span class="err">    &quot;previous&quot;:null,</span>
+<span class="err">    &quot;results&quot;:[</span>
+<span class="err">        {</span>
+<span class="err">            &quot;record_type&quot;:&quot;folder&quot;,</span>
+<span class="err">            &quot;image&quot;:null,</span>
+<span class="err">            &quot;folder&quot;:{</span>
+<span class="err">                &quot;id&quot;:5,</span>
+<span class="err">                &quot;name&quot;:&quot;Animal&quot;,</span>
+<span class="err">                &quot;dataset_id&quot;:4,</span>
+<span class="err">                &quot;updated_at&quot;:&quot;2019-07-08T12:34:42.194147Z&quot;,</span>
+<span class="err">                &quot;created_at&quot;:&quot;2019-06-12T16:42:26.523835Z&quot;,</span>
+<span class="err">                &quot;preview&quot;:null,</span>
+<span class="err">                &quot;total_images&quot;:0,</span>
+<span class="err">                &quot;top3_classes&quot;:[</span>
+
+<span class="err">                ],</span>
+<span class="err">                &quot;total_classes&quot;:0</span>
+<span class="err">            }</span>
+<span class="err">        },</span>
+<span class="err">        ...</span>
+<span class="err">        {</span>
+<span class="err">            &quot;record_type&quot;:&quot;image&quot;,</span>
+<span class="err">            &quot;image&quot;:{</span>
+<span class="err">                &quot;id&quot;:541818,</span>
+<span class="err">                &quot;preview&quot;:&quot;http://image-url&quot;,</span>
+<span class="err">                &quot;name&quot;:&quot;00075905539074f2.jpg&quot;,</span>
+<span class="err">                &quot;annotations&quot;:{</span>
+<span class="err">                    &quot;coordinates&quot;:[</span>
+<span class="err">                        [</span>
+<span class="err">                            {&quot;x&quot;:53.484314245188955, &quot;y&quot;:97.74775543613383},</span>
+<span class="err">                            {&quot;x&quot;:121.98408476261328,&quot;y&quot;:179.40449686125507}</span>
+<span class="err">                        ],</span>
+<span class="err">                        [</span>
+<span class="err">                            {&quot;x&quot;:53.484314245188955, &quot;y&quot;:97.74775543613383},</span>
+<span class="err">                            {&quot;x&quot;:121.98408476261328, &quot;y&quot;:179.40449686125507}</span>
+<span class="err">                        ]</span>
+<span class="err">                    ],</span>
+<span class="err">                    &quot;classes&quot;:[]</span>
+<span class="err">                },</span>
+<span class="err">                &quot;dimensions&quot;:[1024, 914],</span>
+<span class="err">                &quot;size_in_bytes&quot;:302326,</span>
+<span class="err">                &quot;created_at&quot;:&quot;2019-07-05T11:42:08.762268Z&quot;</span>
+<span class="err">            },</span>
+<span class="err">            &quot;folder&quot;:null</span>
+<span class="err">        },</span>
+<span class="err">        ...</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h4 id="list-dataset-contents-in-particular-folder-folders-and-images">List dataset contents in particular folder (folders and images)<a class="headerlink" href="#list-dataset-contents-in-particular-folder-folders-and-images" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/datasets/4/contents/6/?limit=25</span>
+<span class="err">Parameters:</span>
+<span class="err">[optional]  limit           (positive integer)  - limits results number</span>
+
+<span class="err">Response: {</span>
+<span class="err">    &quot;count&quot;:2,</span>
+<span class="err">    &quot;next&quot;:null,</span>
+<span class="err">    &quot;previous&quot;:null,</span>
+<span class="err">    &quot;results&quot;:[</span>
+<span class="err">        {</span>
+<span class="err">            &quot;record_type&quot;:&quot;image&quot;,</span>
+<span class="err">            &quot;image&quot;:{</span>
+<span class="err">                &quot;id&quot;:22901,</span>
+<span class="err">                &quot;preview&quot;:&quot;http://image-url&quot;,</span>
+<span class="err">                &quot;name&quot;:&quot;pinguin.jpg&quot;,</span>
+<span class="err">                &quot;annotations&quot;:{</span>
+<span class="err">                    &quot;coordinates&quot;:[</span>
+<span class="err">                        [</span>
+<span class="err">                            {&quot;x&quot;:114.99758911132812, &quot;y&quot;:59.9200325012207},</span>
+<span class="err">                            {&quot;x&quot;:135.74884033203125, &quot;y&quot;:77.88980865478516}</span>
+<span class="err">                        ],</span>
+<span class="err">                        [</span>
+<span class="err">                            {&quot;x&quot;:114.99758911132812, &quot;y&quot;:59.9200325012207},</span>
+<span class="err">                            {&quot;x&quot;:135.74884033203125, &quot;y&quot;:77.88980865478516}</span>
+<span class="err">                        ]</span>
+<span class="err">                    ],</span>
+<span class="err">                    &quot;classes&quot;:[]</span>
+<span class="err">                },</span>
+<span class="err">                &quot;dimensions&quot;:[299, 199],</span>
+<span class="err">                &quot;size_in_bytes&quot;:15500,</span>
+<span class="err">                &quot;created_at&quot;:&quot;2019-06-17T11:25:57.568112Z&quot;</span>
+<span class="err">            },</span>
+<span class="err">            &quot;folder&quot;:null</span>
+<span class="err">        },</span>
+<span class="err">        {</span>
+<span class="err">            &quot;record_type&quot;:&quot;image&quot;,</span>
+<span class="err">            &quot;image&quot;:{</span>
+<span class="err">                &quot;id&quot;:22908,</span>
+<span class="err">                &quot;preview&quot;:&quot;http://image-url&quot;,</span>
+<span class="err">                &quot;name&quot;:&quot;kisspng-kowalski.png&quot;,</span>
+<span class="err">                &quot;annotations&quot;:{</span>
+<span class="err">                    &quot;coordinates&quot;:[</span>
+<span class="err">                        [</span>
+<span class="err">                            {&quot;x&quot;:125.6457471472072,&quot;y&quot;:211.28039022130292},</span>
+<span class="err">                            {&quot;x&quot;:342.1559107022023, &quot;y&quot;:382.2946010799859}</span>
+<span class="err">                        ],</span>
+<span class="err">                        [</span>
+<span class="err">                            {&quot;x&quot;:125.6457471472072,&quot;y&quot;:211.28039022130292},</span>
+<span class="err">                            {&quot;x&quot;:342.1559107022023, &quot;y&quot;:382.2946010799859}</span>
+<span class="err">                        ]</span>
+<span class="err">                    ],</span>
+<span class="err">                    &quot;classes&quot;:[]</span>
+<span class="err">                },</span>
+<span class="err">                &quot;dimensions&quot;:[1600, 1051],</span>
+<span class="err">                &quot;size_in_bytes&quot;:1567852,</span>
+<span class="err">                &quot;created_at&quot;:&quot;2019-06-17T11:25:57.568112Z&quot;</span>
+<span class="err">            },</span>
+<span class="err">            &quot;folder&quot;:null</span>
+<span class="err">        }</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+<h1 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code><span class="err">GET /api/v1/ui/datasets/{}/images/</span>
+<span class="err">GET /api/v1/ui/datasets/{}/images/{}/annotations/</span>
+<span class="err">GET /api/user-dataset/{}/contents/{}/</span>
+<span class="err">GET /api/v1/ui/search/</span>
+<span class="err">GET /api/dataset/</span>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.df00da5d.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
