@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: ddsp
+Version: 0.0.10
+Summary: Differentiable Digital Signal Processing 
+Home-page: http://github.com/magenta/ddsp
+Author: Google Inc.
+Author-email: no-reply@google.com
+License: Apache 2.0
+Keywords: audio dsp signalprocessing machinelearning music
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Dist: absl-py
+Requires-Dist: crepe (>=0.0.11)
+Requires-Dist: future
+Requires-Dist: gin-config (>=0.3.0)
+Requires-Dist: librosa
+Requires-Dist: pydub
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: six
+Requires-Dist: tensorflow
+Requires-Dist: tfds-nightly
+Provides-Extra: data_preparation
+Requires-Dist: avro-python3 (!=1.9.2) ; extra == 'data_preparation'
+Requires-Dist: apache-beam ; extra == 'data_preparation'
+Provides-Extra: gcp
+Requires-Dist: gevent ; extra == 'gcp'
+Requires-Dist: google-api-python-client ; extra == 'gcp'
+Requires-Dist: google-compute-engine ; extra == 'gcp'
+Requires-Dist: google-cloud-storage ; extra == 'gcp'
+Requires-Dist: oauth2client ; extra == 'gcp'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pylint ; extra == 'test'
+
+UNKNOWN
+
+
