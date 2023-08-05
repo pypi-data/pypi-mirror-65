@@ -1,0 +1,14 @@
+python-dateutil
+ruamel.yaml
+
+[deploy]
+bumpversion
+twine
+
+[dev]
+check-manifest
+flake8
+
+[test]
+pytest
+tox
