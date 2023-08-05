@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pspipe"
+version = "0.1.1"
+description = ""
+authors = ["\"Florent Mertens\" <\"florent.mertens@gmail.com\">"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+toml = "^0.10.0"
+progressbar2 = "^3.47"
+asyncssh = "^2.0"
+python-casacore = "^3.2.0"
+astropy = "^4.0"
+matplotlib = "^3.2.0"
+tables = "^3.6.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-cov = "^2.8.1"
+ipython = "^7.13.0"
+scipy = "^1.4.1"
+healpy = "^1.13.0"
+reproject = "^0.6"
+scikit-learn = "^0.22.2"
+GPy = "^1.9.9"
+pyfftw = "^0.12.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
