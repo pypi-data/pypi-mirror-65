@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: cython-sgio
+Version: 1.1
+Summary: Cython-based wrapper for sending SCSI Generic I/O commands from Python.
+Home-page: https://github.com/python-scsi/cython-sgio
+Maintainer: Diego Elio Pettenò
+Maintainer-email: flameeyes@flameeyes.com
+License: LGPL-2.1+
+Description: # cython-sgio
+        
+        Cython-based wrapper for sending SCSI Generic I/O commands from
+        Python.
+        
+        ## License
+        
+        Copyright © 2014-2020 The cython-sgio Authors
+        
+        This program is free software; you can redistribute it and/or modify
+        it under the terms of the GNU Lesser General Public License as published
+        by the Free Software Foundation; either version 2.1 of the License, or
+        (at your option) any later version.
+        
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+        GNU Lesser General Public License for more details.
+        
+        You should have received a copy of the GNU Lesser General Public License
+        along with this program; if not, see <http://www.gnu.org/licenses/>.
+        
+Keywords: scsi
+Platform: linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Description-Content-Type: text/markdown
+Provides-Extra: dev

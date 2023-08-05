@@ -1,0 +1,17 @@
+.gitignore
+.mergify.yml
+.pre-commit-config.yaml
+.travis.yml
+AUTHORS
+README.md
+lgpl-2.1.txt
+pyproject.toml
+setup.cfg
+setup.py
+cython_sgio.egg-info/PKG-INFO
+cython_sgio.egg-info/SOURCES.txt
+cython_sgio.egg-info/dependency_links.txt
+cython_sgio.egg-info/requires.txt
+cython_sgio.egg-info/top_level.txt
+src/linux_sgio.c
+src/linux_sgio.pyx
