@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: slurm
+Version: 0.1.0
+Summary: A bunch tools I have created over the years
+Home-page: https://pypi.org/project/slurm/
+License: MIT
+Keywords: fun
+Author: walchko
+Author-email: walchko@users.noreply.github.com
+Requires-Python: >=3.6
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: simplejson
+Requires-Dist: yaml
+Project-URL: Repository, https://github.com/MomsFriendlyRobotCompany/slurm
+Description-Content-Type: text/markdown
+
+![](pics/slurm.jpg)
+
+# Slurm
+
+**Under Development**
+
+
+```python
+from slurm import storage
+
+yaml = storage.read("file.yaml")
+json = storage.read("file.json")
+json = storage.read("file", "json")
+
+
+data = [1,2,3,4]
+storage.write("bob.json", data)
+storage.write("guess", data, "yml")
+```
+
