@@ -1,0 +1,4 @@
+[console_scripts]
+hd_gliomouse_predict = hd_gliomouse.hd_gliomouse_predict:main
+hd_gliomouse_predict_folder = hd_gliomouse.hd_gliomouse_predict_folder:main
+
