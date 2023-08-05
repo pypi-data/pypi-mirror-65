@@ -1,0 +1,7 @@
+#!python
+import sys
+
+from vhmlib.main import application
+
+if __name__ == "__main__":
+    sys.exit(application(sys.argv[1:]))
