@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: dvdp.ha_mqtt
+Version: 0.2.0
+Summary: Home assistant mqtt devices interface
+Home-page: https://github.com/davidvdp/ha_mqtt
+Author: David van der Pol
+Author-email: david@davidvanderpol.com
+License: MIT
+Download-URL: https://github.com/davidvdp/ha_mqtt/archive/v0.2.0.tar.gz
+Description: # Home Assistant MQTT device interface
+        Library that provides an interface for Home Assitant with a device using MQTT.
+        
+        Types of devices supported:
+        1. Light
+        
+        ## Install
+        `$ pip install dvdp.ha_mqtt`
+Keywords: MQTT,Home,Assistant
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
