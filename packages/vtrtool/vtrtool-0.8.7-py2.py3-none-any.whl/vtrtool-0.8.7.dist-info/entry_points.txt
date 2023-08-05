@@ -1,0 +1,5 @@
+[console_scripts]
+vtrconvert = vtrtool.scripts.vtrconvert:main
+vtrshow = vtrtool.scripts.vtrshow:main
+vtrtool = vtrtool.scripts.vtrtool:main
+
