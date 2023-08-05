@@ -1,0 +1,54 @@
+% if failed:
+<strong>{{tfail}}</strong> {{tcheckagain}}
+% end
+
+<script>
+function validate() {
+    var email = document.login.email.value;
+    if (email == "") {
+        alert("{{temail}}");
+        return false;
+    }
+    var password = document.login.password.value;
+    if (password == "") {
+        alert("{{tpassword}}");
+        return false;
+    }
+    return true;
+}
+</script>
+
+<form method="POST" name=login onsubmit='return validate()'>
+<p>
+<label for="email">{{temail}}</label>
+<input type="email" name="email" id="email"
+%if 'email' in self.request.params:
+     value="{{self.request.params['email']}}"
+%end
+/>
+</p>
+<p><label for="password">{{tpassword}}</label>&nbsp;<input type="password" name="password"/></p>
+<p>
+<input id="nbutton" class="grid_10" style="text-align:center" type="submit" value="{{tlogin}}"/>
+</p>
+<br>
+</form>
+
+<a href="/{{self.request.lang}}/forgot" id="forgot">{{tforgot}}</a><br>
+<a href="/{{self.request.lang}}/signup" id="signup">{{tsignup}}</a>
+
+<script> 
+    var emailinput = document.getElementById('email');
+    signup = document.getElementById('signup');
+    forgot = document.getElementById('forgot');
+    signup.onclick = function () {
+        if (emailinput.value != "")
+            this.href = ('/{{self.request.lang}}/signup?email=')+emailinput.value;
+    };
+    forgot.onclick = function () {
+        if (emailinput.value != "")
+            this.href = ('/{{self.request.lang}}/forgot?email=')+emailinput.value;
+    };
+</script>
+
+% include('chcko/main')

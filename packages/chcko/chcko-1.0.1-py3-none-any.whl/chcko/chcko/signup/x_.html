@@ -1,0 +1,53 @@
+<script>
+    function validate() {
+        var email = document.signup.email.value;
+        if (email == "") {
+            alert("{{temail}}");
+            return false;
+        }
+        var valid = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!valid.test(email)) {
+            alert("{{temail}}");
+            return false;
+        }
+        var password = document.signup.password.value;
+        if (password == "") {
+            alert("{{tpassword}}");
+            return false;
+        }
+        var confirmp = document.signup.confirmp.value;
+        if (confirmp == "") {
+            alert("{{tconfirm}}");
+            return false;
+        } else if(confirmp != document.signup.password.value){
+            alert("{{tnopasswordmatch}}"); 
+            return false; 
+        }
+        return true;
+    }
+</script>
+
+<form method="POST" name=signup onsubmit='return validate()'>
+<label for="email">{{temail}}*
+%from chcko.chcko.auth import with_email_verification
+%if not with_email_verification:
+{{tnotverified}}
+%end
+</label>
+<input type="email" name="email"
+%if 'email' in self.request.params:
+    value="{{self.request.params['email']}}"
+%end
+/>
+<p><label for="password">{{tpassword}}*</label>&nbsp;<input type="password" name="password" /></p>
+<p><label for="confirmp">{{tconfirm}}*</label>&nbsp;<input type="password" name="confirmp"/></p>
+<p><label for="fullname">{{tfullname}}</label>&nbsp;<input type="text" name="fullname" /></p>
+<p><input id="nbutton" class="grid_10" style="text-align:center" type="submit" value="{{tcreate}}" /></p>
+<br>
+</form>
+
+<script>
+</script>
+
+
+% include('chcko/main')

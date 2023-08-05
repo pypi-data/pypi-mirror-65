@@ -1,0 +1,268 @@
+<script>
+    function a_lnk(alnk)
+    {
+        %# use like: <a href="#" onclick="a_lnk('{{alnk}}');return false;">{{alnk}}</a>
+        %# or {{!util.a('r.f')}}
+        // see Util.a
+        // // keep for testing
+        //alnk='r.a';
+        //alnk='r.bd';
+        //alnk='r.b';
+        //href='http://localhost:8080/en/contents?r.bd&r.ba&&r.a';
+
+        href = window.location.href;
+        url = new URL(href);
+        qs = url.search.replace('?','');
+        seqs = qs.split('&&').filter(x=>x).map(x => x[0]=='&'? x.substring(1) : x)
+        //console.log(seqs)
+        iseqs = seqs.findIndex(x=>x.split('&').filter(x=>x).find(i=>i==alnk));
+        if (iseqs >= 0) {
+            if (iseqs > 0) {
+                seqs = seqs.map((e,i) => i==iseqs ? '&'+e : e);
+            }
+            newqs = seqs.join('&&');
+        } else {
+            newqs = alnk;
+        }
+        target = url.origin+url.pathname+'?'+newqs+'#'+alnk;
+        //console.log(target)
+        window.location.assign(target) // keeps history to go back to previous location in course
+    }
+</script>
+
+% if isinstance(content, list): #no specific content: therefore index
+
+
+    <form action="" method="get">
+
+    <br>
+    <div class="grid_1"><label for="course">{{tcourse}}</label><input id="course" name="course" type="checkbox"></div>
+    <input class="grid_8" name="acomposed" id="acomposed"/>
+    <input class="nbutton" style="text-align:center" type="submit" name="compose" value="{{tgo}}"/>
+    <br>
+
+    <p>{{texplain}}</p>
+
+    % for knd, lnks in content:
+    <p><b><a href="/{{self.request.lang}}/contents?kind={{knd}}">{{knd}}</a></b><br>
+       % for linktext,lnklvl,leaf,depth in lnks:
+          % if not leaf:
+          <small>({{depth}})</small><em><a href="/{{self.request.lang}}/contents?path={{linktext}}">{{linktext}}</a>:</em>
+          % else:
+             % lnk,lvl = lnklvl
+             <small>({{depth}})</small><a href="/{{self.request.lang}}/contents?{{lnk}}">{{linktext}}</a>
+             <input type="checkbox" name="choice" value="{{lnk}}" autocomplete="off">
+             % try:
+             % authorid = lnk.split('.')[0]
+             (<a href="/{{self.request.lang}}/contents?link={{authorid}}">{{authorid}}</a>)
+             % except: pass
+             % end
+             <a href="/{{self.request.lang}}/contents?level={{lvl}}">{{lvl}}</a>
+          % end
+       % end
+    % end
+
+    </form>
+
+    <script>
+    var acomposed;
+    $(document).ready(()=>{
+        acomposed = $("#acomposed");
+        acomposed.val(window.sessionStorage.getItem('chcko_selection'));
+        acomposed.focusout(()=>window.sessionStorage.setItem('chcko_selection',acomposed.val()));
+        });
+    $("form").on({click:function(ee){
+            var e = ee.currentTarget;
+            if (e.name=='course')
+                return true;
+            var delim = $("#course").is(":checked")?'&&':'&';
+            if (e.checked) {
+                $(this).before($('<input>',{type:"checkbox", name:"choice", value:e.value}));
+                let newval = (acomposed.val()?acomposed.val()+delim:'')+e.value;
+                acomposed.val(newval);
+                window.sessionStorage.setItem('chcko_selection',newval);
+            } else {
+                e.remove();
+                }
+            }}, "input[type='checkbox']"
+        );
+    $("form").on("submit",function(e){
+            e.preventDefault();
+            ////// used to collect from checked checkboxes
+            //var allchecked = $("input[type='checkbox']:checked");
+            //var a = {};
+            //for (var ch=0; ch!=allchecked.length; ch++)
+            //{
+            //    var value = allchecked[ch].value;
+            //    if (a[value] === undefined)
+            //        a[value]=1;
+            //    else
+            //        a[value]=a[value]+1;
+            //}
+            //window.location.href="/{{self.request.lang}}/contents?"+$.param(a)
+            window.location.assign("/{{self.request.lang}}/contents?"+acomposed.val()) // keeps history to go back to previous location in course
+        });
+    </script>
+
+
+% else: # specific content
+
+    %if 'cheader' in self.request.params:
+    <p>
+        {{! self.request.params['cheader'] }}
+    </p>
+    %end
+
+    <script>
+    $(document).ready(()=>window.sessionStorage.removeItem('chcko_selection'));
+    function newpage(url){
+        window.location.href=url;
+    }
+    </script>
+    % if with_problems and not problem.answered:
+    <form action="" method="post">
+    % end
+
+    % if with_problems and problem.answered and summary[0].counted > 2:
+        <p> {{tsummary}}
+        {{util.summary(*summary)}}
+        </p>
+    % end
+
+
+    {{! content }}
+
+    %cq = query_string
+    %pe = course_labels(cq)
+    %alinks = ['/'+self.request.lang+'/contents?'+x for x in [start_qs(cq),next_qs(cq,-1),cq,next_qs(cq),end_qs(cq)]]
+
+    %def qsnav(where,sign):
+    <button class="grid_1 nbutton" type="button" onclick="window.location.href='{{ alinks[where] }}';">{{ sign }}</button>
+    %end
+
+    <p>
+    % bottonwidth = 'grid_10'
+    %pe2=''
+    %if pe:
+        % bottonwidth = 'grid_6'
+        %qsnav(0,'⯈')
+        %qsnav(1,pe[1]+'⯇')
+        %pe2=' '+pe[2]
+    %end
+
+    % if with_problems and problem.answered:
+        <button type="submit" class="{{bottonwidth}} nbutton" onclick="newpage('{{alinks[2]}}');"> {{tagain+pe2}} </button>
+    % end
+    % if with_problems and not problem.answered:
+        <input class="{{bottonwidth}} nbutton" style="text-align:center" type="submit" name="submit" value="{{tcheck+pe2}}"/>
+        <input type="hidden" name="problemkey" value="{{problemkey}}">
+    %end
+
+    %if pe:
+        %qsnav(3,'⯈'+pe[3])
+        %qsnav(4,'⯇'+pe[4])
+    %end
+    </p>
+    <br>
+
+    % if with_problems and not problem.answered:
+    </form>
+    % end
+
+    % if with_problems:
+    % # ASSIGN
+    % if self.request.user:
+        % teacher = self.request.student.key.parent().parent().get()
+        % if teacher.userkey == db.idof(self.request.user): # self assignment is possible
+            <form class="grid_10" id="assignform" action="/{{self.request.lang}}/todo" method="post">
+                % fieldset = False
+                % for ee in db.assignable(teacher,self.request.user):
+                    % e = ee.key
+                    % kind = e.kind()
+                    % if kind =='Class':
+                        % if fieldset:
+                            </fieldset>
+                        % end
+                        <fieldset>
+                        % fieldset = True
+                        <input type="hidden" name="query_string" value="{{query_string}}">
+                        <div><input type="checkbox" class="checkall">
+                            {{util.translate(kind)}} {{e.string_id()}}
+                        </div>
+                    % elif kind == 'Role':
+                        <div><input type="checkbox" name="assignee" value="{{db.urlsafe(e)}}">
+                            {{e.string_id()}} </div>
+                    % end
+                % end
+                % if fieldset:
+                    </fieldset>
+                % end
+                <fieldset>
+                <script>
+                    function subtractduedays(){
+                        if(document.getElementById('duedays').value - 1 < 1)
+                            return;
+                        else
+                             document.getElementById('duedays').value--;
+                    }
+                </script>
+                {{tdue}}
+                <input type="text" name="duedays" id="duedays" value="2"
+                    onchange="javascript:if (document.getElementById('duedays').value >= 1);
+                        else document.getElementById('duedays').value = 1;"
+                />
+                <input type="button" class="nbutton" name="add"
+                     onclick="javascript: document.getElementById('duedays').value++;" value="+"/>
+                <input type="button" class="nbutton" name="subtract"
+                     onclick="javascript: subtractduedays();" value="-" />
+                </fieldset>
+                <p><input class="nbutton grid_10" style="text-align:center" type="submit" name="assign" value="{{tassign}}"></p>
+                <br>
+            </form>
+
+            <script>
+            $('.checkall').on('click', function () {
+                $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+            });
+            </script>
+        % end
+    % end
+    % end
+% end
+
+<style>
+#assignform {
+    background-color: {{rolecolor}};
+    border-style:dotted;
+    padding: 1em;
+    margin: 1em 0em 0em -1em;
+}
+.problem_id {
+    border: solid 1px;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    background-color: {{rolecolor}};
+    text-align:center;
+}
+.problem_nr {
+    float:left;
+}
+.problem_points {
+    float:right;
+}
+.subproblem0 {
+    padding: 1em 0em 0.5em 0.5em;
+}
+.subproblem1 {
+    padding: 1em 0em 0.5em 0.5em;
+    //background-color: {{rolecolor}};
+}
+.inlined {
+    //background-color: {{rolecolor}};
+}
+.chq {
+    margin: 1px 0px 1px 0px;
+}
+</style>
+
+% include('chcko/main')
