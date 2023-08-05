@@ -1,0 +1,14 @@
+Django<3.1,>=2.1
+
+[all]
+django-solo<2.0,>1.1
+django-mptt<1.0,>0.9
+
+[testing]
+django
+Pillow
+pytest
+pytest-django
+pytest-env
+pytest-cov
+pytest-xdist
