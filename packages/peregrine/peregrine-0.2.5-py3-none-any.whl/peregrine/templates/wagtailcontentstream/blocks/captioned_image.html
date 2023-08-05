@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+{% spaceless %}
+    <figure class="figure border {% if self.align == 'left' %}float-left mr-2{% elif self.align == 'right' %}float-right ml-2{% else %}text-center mx-auto d-block{% endif %}"{% if self.align == 'left' or self.align == 'right' %} style="width: 420px; padding: 10px;"{% endif %}>
+        {% if self.align == 'full' %}
+            {% image self.image original class="figure-img img-fill img-responsive" %}
+        {% elif self.align == 'center' %}
+            {% image self.image original class="figure-img img-fluid img-responsive" %}
+        {% else %}
+            {% image self.image width-400 class="figure-img img-fluid img-responsive" %}
+        {% endif %}
+
+        {% if self.caption|length %}
+            <figcaption>{{ self.caption }}</figcaption>
+        {% endif %}
+        {% if self.credit|length %}
+            <figcaption>Credit: {{ self.credit }}</figcaption>
+        {% endif %}
+    </figure>
+{% endspaceless %}
