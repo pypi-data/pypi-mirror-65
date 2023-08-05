@@ -1,0 +1,136 @@
+Metadata-Version: 2.1
+Name: pywwt
+Version: 0.8.0
+Summary: The AAS WorldWide Telescope from Python
+Home-page: https://github.com/WorldWideTelescope/pywwt
+Author: Thomas P. Robitaille, O. Justin Otor, and John ZuHone
+Author-email: thomas.robitaille@gmail.com
+License: BSD
+Keywords: Jupyter,Widgets,IPython
+Platform: Linux
+Platform: Mac OS X
+Platform: Windows
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Jupyter
+Requires-Python: >=3.6
+Requires-Dist: numpy (>=1.9)
+Requires-Dist: matplotlib (>1.5)
+Requires-Dist: astropy (!=4.0.1,>=1.0)
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: python-dateutil
+Requires-Dist: lxml
+Requires-Dist: ipywidgets (>=7.0.0)
+Requires-Dist: ipyevents
+Requires-Dist: traitlets
+Requires-Dist: reproject (>=0.4)
+Requires-Dist: qtpy
+Requires-Dist: tornado
+Requires-Dist: pytz
+Provides-Extra: docs
+Requires-Dist: sphinx (>=1.6) ; extra == 'docs'
+Requires-Dist: sphinx-automodapi ; extra == 'docs'
+Requires-Dist: numpydoc ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: jupyter-sphinx ; extra == 'docs'
+Provides-Extra: lab
+Requires-Dist: jupyterlab ; extra == 'lab'
+Provides-Extra: qt
+Requires-Dist: PyQt5 ; (python_version >= "3") and extra == 'qt'
+Requires-Dist: PyQtWebEngine ; (python_version >= "3") and extra == 'qt'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'test'
+Requires-Dist: pytest-remotedata (>=0.3.1) ; extra == 'test'
+
+.. To preview locally, install Sphinx and run: rst2html.py README.rst README.html
+
+.. image:: https://dev.azure.com/aasworldwidetelescope/WWT/_apis/build/status/WorldWideTelescope.pywwt?branchName=master
+   :target: https://dev.azure.com/aasworldwidetelescope/WWT/_build?definitionId=2&branchName=master
+   :alt: Azure Pipelines Status
+
+.. image:: https://readthedocs.org/projects/pywwt/badge/?version=latest
+   :target: http://pywwt.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+pywwt: The AAS WorldWide Telescope from Python/Jupyter
+======================================================
+
+🚀🚀 `Click here to try out pywwt in the cloud! <http://binder.wwt-forum.org/v2/gh/WorldWideTelescope/pywwt-notebooks/master?urlpath=lab/tree/Start%20Here.ipynb>`__ 🚀🚀
+
+*Note: our cloud servers usually start up quickly, but if they were recently
+updated you may have to wait a few minutes for the backing software images to
+be rebuilt.*
+
+About
+-----
+
+The pywwt_ package is the official toolkit for accessing the AAS_ `WorldWide
+Telescope`_ (WWT) from Python. WWT is a free, open-source tool for visually
+exploring humanity’s scientific understanding of the Universe. It includes a
+sophisticated 4D WebGL rendering engine and a cloud-based web service for
+sharing and visualizing terabytes of astronomical data. WWT is brought to you
+by the non-profit `American Astronomical Society`_ (AAS), the major
+organization of professional astronomers in North America, and the `.NET
+Foundation`_.
+
+.. _pywwt: https://pywwt.readthedocs.io/
+.. _AAS: https://aas.org/
+.. _American Astronomical Society: https://aas.org/
+.. _WorldWide Telescope: http://www.worldwidetelescope.org/home
+.. _.NET Foundation: https://dotnetfoundation.org/
+
+.. figure:: docs/images/data_layers_kepler.png
+   :align: center
+   :alt: A WWT screenshot showing exoplanets in the Kepler field overlaid on a background sky map.
+
+   *Known exoplanets in the Kepler field rendered over background imagery by pywwt.*
+
+With pywwt_ you can:
+
+* Visualize and explore astronomical data interactively in the `Jupyter and
+  JupyterLab`_ environments through an HTML widget
+* Do the same in standalone applications with a Qt_ widget
+* Load data from common astronomical data formats (e.g. `AstroPy tables`_)
+  into WWT
+* Control a running instance of the WWT Windows application
+
+.. _Jupyter and JupyterLab: https://jupyter.org/
+.. _Qt: https://www.qt.io/
+.. _AstroPy tables: https://docs.astropy.org/en/stable/table/
+
+The full documentation, including installation instructions, can be found at
+http://pywwt.readthedocs.io/.
+
+
+Reporting issues
+----------------
+
+If you run into any issues, please open an issue `here
+<https://github.com/WorldWideTelescope/pywwt/issues>`_.
+
+
+Acknowledgments
+---------------
+
+The AAS WorldWide Telescope (WWT) system, including pywwt, is a `.NET
+Foundation`_ project. Work on WWT and pywwt has been supported by the
+`American Astronomical Society`_ (AAS), the US `National Science Foundation`_
+(grants 1550701_ and 1642446_), the `Gordon and Betty Moore Foundation`_, and
+`Microsoft`_.
+
+.. _National Science Foundation: https://www.nsf.gov/
+.. _1550701: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1550701
+.. _1642446: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1642446
+.. _Gordon and Betty Moore Foundation: https://www.moore.org/
+.. _Microsoft: https://microsoft.com/
+
+
