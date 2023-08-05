@@ -1,0 +1,12 @@
+setup.py
+MakeMe/__init__.py
+MakeMe/command_line.py
+MakeMe.egg-info/PKG-INFO
+MakeMe.egg-info/SOURCES.txt
+MakeMe.egg-info/dependency_links.txt
+MakeMe.egg-info/entry_points.txt
+MakeMe.egg-info/requires.txt
+MakeMe.egg-info/top_level.txt
+makeme/__init__.py
+makeme/command_line.py
+tests/test_target_matching.py
