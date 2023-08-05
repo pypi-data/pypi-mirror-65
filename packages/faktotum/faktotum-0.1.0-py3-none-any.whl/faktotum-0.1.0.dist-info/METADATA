@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: faktotum
+Version: 0.1.0
+Summary: Extracting information from unstructured text.
+License: MIT
+Author: Severin Simmler
+Author-email: severin.simmler@stud-mail.uni-wuerzburg.de
+Requires-Python: >=3.7.0,<3.8.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: flair (>=0.4.5,<0.5.0)
+Requires-Dist: gensim (>=3.8.1,<4.0.0)
+Requires-Dist: joblib (>=0.14.1,<0.15.0)
+Requires-Dist: numpy (>=1.16.1,<2.0.0)
+Requires-Dist: pandas (>=0.25.3,<0.26.0)
+Requires-Dist: scikit-learn (>=0.22.1,<0.23.0)
+Requires-Dist: scipy (>=1.4.1,<2.0.0)
+Requires-Dist: seqeval (>=0.0.12,<0.0.13)
+Requires-Dist: sklearn-crfsuite (>=0.3.6,<0.4.0)
+Requires-Dist: statsmodels (>=0.11.0,<0.12.0)
+Requires-Dist: strsimpy (>=0.1.3,<0.2.0)
+Requires-Dist: syntok (>=1.2.2,<2.0.0)
+Requires-Dist: tensorboard (>=2.1.0,<3.0.0)
+Requires-Dist: torch (>=1.4.0,<2.0.0)
+Requires-Dist: tqdm (>=4.41.1,<5.0.0)
+Requires-Dist: transformers (>=2.5.0,<3.0.0)
