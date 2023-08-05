@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: pyctr
+Version: 0.2.1
+Summary: Python library to parse several Nintendo 3DS files
+Home-page: https://git.ianburgwin.net/ianburgwin/pyctr
+Author: Ian Burgwin
+Author-email: ian@ianburgwin.net
+License: MIT
+Description: # PyCTR
+        Python library to parse several Nintendo 3DS files.
+        
+        The API is not yet stable. If you decide to use this, you should stick to a specific version on pypi, or store a copy locally, until it is stable.
+        
+        This was recently separated out to its own repository. This will be a better README at some point.
+        
+        ## Supported types
+        * CTR Cart Image (".3ds", ".cci")
+        * CTR Importable Archive (".cia")
+        * Executable Filesystem (".exefs", "exefs.bin")
+        * NCCH (".cxi", ".cfa", ".ncch", ".app")
+        * Read-only Filesystem (".romfs", "romfs.bin")
+        
+        ## License
+        `pyctr` is under the MIT license.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
