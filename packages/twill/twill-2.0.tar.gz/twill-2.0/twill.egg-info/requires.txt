@@ -1,0 +1,16 @@
+lxml<5,>=4
+requests<3,>=2
+pyparsing<3,>=2
+
+[docs]
+sphinx<3,>=2.4
+sphinx_rtd_theme<1,>=0.4
+
+[tests]
+pytest<6,>=5
+pytidylib<0.4,>=0.3
+quixote<4,>=3
+wsgi_intercept<2,>=1.4
+
+[tidy]
+pytidylib<0.4,>=0.3

@@ -1,0 +1,4 @@
+[console_scripts]
+twill = twill.shell:main
+twill-fork = twill.fork:main
+
