@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: wagtail-srcset
+Version: 0.1.2
+Summary: 
+Author: Jochen Wersdörfer
+Author-email: jochen@wersdoerfer.de
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: wagtail (>=2.8,<3.0)
