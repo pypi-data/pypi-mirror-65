@@ -1,0 +1,6 @@
+default:
+  - clean
+  - deps
+  - compile
+  - compile_test
+  - unit_test
