@@ -1,0 +1,24 @@
+Metadata-Version: 1.2
+Name: CanvasHacks
+Version: 0.0.20
+Summary: Tools for mitigating the user-unfriendliness of canvas.
+Home-page: https://github.com/AdamSwenson/CanvasHacks
+Author: adam swenson
+Author-email: adam.swenson@csun.edu
+License: MIT
+Description: 
+        # CanvasHacks
+        
+        Canvas is great! Except for the ways it isn't. 
+        
+        These are tools for mitigating the user-unfriendliness of canvas
+        
+        Presently a work in progress. Don't try using it, yet....
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
