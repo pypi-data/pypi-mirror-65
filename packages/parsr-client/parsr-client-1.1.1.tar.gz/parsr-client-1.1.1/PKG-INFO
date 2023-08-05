@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: parsr-client
+Version: 1.1.1
+Summary: Python client for Parsr - Transforms PDF, Documents and Images into Enriched Structured Data
+Home-page: http://par.sr
+Author: AXA Group Operations S.A.
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pandas (>=1.0.3,<2.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Project-URL: Repository, https://github.com/axa-group/Parsr/tree/master/clients/python-client
+Description-Content-Type: text/x-rst
+
+Parsr Client
+================
+
+Provides a python interface to the Parsr toolvia its API, which transforms PDF, documents and images into enriched, structured data.
