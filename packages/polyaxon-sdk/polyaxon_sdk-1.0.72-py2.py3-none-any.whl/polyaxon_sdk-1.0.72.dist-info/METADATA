@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: polyaxon-sdk
+Version: 1.0.72
+Summary: Polyaxon SDKs and REST API specification.
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: contact@polyaxon.com
+License: UNKNOWN
+Keywords: Swagger,Polyaxon SDKs and REST API specification.
+Platform: UNKNOWN
+Requires-Dist: certifi (>=2017.4.17)
+Requires-Dist: python-dateutil (>=2.1)
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.23)
+
+Polyaxon SDKs and REST API specification.  # noqa: E501
+
+
