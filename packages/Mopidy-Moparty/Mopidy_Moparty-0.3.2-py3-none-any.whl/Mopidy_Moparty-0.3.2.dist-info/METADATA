@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: Mopidy-Moparty
+Version: 0.3.2
+Summary: Extended version of party extension, with Elm frontend
+Home-page: https://github.com/pingiun/mopidy-moparty
+Author: Jelle Besseling
+Author-email: jelle@besseling.email
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Requires-Python: >=3.7
+Requires-Dist: Mopidy (>=3.0.0)
+Requires-Dist: Pykka (>=2.0.1)
+Requires-Dist: setuptools
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: check-manifest ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: flake8-bugbear ; extra == 'dev'
+Requires-Dist: flake8-import-order ; extra == 'dev'
+Requires-Dist: isort[pyproject] ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Provides-Extra: lint
+Requires-Dist: black ; extra == 'lint'
+Requires-Dist: check-manifest ; extra == 'lint'
+Requires-Dist: flake8 ; extra == 'lint'
+Requires-Dist: flake8-bugbear ; extra == 'lint'
+Requires-Dist: flake8-import-order ; extra == 'lint'
+Requires-Dist: isort[pyproject] ; extra == 'lint'
+Provides-Extra: release
+Requires-Dist: twine ; extra == 'release'
+Requires-Dist: wheel ; extra == 'release'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+****************************
+Mopidy-Moparty
+****************************
+
+.. image:: https://img.shields.io/pypi/v/Mopidy-Moparty
+    :target: https://pypi.org/project/Mopidy-Moparty/
+    :alt: Latest PyPI version
+
+.. image:: https://github.com/pingiun/mopidy-moparty/workflows/Linting%20and%20Testing/badge.svg
+    :target: https://circleci.com/gh/pingiun/mopidy-moparty
+    :alt: GitHub Actions build status
+
+Extended version of party extension, with Elm frontend
+
+
+Installation
+============
+
+Install by running::
+
+    python3 -m pip install Mopidy-Moparty
+
+See https://mopidy.com/ext/moparty/ for alternative installation methods.
+
+
+Configuration
+=============
+
+No configuration is currently supported
+
+
+Project resources
+=================
+
+- `Source code <https://github.com/pingiun/mopidy-moparty>`_
+- `Issue tracker <https://github.com/pingiun/mopidy-moparty/issues>`_
+- `Changelog <https://github.com/pingiun/mopidy-moparty/blob/master/CHANGELOG.rst>`_
+
+
+Credits
+=======
+
+- Original author: `Jelle Besseling <https://github.com/pingiun>`__
+- Current maintainer: `Jelle Besseling <https://github.com/pingiun>`__
+- `Contributors <https://github.com/pingiun/mopidy-moparty/graphs/contributors>`_
+
+
