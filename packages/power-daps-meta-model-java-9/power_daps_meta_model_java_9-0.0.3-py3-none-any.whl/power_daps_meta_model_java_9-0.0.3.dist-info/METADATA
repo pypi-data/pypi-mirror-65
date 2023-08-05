@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: power-daps-meta-model-java-9
+Version: 0.0.3
+Summary: Java 9 meta-model for power-daps - a build tool that builds apps in multiple languages
+Home-page: https://github.com/power-daps/power-daps
+Author: Prasanna Pendse
+Author-email: prasanna.pendse@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# power-daps meta model for java9
+This package provides the actions required to build Java 9 apps using power-daps.
+
