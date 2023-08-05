@@ -1,0 +1,80 @@
+polarion-project-id: POLARION_PROJECT
+xunit_import_properties:
+    polarion-testrun-status-id: inprogress
+    polarion-lookup-method: custom
+    polarion-custom-lookup-method-field-id: testCaseID
+testcase_import_properties:
+    lookup-method: custom
+    polarion-custom-lookup-method-field-id: testCaseID
+polarion_url: https://polarion_url
+
+username: user
+password: Password
+
+repo_address: https://github.com/project/repo
+
+default_fields:
+    assignee: ""
+    caseautomation: automated
+    casecomponent: "-"
+    caseimportance: high
+    caselevel: component
+    caseposneg: positive
+    customerscenario: ""
+    description: ""
+    expectedResults: ""
+    ignored: false
+    initialEstimate: ""
+    linkedWorkItems: ""
+    setup: ""
+    status: ""
+    subtype1: "-"
+    subtype2: "-"
+    tags: ""
+    teardown: ""
+    testSteps: ""
+    testtype: functional
+    title: ""
+    work_item_id: ""
+
+custom_fields:
+    - caseautomation
+    - casecomponent
+    - caseimportance
+    - caselevel
+    - caseposneg
+    - customerscenario
+    - setup
+    - subtype1
+    - subtype2
+    - tags
+    - teardown
+    - testtype
+    - upstream
+
+requirements_default_fields:
+    assignee: ""
+    dueDate: ""
+    initialEstimate: ""
+    plannedIn: ""
+    priority: ""
+    reqtype: "functional"
+    severity: ""
+    status: ""
+
+requirements_custom_fields:
+    - reqtype
+
+blacklisted_tests:
+    - 'cfme/tests/containers/'
+    - 'cfme/tests/openstack/'
+    - 'test_import_own_module'
+    - 'hawkular'
+    - '\[.*rhos'
+    - '\[.*rhev'
+    - '\[.*rhv'
+
+whitelisted_tests:
+    - 'cfme/tests/infrastructure/test_quota_tagging.py::test_.*\[.*rhe?v'
+    - 'test_tenant_quota.py'
+    - 'cfme/tests/v2v'
