@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: yaqd-core
+Version: 0.6.0
+Summary: Core structures for yaq component daemons
+Home-page: https://yaq.fyi
+Author: yaq Developers
+Author-email: git@ksunden.space
+License: LGPL v3
+Project-URL: Source, https://gitlab.com/yaq/yaqd-core-python
+Project-URL: Documentation, http://yaqd-core-python.yaq.fyi/
+Project-URL: Issue Tracker, https://gitlab.com/yaq/yaqd-core-python/issues
+Keywords: spectroscopy science multidimensional hardware
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs
+Requires-Dist: toml
+Provides-Extra: aserial
+Requires-Dist: pyserial ; extra == 'aserial'
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pydocstyle ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-gallery (>=0.3.0) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: yaqc ; extra == 'tests'
+
+# yaqd-core-python
+
+[![PyPI version](https://badge.fury.io/py/yaqd-core.svg)](https://badge.fury.io/py/yaqd-core)
+[![Anaconda-Server Badge](https://anaconda.org/conda-forge/yaqd-core/badges/version.svg)](https://anaconda.org/conda-forge/yaqd-core)
+
+Core python package for implementing yaq daemons, and associated utilities.
+
+Documentation at https://yaqd-core-python.yaq.fyi
+
+When installed, this package exposes the following "abstract" daemons.
+These are useful for testing purposes.
+- [yaqd-hardware](https://yaq.fyi/daemons/hardware/)
+- [yaqd-continuous-hardware](https://yaq.fyi/daemons/continuous-hardware/)
+
+
