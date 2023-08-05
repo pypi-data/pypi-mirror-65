@@ -1,0 +1,52 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/miniconda3/bin/:$PATH
+
+USER=``
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/jakub/.oh-my-zsh"
+source ~/.oh-my-zsh/templates/zshrc.zsh-template
+
+ZSH_THEME="agnoster"
+
+plugins=(virtualenv git vscode zsh-autosuggestions )
+
+source $ZSH/oh-my-zsh.sh
+# plugins=(
+#   git
+#   bundler
+#   dotenv
+# )
+
+
+export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/local/bin/python3:$PATH
+export PATH=/Users/jakub/Library/Python/3.7/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+export BETTER_EXCEPTIONS=1
+
+source activate b37
+
+alias psh='conda deactivate; pipenv shell'
+alias psi=" conda deactivate && pipenv shell"
+alias pll='pipenv install'
+alias py='/miniconda3/envs/b37/bin/python'
+alias gpureload="sudo rmmod nvidia_uvm ; sudo modprobe nvidia_uvm"
+alias nbx='jupyter notebook'
+alias cll='conda install'
+#TODO: change
+alias scl='f() { scp -i ~/.ssh/keys/project-lucas.pem $1 ubuntu@lucas-0${2}.love-lucas.com:/mnt/efs/ };f'
+alias tnl='g() { ssh -L ${2:=8000}\:localhost:${3:=8888} ${1:=2-lucas} -fN}; g'
+alias im2vid="f5() { ffmpeg -framerate 25 -pattern_type glob -i '*${1}.png' -c:v libx264 -r 30 -pix_fmt yuv420p ${1}.mp4 }; f5"
+# ln -s /mnt/efs/datasets/drone_videos/pictures/*  trainA && ls -l trainA
+alias symDir="f6() { for f in $(ls -d ${1}/*); do ln -s $f ${2}; done && ls -al ${2} }; f6 "
+
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+
+
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
