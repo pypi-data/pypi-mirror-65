@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: ncar-isd-s3
+Version: 0.1.3
+Summary: NCAR ISD S3 object storage utility
+Home-page: https://github.com/NCAR/isd-s3
+Author: NCAR RDA Team
+Author-email: rdahelp@ucar.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.1
+Description-Content-Type: text/markdown
+Requires-Dist: boto3
+Requires-Dist: botocore
+
+# isd-s3
+NCAR ISD S3 Object Storage utility.
+
+A command line tool to manage data access to the NCAR S3 Object Storage
+system.  Developed by the Information Systems Division (ISD), a division 
+within the Computational and Information Systems Laboratory (CISL) at the
+National Center for Atmospheric Research (NCAR).
+
+Source Code: [https://github.com/NCAR/isd-s3](https://github.com/NCAR/isd-s3)
+
+
