@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: mastapy
+Version: 10.1.post1
+Summary: Python scripting API for Masta
+Home-page: https://www.smartmt.com/cae-software/masta/overview/
+Author: George Baron
+Author-email: george.baron@smartmt.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: ptvsd (>=4.2)
+Requires-Dist: pythonnet (>=2.4.0)
+Requires-Dist: numpy (>=1.16)
+Requires-Dist: Pillow (>=6.0.0)
+
+## mastapy
+
+Mastapy is the Python scripting API for Masta.
+
