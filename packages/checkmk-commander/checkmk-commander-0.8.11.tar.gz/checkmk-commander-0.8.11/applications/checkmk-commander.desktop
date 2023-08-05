@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Check Commander
+Comment=Checkmk curses client
+Exec="chkcom"
+Icon=checkmk-commander
+Type=Application
+StartupWMClass=checkmkcommander
+Categories=Utility;
+Comment=Checkmk Commander, or Check Commander, efficient Curses interface for Checkmk.
+Categories=Utility;Network;
