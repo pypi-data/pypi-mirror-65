@@ -1,0 +1,39 @@
+"""Chit Chat Challenge dataset."""
+
+__version__ = "0.1.3"
+
+import json
+import os
+
+
+def _default_dataset_path():
+    here = os.path.abspath(os.path.dirname(__file__))
+    # due to python's package management, this has a `.py` extension
+    return os.path.join(here, "dataset.py")
+
+
+try:
+    import torch
+
+    class Dataset(torch.utils.data.Dataset):
+        """Chit Chat Challenge dataset."""
+
+        def __init__(self, path=None):
+            self.path = path if path is not None else _default_dataset_path()
+            self.data = list(json.load(open(self.path)).values())
+
+        def __len__(self):
+            return len(self.data)
+
+        def __getitem__(self, idx):
+            return self.data[idx]
+
+
+except ImportError:
+
+    class Dataset(dict):
+        """Chit Chat Challenge dataset."""
+
+        def __init__(self, path=None):
+            self.path = path if path is not None else _default_dataset_path()
+            super(Dataset, self).__init__(json.load(open(self.path)))
