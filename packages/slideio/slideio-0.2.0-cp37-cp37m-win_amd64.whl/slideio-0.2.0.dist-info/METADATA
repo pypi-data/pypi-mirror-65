@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: slideio
+Version: 0.2.0
+Summary: Reading of medical images
+Home-page: UNKNOWN
+Author: Stanislav Melnikov
+Author-email: stanislav.melnikov@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, http://slideio.com
+Keywords: images,pathology,tissue,medical,czi,svs
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: numpy
+
+Python package for reading of medical images.
+Following formats are supported:
+1. Zeiss czi
+2. Aperio SVS
+3. Generic images (jpeg, tiff, png, etc.)
+
