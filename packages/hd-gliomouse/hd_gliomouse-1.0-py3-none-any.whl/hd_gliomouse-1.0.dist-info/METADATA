@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: hd-gliomouse
+Version: 1.0
+Summary: Tool for brain tumor segmentation in mice. This is the result of a joint project between the Department of Neuroradiology at the Heidelberg University Hospital and the Division of Medical Image Computing at the German Cancer Research Center (DKFZ). See readme.md for more information
+Home-page: https://github.com/NeuroAI-HD/HD-GLIOMOUSE
+Author: Fabian Isensee
+Author-email: f.isensee@dkfz.de
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Unix
+Requires-Python: >=3.5
+Requires-Dist: torch
+Requires-Dist: nnunet (>1.0)
+Requires-Dist: batchgenerators
+
+UNKNOWN
+
+
