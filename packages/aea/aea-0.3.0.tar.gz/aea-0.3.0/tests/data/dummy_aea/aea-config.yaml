@@ -1,0 +1,37 @@
+agent_name: Agent0
+author: dummy_author
+version: 1.0.0
+description: dummy_aea agent description
+license: Apache-2.0
+aea_version: '>=0.3.0, <0.4.0'
+fingerprint: {}
+fingerprint_ignore_patterns: []
+connections:
+- fetchai/local:0.1.0
+contracts:
+- fetchai/erc1155:0.1.0
+protocols:
+- fetchai/default:0.1.0
+- fetchai/fipa:0.1.0
+skills:
+- dummy_author/dummy:0.1.0
+- fetchai/error:0.1.0
+default_connection: fetchai/local:0.1.0
+default_ledger: fetchai
+ledger_apis:
+  ethereum:
+    args:
+      address: example.ethereum.com
+      chain_id: 8080
+      gas_price: 20
+  fetchai:
+    args:
+      address: example.fetch-ai.com
+      port: 8080
+logging_config:
+  disable_existing_loggers: false
+  version: 1
+private_key_paths:
+  ethereum: eth_private_key.txt
+  fetchai: fet_private_key.txt
+registry_path: ../../packages
