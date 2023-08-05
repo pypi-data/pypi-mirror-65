@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: gradient-descent
+Version: 0.0.2
+Summary: Package for applying gradient descent optimization algorithms
+Home-page: https://github.com/DanielDaCosta/optimization-algorithms
+Author: Daniel da Costa
+Author-email: daniel.pereiracosta@hotmail.com
+License: UNKNOWN
+Description: # Gradient Descent Optimization Algorithms
+        
+        This package contains implementd different gradient-based algorithms:
+        - Gradients Descent
+        - Momentum
+        - RMSprop
+        - Nesterov accelerated gradient
+        - Adam
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
