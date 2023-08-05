@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: spaceone-inventory
+Version: 0.1.2.post31
+Summary: SpaceONE inventory service
+Home-page: https://www.spaceone.dev/
+Author: MEGAZONE SpaceONE Team
+Author-email: admin@spaceone.dev
+License: Apache License 2.0
+Platform: UNKNOWN
+Requires-Dist: spaceone-core
+Requires-Dist: spaceone-api
+Requires-Dist: mongoengine
+Requires-Dist: redis
+Requires-Dist: langcodes
+Requires-Dist: ipaddress
+Requires-Dist: python-consul
+
+UNKNOWN
+
+
