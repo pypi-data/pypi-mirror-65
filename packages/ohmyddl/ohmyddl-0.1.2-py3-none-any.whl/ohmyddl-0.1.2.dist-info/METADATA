@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: ohmyddl
+Version: 0.1.2
+Summary: A tool to collect deadline in SHU.
+Home-page: https://github.com/hwenwur/oh-my-ddl
+Author: hwenwur
+Author-email: pypi@qiren.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: lxml
+Requires-Dist: requests
+
+# 超星学习通 deadline 汇总，目前仅适用于上海大学
+
+## 环境
+python版本：3.6+
+
+## 使用方法
+- Windows
+
+### 安装
+```bash
+pip install ohmyddl
+```
+
+### 运行
+```bash
+ohmyddl.exe
+```
+如果浏览器窗口没有自动打开，可在地址栏输入：http://localhost:5986/
+
+### 命令行（可选）
+```bash
+ohmyddl-cli.exe -h
+```
+
+### 移除
+```bash
+pip uninstall ohmyddl
+```
+
+- Linux
+
+### 安装
+```bash
+pip3 install ohmyddl --user
+```
+### 运行
+```bash
+# 正常运行（web）
+# 如果浏览器窗口没有自动打开，可在地址栏输入：http://localhost:5986/
+ohmyddl
+
+# 命令行
+ohmyddl-cli -h
+```
+
+### 移除
+```bash
+pip3 uninstall ohmyddl
+```
+
+## 反馈
+
+- 邮箱： github@qiren.org
+
+
