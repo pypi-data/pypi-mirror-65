@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: wonderbits
+Version: 6.0.9
+Summary: wonderbits by mfeducation.
+Home-page: https://github.com/BigCircleLaw/wonderguy.git
+Author: mfe
+Author-email: 794557226@qq.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.0.0
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: pyserial
+Requires-Dist: Click
+Requires-Dist: wonderbits-ampy (>=1.1.5)
+Requires-Dist: esptool
+Requires-Dist: cloudvar
+
+
+### 豌豆拼
+> 重写了豌豆拼python硬件交互逻辑
+
+
+```python
+from wonderbits import Display, wb_tool, Control, Led
+import random
+import time
+# wb_tool.show_console()
+
+d = Display()
+c = Control()
+l = Led()
+
+for i in range(20):
+    d.print(1,1,i)
+    v = c.get_sw4()
+    l.set_rgb(random.randint(0,255),random.randint(0,255),random.randint(0,255))
+    print(v)
+    time.sleep(1)
+```
+
+
