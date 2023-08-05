@@ -1,0 +1,10 @@
+
+[all]
+pyyaml>=3.12
+toml>=0.10.0
+
+[toml]
+toml>=0.10.0
+
+[yaml]
+pyyaml>=3.12
