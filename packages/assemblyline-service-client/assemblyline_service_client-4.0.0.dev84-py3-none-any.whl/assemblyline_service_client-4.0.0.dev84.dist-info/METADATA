@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: assemblyline-service-client
+Version: 4.0.0.dev84
+Summary: Assemblyline (v4) automated malware analysis framework - Service client components.
+Home-page: https://github.com/CybercentreCanada/assemblyline-service-client/
+Author: CCCS Assemblyline development team
+Author-email: assemblyline@cyber.gc.ca
+License: MIT
+Keywords: assemblyline malware gc canada cse-cst cse cst cyber cccs
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: assemblyline
+Requires-Dist: assemblyline-core
+Requires-Dist: python-socketio
+
+This package provides the service client components for the Assemblyline v4 malware analysis framework.
+
+
