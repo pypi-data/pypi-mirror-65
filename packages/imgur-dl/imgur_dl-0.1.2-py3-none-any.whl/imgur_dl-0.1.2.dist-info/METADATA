@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: imgur-dl
+Version: 0.1.2
+Summary: Imgur downloader
+Home-page: https://github.com/feimaomiao/imgur-dl
+Author: Matthew Lam
+Author-email: lcpmatthew@gmail.com
+License: UNKNOWN
+Keywords: imgur photo video download
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: lazyloads
+Requires-Dist: tqdm
+Requires-Dist: requests
+Requires-Dist: pillow
+
+# imgur-downloader
+CLI for downloading imgur photos and videos
+
+## To Download
+`pip install imgur-dl`
+
+### Usage
+`imgur-dl [-s][-v][-o OUTPUT][-e][-f FORMAT][IMGUR LINK]` 
+
+
+### Arguments
+Optional arguments: 
+
+	-s 	--stat						outputs the statistics of the file  
+	-v 	--verbose 					outputs more download options
+	-o 	--output 		[OUTPUT]	Creates a directory and saves every photo/video into the directory
+	-e 	--rename-all				For every image downloaded, open the file and allows you to rename the file
+	-f 	--format 		[FORMAT]	Converts all the image files into the givern format
+
+Positional Arguments:  
+
+	IMGUR LINK 						A valid imgur link, could be an image or a gallery
+
+### License
+MIT
+
+### Credits
+inspired by @alexgisby
+
+#### Why don't I create a binary for the file
+Currently the compiler I'm using does not work fine with tqdm , and the program creates a memory leak
+After the problem is fixed, a binary would be in the release
+
+
+###### imgur-dl
+###### © 2020 Matthew Lam
+
