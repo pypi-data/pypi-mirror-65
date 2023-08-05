@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: pangeamt-tea
+Version: 0.2.6
+Summary: TEA - Translation Engine Architect
+Home-page: UNKNOWN
+Author: Pangeamt
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: PyYAML
+Requires-Dist: aiohttp
+Requires-Dist: asyncclick
+Requires-Dist: autoclass
+Requires-Dist: pangeamt-nlp (>=0.4.0)
+Requires-Dist: pathos
+Requires-Dist: aiounittest
+Requires-Dist: sacrebleu
+
+# TEA - Translation Engine Architect
+
+A command line tool to create translation engine.
+
+
+## Install
+First install [pipx](https://github.com/pipxproject/pipx) then:
+
+```
+pipx install pangeamt-tea
+```
+
+## Usage 
+
+### Step 1: Create a new project
+
+```
+tea new --customer customer --srcLang es --tgtLang en --flavor automotion --version 0.0.1
+```
+
+This command will create the project directory structure:
+
+
+```
+├── customer_es_en_automotion_0.0.1
+│   ├── config.yml
+│   └── data
+```
+
+Then enter in the directory
+
+```
+cd customer_es_en_automotion_0.0.1
+```
+
+### Step 2: Configuration
+
+#### Tokenizer
+
+A tokenizer can be applied to source and target
+
+```
+tea tokenizer --src mecab  --tgt moses
+```
+
+To list all available tokenizer:
+
+```
+tea tokenizer --list 
+```
+
+#### Truecaser
+
+```
+tea truecaser --src --tgt
+```
+
+#### BPE
+tea bpe -s -t
+
+ data['processors'],
+          data['tokenizer'],
+          data['truecaser'],
+          data['bpe'],
+          data['trainer'])
+
+### Step 3:
+Copy some multilingual ressources (.tmx, bilingual files, .af ) into the 'data' directory
+
