@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: xlcompose
+Version: 0.2.1
+Summary: A declarative API for composing spreadsheets from python
+Home-page: https://github.com/jbogaardt/xlcompose
+Maintainer: John Bogaardt
+Maintainer-email: jbogaardt@gmail.com
+License: LICENSE
+Download-URL: https://github.com/jbogaardt/xlcompose/archive/v0.2.1.tar.gz
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: xlsxwriter (>=1.1.8)
+Requires-Dist: pyyaml
+Requires-Dist: jinja2
+
+UNKNOWN
+
+
