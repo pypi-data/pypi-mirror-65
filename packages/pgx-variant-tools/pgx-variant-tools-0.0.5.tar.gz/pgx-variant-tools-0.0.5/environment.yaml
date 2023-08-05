@@ -1,0 +1,11 @@
+channels:
+  - bioconda
+dependencies:
+  - python=3.5
+  - biopython=1.69
+  - edlib=1.1.2
+  - cyvcf2
+  - requests
+  - click
+  - pip:
+    - pyinterval==1.2.0

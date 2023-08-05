@@ -1,0 +1,3 @@
+[console_scripts]
+vcf2sequence = variant_tools.cli:vcf2sequence
+
