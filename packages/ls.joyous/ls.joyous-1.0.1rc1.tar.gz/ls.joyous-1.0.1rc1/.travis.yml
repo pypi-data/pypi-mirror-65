@@ -1,0 +1,27 @@
+# https://github.com/linuxsoftware/ls.joyous
+
+dist: xenial
+
+language: python
+
+cache: pip
+
+env:
+ - WAGTAIL_VERSION=2.6.3
+ - WAGTAIL_VERSION=2.7.1
+ - WAGTAIL_VERSION=2.8
+
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+install:
+  - pip install -r requirements.txt
+  - pip install wagtail==$WAGTAIL_VERSION
+
+script:
+  - ./runtests.py --coverage
+
+after_success:
+  - coveralls

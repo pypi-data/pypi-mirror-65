@@ -1,0 +1,29 @@
+pip
+Django
+wagtail
+
+django-timezone-field
+num2words>=0.5.10
+holidays
+icalendar
+python-dateutil
+feedgen
+
+django-beautifulsoup-test
+coveralls
+coverage<5.0
+freezegun
+wagtailgmaps
+
+pytest>=4.4.0
+pytest-pythonpath
+pytest-django
+pytest-cov
+pytest-xdist
+pytest-subtests
+
+Sphinx
+sphinx_rtd_theme
+# sphinxcontrib-spelling
+# pyenchant
+# sphinx-autobuild

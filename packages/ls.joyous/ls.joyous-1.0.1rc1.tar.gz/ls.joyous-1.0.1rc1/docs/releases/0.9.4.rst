@@ -1,0 +1,34 @@
+==========================
+Joyous 0.9.4 release notes
+==========================
+
+.. contents::
+    :local:
+    :depth: 3
+
+
+What's new
+==========
+
+List "named" Cancellations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+A Cancellation (or Postponement) with the cancellation_title filled in will be
+shown in the list of upcoming or past events at the date the event was
+cancelled.
+This matches how cancellations are already displayed in the monthly and weekly
+calendar views.
+
+Other features
+~~~~~~~~~~~~~~
+ * Don't build unnecessary holiday objects
+
+Bug fixes
+~~~~~~~~~
+ * Fix weekly urls at the end of the year
+ * Use None to mark default byweekday and bymonth
+ * Count PermissionDenied errors in import as failures
+
+Upgrade considerations
+======================
+
+
