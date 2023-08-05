@@ -1,0 +1,41 @@
+image: python:3.7.3
+
+pipelines:
+  default:
+    - step:
+        script:
+          - python --version
+          - pip install -e .
+          - pip install pytest pytest-cov codecov safety
+          - pytest --cov
+          - codecov
+          - safety check
+        services:
+          - broker
+  tags:
+    'v*':
+      - step:
+          script:
+            - python --version
+            - pip install -e .
+            - pip install pytest pytest-cov codecov safety
+            - pytest --cov
+            - codecov
+            - safety check
+          services:
+            - broker
+      - step:
+          script:
+            - python setup.py sdist
+            - pip install twine
+            - twine upload dist/*
+
+definitions:
+  services:
+    broker:
+      image: rabbitmq:3
+      environment:
+        RABBITMQ_DEFAULT_USER: guest
+        RABBITMQ_DEFAULT_PASS: guest
+      ports:
+        - 5672:5672
