@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: nmcog
+Version: 0.1.28
+Summary: Module (Library) for simulation cognitive models in Neuromorphic hardwares.
+Home-page: https://github.com/myHBPwork/NMCog
+Author: Lungsi Ngwua
+Author-email: lungsi.ngwua@cnrs.fr
+License: BSD Clause-3
+Download-URL: https://github.com/NMCog/archive/v0.1.28.tar.gz
+Description: # nmcog
+        Library for simulating cognitive models in neuromorphic platforms.
+        
+        Current target platforms
+        - [SpiNNaker](http://spinnakermanchester.github.io/)
+        
+Keywords: NEUROMORPHIC,COGNITIVE,SPIKING,NEURAL NETWORK,SPINNAKER,BRAINSCALES
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
