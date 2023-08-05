@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: conan_bot
+Version: 1.0
+Summary: Bot for reporting conan exiles information on discord
+Home-page: https://github.com/nerakhon/conan-bot
+Author: Jan Paul
+Author-email: paulj@nerakhon.cz
+License: MIT
+Description: Bot for reporting Conan Exiles server status to discord
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
