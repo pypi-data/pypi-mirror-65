@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: redux
+Version: 0.1.0
+Summary: Redux in Python
+Home-page: https://github.com/kaelzhang/python-redux
+Author: kaelzhang
+Author-email: UNKNOWN
+License: MIT
+Keywords: redux
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+
+[![](https://travis-ci.org/kaelzhang/python-redux.svg?branch=master)](https://travis-ci.org/kaelzhang/python-redux)
+[![](https://codecov.io/gh/kaelzhang/python-redux/branch/master/graph/badge.svg)](https://codecov.io/gh/kaelzhang/python-redux)
+[![](https://img.shields.io/pypi/v/redux.svg)](https://pypi.org/project/redux/)
+[![](https://img.shields.io/pypi/l/redux.svg)](https://github.com/kaelzhang/python-redux)
+
+# redux
+
+Redux in Python
+
+## Install
+
+```sh
+$ pip install redux
+```
+
+## Usage
+
+```py
+import redux
+```
+
+## License
+
+[MIT](LICENSE)
+
+
