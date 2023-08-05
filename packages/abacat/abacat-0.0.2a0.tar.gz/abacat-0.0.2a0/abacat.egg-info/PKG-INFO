@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: abacat
+Version: 0.0.2a0
+Summary: abacat - A BActerial genome Curation and Annotation Toolkit
+Home-page: https://github.com/vinisalazar/abacat
+Author: Vini Salazar
+Author-email: viniws@gmail.com
+License: UNKNOWN
+Description: Abacat (pronounced 'ABBA-cat') is a toolkit for working with bacterial whole genome sequencing (WGS) data. It provides Python objects to represent elements which are common to WGS analysis workflows, such as coding sequence (CDS) files, containing genes or proteins, alignment methods, or statistics about your sequences.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
