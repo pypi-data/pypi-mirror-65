@@ -1,0 +1,17 @@
+README.md
+setup.py
+slurmjobs/__init__.py
+slurmjobs/__main__.py
+slurmjobs/args.py
+slurmjobs/base.py
+slurmjobs/core.py
+slurmjobs/util.py
+slurmjobs.egg-info/PKG-INFO
+slurmjobs.egg-info/SOURCES.txt
+slurmjobs.egg-info/dependency_links.txt
+slurmjobs.egg-info/requires.txt
+slurmjobs.egg-info/top_level.txt
+slurmjobs/templates/job.default.sbatch.j2
+slurmjobs/templates/run.default.sbatch.j2
+slurmjobs/templates/shell.job.default.sh.j2
+slurmjobs/templates/shell.run.default.sh.j2
