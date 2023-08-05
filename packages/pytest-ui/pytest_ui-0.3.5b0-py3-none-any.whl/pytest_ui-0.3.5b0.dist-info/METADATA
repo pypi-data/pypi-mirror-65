@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pytest-ui
+Version: 0.3.5b0
+Summary: Text User Interface for running python tests
+Home-page: https://github.com/martinsmid/pytest-ui
+Author: Martin Smid
+Author-email: martin.smid@gmail.com
+License: MIT
+Platform: linux
+Platform: osx
+Platform: win32
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: future
+Requires-Dist: pytest
+Requires-Dist: tblib
+Requires-Dist: urwid
+Requires-Dist: click
+
+UNKNOWN
+
+
