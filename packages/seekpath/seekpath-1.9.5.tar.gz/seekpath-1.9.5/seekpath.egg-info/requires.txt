@@ -1,0 +1,28 @@
+numpy>=1.0
+spglib>=1.14.1
+future>=0.15
+
+[bz]
+scipy>=0.17
+
+[click]
+click>=6
+
+[dev]
+pre-commit>=1.4
+yapf==0.29.0
+prospector>=0.12.7
+pylint>=1.8
+
+[webservice]
+Flask>=0.12.3
+qe-tools>=1.1.1
+
+[webservice:python_version < "3.0"]
+ase<3.18,>=3.15.0
+pymatgen<2019.1,>=2017.7
+monty<=2.0.4
+
+[webservice:python_version >= "3.0"]
+ase>=3.18.0
+pymatgen>=2017.7
