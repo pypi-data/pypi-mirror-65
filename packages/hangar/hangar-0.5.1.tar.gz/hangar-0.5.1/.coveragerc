@@ -1,0 +1,25 @@
+[paths]
+source =
+   src
+
+[run]
+branch = True
+parallel = True
+source =
+    hangar
+    tests
+omit =
+    */hangar/__main__.py
+    */hangar_service_pb2.py
+    */hangar_service_pb2_grpc.py
+    */hangar_service_pb2.pyi
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    def _repr_pretty_
+    def _ipython_key_completions_
+show_missing = True
+precision = 2
+omit = *migrations*
