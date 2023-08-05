@@ -1,0 +1,6 @@
+[console_scripts]
+seemee_con = SeeMee.base:main
+
+[gui_scripts]
+seemee = SeeMee.base:main
+
