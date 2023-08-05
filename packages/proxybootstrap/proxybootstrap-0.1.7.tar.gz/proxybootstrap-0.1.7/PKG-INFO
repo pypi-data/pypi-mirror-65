@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: proxybootstrap
+Version: 0.1.7
+Summary: A simple python wrapper script for bootstrapping a reverse proxy inside a docker container.
+Home-page: https://github.com/romnnn/proxybootstrap
+Author: romnn
+Author-email: contact@romnn.com
+License: MIT
+Description: A simple python wrapper script for bootstrapping a reverse proxy inside a docker container.
+Keywords: reverse,proxy,container,docker,wrapper,CORS,nginx
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
