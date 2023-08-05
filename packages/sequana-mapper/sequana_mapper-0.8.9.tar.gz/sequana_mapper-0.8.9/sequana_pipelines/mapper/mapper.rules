@@ -1,0 +1,195 @@
+"""mapper pipeline
+
+Author: Thomas Cokelaer
+Affiliation: Institut Pasteur @ 2019
+
+This pipeline is part of Sequana software (sequana.readthedocs.io)
+
+snakemake -s mapper.rules --forceall --stats stats.txt --cores 4
+
+
+"""
+import sequana
+from sequana import snaketools as sm
+from sequana import sequana_data
+
+# This must be defined before the include
+configfile: "config.yaml"
+
+exec(open(sequana.modules["bwa_mem_dynamic"], "r").read())
+exec(open(sequana.modules["bowtie2_mapping_dynamic"], "r").read())
+exec(open(sequana.modules["bowtie2_index_dynamic"], "r").read())
+
+
+# A convenient manager
+#
+#
+try:
+    manager = sm.PipelineManager("mapper", config)
+except:
+    manager = sm.PipelineManager("mapper", config, fastq=False)
+
+__data__input = manager.getrawdata()
+__pipeline_name__ = "mapper"
+
+rule pipeline:
+    input: "multiqc/multiqc_report.html"
+
+reference_file = config['general']['reference_file']
+annotation_file = config['general']['annotation_file']
+
+__prefix_name__ = reference_file.rsplit(".", -1)[0]
+
+
+if config['general']['mapper'] == "bwa":
+    reference = config["general"]["reference_file"]
+    """if not os.path.isfile(reference + ".bwt"):
+        exec(open(sequana.modules["dynamic_copy"], "r").read())
+        __copy_ref__input = reference
+        __copy_ref__output = "reference/" + os.path.basename(reference)
+        include: dynamic_copy("ref", manager)
+        __bwa_mem_mapping__reference = __copy_ref__output
+    else:
+        __bwa_mem_mapping__reference = reference
+    """
+    __bwa_index_mapping__log = "common_logs/bwa_index.log"
+    __bwa_mem_mapping__fastq = __data__input
+    __bwa_mem_mapping__reference = reference_file
+    __bwa_mem_mapping__bam = manager.getname("bwa_mem_mapping", ".sorted.bam")
+    __bwa_mem_mapping__fai = __bwa_mem_mapping__reference + ".bwt"
+    __bwa_mem_mapping__log = manager.getlogdir("bwa_mem_mapping")
+    include: bwa_mem_dynamic("mapping", manager)
+
+    __bamtools_stats__input = __bwa_mem_mapping__bam
+elif config['general']['mapper'] == "minimap2":
+    __minimap2__output = manager.getname("minimap2", ".sorted.bam")
+    rule minimap2:
+        input: __data__input
+        output: __minimap2__output
+        params:
+            reference=config['general']['reference_file'],
+            options=config['minimap2']['options']
+        shell:
+            """
+            minimap2 {params.reference} {input} {params.options} -a | samtools view -b | bamtools sort -in - -out {output}
+            """
+    __bamtools_stats__input = __minimap2__output
+elif config['general']['mapper'] == "bowtie2":
+    __bowtie2_index_ref__output_done   = __prefix_name__ + ".1.bt2"
+    __bowtie2_index__ = __prefix_name__
+    if os.path.exists(__bowtie2_index_ref__output_done):
+        pass # index exists, no need to do it, everything should be fine
+    else:
+        # indexing for bowtie2
+        __bowtie2_index_ref__fasta =            reference_file
+        __bowtie2_index_ref__output_done =      __prefix_name__ + ".1.bt2"
+        __bowtie2_index_ref__output_prefix =    __prefix_name__
+        __bowtie2_index_ref__log = "logs/indexing/bowtie2_genome.log"
+        include: bowtie2_index_dynamic("ref")
+        #expected_output.extend([__bowtie2_index_ref__output_done])
+
+
+    __bowtie2_mapping_ref__input = __data__input
+    __bowtie2_mapping_ref__index_done = __bowtie2_index_ref__output_done
+    __bowtie2_mapping_ref__sort = manager.getname("bowtie2_mapping_ref", ".sorted.bam")
+    __bowtie2_mapping_ref__bam = manager.getname("bowtie2_mapping_ref", ".bam")
+    __bowtie2_mapping_ref__logs_err = manager.getname("bowtie2_mapping_ref", ".err")
+    __bowtie2_mapping_ref__logs_out = manager.getname("bowtie2_mapping_ref", ".out")
+    __bowtie2_mapping_ref__options = config["bowtie2_mapping_ref"]["options"]
+    __bowtie2_mapping_ref__prefix_index = __bowtie2_index__
+    include: bowtie2_mapping_dynamic("ref", manager)
+    __bamtools_stats__input =  __bowtie2_mapping_ref__sort
+
+
+
+# sample should be included at the end of the filename for the multiqc to work
+__bamtools_stats__output = "{sample}/bamtools_stats/sequana_bamtools_stats_{sample}.txt"
+rule bamtools_stats:
+    input: __bamtools_stats__input
+    output: __bamtools_stats__output
+    shell:
+        "bamtools stats -in {input} > {output}"
+
+
+
+
+# Sequana_coverage analysis
+expected_output = []
+__multiqc__input = expected_output
+if config["sequana_coverage"]["do"]:
+    __samtools_depth__input = __bamtools_stats__input
+    __samtools_depth__output = manager.getname("samtools_depth", ".bed")
+    __samtools_depth__log = manager.getlogdir("samtools_depth")
+    include: sm.modules["samtools_depth"]
+
+    __sequana_coverage__bed = __samtools_depth__output
+    __sequana_coverage__fasta = reference_file
+    if annotation_file:
+        __sequana_coverage__gbk = annotation_file
+    else:
+        __sequana_coverage__gbk = []
+    config["sequana_coverage"]['k'] = config['sequana_coverage']['mixture_models']
+    #__sequana_coverage__csv = "{sample}/rois."
+    __report_dir__ = "{sample}/sequana_coverage"
+    __sequana_coverage__report_dir = __report_dir__
+    __sequana_coverage__html = os.sep.join([
+        __report_dir__, 'sequana_coverage.html'
+    ])
+    include: sm.modules["sequana_coverage"]
+    expected_output += expand(__sequana_coverage__html, sample=manager.samples)
+
+    __multiqc__input = expected_output
+
+
+if config["general"]["create_bigwig"]:
+    __bam2bigwig__output = "{sample}/bigwig/{sample}.bw"
+    rule bam2bigwig:
+        input: __bamtools_stats__input
+        output: __bam2bigwig__output
+        log: "{sample}/bigwig/{sample}.log"
+        shell:
+            """
+            bamCoverage --bam {input} --outFileFormat bigwig --outFileName {output} > {log}
+            """
+    __multiqc__input += expand(__bam2bigwig__output, sample=manager.samples)
+
+
+
+__multiqc__input += expand(__bamtools_stats__output, sample=manager.samples)
+
+__multiqc__input_dir = "."
+__multiqc__logs = "multiqc/multiqc.log"
+__multiqc__output = config['multiqc']['outdir'] + "/multiqc_report.html"
+
+rule multiqc:
+    input: __multiqc__input
+    output: __multiqc__output
+    params:
+        inputdir = ".",
+        outdir="multiqc",
+        config=config["multiqc"]["config_file"],
+        options = config["multiqc"]["options"]
+    shell:
+        """
+        multiqc {params.inputdir} -o {params.outdir} -c {params.config} {params.options} 2> multiqc/multiqc.log
+        """
+
+# Those rules takes a couple of seconds so no need for a cluster
+localrules: multiqc
+
+
+
+onsuccess:
+    shell("ln -f -s {} index.html".format(__multiqc__output))
+    shell("chmod -R g+w .")
+
+    from sequana.snaketools import OnSuccessCleaner
+    sc = OnSuccessCleaner("mapper")
+    sc.add_makefile()
+
+    sm.clean_multiqc(__multiqc__output)
+
+
+onerror:
+    print("An error occurred. See message above.")
+
