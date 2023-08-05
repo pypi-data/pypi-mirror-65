@@ -1,0 +1,9 @@
+zeep>=0.12
+PyPDF2
+trytond_party<5.3,>=5.2
+trytond_product<5.3,>=5.2
+trytond_stock<5.3,>=5.2
+trytond_stock_shipment_measurements<5.3,>=5.2
+trytond_stock_package<5.3,>=5.2
+trytond_stock_package_shipping<5.3,>=5.2
+trytond<5.3,>=5.2
