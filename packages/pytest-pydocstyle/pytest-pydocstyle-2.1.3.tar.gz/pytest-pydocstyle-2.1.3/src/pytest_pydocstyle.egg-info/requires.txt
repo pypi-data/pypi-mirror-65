@@ -1,0 +1,6 @@
+pytest~=5.4
+pydocstyle
+
+[tests]
+pytest-pycodestyle~=2.1
+pytest-isort

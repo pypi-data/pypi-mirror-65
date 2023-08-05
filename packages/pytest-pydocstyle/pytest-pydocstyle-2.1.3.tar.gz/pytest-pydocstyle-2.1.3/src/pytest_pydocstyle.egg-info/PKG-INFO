@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: pytest-pydocstyle
+Version: 2.1.3
+Summary: pytest plugin to run pydocstyle
+Home-page: https://github.com/henry0312/pytest-pydocstyle
+Author: OMOTO Tsukasa
+Author-email: tsukasa@oomo.to
+License: MIT
+Description: # pytest-pydocstyle
+        
+        [![PyPI version](https://badge.fury.io/py/pytest-pydocstyle.svg)](https://pypi.org/project/pytest-pydocstyle/)
+        
+        [pytest](https://docs.pytest.org/en/latest/) plugin to run [pydocstyle](https://github.com/PyCQA/pydocstyle)
+        
+        ## Installation
+        
+        ```sh
+        pip install pytest-pydocstyle
+        ```
+        
+        ## Usage
+        
+        ```sh
+        pytest --pydocstyle ...
+        ```
+        
+        For detail, please see `pytest -h` after installation.
+        
+        ## Configuration
+        
+        The behavior can be configured in the same style of pydocstyle.  
+        (cf. [Configuration — pytest documentation](https://docs.pytest.org/en/latest/customize.html) and [Configuration Files — pydocstyle documentation](http://www.pydocstyle.org/en/latest/usage.html#configuration-files))
+        
+        For example,
+        
+        ```
+        [pydocstyle]
+        convention = numpy
+        add-ignore = D400,D403
+        
+        [tool:pytest]
+        addopts = --pydocstyle
+        ```
+        
+        ## Licence
+        
+        The MIT License  
+        Copyright (c) 2019 OMOTO Tsukasa
+        
+        ## Acknowledgments
+        
+        - [abendebury/pytest-pep257](https://github.com/abendebury/pytest-pep257)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: tests
