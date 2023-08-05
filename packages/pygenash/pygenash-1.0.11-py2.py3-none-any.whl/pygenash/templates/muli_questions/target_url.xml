@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../css/data.css"?>
+<form xmlns="http://www.ge.fr/schema/1.2/form-manager" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ge.fr/schema/1.2/form-manager http://svn.projet-ge.fr:8080/archiva/repository/xsd/form-manager/form-manager/1.2/form-manager-1.2.xsd" label="" id="data">
+    <group id="target" label="">
+        <data id="url" label="" mandatory="false" type="String"/>
+    </group>
+</form>

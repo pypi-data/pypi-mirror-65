@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../css/data.css"?>
+<form xmlns="http://www.ge.fr/schema/1.2/form-manager" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ge.fr/schema/1.2/form-manager http://svn.projet-ge.fr:8080/archiva/repository/xsd/form-manager/form-manager/1.2/form-manager-1.2.xsd" label="{{display.label}}" id="choice">
+    <group id="choice" label="{{display.page_label}}">
+        <!-- <description>{{display.description}}</description> -->
+        <!-- <help>{{display.help}}</help> -->
+        <data id="description" label="" mandatory="false" type="Description">
+            <value><![CDATA[{{display.description}}]]></value>
+        </data>
+        <data id="selected" 
+                label="" 
+                type="RadiosBox" 
+                mandatory="true" 
+{% if 'width' in display %} width="{{display.width}}" 
+{% else %} width="90%"
+{% endif %} >
+            <conftype>
+                <referential>
+{% for item in display.choice %}
+                    <text id="{{item.id}}" icon="{{item.icon}}">{{item.text}}</text>
+{% endfor %}
+                </referential>
+            </conftype>
+        </data>
+{% for item in display.choice %}
+        <data id="item{{item.id|capitalize}}" label="Vous avez choisi la démarche suivante :" type="Description">
+            <if>Value('id').of($selected).eq("{{item.id}}")</if>
+            <value>{{item.text_confirm}}</value>
+        </data>
+{% endfor %}
+    </group>
+</form>

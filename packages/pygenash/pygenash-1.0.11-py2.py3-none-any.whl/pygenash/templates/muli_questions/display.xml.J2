@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../css/data.css"?>
+<form xmlns="http://www.ge.fr/schema/1.2/form-manager" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ge.fr/schema/1.2/form-manager http://svn.projet-ge.fr:8080/archiva/repository/xsd/form-manager/form-manager/1.2/form-manager-1.2.xsd" label="{{display.label}}" id="display">
+    <group id="page" label="{{display.page_label}}">
+        <!-- <description>{{display.description}}</description> -->
+        <!-- <help>{{display.help}}</help> -->
+        <data id="description" label="" mandatory="false" type="Description">
+            <value><![CDATA[{{display.description}}]]></value>
+        </data>
+
+        <data id="error" label="" mandatory="false" type="Description" if="$error">
+        </data>
+{# --------------------------------------------------------------------------------------------- #}
+{%- macro buttonEnd(label, id_root) -%}
+        <data id="button{{id_root}}" type="Button">
+            <if>Value('id').of($data{{id_root[:-3]}}).eq('{{id_root}}')</if>
+            <value>
+                <list>
+                    <text id="label">{{display.button}}</text>
+                    <text id="icon">hand-o-right</text>
+                    <text id="size">lg</text>
+                    <text id="color">#0092BC</text>
+                </list>
+            </value>
+        </data>
+{%- endmacro -%}
+{# --------------------------------------------------------------------------------------------- #}
+{%- macro question(question_tree, id_root = "Id") -%}
+        {%- set label = (question_tree.keys()|list)[0] -%}
+        {%- set answers = question_tree[label] -%}
+        <!-- ======================================================================== -->
+        <data id="data{{id_root}}" label="{{label}}" type="RadiosBox">
+            {% if id_root|length > 2 -%}
+            <if>Value('id').of($data{{id_root[:-3]}}).eq('{{id_root}}')</if>
+            {%- endif -%}
+            <conftype>
+                <referential>
+    {%- for item in answers %}
+                    <text id="{{id_root}}x{{ '%02d'|format(loop.index|int) }}">{{item}}</text>
+    {%- endfor %}
+                </referential>
+            </conftype>
+        </data>
+    {%- for item in answers %}
+        {%- if answers[item] is mapping %}
+        {{ question(answers[item], id_root = id_root+"x"+'%02d'|format(loop.index|int)) }}
+        {% else %}
+        {{ buttonEnd(answers[item], id_root = id_root+"x"+'%02d'|format(loop.index|int)) }}
+        {%- endif %}
+    {%- endfor %}
+{%- endmacro -%}
+{# --------------------------------------------------------------------------------------------- #}
+{{ question(display.questions) }}
+    </group>
+</form>

@@ -1,0 +1,70 @@
+// Save the target url
+function memorize(target_url){
+    nash.instance.load('target_url.xml').bind('target',{'url': target_url});
+};
+
+// Error function
+function throwError(message){
+    nash.instance.load('display.xml').bind('page',{'error': message});
+    memorize("/record/" + nash.record.description().getRecordUid() + "/0/page/0");
+};
+
+// All targets
+var destination = "";
+var selection = _INPUT_.page
+
+// ----------------------------------------------------------------------------
+{# --------------------------------------------------------------------------------------------- #}
+{%- macro destinationEnd(label, id_root, tab="") -%}
+{{tab}}destination = "{{label}}";
+{%- endmacro -%}
+{# --------------------------------------------------------------------------------------------- #}
+{%- macro destination(question_tree, id_root = "Id", tab="") -%}
+    {%- set label = (question_tree.keys()|list)[0] -%}
+    {%- set answers = question_tree[label] -%}
+    {%- for item in answers %}
+{{tab}}if (Value('id').of(selection.data{{id_root}}).eq("{{id_root}}x{{ '%02d'|format(loop.index|int) }}")) {
+    {%- if answers[item] is mapping -%}
+{{ destination(answers[item], id_root = id_root+"x"+'%02d'|format(loop.index|int), tab=tab+"\t") }}
+    {%- else %}
+{{ destinationEnd(answers[item], id_root = id_root+"x"+'%02d'|format(loop.index|int), tab=tab+"\t") }}
+    {%- endif %}
+{{tab}}}
+{%- endfor -%}
+{%- endmacro -%}
+{# --------------------------------------------------------------------------------------------- #}
+{{ destination(display.questions) }}
+// ----------------------------------------------------------------------------
+
+var the_destination = {
+    'target':destination
+};
+
+if (destination.includes(":")) {
+    var explode = destination.split(":",2);
+    the_destination['nash_target'] = explode[0];
+    the_destination['target'] = explode[1];
+}
+
+
+var the_destination = destination[choice];
+var target_url = "/"
+if ('nash_target' in the_destination) {
+    conf_target_url = _CONFIG_.get(the_destination['nash_target']+'.public.url');	
+	if(conf_target_url == null){
+        log.error('formUid = {} | nash_target = {} | nash_target doesn\'t exist', nash.record.description().formUid, the_destination['nash_target']);
+        return throwError('La formalité cible est introuvable. La paramètre "nash_target" est incorrect.'); 
+	}
+    target_url = conf_target_url + "/";
+}
+
+if ('target' in the_destination) {
+    target_url = target_url + "form/use?reference=" + encodeURIComponent(the_destination['target']);
+} else {
+    return throwError('La formalité cible est introuvable.');
+}
+
+log.info('formUid = {} | choice = {} | target url = {}', nash.record.description().formUid, choice, target_url);
+
+// redirect
+return memorize(target_url);
