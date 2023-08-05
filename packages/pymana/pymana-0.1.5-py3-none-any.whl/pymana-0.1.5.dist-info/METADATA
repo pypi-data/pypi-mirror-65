@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: pymana
+Version: 0.1.5
+Summary: 
+Home-page: https://github.com/sumanthratna/pymana
+License: MIT
+Author: Sumanth Ratna
+Author-email: sumanthratna@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: click-aliases (>=1.0.1,<2.0.0)
+Requires-Dist: dask-image (>=0.2.0,<0.3.0)
+Requires-Dist: dask[array] (>=2.11.0,<3.0.0)
+Requires-Dist: napari (>=0.2.12,<0.3.0)
+Requires-Dist: numpy (>=1.18.1,<2.0.0)
+Requires-Dist: opencv-python-headless (==4.2.0.34)
+Requires-Dist: openslide-python (>=1.1.1,<2.0.0)
+Requires-Dist: scikit-image (>=0.16.2,<0.17.0)
+Requires-Dist: sympy (>=1.5.1,<2.0.0)
+Project-URL: Repository, https://github.com/sumanthratna/pymana
+Description-Content-Type: text/x-rst
+
+pymana
+==============
+
+:code:`pymana.separation.separated` does not work!
+
