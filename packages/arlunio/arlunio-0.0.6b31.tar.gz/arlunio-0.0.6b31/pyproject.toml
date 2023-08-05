@@ -1,0 +1,100 @@
+[build-system]
+requires = ["setuptools >= 35.0.2", "wheel >= 0.29.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.check-manifest]
+ignore = [
+  "docs",
+  "docs/*",
+  ".pre-commit-config.yaml",
+  "azure-pipelines.yml",
+  "scripts",
+  "scripts/*",
+  ".coveragerc",
+  ".flake8",
+  "*.ipynb_checkpoints",
+  "*.ipynb_checkpoints/*",
+  "tests",
+  "tests/*"]
+
+[tool.isort]
+include_trailing_comma = true
+line_length = 88
+lines_between_types = 1
+multi_line_output = 3
+
+[tool.towncrier]
+package = "arlunio"
+filename = "CHANGES.rst"
+directory = "changes/"
+title_format = "{version} - {project_date}"
+issue_format = "`#{issue} <https://github.com/swyddfa/arlunio/issues/{issue}>`_"
+
+
+[[tool.towncrier.type]]
+     directory = "feature"
+     name = "Features"
+     showcontent = true
+
+[[tool.towncrier.type]]
+     directory = "fix"
+     name = "Fixes"
+     showcontent = true
+
+[[tool.towncrier.type]]
+     directory = "doc"
+     name = "Docs"
+     showcontent = true
+
+[[tool.towncrier.type]]
+     directory = "removal"
+     name = "Removed"
+     showcontent = true
+
+[[tool.towncrier.type]]
+     directory = "misc"
+     name = "Misc"
+     showcontent = true
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = pkg, lint, docs, py37
+isolated_build = True
+
+[testenv]
+deps =
+     hypothesis
+     pytest
+     pytest-cov
+extras = all
+commands =
+    pytest --tb=short --doctest-modules --doctest-glob="*.rst" --cov=arlunio --cov-report term --cov-report xml {posargs}
+
+[testenv:docs]
+deps =
+     sphinx
+     sphinx_rtd_theme
+commands =
+    sphinx-build -M linkcheck docs docs/_build -E -a -j auto {posargs}
+    sphinx-build -M html docs docs/_build -E -a -j auto {posargs}
+
+[testenv:lint]
+deps =
+     pre-commit
+commands =
+    pre-commit run --all-files
+
+[testenv:pkg]
+deps =
+     sphinx
+     wheel
+whitelist_externals = cp
+usedevelop = True
+commands =
+
+     sphinx-build -M nbtutorial docs/ docs/_build -E -a
+     cp -r docs/_build/nbtutorial/users/ arlunio/tutorial
+
+     python setup.py sdist bdist_wheel
+"""
