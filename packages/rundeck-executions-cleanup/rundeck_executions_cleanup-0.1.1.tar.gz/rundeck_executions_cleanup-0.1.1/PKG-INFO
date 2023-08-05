@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: rundeck-executions-cleanup
+Version: 0.1.1
+Summary: Python CLI to remove old Rundeck executions and log files
+Home-page: https://github.com/instruct-br/rundeck-executions-cleanup
+License: MIT
+Keywords: rundeck,logs,executions,CLI
+Author: Lucas Souto
+Author-email: lucassouto@protonmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: click-log (>=0.3.2,<0.4.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Project-URL: Repository, https://github.com/instruct-br/rundeck-executions-cleanup
+Description-Content-Type: text/markdown
+
+
