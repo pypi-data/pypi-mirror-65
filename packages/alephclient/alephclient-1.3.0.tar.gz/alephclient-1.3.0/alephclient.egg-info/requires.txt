@@ -1,0 +1,10 @@
+banal>=0.4.2
+pyyaml
+requests>=2.21.0
+requests_toolbelt>=0.9.1
+click>=7.0
+
+[dev]
+wheel
+pytest
+pytest-mock>=1.10.0
