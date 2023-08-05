@@ -1,0 +1,49 @@
+ChangeLog
+=========
+
+
+2020-04-07: parceqt-0.8.0
+
+- added treemodel.TreeModel
+- added debug module with debugger window
+- use new peek feature to quickly update highlighting surrounding change
+
+
+2020-03-14: parceqt-0.7.0
+
+- don't set a default Theme on init of SyntaxHighlighter, this causes
+  the highlighting to run twice when calling the highlight() helper.
+- really wait til update on Treebuilder.wait()
+
+
+2020-02-16: parceqt-0.6.0
+
+- Improvements, and adjust to changes in parceqt-0.6
+- Convenience function to adjust a text widget to the window() format
+  of a theme.
+
+
+2020-02-07: parceqt-0.5.0
+
+- API to use highlighter and set root lexicon greatly simplfied
+
+
+2020-01-22: parceqt-0.3.0
+
+- Renamed to parceqt
+
+
+2020-01-21: livelex-qt-0.3.0
+
+- Better documentation
+- Split classes over separate modules files, accessible via the toplevel
+  package
+- robustness improvements, highlighting must happen in the main thread but
+  it regularly polls for user events and restarts if needed.
+
+
+2020-01-15: livelex-qt-0.2.0
+
+- Incorporate qtdocument module from livelex
+- Initial release
+
