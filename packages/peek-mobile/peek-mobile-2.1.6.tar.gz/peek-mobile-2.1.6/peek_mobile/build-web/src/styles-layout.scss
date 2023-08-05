@@ -1,0 +1,86 @@
+@import '~@synerty/peek-theme/scss/variables.web';
+@import '~@synerty/peek-theme/scss/mixins.web';
+
+//peek screens
+
+//plugin screens
+@import '~@synerty/peek-theme/scss/layout.web/_plugin_inbox.web';
+@import '~@synerty/peek-theme/scss/layout.web/_plugin_chat.web';
+
+//generic sections
+@import '~@synerty/peek-theme/scss/layout.web/_navigation_section.web';
+@import '~@synerty/peek-theme/scss/layout.web/_tabs_section.web';
+@import '~@synerty/peek-theme/scss/layout.web/_mobile_dialog_section.web';
+
+//@import '~@synerty/peek-theme/scss/layout.web/_information_section.web';
+.peek-information-section {
+  /*
+      Contains the Information Section classes
+  */
+
+  padding: $general_padding_2;
+
+  .information-section-title {
+    /*
+        Contains the title attributes unique to the peek-information-section class
+    */
+    padding-bottom: $general_padding_2;
+  }
+
+  .information-section-icon {
+    /*
+        Contains the icon attributes unique to the peek-information-section class
+    */
+    background-image: url('~@synerty/peek-theme/images/home_background.png');
+    @include inner-shadow(0.35);
+    padding: $general_padding_3;
+    max-width: $general_width_1;
+    height: auto;
+    border-radius: $general_border_radius;
+    margin-top: $general_padding_4;
+    margin-bottom: $general_padding_4;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+
+@import '~@synerty/peek-theme/scss/layout.web/_details_section.web';
+@import '~@synerty/peek-theme/scss/layout.web/_tables_section.web';
+
+@import '~@synerty/peek-theme/scss/layout.web/_general.web';
+
+body,
+html{
+  height: 100%;
+}
+
+.image{
+  max-width: 100%;
+}
+
+.hr{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+*:focus {outline:none!important;}
+
+.navigation-information{
+  //border-bottom: 1px solid darken($grey,20%);
+  margin-bottom: $general_padding_2;
+
+  .form-group{
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
+}
+
+.form-group{
+  margin-bottom: 0;
+  padding-bottom: $general_padding_2;
+  padding-top: $general_padding_2;
+  //color: $black;
+}
