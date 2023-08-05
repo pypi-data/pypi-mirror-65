@@ -1,0 +1,20 @@
+query fetchProfileClusters($id: String!) {
+    fetchProfile(id: $id) {
+      ... on ConsoleProfile {
+        defaultClusterId
+        clusters {
+          id
+          name
+          type
+          cluster {
+            region
+            externalAccountId
+            bucketName
+          }
+          isLastConnectionCheckValid
+          isActive
+          enableCloudOffload
+        }
+      }
+    }
+  }
