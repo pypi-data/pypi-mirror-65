@@ -1,0 +1,10 @@
+global-include *.pyx
+global-include *.pxi
+global-include *.c 
+global-include *.h 
+include pyproject.toml
+exclude .gitignore
+exclude .gitattributes
+exclude example/*
+exclude test_math/*
+exclude cmfrec/*.c
