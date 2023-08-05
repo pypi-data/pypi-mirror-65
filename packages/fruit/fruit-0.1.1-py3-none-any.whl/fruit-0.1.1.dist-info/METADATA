@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: fruit
+Version: 0.1.1
+Summary: Create and run automations based on yaml files
+Home-page: https://github.com/codesaurus97/fruit
+Author: Marcell Pigniczki
+Author-email: marcip97@gmail.com
+License: MIT
+Keywords: fruit automation yaml
+Platform: UNKNOWN
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Requires-Dist: click
+Requires-Dist: colorama
+Requires-Dist: pyyaml
+Requires-Dist: checksumdir
+
+# Fruit
+
+The readme is under development...
+
