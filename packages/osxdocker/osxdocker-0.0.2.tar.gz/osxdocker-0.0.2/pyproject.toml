@@ -1,0 +1,35 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "osxdocker"
+author = "Conor Sheehan"
+author-email = "conor.sheehan.dev@gmail.com"
+home-page = "https://github.com/ConorSheehan1/osxdocker"
+description-file="README.md"
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development",
+    "Topic :: Utilities",
+]
+requires-python=">=3"
+requires = ["fire"]
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "black",
+    "pytest",
+    "docker",
+    "rope",
+]
+
+[tool.flit.scripts]
+osxdocker = "osxdocker:main"
+
+[tool.flit.sdist]
+exclude = [
+    "Pipfile.lock"
+]
