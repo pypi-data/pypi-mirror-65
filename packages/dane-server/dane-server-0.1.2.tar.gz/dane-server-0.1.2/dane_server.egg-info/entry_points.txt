@@ -1,0 +1,4 @@
+[console_scripts]
+dane-server = dane_server.gunicorn_app:main
+dane-server-flask = dane_server.server:main
+
