@@ -1,0 +1,4 @@
+[console_scripts]
+tilekiln-generate = tilekiln.scripts.generate:cli
+tilekiln-tilejson = tilekiln.scripts.tilejson:cli
+
