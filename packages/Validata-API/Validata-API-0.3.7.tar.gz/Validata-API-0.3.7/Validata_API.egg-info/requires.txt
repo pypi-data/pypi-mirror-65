@@ -1,0 +1,15 @@
+cachetools
+flask
+flask-cors
+flask-matomo
+flasgger
+python-dotenv
+requests
+tabulator
+toml
+toolz
+ujson
+validata_core<0.6,>=0.5.0
+
+[matomo]
+Flask-Matomo
