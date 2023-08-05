@@ -1,0 +1,159 @@
+Metadata-Version: 2.1
+Name: edc
+Version: 0.1.17
+Summary: EDC core modules for clinicedc/edc projects.
+Home-page: https://github.com/clinicedc/edc
+Author: Erik van Widenfelt
+Author-email: ew2789@gmail.com
+License: GPL license, see LICENSE
+Keywords: django edc clinical trials research
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.7
+Requires-Dist: boto3
+Requires-Dist: celery
+Requires-Dist: django-audit-fields (==0.1.14)
+Requires-Dist: django-celery-beat
+Requires-Dist: django-celery-results
+Requires-Dist: django-collect-offline (==0.2.49)
+Requires-Dist: django-collect-offline-files (==0.1.27)
+Requires-Dist: django-crypto-fields (==0.1.27)
+Requires-Dist: django-environ
+Requires-Dist: django-extensions
+Requires-Dist: django-ipware
+Requires-Dist: django-multisite
+Requires-Dist: django-redis
+Requires-Dist: django-restframework
+Requires-Dist: django-revision (==0.1.20)
+Requires-Dist: django-storages
+Requires-Dist: gunicorn
+Requires-Dist: mysqlclient
+Requires-Dist: pyrabbit
+Requires-Dist: python-memcached
+Requires-Dist: sentry-sdk
+Requires-Dist: edc-action-item (==0.1.71)
+Requires-Dist: edc-adverse-event (==0.1.27)
+Requires-Dist: edc-appointment (==0.2.67)
+Requires-Dist: edc-auth (==0.1.57)
+Requires-Dist: edc-consent (==0.2.53)
+Requires-Dist: edc-constants (==0.2.30)
+Requires-Dist: edc-crf (==0.1.1)
+Requires-Dist: edc-dashboard (==0.2.71)
+Requires-Dist: edc-data-manager (==0.2.48)
+Requires-Dist: edc-device (==0.2.26)
+Requires-Dist: edc-export (==0.2.47)
+Requires-Dist: edc-facility (==0.1.33)
+Requires-Dist: edc-fieldsets (==0.1.9)
+Requires-Dist: edc-form-label (==0.1.6)
+Requires-Dist: edc-form-validators (==0.1.30)
+Requires-Dist: edc-identifier (==0.2.42)
+Requires-Dist: edc-lab (==0.2.63)
+Requires-Dist: edc-lab-dashboard (==0.1.35)
+Requires-Dist: edc-label (==0.1.30)
+Requires-Dist: edc-list-data (==0.1.21)
+Requires-Dist: edc-locator (==0.2.35)
+Requires-Dist: edc-metadata (==0.2.59)
+Requires-Dist: edc-metadata-rules (==0.1.28)
+Requires-Dist: edc-model (==0.1.26)
+Requires-Dist: edc-model-admin (==0.2.28)
+Requires-Dist: edc-model-fields (==0.1.13)
+Requires-Dist: edc-model-wrapper (==0.1.31)
+Requires-Dist: edc-navbar (==0.1.39)
+Requires-Dist: edc-notification (==0.1.38)
+Requires-Dist: edc-offstudy (==0.2.27)
+Requires-Dist: edc-pdutils (==0.1.23)
+Requires-Dist: edc-pharmacy (==0.1.2a14)
+Requires-Dist: edc-pharmacy-dashboard (==0.1.1a13)
+Requires-Dist: edc-prn (==0.1.18)
+Requires-Dist: edc-protocol (==0.1.26)
+Requires-Dist: edc-randomization (==0.1.45)
+Requires-Dist: edc-reference (==0.1.48)
+Requires-Dist: edc-registration (==0.2.46)
+Requires-Dist: edc-reportable (==0.1.34)
+Requires-Dist: edc-reports (==0.1.26)
+Requires-Dist: edc-review-dashboard (==0.2.18)
+Requires-Dist: edc-screening (==0.1.21)
+Requires-Dist: edc-search (==0.1.12)
+Requires-Dist: edc-sites (==0.1.28)
+Requires-Dist: edc-subject-dashboard (==0.1.54)
+Requires-Dist: edc-subject-model-wrappers (==0.1.12)
+Requires-Dist: edc-test-utils (==0.1.35)
+Requires-Dist: edc-timepoint (==0.1.16)
+Requires-Dist: edc-utils (==0.1.22)
+Requires-Dist: edc-visit-schedule (==0.2.56)
+Requires-Dist: edc-visit-tracking (==0.2.49)
+Requires-Dist: Django[argon2] (>=3.0.5)
+
+|pypi| |downloads|
+
+Clinic EDC
+==========
+
+The ``Clinic EDC`` contains code for the core clinical trial data management system modules for our "edc". The codebase has evolved over many years of conducting clinical trials for mostly NIH-funded clinical trials at the [Botswana-Harvard AIDS Institute Partnership](https://aids.harvard.edu/research/bhp) in Gaborone, Botswana. Almost all trials were related to HIV/AIDS research.
+
+The ``Clinic EDC`` for each trial consists of a subset of trial-specific modules that reference this module.
+
+(python 3.7 and Django 2.2+ required)
+
+
+Projects that use the EDC
+-------------------------
+Recent examples of EDC's using this codebase:
+
+The META Trial
+~~~~~~~~~~~~~~
+
+(2 sites in Tanzania)
+
+https://github.com/meta-trial (2019- )
+
+http://www.isrctn.com/ISRCTN76157257
+
+Start with main repo `meta-edc`
+
+The Ambition Trial
+~~~~~~~~~~~~~~~~~~
+
+(7 sites in Botswana, Malawi, South Africa, Uganda)
+
+https://github.com/ambition-trial (2018- )
+
+http://www.isrctn.com/ISRCTN72509687
+
+Start with main repo `ambition-edc`
+
+The Botswana Combination Prevention Project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(30 sites in Botswana)
+
+https://github.com/botswana-combination-prevention-project (2013-2018)
+
+https://clinicaltrials.gov/ct2/show/NCT01965470
+
+https://www.ncbi.nlm.nih.gov/pubmed/?term=NCT01965470
+
+Start with main repo `bcpp`
+
+Contacts
+--------
+
+For further information go to https://github.com/erikvw.
+
+
+
+.. |pypi| image:: https://img.shields.io/pypi/v/edc.svg
+    :target: https://pypi.python.org/pypi/edc
+
+.. |downloads| image:: https://pepy.tech/badge/edc
+   :target: https://pepy.tech/project/edc
+
+
