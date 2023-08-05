@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: bindpyrame
+Version: 0.1
+Summary: A module to bind to pyrame in pure python 3
+Home-page: https://github.com/llr-online/bindpyrame/tree/master
+Author: llr-online
+Author-email: lorenzo.bernardi@llr.in2p3.fr
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+
+# bindpyrame
+
+Simple module in pure python3 to connect to pyrame http://llr.in2p3.fr/sites/pyrame/
+
+Can be installed through pip on testpypi for now
+
+     pip install -i https://test.pypi.org/simple/ bindpyrame-llr-online
+
+The status of this package can be checked at https://test.pypi.org/project/bindpyrame-llr-online/
+
+
+
+
