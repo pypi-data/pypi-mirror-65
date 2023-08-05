@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: dagster
+Version: 0.7.6rc0
+Summary: Dagster is an opinionated programming model for data pipelines.
+Home-page: https://github.com/dagster-io/dagster
+Author: Elementl
+License: Apache-2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: future
+Requires-Dist: funcsigs
+Requires-Dist: contextlib2 (>=0.5.4)
+Requires-Dist: click (>=5.0)
+Requires-Dist: coloredlogs (>=6.1)
+Requires-Dist: graphviz (>=0.8.4)
+Requires-Dist: PyYAML
+Requires-Dist: alembic (>=1.2.1)
+Requires-Dist: gevent
+Requires-Dist: pyrsistent (>=0.14.8)
+Requires-Dist: python-dateutil
+Requires-Dist: rx (<=1.6.1)
+Requires-Dist: six
+Requires-Dist: sqlalchemy (>=1.0)
+Requires-Dist: toposort (>=1.0)
+Requires-Dist: watchdog (>=0.8.3)
+Requires-Dist: pytz
+Requires-Dist: psutil (>=1.0) ; platform_system == "Windows"
+Requires-Dist: pywin32 (!=226) ; platform_system == "Windows"
+Requires-Dist: functools32 ; python_version < "3"
+Requires-Dist: pathlib2 (>=2.3.4) ; python_version < "3"
+Requires-Dist: typing ; python_version < "3"
+Requires-Dist: backports.tempfile ; python_version < "3"
+Requires-Dist: enum34 ; python_version < "3.4"
+Provides-Extra: docker
+Requires-Dist: docker ; extra == 'docker'
+
+## Dagster
+Dagster is a system for building modern data applications.
+
+Combining an elegant programming model and beautiful tools, Dagster allows infrastructure engineers,
+data engineers, and data scientists to seamlessly collaborate to process and produce the trusted,
+reliable data needed in today's world.
+
