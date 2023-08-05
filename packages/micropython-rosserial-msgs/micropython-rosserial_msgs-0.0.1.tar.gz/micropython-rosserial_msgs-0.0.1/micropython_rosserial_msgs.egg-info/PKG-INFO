@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: micropython-rosserial-msgs
+Version: 0.0.1
+Summary: A package with rosserial_msgs uPy classes.
+Home-page: https://github.com/FunPythonEC/uPy-rosserial_msgs
+Author: Steven Silva Mendoza
+Author-email: sasilva1998@gmail.com
+License: UNKNOWN
+Description: # uPy-rosserial_msgs
+        Here in `src` there is a directory which has the `TopicInfo` class for uPy, this must be included in order to establish connection with rosserial.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
