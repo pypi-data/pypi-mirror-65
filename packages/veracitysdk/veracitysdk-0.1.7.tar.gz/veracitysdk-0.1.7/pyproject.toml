@@ -1,0 +1,15 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+dist-name = "veracitysdk"
+module = "veracitysdk"
+author = "schen"
+author-email = "shu@disinformationindex.org"
+home-page = "https://bitbucket.org/disinformationindex/veracitysdk/src"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires = [
+	"requests >=2.22.0",
+]
+requires-python = ">=3.6"
