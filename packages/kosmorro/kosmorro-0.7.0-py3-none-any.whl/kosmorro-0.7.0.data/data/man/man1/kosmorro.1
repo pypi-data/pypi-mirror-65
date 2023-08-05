@@ -1,0 +1,145 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "KOSMORRO" "1" "April 2020" "" ""
+.
+.SH "NAME"
+\fBkosmorro\fR \- a program that computes the ephemerides
+.
+.SH "SYNOPSIS"
+\fBkosmorro\fR
+.
+.br
+\fBkosmorro\fR [\fIOPTIONS\fR]\.\.\.
+.
+.SH "OPTIONS"
+\fB\-h\fR, \fB\-\-help\fR
+.
+.br
+show a help message and exit
+.
+.P
+\fB\-\-version\fR, \fB\-v\fR
+.
+.br
+show the program version
+.
+.P
+\fB\-\-clear\-cache\fR
+.
+.br
+delete all the files Kosmorro stored in the cache
+.
+.P
+\fB\-\-latitude=\fR\fILATITUDE\fR, \fB\-lat\fR \fILATITUDE\fR
+.
+.br
+the observer\'s latitude on Earth
+.
+.P
+\fB\-\-longitude=\fR\fILONGITUDE\fR, \fB\-lon\fR \fILONGITUDE\fR
+.
+.br
+the observer\'s longitude on Earth
+.
+.P
+\fB\-\-date=\fR\fIDATE\fR, \fB\-d\fR \fIDATE\fR
+.
+.br
+The date for which the ephemerides must be computed (in the YYYY\-MM\-DD format); defaults to the current date
+.
+.P
+\fB\-\-timezone=\fR\fITIMEZONE\fR, \fB\-t\fR \fITIMEZONE\fR
+.
+.br
+the timezone to display the hours in; e\.g\. 2 for UTC+2 or \-3 for UTC\-3
+.
+.P
+\fB\-\-no\-colors\fR
+.
+.br
+disable the colors in the console
+.
+.P
+\fB\-\-output=\fR\fIOUTPUT\fR, \fB\-o\fR \fIOUTPUT\fR
+.
+.br
+a file to export the output to; if not given, the standard output is used
+.
+.P
+\fB\-\-format=\fR\fIFORMAT\fR, \fB\-f\fR \fIFORMAT\fR
+.
+.br
+the format under which the information have to be output; one of the following: text, json, pdf
+.
+.SH "ENVIRONMENT VARIABLES"
+The environment variable listed below may be used instead of the options\. The options have a higher priority than the environment variable\. As a consequence, any option that would be given to \fBkosmorro\fR will override its corresponding environment variable\.
+.
+.P
+Available environment variables are:
+.
+.P
+\fBKOSMORRO_LATITUDE\fR
+.
+.br
+the observer\'s latitude on Earth (alternative to \fB\-\-latitude\fR)
+.
+.P
+\fBKOSMORRO_LONGITUDE\fR
+.
+.br
+the observer\'s longitude on Earth (alternative to \fB\-\-longitude\fR)
+.
+.P
+\fBKOSMORRO_TIMEZONE\fR
+.
+.br
+the observer\'s timezone (alternative to \fB\-\-timezone\fR)
+.
+.SH "EXAMPLES"
+Compute the events only for the current date:
+.
+.IP "" 4
+.
+.nf
+
+kosmorro
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Compute the ephemerides for Lille, France, on April 1st, 2022:
+.
+.IP "" 4
+.
+.nf
+
+kosmorro \-\-latitude=50\.5876 \-\-longitude=3\.0624 \-\-date=2022\-04\-01
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Compute the ephemerides for Lille, France, on April 1st, 2022, and export them in a PDF document:
+.
+.IP "" 4
+.
+.nf
+
+kosmorro \-\-latitude=50\.5876 \-\-longitude=3\.0624 \-date=2022\-04\-01 \-\-format=pdf \-\-output=file\.pdf
+.
+.fi
+.
+.IP "" 0
+.
+.SH "AUTHOR"
+Written by Jérôme Deuchnord\.
+.
+.SH "REPORTING BUGS"
+Please report any encountered bugs on Kosmorro\'s GitHub project \fIhttps://github\.com/Deuchnord/kosmorro\fR\.
+.
+.SH "COPYRIGHT"
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version\.
