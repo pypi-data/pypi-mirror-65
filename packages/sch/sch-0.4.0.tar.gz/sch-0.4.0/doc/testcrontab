@@ -1,0 +1,7 @@
+SHELL=/usr/local/bin/sch
+
+# comment for true
+* * * * *      root JOB_ID=true JOB_TAGS=true,just_testing sleep 6 &&  /bin/true
+* * * * *      root JOB_ID=bla JOB_TAGS=just_testing sleep 8 &&  /bin/true # inline comment
+
+
