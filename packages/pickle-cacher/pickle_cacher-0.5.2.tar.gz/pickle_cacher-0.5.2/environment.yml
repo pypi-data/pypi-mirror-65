@@ -1,0 +1,22 @@
+name: pickle-cacher
+
+dependencies:
+  - python=3.7.*
+  - pip
+  - pip:
+
+    - atomic-write-path >= 1.0
+    - wrapt >= 1.12
+
+      # testing
+    - hypothesis
+    - pytest
+    - pytest-cov
+    - pytest-randomly
+    - pytest-xdist == 1.29
+
+      # publishing
+    - bump2version
+    - flit
+    - keyring
+    - pre-commit
