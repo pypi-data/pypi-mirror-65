@@ -1,0 +1,9 @@
+[ldmud_efun]
+json_parse = ldmudefuns.json:efun_json_parse
+json_serialize = ldmudefuns.json:efun_json_serialize
+left = ldmudefuns.strings:efun_left
+python_efun_help = ldmudefuns.help:python_efun_help
+python_reload = ldmudefuns.reload:reload_modules
+wrap = ldmudefuns.strings:efun_wrap
+wrap_say = ldmudefuns.strings:efun_wrap_say
+
