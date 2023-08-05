@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+jupyter_mdk.egg-info/PKG-INFO
+jupyter_mdk.egg-info/SOURCES.txt
+jupyter_mdk.egg-info/dependency_links.txt
+jupyter_mdk.egg-info/requires.txt
+jupyter_mdk.egg-info/top_level.txt
+mmscontents/__init__.py
+mmscontents/mmsmanager.py
+mmscontents/service.py
+mmscontents/tests/__init__.py
+mmscontents/tests/test_mmsmanager.py
