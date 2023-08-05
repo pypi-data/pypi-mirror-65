@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: robo-gym-server-modules
+Version: 0.1.0
+Summary: Robot Servers and Server Manager code for robo-gym
+Home-page: https://github.com/jr-robotics/robo-gym-server-modules
+Author: Matteo Lucchi, Friedemann Zindler
+Author-email: matteo.lucchi@joanneum.at, friedemann.zindler@joanneum.at
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=2.7
+Requires-Dist: grpcio
+Requires-Dist: protobuf
+Requires-Dist: libtmux
+
+UNKNOWN
+
+
