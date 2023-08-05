@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: drf-yasg-json-api
+Version: 0.0.1
+Summary: Automated generation of real Swagger/OpenAPI 2.0 schemas for JSON API Django Rest Framework endpoints.
+Home-page: https://github.com/name/drf-yasg-json-api
+Author: 
+Author-email: 
+License: BSD License
+Keywords: drf django django-rest-framework schema swagger openapi codegen swagger-codegen documentation drf-yasg django-rest-swagger drf-openapi json-api
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Code Generators
+Requires-Python: >=3.6
+Requires-Dist: django (>=1.11)
+Requires-Dist: djangorestframework (>=3.7.7)
+Requires-Dist: djangorestframework-jsonapi (>=2.4.0)
+Requires-Dist: drf-yasg (>=1.14.0)
+
+Automated generation of real Swagger/OpenAPI 2.0 schemas for JSON API Django Rest Framework endpoints.
+
+
