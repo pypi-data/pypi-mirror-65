@@ -1,0 +1,6 @@
+[console_scripts]
+wt.merriam = word_tools.cli.cli:lookup_merriam
+wt.stoopid = word_tools.cli.cli:transform_stoopid
+wt.urban = word_tools.cli.cli:lookup_urban
+wt.wikipedia = word_tools.cli.cli:lookup_wikipedia
+
