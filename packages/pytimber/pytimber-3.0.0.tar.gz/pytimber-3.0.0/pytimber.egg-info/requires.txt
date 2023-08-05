@@ -1,0 +1,11 @@
+python-dateutil
+JPype1>=0.7.1
+cmmnbuild-dep-manager>=2.4.0
+matplotlib
+pytz
+scipy
+six
+numpy
+
+[dev]
+pytest
