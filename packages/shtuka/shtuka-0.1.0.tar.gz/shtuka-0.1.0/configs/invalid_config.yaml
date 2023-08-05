@@ -1,0 +1,31 @@
+verbose: false
+
+or: 1
+
+has_:
+    jsons:
+        - first
+        - second
+        - third
+    images: important/path/to/images/
+
+transforms:
+    -   name: Normalize
+        function: ToTensor
+        params: null
+    -   name: Padding
+        function: Pad
+        params:
+            fill: 3
+            padding_mode: reflect
+
+space space:
+    f_: True
+
+    mama:
+        type_: kek
+
+    params:
+        width: 512
+        height: 521
+        grayscale: True
