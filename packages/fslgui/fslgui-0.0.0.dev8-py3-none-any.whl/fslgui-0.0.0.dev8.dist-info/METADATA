@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: fslgui
+Version: 0.0.0.dev8
+Summary: fslgui
+Home-page: https://git.fmrib.ox.ac.uk/fsl/fslgui
+Author: Taylor Hanayik
+Author-email: hanayik@gmail.com
+License: Apache License Version 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Dist: setuptools
+Requires-Dist: six (==1.*)
+Requires-Dist: numpy (>=1.14)
+Requires-Dist: matplotlib (>=1.5.1)
+Requires-Dist: nibabel (>=2.3.*)
+Requires-Dist: Jinja2 (==2.*)
+Requires-Dist: Pillow (>=3.2.0)
+Requires-Dist: PyOpenGL (>=3.1.0)
+Requires-Dist: pyparsing (==2.*)
+Requires-Dist: scipy (>=0.18)
+Requires-Dist: wxPython (>=3.0.2.0)
+Requires-Dist: fslpy (>=2.8.4)
+Requires-Dist: fsleyes (>=0.32.3)
+Requires-Dist: fsleyes-props (>=1.6.7)
+Requires-Dist: fsleyes-widgets (>=0.8.4)
+
+UNKNOWN
+
+
