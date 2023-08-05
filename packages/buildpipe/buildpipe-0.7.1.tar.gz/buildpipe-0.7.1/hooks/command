@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+buildpipe_version="${BUILDKITE_PLUGIN_BUILDPIPE_VERSION:-0.7.1}"
+
+if [[ -z "$BUILDKITE_PLUGIN_BUILDPIPE_TEST_MODE" ]]; then
+  pip3 install buildpipe==$buildpipe_version
+else
+  python3 setup.py install
+fi
+
+buildpipe
