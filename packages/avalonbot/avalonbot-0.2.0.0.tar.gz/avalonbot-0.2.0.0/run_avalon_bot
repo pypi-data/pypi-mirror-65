@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+from __future__ import division, print_function, absolute_import
+import argparse
+import json 
+import avalonbot
+
+
+def parse_config(json_config_file):
+    parsed_config = json.loads(open(json_config_file).read()) 
+    assert "players" in parsed_config, "Please specify a 'players' entry"
+    assert "cards" in parsed_config, "Please specify a 'cards' entry"
+
+    players = []
+    for player_info in parsed_config["players"]:
+        assert "email" in player_info,\
+            "All player entries must have 'email'; got: "+str(player_info) 
+        assert "name" in player_info,\
+            "All player entries must have 'name'; got: "+str(player_info) 
+        players.append(avalonbot.game.Player(name=player_info["name"],
+                                             email=player_info["email"])) 
+
+    cards = avalonbot.bot.create_cards(card_strings=parsed_config["cards"])
+
+    return players, cards
+
+
+def run_game(json_config_file, **kwargs):
+    players, cards = parse_config(args.json_config_file)
+    avalonbot.bot.launch_game(players=players, cards=cards, **kwargs)
+
+
+if __name__=="__main__":
+    parser = argparse.ArgumentParser("Welcome to Avalon Bot!"
+            +" You will need access to a smtp server for sending mail")
+    parser.add_argument("--game_name", required=True,
+                        help="A name for the game to put in the email subject line")
+    parser.add_argument("--smtp_server", required=True)
+    parser.add_argument("--sender", required=True)
+    parser.add_argument("--password", required=False, default=None)
+    parser.add_argument("--json_config_file", required=True,
+                        help="See example config")
+    args = parser.parse_args()
+
+    print(vars(args))
+    run_game(**vars(args))
+    
