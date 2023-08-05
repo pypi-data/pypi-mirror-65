@@ -1,0 +1,4 @@
+[console_scripts]
+databroker-pack = databroker_pack.commandline.pack:main
+databroker-unpack = databroker_pack.commandline.unpack:main
+
