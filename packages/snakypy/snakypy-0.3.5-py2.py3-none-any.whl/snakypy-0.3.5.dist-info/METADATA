@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: snakypy
+Version: 0.3.5
+Summary: Snakypy is a package that contains code ready to assist in the development of packages/applications so as not to replicate the code.
+Home-page: https://github.com/snakypy/snakypy
+Author: Snakypy Org
+Author-email: contact.snakypy@gmail.com
+Maintainer: Snakypy Org
+License: ('MIT license',)
+Keywords: snakypy modules library package
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >= 3.8
+Description-Content-Type: text/x-rst
+Requires-Dist: pyfiglet (==0.8.post1)
+Provides-Extra: dev
+Requires-Dist: twine (==3.1.1) ; extra == 'dev'
+Requires-Dist: wheel (==0.34.2) ; extra == 'dev'
+Requires-Dist: flake8 (==3.7.9) ; extra == 'dev'
+Requires-Dist: tox (==3.14.5) ; extra == 'dev'
+Requires-Dist: sphinx (==2.4.3) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme (==0.4.3) ; extra == 'dev'
+Requires-Dist: recommonmark (==0.6.0) ; extra == 'dev'
+Requires-Dist: pytest (==5.3.5) ; extra == 'dev'
+Requires-Dist: pytest-runner (==5.2) ; extra == 'dev'
+
+=======
+Snakypy
+=======
+
+.. image:: https://github.com/snakypy/snakypy/workflows/Python%20package/badge.svg
+        :target: https://github.com/snakypy/snakypy
+
+.. image:: https://img.shields.io/pypi/v/snakypy.svg
+        :target: https://pypi.python.org/pypi/snakypy
+
+.. image:: https://img.shields.io/pypi/wheel/snakypy
+        :alt: PyPI - Wheel
+
+.. image:: https://img.shields.io/travis/snakypy/snakypy.svg
+        :target: https://travis-ci.com/snakypy/snakypy
+
+.. image:: https://readthedocs.org/projects/snakypy/badge/?version=latest
+        :target: https://snakypy.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+.. image:: https://pyup.io/repos/github/snakypy/snakypy/shield.svg
+        :target: https://pyup.io/repos/github/snakypy/snakypy/
+        :alt: Updates
+
+.. image:: https://img.shields.io/pypi/l/snakypy?style=flat-square
+        :target: https://github.com/snakypy/snakypy/blob/master/LICENSE
+        :alt: PyPI - License
+
+
+Snakypy is a package that contains code ready to assist in the development of
+packages/applications so as not to replicate the code.
+
+
+* Free software: MIT license
+* Documentation: https://snakypy.readthedocs.io.
+
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `williamcanin/pypkg-cookiecutter`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`williamcanin/pypkg-cookiecutter`: https://github.com/williamcanin/pypkg-cookiecutter
+
+
