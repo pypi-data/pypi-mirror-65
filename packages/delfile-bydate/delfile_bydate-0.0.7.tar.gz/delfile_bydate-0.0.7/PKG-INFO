@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: delfile_bydate
+Version: 0.0.7
+Summary: Load and Train github issue to model
+Home-page: https://github.com/panu00x/LoadIssue
+Author: panu00x
+Author-email: lewpanu@gmail.com
+License: UNKNOWN
+Description: ## Install Python
+        
+        https://phoenixnap.com/kb/how-to-install-python-3-windows
+        
+        ## Install Package
+        
+        ```
+        pip install delfile-bydate
+        ```
+        
+        ## Using
+        
+        - delete all year 2020
+        
+        ```
+        delfile --part=/User/Document --date=2020
+        ```
+        
+        - delete all month Jan.
+        
+        ```
+        delfile --part=/User/Document --date=2020/01
+        ```
+        
+        - delete all day 7th.
+        
+        ```
+        delfile --part=/User/Document --date=2020/01/07
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
