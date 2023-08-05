@@ -1,0 +1,22 @@
+# Project skidloader
+# This is the systemd service description required for autostarting
+# the rocketlaucher.sh at the boot time after the network services
+# rocket.service requires to be located in etc/systemd/system
+
+# Author: Martin Shishkov
+# Created : 05.03.2020
+# 
+[Unit]
+Description=Rocket launch service
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=bash /home/pi/rocketlauncher.sh
+WorkingDirectory=/home/pi
+StandardOutput=inherit
+StandardError=inherit
+User=pi
+
+[Install]
+WantedBy=multi-user.target
