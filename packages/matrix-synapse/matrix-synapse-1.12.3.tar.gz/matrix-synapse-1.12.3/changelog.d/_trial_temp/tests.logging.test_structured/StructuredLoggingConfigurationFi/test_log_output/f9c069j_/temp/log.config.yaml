@@ -1,0 +1,6 @@
+structured: true
+
+drains:
+    file:
+        type: file_json
+        location: /home/rav/work/synapse/changelog.d/_trial_temp/tests.logging.test_structured/StructuredLoggingConfigurationFi/test_log_output/f9c069j_/temp/homeserver.log

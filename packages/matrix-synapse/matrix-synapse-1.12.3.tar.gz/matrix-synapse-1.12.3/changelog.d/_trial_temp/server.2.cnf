@@ -1,0 +1,4 @@
+[default]
+basicConstraints = CA:FALSE
+keyUsage=nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = DNS:test.com

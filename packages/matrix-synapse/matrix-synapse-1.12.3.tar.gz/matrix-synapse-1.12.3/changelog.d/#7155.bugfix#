@@ -1,0 +1,1 @@
+Fix a bug introduced in Synapse 1.12.0 which Avoid importing `sqlite3` when using the postgres backend. Contributed by David Vo.
