@@ -1,0 +1,16 @@
+# The runtime dependencies of the framework, as if via `pip install kopf`.
+-e .
+
+# Everything needed to develop (test, debug) the framework.
+coverage<5.0  # manual enforcement where pip fails, see #272.
+pytest-aiohttp
+pytest-asyncio
+pytest-mock>=1.11.1
+pytest-cov
+pytest
+aresponses
+asynctest
+freezegun
+codecov
+coveralls
+mypy==0.770
