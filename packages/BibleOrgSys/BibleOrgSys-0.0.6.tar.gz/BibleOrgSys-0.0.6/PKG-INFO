@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: BibleOrgSys
+Version: 0.0.6
+Summary: Bible Organisational System
+Home-page: http://freely-given.org/Software/BibleOrganisationalSystem/
+Author: Robert Hunt
+Author-email: Freely.Given.org+BOS@gmail.com
+License: GPLv3
+Project-URL: Source Code, https://github.com/openscriptures/BibleOrgSys/
+Description: 
+        A system for importing and extracting various book/chapter/verse (BCV) texts,
+        including Bibles of course, but also other related BCV materials like Bible commentaries.
+        
+        NOTE: This packaging is still being tested following massive restructuring,
+        and is not necessarily fully functional until it is marked as v0.1.0 or higher.
+        We also have hopes to improve documentation before v0.2.0.
+        
+        A future package of apps that use the BOS is also planned for release.
+        After that point, we also hope to release a Snap version.
+        
+        This software has been developed in small chunks of spare time since 2010
+        (so it's not necessarily well-thought out, and definitely not polished).
+        However, it has been tested on hundreds of Bible filesets,
+        including USFM, OSIS, USX, USFX, and other import formats.
+        
+        No attempt at all has been made at memory or speed optimisations
+        and this is not planned until after the release of v1.0.0.
+        
+        This software forms the basis of the online Bible Drop Box service
+        hosted at http://Freely-Given.org/Software/BibleDropBox/.
+        
+        This package will not reach v1.0.0 until versification mapping is added.
+        
+        The API will not become fixed/stable until the v1.0.0 release.
+        
+Keywords: Bible index book chapter verse USFM USX
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Religion
+Classifier: Topic :: Religion
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
