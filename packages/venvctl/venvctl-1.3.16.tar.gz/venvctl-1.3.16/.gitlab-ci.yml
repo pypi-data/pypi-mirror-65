@@ -1,0 +1,146 @@
+---
+image: python:latest
+
+variables:
+  BUILD_CACHE: "${CI_PROJECT_DIR}/build_cache"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  DS_PYTHON_VERSION: 3
+  DS_PIP_VERSION: "20.0.2"
+  PIP_REQUIREMENTS_FILE: "requirements.txt"
+  SAST_DEFAULT_ANALYZERS: "bandit"
+  SAST_DISABLE_DIND: "true"
+  SAST_EXCLUDED_PATHS: ${BUILD_CACHE}/*,${PIP_CACHE_DIR}/*
+
+cache:
+  paths:
+    - ${CI_PROJECT_DIR}/build_cache
+    - .cache/pip
+  key: ${CI_PROJECT_ID}
+
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+
+bandit-sast:
+  trigger:
+    include:
+      - template: SAST.gitlab-ci.yml
+    strategy: depend
+  only:
+    - master
+
+license-scanning:
+  trigger:
+    include:
+      - template: License-Scanning.gitlab-ci.yml
+    strategy: depend
+  only:
+    - master
+
+stages:
+  - test
+  - security
+  - build
+  - deploy
+
+pylint:
+  stage: test
+  extends: .base-setup
+  script:
+    - pip3 install --upgrade pylint-exit anybadge
+    - mkdir ./pylint
+    - cd ./module && pylint *  -f parseable --ignore-imports=yes --output-format=text . | tee ../pylint/pylint.log || pylint-exit $? && cd -
+    - PYLINT_SCORE=$(sed -n 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p' ./pylint/pylint.log)
+    - anybadge --label=Pylint --file=pylint/pylint.svg --value=$PYLINT_SCORE 2=red 4=orange 8=yellow 10=green
+    - echo "Pylint score is $PYLINT_SCORE"
+  artifacts:
+    paths:
+      - ./pylint/
+
+code-quality:
+  stage: test
+  extends: .base-setup
+  script:
+    - pip3 install mypy
+    - mypy --strict module/main/*.py
+    - mypy --strict module/utils/*.py
+    - mypy --strict module/security/*.py
+    - mypy --strict module/cli/*.py
+    - mypy --strict module/tests/test_*.py
+  allow_failure: true
+
+unit:
+  stage: test
+  extends: .base-setup
+  script:
+    - python -m module.tests.test_unit
+    - python -m module.tests.test_configutils
+  only:
+    - development
+
+coverage:
+  stage: test
+  extends: .base-setup
+  script:
+    - pip3 install codecov
+    - coverage run -m module generate --config ./module/tests/config/venvs.json --out ${BUILD_CACHE}/venvs_coverage
+    - coverage report -m
+    - coverage html -d ${BUILD_CACHE}/tests/coverage
+    - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+    - rm -rf ${CI_PROJECT_DIR}/build_cache/venvs_coverage
+  only:
+    - development
+    - master
+  allow_failure: true
+
+# bandit:
+#   stage: security
+#   extends: .base-setup
+#   script:
+#     - echo ${COMMIT_TIME}
+#     - echo $(git show -s --format=%ct $CI_COMMIT_SHA)
+#     - bandit -ir ./module/*
+#   only:
+#     - development
+#     - tags
+
+build:
+  stage: build
+  extends: .base-setup
+  script:
+      - rm -rf ${CI_PROJECT_DIR}/build_cache/venvs
+      - pip3 install --upgrade -r requirements.txt
+      - pip3 install --upgrade venvctl
+      - python -m venvctl generate --config ./module/tests/config/venvs.json --out ${BUILD_CACHE}/venvs
+  artifacts:
+    paths:
+      - ${BUILD_CACHE}/venvs
+  when: manual
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  extends: .base-setup
+  script:
+    - pip3 install twine
+    - echo $PYPIRC_INI | base64 -d > .pypirc
+    - make clean
+    - make module
+    - make upload
+    - rm -rf .pypirc
+  when: manual
+  artifacts:
+    paths:
+      - ./dist/
+  only:
+    - tags
+
+.base-setup:
+  before_script:
+    - python --version
+    - rm -rf ${BUILD_CACHE}/venvs
+    - mkdir -p $BUILD_CACHE
+    - pip3 install --upgrade pip virtualenv pylint
+    - virtualenv venv
+    - source venv/bin/activate
+    - pip3 install -r requirements.txt
