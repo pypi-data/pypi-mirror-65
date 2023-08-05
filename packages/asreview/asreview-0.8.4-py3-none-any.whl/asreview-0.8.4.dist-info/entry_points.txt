@@ -1,0 +1,34 @@
+[asreview.datasets]
+builtin = asreview.datasets:BuiltinDataGroup
+
+[asreview.entry_points]
+oracle = asreview.entry_points:GUIEntryPoint
+simulate = asreview.entry_points:SimulateEntryPoint
+web_run_model = asreview.entry_points:WebRunModelEntryPoint
+
+[asreview.feature_extraction]
+doc2vec = asreview.feature_extraction.doc2vec:Doc2Vec
+embedding-idf = asreview.feature_extraction.embedding_idf:EmbeddingIdf
+embedding-lstm = asreview.feature_extraction.embedding_lstm:EmbeddingLSTM
+sbert = asreview.feature_extraction.sbert:SBERT
+tfidf = asreview.feature_extraction.tfidf:Tfidf
+
+[asreview.models]
+logistic = asreview.models.logistic:LogisticModel
+lstm-base = asreview.models.lstm_base:LSTMBaseModel
+lstm-pool = asreview.models.lstm_pool:LSTMPoolModel
+nb = asreview.models.nb:NBModel
+nn-2-layer = asreview.models.nn_2_layer:NN2LayerModel
+rf = asreview.models.rf:RFModel
+svm = asreview.models.svm:SVMModel
+
+[asreview.readers]
+.csv = asreview.io.csv_reader:read_csv
+.ris = asreview.io.ris_reader:read_ris
+.txt = asreview.io.ris_reader:read_ris
+.xlsx = asreview.io.excel_reader:read_excel
+.xml = asreview.io.pubmed_xml_reader:read_pubmed_xml
+
+[console_scripts]
+asreview = asreview.__main__:main
+
