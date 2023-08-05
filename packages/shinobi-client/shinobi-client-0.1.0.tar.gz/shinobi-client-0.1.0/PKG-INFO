@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: shinobi-client
+Version: 0.1.0
+Summary: https://github.com/colin-nolan/python-shinobi-client
+Home-page: https://github.com/colin-nolan/python-shinobi-client
+Keywords: shinobi,client,cli
+Author: Colin Nolan
+Author-email: cn580@alumni.york.ac.uk
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: shinobi-controller
+Requires-Dist: docker-compose (>=1.25,<2.0); extra == "shinobi-controller"
+Requires-Dist: get-port (>=0.0.5,<0.0.6); extra == "shinobi-controller"
+Requires-Dist: gitpython (>=3,<4); extra == "shinobi-controller"
+Requires-Dist: logzero (>=1.5.0,<2.0.0)
+Requires-Dist: requests (>=2.23,<3.0)
+Requires-Dist: toml (>=0.9,<0.10)
+Project-URL: Repository, https://github.com/colin-nolan/python-shinobi-client
+Description-Content-Type: text/markdown
+
+[![Build Status](https://travis-ci.com/colin-nolan/python-shinobi.svg?branch=master)](https://travis-ci.com/colin-nolan/python-shinobi)
+[![Code Coverage](https://codecov.io/gh/colin-nolan/python-shinobi/branch/master/graph/badge.svg)](https://codecov.io/gh/colin-nolan/python-shinobi)
+
+# Shinobi Python Client
+_A Python client for controlling [Shinobi](https://gitlab.com/Shinobi-Systems/Shinobi), an open-source video management 
+solution._
+
+## Installation
+TODO
+
+## Usage
+### User ORM
+```python
+from shinobi_client import ShinobiUserOrm
+
+user_orm = ShinobiUserOrm(host, port, super_user_token)
+
+user = user_orm.get(email)
+
+users = user_orm.get_all()
+
+user = user_orm.create(email, password)
+
+modified = user_orm.modify(email, password=new_password)
+
+deleted = user_orm.delete(email)
+```
+
+### Shinobi Controller
+```python
+from shinobi_client import start_shinobi
+
+with start_shinobi() as shinobi:
+    print(shinobi.url)
+    # Do things with a temporary Shinobi installation
+```
+or
+```python
+from shinobi_client import ShinobiController
+
+controller = ShinobiController()
+shinobi = controller.start()
+print(shinobi.url)
+# Do things with a temporary Shinobi installation
+controller.stop()
+```
+
+## Development
+TODO
+
+
+## Legal
+[AGPL v3.0](LICENSE.txt). Copyright 2020 Colin Nolan.
+
+I am not affiliated to the development of Shinobi project in any way.
+
