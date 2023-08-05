@@ -1,0 +1,6 @@
+honeybee-core>=1.10.0
+honeybee-radiance-command>=1.0.0
+
+[cli]
+click>=5.1
+honeybee-core[cli]>=1.10.0
