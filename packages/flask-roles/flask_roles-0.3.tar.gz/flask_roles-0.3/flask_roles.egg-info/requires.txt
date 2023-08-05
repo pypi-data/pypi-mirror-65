@@ -1,0 +1,8 @@
+Flask-Login>=0.5.0
+Flask-Principal>=0.4.0
+
+[testing]
+pip-tools==4.5.1
+mccabe
+pytest-cov
+pytest
