@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: twitter-bot-tracking
+Version: 0.0.4
+Summary: This library is to ease the operation of creating twitter bots and tracking it's ativities
+Home-page: https://github.com/Samer92/twitter-bot-tracking
+Author: sammer sallam
+Author-email: samersallam92@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: aws-s3-resource (==0.0.2)
+Requires-Dist: boto3 (==1.12.37)
+Requires-Dist: botocore (==1.15.37)
+Requires-Dist: certifi (==2020.4.5.1)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: docutils (==0.15.2)
+Requires-Dist: idna (==2.9)
+Requires-Dist: jmespath (==0.9.5)
+Requires-Dist: langdetect (==1.0.8)
+Requires-Dist: numpy (==1.18.2)
+Requires-Dist: oauthlib (==3.1.0)
+Requires-Dist: pandas (==1.0.3)
+Requires-Dist: PySocks (==1.7.1)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: requests-oauthlib (==1.3.0)
+Requires-Dist: s3transfer (==0.3.3)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: tweepy (==3.8.0)
+Requires-Dist: urllib3 (==1.25.8)
+
+# twitter_bot_tracking
+
+This library is to ease the operation of creating twitter bots and tracking it's ativities
+
+In order to install, open the command prompt and type:
+```
+pip install twitter-bot-tracking
+```
+
+In order to work with s3 mode you have to use aws_cli library for the configurations, [see here](https://pypi.org/project/awscli/) for more details
+
+
