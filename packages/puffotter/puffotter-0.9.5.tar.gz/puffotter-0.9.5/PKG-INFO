@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: puffotter
+Version: 0.9.5
+Summary: Convenience library for python
+Home-page: https://gitlab.namibsun.net/namibsun/python/puffotter
+Author: Hermann Krumrey
+Author-email: hermann@krumreyh.com
+License: GNU GPL3
+Description: # puffotter
+        
+        |master|develop|
+        |:----:|:-----:|
+        |[![build status](https://gitlab.namibsun.net/namibsun/python/puffotter/badges/master/build.svg)](https://gitlab.namibsun.net/namibsun/python/puffotter/commits/master)|[![build status](https://gitlab.namibsun.net/namibsun/python/puffotter/badges/develop/build.svg)](https://gitlab.namibsun.net/namibsun/python/puffotter/commits/develop)|
+        
+        ![Logo](resources/logo/logo-readme.png)
+        
+        A python library for common convenience functions.
+        
+        ## Further Information
+        
+        * [Changelog](CHANGELOG)
+        * [License (GPLv3)](LICENSE)
+        * [Gitlab](https://gitlab.namibsun.net/namibsun/python/puffotter)
+        * [Github](https://github.com/namboy94/puffotter)
+        * [Progstats](https://progstats.namibsun.net/projects/puffotter)
+        * [PyPi](https://pypi.org/project/puffotter)
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+Provides-Extra: flask
+Provides-Extra: crypto

@@ -1,0 +1,15 @@
+sentry-sdk
+requests
+colorama
+
+[crypto]
+bcrypt
+
+[flask]
+flask
+flask-sqlalchemy
+flask-login
+cheroot
+werkzeug
+sentry-sdk[flask]
+blinker
