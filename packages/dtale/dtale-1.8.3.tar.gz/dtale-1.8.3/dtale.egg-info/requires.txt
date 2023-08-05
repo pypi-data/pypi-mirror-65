@@ -1,0 +1,38 @@
+dash>=1.5.0
+dash_daq
+Flask>=1.0
+Flask-Compress
+future>=0.14.0
+itsdangerous
+pandas
+requests
+scipy
+six
+
+[:python_version < "3.0"]
+lz4<=2.2.1
+
+[:python_version > "3.0"]
+lz4
+flask-ngrok
+
+[arctic]
+arctic
+
+[r]
+
+[r:python_version < "3.0"]
+rpy2<=2.8.6
+
+[r:python_version > "3.0"]
+rpy2
+
+[redis]
+redislite
+
+[tests]
+ipython
+mock
+pytest==4.6.4
+pytest-cov
+pytest-server-fixtures
