@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: schemahq
+Version: 0.1.1
+Summary: 
+Author: Nathan Cahill
+Author-email: nathan@nathancahill.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: colorful (>=0.5.4,<0.6.0)
+Requires-Dist: fire (>=0.3.0,<0.4.0)
+Requires-Dist: migra[pg] (>=1.0.1585875302,<2.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: sqlbag (>=0.1.1579049654,<0.2.0)
