@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: calc2
+Version: 0.3.0.0
+Summary: This is a Electric library for Python.
+Home-page: https://tanaka0079.github.io/libs/python/electrical-python/docs/html/index.html
+Author: Nishizumi
+Author-email: daiman003@yahoo.co.jp
+License: UNKNOWN
+Description: # electrical
+        his Python library can perform various calculations for electrical systems.  
+        このPythonライブラリは電気系の各種計算を行うことができます。
+          
+        [Document](https://nishizumi-lab.github.io/libs/python/electrical-python/docs/html/index.html)   
+        
+        ## Getting started（導入）
+        Install with `pip`.  
+        pipで簡単にインストールできます。
+        
+        ```
+        pip install electrical
+        ```
+        
+        ## License（ライセンス）
+        This sample code is licensed under the MIT License.
+        サンプルコードはMITライセンスで公開しています。
+Keywords: electricity
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
