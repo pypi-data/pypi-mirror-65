@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <link href="https://unpkg.com/nanogallery2/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://unpkg.com/nanogallery2/dist/jquery.nanogallery2.min.js"></script>
+
+<style>
+.myButton {
+  box-shadow:inset 0px 1px 0px 0px #9acc85;
+  background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+  background-color:#74ad5a;
+  border:1px solid #3b6e22;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  font-weight:bold;
+  padding:6px 12px;
+  text-decoration:none;
+  margin: .2em;
+}
+.myButton:hover {
+  background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+  background-color:#68a54b;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+</style>
+
+  </head>
+  <body>
+    <h3>$directory</h3>
+  <a class="myButton" href="$main_index_filename">Index</a>
+    <div ID="ngy2p" data-nanogallery2='{
+        "itemsBaseURL": "./",
+        "thumbnailWidth": "auto",
+        "galleryDisplayMode": "moreButton",
+        "thumbnailAlignment": "center"
+      }'>
+$image_anchors
+    </div>
+
+  </body>
+</html>
