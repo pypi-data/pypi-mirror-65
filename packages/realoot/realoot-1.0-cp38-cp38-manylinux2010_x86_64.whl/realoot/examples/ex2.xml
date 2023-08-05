@@ -1,0 +1,94 @@
+<ltap>
+	<!-- Optimisation, Simulation -->
+	<!-- <mode value="Optimisation"/>-->
+	<!-- <mode value="Simulation"/> -->
+	<mode value="Optimisation"/> 
+	
+	<!-- type={"KEPLERIAN", "EQUINOCTIAL", "CARTESIAN"}-->
+	<!-- Define tags {sma, ecc, inc, pom, gom, L}, or {ha, hp, inc, pom, gom, L}, {p, ex, ey, hx, hy, L}, or {x, y, z, vx, vy, vz}-->
+	<!-- if using (ha, hp), make sure to define radius in <dynamics> -->
+	<!-- units: m, deg -->
+	
+	<orbit type="KEPLERIAN">	
+		<sma>6778136</sma>
+		<ecc>0.001</ecc>
+		<inc>86.5</inc>
+		<raan>0</raan>
+		<aop>0</aop>
+		<L>0</L>
+	</orbit>
+		
+	<!-- type={"KEPLERIAN", "EQUINOCTIAL"}-->
+	<!-- Define tags {sma, ecc, inc, pom, gom}, or {ha, hp, inc, pom, gom, L}, {p, ex, ey, hx, hy-->
+	<!-- if using (ha, hp), make sure to define radius in <dynamics> -->	
+	<!-- units: m, deg -->
+	<target type="KEPLERIAN">
+		<sma>7678136</sma>
+		<ecc>0.0012</ecc>
+		<inc>87.9</inc>
+		<raan>0</raan>
+		<aop>0</aop>
+	</target>
+	
+	<!-- -->
+	<spacecraft name="SC1">
+		<thrust>0.012</thrust>
+		<Isp>1300</Isp>
+		<mass>200</mass>
+	</spacecraft>
+	
+	<!-- units: m, s -->
+	<dynamics>
+		<mu>3.9860064e+14</mu>
+		<radius>6378136</radius>
+	</dynamics>
+	
+	<!-- objective={"MIN_TIME"}-->
+	<ocp objective="MIN_TIME">
+		<initguess allow_multi_start="false">
+			<costate_sma>0.584294</costate_sma>
+			<costate_ex>-0.007173</costate_ex>
+			<costate_ey>-0.004140</costate_ey>
+			<costate_hx>0.00000</costate_hx>
+			<costate_hy>0.00000</costate_hy>
+			<costate_mass>-0.063167</costate_mass>
+			<nrev>0.069566</nrev>
+			<max_attemps>5</max_attemps>
+		</initguess>		
+		
+		<!-- set the state terminal constraint. Minimal are {sma, ecc, inc} -->
+		<!-- optional are Aop and Raan -->
+		<!-- because average problem, no state constraint on anomaly is possible -->
+		<!-- options: ENERGY, ORBIT, SMA_ECC_INC, SMA_ECC_INC_AOP, SMA_ECC_INC_RAAN  -->
+		<terminal_constraint type="ORBIT"/>
+		
+		<!-- solver parameters -->
+		<!-- rtol: relative tolerance (default: 1e-8) -->
+		<!-- max_iter: maximum number of iterations (default: 50) -->
+		<!-- verbose: printing level (default: 0) -->
+		<solver>
+			<rtol>1e-8</rtol>
+			<max_iter>100</max_iter>
+			<verbose>2</verbose>
+		</solver>
+	</ocp>
+	
+	<!-- -->
+	<output>
+		<report filename="report_LEO2LEO.txt"/>
+		<ephemerides filename="trajectory_LEO2LEO.txt">
+			<format>KEPLERIAN</format>
+			<print_costate>false</print_costate>
+			<density>8</density>
+		</ephemerides>
+	</output>
+</ltap>
+
+<!--
+Solution:  
+   lambda    = 0.503892 0.002564 -0.000000 0.761171 -0.000000 -0.072306,  theta=0.079616
+   longitude = 8971.720407 rad (1427.9 revs)
+   tof       = 100.497 days
+   dm        = 8.173 kg
+   dv        = 531.920 m/s   
+-->
