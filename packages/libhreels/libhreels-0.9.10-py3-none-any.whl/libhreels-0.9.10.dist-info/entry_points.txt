@@ -1,0 +1,7 @@
+[console_scripts]
+calc=libhreels.calcHREELS:myMain
+dielectrics=libhreels.dielectrics:myMain
+run=libhreels.HREELS:myMain
+view=libhreels.ViewHREELS:myMain
+viewAuger=libhreels.ViewAuger:myMain
+
