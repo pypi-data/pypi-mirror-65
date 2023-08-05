@@ -1,0 +1,16 @@
+Jinja2
+PyYAML
+sphinx>=1.6
+unidecode
+
+[:python_version < "3"]
+astroid<2
+
+[:python_version >= "3"]
+astroid
+
+[dotnet]
+sphinxcontrib-dotnetdomain
+
+[go]
+sphinxcontrib-golangdomain

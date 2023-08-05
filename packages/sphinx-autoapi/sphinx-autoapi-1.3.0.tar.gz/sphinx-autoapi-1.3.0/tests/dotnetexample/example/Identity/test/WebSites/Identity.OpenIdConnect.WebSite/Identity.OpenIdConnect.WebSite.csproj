@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netcoreapp2.0</TargetFrameworks>
+    <UserSecretsId>aspnet-Identity.OpenIdConnect.WebSite-BE885A77-1D43-42D1-AAF2-050B19C01163</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\**" />
+    <Content Remove="Extensions\**" />
+    <EmbeddedResource Remove="Extensions\**" />
+    <None Remove="Extensions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" />
+    <PackageReference Include="Microsoft.AspNetCore.Certificates.Configuration.Sources" />
+    <PackageReference Include="Microsoft.AspNetCore.CertificateGeneration.Task" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.Extensions" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" />
+    <PackageReference Include="Microsoft.AspNetCore.Rewrite" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Https" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Microsoft.AspNetCore.Diagnostics.Identity.Service\Microsoft.AspNetCore.Diagnostics.Identity.Service.csproj" />
+    <ProjectReference Include="..\..\..\src\Microsoft.AspNetCore.Identity.Service.EntityFrameworkCore\Microsoft.AspNetCore.Identity.Service.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\src\Microsoft.AspNetCore.Identity.Service.IntegratedWebClient\Microsoft.AspNetCore.Identity.Service.IntegratedWebClient.csproj" />
+    <ProjectReference Include="..\..\..\src\Microsoft.AspNetCore.Identity.Service.AzureKeyVault\Microsoft.AspNetCore.Identity.Service.AzureKeyVault.csproj" />
+  </ItemGroup>
+
+</Project>
