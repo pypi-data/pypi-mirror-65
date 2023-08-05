@@ -1,0 +1,5 @@
+[console_scripts]
+snitch = snitch.__main__:main
+snitch-dump-images = snitch.tools.dump_images:main
+snitch-ocr = snitch.tools.dump_text:main
+
