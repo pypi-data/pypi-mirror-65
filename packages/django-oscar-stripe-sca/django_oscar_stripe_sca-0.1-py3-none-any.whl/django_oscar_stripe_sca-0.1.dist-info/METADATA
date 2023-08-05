@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: django-oscar-stripe-sca
+Version: 0.1
+Summary: Stripe Checkout (with Payment Intents) payment module for django-oscar
+Home-page: https://github.com/st8st8/django-oscar-stripe-sca
+Author: Steve Bradshaw
+Author-email: steve@pcfive.co.uk
+License: MIT
+Keywords: Payment,Stripe
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: django (>=2)
+Requires-Dist: django-oscar (>=2)
+Requires-Dist: stripe (>=2.27.0)
+
+===================================
+Stripe integration for django-oscar
+===================================
+
+This is a framework for using Stripe Checkout with a view for being SCA compliant for payments
+in Europe after September 2019.  Requires the Python Stripe API (2.27). 
+Based in part on django-oscar-stripe and django-oscar-paypal.
+
+Useful information:
+
+* `Stripe's Python API`_
+
+.. _`Stripe's Python API`: https://stripe.com/docs/libraries
+
+Contributing
+============
+
+Please do.  Let me know.
+
+TODO
+====
+
+The sandbox and the tests have not been updated yet.
+
+
+
+
