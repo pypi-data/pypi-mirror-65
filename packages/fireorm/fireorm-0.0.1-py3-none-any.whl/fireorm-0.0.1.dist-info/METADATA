@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: fireorm
+Version: 0.0.1
+Summary: Firestore ORM for python.
+Home-page: https://github.com/jerber/FireORM
+Author: Jeremy
+Author-email: kellycup8@gmail.com
+License: Apache 2.0
+Keywords: Firestore Python ORM Models Firebase
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: firebase-admin
+
+#FireORM - the best ORM for Firestore
+
+
