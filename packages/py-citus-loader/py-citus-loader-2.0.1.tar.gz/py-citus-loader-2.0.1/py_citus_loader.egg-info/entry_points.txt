@@ -1,0 +1,6 @@
+[console_scripts]
+citus-dump = citus_dump.commands.citus_dump:citus_dump
+citus-loader = citus_dump.commands.citus_loader:dump_and_restore
+citus-restore = citus_dump.commands.citus_restore:citus_restore
+citus-restore-reinit = citus_dump.commands.citus_reinit_restore:citus_reinit_restore
+
