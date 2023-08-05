@@ -1,0 +1,83 @@
+CHANGES
+=======
+
+1.0.1
+-----
+
+* Update hacking for Python3
+* Switch to sphinx-build and cleanup
+
+1.0.0
+-----
+
+* Drop py2 support and testing
+* Add support for feature.api
+
+0.4.2
+-----
+
+* make sure destination dir exist before copying files into it
+* Remove pypy from default env list
+
+0.4.1
+-----
+
+* Add Python 3 Train unit tests
+* Change the deps source
+
+0.4.0
+-----
+
+* OpenDev Migration Patch
+* Fix the summary table border not rendering
+* Copy the CSS into the built docs
+* Fix deprecated add\_stylesheet with add\_css\_file
+* Fix driver links rendering in the summary table
+* releasenotes: Remove crud from 'conf.py'
+* releasenotes: Switch to openstackdocstheme
+
+0.3.2
+-----
+
+* Change python3.5 job to python3.7 job on Stein+
+* Sort drivers listed under feature details
+* Update home-page
+* Change openstack-dev to openstack-discuss
+* Optimizing the safety of the http link site in HACKING.rst
+
+0.3.1
+-----
+
+* Handle ConfigParser.readfp deprecation
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+
+0.3.0
+-----
+
+* Parse 'driver-notes-XXX' values
+* doc: Rework everything
+
+0.2.0
+-----
+
+* Update for Python 3 compatibility
+* change default python 3 env in tox to 3.5
+* fix tox python3 overrides
+* Trivial: update pypi url to new url
+* Driver usage example is not correct
+* set default python to python3
+* Fix constraints error in pep8 job
+* Add badges, description and fix links in README
+
+0.1.0
+-----
+
+* Mention the right dot path to use in conf.py
+* Document example of using condition status
+* Fix duplicate feature render bug
+* Switch feature keyword required back to mandatory
+* Build Common Framework for Feature Classification Matrix
+* Initial cookiecutter patch
+* Added .gitreview

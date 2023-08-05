@@ -1,0 +1,5 @@
+- project:
+    templates:
+      - check-requirements
+      - publish-openstack-docs-pti
+      - openstack-python3-ussuri-jobs

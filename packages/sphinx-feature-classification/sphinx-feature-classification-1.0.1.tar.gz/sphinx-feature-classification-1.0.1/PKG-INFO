@@ -1,0 +1,46 @@
+Metadata-Version: 1.2
+Name: sphinx-feature-classification
+Version: 1.0.1
+Summary: Generate a matrix of pluggable drivers and their support to an API in Sphinx.
+Home-page: https://docs.openstack.org/sphinx-feature-classification/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/sphinx-feature-classification.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        =============================
+        sphinx-feature-classification
+        =============================
+        
+        This is a Sphinx directive that allows creating matrices of drivers a project
+        contains and which features they support. The directive takes an INI file with
+        specific syntax explained in the usage documentation to generate the matrices,
+        in which projects have the authority to say what is supported within their own
+        repository.
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/sphinx-feature-classification/latest/
+        * Source: http://opendev.org/openstack/sphinx-feature-classification
+        * Bugs: https://storyboard.openstack.org/#!/project/921
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6
