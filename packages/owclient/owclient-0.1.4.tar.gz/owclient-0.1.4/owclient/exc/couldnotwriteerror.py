@@ -1,0 +1,2 @@
+class CouldNotWriteError(Exception):
+    pass

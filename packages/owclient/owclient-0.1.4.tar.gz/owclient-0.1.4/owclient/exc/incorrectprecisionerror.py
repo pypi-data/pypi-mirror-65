@@ -1,0 +1,2 @@
+class IncorrectPrecisionError(Exception):
+    pass

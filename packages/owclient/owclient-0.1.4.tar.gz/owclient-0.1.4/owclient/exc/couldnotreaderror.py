@@ -1,0 +1,2 @@
+class CouldNotReadError(Exception):
+    pass

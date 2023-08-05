@@ -1,0 +1,2 @@
+class CouldNotLoadDeviceError(Exception):
+    pass
