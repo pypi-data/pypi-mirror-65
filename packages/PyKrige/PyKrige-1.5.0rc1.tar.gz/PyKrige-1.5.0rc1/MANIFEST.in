@@ -1,0 +1,7 @@
+include README.md
+include MANIFEST.in
+include setup.py
+include setup.cfg
+recursive-include pykrige *.py *.pyx *.pxd
+recursive-include tests *.py *.txt *.asc
+include LICENSE
