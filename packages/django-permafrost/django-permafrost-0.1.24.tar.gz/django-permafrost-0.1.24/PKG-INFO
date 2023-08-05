@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: django-permafrost
+Version: 0.1.24
+Summary: Adds Client Definable Permissions to Django
+Home-page: https://github.com/renderbox/django-permafrost/
+Author: Grant Viklund
+Author-email: renderbox@gmail.com
+License: MIT license
+Description: # Permafrost
+        
+        Permafrost is an extention to Django's Permissions framework.
+        
+        It adds:
+        - A View Mixin that supports additional permissions for different methods types (GET, POST, PUT, etc) for extra granular control.
+        - A View Mixin that supports logging any failed permission checks to a log configured in Django.
+        - An App that supports Client defineable roles and permissions.  This uses the underlying Django Permission system and controls which permissions are exposed to the users.
+        
+        Adds Client Definable Permissions to Django.
+        
+        With the v0.1.x versions, there will be some instability with the releases as practical useage is worked out and the docs are formed.
+        
+        
+        ![Django CI](https://github.com/renderbox/django-permafrost/workflows/Django%20CI/badge.svg?branch=master)
+        
+Keywords: django,app
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Provides-Extra: dev
+Provides-Extra: test
+Provides-Extra: prod
+Provides-Extra: build
+Provides-Extra: docs
