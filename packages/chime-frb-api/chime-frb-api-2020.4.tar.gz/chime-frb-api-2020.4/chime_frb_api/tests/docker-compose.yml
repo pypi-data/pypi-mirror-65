@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+  frb-master:
+    image: chimefrb/frb-master:latest
+    container_name: frb_master
+    environment:
+      - FRB_MASTER_HOST=0.0.0.0
+      - FRB_MASTER_PORT=8001
+      - FRB_MASTER_WORKERS=1
+      - RDB_HOST=rethinkdb
+      - RDB_PORT=28015
+      - RDB_NAME=frb_master
+      - RDB_USER=admin
+      - RDB_PASS=
+      - RDB_TIMEOUT=20
+      - RDB_POOL_SIZE=30
+      - RDB_POOL_TTL=60
+      - DOCKER_BASE_URL=tcp://cluster-node:2375
+      - DISABLE_AUTHORIZATION=True
+      - DEBUG=1
+    ports:
+      - "8001:8001"
+    links:
+      - rethinkdb
+    networks:
+      - frb_master_network
+
+  frb-distributor:
+    image: chimefrb/frb-master:latest
+    container_name: frb_distributor
+    environment:
+      - DISTRIBUTOR_HOST=0.0.0.0
+      - DISTRIBUTOR_PORT=8002
+      - DISTRIBUTOR_WORKERS=1
+      - DEBUG=1
+    command: python distributor.py
+    ports:
+      - "8002:8002"
+    networks:
+      - frb_master_network
+
+  rethinkdb:
+    image: rethinkdb
+    container_name: rethinkdb
+    environment:
+      - DEBUG=1
+    ports:
+      - "8080:8080"
+      - "28015:28015"
+      - "29015:29015"
+    networks:
+      - frb_master_network
+
+  cluster:
+    image: docker:18.09-dind
+    container_name: cluster-node
+    privileged: true
+    networks:
+      - frb_master_network
+
+networks:
+  frb_master_network:
+
+
+
