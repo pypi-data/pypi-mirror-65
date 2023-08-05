@@ -1,0 +1,26 @@
+QtPy
+qdarkstyle
+youtube-dl
+python-vlc
+appdirs
+lyricwikia
+tekore
+zeroconf
+PyQt5
+PyQtWebEngine>=5.14.0
+
+[:platform_system == "Linux"]
+pydbus
+
+[:platform_system == "Windows" or platform_system == "Darwin"]
+SwSpotify>=1.1.1
+
+[audiosync]
+vidify-audiosync==0.2.*
+
+[dev]
+flake8
+pyinstaller
+
+[mpv]
+python-mpv
