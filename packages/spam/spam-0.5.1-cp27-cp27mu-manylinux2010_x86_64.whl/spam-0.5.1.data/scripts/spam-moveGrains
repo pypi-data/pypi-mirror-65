@@ -1,0 +1,222 @@
+#!/usr/bin/env python
+
+"""
+This python script deforms a labelled image based on a deformation field using SPAM functions
+Copyright (C) 2020 SPAM Contributors
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+from __future__ import print_function
+
+import spam.helpers
+import spam.label as ltk
+import spam.DIC
+import spam.deformation
+import numpy
+import sys, os
+import tifffile
+#import matplotlib.pyplot as plt
+# Added from rotation_correlation-style parallelisation
+import multiprocessing
+import argparse
+import progressbar
+
+
+# Define argument parser object
+parser = argparse.ArgumentParser(description="spam-moveGrains "+spam.helpers.optionsParser.GLPv3descriptionHeader +\
+                                             "This script applies discretely measured deformation functions (Phi) coming from 'spam-ddic' to a labelled image,"+\
+                                             "thus generating the deformed labelled image.\n\nWarning: since we're moving labels,"+\
+                                             "nearest neighbour interpolation must be used, and thus the shapes of the labels will be slightly damaged",
+                                 formatter_class=argparse.RawTextHelpFormatter)
+
+# Parse arguments with external helper function
+args = spam.helpers.optionsParser.moveGrainsParser(parser)
+
+
+print("-------------------------------")
+print("| SPAM - Labelled grain mover |")
+print("-------------------------------")
+
+print("\nCurrent Settings:")
+argsDict = vars(args)
+for key in sorted(argsDict):
+    print("\t{}: {}".format(key, argsDict[key]))
+
+def work_on_one_job(worker_number, q_jobs, q_results):
+    #print "Worker Number {}".format( worker_number )
+    while True:
+        job = q_jobs.get()
+
+        if job == "STOP":
+            q_results.put("STOP")
+            break
+
+        else:
+            label = job
+            #print "\n\tWorking on Job #", job
+            getLabelReturn = ltk.getLabel(lab,
+                                          label,
+                                          labelDilate=0,
+                                          margin=args.DISPLACEMENT_MARGIN,
+                                          boundingBoxes=boundingBoxes,
+                                          centresOfMass=centresOfMass)
+
+            if getLabelReturn is not None:
+                subVolSize = numpy.array(getLabelReturn['subvol'].shape)
+
+                Phi = DVC['PhiField'][label].copy()
+                Phi[0:3,-1] *= float(args.MULTIPLY_DISPLACEMENTS)
+
+                # Phi will be split into a local part and a part of floored displacements
+                disp = numpy.floor(Phi[0:3,-1])
+                Phi[0:3,-1] -= disp
+
+                #print("spam-moveGrains: disp = ", disp)
+                #print("spam-moveGrains: Phi  = ", Phi)
+                #print("spam-moveGrains: BB    = ", boundingBoxes[label])
+                #print("spam-moveGrains: Slice = ", getLabelReturn['slice'])
+
+
+                if numpy.isfinite(disp).sum() == 3:
+                    # Update grainSlice with disp
+                    grainSlice = (slice(getLabelReturn['slice'][0].start+int(disp[0]), getLabelReturn['slice'][0].stop+int(disp[0])),
+                                  slice(getLabelReturn['slice'][1].start+int(disp[1]), getLabelReturn['slice'][1].stop+int(disp[1])),
+                                  slice(getLabelReturn['slice'][2].start+int(disp[2]), getLabelReturn['slice'][2].stop+int(disp[2])))
+
+                    # Need to do backtracking here to avoid holes in the NN interpolation
+                    #   Here we will cheat and do order 1 and re-threshold full pixels
+                    if args.PHICOM:
+                        labSubvolDefInterp = spam.DIC.applyPhi(getLabelReturn['subvol'],
+                                                               Phi=Phi,
+                                                               interpolationOrder=1,
+                                                               PhiPoint=getLabelReturn['centreOfMassREL'])
+                    else:
+                        labSubvolDefInterp = spam.DIC.applyPhi(getLabelReturn['subvol'],
+                                                               Phi=Phi,
+                                                               interpolationOrder=1,
+                                                               PhiPoint=(numpy.array(getLabelReturn['subvol'].shape)-2)/2.0)
+                    # "death mask"
+                    #labSubvolDefMask = labSubvolDefInterp == 1
+                    labSubvolDefMask = numpy.where(labSubvolDefInterp  >= args.THRESH)
+
+                    #labSubvolDef = numpy.zeros_like( labSubvolDefInterp )
+                    del labSubvolDefInterp
+                    #labSubvolDef[ labSubvolDefMask ] = label
+
+                    #labOut[ getLabelReturn['slice'] ][ labSubvolDefMask ] = label
+                    q_results.put([worker_number, grainSlice, labSubvolDefMask, label])
+                # Nan displacement, run away
+                else:
+                    q_results.put([ worker_number, 0, 0, -1 ])
+            # Got None from getLabel()
+            else:
+                q_results.put([ worker_number, 0, 0, -1 ])
+
+if args.RETURN_STATUS_THRESHOLD is None:
+    DVC = spam.helpers.readCorrelationTSV(args.TSVFile.name, readConvergence=False, readEverything=False)
+else:
+    DVC = spam.helpers.readCorrelationTSV(args.TSVFile.name, readConvergence=True, readEverything=False)
+
+
+### Pad lab by args.OVERALL_MARGIN on all sides
+labTemp = tifffile.imread( args.LabFile.name )
+labShapeOrig = labTemp.shape
+lab = numpy.zeros((labShapeOrig[0]+2*args.OVERALL_MARGIN,
+                   labShapeOrig[1]+2*args.OVERALL_MARGIN,
+                   labShapeOrig[2]+2*args.OVERALL_MARGIN), dtype=spam.label.labelType)
+
+slicePadToNonPad = (slice(args.OVERALL_MARGIN,labShapeOrig[0]+args.OVERALL_MARGIN),
+                    slice(args.OVERALL_MARGIN,labShapeOrig[1]+args.OVERALL_MARGIN),
+                    slice(args.OVERALL_MARGIN,labShapeOrig[2]+args.OVERALL_MARGIN))
+
+lab[slicePadToNonPad] = labTemp
+del labTemp
+
+labOut = numpy.zeros_like(lab, dtype=spam.label.labelType)
+
+#print( "Calculating generic lab stuff..." ),
+boundingBoxes = ltk.boundingBoxes(lab)
+centresOfMass = ltk.centresOfMass(lab, boundingBoxes=boundingBoxes)
+#print( "done." )
+
+
+numberOfLabels = min(lab.max(), DVC['PhiField'].shape[0])
+
+
+#print("Master: Setting up queues")
+q_jobs    = multiprocessing.Queue()
+q_results = multiprocessing.Queue()
+
+#print("Master: Adding jobs to queues")
+for label in range(1, numberOfLabels):
+    if args.RETURN_STATUS_THRESHOLD is None:
+        q_jobs.put(label)
+    else:
+        if DVC['returnStatus'][label] >= args.RETURN_STATUS_THRESHOLD:
+            q_jobs.put(label)
+        else:
+            pass
+            #print("\n\nI hate this grain ({}) and it is bad\n\n".format(label))
+
+for i in range(args.NUMBER_OF_PROCESSES):  q_jobs.put("STOP")
+
+#print("Master: Launching workers")
+for i in range(args.NUMBER_OF_PROCESSES):
+    p = multiprocessing.Process( target=work_on_one_job, args=(i, q_jobs, q_results,))
+    p.start()
+
+finished_threads  = 0
+nodes_processed   = 0
+#print("Master: Waiting for results")
+
+widgets = [progressbar.FormatLabel(''), ' ', progressbar.Bar(), ' ', progressbar.AdaptiveETA()]
+pbar = progressbar.ProgressBar(widgets=widgets, maxval=numberOfLabels)
+pbar.start()
+
+
+while finished_threads < args.NUMBER_OF_PROCESSES:
+    result = q_results.get()
+
+    if result == "STOP":
+        finished_threads += 1
+        #print("\nNumber of finished threads = ", finished_threads)
+
+    else:
+        #print "Master: got {}".format( result )
+        #print( "\r\t\tLabel {:04d} of {:04d}".format( nodes_processed+1 , numberOfLabels ) ),
+        grainSlice = result[1]
+
+        #print(result[3])
+        #print(result[2])
+        #print(grainSlice[0].stop-grainSlice[0].start)
+        #print(grainSlice[1].stop-grainSlice[1].start)
+        #print(grainSlice[2].stop-grainSlice[2].start, "\n")
+
+        # Set voxels in slice to the value of the 
+        if result[3] > 0:
+            if result[1][0].start > 0 and\
+               result[1][1].start > 0 and\
+               result[1][2].start > 0:
+                if result[1][0].stop < labOut.shape[0]-1 and\
+                   result[1][1].stop < labOut.shape[1]-1 and\
+                   result[1][2].stop < labOut.shape[2]-1:
+                    labOut[result[1]][ result[2] ] = result[3]
+        nodes_processed += 1
+        widgets[0] = progressbar.FormatLabel("{}/{} ".format(nodes_processed, numberOfLabels))
+        pbar.update(nodes_processed)
+
+print("\nSaving labelled image with displaced grains...", end='')
+tifffile.imsave( args.OUT_DIR+"/"+args.PREFIX+".tif", labOut[slicePadToNonPad].astype(spam.label.labelType) )
+print("done.")
