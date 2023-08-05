@@ -1,0 +1,4 @@
+#!python
+
+from reflect.daily_reflection import reflection_menu
+reflection_menu()
