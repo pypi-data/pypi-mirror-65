@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: oemof.tools
+Version: 0.4.0rc1
+Summary: Tiny tools of the oemof project.
+Home-page: https://github.com/oemof/oemof-tools
+Author: oemof-developer-group
+Author-email: contact@oemof.org
+License: MIT
+Project-URL: Documentation, https://oemof-tools.readthedocs.io/
+Project-URL: Changelog, https://oemof-tools.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/oemof/oemof-tools/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+
+========
+Overview
+========
+
+
+
+Tiny tools of the oemof project.
+
+* Free software: MIT license
+
+Installation
+============
+
+::
+
+    pip install oemof-tools
+
+You can also install the in-development version with::
+
+    pip install https://github.com/oemof/oemof-tools/archive/master.zip
+
+
+Documentation
+=============
+
+
+https://oemof-tools.readthedocs.io/
+
+
+Development
+===========
+
+To run the all tests run::
+
+    tox
+
+Note, to combine the coverage data from all the tox environments run:
+
+.. list-table::
+    :widths: 10 90
+    :stub-columns: 1
+
+    - - Windows
+      - ::
+
+            set PYTEST_ADDOPTS=--cov-append
+            tox
+
+    - - Other
+      - ::
+
+            PYTEST_ADDOPTS=--cov-append tox
+
+
+
+Changelog
+=========
+
+0.4.0.rc.1 (2020-04-04)
+-----------------------
+
+* Move the code of the oemof.tools repository to a stand-alone repository.
+* Use cookiecutter to create a wider testing structure and a more standardised
+  package structure.
+
+
