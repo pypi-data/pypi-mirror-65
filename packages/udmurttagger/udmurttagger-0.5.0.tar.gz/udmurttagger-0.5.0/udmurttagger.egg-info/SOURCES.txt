@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+udmurttagger/__init__.py
+udmurttagger/index2tag.json
+udmurttagger/index2word.json
+udmurttagger/tagger.py
+udmurttagger/test_tagger.py
+udmurttagger.egg-info/PKG-INFO
+udmurttagger.egg-info/SOURCES.txt
+udmurttagger.egg-info/dependency_links.txt
+udmurttagger.egg-info/not-zip-safe
+udmurttagger.egg-info/requires.txt
+udmurttagger.egg-info/top_level.txt
