@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: cepton-sdk
+Version: 1.17.8
+Summary: Cepton Python SDK
+Home-page: https://github.com/ceptontech/cepton_sdk_redist
+Author: Cepton Technologies
+Author-email: support@cepton.com
+License: UNKNOWN
+Keywords: cepton sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.3
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pyserial
+Requires-Dist: laspy
+Requires-Dist: plyfile
+Requires-Dist: transforms3d
+Provides-Extra: samples
+Requires-Dist: imageio-ffmpeg ; extra == 'samples'
+Requires-Dist: imageio ; extra == 'samples'
+Requires-Dist: netifaces ; extra == 'samples'
+Requires-Dist: plyfile ; extra == 'samples'
+Requires-Dist: pyqt5 ; extra == 'samples'
+Requires-Dist: uuid ; extra == 'samples'
+Requires-Dist: vispy ; extra == 'samples'
+
+# Cepton Python SDK
+
+## Installation
+
+```sh
+pip3 install --user -U cepton_sdk[samples]
+```
+
+## Getting Started
+
+See `samples`.
+
