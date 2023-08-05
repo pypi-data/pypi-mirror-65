@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: WhatsTheWeather
+Version: 0.1
+Summary: Script to check the weather
+Home-page: https://github.com/kszmigiel/wtw
+Author: Kacper Szmigiel
+Author-email: szmigielkacper@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# wtw
+Python script answering the question "what's the weather?"
+
+Simple solution for people who has no windows. Just clone the repo and type:
+```
+python wtw.py City
+```
+to check the current weather in any city you like. For eg.
+```
+MemeLord:wtw kacperszmigiel$ python3 wtw.py Berlin
+The weather in Berlin, DE is light rain
+Temperature: 2.42 C
+Pressure: 1006 hPa
+Humidity: 93 %
+Wind: 7.7 m/s
+```
+Enjoy!
+
