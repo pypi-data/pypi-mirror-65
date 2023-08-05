@@ -1,0 +1,101 @@
+interactions:
+- request:
+    body: '{"ids": [2], "flags": [{"name": "sanity-check", "status": "+"}]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '64'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.23.0
+    method: PUT
+    uri: http://127.0.0.1:33113/rest/bug/2
+  response:
+    body:
+      string: '{"bugs":[{"last_change_time":"2020-04-03T13:34:59Z","id":2,"alias":[],"changes":{}}]}'
+    headers:
+      Access-control-allow-headers:
+      - origin, content-type, accept, x-requested-with
+      Access-control-allow-origin:
+      - '*'
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-security-policy:
+      - frame-ancestors 'self'
+      Date:
+      - Sun, 05 Apr 2020 09:58:12 GMT
+      Etag:
+      - zAqxbb+IgNbIddjs4v0aXQ
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+      Transfer-Encoding:
+      - chunked
+      X-content-type-options:
+      - nosniff
+      X-frame-options:
+      - SAMEORIGIN
+      X-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: http://127.0.0.1:33113/rest/bug?id=2&include_fields=blocks&include_fields=cc&include_fields=cf_stabilisation_atoms&include_fields=component&include_fields=depends_on&include_fields=flags&include_fields=id&include_fields=product&include_fields=resolution
+  response:
+    body:
+      string: '{"bugs":[{"flags":[{"setter":"nattka@gentoo.org","type_id":1,"name":"sanity-check","id":2,"modification_date":"2020-04-03T13:34:59Z","creation_date":"2020-04-03T13:34:59Z","status":"+"}],"product":"Gentoo
+        Linux","cf_stabilisation_atoms":"dev-python/unittest-mixins-1.6\r\ndev-python/coverage-4.5.4","blocks":[],"cc_detail":[{"email":"alpha@gentoo.org","id":3,"name":"alpha@gentoo.org","real_name":"ALPHA
+        arch team"},{"id":5,"email":"hppa@gentoo.org","name":"hppa@gentoo.org","real_name":"HPPA
+        arch team"}],"component":"Keywording","cc":["alpha@gentoo.org","hppa@gentoo.org"],"id":2,"depends_on":[1],"resolution":""}]}'
+    headers:
+      Access-control-allow-headers:
+      - origin, content-type, accept, x-requested-with
+      Access-control-allow-origin:
+      - '*'
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-security-policy:
+      - frame-ancestors 'self'
+      Date:
+      - Sun, 05 Apr 2020 09:58:14 GMT
+      Etag:
+      - w+jicK4E/NwHgeOZjrCY8A
+      Keep-Alive:
+      - timeout=15, max=99
+      Server:
+      - Apache
+      Transfer-Encoding:
+      - chunked
+      X-content-type-options:
+      - nosniff
+      X-frame-options:
+      - SAMEORIGIN
+      X-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
