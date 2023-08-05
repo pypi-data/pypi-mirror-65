@@ -1,0 +1,67 @@
+---
+# Copyright 2020 Red Hat, Inc.
+# All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
+
+- name: set record_value and record_name
+  set_fact:
+    record_value: "{{ item.split()[0] }}"
+    record_name: "{{ item.split()[1]|regex_replace('(.*).' + cloud_domain + '$', '\\1') }}"
+
+- name: set record type
+  set_fact:
+    record_type: "{{ 'A' if record_value| ipv4 else 'AAAA' }}"
+
+- name: get reverse record data
+  set_fact:
+    reverse_addr: "{{ record_value | ipaddr('revdns') }}"
+
+- name: set reverse record entries for ipv4
+  set_fact:
+    reverse_record_zone: "{{ reverse_addr.split('.', tripleo_ipa_ptr_zone_split_ipv4|int)[-1] }}"
+    reverse_record_name: "{{ '.'.join(reverse_addr.split('.', tripleo_ipa_ptr_zone_split_ipv4|int)[:-1]) }}"
+  when: record_type == 'A'
+
+- name: set reverse record entries for ipv6
+  set_fact:
+    reverse_record_zone: "{{ reverse_addr.split('.', tripleo_ipa_ptr_zone_split_ipv6|int)[-1] }}"
+    reverse_record_name: "{{ '.'.join(reverse_addr.split('.', tripleo_ipa_ptr_zone_split_ipv6|int)[:-1]) }}"
+  when: record_type == 'AAAA'
+
+- name: add forward dns record
+  ipa_dnsrecord:
+    zone_name: "{{ cloud_domain }}"
+    record_name: "{{ record_name }}"
+    record_type: "{{ record_type }}"
+    record_value: "{{ record_value }}"
+
+- name: add reverse record dns zone
+  ipa_dnszone:
+    zone_name: "{{ reverse_record_zone }}"
+  register: reverse_zone_result
+  failed_when:
+    - "'zone' not in reverse_zone_result"
+    - "'already exists in DNS' not in reverse_zone_result.msg"
+
+- name: add reverse dns record
+  ipa_dnsrecord:
+    zone_name: "{{ reverse_record_zone }}"
+    record_name: "{{ reverse_record_name }}"
+    record_value: "{{ record_name }}.{{ cloud_domain }}."
+    record_type: "PTR"
+  register: reverse_record_result
+  failed_when:
+    - "'record' not in reverse_record_result"
+    - "'DNS zone not found' not in reverse_record_result.msg"
