@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: portfoliotools
+Version: 1.0.7
+Summary: Utils to fetch and analyze portoflio of stocks, index, mutual funds
+Home-page: https://github.com/rahulspsec/portfoliotools/
+Author: Rahul Jain
+Author-email: rahulspsec@gmail.com
+License: UNKNOWN
+Description: =====
+        Portfoliotools
+        =====
+        
+        Portfoliotools is a python utility to perform stock/index/mutual fund screening analytics.
+        
+        Detailed documentation is in the "docs" directory.
+        
+        Quick start
+        -----------
+        1. pip install --upgrade git+git://github.com/rahulspsec/portfoliotools.git
+        2. Load Jupyter Notebooks to see the usage.https://github.com/rahulspsec/JupyterNB_PortfolioTools
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
