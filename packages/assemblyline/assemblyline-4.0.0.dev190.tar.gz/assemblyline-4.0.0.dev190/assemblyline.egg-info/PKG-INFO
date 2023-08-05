@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: assemblyline
+Version: 4.0.0.dev190
+Summary: Assemblyline (v4) automated malware analysis framework base package.
+Home-page: https://github.com/CybercentreCanada/assemblyline-base
+Author: CCCS Assemblyline development team
+Author-email: assemblyline@cyber.gc.ca
+License: MIT
+Description: This package provides the base functionalities for the different Assemblyline v4 components.
+Keywords: assemblyline malware gc canada cse-cst cse cst cyber cccs
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: test
