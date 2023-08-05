@@ -1,0 +1,4 @@
+[console_scripts]
+sphinx-gherkinconfig=sphinx_gherkindoc.cli:config
+sphinx-gherkindoc=sphinx_gherkindoc.cli:main
+
