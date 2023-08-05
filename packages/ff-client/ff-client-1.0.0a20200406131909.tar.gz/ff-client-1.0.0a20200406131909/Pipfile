@@ -1,0 +1,8 @@
+[dev-packages]
+pipenv-setup = "*"
+
+[packages]
+pycryptodomex = "*"
+
+[requires]
+python_version = "3.8"
