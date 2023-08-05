@@ -1,0 +1,190 @@
+parameters:
+  dbxdeploy:
+    browser:
+      path: 'c:/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+      arguments: ['-d', '{runUrl}']
+    databricks:
+      projectRoot': '/{currentBranch}'
+      whlBaseDir': 'dbfs:/FileStore/jars'
+    notebooks:
+      paths: ['**/*.py']
+      consumerPaths: ['**/*.consumer.py']
+
+services:
+  dbxdeploy.cluster.ClusterRestarter:
+    arguments:
+      - '%dbxdeploy.databricks.clusterId%'
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.deploy.WorkingDirectoryPathFactory:
+
+  dbxdeploy.deploy.workingDirectoryPath:
+    class: pathlib.Path
+    factory: ['@dbxdeploy.deploy.WorkingDirectoryPathFactory', 'create']
+
+  dbxdeploy.deploy.CurrentAndReleaseDeployer:
+
+  dbxdeploy.deploy.Deployer:
+    arguments:
+      - '@dbxdeploy.deploy.workingDirectoryPath'
+
+  dbxdeploy.deploy.DeployCommand:
+    tags:
+      - 'console.command'
+
+  dbxdeploy.deploy.DeployerJobSubmitter:
+    arguments:
+      - '@dbxdeploy.deploy.workingDirectoryPath'
+
+  dbxdeploy.deploy.DeployJobSubmitCommand:
+    arguments:
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
+
+  dbxdeploy.deploy.Releaser:
+    arguments:
+      - '@dbxdeploy.deploy.workingDirectoryPath'
+      - '@dbxdeploy.workspace.projectRootPath'
+      - '@consolebundle.logger'
+
+  dbxdeploy.deploy.ReleaseCommand:
+    tags:
+      - 'console.command'
+
+  dbxdeploy.package.PackageMetadataLoader:
+
+  dbxdeploy.whl.WhlBuilder:
+
+  dbxdeploy.whl.RequirementsLineConverter:
+
+  dbxdeploy.whl.WhlUploader:
+    arguments:
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.whl.WhlDeployer:
+    arguments:
+      - '@dbxdeploy.deploy.workingDirectoryPath'
+      - '%dbxdeploy.databricks.whlBaseDir%'
+      - '@consolebundle.logger'
+
+  dbxdeploy.dbc.DbcCreator:
+    arguments:
+      - '@dbxdeploy.deploy.workingDirectoryPath'
+      - '@consolebundle.logger'
+
+  dbxdeploy.dbc.DbcUploader:
+    arguments:
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.dbc.PathsPreparer:
+
+  dbxdeploy.dbc.NotebookConverter:
+
+  dbxdeploy.notebook.NotebooksDeployer:
+    arguments:
+      - '@dbxdeploy.workspace.projectRootPath'
+      - '%dbxdeploy.databricks.whlBaseDir%'
+      - '@consolebundle.logger'
+
+  dbxdeploy.job.JobsDeleter:
+    arguments:
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.job.JobsDeleterCommand:
+    arguments:
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
+
+  dbxdeploy.job.JobCreator:
+    arguments:
+      - '%dbxdeploy.databricks.clusterId%'
+      - '@dbxdeploy.workspace.projectRootPath'
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.job.JobsCreatorAndRunner:
+    arguments:
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.job.JobSubmitter:
+    arguments:
+      - '%dbxdeploy.databricks.clusterId%'
+      - '@dbxdeploy.workspace.projectRootPath'
+      - '%dbxdeploy.browser%'
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.job.RunsGetter:
+    arguments:
+      - '%dbxdeploy.databricks.clusterId%'
+      - '@dbxdeploy.workspace.projectRootPath'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.job.NotebookKiller:
+    arguments:
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.databricksApi:
+    class: databricks_api.databricks.DatabricksAPI
+    autowire: False
+    arguments:
+      -
+        user: '%dbxdeploy.databricks.user%'
+        host: '%dbxdeploy.databricks.host%'
+        token: '%dbxdeploy.databricks.token%'
+
+  dbxdeploy.notebook.CurrentDirectoryUpdater:
+    arguments:
+      - '@dbxdeploy.workspace.projectRootPath'
+      - '@consolebundle.logger'
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.workspace.ProjectRootPathFactory:
+    arguments:
+      - '%dbxdeploy.databricks.projectRoot%'
+
+  dbxdeploy.workspace.projectRootPath:
+    class: pathlib.PurePosixPath
+    factory: ['@dbxdeploy.workspace.ProjectRootPathFactory', 'create']
+
+  dbxdeploy.workspace.WorkspaceImporter:
+    arguments:
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.workspace.WorkspaceExporter:
+    arguments:
+      - '@dbxdeploy.databricksApi'
+
+  dbxdeploy.workspace.WorkspaceExportCommand:
+    arguments:
+      - '@dbxdeploy.workspace.projectRootPath'
+      - '@dbxdeploy.deploy.workingDirectoryPath'
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
+
+  dbxdeploy.workspace.DbcFilesHandler:
+
+  dbxdeploy.notebook.NotebooksLocator:
+    arguments:
+      - '@dbxdeploy.deploy.workingDirectoryPath'
+      - '%dbxdeploy.notebooks.paths%'
+      - '%dbxdeploy.notebooks.consumerPaths%'
+
+  dbxdeploy.notebook.converter.JinjaTemplateLoader:
+
+  dbxdeploy.notebook.converter.DbcScriptRenderer:
+
+  dbxdeploy.notebook.converter.CellsExtractor:
+
+  dbxdeploy.notebook.converter.DatabricksNotebookConverter:
+    arguments:
+      - '%dbxdeploy.databricks.whlBaseDir%'
+
