@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pyprob
+Version: 1.0.0
+Summary: A probabilistic programming system for simulators and high-performance computing (HPC), based on PyTorch
+Home-page: https://github.com/pyprob/pyprob
+Author: PyProb contributors
+Author-email: gunes@robots.ox.ac.uk
+License: BSD
+Keywords: probabilistic programming simulation deep learning inference compilation markov chain monte carlo
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: torch (>=1.0.0)
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: termcolor (==1.1.0)
+Requires-Dist: pyzmq (>=19.0.0)
+Requires-Dist: flatbuffers (==1.12)
+Requires-Dist: pydotplus (==2.0.2)
+Requires-Dist: pyyaml (>=3.13)
+
+UNKNOWN
+
+
