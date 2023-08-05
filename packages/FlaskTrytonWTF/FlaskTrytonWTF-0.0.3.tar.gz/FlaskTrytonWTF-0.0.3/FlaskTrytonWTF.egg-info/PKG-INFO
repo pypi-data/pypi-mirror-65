@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: FlaskTrytonWTF
+Version: 0.0.3
+Summary: The project intend to or extendig the capabilities of flask in order to read and write data directely to tryton.
+Home-page: https://bitbucket.org/omniasolutions/flasktrytonwtf/src/master/
+Author: Matteo Boscolo
+Author-email: matteo.boscolo@omniasolutions.eu
+License: UNKNOWN
+Description: # FlaskTrytonWTF
+        This project is intend to be used for extendig the capabilities of flask using tryton as backend 
+        issiue/info: info@omniasolutions.eu
+        
+         
+        
+        ##Form:
+        Extend the [Flask-WTF](https://pypi.org/project/Flask-WTF/) capability usin tryton model to bind data in an imput form
+        
+        You can use this extention like a normal FlaskForm 
+        Just remember to add trytonObject and the field that you like to see in your input form
+        we also inser the submit button to push the data to tryton.
+        
+        ```python
+        from FlaskTrytonWTF import FTWTF
+        ...
+        ...
+        ...
+        class MyTrytonForm(FTWTF.TFlaskForm):
+            trytonObject = tryton.pool.get('my.tryton.object')
+            tryton_fields = {'field_1': {},
+                             'field_2': {},
+                             'field_3': {}
+                             }
+            submitLable = "Submit"
+        ```
+        
+        ```python
+        @app.route('/input_form', methods=['GET', 'POST'])
+        @tryton.transaction()
+        def input_form():
+            form = MyTrytonForm()
+            if form.validate_on_submit():
+                data_submitted = form.trytonSubmit() # DO NOT FORGET TO CALL THE TRYTON SUBMIT IN ORDER DO FLUSH THE DATA
+                                                     # ALSO THE DATA SUBMITTED IS RETURNED AS DICTIONAY OF VALUES 
+                                                     # SO YOU CAN USE IF !!
+                return render_template('show_input_confirmation.html', title='Conferma', form=data_submitted)
+            return render_template('input_form.html', form=form)
+            
+        ```
+        
+        ##Table:
+        Extend the [Flask-Table](https://pypi.org/project/Flask-Table/) capability usin tryton model to bind data in read only mode 
+        
+        
+        ```python
+        @app.route('/test_query', methods=['GET', 'POST'])
+        @login_required
+        @tryton.transaction()
+        def test_query():
+            from FlaskTrytonWTF import FTFT
+            class MyTestTable(FTFT.FTTable):
+                trytonObject = tryton.pool.get('my.tryton.object')
+                tryton_fields = []  #empty dict means all the data stored in the my.tryton.object
+                #tryton_fields = ['field_1', 'field_2']   # show anly the specifie fields on the table
+            table = MyTestTable() 
+            
+            return render_template("test_query.html",
+                                   table=table)
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
