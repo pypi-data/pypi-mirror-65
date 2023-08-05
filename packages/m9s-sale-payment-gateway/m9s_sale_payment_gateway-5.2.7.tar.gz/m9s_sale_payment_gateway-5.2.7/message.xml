@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data group="1">
+        <record model="ir.message" id="payment_from_sale">
+            <field name="text">Payment from sale</field>
+        </record>
+        <record model="ir.message" id="post_manual_payments">
+            <field name="text">Posting of manual payment</field>
+        </record>
+        <record model="ir.message" id="paid_by_cash">
+            <field name="text">Paid by Cash</field>
+        </record>
+        <record model="ir.message" id="paid_by_card">
+            <field name="text">Paid by Card</field>
+        </record>
+        <record model="ir.message" id="insufficient_amount">
+            <field name="text">Insufficient amount in payment\nAmount missing: %(amount_missing)s\nAmount available: %(amount_available)s\nAmount payed: %(amount_collected)s\nPayments: %(number_payments)s</field>
+        </record>
+        <record model="ir.message" id="auth_before_capture">
+            <field name="text">Payment authorization must happen before capture</field>
+        </record>
+        <record model="ir.message" id="payments_waiting_authorization">
+            <field name="text">Sale Payments are waiting for authorization</field>
+        </record>
+        <record model="ir.message" id="payments_waiting_capture">
+            <field name="text">Sale Payments are waiting for capture</field>
+        </record>
+        <record model="ir.message" id="different_profile_owner">
+            <field name="text">Payment profile owner is %s, but the current customer is %s.</field>
+        </record>
+        <record model="ir.message" id="cannot_delete_payment">
+            <field name="text">Payment cannot be deleted as placeholder for amount consumed has already been consumed.</field>
+        </record>
+    </data>
+</tryton>

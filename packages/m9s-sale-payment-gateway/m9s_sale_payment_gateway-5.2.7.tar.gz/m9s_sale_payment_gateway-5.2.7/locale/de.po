@@ -1,0 +1,494 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:sale.configuration:"
+msgid "Payment authorization must happen before capture"
+msgstr "Zahlungsautorisierung muss vor Einzug erfolgen"
+
+msgctxt "error:sale.payment:"
+msgid ""
+"Payment cannot be deleted as placeholder for amount consumed has already "
+"been consumed."
+msgstr ""
+"DIe Zahlung konnte nicht gelöscht werden, weil der Betrag bereits "
+"ausgeschöpft wurde."
+
+msgctxt "error:sale.sale:"
+msgid ""
+"Insufficient amount remaining in payment\n"
+"Amount to authorize: %s\n"
+"Amount remaining: %s\n"
+"Payments: %s"
+msgstr ""
+"Fehlbetrag in Zahlung:\n"
+"Zu autorisierender Betrag: %s\n"
+"Verbleibender Betrag: %s\n"
+"Zahlungen: %s"
+
+msgctxt "error:sale.sale:"
+msgid ""
+"Insufficient amount remaining in payment\n"
+"Amount to capture: %s\n"
+"Amount remaining: %s\n"
+"Payments: %s"
+msgstr ""
+"Fehlbetrag in Zahlung:\n"
+"Einzuziehender Betrag: %s\n"
+"Verbleibender Betrag: %s\n"
+"Zahlungen: %s"
+
+msgctxt "error:sale.sale:"
+msgid "Payment authorization must happen before capture"
+msgstr "Zahlungsautorisierung muss vor Einzug erfolgen"
+
+msgctxt "error:sale.sale:"
+msgid "Payment profile owner is %s,  but the current customer is %s."
+msgstr ""
+"Eigentümer des Zahlungsprofils ist %s, aber der gegenwärtige Kunde ist %s."
+
+msgctxt "error:sale.sale:"
+msgid "Sale Payments are waiting for authorization"
+msgstr "Zahlungen warten noch auf automatische Autorisierung."
+
+msgctxt "error:sale.sale:"
+msgid "Sale Payments are waiting for capture"
+msgstr "Zahlungen warten noch auf automatischen Einzug."
+
+msgctxt "field:payment_gateway.transaction,sale_payment:"
+msgid "Sale Payment"
+msgstr "Zahlung"
+
+msgctxt "field:sale.configuration,payment_authorize_on:"
+msgid "Payment Authorize On"
+msgstr "Zahlungsautorisierung"
+
+msgctxt "field:sale.configuration,payment_capture_on:"
+msgid "Payment Capture On"
+msgstr "Zahlungseinzug"
+
+msgctxt "field:sale.payment,amount:"
+msgid "Amount"
+msgstr "Betrag"
+
+msgctxt "field:sale.payment,amount_authorized:"
+msgid "Amount Authorized"
+msgstr "Autorisierter Betrag"
+
+msgctxt "field:sale.payment,amount_available:"
+msgid "Amount Remaining"
+msgstr "Verbleibender Betrag"
+
+msgctxt "field:sale.payment,amount_captured:"
+msgid "Amount Captured"
+msgstr "Eingenommener Betrag"
+
+msgctxt "field:sale.payment,amount_consumed:"
+msgid "Amount Consumed"
+msgstr "Ausgeschöpfter Betrag"
+
+msgctxt "field:sale.payment,amount_refunded:"
+msgid "Amount Refunded"
+msgstr "Erstatteter Betrag"
+
+msgctxt "field:sale.payment,company:"
+msgid "Company"
+msgstr "Unternehmen"
+
+msgctxt "field:sale.payment,create_date:"
+msgid "Create Date"
+msgstr "Erstellungsdatum"
+
+msgctxt "field:sale.payment,create_uid:"
+msgid "Create User"
+msgstr "Erstellt durch"
+
+msgctxt "field:sale.payment,credit_account:"
+msgid "Credit Account"
+msgstr "Habenkonto"
+
+msgctxt "field:sale.payment,currency_digits:"
+msgid "Currency Digits"
+msgstr "Nachkommastellen Währung"
+
+msgctxt "field:sale.payment,description:"
+msgid "Description"
+msgstr "Beschreibung"
+
+msgctxt "field:sale.payment,gateway:"
+msgid "Gateway"
+msgstr "Gateway"
+
+msgctxt "field:sale.payment,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:sale.payment,method:"
+msgid "Method"
+msgstr "Zahlungsmethode"
+
+msgctxt "field:sale.payment,party:"
+msgid "Party"
+msgstr "Partei"
+
+msgctxt "field:sale.payment,payment_profile:"
+msgid "Payment Profile"
+msgstr "Zahlungsprofil"
+
+msgctxt "field:sale.payment,payment_transactions:"
+msgid "Payment Transactions"
+msgstr "Zahlungstransaktionen"
+
+msgctxt "field:sale.payment,provider:"
+msgid "Provider"
+msgstr "Anbieter"
+
+msgctxt "field:sale.payment,rec_name:"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "field:sale.payment,reference:"
+msgid "Reference"
+msgstr "Beleg-Nr."
+
+msgctxt "field:sale.payment,sale:"
+msgid "Sale"
+msgstr "Verkauf"
+
+msgctxt "field:sale.payment,sequence:"
+msgid "Sequence"
+msgstr "Reihenfolge"
+
+msgctxt "field:sale.payment,write_date:"
+msgid "Write Date"
+msgstr "Zuletzt geändert"
+
+msgctxt "field:sale.payment,write_uid:"
+msgid "Write User"
+msgstr "Letzte Änderung durch"
+
+msgctxt "field:sale.payment.add_view,amount:"
+msgid "Amount"
+msgstr "Betrag"
+
+msgctxt "field:sale.payment.add_view,card_present:"
+msgid "Card is Present"
+msgstr "Karte vorhanden"
+
+msgctxt "field:sale.payment.add_view,company:"
+msgid "Company"
+msgstr "Unternehmen"
+
+msgctxt "field:sale.payment.add_view,credit_account:"
+msgid "Credit Account"
+msgstr "Habenkonto"
+
+msgctxt "field:sale.payment.add_view,csc:"
+msgid "Card Security Code (CVV/CVD)"
+msgstr "Karte Sicherheitscode (CVV/CVD)"
+
+msgctxt "field:sale.payment.add_view,currency_digits:"
+msgid "Currency Digits"
+msgstr "Nachkommastellen Währung"
+
+msgctxt "field:sale.payment.add_view,expiry_month:"
+msgid "Expiry Month"
+msgstr "Verfallsmonat"
+
+msgctxt "field:sale.payment.add_view,expiry_year:"
+msgid "Expiry Year"
+msgstr "Verfallsjahr"
+
+msgctxt "field:sale.payment.add_view,gateway:"
+msgid "Gateway"
+msgstr "Gateway"
+
+msgctxt "field:sale.payment.add_view,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:sale.payment.add_view,method:"
+msgid "Payment Gateway Method"
+msgstr "Zahlungsgatewaymethode"
+
+msgctxt "field:sale.payment.add_view,number:"
+msgid "Card Number"
+msgstr "Kartennummer"
+
+msgctxt "field:sale.payment.add_view,owner:"
+msgid "Card Owner"
+msgstr "Kartenbesitzer"
+
+msgctxt "field:sale.payment.add_view,party:"
+msgid "Party"
+msgstr "Partei"
+
+msgctxt "field:sale.payment.add_view,payment_profile:"
+msgid "Payment Profile"
+msgstr "Zahlungsprofil"
+
+msgctxt "field:sale.payment.add_view,reference:"
+msgid "Reference"
+msgstr "Beleg-Nr."
+
+msgctxt "field:sale.payment.add_view,sale:"
+msgid "Sale"
+msgstr "Verkauf"
+
+msgctxt "field:sale.payment.add_view,swipe_data:"
+msgid "Swipe Card"
+msgstr "Karte durchziehen"
+
+msgctxt "field:sale.payment.add_view,use_existing_card:"
+msgid "Use existing Card?"
+msgstr "Existierende Karte verwenden"
+
+msgctxt "field:sale.payment.add_view,user:"
+msgid "Tryton User"
+msgstr "Benutzer"
+
+msgctxt "field:sale.sale,gateway_transactions:"
+msgid "Gateway Transactions"
+msgstr "Gatewaytransaktionen"
+
+msgctxt "field:sale.sale,payment_authorize_on:"
+msgid "Authorize payments"
+msgstr "Zahlungsautorisierung"
+
+msgctxt "field:sale.sale,payment_authorized:"
+msgid "Payment Authorized"
+msgstr "Zahlung autorisiert"
+
+msgctxt "field:sale.sale,payment_available:"
+msgid "Payment Remaining"
+msgstr "Zahlung verbleibend"
+
+msgctxt "field:sale.sale,payment_capture_on:"
+msgid "Capture payments"
+msgstr "Zahlungseinzug"
+
+msgctxt "field:sale.sale,payment_captured:"
+msgid "Payment Captured"
+msgstr "Zahlung eingezogen"
+
+msgctxt "field:sale.sale,payment_collected:"
+msgid "Payment Collected"
+msgstr "Eingenommener Zahlungsbetrag"
+
+msgctxt "field:sale.sale,payment_processing_state:"
+msgid "Payment Processing State"
+msgstr "Anstehende Zahlungsaktion"
+
+msgctxt "field:sale.sale,payment_refunded:"
+msgid "Payment Refunded"
+msgstr "Erstatteter Zahlungsbetrag"
+
+msgctxt "field:sale.sale,payment_total:"
+msgid "Total Payment"
+msgstr "Gesamtbetrag aller Gateway-Zahlungen"
+
+msgctxt "field:sale.sale,payments:"
+msgid "Payments"
+msgstr "Zahlungen"
+
+msgctxt "field:sale.sale,sorted_payments:"
+msgid "Payments"
+msgstr "Zahlungen"
+
+msgctxt "help:sale.payment.add_view,card_present:"
+msgid "If the card is present and the card can be swiped"
+msgstr "Ob eine Karte vorhanden ist und durchgezogen werden kann"
+
+msgctxt "help:sale.payment.add_view,csc:"
+msgid "CVD/CVV/CVN"
+msgstr "CVD/CVV/CVN"
+
+msgctxt "help:sale.sale,payment_authorized:"
+msgid "Amount authorized to be catured"
+msgstr "Zum Einzug autorisierter Betrag"
+
+msgctxt "help:sale.sale,payment_available:"
+msgid "Total value which is neither authorize nor captured"
+msgstr ""
+"Gesamter Wert der Zahlungen, die weder autorisiert noch eingezogen wurden"
+
+msgctxt "help:sale.sale,payment_captured:"
+msgid "Amount already captured"
+msgstr "Bereits eingezogener Betrag"
+
+msgctxt "help:sale.sale,payment_collected:"
+msgid "Total value of payments collected"
+msgstr "Gesamtwert aller eingenommener Zahlungen"
+
+msgctxt "help:sale.sale,payment_refunded:"
+msgid "Total value of payments refunded"
+msgstr "Gesamtbetrag der erstatteten Zahlungen"
+
+msgctxt "help:sale.sale,payment_total:"
+msgid "Total value of payments"
+msgstr "Gesamter Wert der Zahlungen"
+
+msgctxt "model:ir.action,name:act_sale_payment_form"
+msgid "Sale Payments"
+msgstr "Gateway-Zahlungen"
+
+msgctxt "model:ir.action,name:act_sale_relate"
+msgid "Payments"
+msgstr "Gateway-Zahlungen"
+
+msgctxt "model:ir.action,name:wizard_add_payment"
+msgid "Add Payment"
+msgstr "Gateway-Zahlung hinzufügen"
+
+msgctxt "model:ir.cron,name:cron_process_all_pending_iternal"
+msgid "Process all pending payments"
+msgstr "Anhängige Zahlungsaktionen ausführen"
+
+msgctxt "model:ir.ui.menu,name:menu_sale_payment_form"
+msgid "Sale Payments"
+msgstr "Gateway-Zahlungen"
+
+msgctxt "model:sale.payment,name:"
+msgid "Payment"
+msgstr "Zahlung"
+
+msgctxt "model:sale.payment.add_view,name:"
+msgid "View for adding Sale Payments"
+msgstr "Zahlung eingeben"
+
+msgctxt "nereid:payment.py:302"
+msgid "Paid by Cash"
+msgstr "Barzahlung/Überweisung"
+
+msgctxt "nereid:payment.py:304"
+msgid "Paid by Card"
+msgstr "Zahlung mit Karte"
+
+msgctxt "nereid:sale.py:262"
+msgid "Payment from sale"
+msgstr "Zahlung aus Verkauf"
+
+msgctxt "nereid:sale.py:314"
+msgid "Payment from sale"
+msgstr "Zahlung aus Verkauf"
+
+msgctxt "nereid:sale.py:425"
+msgid "Post manual payments on Processing Order"
+msgstr ""
+"Zahlung für Gateway Bar/Überweisung/Kreditkarte bei Auftragsdurchführung"
+
+msgctxt "selection:sale.configuration,payment_authorize_on:"
+msgid "Manual"
+msgstr "Manuell"
+
+msgctxt "selection:sale.configuration,payment_authorize_on:"
+msgid "Sale Confirm"
+msgstr "Bei Auftragsbestätigung"
+
+msgctxt "selection:sale.configuration,payment_authorize_on:"
+msgid "Sale Process"
+msgstr "Bei Auftragsausführung"
+
+msgctxt "selection:sale.configuration,payment_capture_on:"
+msgid "Manual"
+msgstr "Manuell"
+
+msgctxt "selection:sale.configuration,payment_capture_on:"
+msgid "Sale Confirm"
+msgstr "Bei Auftragsbestätigung"
+
+msgctxt "selection:sale.configuration,payment_capture_on:"
+msgid "Sale Process"
+msgstr "Bei Auftragsausführung"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "01-January"
+msgstr "01-Januar"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "02-February"
+msgstr "02-Februar"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "03-March"
+msgstr "03-März"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "04-April"
+msgstr "04-April"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "05-May"
+msgstr "05-Mai"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "06-June"
+msgstr "06-Juni"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "07-July"
+msgstr "07-Juli"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "08-August"
+msgstr "08-August"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "09-September"
+msgstr "09-September"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "10-October"
+msgstr "10-Oktober"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "11-November"
+msgstr "11-November"
+
+msgctxt "selection:sale.payment.add_view,expiry_month:"
+msgid "12-December"
+msgstr "12-Dezember"
+
+msgctxt "selection:sale.sale,payment_processing_state:"
+msgid "None"
+msgstr " - "
+
+msgctxt "selection:sale.sale,payment_processing_state:"
+msgid "Waiting For Authorization"
+msgstr "Wartet auf Autorisierung"
+
+msgctxt "selection:sale.sale,payment_processing_state:"
+msgid "Waiting For Capture"
+msgstr "Wartet auf Einzug"
+
+msgctxt "view:sale.configuration:"
+msgid "Default Payment Capture Settings"
+msgstr "Standardeinstellungen für Zahlungseinzug"
+
+msgctxt "view:sale.payment.add_view:"
+msgid "Add Payment"
+msgstr "Zahlung hinzufügen"
+
+msgctxt "view:sale.payment.add_view:"
+msgid "Card Information"
+msgstr "Karteninformation"
+
+msgctxt "view:sale.payment.add_view:"
+msgid "Card Payment"
+msgstr "Kartenzahlung"
+
+msgctxt "view:sale.payment:"
+msgid "Payments"
+msgstr "Gateway-Zahlungen"
+
+msgctxt "view:sale.sale:"
+msgid "Payments"
+msgstr "Gateway-Zahlungen"
+
+msgctxt "wizard_button:sale.payment.add,payment_info,add:"
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgctxt "wizard_button:sale.payment.add,payment_info,end:"
+msgid "Cancel"
+msgstr "Abbrechen"
