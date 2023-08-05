@@ -1,0 +1,27 @@
+{
+   "name": "GCF_001021895.1_ASM102189v1_genomic",
+   "directory": "/Users/vini/Bio/abacat/abacat/data/genomes",
+   "seqstats": {
+      "Total n": 2.0,
+      "Total seq": 2864278.0,
+      "Avg. seq": 1432139.0,
+      "Median seq": 1432139.0,
+      "N 50": 2839253.0,
+      "Min seq": 25025.0,
+      "Max seq": 2839253.0
+   },
+   "files": {
+      "contigs": "/Users/vini/Bio/abacat/abacat/data/genomes/GCF_001021895.1_ASM102189v1_genomic.fna",
+      "prodigal": {
+         "genes": "/Users/vini/Bio/abacat/abacat/data/genomes/GCF_001021895.1_ASM102189v1_genomic_prodigal_genes.fna",
+         "proteins": "/Users/vini/Bio/abacat/abacat/data/genomes/GCF_001021895.1_ASM102189v1_genomic_prodigal_proteins.faa",
+         "cds": "/Users/vini/Bio/abacat/abacat/data/genomes/GCF_001021895.1_ASM102189v1_genomic_prodigal_cds.gbk"
+      },
+      "megares": {
+         "xml": "/Users/vini/Bio/abacat/abacat/data/genomes/GCF_001021895.1_ASM102189v1_genomic_megares_blast.xml",
+         "annotation": "/Users/vini/Bio/abacat/abacat/data/genomes/GCF_001021895.1_ASM102189v1_genomic_megares.fasta",
+         "hits": "/Users/vini/Bio/abacat/abacat/data/genomes/GCF_001021895.1_ASM102189v1_genomic_megares.hits"
+      }
+   },
+   "pathways": null
+}
