@@ -1,0 +1,10 @@
+[console_scripts]
+frododocs = frododocs.__main__:cli
+
+[frododocs.plugins]
+search = frododocs.contrib.search:SearchPlugin
+
+[frododocs.themes]
+frododocs = frododocs.themes.frododocs
+readthedocs = frododocs.themes.readthedocs
+
