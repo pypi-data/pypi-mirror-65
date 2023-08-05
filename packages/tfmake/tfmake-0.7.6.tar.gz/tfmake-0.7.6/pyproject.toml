@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "tfmake"
+version = "0.7.6"
+description = "Python based Makefile wrapper for terraform projects"
+authors = ["Pascal Prins <pascal.prins@foobar-it.com>"]
+include = ["pyproject.toml"]
+
+[tool.poetry.dependencies]
+python = "^2.7 || ^3.7"
+click = "^7.0"
+toml = "^0.10.0"
+pathlib = "^1.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+
+[tool.poetry.scripts]
+tfmake = "tfmake.cli:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
