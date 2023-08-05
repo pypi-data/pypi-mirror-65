@@ -1,0 +1,43 @@
+> Blockpays.io Application Programming Interface.
+
+This library let integrate your application to our platform then use all service of cripto currencies that us have for you
+
+## Install
+
+```
+$ pip install pyblockpaysio
+```
+
+## Usage
+
+#### PHP
+
+`Example: Checking validity of address BTCTEST `
+
+```
+from pyblockpaysio import functions
+
+functions.setApiKey('miblockpaysapikey')
+
+isvalidaddress = functions.isValidAddress(
+    {
+        "address":"3LcmURk5uGg6V2PVGwjGUpcujDKBQnfTSG",
+        "currencyId":1
+    }
+)
+
+print(isvalidaddress)
+```
+
+`Response:`
+
+```
+{u'status': u'success', u'data': {u'is_valid': True, u'network': 1, u'address': u'3LcmURk5uGg6V2PVGwjGUpcujDKBQnfTSG'}}
+```
+
+
+
+
+## License
+
+MIT © [Labsatoshi](https://labsatoshi.com)
