@@ -1,0 +1,5 @@
+pytest
+
+[tests]
+pytest<5.0,>=4.6
+pdbpp

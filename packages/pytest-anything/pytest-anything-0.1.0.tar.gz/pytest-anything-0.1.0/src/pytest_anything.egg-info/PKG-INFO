@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pytest-anything
+Version: 0.1.0
+Summary: Pytest fixtures to assert anything and something
+Home-page: https://gitlab.com/diefans/pytest-anything
+Author: Oliver Berger
+Author-email: diefans@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: AsyncIO
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7,<4.0
+Description-Content-Type: text/x-rst
+Provides-Extra: tests
