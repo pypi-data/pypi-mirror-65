@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: bibu
+Version: 0.1.1
+Summary: A Bitbucket command line client
+Home-page: https://github.com/pylipp/bibu
+Author: Philipp Metzner
+Author-email: beth.aleph@yahoo.de
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Operating System :: Unix
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Unix Shell
+Classifier: Topic :: Software Development :: Version Control
+Classifier: Topic :: Software Development :: Version Control :: Git
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+
+A Bitbucket command line client
+
+
