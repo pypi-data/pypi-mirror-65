@@ -1,0 +1,11 @@
+[datamart_materialize]
+datamart.noaa = datamart_materialize.noaa:noaa_materializer
+
+[datamart_materialize.converter]
+xls = datamart_materialize.excel:ExcelConverter
+
+[datamart_materialize.writer]
+csv = datamart_materialize:CsvWriter
+d3m = datamart_materialize.d3m:D3mWriter
+pandas = datamart_materialize:PandasWriter
+
