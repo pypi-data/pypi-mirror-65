@@ -1,0 +1,11 @@
+numpy>=1.15.1
+scipy>=1.1.0
+pandas>=0.23.4
+matplotlib>=2.2.3
+cloudpickle>=0.7.0
+
+[amici]
+amici>=0.10.21
+
+[petab]
+petab>=0.1.7
