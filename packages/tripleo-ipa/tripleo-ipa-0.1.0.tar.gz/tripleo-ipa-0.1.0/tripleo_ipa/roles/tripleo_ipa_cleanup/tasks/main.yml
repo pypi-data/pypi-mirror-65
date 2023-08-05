@@ -1,0 +1,30 @@
+---
+# Copyright 2020 Red Hat, Inc.
+# All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# This role removes a set of hosts and its required sub-hosts and services
+# in FreeIPA
+#
+# The following variables are required:
+# - tripleo_ipa_hosts_to_delete  (list of FQDNs of hosts to delete)
+# - tripleo_ipa_principal        (principal to use when connecting to FreeIPA)
+# - tripleo_ipa_keytab           (file path to keytab to authenticate to FreeIPA)
+
+- name: delete hosts, subhosts and services from freeIPA
+  cleanup_ipa_services:
+    principal: "{{ tripleo_ipa_principal }}"
+    keytab: "{{ tripleo_ipa_keytab }}"
+    hosts: "{{ tripleo_ipa_hosts_to_delete }}"
+  become: true
