@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: stat_complement
+Version: 0.0.2
+Summary: A package as a complement for statistic computation
+Home-page: http://github.com/jameslahm/stat_complement
+Author: jameslahm
+Author-email: wa17@mails.tsinghua.edu.cn
+License: UNKNOWN
+Description: ## A package as a complement for statistic computation
+         
+        ### Usage
+        ```python
+        from stat_complement import HotellingT2,JacobiSolve
+        
+        X=np.array([[-3,15],[4,16],[5,11]])
+        mu=np.array([[4,14]])
+        HotellingT2(X,mu)
+        
+        # x: initial point delta: stop criteria
+        JacobiSolve(A,b,x,delta)
+        ```
+        
+        You are welcome to put up some function about statistic computation and I will try best to add it
+        
+        
+        
+Keywords: statistic
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
