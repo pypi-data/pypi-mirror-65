@@ -1,0 +1,69 @@
+<div class="view-toolbar ">
+    <div class="btn-group">
+        <button class="btn"
+                *ngIf="showExitDiagramButton()"
+                nz-dropdown [nzDropdownMenu]="changeCoordSetMenu" nzPlacement="bottomLeft">
+            <fa name="exchange-alt"></fa>
+        </button>
+        <nz-dropdown-menu #changeCoordSetMenu="nzDropdownMenu">
+            <ul nz-menu>
+                <li nz-menu-item
+                    *ngFor="let item of coordSetsForMenu"
+                    (click)="changeCoordSetMenuItemClicked(item)">{{item.name}}
+                </li>
+            </ul>
+        </nz-dropdown-menu>
+
+        <button class="btn"
+                (click)="printDiagramClicked()"
+                nz-tooltip
+                nzTitle="Show Diagram for Print">
+            <fa name="print"></fa>
+        </button>
+        <button class="btn"
+                *ngIf="showEditDiagramButton()"
+                (click)="editDiagramClicked()"
+                nz-tooltip
+                nzTitle="Edit Diagram">
+            <fa name="pencil-alt"></fa>
+        </button>
+        <button class="btn"
+                *ngIf="showSelectBranchesButton()"
+                [class.btn-warning]="isBranchesActive()"
+                (click)="selectBranchesClicked()"
+                nz-tooltip
+                [nzTitle]="showSelectBranchesTooltip()">
+            <fa name="code-branch"></fa>
+        </button>
+        <button class="btn"
+                (click)="selectLayersClicked()"
+                nz-tooltip
+                nzTitle="Select Layers">
+            <fa name="layer-group"></fa>
+        </button>
+    </div>
+
+    <div class="view-toolbar-spacer"></div>
+
+    <div class="btn-group">
+        <button *ngIf="showGoUpParentButton()"
+                class="btn tool-button"
+                (click)="goUpParentButtonClicked(btn)"
+                nz-tooltip
+                nzTitle="Back">
+            <fa name="back"></fa>
+            Back
+        </button>
+        <button *ngFor="let btn of shownPluginButtons"
+                class="btn tool-button"
+                [class.btn-primary]="isButtonActive(btn)"
+                (click)="buttonClicked(btn)"
+                nz-tooltip
+                [nzTitle]="btn.tooltip">
+            <fa *ngIf="btn.icon" [name]="btn.icon"></fa>
+            {{btn.name}}
+        </button>
+    </div>
+</div>
+
+
