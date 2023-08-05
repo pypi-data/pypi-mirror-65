@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "pymana"
+version = "0.1.5"
+description = ""
+authors = ["Sumanth Ratna <sumanthratna@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/sumanthratna/pymana"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+click = "^7.0"
+scikit-image = "^0.16.2"
+click-aliases = "^1.0.1"
+numpy = "^1.18.1"
+sympy = "^1.5.1"
+napari = "^0.2.12"
+openslide-python = "^1.1.1"
+dask = {extras = ["array"], version = "^2.11.0"}
+dask-image = "^0.2.0"
+opencv-python-headless = "4.2.0.34"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+bpython = "^0.18"
+
+[tool.poetry.scripts]
+pymana = "pymana.cli:cli"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
