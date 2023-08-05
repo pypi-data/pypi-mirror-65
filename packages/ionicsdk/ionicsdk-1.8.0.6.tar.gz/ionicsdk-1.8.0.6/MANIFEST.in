@@ -1,0 +1,9 @@
+include README.md
+include ionicsdk/VERSION
+include ionicsdk/COMMIT
+include LICENSE.md
+include ionicsdk/lib/*
+include ionicsdk/lib/*/*
+include docs/*
+include docs/*/*
+include docs/*/*/*

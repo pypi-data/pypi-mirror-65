@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['saveallkeys_596',['SaveAllKeys',['../classionicsdk_1_1keyvault_1_1_key_vault_custom.html#ac32ab8eb5b720c5b660b4bf7bf0d8378',1,'ionicsdk::keyvault::KeyVaultCustom']]],
+  ['saveallprofiles_597',['SaveAllProfiles',['../classionicsdk_1_1common_1_1_device_profile_list.html#a2fba6420ab0d70df356dfa7db11b82bd',1,'ionicsdk::common::DeviceProfileList']]],
+  ['saveprofiles_598',['saveprofiles',['../classionicsdk_1_1agent_1_1_agent.html#a3f9c131fc8047a4723efd5b168e3e2c1',1,'ionicsdk::agent::Agent']]],
+  ['setaccessgroup_599',['SetAccessGroup',['../classionicsdk_1_1keyvault_1_1_key_vault_apple_key_chain.html#a89d6a6a1367e6e49436f918234b79235',1,'ionicsdk::keyvault::KeyVaultAppleKeyChain']]],
+  ['setaccountname_600',['SetAccountName',['../classionicsdk_1_1keyvault_1_1_key_vault_apple_key_chain.html#a95f2166d63b4c86ec07ad5fd33711417',1,'ionicsdk.keyvault.KeyVaultAppleKeyChain.SetAccountName()'],['../classionicsdk_1_1keyvault_1_1_key_vault_mac.html#afcee272b47b2dca96ba57a4e2967d047',1,'ionicsdk.keyvault.KeyVaultMac.SetAccountName()']]],
+  ['setactiveprofile_601',['setactiveprofile',['../classionicsdk_1_1agent_1_1_agent.html#a08443f51a4ca82c33e03d7e44ca6ecd1',1,'ionicsdk::agent::Agent']]],
+  ['setfilepath_602',['SetFilePath',['../classionicsdk_1_1common_1_1_secret_share_profile_persistor.html#a4c0b33127206a4d3ce7896579647e12b',1,'ionicsdk.common.SecretShareProfilePersistor.SetFilePath()'],['../classionicsdk_1_1keyvault_1_1_key_vault_mac.html#a79c21f9a513cd2005b26f26d59f73f34',1,'ionicsdk.keyvault.KeyVaultMac.SetFilePath()'],['../classionicsdk_1_1keyvault_1_1_key_vault_windows_dp_api.html#adb79ed473a5301b89058bb2e013c3e7a',1,'ionicsdk.keyvault.KeyVaultWindowsDpApi.SetFilePath()'],['../classionicsdk_1_1secretshare_1_1_secret_share_persistor.html#a714a7cfeb273ba03430a2ab42a6d5673',1,'ionicsdk.secretshare.SecretSharePersistor.SetFilePath()']]],
+  ['setkey_603',['SetKey',['../classionicsdk_1_1keyvault_1_1_key_vault.html#ae825555817b61c22607aef3cc9829eb6',1,'ionicsdk::keyvault::KeyVault']]],
+  ['setmetadata_604',['setmetadata',['../classionicsdk_1_1agent_1_1_agent.html#aa088b1298688478e474f85f375c7a465',1,'ionicsdk::agent::Agent']]],
+  ['setprotectionauthdata_605',['SetProtectionAuthData',['../classionicsdk_1_1keyvault_1_1_key_vault_apple_key_chain.html#a7518e20df970a51db48936ae36a42bf7',1,'ionicsdk::keyvault::KeyVaultAppleKeyChain']]],
+  ['setprotectionkey_606',['SetProtectionKey',['../classionicsdk_1_1keyvault_1_1_key_vault_apple_key_chain.html#a3a1bf11e548db82c33c82e6c6a4638d1',1,'ionicsdk::keyvault::KeyVaultAppleKeyChain']]],
+  ['setsecretsharefilepath_607',['SetSecretShareFilePath',['../classionicsdk_1_1common_1_1_secret_share_profile_persistor.html#aabffcbcc84e6abcd7db4fe16cbcf0ecd',1,'ionicsdk::common::SecretShareProfilePersistor']]],
+  ['setservicename_608',['SetServiceName',['../classionicsdk_1_1keyvault_1_1_key_vault_apple_key_chain.html#abe8d6ba4d247ed14b2bc05a814860469',1,'ionicsdk.keyvault.KeyVaultAppleKeyChain.SetServiceName()'],['../classionicsdk_1_1keyvault_1_1_key_vault_mac.html#acfc0f102ceba77e92db61b4cfbcdd1ae',1,'ionicsdk.keyvault.KeyVaultMac.SetServiceName()']]],
+  ['setthreshold_609',['SetThreshold',['../classionicsdk_1_1secretshare_1_1_secret_share_bucket.html#a6639e21f56bd98ec7e180a47302b5b53',1,'ionicsdk::secretshare::SecretShareBucket']]],
+  ['setup_5ffrom_5fconfig_5ffile_610',['setup_from_config_file',['../namespaceionicsdk_1_1log.html#ae06c5fcc3ae0568ddb21bf263da97243',1,'ionicsdk::log']]],
+  ['setup_5ffrom_5fconfig_5fjson_611',['setup_from_config_json',['../namespaceionicsdk_1_1log.html#a1530dfea8ba62da1b2fe1afac9e531f4',1,'ionicsdk::log']]],
+  ['setup_5fsimple_612',['setup_simple',['../namespaceionicsdk_1_1log.html#ab9fddb5c27e8ff1e6519f18111caa65d',1,'ionicsdk::log']]],
+  ['setversion_613',['setversion',['../classionicsdk_1_1common_1_1_device_profile_persistor_base.html#a75ad6f1186a986c30be279ac9bdaacb3',1,'ionicsdk::common::DeviceProfilePersistorBase']]],
+  ['sha256_614',['sha256',['../namespaceionicsdk_1_1cryptoutil.html#aa817382901bd5c67dc7de31f7ca8c02b',1,'ionicsdk::cryptoutil']]],
+  ['sha512_615',['sha512',['../namespaceionicsdk_1_1cryptoutil.html#a51917347efb3acc1dd2f10a3269f896d',1,'ionicsdk::cryptoutil']]],
+  ['shutdown_616',['shutdown',['../namespaceionicsdk_1_1log.html#a686cb81d2a30b613106ba280d8ad7961',1,'ionicsdk::log']]],
+  ['sync_617',['Sync',['../classionicsdk_1_1keyvault_1_1_key_vault.html#a79d6babbd09f081a66de21fd42e4824f',1,'ionicsdk::keyvault::KeyVault']]],
+  ['synckeys_618',['SyncKeys',['../classionicsdk_1_1keyvault_1_1_key_vault_custom.html#a16f1b3e1e447017d49292b2bbfe5ca68',1,'ionicsdk::keyvault::KeyVaultCustom']]]
+];

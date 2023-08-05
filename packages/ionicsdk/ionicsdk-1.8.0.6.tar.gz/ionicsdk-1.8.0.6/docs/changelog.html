@@ -1,0 +1,225 @@
+<h1>Ionic Client SDK Changelog for Python on Windows</h1>
+<p>Generated on 2020-04-01 09:55:49 EDT.</p>
+
+<p>This project follows <a href="http://semver.org/">semantic versioning</a>.</p>
+
+<br/>
+
+<h2>Version 1.8.0</h2>
+
+<h4>Release</h4>
+<ul>
+<li>Release</li>
+</ul>
+
+<h4>Added</h4>
+<ul>
+<li>Add documentation for Windows-specific DllMain usage limitation</li>
+<li>Verify agent.clone() implemented in wrappers</li>
+<li>new Agent constructor passing 1 String argument (SEP JSON)</li>
+<li>KNS - Lookup by domain provided by caller</li>
+<li>KNS - Add method to change active profiles server URL</li>
+<li>Doc - Sample to show KNS/HTTP use cases</li>
+<li>core SDK wrappers - new Agent constructor passing 1 String argument (SEP JSON)</li>
+</ul>
+
+<h4>Changed</h4>
+<ul>
+<li>Move buffer-safe functions like is_strcpy (ISCryptoDLL.cpp) to common module</li>
+<li>Remove deprecated code from 'C' lib and have the 'C' lib link directly to the 'C++' lib instead of ISAgentSDKInternal</li>
+<li>Core/Wrappers: Update Log Config Example docs to be language-specific</li>
+<li>internal refactoring in anticipation of alternate KeyServices implementation</li>
+<li>IonicException improvements</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li>Make CSV ignore minor version number changes</li>
+<li>Add Python SDK ionicsdk.__version__ info</li>
+<li>Bring consistency to ISFileCryptoCiphers with respect to encrypting already encrypted file/buffers</li>
+<li>Core: ISLogConfig 'maxAgeSeconds' field name is too limited</li>
+<li>SDK version is not present in Python SDK documentation</li>
+<li>Error Code 10004</li>
+<li>Windows HTTP library fails on non-utf8 (really non-ascii) get/post</li>
+<li>Python: Documentation Issues</li>
+<li>Enrollment on a new machine fails when the proper directories do not exist</li>
+<li>ionicsdk does not handle SEPs with trailing slash</li>
+<li>C++: Persistor/KeyVault Locking is leaving stale .lock files</li>
+<li>ISAgent.getKeyspace() shouldn't require an active (or any) profile</li>
+<li>CPP: intermittent segfault when server returns 502</li>
+<li>CPP: retcode 32766 on getDecryptStream on Mac</li>
+<li>Python: Constructors not Documented</li>
+<li>Whitespace at top of docs page</li>
+<li>Update boost library consumed by SDK and published with SDKInternal to one that is tested compatible with VS2015</li>
+<li>create crypto function to check available entropy</li>
+<li>Generic v1.3 ability to truncate a file</li>
+<li>Add Keepalive option to curl implementation of ISHTTP</li>
+<li>Update copyright block in SDK</li>
+<li>Python agent saveprofiles(..) function has inconsistent error handling</li>
+<li>More optimization work needed for Generic v1.3 fstream mode (read/write)</li>
+<li>Improve handling of entropy exhaustion</li>
+<li>Doc - Need to specify default cipher for chunkcipher</li>
+<li>Python Doxygen files parity with other language wrappers</li>
+</ul>
+
+<h4>Removed</h4>
+<ul>
+<li>Remove ISCryptoSecureContainer class and ISCryptoScopedSecureClearer</li>
+</ul>
+
+<h2>Version 1.7.2</h2>
+
+<h4>Added</h4>
+<ul>
+<li>New SEO header HTML in the Core SDK wrapper libraries</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li>Doc footer copyright year</li>
+<li>Inconsistent Meta Description SEO values for .NET and Python</li>
+</ul>
+
+<h2>Version 1.7.0</h2>
+
+<h4>Added</h4>
+<ul>
+<li>ISFileCryptoCipherOpenXML interface for cover page marking</li>
+<li>Custom Encrypted File test for C++ Key Vaults</li>
+<li>Max Age Limit - ISO 8601 duration - ISLog JSON configuration</li>
+<li>Random seek encrypt/decrypt in Generic 1.3 file cipher</li>
+<li>External signature for SDK library file hash</li>
+<li>ISFileCryptoCipherPdf interface for cover page marking</li>
+</ul>
+
+<h4>Changed</h4>
+<ul>
+<li>Limit size/age of SDK log file set</li>
+<li>ISLog help updated with options for controlling file space and age</li>
+<li>Update ISLog documentation JSON examples and tables for latest features</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li>Expose ProfilePersistor v1.1 to wrapped SDKs</li>
+<li>Issue accessing cryptoutils from old installations of Python</li>
+<li>PDF cipher error on GetFileInfo when the PDF file has external PDF Encryption</li>
+<li>C++ - Error logged - stream not reset on getFileInfo clear XLSX input</li>
+<li>OpenXML file encryption should set fail bit on output stream when a temp RAM buffer fills</li>
+<li>Generic v1.3 - Error when using the read/write IO interface and reading past an encryption block</li>
+<li>ISKeyVaultBase logic error</li>
+<li>FileCryptoCipherOpenXml to write temp files into platform temp directory</li>
+<li>CSV decryption fails on a certain size file</li>
+<li>Generic v1.3 - preserve write timestamp on file read</li>
+<li>Generic v1.3 - ability to force flush to file</li>
+</ul>
+
+<h2>Version 1.6.1</h2>
+
+<h2>Version 1.6.0</h2>
+
+<h4>Added</h4>
+<ul>
+<li>SDK Key Services support automatic SEP lookup for non-active keyspace</li>
+<li>Added TLS error codes on requests that fail due to TLS errors</li>
+<li>SDK Documentation update for 1000 key request limit</li>
+<li>SDK Log callback mechanism added</li>
+<li>Added method to detect and destroy corrupted key vaults</li>
+<li>New Persistor format containing optional SALT</li>
+<li>New create key simulation mode</li>
+<li>Streamable Generic Cipher</li>
+<li>Streamable CSV Cipher</li>
+<li>New Generic Stream Cipher version 1_3</li>
+<li>Streamable PDF Cipher</li>
+<li>Streamable OpenXML Cipher</li>
+<li>Default Windows persistor Roaming support</li>
+<li>Migrate custom doc properties in OpenXML</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li>SDK getFileInfo consumes memory</li>
+<li>Error when requesting multiple updates on same key id</li>
+</ul>
+
+<h2>Version 1.5.0</h2>
+
+<h4>Added</h4>
+<ul>
+<li>Documentation updates across all sdk languages.</li>
+</ul>
+
+<h4>Changed</h4>
+<ul>
+<li>Modified ISCryptoBytes to derive from new SecureAllocator class to fix bugs in heap management</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li>Api calls now reset stream pointers on error</li>
+<li>Python SDK fails to encrypt non-ASCII filenames on Windows</li>
+<li>SDK generated temporary files no longer use tilde due to incompatibility with network based storage</li>
+<li>Missing Access Denied cover pages for CSV</li>
+</ul>
+
+<h2>Version 1.4.0</h2>
+
+<h4>Added</h4>
+<ul>
+<li>Add support for mutable key attributes in the SDK (Python).</li>
+<li>Add support for external-id in the SDK (Python).</li>
+<li>Provide an indication of SDK version with all communications between SDK and Ionic.com.</li>
+<li>Custom Cover Pages - Python.</li>
+<li>SecretShare Persistor in Python.</li>
+<li>Expose key vault interfaces in Python SDK.</li>
+</ul>
+
+<h2>Version 1.3.0</h2>
+
+<h4>Added</h4>
+<ul>
+<li>Added Python File/Chunk Key Services.</li>
+<li>Added 'Obligations' support to the GetKey and CreateKey response objects.</li>
+<li>Added 'Origin' support to the GetKey and CreateKey response objects.</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li>Fixed issue with using wide characters or non-ascii as key attribute values.</li>
+<li>Fixed issue with encrypting large file sizes now return proper value and log an error.</li>
+</ul>
+
+<h2>Version 1.2.1</h2>
+
+<h2>Version 1.2.0</h2>
+
+<h4>Added</h4>
+<ul>
+<li>The SDK now supports non-persistent  VDI.  Previously, the default SEP storage mechanism did not function in these environments.</li>
+</ul>
+
+<h4>Fixed</h4>
+<ul>
+<li>An issue with parsing encrypted PDFs which have had their XMP attributes modified has been fixed.</li>
+</ul>
+
+<h2>Version 1.0.0</h2>
+
+<h4>Changed</h4>
+<ul>
+<li>The Ionic SDK has been incremented to Version 1.0.0!</li>
+</ul>
+
+<h2>Version 0.5.0</h2>
+
+<h2>Version 0.4.0</h2>
+
+<h2>Version 0.3.1</h2>
+
+<h2>Version 0.3.0</h2>
+
+<h2>Version 0.2.0</h2>
+
+<h2>Version 0.1.1</h2>
+
+<h2>Version 0.1.0</h2>
