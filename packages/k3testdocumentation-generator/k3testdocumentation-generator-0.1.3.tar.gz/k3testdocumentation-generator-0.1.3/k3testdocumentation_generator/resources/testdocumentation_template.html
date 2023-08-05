@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Default is UTF-8, but this is required for the PDF generation! -->
+<meta charset="utf-8">
+
+<style type="text/css">
+.break_before { page-break-before: always; }
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#9ABAD9;margin:0px auto;}
+.tg td{sans-serif;font-size:14px;padding:12px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
+.tg th{sans-serif;font-size:14px;font-weight:normal;padding:12px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#409cff;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+</head>
+
+<body>
+
+{% for test_id, test in input_dict.items() %}
+  {% if loop.index0 == 0 %}
+  <div>
+  {% else %}
+  <div class="break_before">
+  {% endif %}
+    <h2"> Test {{ test_id }} </h2>
+    <h3> {{ test_name }} </h3>
+    <table class="tg">
+      <tr>
+        <th class="tg-0pky">Test ID</th>
+        <td class="tg-0pky">{{ test_id }}</td>
+      </tr>
+      <!--<tr>
+        <th class="tg-0pky">Test Name</th>
+        <td class="tg-0pky">{{ test.test_name }}</td>
+      </tr> -->
+      <tr>
+        <th class="tg-0pky">Fully Tested<br>Requirements</th>
+        <td class="tg-0pky">
+            <ol>
+            {% for rft in test.requirements_fully_tested %}
+                <li> {{ rft }} </li>
+            {% endfor %}
+            <ol>
+        </td>
+      </tr>
+      <tr>
+        <th class="tg-0pky">Partially Tested<br>Requirements</th>
+        <td class="tg-0pky">
+            <ol>
+            {% for rpt in test.requirements_partially_tested %}
+                <li> {{ rpt }} </li>
+            {% endfor %}
+            <ol>
+        </td>
+      </tr>
+      <tr>
+        <th class="tg-0pky">Precondition</th>
+        <td class="tg-0pky">{{ markdown(test.precondition) }}</td>
+      </tr>
+      <tr>
+        <th class="tg-0pky">Test Description</th>
+        <td class="tg-0pky">{{ markdown(test.test_descrition) }}</td>
+      </tr>
+    </table>
+  <div>
+{% endfor %}
+
+</body>
+</html>
