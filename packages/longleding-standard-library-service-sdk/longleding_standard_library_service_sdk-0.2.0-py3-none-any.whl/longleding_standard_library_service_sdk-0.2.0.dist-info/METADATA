@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: longleding-standard-library-service-sdk
+Version: 0.2.0
+Summary: Longleding Standard Library Service SDK
+Home-page: https://git.emhub.top/em/standard-library-service
+Author: Shi Ran
+Author-email: ran.shi@longleding.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Logging
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: attrs
+Requires-Dist: marshmallow
+
+Longleding Standard Library Service SDK
+
+# Supported Python Versions
+
+Python >= 3.6
+
+# Installation
+
+longleding-standard-library-service-sdk is available for Linux, macOS, and Windows.
+
+```shell script
+$ pip install longleding-standard-library-service-sdk
+```
+
+# Basic Usage
+
+```python
+
+```
+
+
