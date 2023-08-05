@@ -1,0 +1,14 @@
+numpy>=1.15
+scipy
+astropy>=4.0
+h5py
+pyuvdata
+setuptools_scm
+
+[dev]
+pytest
+pre-commit
+astropy-healpix
+
+[healpix]
+astropy-healpix

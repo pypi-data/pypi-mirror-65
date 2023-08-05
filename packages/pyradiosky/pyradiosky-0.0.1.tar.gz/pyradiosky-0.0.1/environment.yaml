@@ -1,0 +1,21 @@
+name: pyradiosky
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - astropy>=4.0
+  - astropy-healpix
+  - numpy
+  - pyyaml
+  - scipy
+  - h5py
+  - coverage
+  - pytest-cov
+  - pyuvdata
+  - setuptools_scm
+  - flake8
+  - pip
+  - pip:
+      - flake8-docstrings
+      - flake8-pytest
+      - flake8-black
