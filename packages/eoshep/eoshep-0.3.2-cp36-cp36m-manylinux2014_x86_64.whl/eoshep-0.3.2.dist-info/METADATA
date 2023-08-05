@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: eoshep
+Version: 0.3.2
+Summary: EOS -- A HEP program for Flavor Observables
+Home-page: https://eos.github.io/
+Author: Danny van Dyk and others
+Author-email: danny.van.dyk@gmail.com
+License: GPLv2
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: ~=3.6
+Requires-Dist: h5py
+Requires-Dist: matplotlib
+Requires-Dist: numpy (<2,>=1.13)
+Requires-Dist: pypmc (>=1.1.4)
+Requires-Dist: pyyaml
+Requires-Dist: scipy
+
+UNKNOWN
+
+
