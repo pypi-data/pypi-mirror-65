@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: cazoo-cloudwatch-events
+Version: 0.1.10
+Summary: Cazoo common library for Cloudwatch Events
+Home-page: https://gitlab.com/raulherranz/cazoo-cloudwatch-events/
+Author: Raul Herranz
+Author-email: raul.herranz@cazoo.co.uk
+License: MIT
+Description: # Cazoo Cloudwatch
+        
+        This repository is meant to be part of to be a helper among all the functions that we use internally at Cazoo.
+        Right now, it's just a simple CW put_events function. 
+Keywords: Cazoo,Cloudwatch,events,put_events
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
