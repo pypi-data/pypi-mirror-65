@@ -1,0 +1,21 @@
+kafka_addr:
+  127.0.0.1
+
+topics:
+  - YoutuCrowdFlowCount
+  - YoutuCrowdDensity
+  - CrossBorder
+  - t_oneperson_onerecord
+  - YoutuBody
+  - t_lane_pedestrian
+  - t_db_face_retrieve_black
+  - db_pedes_capture
+  - db_face_retrieve
+  - YoutuCar
+  - db_nonvehicle_detect
+  - t_car_illegal_park
+  - float_object_detect
+  - insurance_nlp
+  - insurance_health
+  - grade_detect
+  - t_car_retrograde_detect 
