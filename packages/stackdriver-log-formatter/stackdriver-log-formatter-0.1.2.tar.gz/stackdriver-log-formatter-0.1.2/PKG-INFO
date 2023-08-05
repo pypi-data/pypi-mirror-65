@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: stackdriver-log-formatter
+Version: 0.1.2
+Summary: Python log formatter for Google Stackdriver Logging
+Home-page: https://github.com/tmshn/python-stackdriver-log-formatter
+License: MIT
+Keywords: logging,GCP,Google Cloud,Stackdriver,Stackdriver Logging
+Author: Shinichi TAMURA
+Author-email: hello@tmshn.dev
+Requires-Python: >=3.5,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Logging
+Project-URL: Repository, https://github.com/tmshn/python-stackdriver-log-formatter
+Description-Content-Type: text/markdown
+
+# python-stackdriver-log-formatter
+
+[![Build Status](https://travis-ci.com/tmshn/python-stackdriver-log-formatter.svg?branch=master)](https://travis-ci.com/tmshn/python-stackdriver-log-formatter)
+
+[![PyPI version](https://img.shields.io/pypi/v/stackdriver-log-formatter.svg)](https://pypi.python.org/pypi/stackdriver-log-formatter/)
+
+Python log formatter for Google Stackdriver Logging.
+
+## Usage
+
+```python
+>>> # setup
+>>> import logging, sys
+>>> from stackdriver_log_formatter import StackdriverLogFormatter
+>>> logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+>>> logging.root.handlers[0].setFormatter(StackdriverLogFormatter())
+>>> # logging
+>>> logger = logging.getLogger(__name__)
+>>> logger.info('Hello world')
+```
+
