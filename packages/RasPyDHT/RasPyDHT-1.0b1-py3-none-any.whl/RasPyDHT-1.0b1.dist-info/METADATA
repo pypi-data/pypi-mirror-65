@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: RasPyDHT
+Version: 1.0b1
+Summary: Temperature and humidity monitor with RaspberryPi
+Home-page: https://github.com/williamledda/RasPyDHT
+Author: William Ledda
+Author-email: villy80@hotmail.it
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Requires-Dist: Adafruit-DHT
+Requires-Dist: paho-mqtt
+Requires-Dist: smbus
+
+Monitoring of temperature and humidity with a DHT connected to a RaspberryPi board
+
+
