@@ -1,0 +1,249 @@
+Metadata-Version: 2.1
+Name: pcg-gazebo
+Version: 0.5.1
+Summary: A Python package for rapid-prototyping and scripting of simulations for Gazebo
+Home-page: https://github.com/boschresearch/pcg_gazebo
+Author: Musa Morena Marcusso Manhaes
+Author-email: musa.marcusso@de.bosch.com
+Maintainer: Musa Morena Marcusso Manhaes
+Maintainer-email: musa.marcusso@de.bosch.com
+License: Apache-2.0
+Keywords: gazebo ros simulation robotics sdf urdf robot
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/x-rst
+Requires-Dist: Jinja2
+Requires-Dist: yasha
+Requires-Dist: psutil
+Requires-Dist: rospkg
+Requires-Dist: descartes
+Requires-Dist: numpy (>=1.18.1)
+Requires-Dist: pycollada (==0.6)
+Requires-Dist: matplotlib
+Requires-Dist: bokeh
+Requires-Dist: scikit-image
+Requires-Dist: python-fcl
+Requires-Dist: triangle
+Requires-Dist: trimesh[easy] (>=3.6.4)
+Requires-Dist: lxml
+Requires-Dist: networkx
+Requires-Dist: progress
+Requires-Dist: jsonschema
+Requires-Dist: shapely
+Requires-Dist: PyYAML
+Requires-Dist: xmltodict
+Provides-Extra: all
+Requires-Dist: Jinja2 ; extra == 'all'
+Requires-Dist: pypandoc ; extra == 'all'
+Requires-Dist: yasha ; extra == 'all'
+Requires-Dist: pytest-console-scripts ; extra == 'all'
+Requires-Dist: triangle ; extra == 'all'
+Requires-Dist: trimesh[easy] (>=3.6.4) ; extra == 'all'
+Requires-Dist: mkdocs-material ; extra == 'all'
+Requires-Dist: psutil ; extra == 'all'
+Requires-Dist: jsonschema ; extra == 'all'
+Requires-Dist: lxml ; extra == 'all'
+Requires-Dist: rospkg ; extra == 'all'
+Requires-Dist: descartes ; extra == 'all'
+Requires-Dist: jupyterlab ; extra == 'all'
+Requires-Dist: networkx ; extra == 'all'
+Requires-Dist: numpy (>=1.18.1) ; extra == 'all'
+Requires-Dist: nbconvert ; extra == 'all'
+Requires-Dist: pycollada (==0.6) ; extra == 'all'
+Requires-Dist: pytest ; extra == 'all'
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: progress ; extra == 'all'
+Requires-Dist: bokeh ; extra == 'all'
+Requires-Dist: scikit-image ; extra == 'all'
+Requires-Dist: python-fcl ; extra == 'all'
+Requires-Dist: shapely ; extra == 'all'
+Requires-Dist: pydoc-markdown ; extra == 'all'
+Requires-Dist: PyYAML ; extra == 'all'
+Requires-Dist: xmltodict ; extra == 'all'
+Provides-Extra: docs
+Requires-Dist: Jinja2 ; extra == 'docs'
+Requires-Dist: pypandoc ; extra == 'docs'
+Requires-Dist: yasha ; extra == 'docs'
+Requires-Dist: triangle ; extra == 'docs'
+Requires-Dist: trimesh[easy] (>=3.6.4) ; extra == 'docs'
+Requires-Dist: mkdocs-material ; extra == 'docs'
+Requires-Dist: psutil ; extra == 'docs'
+Requires-Dist: jsonschema ; extra == 'docs'
+Requires-Dist: lxml ; extra == 'docs'
+Requires-Dist: rospkg ; extra == 'docs'
+Requires-Dist: descartes ; extra == 'docs'
+Requires-Dist: networkx ; extra == 'docs'
+Requires-Dist: numpy (>=1.18.1) ; extra == 'docs'
+Requires-Dist: nbconvert ; extra == 'docs'
+Requires-Dist: pycollada (==0.6) ; extra == 'docs'
+Requires-Dist: matplotlib ; extra == 'docs'
+Requires-Dist: progress ; extra == 'docs'
+Requires-Dist: bokeh ; extra == 'docs'
+Requires-Dist: scikit-image ; extra == 'docs'
+Requires-Dist: python-fcl ; extra == 'docs'
+Requires-Dist: shapely ; extra == 'docs'
+Requires-Dist: pydoc-markdown ; extra == 'docs'
+Requires-Dist: PyYAML ; extra == 'docs'
+Requires-Dist: xmltodict ; extra == 'docs'
+Provides-Extra: examples
+Requires-Dist: Jinja2 ; extra == 'examples'
+Requires-Dist: yasha ; extra == 'examples'
+Requires-Dist: triangle ; extra == 'examples'
+Requires-Dist: trimesh[easy] (>=3.6.4) ; extra == 'examples'
+Requires-Dist: psutil ; extra == 'examples'
+Requires-Dist: jsonschema ; extra == 'examples'
+Requires-Dist: lxml ; extra == 'examples'
+Requires-Dist: rospkg ; extra == 'examples'
+Requires-Dist: descartes ; extra == 'examples'
+Requires-Dist: jupyterlab ; extra == 'examples'
+Requires-Dist: networkx ; extra == 'examples'
+Requires-Dist: numpy (>=1.18.1) ; extra == 'examples'
+Requires-Dist: pycollada (==0.6) ; extra == 'examples'
+Requires-Dist: matplotlib ; extra == 'examples'
+Requires-Dist: progress ; extra == 'examples'
+Requires-Dist: bokeh ; extra == 'examples'
+Requires-Dist: scikit-image ; extra == 'examples'
+Requires-Dist: python-fcl ; extra == 'examples'
+Requires-Dist: shapely ; extra == 'examples'
+Requires-Dist: PyYAML ; extra == 'examples'
+Requires-Dist: xmltodict ; extra == 'examples'
+Provides-Extra: test
+Requires-Dist: Jinja2 ; extra == 'test'
+Requires-Dist: yasha ; extra == 'test'
+Requires-Dist: pytest-console-scripts ; extra == 'test'
+Requires-Dist: triangle ; extra == 'test'
+Requires-Dist: trimesh[easy] (>=3.6.4) ; extra == 'test'
+Requires-Dist: psutil ; extra == 'test'
+Requires-Dist: jsonschema ; extra == 'test'
+Requires-Dist: lxml ; extra == 'test'
+Requires-Dist: rospkg ; extra == 'test'
+Requires-Dist: descartes ; extra == 'test'
+Requires-Dist: networkx ; extra == 'test'
+Requires-Dist: numpy (>=1.18.1) ; extra == 'test'
+Requires-Dist: nbconvert ; extra == 'test'
+Requires-Dist: pycollada (==0.6) ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: matplotlib ; extra == 'test'
+Requires-Dist: progress ; extra == 'test'
+Requires-Dist: bokeh ; extra == 'test'
+Requires-Dist: scikit-image ; extra == 'test'
+Requires-Dist: python-fcl ; extra == 'test'
+Requires-Dist: shapely ; extra == 'test'
+Requires-Dist: PyYAML ; extra == 'test'
+Requires-Dist: xmltodict ; extra == 'test'
+
+``pcg_gazebo``: A Python package for rapid-prototyping and scripting of simulations for Gazebo
+==============================================================================================
+
+|Build Status| |Python application| |GitHub issues| |License| |PyPI|
+|PyPI - Python Version|
+
+The ``pcg_gazebo`` Python package is an Open Source Project extending
+the simulation capabilities of the robotics simulator
+`Gazebo <http://gazebosim.org/>`__ for automation and scripting of
+Gazebo simulations.
+
+Visit the `documentation
+page <https://boschresearch.github.io/pcg_gazebo/>`__ for more
+information.
+
+Purpose of the project
+----------------------
+
+This software is a research prototype.
+
+The software is not ready for production use. It has neither been
+developed nor tested for a specific use case. However, the license
+conditions of the applicable Open Source licenses allow you to adapt the
+software to your needs. Before using it in a safety relevant setting,
+make sure that the software fulfills your requirements and adjust it
+according to any applicable safety standards (e.g. ISO 26262).
+
+Installation
+------------
+
+Using ``pip``
+~~~~~~~~~~~~~
+
+You can install the ``pcg-gazebo`` package using ``pip`` as follows
+
+.. code:: bash
+
+    pip install pcg-gazebo
+
+you still might need to install some extra dependencies that cannot be
+handled by ``pip`` as
+
+::
+
+    sudo apt install libspatialindex-dev pybind11-dev libgeos-dev
+
+    The default installation does not include ``rospy`` dependencies
+    that are not available as a ``pip`` package. They have to be
+    installed separately for certain submodules to work, such as
+    ``pcg_gazebo.task_manager``.
+
+From source
+~~~~~~~~~~~
+
+First install some non-Python dependencies
+
+::
+
+    sudo apt install libspatialindex-dev pybind11-dev libgeos-dev
+
+Then clone the repository and install it using ``pip``
+
+::
+
+    git clone https://github.com/boschresearch/pcg_gazebo.git
+    cd pcg_gazebo
+    pip install .
+
+Using the package with ROS and Gazebo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Certain functionalities as the Gazebo proxy, task manager and model
+spawning are only available if ``rospy`` is installed. The lack of
+Gazebo and ``rospy`` only restricts functionalities related to
+interaction with the simulation in runtime and the creation of
+ROS-related tasks.
+
+At the moment, ROS 2 is **not** supported for this purpose. To install
+ROS ``melodic``, follow these `installation
+instructions <https://wiki.ros.org/melodic/Installation/Ubuntu>`__ and
+install ``ros-melodic-desktop-full`` or separately install Gazebo and
+its ROS bindings as
+
+::
+
+    sudo apt install gazebo9 libgazebo9-dev ros-melodic-gazebo-*
+
+License
+-------
+
+Procedural Generation for Gazebo is open-sourced under the Apache-2.0
+license. See the
+`LICENSE <https://github.com/boschresearch/pcg_gazebo/blob/master/LICENSE>`__
+file for details.
+
+For a list of other open source components included in Procedural
+Generation for Gazebo package, see the file
+`3rd-party-licenses <https://github.com/boschresearch/pcg_gazebo/blob/master/3rd-party-licenses.md>`__.
+
+.. |Build Status| image:: https://travis-ci.org/boschresearch/pcg_gazebo.svg?branch=master
+   :target: https://travis-ci.org/boschresearch/pcg_gazebo
+.. |Python application| image:: https://github.com/boschresearch/pcg_gazebo/workflows/Python%20application/badge.svg?branch=master
+.. |GitHub issues| image:: https://img.shields.io/github/issues/boschresearch/pcg_gazebo_pkgs.svg
+   :target: https://github.com/boschresearch/pcg_gazebo/issues
+.. |License| image:: https://img.shields.io/badge/license-Apache%202-blue.svg
+   :target: https://github.com/boschresearch/pcg_gazebo/blob/master/LICENSE
+.. |PyPI| image:: https://img.shields.io/pypi/v/pcg-gazebo
+   :target: https://pypi.org/project/pcg-gazebo/
+.. |PyPI - Python Version| image:: https://img.shields.io/pypi/pyversions/pcg-gazebo
+
+
+
