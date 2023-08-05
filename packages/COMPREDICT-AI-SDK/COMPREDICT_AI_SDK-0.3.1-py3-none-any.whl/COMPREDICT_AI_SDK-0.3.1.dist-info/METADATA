@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: COMPREDICT-AI-SDK
+Version: 0.3.1
+Summary: Connect Python applications with COMPREDICT AI Core.
+Home-page: https://github.com/compredict/ai-sdk-python
+Author: Ousama Esbel
+Author-email: esbel@compredict.de
+License: MIT
+Requires-Dist: pycryptodome (==3.9.4)
+Requires-Dist: requests (==2.20.1)
+Requires-Dist: pandas (~=1.0.0)
+
+COMPREDICT's AI CORE API Client
+
+
