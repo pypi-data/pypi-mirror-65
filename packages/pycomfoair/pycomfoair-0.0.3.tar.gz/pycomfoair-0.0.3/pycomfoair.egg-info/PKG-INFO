@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pycomfoair
+Version: 0.0.3
+Summary: Interface for Zehnder ComfoAir 350 ventilation units
+Home-page: https://github.com/mtdcr/pycomfoair
+Author: Andreas Oberritter
+Author-email: obi@saftware.de
+License: MIT
+Download-URL: https://github.com/mtdcr/pycomfoair
+Description: # pycomfoair
+        Python library to monitor and control Zehnder ComfoAir 350 units
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
