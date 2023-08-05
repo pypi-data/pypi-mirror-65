@@ -1,0 +1,132 @@
+Metadata-Version: 2.1
+Name: checkmk-commander
+Version: 0.8.11
+Summary: Curses interface to Checkmk Raw.
+Home-page: https://gitlab.com/larsfp/checkmk-commander
+Author: Lars Falk-Petersen
+Author-email: dev@falkp.no
+License: GPLv3+
+Keywords: monitoring
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: System :: Networking
+Classifier: Environment :: Console :: Curses
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Classifier: Topic :: System :: Networking :: Monitoring
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: urwid
+Requires-Dist: requests
+Requires-Dist: appdirs
+
+Check Commander
+===============
+
+Checkmk Commander, or Check Commander, efficient Curses interface for Checkmk, <https://checkmk.com/>.
+
+![Logo](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/images/logo_256.png)
+
+The goal is not to completely avoid the web interface, but to speed up common day-to-day tasks. Actions like acknowledge, downtime, reinventorize can be done in seconds, with keyboard only. Overview is clean and simple.
+
+Beta quality. Can be used. Report bugs! Some features may behave weirdly, but won't eat your data.
+
+Project home: <https://gitlab.com/larsfp/checkmk-commander>
+
+Screenshots
+-----------
+
+![Acknowledge and help v.8](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/images/ack0.8.gif)
+
+![Details v.6](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/images/Screenshotv.6.png)
+
+![Overview v.3](https://gitlab.com/larsfp/checkmk-commander/-/raw/master/images/Screenshotv.3.png)
+
+Installation
+------------
+
+From PIP:
+
+```bash
+pip3 install checkmk-commander
+```
+
+Run command: chkcom
+
+Hot-keys
+--------
+
+Press ? in app to get an overview.
+
+Implementation details and limitations
+--------------------------------------
+
+Uses CheckMK's web API. You need an "machine" account with a secret. A normal user won't work.
+
+High pri features
+-----------------
+
+* [x] list service problems from several checkmk instances
+* [x] ack service problems
+  * [x] Show popup to add comment
+  * [x] Parse time from comment
+  * [x] ack service problems on all sites, not just main host
+* [x] ack host problems
+* [x] downtime service problems
+* [x] comment service problems
+* [x] show down hosts
+
+Medium pri features
+----------------
+
+* [ ] list (distributed monitoring) site statuses
+* [x] Reinventorize a host
+* [x] Make actions async
+* [x] Add logging
+* [x] show service problem count
+
+Low pri features
+----------------
+
+* [x] Ability to run remotely (without being on checkmk host)
+* [v] Reschedule check
+* [ ] Add new host
+* [ ] Search in alert list
+* [ ] Search in all host/services (to i.e. run a reinventorize before anything complains)
+* [ ] Sort alert list
+* [ ] Show number of comments on services in overview
+* [x] List event notifications
+* [ ] List hosts/services in downtime
+* [ ] More list options, like remove numbering, wrap/clip columns.
+
+TODO
+----
+
+* Improve readability, colors.
+* Find down time for down-alerts.
+* Fetch host comments for down hosts.
+* Status bar at bottom should perhaps be switched for a scrolling textview with "Host- and Service events"
+* Icon, desktop integration.
+* I can only assume syslog is os dependent.
+* Write more unit tests
+* Change URLs to be an object for testing and safer handling.
+
+Development
+-----------
+
+Tests can be run with ```tox```.
+
+Inspirations and help
+---------------------
+
+* Icon made by RallyPointComic <https://anus.no/>
+* <https://github.com/aranair/rtscli/>
+* <https://forum.checkmk.com/t/writing-to-nagios-cmd-in-distributed-monitoring/17616>
+* <https://checkmk.com/cms_legacy_multisite_automation.html>
+
+
