@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: sittagger
+Version: 0.5.0
+Summary: Image viewer with user-labels tag database
+Home-page: https://github.com/hydrargyrum/sit-tagger
+Author: Hg
+Author-email: dev@indigo.re
+License: WTFPLv2
+Keywords: image,photo,viewer,browser,database,tagging,tag,label,labelling,python
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: Public Domain
+Classifier: Topic :: Desktop Environment :: File Managers
+Classifier: Topic :: Multimedia :: Graphics :: Viewers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.4
+Requires-Dist: PyQt5
+Requires-Dist: pyxdg
+Requires-Dist: vignette
+
+SIT-Tagger
+----------
+
+SIT-Tagger is an app for browsing tagged files.
+
+For now, it consists in an image browser app, that allows to set custom text tags
+on any image file, and then list image files matching checked tags.
+The tags are saved in a local SQLite database.
+
+Other apps reusing the same database will be added, and support for video files
+will be added.
+
+.. image:: docs/shot-dirview.jpg
+.. image:: docs/shot-tagview.jpg
+
+
