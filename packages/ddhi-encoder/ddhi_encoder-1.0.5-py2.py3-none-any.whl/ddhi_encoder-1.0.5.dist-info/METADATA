@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: ddhi-encoder
+Version: 1.0.5
+Summary: Encoding tools for DDHI
+Home-page: https://github.com/pyscaffold/pyscaffold/
+Author: Clifford Wulfman
+Author-email: cwulfman@princeton.edu
+License: mit
+Project-URL: Documentation, https://pyscaffold.org/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst; charset=UTF-8
+Requires-Dist: docx2python
+Requires-Dist: lxml
+Requires-Dist: spacy
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+A collection of command-line utilities to assist in the creation of
+TEI-encoded oral history interviews. Part of the Dartmouth Digital
+History Initiative.
+
+.. _ddhi-encoder-1:
+
+DDHI Encoder
+============
+
+The ddhi-encoder package is being developed to assist encoders in the
+DDHI project in encoding oral history interview transcripts in TEI. At
+present, it contains two command-line utilities:
+
+#. ``ddhi_convert``: convert a Dartmouth DVP transcript from docx to
+   tei.xml.
+#. ``ddhi_tag``: perform named-entity tagging on a DDHI TEI
+   transcription.
+
+Installation
+------------
+
+You can use pip to install this package:
+
+.. code:: bash
+
+   pip install ddhi-encoder
+
+To peform named-entity tagging with ``ddhi_tag``, you will need a Spacy
+model. Before running ``ddhi_tag``, install Spacy's small English model:
+
+.. code:: bash
+
+   python -m spacy download en_core_web_sm
+
+See `the Spacy documentation <https://spacy.io/models>`__ for more
+information.
+
+
