@@ -1,0 +1,9 @@
+six>=1.10.0
+kazoo>=2.2
+PyMySQL>=0.7.6
+oslo.config>=5.2.0
+oslo.policy>=1.30.0
+pbr!=2.1.0,>=2.0.0
+pyparsing>=2.1.0
+simplejson>=3.13.2
+confluent-kafka>=0.11.4
