@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: owclient
+Version: 0.1.4
+Summary: A light layer to use OWFS and pyownet with a more OOP approach.
+Home-page: https://gitlab.com/fcomabella/ow-client
+Author: Ferran Comabella
+Author-email: ferran@fccma.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pyownet (>=0.10.0,<0.11.0)
+Project-URL: Repository, https://gitlab.com/fcomabella/ow-client
+Description-Content-Type: text/x-rst
+
+

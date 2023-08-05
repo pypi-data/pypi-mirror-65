@@ -1,0 +1,2 @@
+class PrecisionNotSetError(Exception):
+    pass

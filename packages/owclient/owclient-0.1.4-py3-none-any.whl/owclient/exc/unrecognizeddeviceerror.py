@@ -1,0 +1,2 @@
+class UnrecognizedDeviceError(Exception):
+    pass
