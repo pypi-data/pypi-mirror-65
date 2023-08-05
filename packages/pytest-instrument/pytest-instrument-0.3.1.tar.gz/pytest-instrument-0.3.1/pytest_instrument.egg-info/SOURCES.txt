@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+pytest_instrument/__init__.py
+pytest_instrument/hooks.py
+pytest_instrument/logging_helpers.py
+pytest_instrument/plugin.py
+pytest_instrument.egg-info/PKG-INFO
+pytest_instrument.egg-info/SOURCES.txt
+pytest_instrument.egg-info/dependency_links.txt
+pytest_instrument.egg-info/entry_points.txt
+pytest_instrument.egg-info/requires.txt
+pytest_instrument.egg-info/top_level.txt
