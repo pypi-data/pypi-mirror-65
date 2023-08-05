@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: powerfuldeveloper-json-walker
+Version: 0.0.2
+Summary: Walk on jsons like nothing :)
+Home-page: https://github.com/powerfuldeveloper/json_walker
+Author: Powerfuldevleoper
+Author-email: apowerfuldeveloper@gmail.com
+License: UNKNOWN
+Description: # Powerfuldeveloper Json Walker
+        
+        Walk on jsons like it's nothing ðŸ˜Ž  
+        # Usage
+        Just give `JsonWalker` class the json which you want
+        to pars and this class is able to give you feet which
+        need to walk on json !  
+        ```python
+        from powerfuldeveloper.json_walker import JsonWalker
+        
+        some_json = {
+            "key_1": 'test',
+            "key_2": 1,
+        }
+        json_walker = JsonWalker(some_json)
+        print(json_walker.key_1) 
+        # test
+        print(type(json_walker.key_1)) 
+        # JsonWalker
+        print(json_walker.key_1.inner_key_1) 
+        # None
+        print(type(json_walker.key_1.inner_key_1)) 
+        # JsonWalker
+        if json_walker.key_1.inner_key_1:
+            print('inner key 1 exists')
+        
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
