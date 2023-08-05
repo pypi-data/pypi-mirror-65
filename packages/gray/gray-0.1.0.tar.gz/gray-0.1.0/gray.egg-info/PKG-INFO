@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: gray
+Version: 0.1.0
+Summary: Less uncompromising Python code formatter
+Home-page: https://github.com/dizballanze/gray
+Author: Yuri Shikanov
+Author-email: dizballanze@gmail.com
+License: MIT
+Description: # gray
+        
+        [![](https://badge.fury.io/py/gray.png)](http://badge.fury.io/py/gray)
+        [![](https://travis-ci.org/dizballanze/gray.png?branch=master)](https://travis-ci.org/dizballanze/gray)
+        
+        Less uncompromising Python code formatter
+        
+        ## Usage
+        
+        ```
+        usage:
+                gray myapp.py
+                gray myproj/ tests/
+                gray --log-level debug --formatters isort,unify ~/app
+        
+        Less uncompromising Python code formatter. Args that start with '--' (eg.
+        --log-level) can also be set in a config file (~/.gray or
+        /etc/gray.conf or ./gray.conf). Config file syntax allows: key=value,
+        flag=true, stuff=[a,b,c] (for details, see syntax at https://goo.gl/R74nmi).
+        If an arg is specified in more than one place, then commandline values
+        override config file values which override defaults.
+        
+        positional arguments:
+          paths                 Paths to format
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+        
+        Logging options:
+          --log-level {debug,info,warning,error,fatal}
+          --log-format {stream,color,json,syslog}
+        
+        Formatters options:
+          -f FORMATTERS, --formatters FORMATTERS
+                                Enabled formatters separated by comma (default: add-
+                                trailing-comma,isort,pyupgrade,unify)
+        ```
+        
+        ## Features
+        
+        * TODO
+        
+        
+        
+        ## History
+        
+        0.1.0 (2020-04-06)
+        ------------------------
+        
+        * First release on PyPI.
+        
+Keywords: gray
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Description-Content-Type: text/markdown
+Provides-Extra: develop
