@@ -1,0 +1,23 @@
+query findTasksByJob(
+                $limit: Float, $next: String,
+                $previous: String, $jobId: String) {
+            findTasks(
+                    limit: $limit, next: $next,
+                    previous: $previous, jobId: $jobId) {
+                        results {
+                            id
+                            status
+                            stats {
+                                duration
+                            }
+                            request {
+                                inputFile {
+                                    id
+                                }
+                            }
+                            result {
+                                artifactIds
+                            }
+                        }
+                    }
+            }

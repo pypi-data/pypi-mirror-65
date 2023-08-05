@@ -1,0 +1,5 @@
+mutation startJob($id: String!) {
+            startJob(id: $id) {
+                id
+            }
+        }
