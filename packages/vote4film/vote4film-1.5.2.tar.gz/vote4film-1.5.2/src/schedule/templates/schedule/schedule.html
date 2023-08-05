@@ -1,0 +1,78 @@
+{% extends "web/base.html" %}
+
+{% load humanize %}
+
+
+{% block secondary_nav %}
+  {% if event and not film %}
+    <a tabindex="5"
+       class="nav__item nav__item--secondary"
+       href="{% url 'films:film-create' %}">
+      Add Film
+      <span class="nav__highlight">&ensp;</span>
+    </a>
+  {% elif is_vote_available %}
+    <a tabindex="5"
+       class="nav__item nav__item--secondary"
+       href="{% url 'votes:vote-create' %}">
+      Vote For Films
+      <span class="nav__highlight">&ensp;</span>
+    </a>
+  {% elif not has_registered and event %}
+    <a tabindex="5"
+       class="nav__item nav__item--secondary"
+       href="{{ next_event_register_url }}">
+      Update the Calender
+      <span class="nav__highlight">&ensp;</span>
+    </a>
+  {% endif %}
+{% endblock secondary_nav %}
+
+
+{% block content %}
+  <h1>Upcoming</h1>
+  {% if event %}
+    <h2>The next event is {{ event.date|naturalday|capfirst }}</h2>
+
+    {% if not film %}
+      <p>There are no films left to watch!
+      <p><a href="{% url 'films:film-create' %}">Add a film</a>
+    {% else %}
+      {% if is_vote_available %}
+        <p>
+          You must <a href="{% url 'votes:vote-create' %}">vote for all films</a>
+          in order to see the upcoming film.
+      {% elif not has_registered %}
+        <p>
+          You must <a href="{{ next_event_register_url }}">update the calender</a>
+          in order to see the upcoming film.
+      {% else %}
+        {% include "votes/includes/film_card.html" with film=film only %}
+      {% endif %}
+    {% endif %}
+
+    <h2>Register</h2>
+    <ol>
+      {% for user in present_users %}
+        <li>🗹 {{ user.username }}
+      {% endfor %}
+      {% for user in absent_users %}
+        <li>🗷 {{ user.username }}
+      {% endfor %}
+      {% for user in unknown_users %}
+        <li>☐ {{ user.username }}
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p>
+      There is no upcoming event in the calender.
+      <em>(I need to give you the ability to add an event!)</em>
+    {% if is_vote_available %}
+      <p>You can still <a href="{% url 'votes:vote-create' %}">vote for films.</a>
+    {% else %}
+      <p>
+        You have voted for <a href="{% url 'votes:vote-aggregate' %}">all the films</a>;
+        there is nothing for you to do right now.
+    {% endif %}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,84 @@
+
+{% comment %}
+Takes in:
+  - {{ next_event_register_url }}
+  - {{ next_event_registered }}
+{% endcomment %}
+{% load static %}
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vote4Film</title>
+{# Sanitize v11.0 - https://github.com/csstools/sanitize.css#}
+<link href="{% static "web/sanitize.css" %}" rel="stylesheet">
+<link href="{% static "web/sanitize-forms.css" %}" rel="stylesheet">
+<link href="{% static "web/sanitize-typography.css" %}" rel="stylesheet">
+<link href="{% static "web/sanitize-page.css" %}" rel="stylesheet">
+<link href="{% static "web/style.css" %}" rel="stylesheet">
+
+<style>
+</style>
+
+<nav class="nav">
+  <section class="nav-row nav-row--primary">
+    {% with u=request.resolver_match.view_name %}
+      {# Update tabindex in child pages #}
+      <a tabindex="1"
+         class="nav__item {% if u == 'schedule:schedule' or u == 'votes:vote-create' %}nav__item--selected{% endif %}"
+         href="{% url 'schedule:schedule' %}">
+        Up Next
+      </a>
+      <a tabindex="2"
+         class="nav__item {% if u == 'calender:register-update' %}nav__item--selected{% endif %}"
+         {# TODO: Implement calender page to remove this temporary redirect #}
+         {% if next_event_register_url %}
+          href="{{ next_event_register_url }}">
+         {% else %}
+          href="{% url 'schedule:schedule' %}">
+         {% endif %}
+        Calender
+      </a>
+      <a tabindex="3"
+         class="nav__item {% if u == 'votes:vote-aggregate' or u == 'films:film-create' or u == 'films:film-update' %}nav__item--selected{% endif %}"
+         href="{% url 'votes:vote-aggregate' %}">
+        Films
+      </a>
+      <a tabindex="4"
+         class="nav__item {% if u == 'admin:logout' %}nav__item--selected{% endif %}"
+         href="{% url 'admin:logout' %}">
+        Logout
+     </a>
+    {% endwith %}
+  </section>
+  <section class="nav-row nav-row--secondary">
+    {% block secondary_nav %}
+    {% endblock %}
+  </section>
+</nav>
+
+{% if messages %}
+<aside class="message">
+    <ul class="message__list">
+        {% for message in messages %}
+          <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
+            {{ message.message }}
+          </li>
+        {% endfor %}
+    </ul>
+  </aside>
+{% endif %}
+
+<main>
+  {% block content %}
+  {% endblock %}
+</main>
+
+<footer>
+  <!-- Match bottom navigation bar height -->
+  <br>
+  <br>
+</footer>
+
+<!-- DEBUG TOOLBAR -->
+</body>
