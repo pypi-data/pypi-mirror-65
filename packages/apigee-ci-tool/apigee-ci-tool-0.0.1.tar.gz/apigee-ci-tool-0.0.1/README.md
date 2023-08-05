@@ -1,0 +1,15 @@
+# APIGEE CI Tool
+
+## This small module has been built with the whole purpose of making Apigee CICD easier.
+
+The first iteration consists of `policyParser`:
+
+This makes the process of policy population of Apigee API Proxies easier. Doing this in the UI is very simple but, when we want to do this programmatically is not the same case. In CICD pipelines for example, building an ecosystem that enables the developers to interact with their proxies adding, modifing and removing policies is crucial. That's why this module exists.
+
+Future version: `targetParser`.
+
+
+
+## This is a work in progress. Future versions to come.
+
+# Documentation will be released soon.
