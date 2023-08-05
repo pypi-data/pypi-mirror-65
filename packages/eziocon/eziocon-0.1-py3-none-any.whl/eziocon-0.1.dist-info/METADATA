@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: eziocon
+Version: 0.1
+Summary: A common package for doing basic operations over sql structured databases 
+Home-page: https://github.com/iyappan24/eziocon
+Author: iyappan
+Author-email: iyappan.akp@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Requires-Dist: pandas
+Requires-Dist: pymysql
+Requires-Dist: cx-Oracle
+Requires-Dist: json
+
+UNKNOWN
+
+
