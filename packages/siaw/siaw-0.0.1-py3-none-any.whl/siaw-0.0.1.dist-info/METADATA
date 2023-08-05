@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: siaw
+Version: 0.0.1
+Summary: Say the same sentence in another way.
+Home-page: https://www.zhangjack.com
+Author: Jack Zhang
+Author-email: snail.zhang@outlook.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: jieba (>=0.42.1)
+Requires-Dist: paddlepaddle-tiny (==1.6.1)
+Requires-Dist: pypinyin (>=0.37.0)
+
+UNKNOWN
+
+
