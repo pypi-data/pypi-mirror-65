@@ -1,0 +1,19 @@
+-r requirements.txt
+celery[redis]
+coverage
+eventlet
+pacifica-archiveinterface
+pacifica-cartd
+pacifica-ingest
+pacifica-metadata
+pacifica-notifications
+pacifica-policy
+pacifica-uniqueid
+pep257
+pre-commit
+pylint>2
+pytest
+recommonmark
+redis
+requests
+setuptools
