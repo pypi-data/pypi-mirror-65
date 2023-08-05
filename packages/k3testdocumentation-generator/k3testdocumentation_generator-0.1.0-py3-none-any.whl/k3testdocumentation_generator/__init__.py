@@ -1,0 +1,3 @@
+from k3testdocumentation_generator.api_impl import generate_json_from_file_system, generate_html_test_documentation_from_json, generate_pdf_test_documentation_from_json
+from k3testdocumentation_generator._version import __version__
+
