@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: ytpo
+Version: 1.3.1
+Summary: YouTube Playlist Organizer
+Home-page: https://github.com/haranrk/
+Author: Haran Rajkumar
+Author-email: haranrajkumar97@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: google-api-python-client
+Requires-Dist: tqdm
+Requires-Dist: google-auth-oauthlib
+Requires-Dist: google-auth-httplib2
+Requires-Dist: tinydb
+
+UNKNOWN
+
+
