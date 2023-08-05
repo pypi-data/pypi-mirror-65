@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: comicom
+Version: 1.0.1
+Summary: A script that stitches images together and breaks them in to pages based on available whitespace
+Home-page: https://github.com/bajuwa/ComicCompiler
+Author: bajuwa
+Author-email: justcallmebaj@gmail.com
+License: UNKNOWN
+Description: # ComicCompiler
+        Given a set of images, vertically combines them in to 'pages' where the start/end of the page are solid white (or some other specified colour).
+        For more information on installation and how to use comcom, [see our github wiki](https://github.com/bajuwa/ComicCompiler/wiki).
+        
+        While you're here, though, you can check out this small demo or [view all demos here](https://github.com/bajuwa/ComicCompiler/blob/master/demos/):   
+        ![ComCom demo](https://github.com/bajuwa/ComicCompiler/blob/master/demos/simple.gif) 
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
