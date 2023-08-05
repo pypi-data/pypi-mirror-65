@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: anthemav-serial
+Version: 0.2.6
+Summary: Python RS232 API for Anthem A/V Receivers
+Home-page: https://github.com/rsnodgrass/python-anthemav-serial
+Author: Ryan Snodgrass
+Author-email: rsnodgrass@gmail.com
+License: MIT
+Download-URL: https://github.com/rsnodgrass/python-anthemav-serial/archive/0.2.6.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pyserial (>=3.4)
+Requires-Dist: pyserial-asyncio (>=0.4)
+
+UNKNOWN
+
+
