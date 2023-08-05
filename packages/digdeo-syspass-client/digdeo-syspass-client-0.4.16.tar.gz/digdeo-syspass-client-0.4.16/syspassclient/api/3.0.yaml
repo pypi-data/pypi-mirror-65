@@ -1,0 +1,675 @@
+account/create:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: account/create
+    params:
+      authToken: null
+      categoryId: null
+      clientId: null
+      expireDate: null
+      login: null
+      name: null
+      notes: null
+      parentId: null
+      password: null
+      private: null
+      privateGroup: null
+      tagsId: null
+      tokenPass: null
+      url: null
+      userGroupId: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    categoryId:
+      required: true
+      type: int
+    clientId:
+      required: true
+      type: int
+    expireDate:
+      required: false
+      type: int
+    login:
+      required: false
+      type: str
+    name:
+      required: true
+      type: str
+    notes:
+      required: false
+      type: str
+    parentId:
+      required: false
+      type: int
+    password:
+      required: true
+      type: str
+    private:
+      required: false
+      type: int
+    privateGroup:
+      required: false
+      type: int
+    tagsId:
+      required: false
+      type: array
+    tokenPass:
+      required: true
+      type: str
+    url:
+      required: false
+      type: str
+    userGroupId:
+      required: false
+      type: int
+account/delete:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: account/delete
+    params:
+      account_id: null
+      authToken: null
+  params_details:
+    account_id:
+      required: true
+      type: int
+    authToken:
+      required: true
+      type: str
+account/edit:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: account/edit
+    params:
+      account_id: null
+      authToken: null
+      categoryId: null
+      clientId: null
+      expireDate: null
+      login: null
+      name: null
+      notes: null
+      parentId: null
+      private: null
+      privateGroup: null
+      tagsId: null
+      tokenPass: null
+      url: null
+      userGroupId: null
+  params_details:
+    account_id:
+      required: true
+      type: int
+    authToken:
+      required: true
+      type: str
+    categoryId:
+      required: false
+      type: int
+    clientId:
+      required: false
+      type: int
+    expireDate:
+      required: false
+      type: int
+    login:
+      required: false
+      type: str
+    name:
+      required: false
+      type: str
+    notes:
+      required: false
+      type: str
+    parentId:
+      required: false
+      type: int
+    private:
+      required: false
+      type: int
+    privateGroup:
+      required: false
+      type: int
+    tagsId:
+      required: false
+      type: array
+    tokenPass:
+      required: true
+      type: str
+    url:
+      required: false
+      type: str
+    userGroupId:
+      required: false
+      type: int
+account/editPass:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: account/editPass
+    params:
+      account_id: null
+      authToken: null
+      expireDate: null
+      password: null
+      tokenPass: null
+  params_details:
+    account_id:
+      required: true
+      type: int
+    authToken:
+      required: true
+      type: str
+    expireDate:
+      required: false
+      type: int
+    password:
+      required: true
+      type: str
+    tokenPass:
+      required: true
+      type: str
+account/search:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: account/search
+    params:
+      authToken: null
+      categoryId: null
+      clientId: null
+      count: null
+      op: null
+      tagsid: null
+      text: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    categoryId:
+      required: false
+      type: int
+    clientId:
+      required: false
+      type: int
+    count:
+      required: false
+      type: int
+    op:
+      required: false
+      type: str
+    tagsId:
+      required: false
+      type: array
+    text:
+      required: false
+      type: str
+account/view:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: account/view
+    params:
+      account_id: null
+      authToken: null
+      tokenPass: null
+  params_details:
+    account_id:
+      required: true
+      type: int
+    authToken:
+      required: true
+      type: str
+    tokenPass:
+      required: true
+      type: str
+account/viewPass:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: account/viewPass
+    params:
+      account_id: null
+      authToken: null
+      details: null
+      tokenPass: null
+  params_details:
+    account_id:
+      required: true
+      type: int
+    authToken:
+      required: true
+      type: str
+    details:
+      required: false
+      type: int
+    tokenPass:
+      required: true
+      type: str
+category/create:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: category/create
+    params:
+      authToken: null
+      description: null
+      name: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    description:
+      required: false
+      type: str
+    name:
+      required: true
+      type: str
+category/delete:
+  json_body:
+    cid: null
+    jsonrpc: '2.0'
+    method: category/delete
+    params:
+      authToken: null
+      cid: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    cid:
+      required: true
+      type: int
+category/edit:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: category/edit
+    params:
+      authToken: null
+      cid: null
+      description: null
+      name: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    cid:
+      required: true
+      type: int
+    description:
+      required: false
+      type: int
+    name:
+      required: true
+      type: str
+category/search:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: category/search
+    params:
+      authToken: null
+      count: null
+      text: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    count:
+      required: false
+      type: int
+    text:
+      required: false
+      type: str
+category/view:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: category/view
+    params:
+      authToken: null
+      count: null
+      text: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    count:
+      required: true
+      type: int
+    text:
+      required: true
+      type: str
+client/create:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: client/create
+    params:
+      Global: null
+      authToken: null
+      description: null
+      name: null
+  params_details:
+    Global:
+      required: false
+      type: int
+    authToken:
+      required: true
+      type: str
+    description:
+      required: false
+      type: str
+    name:
+      required: true
+      type: str
+client/delete:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: client/delete
+    params:
+      authToken: null
+      cid: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    cid:
+      required: true
+      type: int
+client/edit:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: client/edit
+    params:
+      Global: null
+      authToken: null
+      cid: null
+      description: null
+      name: null
+  params_details:
+    Global:
+      required: false
+      type: int
+    authToken:
+      required: true
+      type: str
+    cid:
+      required: true
+      type: str
+    description:
+      required: false
+      type: int
+    name:
+      required: true
+      type: str
+client/search:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: client/search
+    params:
+      authToken: null
+      count: null
+      text: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    count:
+      required: false
+      type: int
+    text:
+      required: false
+      type: str
+client/view:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: client/view
+    params:
+      authToken: null
+      cid: null
+      tokenPass: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    cid:
+      required: true
+      type: int
+    tokenPass:
+      required: true
+      type: str
+config/backup:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: config/backup
+    params:
+      authToken: null
+      path: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    path:
+      required: false
+      type: str
+config/export:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: config/export
+    params:
+      authToken: null
+      password: null
+      path: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    password:
+      required: false
+      type: str
+    path:
+      required: false
+      type: str
+tag/create:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: tag/create
+    params:
+      authToken: null
+      name: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    name:
+      required: true
+      type: str
+tag/delete:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: tag/delete
+    params:
+      authToken: null
+      tagid: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    tagid:
+      required: true
+      type: int
+tag/edit:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: tag/edit
+    params:
+      authToken: null
+      id: null
+      name: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    id:
+      required: true
+      type: int
+    name:
+      required: true
+      type: str
+tag/search:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: tag/search
+    params:
+      authToken: null
+      count: null
+      text: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    count:
+      required: false
+      type: int
+    text:
+      required: false
+      type: str
+tag/view:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: tag/view
+    params:
+      authToken: null
+      tagid: null
+      tokenPass: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    tagid:
+      required: true
+      type: int
+    tokenPass:
+      required: true
+      type: str
+userGroup/create:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: usergroup/create
+    params:
+      authToken: null
+      description: null
+      name: null
+      usersId: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    description:
+      required: false
+      type: str
+    name:
+      required: true
+      type: str
+    usersId:
+      required: false
+      type: array
+userGroup/delete:
+  json_body:
+    jsonrpc: '2.0'
+    method: usergroup/delete
+    params:
+      authToken: null
+      ugid: null
+    ugid: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    ugid:
+      required: true
+      type: int
+userGroup/edit:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: usergroup/edit
+    params:
+      authToken: null
+      description: null
+      name: null
+      ugid: null
+      usersId: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    description:
+      required: false
+      type: string
+    name:
+      required: true
+      type: string
+    ugid:
+      required: true
+      type: int
+    usersId:
+      required: false
+      type: array
+userGroup/search:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: usergroup/search
+    params:
+      authToken: null
+      count: null
+      text: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    count:
+      required: false
+      type: int
+    text:
+      required: false
+      type: str
+userGroup/view:
+  json_body:
+    id: null
+    jsonrpc: '2.0'
+    method: usergroup/view
+    params:
+      authToken: null
+      tokenPass: null
+      ugid: null
+  params_details:
+    authToken:
+      required: true
+      type: str
+    tokenPass:
+      required: true
+      type: str
+    ugid:
+      required: true
+      type: int
