@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "dial-basic-nodes"
+version = "0.4a0"
+description = "Basic nodes for the Dial app."
+authors = ["David Afonso <davafons@gmail.com>"]
+
+license = "GPL-3.0-only"
+
+readme = "README.md"
+
+repository = "https://github.com/dial-app/dial-basic-nodes"
+homepage = "https://github.com/dial-app/dial-basic-nodes"
+
+keywords = ["deep-learning", "dial-app"]
+
+[tool.poetry.dependencies]
+python = ">=3.6,<3.8"
+
+dial-core = { path = "/home/david/dial-core" }
+dial-gui = { path = "/home/david/dial-gui" }
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.1"
+pytest-cov = "^2.8.1"
+pytest-qt = "^3.3.0"
+pre-commit = "^2.1.1"
+black = "^19.10b0"
+isort = "^4.3.21"
+flake8 = "^3.7.9"
+pylint = "^2.4.4"
+mypy = "^0.770"
+tox = "^3.14.5"
+docstr-coverage = "^1.0.5"
+taskipy = "^1.2.0"
+sphinx = "^2.4.4"
+sphinx-rtd-theme = "^0.4.3"
+sphinx-autodoc-typehints = "^1.10.3"
+
+[tool.taskipy.tasks]
+link = "pre-commit run --all"
+tests = "pytest --cov=dial_basic_nodes/ --cov-report term-missing:skip-covered"
+doc-coverage = "docstr-coverage -fi dial_basic_nodes"
+docs = "cd docs; make html"
+
+[tool.dephell.main]
+from = {format = "poetry", path = "pyproject.toml"}
+to = {format = "setuppy", path = "setup.py"}
+
+[build-system]
+requires = ["poetry>=0.12", "setuptools>=35.0.2", "wheel>=0.29.0"]
+build-backend = "poetry.masonry.api"
