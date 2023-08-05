@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: rfconv
+Version: 0.0.0b4042020
+Summary: Rectified Convolution
+Home-page: https://github.com/zhanghang1989/RFConv
+Author: Hang Zhang
+Author-email: zhanghang0704@gmail.com
+License: Apache-2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: Pillow
+Requires-Dist: scipy
+Requires-Dist: requests
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Requires-Dist: nose
+Requires-Dist: torch (>=1.4.0)
+
+# RFConv
+Rectified Convolution
+
+
