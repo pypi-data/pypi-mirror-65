@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: tibber-aws
+Version: 0.2.2
+Summary: A python3 library to communicate with Aws
+Home-page: https://github.com/tibbercom/tibber-pyAws
+Author: Tibber
+Author-email: hello@tibber.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5.3
+Requires-Dist: boto3
+Requires-Dist: aiobotocore (==0.12.0)
+Requires-Dist: aiohttp
+Requires-Dist: async-timeout
+Requires-Dist: numpy
+
+UNKNOWN
+
+
