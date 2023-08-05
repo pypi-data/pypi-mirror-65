@@ -1,0 +1,11 @@
+<div>
+    <img class="captcha_dyn_form"
+         id="{{ widget.name }}_img"
+         src="data:image/png;base64,{{ image_b64 }}" />
+</div>
+<br>
+<input type="{{ widget.type }}"
+       name="{{ widget.name }}"
+       value="{{ widget.value | stringformat:'s' }}"
+       {% include "django/forms/widgets/attrs.html" %}>
+<a onclick="refresh_captcha();">refresh</a>
