@@ -1,0 +1,53 @@
+sudo: false
+
+dist: xenial
+
+language: python
+
+matrix:
+  include:
+    - python: "2.7"
+    - python: "3.4"
+    - python: "3.5"
+    - python: "3.6"
+    - python: "3.7"
+    - python: "3.8"
+    - python: "3.9-dev"
+    - python: "pypy2.7-6.0"
+    - python: "pypy3.5-6.0"
+  allow_failures:
+    - python: "3.9-dev"
+
+cache:
+  directories:
+    - stripe-mock
+  pip: true
+
+env:
+  global:
+    # If changing this number, please also change it in `tests/conftest.py`.
+    - STRIPE_MOCK_VERSION=0.76.0
+
+before_install:
+  # Unpack and start stripe-mock so that the test suite can talk to it
+  - |
+    if [ ! -d "stripe-mock/stripe-mock_${STRIPE_MOCK_VERSION}" ]; then
+      mkdir -p stripe-mock/stripe-mock_${STRIPE_MOCK_VERSION}/
+      curl -L "https://github.com/stripe/stripe-mock/releases/download/v${STRIPE_MOCK_VERSION}/stripe-mock_${STRIPE_MOCK_VERSION}_linux_amd64.tar.gz" -o "stripe-mock/stripe-mock_${STRIPE_MOCK_VERSION}_linux_amd64.tar.gz"
+      tar -zxf "stripe-mock/stripe-mock_${STRIPE_MOCK_VERSION}_linux_amd64.tar.gz" -C "stripe-mock/stripe-mock_${STRIPE_MOCK_VERSION}/"
+    fi
+  - |
+    stripe-mock/stripe-mock_${STRIPE_MOCK_VERSION}/stripe-mock > /dev/null &
+    STRIPE_MOCK_PID=$!
+  - export PATH="${PATH}:${PWD}/stripe-mock/stripe-mock_${STRIPE_MOCK_VERSION}"
+
+install:
+  - pip install --upgrade pip virtualenv
+  - make venv
+
+script:
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then make lint; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == '3.8' ]]; then make fmtcheck; fi
+  - make ci
+
+after_success: make coveralls
