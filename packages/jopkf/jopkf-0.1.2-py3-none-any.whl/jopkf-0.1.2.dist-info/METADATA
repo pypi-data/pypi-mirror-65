@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: jopkf
+Version: 0.1.2
+Summary: Useful tools to work with Elastic stack in Python
+Home-page: https://github.com/ncthuc/elastictools
+Author: Thuc Nguyen
+Author-email: gthuc.nguyen@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/jopkf/
+Keywords: Elastic,ElasticSearch,ElasticStack
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: elasticsearch (<7.0.0,>=6.0.0)
+Requires-Dist: jinja2
+
+# test
+
+#test
+
