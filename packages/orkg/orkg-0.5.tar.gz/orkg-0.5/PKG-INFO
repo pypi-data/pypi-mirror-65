@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: orkg
+Version: 0.5
+Summary: Python wrapper for the Open Research Knowledge Graph (ORKG) API
+Home-page: http://orkg.org/about
+Author: Mohamad Yaser Jaradeh
+Author-email: jaradeh@l3s.de
+License: MIT
+Download-URL: https://gitlab.com/TIBHannover/orkg/orkg-pypi/-/archive/0.5/orkg-pypi-0.5.tar.gz
+Description: # orkg-pypi
+        
+        Python package wrapping the ORKG API
+        
+        The package is a straightforward implementation of the API described in the [documentation](https://www.orkg.org/orkg/doc/api/)
+        
+Keywords: ORKG,Scholarly communication,API wrapper
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
