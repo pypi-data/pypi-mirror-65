@@ -1,0 +1,5 @@
+[console_scripts]
+swling = swtools.swling:main
+swlookup = swtools.swlookup:main
+swupdate = swtools.swupdate:main
+
