@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: django-admin-contextmenu
+Version: 0.1.0
+Summary: django-admin-contextmenu app, adds a contextmenu column to django admin's changelist page.
+Home-page: https://github.com/nshayanfar/django-admin-contextmenu
+Author: Nima Shayanfar
+Author-email: nshayanfar@gmail.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+
+django-admin-contextmenu
+=======================
+
+This is a multi-directional context menu for Django admin. It adds a new column in your admin's changelist page, after the checkbox column. When it is clicked a pop menu opens. The menu is completely empty and it is the best place for including links to other entites.
+
+
+Requirements
+-----------------------------
+
+* Django > 2.2
+* Python > 3.5
+
+
+Installation
+------------
+
+Use your favorite Python package manager to install the app from PyPI, e.g.
+
+Example:
+
+``pip install django-admin-contextmenu``
+
+
+Add ``contextmenu`` to ``INSTALLED_APPS``:
+
+Example:
+
+```python
+
+    INSTALLED_APPS = (
+        ...
+        'contextmenu',
+        ...
+    )
+```
+
+
+Example usage in admin
+-------------
+
+```python
+
+    from contextmenu.options import CustomModelAdmin
+
+
+    @admin.register(ExampleModel)
+    class ExampleAdmin(CustomModelAdmin):
+
+        def get_contextmenu_items(self, obj):
+            return [
+                {'title': 'Example link title', 'url': 'http://example.url'},
+                .
+                .
+                .
+                .
+                {'title': 'Example link title', 'url': 'http://example.url'},
+            ]
+```## [0.1.0] - 2020-03-05
+### Added
+- Initial commit
+
+

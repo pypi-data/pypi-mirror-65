@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <a class="fa fa-external-link" href="#" data-toggle="dropdown"  type="button">
+  </a>
+  {% if items %}
+  <div class="dropdown-menu">
+    {% for item in items %}
+    <a class="dropdown-item" href="{{item.url}}">{{item.title}}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
