@@ -1,0 +1,60 @@
+Metadata-Version: 1.2
+Name: gcloud-aio-bigquery
+Version: 3.4.0
+Summary: Python Client for Google Cloud BigQuery
+Home-page: https://github.com/talkiq/gcloud-aio
+Author: Vi Engineering
+Author-email: voiceai-eng@dialpad.com
+License: MIT License
+Description: (Asyncio OR Threadsafe) Python Client for Google Cloud BigQuery
+        ===============================================================
+        
+            This is a shared codebase for ``gcloud-aio-bigquery`` and
+            ``gcloud-rest-bigquery``
+        
+        |pypi| |pythons-aio| |pythons-rest|
+        
+        Installation
+        ------------
+        
+        .. code-block:: console
+        
+            $ pip install --upgrade gcloud-{aio,rest}-bigquery
+        
+        Usage
+        -----
+        
+        We're still working on documentation -- for now, you can use the `smoke test`_
+        as an example.
+        
+        Contributing
+        ------------
+        
+        Please see our `contributing guide`_.
+        
+        .. _contributing guide: https://github.com/talkiq/gcloud-rest/blob/master/.github/CONTRIBUTING.rst
+        .. _smoke test: https://github.com/talkiq/gcloud-rest/blob/master/bigquery/tests/integration/smoke_test.py
+        
+        .. |pypi| image:: https://img.shields.io/pypi/v/gcloud-aio-bigquery.svg?style=flat-square
+            :alt: Latest PyPI Version (gcloud-aio-bigquery)
+            :target: https://pypi.org/project/gcloud-aio-bigquery/
+        
+        .. |pythons-aio| image:: https://img.shields.io/pypi/pyversions/gcloud-aio-bigquery.svg?style=flat-square&label=python (aio)
+            :alt: Python Version Support (gcloud-aio-bigquery)
+            :target: https://pypi.org/project/gcloud-aio-bigquery/
+        
+        .. |pythons-rest| image:: https://img.shields.io/pypi/pyversions/gcloud-rest-bigquery.svg?style=flat-square&label=python (rest)
+            :alt: Python Version Support (gcloud-rest-bigquery)
+            :target: https://pypi.org/project/gcloud-rest-bigquery/
+        
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet
+Requires-Python: >= 3.6
