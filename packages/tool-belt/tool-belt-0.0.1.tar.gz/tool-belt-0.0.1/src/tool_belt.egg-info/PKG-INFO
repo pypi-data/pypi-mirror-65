@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: tool-belt
+Version: 0.0.1
+Summary: A set of utility modules that helps you create web services faster.
+Home-page: https://github.com/mmohaveri/python-tool-belt
+Author: Mahdi Mohaveri
+Author-email: mmohaveri@gmail.com
+License: MIT License
+Description: # Tool Belt
+        
+        `toolbelt` is a set of useful utility functions and classes to help you create your python based web service
+        faster.
+        
+        ## Components
+        
+        `toolbelt` provides following components:
+        
+        - CLI
+        - Flask
+        - GRPC
+        - Gunicorn
+        - Logging
+        - SQL Alchemy
+        
+        to reduce size of the module, requirements are bundeled seperatly and you'll need to install them based on your needs.
+        for example, to intall `grpc` requirements run:
+        
+        ```bash
+        pip install tool-belt:[grpc]
+        ```
+        
+Keywords: web-service,toolkit,toolbelt,logging,grpc,flask,gunicorn,cli
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Provides-Extra: cli
+Provides-Extra: flask
+Provides-Extra: grpc
+Provides-Extra: gunicorn
+Provides-Extra: logging
+Provides-Extra: sqlalchemy
