@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: loads-pipeline
+Version: 0.1.5
+Summary: Loads Pipeline Workflow Package.
+Home-page: https://bitbucket.org/fleetopsteam/fleetops-gcp-pipeline
+Author: Kaya Smith
+Author-email: kaya@fleetops.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: apache-beam (==2.11.0google-cloud-core==0.29.1)
+Requires-Dist: pymongo (==3.7.2)
+Requires-Dist: google-cloud-storage (==1.14.)
+Requires-Dist: google-cloud-bigquery (==1.11.2)
+
+A FleetOps Pipeline for Pulling Loads into from Production into a BigQuery Data Warehouse
+
+
