@@ -1,0 +1,15 @@
+include LICENSE
+include README.rst
+recursive-include users_extended/static *
+recursive-include users_extended/templates *
+recursive-include users_extended/docs *
+
+recursive-include permissions/static *
+recursive-include permissions/templates *
+recursive-include permissions/docs *
+
+recursive-include app_configurations/static *
+recursive-include app_configurations/templates *
+recursive-include app_configurations/docs *
+
+recursive-include utils *
