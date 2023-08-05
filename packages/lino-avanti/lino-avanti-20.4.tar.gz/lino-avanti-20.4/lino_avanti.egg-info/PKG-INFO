@@ -1,0 +1,45 @@
+Metadata-Version: 1.1
+Name: lino-avanti
+Version: 20.4
+Summary: Manage the integration course of immigrants in East Belgium
+Home-page: http://avanti.lino-framework.org/
+Author: Luc Saffre
+Author-email: luc.saffre@gmail.com
+License: BSD-2-Clause
+Description: 
+        Lino Avanti is a free `Lino <http://www.lino-framework.org/>`__
+        application used by social workers in East Belgium for helping
+        immigrants with their *integration course*.
+        
+        The **integration course** is a Belgian administrative procedure
+        consisting in an individual mentoring and a series of courses with the
+        goal of helping new residents to acquire the base knowledge about
+        society and social relations in Belgium in order to ease their
+        integration on the territory.  Read more about the procedure in
+        `Parcours d’intégration des primo-arrivants
+        <http://socialsante.wallonie.be/?q=action-sociale/integration-personne-origine-etrangere/dispositifs/parcours-integration-primo-arrivant>`__
+        (French) or `Integrationsparcours: Der Einstiegsweg für Migranten
+        <http://www.dglive.be/desktopdefault.aspx/tabid-4795/8506_read-47195/>`__
+        (German).
+        
+        Lino Avanti is being developed by order of `Ministerium der
+        Deutschsprachigen Gemeinschaft <http://www.dglive.be>`__ (Ministery of
+        the `German-speaking Community of Belgium
+        <https://en.wikipedia.org/wiki/German-speaking_Community_of_Belgium>`__).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Customer Service
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Natural Language :: German
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Office/Business :: Scheduling
