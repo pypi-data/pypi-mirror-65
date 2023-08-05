@@ -1,0 +1,188 @@
+CHANGES
+=======
+
+3.2.0
+-----
+
+* Fix parsing for virtual disk RAIDStatus attribute
+* Fix pointer to upper\_constraints.txt
+* Fix .gitreview in stable/train
+
+3.1.1
+-----
+
+* Fixes some issues with zuulv3 changes
+* Changes for zuulv3
+* Fix for clear\_foreign\_config() unsupported on some controllers
+* Add Python 3 Train unit tests
+
+3.1.0
+-----
+
+* Take Lifecycle Controller out of recovery mode
+* Check LCStatus instead of MessageID to determine if an iDRAC is ready
+* Add realtime support to drive conversion
+* clear\_foreign\_config() succeeds if no foreign disk
+* Replace git.openstack.org URLs with opendev.org URLs
+* Consider a BOSS card a RAID controller
+* OpenDev Migration Patch
+* Implement ResetConfig and ClearForeignConfig functionality
+
+3.0.0
+-----
+
+* Filter unprintable ASCII during enumeration
+* Fix iDRAC reset
+* Add a real-time option when commit RAID creation/deletion in python-dracclient
+* Fixes problem in is\_boss\_controller function
+* Add doc/requirements.txt to docs tox environment
+* Remove deprecated commit\_required parameter from python-dracclient
+* Update hacking version
+* Change openstack-dev to openstack-discuss
+
+2.0.0
+-----
+
+* Replacing the link in HACKING.rst
+* Add change\_physical\_disk\_state function to client
+* Adds ability to reset iDRAC
+* Add UUID to System object in python-dracclient
+* Removed deprecated disk,raid and job state
+
+1.5.0
+-----
+
+* Fix CPU count returned by introspection in Ironic iDRAC driver
+* Define constants for types of reboot job
+* Increase default is ready retries
+* Add ability to retrieve system properties
+* Delete Job API
+* Add support for NIC configuration
+* Filter out non-ASCII characters on invalid UTF8
+* Add ability to schedule jobs
+* Added is\_jbod\_capable method to raid resource
+* Adds support for Dell BOSS card RAID1 creation
+
+1.4.0
+-----
+
+* Update links in README
+* Added support for PCIe drives
+* Fixed indentation in utils.list\_settings
+* Add ability to set iDRAC card settings
+* Fixed link to the docs
+* Refactor list\_bios\_settings and set\_bios\_settings
+* Separate reboot required from commit required
+* Allow invoke without checking the return value
+* Report SAS address in physical disks
+* Report bus in controllers
+
+1.3.1
+-----
+
+* Increased is-iDRAC-ready timeout
+* Add "Reboot Failed" as terminal job state for 14G
+
+1.3.0
+-----
+
+* Simplify wait\_until\_idrac\_is\_ready() calls
+* Simplify get Lifecycle Controller version
+* Enumerate operations can wait until iDRAC is ready
+* Invoke operations can wait until iDRAC is ready
+* Parameterize iDRAC is ready retries at class level
+* Refactor iDRAC is ready functionality
+* Fetch system attributes
+* Remove support for py34
+* Fix immediate failure on SSL errors
+
+1.2.0
+-----
+
+* Added ability to determine if an iDRAC is ready
+
+1.1.1
+-----
+
+* Get/Set power state fails
+
+1.1.0
+-----
+
+* Fix typo in BIOS code
+* Add support for idrac\_card and lifecycle\_controller attributes
+* WSMAN enumerate fails to return all entries
+* Add constituent physical disks to RAID virtual disk object
+* Removes unnecessary utf-8 coding
+* Show team and repo badges on README
+* Add missing RAID Status
+* Remove references to 'wsmanclient' in docs
+
+1.0.0
+-----
+
+* Make name and description nullable for virtual disks
+* Raise a specific exception instead of generic AttributeError
+* Raise a reasonable error on non-nullable flags with empty text
+* Update setup.cfg
+* Manually sync requirements (compatible with Newton and Ocata)
+* JobManagement.get\_job() causes FutureWarning
+* Use InstanceId as unique attribute identifier rather than name
+* Fetch primary\_status from raid controller
+* Raid controller and Physical Drive attributes need to be nullable
+* Don't assume FQDD naming
+* Add \_\_ne\_\_ built-in function
+
+0.1.0
+-----
+
+* Use upper-constraints for all tox targets
+* Split tests to based on modules
+* Make object attribute names and values consistent
+* Allow missing flags on inventory.CPU
+* Add flag to indicate 64bit support in inventory.CPU
+* Add NIC enumeration to InventoryManagement
+* Use constraints for all the things
+* Add py35 to tox environments
+* Add interface to convert disks to RAID mode
+* Add memory enumeration to InventoryManagement
+* Improve docs
+* Add documentation
+* Add CPU enumeration and InventoryManagement class
+* Change LOG.warn to LOG.warning
+* Put py34 first in the env order of tox
+
+0.0.5
+-----
+
+* Fix docstrings for params
+* Add RAID management
+* Add support for BIOS configuration
+* Add boot management
+* Add job management
+* Add power management
+
+0.0.4
+-----
+
+* Switch to PBR
+
+0.0.3
+-----
+
+* Bump version to 0.0.3
+* Add 'venv' environment to tox.ini
+
+0.0.2
+-----
+
+* Bump version to 0.0.2
+
+0.0.1
+-----
+
+* Add support for lists in wsman properties
+* Add .gitreview
+* Replacing pywsman with a simple wsman client
+* Add tox.ini
+* Initial commit

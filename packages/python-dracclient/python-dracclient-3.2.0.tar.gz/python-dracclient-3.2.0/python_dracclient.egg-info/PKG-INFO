@@ -1,0 +1,39 @@
+Metadata-Version: 1.2
+Name: python-dracclient
+Version: 3.2.0
+Summary: Library for managing machines with Dell iDRAC cards
+Home-page: https://launchpad.net/python-dracclient
+Author-email: openstack-discuss@lists.openstack.org
+Maintainer: DracClient Team
+License: Apache-2
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/python-dracclient.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        python-dracclient
+        =================
+        
+        Library for managing machines with Dell iDRAC cards.
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/python-dracclient/latest
+        * Source: http://opendev.org/openstack/python-dracclient
+        * Bugs: https://bugs.launchpad.net/python-dracclient
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
