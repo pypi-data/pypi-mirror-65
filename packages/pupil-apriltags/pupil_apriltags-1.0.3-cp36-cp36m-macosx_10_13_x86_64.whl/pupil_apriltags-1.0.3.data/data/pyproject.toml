@@ -1,0 +1,10 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "scikit-build",
+    "cmake==3.14.4", # 3.15 is missing wheels for mac and crashes on install
+    "ninja",
+    "pupil-pthreads-win"
+]
+build-backend = "setuptools.build_meta"
