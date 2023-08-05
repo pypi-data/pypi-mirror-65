@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: cpackage
+Version: v1.0.2
+Summary: A python utility for creating better modules/packages.
+    This module give the ability to quickly create and add files to different directories.
+    From creating directory & sub directory to managing the files that are put into those folders.
+    This is more of an automation tool for writing modules but can be used for other package related matters.
+Home-page: https://github.com/Cru1seControl
+Author: Cru1seControl
+Author-email: Cru1seControl.loot@gmail.com
+License: MIT
+Download-URL: https://github.com/Cru1seControl/python-cpackage
+Description: UNKNOWN
+Keywords: packaging,filesystem,tool
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
