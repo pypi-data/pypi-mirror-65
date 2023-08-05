@@ -1,0 +1,11 @@
+matplotlib
+numpy
+numba
+scipy
+sympy
+
+[hdf]
+h5py>=2
+
+[progress]
+tqdm>=4.40
