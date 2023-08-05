@@ -1,0 +1,44 @@
+{% extends 'djangoadmin/base/body/index_admin.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alert.html" %}
+
+<form method="POST" action="#">
+{% csrf_token %}
+
+<div class="mb-1">
+{{ category_form.title }}
+</div>
+
+<div class="card rounded-0 mb-1">
+    <div class="card-header p-2">
+        <label for="{{ category_form.description.id_for_label }}">{{ category_form.description.label }}</label>
+    </div>
+    <div class="card-body p-0">
+        {{ category_form.description }}
+    </div>
+</div>
+    
+{% endblock body %}
+
+
+{% block sidebar-right %}
+
+<div class="card rounded-0 mb-1">
+<div class="card-header p-2">{{ category_form.status.label }}</div>
+<div class="card-body">
+  {{ category_form.status }}
+  <button type="submit" class="btn btn-primary btn-block rounded-0 mt-1">Submit</button>
+</div>
+</div>
+
+<div class="card rounded-0 my-1">
+    <div class="card-header p-2">{{ category_form.serial.label }}</div>
+    <div class="card-body">
+      {{ category_form.serial }}
+    </div>
+</div>
+</form>
+
+{% endblock sidebar-right %}
