@@ -1,0 +1,36 @@
+---
+name: Upload Python Package
+on:
+  release:
+    types: [created]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - name: Set up Elm
+      uses: jorelali/setup-elm@v1
+      with:
+        elm-version: 0.19.1
+    - name: Setup npm
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm install
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+        npm install -g uglify-js
+    - name: Build and publish
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
