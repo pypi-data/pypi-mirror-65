@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: Youtube_Utils-fishingCoder
+Version: 0.0.0.1
+Summary: Utilities to load comments and subtitles into SQLite databases
+Home-page: https://github.com/pypa/utilities
+Author: Max Fritzler
+Author-email: RaoulArdens1200@gmail.com
+License: UNKNOWN
+Description: # YouTube Utilities
+        ##Load Comments
+        Comments loader.   Converts a batch of comments files in JSON format into a SQLite 3database.
+        Tested on Windows 10, but there isn't any Windows's specific code in the application.
+        ###new comments.db
+        Shell SQLite database used by Load Comments
+        ##Load Subtitles
+        Loads metadata for JSON files created by downloading video metadata with youtube-dl.
+        Mostly used to load subtitle data, but could be extended to load any metadata.
+        ##FetchSubtitles.py
+        Library called by other routines.
+        ##magnum chorum.txt
+        Sample batch file used by youtube-dl to download subtitles
+        ##YouTube to JSON.py
+        Library used by the loader programs.
+         
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Provides: hours.of.debugging.fun
+Requires-Python: >=3.3
+Description-Content-Type: text/markdown
