@@ -1,0 +1,15 @@
+# Copyright 2019 Portmod Authors
+# Distributed under the terms of the GNU General Public License v3
+
+from pybuild import Pybuild1, InstallDir, File
+
+
+class Mod(Pybuild1):
+    NAME = "Bloated Morrowind"
+    DESC = "Adds around bloatspores to the wilderness of Morrowind"
+    HOMEPAGE = "http://mw.modhistory.com/download-53-7817"
+    LICENSE = "free-use"
+    # RDEPEND = "base/morrowind"
+    KEYWORDS = "test"
+    SRC_URI = "http://mw.modhistory.com/file.php?id=7817 -> bloatedmorrowind-1.0.zip"
+    INSTALL_DIRS = [InstallDir("Data Files", PLUGINS=[File("Bloated Morrowind.esp")])]

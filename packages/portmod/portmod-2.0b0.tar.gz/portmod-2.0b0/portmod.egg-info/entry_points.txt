@@ -1,0 +1,10 @@
+[console_scripts]
+inquisitor = portmod.inquisitor:main
+omwmerge = portmod.main:main
+omwmirror = portmod.mirror:mirror
+omwquery = portmod.query:query_main
+omwselect = portmod.select:main
+omwuse = portmod.omwuse:main
+openmw-conflicts = portmod.openmw_conflicts:main
+pybuild = portmod.omwpybuild:main
+

@@ -1,0 +1,32 @@
+image: Visual Studio 2019
+cache:
+  - .env
+  - &omwcmd-ver c:\python38-x64\Scripts\omwcmd-0.2.0.exe
+  - &omwcmd c:\python38-x64\Scripts\omwcmd.exe
+
+environment:
+  PATH: '%PATH%;c:\python38-x64\Scripts;C:\Users\appveyor\AppData\Roaming\Python\Python38\Scripts'
+  PYTHON: "C:\\Python38-x64"
+  OMWCMD_VER: *omwcmd-ver
+  OMWCMD: *omwcmd
+build_script:
+- ps: >-
+    c:\python38-x64\python.exe -m pip install virtualenv pip --upgrade --user
+
+    virtualenv .venv
+
+    .venv\Scripts\activate
+
+    pip3 install .[test]
+
+    if (!(Test-Path $env:OMWCMD_VER) -Or !(Test-Path $env:OMWCMD)) {
+
+        iwr https://gitlab.com/portmod/omwcmd/uploads/7c4ee7879b2e129152021c43c9fae16d/omwcmd.exe -OutFile $env:OMWCMD_VER
+
+        iwr https://gitlab.com/portmod/omwcmd/uploads/7c4ee7879b2e129152021c43c9fae16d/omwcmd.exe -OutFile $env:OMWCMD
+
+    }
+
+test_script:
+- cmd: >-
+    pytest --cov=portmod --cov=pybuild_

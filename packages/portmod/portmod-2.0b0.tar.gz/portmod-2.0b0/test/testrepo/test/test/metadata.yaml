@@ -1,0 +1,6 @@
+upstream:
+  maintainer:
+    - !person { name: someone, email: someone@example.org }
+    - !person someone else
+    - !person { email: justamail@example.org }
+    - just a string

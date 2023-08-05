@@ -1,0 +1,79 @@
+image: registry.gitlab.com/portmod/portmod/master:latest
+
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+# Pip's cache doesn't store the python packages
+# https://pip.pypa.io/en/stable/reference/pip_install/#caching
+#
+# If you want to also cache the installed packages, you have to install
+# them in a virtualenv and cache it as well.
+cache:
+  paths:
+    - .cache/pip
+    - .venv/
+    - .cargo/
+    - ~/.cache/portmod
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  - python -V # Print out python version for debugging
+  - pip install virtualenv
+  - virtualenv .venv
+  - source .venv/bin/activate
+
+inquisitor:
+  stage: test
+  script:
+  - pip install .
+  - omwmerge --sync
+  - cd ~/.local/share/portmod/openmw
+  - inquisitor
+
+install:
+  stage: build
+  script:
+  - pip install .[test]
+
+lint:
+  stage: test
+  script:
+  - pip install flake8 pylint
+  - shopt -s globstar
+  - flake8 --exclude .venv,.cargo --max-line-length=88 --filename '*.py,*.pybuild'
+  - pylint -E **/*.py
+
+pytest:
+  stage: test
+  script:
+  - (if [[ ! -r .cargo/bin/cargo-install-update ]]; then CARGO_HOME=.cargo cargo install cargo-update; fi)
+  - (if [[ ! -r .cargo/bin/omwcmd ]]; then CARGO_HOME=.cargo cargo install --git https://gitlab.com/portmod/omwcmd; else CARGO_HOME=.cargo cargo install-update -g omwcmd; fi)
+  - PATH="$PATH:.cargo/bin" pytest --cov=portmod --cov=pybuild_
+
+#mypy:
+#  stage: test
+#  script:
+#  - pip install mypy
+#  - MYPYPATH=.venv/lib/python3.6/site-packages mypy bin/*.py portmod
+
+black:
+  stage: test
+  script:
+  - pip install black
+  - shopt -s globstar
+  - black --check **/*.{py,pybuild}
+
+deploy:
+  stage: deploy
+  only:
+  - tags
+  script:
+  - pip install twine wheel
+  - python3 setup.py check sdist bdist_wheel
+  - twine upload dist/*

@@ -1,0 +1,3 @@
+[run]
+# From an external project which does its own testing
+omit = portmod/repo/zopeguards.py
