@@ -1,0 +1,1 @@
+{"version":3,"sources":["legacy/selectmenu.js"],"names":["define","$","fn","selectmenu","this"],"mappings":"AAAA,aAAAA,OAAO,CAAC,WAAW,SAASC,GAExBA,EAAEC,GAAGC,WAAa,WACd,OAAOC","file":"selectmenu.js","sourcesContent":["define([\"jQuery\"], function($) {\n    \"use strict\";\n    $.fn.selectmenu = function() {\n        return this\n    }\n});\n"]}
