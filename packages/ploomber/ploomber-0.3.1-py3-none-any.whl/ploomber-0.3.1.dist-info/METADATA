@@ -1,0 +1,216 @@
+Metadata-Version: 2.1
+Name: ploomber
+Version: 0.3.1
+Summary: A Python library for developing great data pipelines
+Home-page: https://github.com/ploomber/ploomber
+Author: 
+Author-email: 
+License: A license
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pyyaml
+Requires-Dist: networkx
+Requires-Dist: jinja2
+Requires-Dist: tabulate
+Requires-Dist: humanize
+Requires-Dist: tqdm
+Requires-Dist: numpydoc
+Requires-Dist: sqlparse
+Requires-Dist: autopep8
+Requires-Dist: parso
+Requires-Dist: mistune
+Requires-Dist: sqlalchemy
+Requires-Dist: importlib-resources ; python_version < "3.7"
+Provides-Extra: all
+Requires-Dist: pandas ; extra == 'all'
+Requires-Dist: pyarrow ; extra == 'all'
+Requires-Dist: paramiko ; extra == 'all'
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: pygraphviz ; extra == 'all'
+Requires-Dist: papermill ; extra == 'all'
+Requires-Dist: jupytext ; extra == 'all'
+Requires-Dist: ipykernel (>=1.5.2) ; extra == 'all'
+Requires-Dist: jupyter-client (>=5.3.1) ; extra == 'all'
+Requires-Dist: nbconvert (>=5.6.0) ; extra == 'all'
+Provides-Extra: nb
+Requires-Dist: papermill ; extra == 'nb'
+Requires-Dist: jupytext ; extra == 'nb'
+Requires-Dist: ipykernel (>=1.5.2) ; extra == 'nb'
+Requires-Dist: jupyter-client (>=5.3.1) ; extra == 'nb'
+Requires-Dist: nbconvert (>=5.6.0) ; extra == 'nb'
+Provides-Extra: plot
+Requires-Dist: matplotlib ; extra == 'plot'
+Requires-Dist: pygraphviz ; extra == 'plot'
+
+ploomber
+========
+
+.. image:: https://travis-ci.org/ploomber/ploomber.svg?branch=master
+    :target: https://travis-ci.org/ploomber/ploomber.svg?branch=master
+
+.. image:: https://readthedocs.org/projects/ploomber/badge/?version=latest
+    :target: https://ploomber.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+`Click here for documentation <https://ploomber.readthedocs.io/>`_. `Code on Github <https://github.com/ploomber/ploomber>`_.
+
+ploomber is an expressive workflow management library that provides incremental builds, testing and debugging tools to accelerate DS/ML pipeline development.
+
+Compatible with Python 3.5 and higher.
+
+At a glance
+-----------
+
+* Airflow-like syntax to declare **pipelines as code**
+* Interactive. Once a pipeline is declared, you can **build it right away**, inspect it, check status or even generate HTML reports, use it in a Python session or a Jupyter notebook
+* Fast experimentation. Modify your source code and ploomber will figure out **which tasks to run** and which ones to skip **based on source code changes**
+* Test-driven. Use `on_finish` hooks to **check data assumptions** (e.g. verify that an output data frame has no NAs, an "age" column has only positive numbers, etc)
+* SQL-friendly. **SQL scripts can be parametrized** for simplicity and consistency using jinja2
+* Notebook-friendly. **Generate reports** in Jupyter notebook format (or HTML) by executing parametrized notebooks using papermill
+* Switch configurations. Automatically **switch pipeline configuration based on the current environment**, for example, make all pipeline output files go to `/data/project/{{user}}`, where `{{user}}` will be automatically replaced depending on the current user
+* Reduce boilerplate code by using the **Tasks library**, for example, dump SQL tables or upload a local file to a database
+
+
+Install
+-------
+
+If you want to try out everything ploomber has to offer:
+
+.. code-block:: shell
+
+    pip install "ploomber[all]"
+
+Note that installing everything will attemp to install pygraphviz, which
+depends on graphviz, you have to install that first:
+
+.. code-block:: shell
+
+    # if you are using conda (recommended)
+    conda install graphviz
+    # if you are using homebew
+    brew install graphviz
+    # for other systems, see: https://www.graphviz.org/download/
+
+If you want to start with the minimal amount of dependencies:
+
+.. code-block:: shell
+
+    pip install ploomber
+
+
+Example
+-------
+
+.. code-block:: python
+
+    from ploomber import DAG
+    from ploomber.products import File
+    from ploomber.tasks import PythonCallable, SQLDump
+    from ploomber.clients import SQLAlchemyClient
+
+    dag = DAG()
+
+    # the first task dumps data from the db to the local filesystem
+    task_dump = SQLDump('SELECT * FROM example',
+                        File(tmp_dir / 'example.csv'),
+                        dag,
+                        name='dump',
+                        client=SQLAlchemyClient(uri),
+                        chunksize=None)
+
+    def _add_one(upstream, product):
+        """Add one to column a
+        """
+        df = pd.read_csv(str(upstream['dump']))
+        df['a'] = df['a'] + 1
+        df.to_csv(str(product), index=False)
+
+    def on_finish(task):
+        df = pd.read_csv(str(task.product))
+        assert not df['a'].isna().sum()
+
+    # we convert the Python function to a Task
+    task_add_one = PythonCallable(_add_one,
+                                  File(tmp_dir / 'add_one.csv'),
+                                  dag,
+                                  name='add_one')
+    # verify there are no NAs in columns a
+    task_add_one.on_finish = on_finish
+
+    # declare how tasks relate to each other
+    task_dump >> task_add_one
+
+    # run the pipeline - incremental builds: ploomber will keep track of each
+    # task's source code and will only execute outdated tasks in the next run
+    dag.build()
+
+    # a DAG also serves as a tool to interact with your pipeline, for example,
+    # status will return a summary table
+    dag.status()
+
+    # start a debugging session (only works if task is a PythonCallable)
+    dag['add_one'].debug()
+
+CHANGELOG
+=========
+
+0.3.1 (2020-04-01)
+------------------
+
+* DAG parallel executor
+* Interact with pipelines from the command line (entry module)
+* Bug fixes
+* Refactored access to Product.metadata
+
+
+0.3 (2020-03-20)
+----------------
+* New Quickstart and User Guide section in documentation
+* DAG rendering and build now continue until no more tasks can render/build (instead of failing at the first exception)
+* New @with_env and @load_env decorators for managing environments
+* Env expansion ({{user}} expands to the current, also {{git}} and {{version}} available)
+* Task.name is now optional when Task is initialized with a source that has __name__ attribute (Python functions) or a name attribute (like Placeholders returned from SourceLoader)
+* New Task.on_render hook
+* Bug fixes
+* A lot of new tests
+* Now compatible with Python 3.5 and higher
+
+0.2.1 (2020-02-20)
+------------------
+
+* Adds integration with pdb via PythonCallable.debug
+* Env.start now accepts a filename to look for
+* Improvements to data_frame_validator
+
+0.2 (2020-02-13)
+----------------
+
+* Simplifies installation
+* Deletes BashCommand, use ShellScript
+* More examples added
+* Refactored env module
+* Renames SQLStore to SourceLoader
+* Improvements to SQLStore
+* Improved documentation
+* Renamed PostgresCopy to PostgresCopyFrom
+* SQLUpload and PostgresCopy have now the same API
+* A few fixes to PostgresCopy (#1, #2)
+
+0.1
+---
+
+* First release
+
