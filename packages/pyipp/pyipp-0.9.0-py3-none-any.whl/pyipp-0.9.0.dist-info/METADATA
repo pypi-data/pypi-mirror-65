@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: pyipp
+Version: 0.9.0
+Summary: Asynchronous Python client for Internet Printing Protocol (IPP).
+Home-page: https://github.com/ctalkington/python-ipp
+Author: Chris Talkington
+Author-email: chris@talkingtontech.com
+License: MIT license
+Keywords: ipp,api,async,client,printer
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: deepmerge (==0.1.0)
+Requires-Dist: yarl (==1.4.2)
+
+# Python: Internet Printing Protocol (IPP) Client
+
+Asynchronous Python client for Internet Printing Protocol (IPP).
+
+## About
+
+This package allows you to monitor printers that support the Internet Printing Protocol (IPP) programmatically.
+
+## Installation
+
+```bash
+pip install pyipp
+```
+
+## Usage
+
+```python
+import asyncio
+
+from pyipp import IPP, Printer
+
+
+async def main():
+    """Show example of connecting to your IPP print server."""
+    async with IPP("ipps://EPSON123456.local:631/ipp/print") as ipp:
+        printer: Printer = await ipp.printer()
+        print(printer)
+
+
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
+```
+
+
