@@ -1,0 +1,13 @@
+biopython
+dataclasses_json
+fuzzysearch
+matplotlib
+natsort
+numpy
+pandas
+python-Levenshtein
+seaborn
+tqdm
+
+[:python_version == "3.6"]
+dataclasses
