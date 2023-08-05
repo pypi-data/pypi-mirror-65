@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: sort-images-exif
+Version: 0.1
+Summary: Sort images
+Home-page: https://github.com/devkral/sort-images-exif
+License: MIT
+Author: Alexander K.
+Requires-Python: >=3.6
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: exif
+Project-URL: Repository, https://github.com/devkral/sort-images-exif
+Description-Content-Type: text/markdown
+
+Sort images with python according to exif and time in path name
+
+
+Just a small script. Documentation: see --help
+
