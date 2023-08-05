@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: simple-slack-bot
+Version: 1.3.2
+Summary: Simple Slack Bot makes writing your next Slack bot incredibly easy
+Home-page: https://github.com/GregHilston/Simple-Slack-Bot
+Author: Greg Hilston
+Author-email: Gregory.Hilston@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/GregHilston/Simple-Slack-Bot/tarball/v1.1.0
+Keywords: slack,bot,chat,simple
+Platform: UNKNOWN
+Requires-Dist: slacker (==0.9.42)
+Requires-Dist: slacksocket (!=0.8,<=0.9,>=0.7)
+Requires-Dist: pyyaml
+Requires-Dist: websocket-client (==0.48)
+
+Simple Slack Bot makes writing your next Slack bot incredibly easy. By factoring out common functionality all Slack Bots require, you can focus on writing your business logic by simply registering for Slack Events defined by the Slack API
+
+
