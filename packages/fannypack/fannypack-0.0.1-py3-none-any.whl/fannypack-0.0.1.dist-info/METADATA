@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: fannypack
+Version: 0.0.1
+Summary: PyTorch utilities
+Home-page: http://github.com/brentyi/fannypack
+Author: brentyi
+Author-email: brentyi@berkeley.edu
+License: BSD
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: dill
+Requires-Dist: h5py
+Requires-Dist: numpy
+Requires-Dist: pyyaml
+Requires-Dist: tensorboard
+Requires-Dist: torch
+Requires-Dist: pytest
+
+# fannypack
+[![Build Status](https://travis-ci.com/brentyi/fannypack.svg?branch=master)](https://travis-ci.com/brentyi/fannypack)
+
+Helpers for PyTorch.
+
+Standard installation:
+```
+pip install fannypack
+```
+
+Github:
+https://github.com/brentyi/fannypack
+
+Documentation (work-in-progress):
+https://brentyi.github.io/fannypack
+
+
