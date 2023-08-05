@@ -1,0 +1,1 @@
+from madprofiling.madprofiling import madprofiling
