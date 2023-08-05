@@ -1,0 +1,118 @@
+[build-system]
+requires = [ "poetry>=1.0.0",]
+build-backend = "poetry.masonry.api"
+
+[versionup]
+files = "camphr/VERSION.py"
+tag = true
+commit = true
+
+[tool.poetry]
+version = "0.5.13"
+name = "camphr"
+authors = [ "tamuhey <tamuhey@gmail.com>",]
+description = "spaCy plugin for Transformers, Udify, Elmo, etc."
+readme = "README.md"
+license = "Apache-2.0"
+homepage = ""
+repository = "https://github.com/PKSHATechnology-Research/camphr"
+keywords = [ "spaCy", "nlp", "natural language processing", "transformers", "udify",]
+
+[tool.isort]
+skip = ".venv/**/*.py"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+known_first_party = "camphr"
+
+[tool.poetry.dependencies]
+python = ">=3.6.1"
+fire = "^0.2.1"
+typing-extensions = ">=3.7.4"
+pyahocorasick = "^1.4.0"
+catalogue = "^1.0.0"
+more-itertools = "*"
+scikit-learn = "^0.22"
+transformers = "~2.4.0"
+torch = "^1.0"
+pytokenizations = ">=0.4.8"
+spacy = "^2.2.3"
+hydra-core = "^0.11"
+hydra_colorlog = "*"
+dataclasses = "^0.6"
+toolz = "^0.10.0"
+
+[tool.poetry.extras]
+all = [ "unofficial-allennlp-nightly", "Cython", "mojimoji2", "unofficial-pyknp", "mecab-python3", "unofficial-udify",]
+allennlp = [ "unofficial-allennlp-nightly",]
+udify = [ "unofficial-allennlp-nightly", "unofficial-udify",]
+juman = [ "Cython", "mojimoji2", "unofficial-pyknp",]
+mecab = [ "mecab-python3",]
+
+[tool.poetry.dev-dependencies]
+pylint = "*"
+pytest = "<5.3.3"
+flake8 = "*"
+pyyaml = "*"
+hypothesis = "*"
+pre-commit = "*"
+toml = "^0.10.0"
+sphinx = "*"
+doc8 = "*"
+mypy = "*"
+
+[tool.poetry.scripts]
+camphr = "camphr.cli.__main__:main"
+
+[tool.poetry.dependencies.unofficial-allennlp-nightly]
+version = "0.9.1.dev0"
+optional = true
+allow-prereleases = true
+
+[tool.poetry.dependencies.unofficial-udify]
+version = "0.1.3"
+optional = true
+
+[tool.poetry.dependencies.Cython]
+version = "*"
+optional = true
+
+[tool.poetry.dependencies.mojimoji2]
+version = "*"
+optional = true
+
+[tool.poetry.dependencies.unofficial-pyknp]
+version = "*"
+optional = true
+
+[tool.poetry.dependencies.mecab-python3]
+version = "^0.996.3"
+optional = true
+
+[tool.poetry.dev-dependencies.isort]
+extras = [ "toml",]
+version = "^4.3.21"
+
+[tool.poetry.dev-dependencies.black]
+version = "*"
+allow-prereleases = true
+
+[tool.poetry.plugins.spacy_languages]
+ja_juman = "camphr.lang.juman:Japanese"
+ja_mecab = "camphr.lang.mecab:Japanese"
+camphr_torch = "camphr.lang.torch:TorchLanguage"
+
+[tool.poetry.plugins.spacy_factories]
+transformers_model = "camphr.pipelines.transformers:TrfModel.from_nlp"
+transformers_ner = "camphr.pipelines.transformers:TrfForNamedEntityRecognition.from_nlp"
+transformers_sequece_classifier = "camphr.pipelines.transformers:TrfForSequenceClassification.from_nlp"
+transformers_sequence_classifier = "camphr.pipelines.transformers:TrfForSequenceClassification.from_nlp"
+transformers_tokenizer = "camphr.pipelines.transformers:TrfTokenizer.from_nlp"
+juman_sentencizer = "camphr.pipelines.knp:juman_sentencizer_factory"
+knp = "camphr.pipelines.knp:KNP.from_nlp"
+knp_dependency_parser = "camphr.pipelines.knp.dependency_parser:knp_dependency_parser_factory"
+udify = "camphr.pipelines:Udify.from_nlp"
+elmo = "camphr.pipelines:Elmo.from_nlp"
+pattern_searcher = "camphr.pipelines:PatternSearcher"
+multiple_regex_ruler = "camphr.pipelines:MultipleRegexRuler.from_nlp"
+regex_ruler = "camphr.pipelines:RegexRuler.from_nlp"
