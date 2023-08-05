@@ -1,0 +1,13 @@
+plone.api
+Products.GenericSetup
+setuptools
+z3c.jbot
+plone.app.z3cform
+plone.api
+
+[test]
+plone.app.testing
+plone.testing
+plone.app.contenttypes
+plone.app.robotframework[debug]
+collective.mailchimp
