@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: ppdire
+Version: 0.2.3
+Summary: Projection Pursuit Dimension Reduction
+Home-page: https://github.com/SvenSerneels/ppdire
+Author: Sven Serneels
+Author-email: svenserneels@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.5.0)
+Requires-Dist: scipy (>=0.8.0)
+Requires-Dist: matplotlib (>=2.2.0)
+Requires-Dist: scikit-learn (>=0.18.0)
+Requires-Dist: pandas (>=0.19.0)
+Requires-Dist: statsmodels (>=0.8.0)
+Requires-Dist: sprm (>=0.3.0)
+
+So long, `ppdire` package...
+============================
+...and thanks for all the fish!
+
+The `ppdire` package has been sunset and will no longer be updated. 
+Its contents have migrated into the `direpack` package: 
+- [PyPI](https://pypi.org/project/direpack/) 
+- [GitHub](https://github.com/SvenSerneels/direpack)
+
+The `ppdire` package in this final version will still stay live for a while for backwards compatibility.
+
+How to install
+--------------
+The package is distributed through PyPI, so install through: 
+
+        pip install ppdire 
+
+Documentation
+=============
+Detailed documentation on how to use the classes is provided in the [Documentation file](https://github.com/SvenSerneels/ppdire/blob/master/docs/ppdire.md).
+
+
