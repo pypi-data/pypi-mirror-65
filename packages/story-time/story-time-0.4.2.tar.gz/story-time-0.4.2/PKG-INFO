@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: story-time
+Version: 0.4.2
+Summary: Test
+Home-page: https://github.com/chbauman/StoryTime
+Author: Christian Baumann
+Author-email: chris.python.notifyer@gmail.com
+License: MIT
+Description: # StoryTime
+        
+        Diary-like GUI written in python.
+        
+        To run it, just type:
+        
+        ````
+        $ story-time
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
