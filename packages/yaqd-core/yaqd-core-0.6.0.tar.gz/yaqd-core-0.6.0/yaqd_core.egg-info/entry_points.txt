@@ -1,0 +1,4 @@
+[console_scripts]
+yaqd-continuous-hardware = yaqd_core._hardware._continuous:ContinuousHardware.main
+yaqd-hardware = yaqd_core._hardware._base:Hardware.main
+
