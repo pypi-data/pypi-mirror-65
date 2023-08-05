@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: gitrecovery1
+Version: 1.0.0
+Summary: Help recover git deleted files 
+Home-page: https://github.com/NerdPraise/gitrecoveryfile
+Author: Ajayi Praise
+Author-email: praiseajayi2@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+
+# Gitrecover
+### RECOVER YOUR FILES
+
+A simple python recovery tool for git 
+
+### Getting Started
+
+Gitrecover was written for python 3
+
+All you need to do is 
+
+    from recover import RecoverFile
+    files = RecoverFile()
+    files.recover_git_files()
+
+
