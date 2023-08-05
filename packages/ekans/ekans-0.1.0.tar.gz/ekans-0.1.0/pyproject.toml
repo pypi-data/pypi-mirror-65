@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ekans"
+version = "0.1.0"
+description = "A simple utility to check Conda environments integrity"
+authors = ["Diego Vicente <mail@diego.codes>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pyyaml = "^5.3.1"
+click = "^7.1.1"
+packaging = "^20.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^19.10b0"
+python-language-server = "^0.31.9"
+mypy = "^0.770"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
