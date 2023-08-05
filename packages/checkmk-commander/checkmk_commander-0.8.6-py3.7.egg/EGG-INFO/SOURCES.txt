@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+bin/chkcom
+checkmk_commander.egg-info/PKG-INFO
+checkmk_commander.egg-info/SOURCES.txt
+checkmk_commander.egg-info/dependency_links.txt
+checkmk_commander.egg-info/entry_points.txt
+checkmk_commander.egg-info/requires.txt
+checkmk_commander.egg-info/top_level.txt
+checkmkcommander/__init__.py
+checkmkcommander/command_line.py
+checkmkcommander/tests/__init__.py
+icons/256x256/checkmk-commander.png
+icons/48x48/checkmk-commander.png
