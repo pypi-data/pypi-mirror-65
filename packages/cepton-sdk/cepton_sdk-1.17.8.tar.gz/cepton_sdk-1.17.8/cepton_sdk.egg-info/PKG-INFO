@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cepton-sdk
+Version: 1.17.8
+Summary: Cepton Python SDK
+Home-page: https://github.com/ceptontech/cepton_sdk_redist
+Author: Cepton Technologies
+Author-email: support@cepton.com
+License: UNKNOWN
+Description: # Cepton Python SDK
+        
+        ## Installation
+        
+        ```sh
+        pip3 install --user -U cepton_sdk[samples]
+        ```
+        
+        ## Getting Started
+        
+        See `samples`.
+Keywords: cepton sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.3
+Description-Content-Type: text/markdown
+Provides-Extra: samples
