@@ -1,0 +1,57 @@
+[build-system]
+requires = [ "poetry>=1.0.0",]
+build-backend = "poetry.masonry.api"
+
+[tool.black]
+line-length = 110
+target-version = [ "py37", "py38",]
+include = "\\.pyi?$"
+exclude = "/(\n    \\.eggs\n  | \\.git\n  | \\.hg\n  | \\.mypy_cache\n  | \\.tox\n  | \\.venv\n  | _build\n  | buck-out\n  | build\n  | dist\n\n  # The following are specific to Black, you probably don't want those.\n  | blib2to3\n  | tests/data\n  | profiling\n)/\n"
+
+[tool.poetry]
+name = "ql-orange"
+version = "1.0.3"
+description = ""
+authors = [ "quantlane.com <info@quantlane.com>",]
+include = [ "pyproject.toml",]
+[[tool.poetry.packages]]
+include = "blib2to3"
+
+[[tool.poetry.packages]]
+include = "black.py"
+
+[[tool.poetry.source]]
+name = "quantlane-repository"
+url = "https://pypi-experimental.int.quantlane.com/pypi/"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+aiohttp = ">=3.3.2"
+click = ">=6.5"
+appdirs = "*"
+toml = ">=0.9.4"
+aiohttp-cors = "*"
+typed-ast = "==1.4.0"
+typing_extensions = ">=3.7.4"
+mypy_extensions = ">=0.4.3"
+regex = ">=2019.8"
+pathspec = ">=0.6"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "*"
+coverage = "*"
+docutils = "==0.15"
+flake8 = "*"
+flake8-bugbear = "*"
+flake8-mypy = "*"
+mypy = ">=0.740"
+readme_renderer = "*"
+recommonmark = "*"
+sphinx = "*"
+setuptools = ">=39.2.0"
+twine = ">=1.11.0"
+pytest = "5.3.2"
+ql-cq = "^0.25"
+
+[tool.poetry.scripts]
+orange = "black:patched_main"
