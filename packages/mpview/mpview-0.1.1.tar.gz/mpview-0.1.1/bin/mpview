@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+'''MessagePack view file
+
+Shell tool for viewing Message Pack files
+'''
+import os
+import sys
+import argparse
+import pprint
+import msgpack
+import json
+
+__version__ = (0, 1, 1)  # Update setup.py as well
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        'filename',
+        type=str,
+        help='MessagePack file name')
+
+    parser.add_argument(
+        '--raw',
+        action='store_true',
+        help='Unpack as raw')
+
+    parser.add_argument(
+        '--json',
+        action='store_true',
+        help='Output as JSON')
+
+    parser.add_argument(
+        '--strict-map-key',
+        action='store_true',
+        help='Only allow type string as map keys')
+
+    parser.add_argument(
+        '--version',
+        action='store_true',
+        help='Print version and exit')
+
+    args = parser.parse_args()
+
+    if args.version:
+        sys.exit(__version__)
+
+    with open(args.filename, 'rb') as f:
+        data = msgpack.unpack(
+                f, 
+                raw=args.raw, 
+                strict_map_key=args.strict_map_key)
+
+    if args.json:
+        print(json.dumps(data, indent=2))
+    else:
+        pprint.pprint(data)

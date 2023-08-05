@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: mpview
+Version: 0.1.1
+Summary: MessagePack Print
+Home-page: https://github.com/transceptor-technology/mpview
+Author: Jeroen van der Heijden
+Author-email: jeroen@transceptor.technology
+License: MIT
+Description: # MessagePack View
+        
+        Print saved messagepack data
+        
+        ## Installation
+        
+        Using pip:
+        
+        ```shell
+        pip install mpview
+        ```
+        
+        Or, clone this project and use the setup
+        
+        ```shell
+        python setup.py install
+        ```
+        
+        ## Example usage
+        
+        ```shell
+        mpview <filename>
+        ```
+        
+        
+Keywords: msgpack
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database :: Front-Ends 
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
