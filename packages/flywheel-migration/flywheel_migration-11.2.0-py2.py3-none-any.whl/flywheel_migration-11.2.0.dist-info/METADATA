@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: flywheel-migration
+Version: 11.2.0
+Summary: Flywheel Migration Toolkit
+Home-page: UNKNOWN
+Author-email: support@flywheel.io
+License: MIT
+Project-URL: Source, https://github.com/flywheel-io/migration-toolkit
+Keywords: Flywheel,flywheel,data,migration,toolkit
+Platform: UNKNOWN
+Requires-Dist: fs (~=2.4.0)
+Requires-Dist: pydicom (~=1.4.2)
+Requires-Dist: pytz (~=2019.1)
+Requires-Dist: ruamel.yaml (~=0.16.7)
+Requires-Dist: python-dateutil (~=2.8.0)
+Requires-Dist: tzlocal (~=2.0.0)
+Requires-Dist: pillow (==7.0.0)
+Requires-Dist: lxml (==4.5.0)
+Requires-Dist: piexif (~=1.1.3)
+Requires-Dist: pypng (~=0.0.20)
+Provides-Extra: dev
+Requires-Dist: pycodestyle (~=2.5.0) ; extra == 'dev'
+Requires-Dist: pylint (~=2.3.0) ; extra == 'dev'
+Requires-Dist: pytest (~=5.1.0) ; extra == 'dev'
+Requires-Dist: pytest-cov (~=2.7.0) ; extra == 'dev'
+
+
+Flywheel Migration Toolkit
+==========================
+
+A Toolkit for parsing and de-identifying data.
+
+
