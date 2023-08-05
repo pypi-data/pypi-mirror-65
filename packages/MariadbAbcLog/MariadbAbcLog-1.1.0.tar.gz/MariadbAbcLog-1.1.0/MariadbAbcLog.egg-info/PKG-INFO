@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: MariadbAbcLog
+Version: 1.1.0
+Summary: Stored Routines (for MySQL and MariaDB) for logging
+Home-page: https://github.com/PhpPlaisio/sp-log
+Author: Set Based IT Consultancy
+Author-email: info@setbased.nl
+License: MIT
+Description: PhpPlaisio: Stored Routines (for MySQL and MariaDB) for Logging
+        ==================================================================
+        
+        +----------------------------------------------------------------+--------------------------------------------------------+
+        | Social                                                         | Release                                                |
+        +================================================================+========================================================+
+        | .. image:: https://badges.gitter.im/PhpPlaisio/PhpPlaisio.svg  | .. image:: https://badge.fury.io/py/MariadbAbcLog.svg  |
+        |   :target: https://gitter.im/PhpPlaisio/PhpPlaisio             |   :target: https://badge.fury.io/py/MariadbAbcLog      |
+        |                                                                |                                                        |
+        |                                                                |                                                        |
+        +----------------------------------------------------------------+--------------------------------------------------------+
+        
+        License
+        =======
+        This project is licensed under the MIT license.
+        
+Keywords: stored routines,logging,mysql,MariaDB
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Programming Language :: SQL
+Classifier: License :: OSI Approved :: MIT License

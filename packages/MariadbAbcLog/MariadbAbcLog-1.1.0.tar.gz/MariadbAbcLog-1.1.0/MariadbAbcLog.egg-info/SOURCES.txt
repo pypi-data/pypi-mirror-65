@@ -1,0 +1,15 @@
+README.rst
+setup.py
+./__init__.py
+./lib/psql/abc_log/abc_log_line.psql
+./lib/psql/abc_log/abc_log_rowcount.psql
+./lib/psql/abc_log/abc_log_sp_begin.psql
+./lib/psql/abc_log/abc_log_sp_finish.psql
+MariadbAbcLog.egg-info/PKG-INFO
+MariadbAbcLog.egg-info/SOURCES.txt
+MariadbAbcLog.egg-info/dependency_links.txt
+MariadbAbcLog.egg-info/top_level.txt
+lib/psql/abc_log/abc_log_line.psql
+lib/psql/abc_log/abc_log_rowcount.psql
+lib/psql/abc_log/abc_log_sp_begin.psql
+lib/psql/abc_log/abc_log_sp_finish.psql
