@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: py-capsicum-cffi
+Version: 3
+Summary: Python interface to Capsicum
+Home-page: https://github.com/cemeyer/pycapsicumcffi
+Author: Conrad Meyer
+Author-email: cem@FreeBSD.org
+License: DO WHAT THE FUCK YOU WANT TO BUT IT'S NOT MY FAULT PUBLIC LICENSE
+Project-URL: Source Code, https://github.com/cemeyer/pycapsicumcffi
+Description: 
+        PyCapsicumCFFI is a Python API wrapper for FreeBSD's Capsicum sandbox.
+                
+Keywords: capsicum FreeBSD pycapsicum capability sandbox pledge seccomp
+Platform: FreeBSD
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX :: BSD :: FreeBSD
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Operating System
+Requires-Python: >=2.7
