@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: vtorch
+Version: 0.2.2
+Summary: NLP research library, built on PyTorch. Based on AllenNLP.
+Home-page: UNKNOWN
+Author: Vitalii Radchenko
+Author-email: radchenko.vitaliy.o@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: torch (>=1.3.0)
+Requires-Dist: overrides
+Requires-Dist: tqdm (>=4.19)
+Requires-Dist: numpy
+Requires-Dist: jsonpickle
+Requires-Dist: tensorboard
+Requires-Dist: fastprogress (==0.1.18)
+Requires-Dist: transformers (==2.5.1)
+
+UNKNOWN
+
+
