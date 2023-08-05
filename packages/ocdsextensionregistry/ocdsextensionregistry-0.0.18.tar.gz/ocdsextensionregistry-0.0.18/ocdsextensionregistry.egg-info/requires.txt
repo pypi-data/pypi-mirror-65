@@ -1,0 +1,17 @@
+json-merge-patch
+requests
+requests-cache
+
+[cli]
+Babel
+docutils
+ocds-babel[markdown]>=0.2.0
+Sphinx
+
+[docs]
+Sphinx
+sphinx-autobuild
+sphinx_rtd_theme
+
+[test]
+pytest
