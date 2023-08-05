@@ -1,0 +1,10 @@
+imports:
+  - '@databricksbundle/spark/spark_test.yaml'
+
+parameters:
+  datalakebundle:
+    tables:
+      testTable:
+        tableName: 'test'
+        schemaPath: 'datalakebundle.test.TestSchema'
+        targetPath: '/foo/bar/test.delta'
