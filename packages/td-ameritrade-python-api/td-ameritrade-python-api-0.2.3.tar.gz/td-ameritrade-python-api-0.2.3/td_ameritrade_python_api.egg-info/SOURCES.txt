@@ -1,0 +1,58 @@
+MANIFEST.in
+README.md
+setup.py
+samples/api_orders.py
+samples/api_regular.py
+samples/api_streaming.py
+samples/data/stream_data.csv
+samples/instructions/installation_notes.md
+samples/instructions/installation_notes_version.md
+samples/instructions/photos/auth_code.jpg
+samples/instructions/photos/paste_url.jpg
+samples/instructions/photos/redirect_uri.jpg
+samples/instructions/photos/td_login.jpg
+samples/instructions/photos/td_terms.jpg
+samples/instructions/photos/terminal_dropdown.jpg
+samples/orders/order - buy to open option.jsonc
+samples/orders/order - buy to open.jsonc
+samples/orders/order - limit.jsonc
+samples/orders/order - market.jsonc
+samples/orders/order - sell to close.jsonc
+samples/orders/order - stop limit.jsonc
+samples/orders/order - stop.jsonc
+samples/orders/order - trailing stop limit.jsonc
+samples/orders/order - trailing stop.jsonc
+samples/resources/resources-streaming-data/Stream_Table.xlsx
+samples/resources/resources-streaming-data/load_fields.py
+samples/resources/resources-streaming-data/stream_id_to_key.json
+samples/resources/resources-streaming-data/stream_key_to_id.json
+samples/resources/resources-streaming-data/write_to_csv_keys.json
+samples/resources/td-developer-account/Creating a TD Ameritrade Developer Account.pdf
+samples/resources/td-old-api/valid_xml_urls_still_working.txt
+samples/responses/sample_actives.json
+samples/responses/sample_chart_futures.json
+samples/responses/sample_level_one_forex.json
+samples/responses/sample_level_one_futures.json
+samples/responses/sample_level_one_futures_options.json
+samples/responses/sample_level_one_options.json
+samples/responses/sample_level_one_quotes.json
+samples/responses/sample_level_two_nasdaq.json
+samples/responses/sample_level_two_options.json
+samples/responses/sample_level_two_quotes.json
+samples/responses/sample_multi_response.json
+samples/responses/sample_news_headline.json
+samples/responses/sample_timesale_equity.json
+samples/responses/sample_timesale_futures.json
+td/__init__.py
+td/client.py
+td/enums.py
+td/fields.py
+td/option_chain.py
+td/orders.py
+td/stream.py
+td/watchlist_item.py
+td_ameritrade_python_api.egg-info/PKG-INFO
+td_ameritrade_python_api.egg-info/SOURCES.txt
+td_ameritrade_python_api.egg-info/dependency_links.txt
+td_ameritrade_python_api.egg-info/requires.txt
+td_ameritrade_python_api.egg-info/top_level.txt
