@@ -1,0 +1,17 @@
+boto3
+keyring
+
+[development]
+black
+flake8
+pre-commit
+pytest
+twine
+wheel
+
+[lint]
+black
+flake8
+
+[test]
+pytest
