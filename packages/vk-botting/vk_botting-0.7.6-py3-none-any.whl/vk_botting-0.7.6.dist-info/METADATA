@@ -1,0 +1,42 @@
+Metadata-Version: 2.0
+Name: vk-botting
+Version: 0.7.6
+Summary: A basic package for building async VK bots
+Home-page: https://github.com/MrDandycorn/vk-botting
+Author: MrDandycorn
+License: MIT
+Project-URL: Documentation, https://vk-botting.readthedocs.io/en/latest/
+Project-URL: Issue tracker, https://github.com/MrDandycorn/vk-botting/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Russian
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Provides-Extra: docs
+Requires-Dist: aiohttp (<3.7.0,>=3.6.0)
+Provides-Extra: docs
+Requires-Dist: sphinx (==1.8.5); extra == 'docs'
+Requires-Dist: sphinxcontrib-trio (==1.1.0); extra == 'docs'
+Requires-Dist: sphinxcontrib-websupport; extra == 'docs'
+
+# VK-Botting
+
+[![Documentation Status](https://readthedocs.org/projects/vk-botting/badge/?version=latest)](https://vk-botting.readthedocs.io/en/latest/?badge=latest)
+
+This is a basic package for building async VK bots.<br>
+It is in early stages of development so it can be buggy.<br>
+That is also why it does not have full documentation atm.<br>
+Partial docs are available at https://vk-botting.readthedocs.io/ru/latest (Russian) or https://vk-botting.readthedocs.io/en/latest (English)
+
+
