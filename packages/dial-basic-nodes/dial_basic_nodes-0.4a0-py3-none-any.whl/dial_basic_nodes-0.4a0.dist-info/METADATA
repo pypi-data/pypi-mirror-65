@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: dial-basic-nodes
+Version: 0.4a0
+Summary: Basic nodes for the Dial app.
+Home-page: https://github.com/dial-app/dial-basic-nodes
+License: GPL-3.0-only
+Keywords: deep-learning,dial-app
+Author: David Afonso
+Author-email: davafons@gmail.com
+Requires-Python: >=3.6,<3.8
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: dial-core
+Requires-Dist: dial-gui
+Project-URL: Repository, https://github.com/dial-app/dial-basic-nodes
+Description-Content-Type: text/markdown
+
+# dial-basic-nodes
+Basic nodes for DL tasks, used by the Dial app.
+
+## Documentation
+
+This project's documentation lives at [readthedocs.io](https://dial-basic-nodes.readthedocs.io)
+
+## License
+
+All code is provided under the __GPL-3.0__ license. See [LICENSE](LICENSE) for more details.
+
+## Authors
+
+* **David Afonso (davafons)**: [Github](https://github.com/davafons) [Twitter](https://twitter.com/davafons)
+
