@@ -1,0 +1,14 @@
+lxml
+dicttoxml
+xmltodict
+six
+aenum
+tblib
+requests
+future
+
+[dev]
+check-manifest
+
+[test]
+coverage
