@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: seir
+Version: 0.0.1
+Summary: Modeling of epidemics using the SEIR model
+Home-page: https://covid19.solanpaa.fi
+Author: Janne Solanpää
+Author-email: janne@solanpaa.fi
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Requires-Dist: numpy
+Requires-Dist: scipy (>=1.4.0)
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+
+SEIR
+====
+
+Python package for modeling epidemics using the SEIR model.
+
+
