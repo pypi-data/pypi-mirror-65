@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: stimekeeper
+Version: 0.0.4
+Summary: Times Up Philosophy. Think of yourself as dead
+Home-page: https://github.com/strat365/timekeeper
+Author: Strat 365
+Author-email: Ron@Diasly.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+Requires-Dist: flask-restful
+Requires-Dist: flask-swagger-ui
+
+# TimeKeeper
+Times Up Philosophy. "Think of yourself as dead. You have lived your life. Now, take whatâ€™s left and live it properly." You don't have time to waste, so prove that your not finding a way to waste it away.. 
+
+

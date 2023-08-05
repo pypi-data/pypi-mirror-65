@@ -1,0 +1,163 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "Time-Keeper",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "/Track"
+    },
+    {
+      "url": "/Summary"
+    },
+    {
+      "url": "/Task"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Time Keeper",
+      "description": "Manage your time wisely"
+    }
+  ],
+  "paths": {
+    "/Last": {
+      "get": {
+        "tags": [
+          "Current Activity/Report"
+        ],
+        "summary": "Current Activity - Gets the Last Log (/Track)    | Current Final Report - Gets all the Logs   (/Summary)",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/name"
+            }
+          }
+        }
+      }
+
+    },
+    "/{name}": {
+      "parameters": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "description": "Name of the cat that we want to match",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Find Activity/Summary"
+        ],
+        "summary": "Find Last - Gets the Last Log of Provided Name (/Track)    | Find Summary - Gets all the Logs of Provided Name    (/Summary)",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "description": "NameOfLoggedTask",
+            "schema": {
+              "$ref": "#/components/schemas/name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/name"
+            }
+          },
+          "400": {
+            "description": "Failed. Misunderstood Request."
+          },
+          "404": {
+            "description": "Failed. Not found."
+          }
+        }
+      },
+     "post": {
+        "tags": [
+          "Start Tracking"
+        ],
+        "summary": "Start Tracking - Creates a New Log and Ends Previous Log if it's continuing. (/Track)    | NONE    (/Summary)",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "description": "NameOfLoggedTask",
+            "schema": {
+              "$ref": "#/components/schemas/name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/name"
+            }
+          },
+          "400": {
+            "description": "Failed. Misunderstood Request."
+          },
+          "404": {
+            "description": "Failed. Not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Stop Tracking - Stops Log with given Name (/Track)    | Delete All - Clears Everything   (/Summary)",
+        "tags": [
+          "Stop Tracking/Delete All"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": false,
+            "description": "NameOfLoggedTask",
+            "schema": {
+              "$ref": "#/components/schemas/name"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/name"
+            }
+          },
+          "400": {
+            "description": "Failed. Misunderstood Request."
+          },
+          "404": {
+            "description": "Failed. Not found."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "name": {
+        "properties": {
+          "NameOfLoggedTask": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

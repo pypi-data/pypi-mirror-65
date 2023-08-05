@@ -1,0 +1,18 @@
+.tk_inv{
+display: none;
+}
+.tk_arr{
+    position: absolute;
+    width: 100%;
+    margin-left: -20px;
+}
+.tk_lef{
+    margin-left: -12px;
+}
+
+.tk_rig{
+    margin-right: -12px;
+}
+.slider.slider-vertical {
+    height: 10px !important;
+}
