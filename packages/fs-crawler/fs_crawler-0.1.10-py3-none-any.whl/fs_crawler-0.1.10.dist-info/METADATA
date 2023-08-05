@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: fs-crawler
+Version: 0.1.10
+Summary: FamilySearch Crawler - extracts files for RedBlackGraph ingestion
+Home-page: https://github.com/rappdw/fs-crawler
+Author: Daniel Rapp
+Author-email: rappdw@gmail.com
+License: GPLv3+
+Platform: Windows
+Platform: Linux
+Platform: Mac OS-X
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Version Control :: Git
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: httpx
+
+[![PyPi](https://img.shields.io/pypi/v/fs-crawler.svg)](https://pypi.org/project/fs-crawler/) 
+[![PyPi](https://img.shields.io/pypi/wheel/fs-crawler.svg)](https://pypi.org/project/fs-crawler/) 
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/) 
+[![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/) 
+[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/) 
+
+# FamilySearch crawler
+A python module that crawls FamilySearch. The crawler will extract vertices and edges in the format required for
+ingestion into a [RedBlackGraph](https://github.com/rappdw/redblackgraph).
+
+To run:
+
+```shell script
+pip install fs-crawler
+crawl-fs  --help
+```
+
+This implementation was inspired by [getmyancestors](https://github.com/Linekio/getmyancestors).
+
