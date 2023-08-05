@@ -1,0 +1,30 @@
+# sopel-pypi
+
+A Sopel 7.0+ plugin to show information about linked PyPI packages.
+
+
+NEWS
+====
+
+Version 0.1.1
+-------------
+
+Added:
+
+* Output link to release if invoked via command
+
+Fixed:
+
+* URL pattern not matching some allowed punctuation in package names
+
+Meta:
+
+* Corrected project description content type for PyPI
+
+
+Version 0.1.0
+-------------
+
+Initial release.
+
+
