@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: astrosql
+Version: 1.0.1
+Summary: SQL database introspection and methods in Python to access existing astronomy databases.
+License: Apache-2.0
+Author: Keto Zhang
+Author-email: keto.zhang@gmail.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: astropy (>=4.0.1,<5.0.0)
+Requires-Dist: numpy (>=1.18.2,<2.0.0)
+Requires-Dist: pandas (>=1.0.3,<2.0.0)
+Requires-Dist: peewee (>=3.13.2,<4.0.0)
+Requires-Dist: pymysql (>=0.9.3,<0.10.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: termcolor (>=1.1.0,<2.0.0)

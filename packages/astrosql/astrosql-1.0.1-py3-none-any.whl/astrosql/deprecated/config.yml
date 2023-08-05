@@ -1,0 +1,9 @@
+# Uncomment 'forward' if you want to place config.yml elsewhere, specify the file path (maybe `~/.astrosql/config.yml` ?)
+# forward: '/path/to/config.yml'
+
+# Comment out any unecessary lines, empty will be read
+mysql:
+    host: 'localhost'
+    user: 'username'
+    password: ''
+    database: 'database_name'
