@@ -1,0 +1,25 @@
+Metadata-Version: 1.2
+Name: cbrain
+Version: 1.0.4
+Summary: cBrian.io client to exchange reusable computational components and workflows
+Home-page: https://cBrain.io
+Author: Grigori Fursin
+Author-email: Grigori.Fursin@cTuning.org
+License: Apache Software License (Apache 2.0)
+Description-Content-Type: text/markdown
+Description: A cross-platform client with a CLI and a Python API for the open cBrain portal: https://cBrain.io
+        * Docs: https://cBrain.io/static/docs
+        
+        Copyright 2020 cTuning foundation: https://cTuning.org
+        
+Keywords: reusable computational components,portable workflows,reproducibility,collaborative experiments,portability,dependencies,workflows,automation,pipelines,data pipelines,computer systems,data science,collective knowledge
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=2.7
