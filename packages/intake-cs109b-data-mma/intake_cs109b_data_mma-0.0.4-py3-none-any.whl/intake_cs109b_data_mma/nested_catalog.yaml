@@ -1,0 +1,15 @@
+#cat = intake.open_catalog("catalog.yaml")
+metadata:
+    hierarchical_catalog: True
+    
+main_catalog:
+  driver: intake_nested_yaml_catalog.nested_yaml_catalog.NestedYAMLFileCatalog
+  direct_access: allow
+  args:
+    path: github://main_catalog.yaml
+    storage_options:
+      org: hoangthienan95
+      repo: cs109b-project-data-package
+  metadata: {}
+  #https://github.com/hoangthienan95/cs109b-project-data-package/blob/master/main_catalog.yaml
+  #https://github.com/hoangthienan95/cs109b-project-data-package/blob/master/shared/airpred_clean.csv
