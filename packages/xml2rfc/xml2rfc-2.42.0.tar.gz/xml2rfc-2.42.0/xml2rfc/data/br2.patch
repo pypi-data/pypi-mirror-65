@@ -1,0 +1,275 @@
+Index: v3.rnc
+===================================================================
+--- v3.rnc	(revision 3378)
++++ v3.rnc	(working copy)
+@@ -70,7 +70,7 @@
+        attribute xml:lang { text }?,
+        attribute abbrev { text }?,
+        attribute ascii { text }?,
+-       text
++       ( text | br )+
+      }
+ 
+    author =
+@@ -342,6 +342,7 @@
+        attribute slugifiedName { xsd:ID }?,
+        (text
+         | bcp14
++        | br
+         | cref
+         | em
+         | eref
+@@ -367,6 +368,7 @@
+        attribute keepWithPrevious { "false" | "true" }?,
+        (text
+         | bcp14
++        | br
+         | cref
+         | em
+         | eref
+@@ -403,6 +405,7 @@
+        ((artset | artwork | dl | figure | ol | sourcecode | t | ul)+
+         | (text
+            | bcp14
++           | br
+            | cref
+            | em
+            | eref
+@@ -468,6 +471,7 @@
+        ((artset | artwork | blockquote | dl | figure | ol | sourcecode | t | ul)+
+         | (text
+            | bcp14
++           | br
+            | cref
+            | em
+            | eref
+@@ -503,6 +507,7 @@
+        attribute pn { xsd:ID }?,
+        (text
+         | bcp14
++        | br
+         | cref
+         | em
+         | eref
+@@ -524,6 +529,7 @@
+        ((artset | artwork | dl | figure | ol | sourcecode | t | ul)+
+         | (text
+            | bcp14
++           | br
+            | cref
+            | em
+            | eref
+@@ -606,6 +612,7 @@
+        attribute xml:lang { text }?,
+        (text
+         | bcp14
++        | br
+         | cref
+         | em
+         | eref
+@@ -623,6 +630,7 @@
+        attribute xml:lang { text }?,
+        (text
+         | bcp14
++        | br
+         | cref
+         | em
+         | eref
+@@ -640,6 +648,7 @@
+        attribute xml:lang { text }?,
+        (text
+         | bcp14
++        | br
+         | cref
+         | eref
+         | iref
+@@ -848,6 +857,7 @@
+        ((artset | artwork | dl | figure | ol | sourcecode | t | ul)+
+         | (text
+            | bcp14
++           | br
+            | cref
+            | em
+            | eref
+@@ -873,6 +883,7 @@
+        ((artset | artwork | dl | figure | ol | sourcecode | t | ul)+
+         | (text
+            | bcp14
++           | br
+            | cref
+            | em
+            | eref
+@@ -936,6 +947,13 @@
+        text
+      }
+ 
++   br =
++     element br {
++       attribute xml:base { text }?,
++       attribute xml:lang { text }?,
++       empty
++     }
++
+    back =
+      element back {
+        attribute xml:base { text }?,
+@@ -1023,6 +1041,7 @@
+        attribute xml:lang { text }?,
+        (text
+         | bcp14
++        | br
+         | cref
+         | em
+         | eref
+Index: v3.rng
+===================================================================
+--- v3.rng	(revision 3378)
++++ v3.rng	(working copy)
+@@ -189,7 +189,12 @@
+       <optional>
+         <attribute name="ascii"/>
+       </optional>
+-      <text/>
++      <oneOrMore>
++        <choice>
++          <text/>
++          <ref name="br"/>
++        </choice>
++      </oneOrMore>
+     </element>
+   </define>
+   <define name="author">
+@@ -222,9 +227,7 @@
+       </optional>
+       <optional>
+         <attribute name="role">
+-          <choice>
+-            <value>editor</value>
+-          </choice>
++          <value>editor</value>
+         </attribute>
+       </optional>
+       <optional>
+@@ -762,6 +765,7 @@
+         <choice>
+           <text/>
+           <ref name="bcp14"/>
++          <ref name="br"/>
+           <ref name="cref"/>
+           <ref name="em"/>
+           <ref name="eref"/>
+@@ -817,6 +821,7 @@
+         <choice>
+           <text/>
+           <ref name="bcp14"/>
++          <ref name="br"/>
+           <ref name="cref"/>
+           <ref name="em"/>
+           <ref name="eref"/>
+@@ -909,6 +914,7 @@
+           <choice>
+             <text/>
+             <ref name="bcp14"/>
++            <ref name="br"/>
+             <ref name="cref"/>
+             <ref name="em"/>
+             <ref name="eref"/>
+@@ -1032,7 +1038,7 @@
+           </attribute>
+         </optional>
+         <optional>
+-           <attribute name="indent"/>
++          <attribute name="indent"/>
+         </optional>
+         <optional>
+           <attribute name="pn">
+@@ -1084,6 +1090,7 @@
+           <choice>
+             <text/>
+             <ref name="bcp14"/>
++            <ref name="br"/>
+             <ref name="cref"/>
+             <ref name="em"/>
+             <ref name="eref"/>
+@@ -1165,6 +1172,7 @@
+         <choice>
+           <text/>
+           <ref name="bcp14"/>
++          <ref name="br"/>
+           <ref name="cref"/>
+           <ref name="em"/>
+           <ref name="eref"/>
+@@ -1214,6 +1222,7 @@
+           <choice>
+             <text/>
+             <ref name="bcp14"/>
++            <ref name="br"/>
+             <ref name="cref"/>
+             <ref name="em"/>
+             <ref name="eref"/>
+@@ -1409,6 +1418,7 @@
+         <choice>
+           <text/>
+           <ref name="bcp14"/>
++          <ref name="br"/>
+           <ref name="cref"/>
+           <ref name="em"/>
+           <ref name="eref"/>
+@@ -1434,6 +1444,7 @@
+         <choice>
+           <text/>
+           <ref name="bcp14"/>
++          <ref name="br"/>
+           <ref name="cref"/>
+           <ref name="em"/>
+           <ref name="eref"/>
+@@ -1459,6 +1470,7 @@
+         <choice>
+           <text/>
+           <ref name="bcp14"/>
++          <ref name="br"/>
+           <ref name="cref"/>
+           <ref name="eref"/>
+           <ref name="iref"/>
+@@ -1946,6 +1958,7 @@
+           <choice>
+             <text/>
+             <ref name="bcp14"/>
++            <ref name="br"/>
+             <ref name="cref"/>
+             <ref name="em"/>
+             <ref name="eref"/>
+@@ -2007,6 +2020,7 @@
+           <choice>
+             <text/>
+             <ref name="bcp14"/>
++            <ref name="br"/>
+             <ref name="cref"/>
+             <ref name="em"/>
+             <ref name="eref"/>
+@@ -2165,6 +2179,17 @@
+       <text/>
+     </element>
+   </define>
++  <define name="br">
++    <element name="br">
++      <optional>
++        <attribute name="xml:base"/>
++      </optional>
++      <optional>
++        <attribute name="xml:lang"/>
++      </optional>
++      <empty/>
++    </element>
++  </define>
+   <define name="back">
+     <element name="back">
+       <optional>
+@@ -2378,6 +2403,7 @@
+         <choice>
+           <text/>
+           <ref name="bcp14"/>
++          <ref name="br"/>
+           <ref name="cref"/>
+           <ref name="em"/>
+           <ref name="eref"/>

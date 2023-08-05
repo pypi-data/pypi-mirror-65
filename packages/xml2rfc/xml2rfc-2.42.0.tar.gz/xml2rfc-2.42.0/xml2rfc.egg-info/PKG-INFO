@@ -1,0 +1,189 @@
+Metadata-Version: 1.2
+Name: xml2rfc
+Version: 2.42.0
+Summary: Xml2rfc generates RFCs and IETF drafts from document source in XML according to the IETF xml2rfc v2 and v3 vocabularies.
+Home-page: https://tools.ietf.org/tools/xml2rfc/trac/
+Author: Henrik Levkowetz, Josh Bothun
+Author-email: tools-discuss@ietf.org
+Maintainer: Henrik Levkowetz
+Maintainer-email: henrik@levkowetz.com
+License: BSD-3-Clause
+Download-URL: https://pypi.python.org/pypi/xml2rfc
+Description: Introduction
+        ============
+        
+        The IETF_ uses a specific format for the standards and other documents it
+        publishes as RFCs_, and for the draft documents which are produced when
+        developing documents for publications.  There exists a number of different
+        tools to facilitate the formatting of drafts and RFCs according to the
+        existing rules, and this tool, **xml2rfc**, is one of them.  It takes as input
+        an xml file which contains the text and meta-information about author names
+        etc., and transforms it into suitably formatted output.  The input xml file
+        should follow the grammars in RFC7749_ (for v2 documents) or RFC7991_ (for 
+        v3 documents). Note that the grammar for v3 is still being refined, and 
+        changes will eventually be captured in the `bis draft for 7991`_. 
+        Changes not yet captured can be seen in the xml2rfc source `v3.rng`_.
+        
+        **xml2rfc** provides a variety of output formats. See the command line
+        help for a full list of formats. It also provides conversion from v2 to
+        v3, and can run the preptool_ on its input.
+        
+        .. _IETF: https://www.ietf.org/
+        .. _RFCs: https://www.rfc-editor.org/
+        .. _RFC7749: https://tools.ietf.org/html/rfc7749
+        .. _RFC7991: https://tools.ietf.org/html/rfc7991
+        .. _bis draft for 7991: https://tools.ietf.org/html/draft-iab-rfc7991bis
+        .. _v3.rng: https://trac.tools.ietf.org/tools/xml2rfc/trac/browser/trunk/cli/xml2rfc/data/v3.rng
+        .. _preptool: https://tools.ietf.org/html/rfc7998
+        
+        Installation
+        ============
+        
+        Installation of the python package is done as usual with 'pip install xml2rfc',
+        using appropriate switches and/or sudo.
+        
+        Installation of support libraries for the PDF-formatter
+        -------------------------------------------------------
+        
+        In order to generate PDFs, xml2rfc uses the WeasyPrint module, which
+        depends on external libaries that must be installed as native packages
+        on your platform, separately from the xml2rfc install.
+        
+        First, install the Cairo, Pango, and GDK-PixBuf library files on your
+        system.  See installation instructions on the WeasyPrint Docs:
+        
+            https://weasyprint.readthedocs.io/en/stable/install.html
+        
+        (Python 3 is not needed if your system Python is 2.7, though).
+        
+        (On some OS X systems with System Integrity Protection active, you may
+        need to create a symlink from your home directory to the library installation
+        directory (often /opt/local/lib):
+        
+            ln -s /opt/local/lib ~/lib
+        
+        in order for weasyprint to find the installed cairo and pango libraries.
+        Whether this is needed or not depends on whether you used macports or homebrew
+        to install cairo and pango, and the homebrew / macport version.)
+        
+        Next, install the pycairo and weasyprint python modules using pip.
+        Depending on your system, you may need to use 'sudo' or install in
+        user-specific directories, using the --user switch.  On OS X in
+        particular, you may also need to install a newer version of setuptools
+        using --user before weasyprint can be installed.  If you install with 
+        the --user switch, you may need to also set PYTHONPATH, e.g.,
+        
+            PYTHONPATH=/Users/henrik/Library/Python/2.7/lib/python/site-packages
+        
+        for Python 2.7.
+        
+        The basic pip commands (modify as needed according to the text above)
+        are:
+        
+            pip install 'pycairo>=1.18' 'weasyprint<=0.42.3'
+        
+        With these installed and available to xml2rfc, the --pdf switch will be
+        enabled.
+        
+        For PDF output, you also need to install the Noto font set.  Download the full
+        set from https://noto-website-2.storage.googleapis.com/pkgs/Noto-unhinted.zip,
+        and install as appropriate for your platform.
+        
+        Usage
+        =====
+        
+        xml2rfc accepts a single XML document as input and outputs to one or more conversion formats.
+        
+        **Basic Usage**: ``xml2rfc SOURCE [options] FORMATS...``
+        
+        Run ``xml2rfc --help`` for a full listing of command-line options.
+        
+        
+        Changelog
+        =========
+        
+        
+        Version 2.42.0 (02 Apr 2020)
+        ------------------------------------------------
+        
+        
+          * Changed the minimum whitespace distance between Updates/Obsoletes/etc. 
+            and Author/Organization in the document header in text rendering back to 
+            the value used in the v2 renderer (4 spaces) instead of the value used 
+            recently (3 spaces).
+        
+          * Added a guard against trying to normalize whitespace text that is None.
+        
+          * Added a guard against trying to create <iref> entries for reference
+            content, avoiding a later exception.  Fixes issue #501.
+        
+          * Changed the approach to avoiding page breaks inside artwork etc., and 
+            added styling to prevent page breaks between <dt> and <dd> in a <dl>.  
+            Fixes issues #461, #463, and #491
+        
+          * Did a variable name change and removed a 'del', to deal with a
+            pyflakes issue under 2.7.  Fixes issue #504.
+        
+          * Added missing keepWithNext support for PDF output.
+        
+          * Added a --v2 switch with the same meaning as --legacy.
+        
+        
+        
+        
+        
+        
+        
+        Version 2.41.0 (20 Mar 2020)
+        ------------------------------------------------
+        
+        
+          * Added <sourcecode> to the tags that may have bare unicode content.  
+            Fixes issue #499.
+        
+          * Tweaked the CSS for dl.olPercent dd.  Fixes issue #458.
+        
+          * Fixed an issue with rendering <iref> entries without trailing text or 
+            whitespace.
+        
+          * Fixed an issue in the v2v3 converter that could occur if no <front> 
+            element is present.
+        
+          * Fixed an issue with using Latin content in <city>, also addressing the 
+            same issue for other <postal> sub-elements.  Related to issue #493.
+        
+          * Fixed an issue with the formatting of a warning message.
+        
+          * Fixed a Py2/3 issue with the --country-help output.
+        
+        
+        
+        
+        
+        
+        Version 2.40.1 (27 Feb 2020)
+        ------------------------------------------------
+        
+        
+          * Applied patch from mt@lowentropy.net to simplify javascript and handle 
+            more page width responsiveness in CSS.
+        
+          * Made table and row borders the same for print and HTML on request from 
+            the RPC, and increased the contrast between borders and odd row background 
+            colour slightly.  Fixes issue #494.
+        
+        
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Markup :: XML
+Classifier: License :: OSI Approved :: BSD License
