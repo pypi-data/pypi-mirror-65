@@ -1,0 +1,24 @@
+
+Webutils from Tests by David Arroyo Menéndez
+
+* Check Test
++ Execute all tests:
+#+BEGIN_SRC
+$ ./testsbycommands.sh
+#+END_SRC
+
+* Pypi
++ To install from local:
+$ pip install -e .
+
++ To install create tar.gz in dist directory:
+$ python3 setup.py register sdist
+
++ To upload to pypi:
+$ twine upload dist/damenumpy-0.1.tar.gz
+
++ You can install from Internet in a python virtual environment to check:
+$ python3 -m venv /tmp/dw
+$ cd /tmp/dw
+$ source bin/activate
+$ pip3 install damewebutils
