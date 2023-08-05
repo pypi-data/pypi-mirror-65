@@ -1,0 +1,17 @@
+language: python
+
+dist: xenial
+
+python:
+- '3.7'
+
+before_install:
+  - pip install --upgrade pip
+
+install:
+  - pip install pytest
+  - pip install .
+
+script:
+  - python ./Lib/gftools/tests/test_usage.py
+
