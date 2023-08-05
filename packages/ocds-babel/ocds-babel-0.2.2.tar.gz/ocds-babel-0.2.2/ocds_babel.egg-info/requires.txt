@@ -1,0 +1,12 @@
+
+[docs]
+Sphinx
+sphinx-autobuild
+sphinx_rtd_theme
+
+[markdown]
+docutils
+Sphinx>=1.6
+
+[test]
+pytest
