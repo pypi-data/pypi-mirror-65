@@ -1,0 +1,3 @@
+[spacy_factories]
+spacy_crfsuite = spacy_crfsuite.crf_extractor:CRFEntityExtractorFactory
+
