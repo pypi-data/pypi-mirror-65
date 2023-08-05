@@ -1,0 +1,326 @@
+{
+  "p10_single": {
+    "displayName": "P10 Single-Channel GEN1",
+    "displayCategory": "GEN1",
+    "minVolume": 1,
+    "maxVolume": 10,
+    "channels": 1,
+    "defaultAspirateFlowRate": {
+      "value": 5,
+      "min": 0.001,
+      "max": 50
+    },
+    "defaultDispenseFlowRate": {
+      "value": 10,
+      "min": 0.001,
+      "max": 50
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 1000,
+      "min": 5,
+      "max": 1000
+    },
+    "smoothieConfigs": {
+      "stepsPerMM": 768,
+      "homePosition": 220,
+      "travelDistance": 30
+    }
+  },
+  "p10_multi": {
+    "displayName": "P10 8-Channel GEN1",
+    "displayCategory": "GEN1",
+    "minVolume": 1,
+    "maxVolume": 10,
+    "defaultAspirateFlowRate": {
+      "value": 5,
+      "min": 0.001,
+      "max": 50
+    },
+    "defaultDispenseFlowRate": {
+      "value": 10,
+      "min": 0.001,
+      "max": 50
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 1000,
+      "min": 5,
+      "max": 1000
+    },
+    "channels": 8,
+    "smoothieConfigs": {
+      "stepsPerMM": 768,
+      "homePosition": 220,
+      "travelDistance": 30
+    }
+  },
+  "p20_single_gen2": {
+    "displayName": "P20 Single-Channel GEN2",
+    "displayCategory": "GEN2",
+    "defaultAspirateFlowRate": {
+      "value": 3.78,
+      "min": 0.08,
+      "max": 24
+    },
+    "defaultDispenseFlowRate": {
+      "value": 3.78,
+      "min": 0.08,
+      "max": 24
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 3.78,
+      "min": 0.08,
+      "max": 24
+    },
+    "minVolume": 1,
+    "maxVolume": 20,
+    "channels": 1,
+    "smoothieConfigs": {
+      "stepsPerMM": 3200,
+      "homePosition": 172.15,
+      "travelDistance": 60
+    }
+  },
+  "p20_multi_gen2": {
+    "displayName": "P20 8-Channel GEN2",
+    "displayCategory": "GEN2",
+    "defaultAspirateFlowRate": {
+      "value": 7.6,
+      "min": 0.08,
+      "max": 24
+    },
+    "defaultDispenseFlowRate": {
+      "value": 7.6,
+      "min": 0.08,
+      "max": 24
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 7.6,
+      "min": 0.08,
+      "max": 24
+    },
+    "minVolume": 1,
+    "maxVolume": 20,
+    "channels": 8,
+    "smoothieConfigs": {
+      "stepsPerMM": 3200,
+      "homePosition": 155.75,
+      "travelDistance": 60
+    }
+  },
+  "p50_single": {
+    "displayName": "P50 Single-Channel GEN1",
+    "displayCategory": "GEN1",
+    "defaultAspirateFlowRate": {
+      "value": 25,
+      "min": 0.001,
+      "max": 100
+    },
+    "defaultDispenseFlowRate": {
+      "value": 50,
+      "min": 0.001,
+      "max": 100
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 1000,
+      "min": 5,
+      "max": 1000
+    },
+    "channels": 1,
+    "minVolume": 5,
+    "maxVolume": 50,
+    "smoothieConfigs": {
+      "stepsPerMM": 768,
+      "homePosition": 220,
+      "travelDistance": 30
+    }
+  },
+  "p50_multi": {
+    "displayName": "P50 8-Channel GEN1",
+    "displayCategory": "GEN1",
+    "defaultAspirateFlowRate": {
+      "value": 25,
+      "min": 0.001,
+      "max": 100
+    },
+    "defaultDispenseFlowRate": {
+      "value": 50,
+      "min": 0.001,
+      "max": 100
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 1000,
+      "min": 5,
+      "max": 1000
+    },
+    "channels": 8,
+    "minVolume": 5,
+    "maxVolume": 50,
+    "smoothieConfigs": {
+      "stepsPerMM": 768,
+      "homePosition": 220,
+      "travelDistance": 30
+    }
+  },
+  "p300_single": {
+    "displayName": "P300 Single-Channel GEN1",
+    "displayCategory": "GEN1",
+    "defaultAspirateFlowRate": {
+      "value": 150,
+      "min": 0.001,
+      "max": 600
+    },
+    "defaultDispenseFlowRate": {
+      "value": 300,
+      "min": 0.001,
+      "max": 600
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 1000,
+      "min": 5,
+      "max": 1000
+    },
+    "channels": 1,
+    "minVolume": 30,
+    "maxVolume": 300,
+    "smoothieConfigs": {
+      "stepsPerMM": 768,
+      "homePosition": 220,
+      "travelDistance": 30
+    }
+  },
+  "p300_single_gen2": {
+    "displayName": "P300 Single-Channel GEN2",
+    "displayCategory": "GEN2",
+    "defaultAspirateFlowRate": {
+      "value": 46.43,
+      "min": 1,
+      "max": 275
+    },
+    "defaultDispenseFlowRate": {
+      "value": 46.43,
+      "min": 1,
+      "max": 275.31
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 46.43,
+      "min": 1,
+      "max": 275
+    },
+    "channels": 1,
+    "minVolume": 20,
+    "maxVolume": 300,
+    "smoothieConfigs": {
+      "stepsPerMM": 3200,
+      "homePosition": 172.15,
+      "travelDistance": 60
+    }
+  },
+  "p300_multi_gen2": {
+    "displayName": "P300 8-Channel GEN2",
+    "displayCategory": "GEN2",
+    "defaultAspirateFlowRate": {
+      "value": 94,
+      "min": 1,
+      "max": 275
+    },
+    "defaultDispenseFlowRate": {
+      "value": 94,
+      "min": 1,
+      "max": 275
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 94,
+      "min": 1,
+      "max": 275
+    },
+    "channels": 8,
+    "minVolume": 20,
+    "maxVolume": 300,
+    "smoothieConfigs": {
+      "stepsPerMM": 3200,
+      "homePosition": 155.75,
+      "travelDistance": 60
+    }
+  },
+  "p300_multi": {
+    "displayName": "P300 8-Channel GEN1",
+    "displayCategory": "GEN1",
+    "defaultAspirateFlowRate": {
+      "value": 150,
+      "min": 0.001,
+      "max": 600
+    },
+    "defaultDispenseFlowRate": {
+      "value": 300,
+      "min": 0.001,
+      "max": 600
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 1000,
+      "min": 5,
+      "max": 1000
+    },
+    "channels": 8,
+    "minVolume": 30,
+    "maxVolume": 300,
+    "smoothieConfigs": {
+      "stepsPerMM": 768,
+      "homePosition": 220,
+      "travelDistance": 30
+    }
+  },
+  "p1000_single": {
+    "displayName": "P1000 Single-Channel GEN1",
+    "displayCategory": "GEN1",
+    "defaultAspirateFlowRate": {
+      "value": 500,
+      "min": 50,
+      "max": 2000
+    },
+    "defaultDispenseFlowRate": {
+      "value": 1000,
+      "min": 50,
+      "max": 2000
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 1000,
+      "min": 5,
+      "max": 1000
+    },
+    "channels": 1,
+    "minVolume": 100,
+    "maxVolume": 1000,
+    "smoothieConfigs": {
+      "stepsPerMM": 768,
+      "homePosition": 220,
+      "travelDistance": 30
+    }
+  },
+  "p1000_single_gen2": {
+    "displayName": "P1000 Single-Channel GEN2",
+    "displayCategory": "GEN2",
+    "defaultAspirateFlowRate": {
+      "value": 137.35,
+      "min": 3,
+      "max": 812
+    },
+    "defaultDispenseFlowRate": {
+      "value": 137.35,
+      "min": 3,
+      "max": 812
+    },
+    "defaultBlowOutFlowRate": {
+      "value": 137.35,
+      "min": 3,
+      "max": 812
+    },
+    "channels": 1,
+    "minVolume": 100,
+    "maxVolume": 1000,
+    "smoothieConfigs": {
+      "stepsPerMM": 3200,
+      "homePosition": 172.15,
+      "travelDistance": 60
+    }
+  }
+}
