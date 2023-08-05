@@ -1,0 +1,14 @@
+filelock>=3.0
+
+[:python_version < "3.5"]
+pytest<4.7,>=3.5
+mypy<0.700,>=0.500
+
+[:python_version >= "3.5"]
+pytest>=3.5
+
+[:python_version >= "3.5" and python_version < "3.8"]
+mypy>=0.500
+
+[:python_version >= "3.8"]
+mypy>=0.700
