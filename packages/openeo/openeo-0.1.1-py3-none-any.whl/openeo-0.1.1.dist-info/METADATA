@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: openeo
+Version: 0.1.1
+Summary: Client API for openEO
+Home-page: https://github.com/Open-EO/openeo-python-client
+Author: Jeroen Dries
+Author-email: jeroen.dries@vito.be
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: shapely (>=1.6.4)
+Requires-Dist: cloudpickle
+Requires-Dist: numpy (>=1.17.0)
+Requires-Dist: deprecated
+Requires-Dist: pandas (<0.25.0) ; python_version < "3.5.3"
+Requires-Dist: pandas (>0.20.0) ; python_version >= "3.5.3"
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-autodoc-annotation ; extra == 'dev'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'dev'
+Requires-Dist: mock ; extra == 'dev'
+Requires-Dist: requests-mock ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+
+# openeo-python-client
+
+Python client API for OpenEO. Allows you to interact with OpenEO backends from your own environment.
+
+[![Status](https://img.shields.io/badge/Status-proof--of--concept-yellow.svg)]()
+[![Build Status](https://travis-ci.org/Open-EO/openeo-python-client.svg?branch=master)](https://travis-ci.org/Open-EO/openeo-python-client)
+![PyPI](https://img.shields.io/pypi/v/openeo)
+
+## Requirements
+
+* Python 3.5 or higher
+
+Windows users: It is recommended to install Anaconda Python as shapely may need to be installed separately using the Anaconda Navigator.
+
+## Usage
+[Basic concepts and examples](https://github.com/Open-EO/openeo-python-client/blob/master/examples)
+
+[General OpenEO background](https://open-eo.github.io/openeo-api/)
+
+[API docs](https://open-eo.github.io/openeo-python-client/)
+
+## Development
+
+Install locally checked out version with additional development related dependencies:
+```bash
+pip install -e .[dev]
+```
+Building the documentation:
+
+As HTML:
+```bash
+python setup.py build_sphinx -c docs
+ ```
+As Latex: 
+```bash
+python setup.py build_sphinx -c docs -b latex
+```
+
+
