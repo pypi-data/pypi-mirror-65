@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: veracitysdk
+Version: 0.1.7
+Summary: Veracity api library.
+Home-page: https://bitbucket.org/disinformationindex/veracitysdk/src
+License: UNKNOWN
+Author: schen
+Author-email: shu@disinformationindex.org
+Requires-Python: >=3.6
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: requests >=2.22.0
