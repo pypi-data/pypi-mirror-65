@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-03 08:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Developed by Mariano Muñoz 2015-{}"
+msgstr ""
+
+msgid "Create example files using officegenerator module"
+msgstr ""
+
+msgid "Generating example files"
+msgstr ""
+
+msgid "ODS Generated"
+msgstr ""
+
+msgid "ODS Readed and regenerated"
+msgstr ""
+
+msgid "ODT Generated"
+msgstr ""
+
+msgid "ODT (Search and replace) Generated"
+msgstr ""
+
+msgid "ODT Generated from Manual Styles"
+msgstr ""
+
+msgid "XLSX Generated"
+msgstr ""
+
+msgid "XLSX Readed and regenerated"
+msgstr ""
+
+msgid "This cell has been readed and modified"
+msgstr ""
+
+msgid "Created cell"
+msgstr ""
+
+msgid "OfficeGenerator ODS example"
+msgstr ""
+
+msgid "Demo with ODS_Write class"
+msgstr ""
+
+msgid "This file have been generated with OfficeGenerator-{}. You can see OfficeGenerator main page in http://github.com/turulomio/officegenerator"
+msgstr ""
+
+msgid "This is a comment"
+msgstr ""
+
+msgid "Style name"
+msgstr ""
+
+msgid "Date and time"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Integer"
+msgstr ""
+
+msgid "Euros"
+msgstr ""
+
+msgid "Dollars"
+msgstr ""
+
+msgid "Percentage"
+msgstr ""
+
+msgid "Number with 2 decimals"
+msgstr ""
+
+msgid "Number with 6 decimals"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "This cell is going to be merged with B13 a F14"
+msgstr ""
+
+msgid "This cell is going to be merged and aligned desde B18 a G18"
+msgstr ""
+
+msgid "These cells show formulas with diferent styles and number formats"
+msgstr ""
+
+msgid "OfficeGenerator ODT example"
+msgstr ""
+
+msgid "Demo with ODT documents"
+msgstr ""
+
+msgid "Manual of officegenerator"
+msgstr ""
+
+msgid "Version {}"
+msgstr ""
+
+msgid "ODT"
+msgstr ""
+
+msgid "ODT files can be quickly generated with OfficeGenerator."
+msgstr ""
+
+msgid "It create predefined styles that allows to create nice documents without worry about styles."
+msgstr ""
+
+msgid "OfficeGenerator predefined paragraph styles"
+msgstr ""
+
+msgid "OfficeGenerator has headers and titles as you can see in the document structure."
+msgstr ""
+
+msgid "Morever, it has the following predefined styles:"
+msgstr ""
+
+msgid "This is the 'Standard' style"
+msgstr ""
+
+msgid "This is the 'StandardCenter' style"
+msgstr ""
+
+msgid "This is the 'StandardRight' style"
+msgstr ""
+
+msgid "This is the 'Illustration' style"
+msgstr ""
+
+msgid "This is the 'Bold18Center' style"
+msgstr ""
+
+msgid "This is the 'Bold16Center' style"
+msgstr ""
+
+msgid "This is the 'Bold14Center' style"
+msgstr ""
+
+msgid "This is the 'Bold12Center' style"
+msgstr ""
+
+msgid "This is the 'Bold12Underline' style"
+msgstr ""
+
+msgid "Tables"
+msgstr ""
+
+msgid "We can create tables too, for example with size 11pt:"
+msgstr ""
+
+msgid "Concept"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "This is a text"
+msgstr ""
+
+msgid "Datetime"
+msgstr ""
+
+msgid "Decimal"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "First"
+msgstr ""
+
+msgid "Tables with the size 10pt:"
+msgstr ""
+
+msgid "Tables with 8pt size:"
+msgstr ""
+
+msgid "Third"
+msgstr ""
+
+msgid "Lists and numbered lists"
+msgstr ""
+
+msgid "Simple list"
+msgstr ""
+
+msgid "Multilevel list with bullets"
+msgstr ""
+
+msgid "Multilevel list with Numbers"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "As you can see, I can reuse it one hundred times. File size will not be increased because I used reference names."
+msgstr ""
+
+msgid "The next paragraph is generated with the illustration method"
+msgstr ""
+
+msgid "Horizontal page"
+msgstr ""
+
+msgid "By default OfficeGenerator uses a predefined A4 page."
+msgstr ""
+
+msgid "Morever, you can set a predefined A4 horizontal page, as you can see."
+msgstr ""
+
+msgid "Styles"
+msgstr ""
+
+msgid "This is a custom cell"
+msgstr ""
+
+msgid "This cell is going to be merged with B13 and C13"
+msgstr ""
+
+msgid "This cell is going to be merged and aligned"
+msgstr ""
+
+msgid "This sheet max rows are {} and max columns {}"
+msgstr ""
+
+msgid "Cell B23 has a name 'Amount"
+msgstr ""
+
+msgid "Cell B24 has a name 'Price"
+msgstr ""
+
+msgid "Cell B25 has a product with names"
+msgstr ""
+
+msgid "Orange"
+msgstr ""
+
+msgid "Yellow"
+msgstr ""
+
+msgid "White"
+msgstr ""
+
+msgid "You can't overwrite a readed ods"
+msgstr ""
+
+msgid "You can't overwrite a readed odt"
+msgstr ""
+
+msgid "*** ERROR: File wasn't generated ***"
+msgstr ""
+
+msgid "This is not a formula. You can't use overwrite_formula"
+msgstr ""
+
+msgid "Convert a ODF file into an indented xml"
+msgstr ""
+
+msgid "Odf file to convert"
+msgstr ""
+
+msgid "officegenerator_odf2xml only works on Linux"
+msgstr ""
+
+msgid "Convert a XLSX file into an indented xml"
+msgstr ""
+
+msgid "XLSX file to convert"
+msgstr ""
+
+msgid "officegenerator_xlsx2xml only works on Linux"
+msgstr ""

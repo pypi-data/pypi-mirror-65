@@ -1,0 +1,5 @@
+[console_scripts]
+officegenerator_demo = officegenerator.demo:main
+officegenerator_odf2xml = officegenerator.odf2xml:main
+officegenerator_xlsx2xml = officegenerator.xlsx2xml:main
+
