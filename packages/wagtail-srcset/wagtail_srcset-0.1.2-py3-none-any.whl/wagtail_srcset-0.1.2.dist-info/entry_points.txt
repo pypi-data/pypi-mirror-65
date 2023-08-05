@@ -1,0 +1,8 @@
+[console_scripts]
+autoformat=commands:black
+docs=commands:docs
+lint=commands:flake8
+notebook=commands:notebook
+show_coverage=commands:coverage
+test=commands:test
+
