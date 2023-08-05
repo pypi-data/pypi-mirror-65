@@ -1,0 +1,218 @@
+Metadata-Version: 2.1
+Name: db-extract
+Version: 0.2
+Summary: A package that can perform on-the-fly denormalization
+Home-page: https://github.com/sareeneng/db_extract/
+Author: Sareen Shah
+Author-email: shah.sareen@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs (>=1.4.3)
+Requires-Dist: networkx (>=2.4)
+Requires-Dist: pandas (>=1.0.1)
+Requires-Dist: pyodbc (>=4.0.30)
+Requires-Dist: sqlalchemy-utils (>=0.36.1)
+Requires-Dist: sqlalchemy (>=1.3.13)
+
+# db_extract
+
+## Overview
+
+db_extract is a python module that can perform **on-the-fly denormalization** from a relational dataset. The module calculates metadata to construct a graph representation of the dataset, and with this construct, finds ways to join widely separated tables without having to perform manual table inspection. This is similar to [Neo4j](https://neo4j.com/developer/guide-importing-data-and-etl/), however setup and querying with this module requires only a couple of lines of code.
+
+For example, if you are interested in data from tables **A** and **D** that have two join paths:
+- **A** JOIN **B** ON *AB* JOIN **C** ON *BC* JOIN **D** ON *CD*
+- **A** JOIN **XYZ** ON *AXYZ* JOIN **D** ON *XYZD*
+
+You can simply input parameters [**A**, **D**] and the module will provide all possible join paths for you, which can then in turn be used to get a dataframe containing the data of interest.
+
+The user will find this module to be of most use when working with highly normalized datasets, however it can also be used with datasets with only a few tables as well.
+
+Current support for 
+ - Data separated into files (most commonly CSV)
+ - Microsoft SQL Server
+
+## Requirements
+
+If you are connecting to a MS SQL Server database, then you must have an ODBC driver installed on your system for use with pyodbc.
+
+## First-time setup
+
+Run the following command
+
+```bash
+python setup.py
+```
+
+This will set up the SQLite database *metadata.db* which will be used to store information about the datasets and will also store connections between tables. If interested, you can browse the data using [DB Browser for SQLite](https://sqlitebrowser.org/).
+
+## Algorithm Explanation
+
+Many-one and one-one relationships can be joined in any order, but many-many relationships cannot be joined together directly. The problem becomes more evident as you start chaining together many joins where you might be able to join A with B, and B with C, but can't join together A, B, and C all together.
+
+This module uses **networkx** to construct a directed graph showing these relationships, representing tables as nodes and joining columns as edges.
+
+
+![one_to_one](https://imgur.com/K5t3v4R.png)
+
+
+**order_details** and **orders** share a one-to-one relationship on column *order_id*, and are represented with a bidirectional edge.
+
+
+![many to one](https://imgur.com/G1JWNNS.png)
+
+
+**order_details** and **offices** share a many-to-one relationship on column *office_id*, and are represented with a unidirectional edge starting from the many table and pointing to the one table.
+
+
+![impossible join](https://imgur.com/TEKcWex.png)
+
+
+Above we can see that **order_details** and **offices** can be joined together as a many-to-one relationship, and **employees** and **offices** can also be joined in the same manner. However see what happens when we try to join all three tables together:
+
+
+![impossible join result](https://imgur.com/00qvFGV.png)
+
+
+The result is nonsensical. 
+
+The module identifies valid join paths by identifying whether there is a singular origin node from which it can draw a path to every other node that needs to be included. Sometimes this origin node may be upstream from the tables that you are interested in. In the above example, there is no way to start from any single table and draw a path to the other two tables, and so the module recognizes this as an invalid combination of tables.
+
+## Demonstration
+
+We will use a modified version of the Northwind dataset (CSV files originally taken from [here](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv)), the files are included in this package. To initialize the dataset, run the following code:
+
+```python
+from db_extract import DBSetup, DBExtractor, Filter
+import db_extract.constants as c
+
+nw_setup = DBSetup('Northwind')
+nw_setup.create_metadata(
+  data_folder_path='/your/python/lib/path/db_extract/datasets/Northwind/',
+  dump_to_data_db=True
+)
+```
+
+Supplying the **dump_to_data_db** option will store a copy of the data in a *data.db* SQLite file located in the same folder (only available when using a collection of files) for more efficient joining.
+
+We still haven't defined any relationships between the tables. If we run 
+```python
+nw_setup.get_common_column_names()
+```
+
+This will spit out a list of columns that have the same names in multiple files, which usually are used for joining. We see that there are a lot of common column names such as *supplierID*, *categoryID*, *contactName*, *contactTitle*, etc. It's clear that the columns used for joining are all labeled with "ID" so we can run the following code to connect all tables.
+
+```python
+for i in nw_setup.get_common_column_names():
+    if i[-2:] == 'ID':
+        nw_setup.add_global_fk(i)
+```
+
+That's all the setup that is required. If you wanted to visualize the graph in a Jupyter notebook, you can run the following code- (**WARNING**: networkx only has rudimentary visualization capabilities so the result will likely look strange and may require a few tries to get something that looks legible because networkx draws it differently each time. *pygraphviz* is another option but also takes work to get it to look right.):
+
+```python
+import networkx as nx
+import matplotlib.pyplot as plt
+
+nw_extractor = DBExtractor('Northwind')
+nx.draw_networkx(nw_extractor.G, node_shape="None")
+```
+
+. You'll get something similar to the following:
+
+![northwind schema](https://imgur.com/Nl3df0f.png)
+
+
+Let's say we are interested in figuring out how many units each supplier has provided. The tables of interest are **order_details** and **suppliers**
+
+```python
+nw_extractor.find_paths_multi_tables(['order_details', 'suppliers'])
+
+#RESULT
+[
+ [
+  ('order_details', 'vendors'),
+  ('vendors', 'suppliers')
+ ],
+ [
+  ('order_details', 'products'),
+  ('products', 'suppliers')
+ ]
+]
+```
+
+So there are two ways to join **order_details** and **products** together, either going through **vendors** or through **suppliers**, both are valid ways to do it. Later you realize that you also want the category of the products sold.
+
+
+```python
+nw_extractor.find_paths_multi_tables(['order_details', 'suppliers', 'categories'])
+#RESULT
+[
+ [
+  ('order_details', 'products'),
+  ('products', 'suppliers'),
+  ('products', 'categories')
+ ]
+]
+
+```
+
+Now there's only one path. Going through **vendors** is superfluous because you must go through **products** to get to **categories** anyway.
+
+Now let's get a dataframe out of this:
+
+```python
+filters = {
+    'categories': [
+        Filter(filter_type=c.FILTER_TYPE_SELECTION, column='categoryName', selection=['Condiments'])
+    ],
+    'order_details': [
+        Filter(filter_type=c.FILTER_TYPE_RANGE, column='quantity', range_min=10, range_max=30)
+    ]
+}
+
+select_table_columns = {
+    'order_details': ['quantity', 'discount'],
+    'suppliers': ['contactName'],
+    'products': ['productName']
+}
+
+
+df = nw_extractor.get_df_from_path(
+    [('order_details', 'products'),
+    ('products', 'suppliers'),
+    ('products', 'categories')],
+    filters=filters,
+    select_table_columns=select_table_columns
+)
+
+```
+
+|   order_details_quantity |   order_details_discount | suppliers_contactName   | products_productName         |
+|-------------------------:|-------------------------:|:------------------------|:-----------------------------|
+|                       14 |                      0   | Charlotte Cooper        | Aniseed Syrup                |
+|                       20 |                      0   | Charlotte Cooper        | Aniseed Syrup                |
+|                       20 |                      0.1 | Charlotte Cooper        | Aniseed Syrup                |
+|                       20 |                      0.1 | Charlotte Cooper        | Aniseed Syrup                |
+|                       10 |                      0   | Shelley Burke           | Chef Anton's Cajun Seasoning |
+|                       10 |                      0.1 | Shelley Burke           | Chef Anton's Cajun Seasoning |
+|                       12 |                      0.1 | Shelley Burke           | Chef Anton's Cajun Seasoning |
+
+*filters* and *select_table_columns* are optional parameters. Above, we have decided that we only are interested in orders involving condiments, with a quantity of 10-30. The data that we are interested in is quantity, discount amount, supplier contact name, and product name.
+
+As mentioned earlier, the module will also prevent trying to do joins that make no sense.
+
+```python
+nw_extractor.find_paths_multi_tables(['orders', 'territories'])
+
+#RESULT
+[]
+```
+
+Looking at the schema above, there's no node that you can start from and draw a path to both **orders** and **territories**. On inspecting the data, it becomes evident that this is because an employee may sell to multiple territories, so we can't connect the order to the territories because we only have data on the employee that made the order.
+
+
