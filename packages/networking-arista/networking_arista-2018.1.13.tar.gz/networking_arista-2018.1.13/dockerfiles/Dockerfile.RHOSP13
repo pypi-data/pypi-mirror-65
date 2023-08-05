@@ -1,0 +1,27 @@
+
+FROM registry.access.redhat.com/rhosp13/openstack-neutron-server
+MAINTAINER Arista Networks <openstack-dev@arista.com>
+
+# Modify these values for each Arista ML2 release
+ARG ARISTA_ML2_DRIVER_VERSION="2018.1.9"
+
+###Required Labels
+LABEL name="rhosp13/openstack-neutron-server-arista-ml2" \
+      maintainer="openstack-dev@arista.com" \
+      vendor="Arista Networks" \
+      version="$ARISTA_ML2_DRIVER_VERSION" \
+      release="1" \
+      summary="Red Hat OpenStack Platform 13.0 neutron-server Arista ML2" \
+      description="Red Hat OpenStack Platform 13.0 neturon-server Arista ML2"
+
+USER root
+
+WORKDIR /tmp
+RUN curl -L -o networking-arista.tar.gz https://tarballs.openstack.org/networking-arista/networking_arista-$ARISTA_ML2_DRIVER_VERSION.tar.gz \
+    && tar -zxf networking-arista.tar.gz \
+    && cd networking_arista-$ARISTA_ML2_DRIVER_VERSION \
+    && python setup.py install \
+    && mkdir /licenses \
+    && cp LICENSE /licenses/LICENSE
+    
+USER neutron
