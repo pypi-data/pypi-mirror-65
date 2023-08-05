@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: caireCovid
+Version: 0.0.6
+Summary: system for covid-19.
+Home-page: https://github.com/yana-xuyan/caireCovid
+Author: Yan Xu
+Author-email: yxucb1229@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: unidecode
+Requires-Dist: six
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: sentencepiece
+Requires-Dist: jsonlines
+Requires-Dist: nltk
+
+# caire-covid
+Kaggle system for covid 19
+
+
