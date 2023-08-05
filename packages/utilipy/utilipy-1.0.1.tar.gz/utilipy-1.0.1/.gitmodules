@@ -1,0 +1,9 @@
+[submodule "packages/module_autoinstaller"]
+	path = packages/module_autoinstaller
+	url = https://nstarman@github.com/nstarman/python_module_autoinstaller.git
+[submodule "packages/starkplot"]
+	path = packages/starkplot
+	url = https://nstarman@github.com/nstarman/starkplot.git
+[submodule "wiki"]
+	path = wiki
+	url = https://nstarman@github.com/nstarman/utilipy.wiki.git
