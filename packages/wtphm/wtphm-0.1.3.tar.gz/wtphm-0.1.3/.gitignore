@@ -1,0 +1,9 @@
+docs/_build
+docs/_static
+docs/_templates
+.ipynb_checkpoints
+__pycache__/
+*.egg-info/
+build/
+dist/
+build_for_pip.bat
