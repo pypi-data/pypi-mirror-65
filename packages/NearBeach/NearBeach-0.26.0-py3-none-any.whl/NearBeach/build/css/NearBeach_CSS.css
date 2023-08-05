@@ -1,0 +1,54 @@
+/*
+The following CSS helps with accessibility within NearBeach. We do need to tweak some of the colours and shades for
+bootstrap.
+ */
+.btn-primary {
+    /* The following line was recommended by the following issue
+    https://github.com/jhipster/generator-jhipster/issues/7961
+     */
+    background-color: #317AB9; !important;
+}
+
+a {
+    color: #0000B8; !important;
+}
+
+.card {
+    overflow-inline: auto;
+}
+
+svg {
+   overflow-x: scroll;
+}
+
+/* Timeline CSS */
+.chart {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.axis path,.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar-new {
+    fill: #129A7D;
+}
+
+.bar-Backlog {
+    fill: #9BD3CB;
+}
+
+.bar-open {
+    fill: #FADAE2;
+}
+
+.bar-resolved {
+    fill: #FCBCBC;
+}
+
+.bar-closed {
+    fill: #F39CA4;
+}
