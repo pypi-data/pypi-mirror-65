@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: idabulksms
+Version: 0.0.1
+Summary: A package that allow you to send  bulk sms in all countries. 
+Home-page: https://github.com/tuganimana/idasms
+Author: Telesphore Tuganimana
+Author-email: telesphore@idatech.rw
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# idasms 
+
+Idasms is a python packages which allow you to send  bulk sms . 
+
+before installing this packages you need to get intouch with Ida technology (www.idatech.rw) or send an email at info@idatech.rw to provide  credentials of bulk sms to their bulks sms API.
+after that  you ready to go
+
+## HOW TO USE IT  AFTER INSTALLATION 
+ open your python file and paste below code 
+ ----------------------------------------------------------------------------------
+import idabulksms
+
+cre =idabulksms.Sendsms()
+
+usernam=cre.username("enter username")
+
+passwor=cre.password("enter your password")
+
+idabulksms.bulksms('add phone with country code omit +','ssmsname','enter message',usernam,passwor)
+
+print(idabulksms.bulksms)
+
+
+
+
+
