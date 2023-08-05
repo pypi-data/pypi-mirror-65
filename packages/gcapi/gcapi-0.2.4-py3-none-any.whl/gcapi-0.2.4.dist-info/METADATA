@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: gcapi
+Version: 0.2.4
+Summary: Python client for the grand-challenge.org API
+Home-page: https://github.com/DIAGNijmegen/gcapi
+Author: James Meakin
+Author-email: code@jmsmkn.com
+License: Apache Software License 2.0
+Keywords: gcapi
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Click (>=6.0)
+Requires-Dist: Requests
+Requires-Dist: jsonschema[format_nongpl] (>=3.0)
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pyyaml ; extra == 'test'
+Requires-Dist: docker-compose-wait ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+==========================
+Grand Challenge API Client
+==========================
+
+
+.. image:: https://img.shields.io/pypi/v/gcapi.svg
+   :target: https://pypi.python.org/pypi/gcapi
+
+.. image:: https://github.com/DIAGNijmegen/rse-gcapi/workflows/CI/badge.svg
+   :target: https://github.com/DIAGNijmegen/rse-gcapi/actions?query=workflow%3ACI+branch%3Amaster
+   :alt: Build Status
+
+.. image:: https://codecov.io/gh/DIAGNijmegen/rse-gcapi/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/DIAGNijmegen/rse-gcapi
+   :alt: Code Coverage Status
+
+.. image:: https://readthedocs.org/projects/gcapi/badge/?version=latest
+   :target: https://gcapi.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+
+Python client for the grand-challenge.org API
+
+
+* Free software: Apache Software License 2.0
+* Documentation: https://gcapi.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.2.4 (2020-04-03)
+------------------
+
+* Added GET request params
+
+0.2.3 (2020-03-26)
+------------------
+
+* Added ground truth endpoint for reader studies
+
+0.2.2 (2020-03-24)
+------------------
+
+* Added support for uploading to archives and reader studies
+
+0.2.1 (2020-03-23)
+------------------
+
+* Added Polygon and Choice question types to reader studies
+
+0.2.0 (2020-02-09)
+------------------
+
+* Dropped Python 2.7 and 3.5
+* Added support for Python 3.7 and 3.8
+
+0.1.0 (2019-05-07)
+------------------
+
+* First release on PyPI.
+
+
