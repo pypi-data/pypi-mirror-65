@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "units": {
+      "type": "object",
+      "properties": {
+        "field": { "type": "string"},
+        "unit": { "type": "string"}
+      },
+      "required": ["field", "unit"]
+    },
+    "data_tools": {
+      "type": "object",
+      "properties": {
+        "field": { "type": "string"},
+        "method": { "type": "string"}
+      },
+      "required": ["field", "method"]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "type": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "null"}
+      ]
+    },
+    "description": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "null"}
+      ]
+    },
+    "fields": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "units": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/units"}
+    },
+    "data_tools": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/data_tools"}
+    },
+    "metadata": {"type": "object"}
+  },
+  "required": ["name", "fields"],
+  "additionalProperties": false
+}

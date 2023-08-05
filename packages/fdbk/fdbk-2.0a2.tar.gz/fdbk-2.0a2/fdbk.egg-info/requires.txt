@@ -1,0 +1,6 @@
+jsonschema
+flask
+requests
+
+[:python_version < "3.7"]
+importlib_resources
