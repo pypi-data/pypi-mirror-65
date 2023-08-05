@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: tasmotizer
+Version: 1.1a0
+Summary: The time has come to... Tasmotize!
+Home-page: https://github.com/tasmota/tasmotizer
+Author: jziolkowski
+Author-email: jacek@ziolkowscy.com
+License: GPLv3
+Project-URL: Issue Tracker, https://github.com/tasmota/tasmotizer/issues
+Project-URL: Documentation, https://github.com/tasmota/tasmotizer/wiki
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: pyserial (>=3.0)
+Requires-Dist: PyQt5 (>=5.10)
+
+Tasmotizer is a dedicated flashing tool for <a href=https://github.com/arendst/Tasmota>Tasmota</>, featuring automatic firmware backup, downlading release and development bins, and device configuration.
+
+
