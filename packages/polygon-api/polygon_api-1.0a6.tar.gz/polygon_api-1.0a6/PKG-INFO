@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: polygon_api
+Version: 1.0a6
+Summary: Python wrapper for Polygon API (polygon.codeforces.com)
+Home-page: https://github.com/citxx/polygon-py
+Author: Artem Tabolin
+Author-email: artemtab@gmail.com
+License: UNKNOWN
+Description: # Polygon API wrapper
+        
+        Status: work in progress. Doesn't yet cover the whole API.
+        
+        Python wrapper for Polygon API. You can find the full API reference
+        [here](https://docs.google.com/document/d/1mb6CDWpbLQsi7F5UjAdwXdbCpyvSgWSXTJVHl52zZUQ/edit?ccid=8880487d88727f44ab2a911727d4d952#).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
