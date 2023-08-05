@@ -1,0 +1,10 @@
+# MinIO
+minio:
+  image: {{ DOCKER_REGISTRY }}{{ MINIO_DOCKER_IMAGE }}
+  volumes:
+    - ../../data/minio:/data
+  environment:
+    MINIO_ACCESS_KEY: "{{ OPENEDX_AWS_ACCESS_KEY }}"
+    MINIO_SECRET_KEY: "{{ OPENEDX_AWS_SECRET_ACCESS_KEY }}"
+  command: server --address ":9000" /data
+  restart: unless-stopped
