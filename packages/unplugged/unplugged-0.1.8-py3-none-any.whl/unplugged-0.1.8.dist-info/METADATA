@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: unplugged
+Version: 0.1.8
+Summary: Django based plugin system
+Home-page: https://github.com/JohnDoee/unplugged
+Author: Anders Jensen
+Author-email: johndoee@tridentstream.org
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: marshmallow (>=3.0.1)
+Requires-Dist: twine
+Requires-Dist: django
+Requires-Dist: djangorestframework-jsonapi
+Requires-Dist: djangorestframework
+Requires-Dist: wrapt
+Requires-Dist: jsonfield
+Requires-Dist: wampyre
+
+UNKNOWN
+
+
