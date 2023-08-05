@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mpcontribs-io
+Version: 2.2.2
+Summary: MPContribs I/O Library
+Home-page: https://github.com/materialsproject/MPContribs/tree/master/mpcontribs-io
+Author: Patrick Huck
+Author-email: phuck@lbl.gov
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: archieml
+Requires-Dist: ipython
+Requires-Dist: pandas
+Requires-Dist: plotly
+Requires-Dist: pymatgen
+
+MPContribs I/O Library. See the [MPContribs Docs](https://mpcontribs.org) for specific usage and examples.
+
+
