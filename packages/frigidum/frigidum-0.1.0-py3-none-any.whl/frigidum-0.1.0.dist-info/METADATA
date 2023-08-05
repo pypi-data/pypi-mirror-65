@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: frigidum
+Version: 0.1.0
+Summary: Simmulated Annealing
+Home-page: https://gitlab.com/whendrik/frigidum
+Author: Willem Hendriks
+Author-email: whendrik@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm (>=3.0.0)
+
+# Simmulated Annealing package for Python
+
+## Installation
+
+```
+pip install frigidum
+```
+
+## Example Usage
+
+```
+import frigidum
+
+import random
+
+def random_start():
+    return 50 + random.random()
+
+def random_small_step(x):
+    return x + 0.1 * (random.random() - .5)
+
+def random_big_step(x):
+    return x + 10 * (random.random() - .5)
+
+def obj(x):
+    return x**2
+
+local_opt = frigidum.sa(random_start=random_start, random_neighbours=[random_small_step, random_big_step], cost_function=obj, T_start=100, T_stop = 0.001, repeats=10**4, copy_state=frigidum.annealing.naked)
+```
+
+## Movements
+
+## Copy'ing
+
+## To-Do:
+
+- Statistics of acceptance of various movements/neighbors
+- Multitreadding (N simultanous anneals)
+- Drilling (after repeats, re-repeat with low temp)
+- Re-Annealing
+- Auto-set start Tempreature (Based on >90% movemenets)
+- Auto-stop (Based on near 0 movemebts)
+
+
