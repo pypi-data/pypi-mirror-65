@@ -1,0 +1,10 @@
+{% load i18n %}
+{% spaceless %}
+    {% with record.get_first_order_merchant_name as merchant_name %}
+        {% if merchant_name %}
+            {{ merchant_name }}
+        {% else %}
+            —
+        {% endif %}
+    {% endwith %}
+{% endspaceless %}

@@ -1,0 +1,7 @@
+{% spaceless %}
+    {% if record.user and record.user.id %}
+        <a href="{% url 'dashboard:user-detail' pk=record.user.id %}">{{ record.user.get_full_name | default:record.user.username }}</a>
+    {% else %}
+        —
+    {% endif %}
+{% endspaceless %}

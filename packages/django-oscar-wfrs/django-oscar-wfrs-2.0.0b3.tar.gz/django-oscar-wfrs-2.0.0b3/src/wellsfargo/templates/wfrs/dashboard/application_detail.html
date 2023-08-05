@@ -1,0 +1,105 @@
+{% extends 'oscar/dashboard/layout.html' %}
+{% load i18n %}
+{% load currency_filters %}
+{% load wfrs_filters %}
+
+{% block title %}
+    {% trans "Credit Application Details" %} |
+    {% trans "Wells Fargo" %} |
+    {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'wfrs-application-list' %}">{% trans "Credit Applications" %}</a>
+        </li>
+        <li class="active">{% trans "Credit Application Details" %}</li>
+    </ul>
+{% endblock %}
+
+{% block headertext %}
+    {% trans "Credit Application Details" %}
+{% endblock %}
+
+{% block dashboard_content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-header">
+                <h2>{% trans "General" %}</h2>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <td>{% trans "Resulting Account Number" %}</td>
+                    <td>{{ object.masked_account_number | default:"-" }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "Requested Value" %}</td>
+                    <td>{{ object.requested_credit_limit | currency | default:"-" }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "IP Address" %}</td>
+                    <td>{{ object.ip_address | default:"-" }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "Created Date" %}</td>
+                    <td>{{ object.created_datetime | default:"-" }}</td>
+                </tr>
+                <tr>
+                    <td>{% trans "Modified Date" %}</td>
+                    <td>{{ object.modified_datetime | default:"-" }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <div class="table-header">
+                <h2>{% trans "Main Applicant" %}</h2>
+            </div>
+            {% include 'wfrs/dashboard/_application_detail_applicant.html' with applicant=object.main_applicant %}
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="table-header">
+                <h2>{% trans "Secondary Applicant" %}</h2>
+            </div>
+            {% include 'wfrs/dashboard/_application_detail_applicant.html' with applicant=object.joint_applicant %}
+        </div>
+
+        <div class="col-md-12">
+            <div class="table-header">
+                <h2>{% trans "Account Inquiries" %}</h2>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>{% trans "Inquiry Date/Time" %}</th>
+                        <th>{% trans "Inquiry Account Number" %}</th>
+                        <th>{% trans "Credit Limit" %}</th>
+                        <th>{% trans "Available Credit" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inquiry in object.get_inquiries %}
+                        <tr>
+                            <td>{{ inquiry.created_datetime }}</td>
+                            <td>{{ inquiry.masked_account_number }}</td>
+                            <td>{{ inquiry.credit_limit | currency | default:"-" }}</td>
+                            <td>{{ inquiry.available_credit | currency | default:"-" }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="10">
+                                <em>{% trans "No account inquiries currently exist for this Credit Application" %}</em>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
