@@ -1,0 +1,12 @@
+PyGObject
+zeroconf
+ifaddr
+
+[dev]
+zeroconf
+coverage
+flake8
+pyannotate
+pytest
+pytest-asyncio
+pytest-cov
