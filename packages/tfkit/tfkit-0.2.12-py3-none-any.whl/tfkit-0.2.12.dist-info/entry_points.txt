@@ -1,0 +1,4 @@
+[console_scripts]
+tfkit-eval = tfkit.eval:main
+tfkit-train = tfkit.train:main
+
