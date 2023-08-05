@@ -1,0 +1,4 @@
+[console_scripts]
+gitlab-migrate = gitlab_migrate.migrate:cli
+gitlab-migrate-info = gitlab_migrate.server_info:cli
+
