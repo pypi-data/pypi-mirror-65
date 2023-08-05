@@ -1,0 +1,105 @@
+image: python:3.7
+
+variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+    - ./test/*.mmdb
+
+stages:
+  - lint
+  - setup
+  - test
+  - build
+  - deploy
+
+lint:
+  stage: lint
+  before_script:
+    - pip install flake8
+  script:
+    - flake8 --config=.flake8
+
+validate_result_example:
+  stage: lint
+  before_script:
+    - pip install -q jsonschema
+  script: 
+    - jsonschema -i result-example.json result-schema.json
+
+download_geoip:
+  image: ubuntu
+  stage: setup
+  variables:
+    GEOIP_ACCOUNTID: $GEOIP_ACCOUNTID
+    GEOIP_KEY: $GEOIP_KEY
+  script:
+    - apt-get -yqq update
+    - apt-get install -yqq geoipupdate
+    - echo "AccountID $GEOIP_ACCOUNTID" > /etc/GeoIP.conf
+    - echo "LicenseKey $GEOIP_KEY" >> /etc/GeoIP.conf
+    - echo "EditionIDs GeoLite2-ASN GeoLite2-Country" >> /etc/GeoIP.conf
+    - geoipupdate -d .
+    - mv *.mmdb ./test/
+  artifacts:
+    paths:
+      - ./test/*.mmdb
+
+test_odvr:
+  stage: test
+  dependencies:
+    - download_geoip
+  before_script:
+    - pip install -q -r requirements.txt
+    - pip install -q jsonschema
+  script: 
+    - export PYTHONPATH="$(pwd)"
+    - cd test
+    - mv config-odvr.yml config.yml
+    - python nic.cz.test.py > nic.cz.json
+    - jsonschema -i nic.cz.json ../result-schema.json
+  artifacts:
+    paths:
+      - ./test/nic.cz.json
+
+test_system_dns:
+  stage: test
+  dependencies:
+    - download_geoip
+  before_script:
+    - pip install -q -r requirements.txt
+    - pip install -q jsonschema
+  script: 
+    - export PYTHONPATH="$(pwd)"
+    - cd test
+    - mv config-nodns.yml config.yml
+    - python nic.cz.test.py > nic.cz-nodns.json
+    - jsonschema -i nic.cz-nodns.json ../result-schema.json
+  artifacts:
+    paths:
+      - ./test/nic.cz-nodns.json
+
+build:
+  stage: build
+  script:
+    - python setup.py sdist
+  artifacts:
+    paths:
+      - ./dist
+
+deploy_pypi:
+  stage: deploy
+  dependencies:
+    - build
+  variables:
+    TWINE_USERNAME: $PYPI_USERNAME
+    TWINE_PASSWORD: $PYPI_PASSWORD
+  before_script:
+    - pip install twine
+  script:
+    - twine upload dist/*
+  only:
+    - tags

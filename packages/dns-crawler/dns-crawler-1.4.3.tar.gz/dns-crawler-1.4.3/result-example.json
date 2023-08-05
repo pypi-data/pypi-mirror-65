@@ -1,0 +1,1660 @@
+{
+  "domain": "nic.cz",
+  "timestamp": "2020-04-06 10:16:24",
+  "results": {
+    "DNS_LOCAL": {
+      "NS_AUTH": [
+        { "value": "a.ns.nic.cz." },
+        { "value": "b.ns.nic.cz." },
+        { "value": "d.ns.nic.cz." }
+      ],
+      "MAIL": [
+        { "value": "10 mail.nic.cz." },
+        { "value": "20 mx.nic.cz." },
+        { "value": "25 mx2.nic.cz." },
+        { "value": "30 bh.nic.cz." }
+      ],
+      "WEB4": [
+        {
+          "value": "217.31.205.50",
+          "geoip": { "country": "CZ", "org": "CZ.NIC, z.s.p.o.", "asn": 25192 }
+        }
+      ],
+      "WEB4_www": [
+        {
+          "value": "217.31.205.50",
+          "geoip": { "country": "CZ", "org": "CZ.NIC, z.s.p.o.", "asn": 25192 }
+        }
+      ],
+      "WEB6": [
+        {
+          "value": "2001:1488:0:3::2",
+          "geoip": { "country": "CZ", "org": "CZ.NIC, z.s.p.o.", "asn": 25192 }
+        }
+      ],
+      "WEB6_www": [
+        {
+          "value": "2001:1488:0:3::2",
+          "geoip": { "country": "CZ", "org": "CZ.NIC, z.s.p.o.", "asn": 25192 }
+        }
+      ],
+      "WEB_TLSA": null,
+      "WEB_TLSA_www": [
+        {
+          "usage": 1,
+          "selector": 1,
+          "matchingtype": 1,
+          "data": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4"
+        }
+      ],
+      "TXT": [{ "value": "\"MS=92011E91562E6FD18FF9C5FA1F053F90DD5B1892\"" }],
+      "TXT_SPF": null,
+      "TXT_DMARC": null,
+      "SPF": null,
+      "DS": [
+        {
+          "value": "61281 13 2 4104d40c8fe2030bf7a09a199fcf37b36f7ec8ddd16f5a84f2e61c248d3afd0f",
+          "algorithm": "ECDSAP256SHA256"
+        }
+      ],
+      "DNSKEY": [
+        {
+          "value": "256 3 13 mQKHCl/tjUdoIMMXl65+jfpTLwUHNnHQ 144K7GdNdZjufiIfMEDq5uAcpf4zxQ5n xAtvFLYV4lKekyrNMupqvw==",
+          "algorithm": "ECDSAP256SHA256"
+        },
+        {
+          "value": "257 3 13 LM4zvjUgZi2XZKsYooDE0HFYGfWp242f KB+O8sLsuox8S6MJTowY8lBDjZD7JKbm aNot3+1H8zU9TrDzWmmHwQ==",
+          "algorithm": "ECDSAP256SHA256"
+        }
+      ],
+      "DNSSEC": {
+        "valid": true,
+        "rrsig": [
+          "nic.cz. 1223 IN RRSIG DNSKEY 13 2 1800 20200419102112 20200406061926 56099 nic.cz. VuwgaGeMiwhVOkKcDJfbbm6DCxhlDSmi xIZU8bg9fMP7UfBASAdgbd2wmMFCLRBU 6hNosrQP0fchLrBwE9zxiw==",
+          "nic.cz. 1223 IN RRSIG DNSKEY 13 2 1800 20200419113716 20200406061926 61281 nic.cz. xii1oQiZcRdMRiW+TElpj2W8pwTl14HL x+L47YtuRE/ENxqDHiD/9NGmj/Hn+5VR 4ue2g3AKqMd2kX6dCEhBMQ=="
+        ]
+      }
+    },
+    "DNS_AUTH": [
+      {
+        "ns": "a.ns.nic.cz.",
+        "ipv4": [
+          {
+            "ip": "194.0.12.1",
+            "geoip": {
+              "country": "CZ",
+              "org": "CZ.NIC, z.s.p.o.",
+              "asn": 25192
+            },
+            "hostnamebind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query hostname.bind. CH TXT: Server 194.0.12.1 UDP port 53 answered REFUSED"
+            },
+            "versionbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query version.bind. CH TXT: Server 194.0.12.1 UDP port 53 answered REFUSED"
+            },
+            "authorsbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query authors.bind. CH TXT: Server 194.0.12.1 UDP port 53 answered REFUSED"
+            },
+            "fortune": {
+              "value": null,
+              "error": "All nameservers failed to answer the query fortune. CH TXT: Server 194.0.12.1 UDP port 53 answered REFUSED"
+            }
+          }
+        ],
+        "ipv6": [
+          {
+            "ip": "2001:678:f::1",
+            "geoip": {
+              "country": "UA",
+              "org": "CZ.NIC, z.s.p.o.",
+              "asn": 25192
+            },
+            "hostnamebind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query hostname.bind. CH TXT: Server 2001:678:f::1 UDP port 53 answered REFUSED"
+            },
+            "versionbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query version.bind. CH TXT: Server 2001:678:f::1 UDP port 53 answered REFUSED"
+            },
+            "authorsbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query authors.bind. CH TXT: Server 2001:678:f::1 UDP port 53 answered REFUSED"
+            },
+            "fortune": {
+              "value": null,
+              "error": "All nameservers failed to answer the query fortune. CH TXT: Server 2001:678:f::1 UDP port 53 answered REFUSED"
+            }
+          }
+        ]
+      },
+      {
+        "ns": "b.ns.nic.cz.",
+        "ipv4": [
+          {
+            "ip": "194.0.13.1",
+            "geoip": {
+              "country": "CZ",
+              "org": "CZ.NIC, z.s.p.o.",
+              "asn": 25192
+            },
+            "hostnamebind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query hostname.bind. CH TXT: Server 194.0.13.1 UDP port 53 answered REFUSED"
+            },
+            "versionbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query version.bind. CH TXT: Server 194.0.13.1 UDP port 53 answered REFUSED"
+            },
+            "authorsbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query authors.bind. CH TXT: Server 194.0.13.1 UDP port 53 answered REFUSED"
+            },
+            "fortune": {
+              "value": null,
+              "error": "All nameservers failed to answer the query fortune. CH TXT: Server 194.0.13.1 UDP port 53 answered REFUSED"
+            }
+          }
+        ],
+        "ipv6": [
+          {
+            "ip": "2001:678:10::1",
+            "geoip": {
+              "country": "UA",
+              "org": "CZ.NIC, z.s.p.o.",
+              "asn": 25192
+            },
+            "hostnamebind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query hostname.bind. CH TXT: Server 2001:678:10::1 UDP port 53 answered REFUSED"
+            },
+            "versionbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query version.bind. CH TXT: Server 2001:678:10::1 UDP port 53 answered REFUSED"
+            },
+            "authorsbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query authors.bind. CH TXT: Server 2001:678:10::1 UDP port 53 answered REFUSED"
+            },
+            "fortune": {
+              "value": null,
+              "error": "All nameservers failed to answer the query fortune. CH TXT: Server 2001:678:10::1 UDP port 53 answered REFUSED"
+            }
+          }
+        ]
+      },
+      {
+        "ns": "d.ns.nic.cz.",
+        "ipv4": [
+          {
+            "ip": "193.29.206.1",
+            "geoip": {
+              "country": "CZ",
+              "org": "CZ.NIC, z.s.p.o.",
+              "asn": 25192
+            },
+            "hostnamebind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query hostname.bind. CH TXT: Server 193.29.206.1 UDP port 53 answered REFUSED"
+            },
+            "versionbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query version.bind. CH TXT: Server 193.29.206.1 UDP port 53 answered REFUSED"
+            },
+            "authorsbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query authors.bind. CH TXT: Server 193.29.206.1 UDP port 53 answered REFUSED"
+            },
+            "fortune": {
+              "value": null,
+              "error": "All nameservers failed to answer the query fortune. CH TXT: Server 193.29.206.1 UDP port 53 answered REFUSED"
+            }
+          }
+        ],
+        "ipv6": [
+          {
+            "ip": "2001:678:1::1",
+            "geoip": {
+              "country": "UA",
+              "org": "CZ.NIC, z.s.p.o.",
+              "asn": 25192
+            },
+            "hostnamebind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query hostname.bind. CH TXT: Server 2001:678:1::1 UDP port 53 answered REFUSED"
+            },
+            "versionbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query version.bind. CH TXT: Server 2001:678:1::1 UDP port 53 answered REFUSED"
+            },
+            "authorsbind": {
+              "value": null,
+              "error": "All nameservers failed to answer the query authors.bind. CH TXT: Server 2001:678:1::1 UDP port 53 answered REFUSED"
+            },
+            "fortune": {
+              "value": null,
+              "error": "All nameservers failed to answer the query fortune. CH TXT: Server 2001:678:1::1 UDP port 53 answered REFUSED"
+            }
+          }
+        ]
+      }
+    ],
+    "MAIL": [
+      {
+        "host": "mail.nic.cz.",
+        "TLSA": [
+          {
+            "usage": 3,
+            "selector": 1,
+            "matchingtype": 1,
+            "data": "4f9736249ab586f37fc110856f6a3358adadbf99db03628866466194f5bb2e09"
+          }
+        ],
+        "banner": "220 mail.nic.cz ESMTP"
+      },
+      {
+        "host": "mx.nic.cz.",
+        "TLSA": [
+          {
+            "usage": 3,
+            "selector": 1,
+            "matchingtype": 1,
+            "data": "a9205f0936373d80ad8d480f72b0b6ad9b182fbf71bc64d670b5b519bf47a523"
+          }
+        ],
+        "banner": "220 mx.nic.cz ESMTP"
+      },
+      { "host": "mx2.nic.cz.", "TLSA": null, "banner": "220 mx2.nic.cz ESMTP" },
+      {
+        "host": "bh.nic.cz.",
+        "TLSA": [
+          {
+            "usage": 3,
+            "selector": 1,
+            "matchingtype": 1,
+            "data": "4f9736249ab586f37fc110856f6a3358adadbf99db03628866466194f5bb2e09"
+          }
+        ],
+        "error": "timed out"
+      }
+    ],
+    "WEB": {
+      "WEB4_80": [
+        {
+          "ip": "217.31.205.50",
+          "steps": [
+            {
+              "url": "http://217.31.205.50/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:21 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://nic.cz/"
+              },
+              "ip": "217.31.205.50"
+            },
+            {
+              "url": "https://nic.cz/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:21 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://www.nic.cz/",
+                "strict-transport-security": {
+                  "raw": "max-age=31536000",
+                  "includeSubdomains": false,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            },
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:22 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "Oy0qd8fXqYQVgRWSMQZiuh2w1A3u1EKpTzPTnnqDY13f0eN4ErzcbXopfTaz4pp0",
+                    "secure": true,
+                    "expires": 1617617782,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 2
+        }
+      ],
+      "WEB4_80_www": [
+        {
+          "ip": "217.31.205.50",
+          "steps": [
+            {
+              "url": "http://217.31.205.50/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:22 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://www.nic.cz/"
+              },
+              "ip": "217.31.205.50"
+            },
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:22 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "eKcpnjXI7hI865fHbwkmXMNtrI3Go5nUawI9R2pwafYS3dEvBSLHoLPzx0FHLjgO",
+                    "secure": true,
+                    "expires": 1617617782,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 1
+        }
+      ],
+      "WEB4_443": [
+        {
+          "ip": "217.31.205.50",
+          "steps": [
+            {
+              "url": "https://nic.cz/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:22 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://www.nic.cz/",
+                "strict-transport-security": {
+                  "raw": "max-age=31536000",
+                  "includeSubdomains": false,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "ip": "217.31.205.50",
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            },
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:22 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "TRE5Cpy67twKdyJTtridb8juRhMkVfG92hMG8xdQCDMEcZAF522S4uEtbF9mJ8Il",
+                    "secure": true,
+                    "expires": 1617617782,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 1
+        }
+      ],
+      "WEB4_443_www": [
+        {
+          "ip": "217.31.205.50",
+          "steps": [
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:23 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "pDCOAwulN0eokTiejTevyjstWPP0QQokiqdextiG0MXxEHvKO7hqx9Gvp1DjJuQ3",
+                    "secure": true,
+                    "expires": 1617617783,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "ip": "217.31.205.50",
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 0
+        }
+      ],
+      "WEB6_80": [
+        {
+          "ip": "2001:1488:0:3::2",
+          "steps": [
+            {
+              "url": "http://[2001:1488:0:3::2]/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:23 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://nic.cz/"
+              },
+              "ip": "2001:1488:0:3::2"
+            },
+            {
+              "url": "https://nic.cz/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:23 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://www.nic.cz/",
+                "strict-transport-security": {
+                  "raw": "max-age=31536000",
+                  "includeSubdomains": false,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            },
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:23 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "OhjhYK67ImCWxxWGoPq2td7pQWWtE5uuj1E4qCF7qd3J1UAqCMnsIJ9zPZph58NS",
+                    "secure": true,
+                    "expires": 1617617783,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 2
+        }
+      ],
+      "WEB6_80_www": [
+        {
+          "ip": "2001:1488:0:3::2",
+          "steps": [
+            {
+              "url": "http://[2001:1488:0:3::2]/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:23 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://www.nic.cz/"
+              },
+              "ip": "2001:1488:0:3::2"
+            },
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:24 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "SI3Fljxn6oUITN1oRT6ND4TIMgTaEKlQOW0bhn1zyklIvoJydmeF0jBK4kcOfnHV",
+                    "secure": true,
+                    "expires": 1617617784,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 1
+        }
+      ],
+      "WEB6_443": [
+        {
+          "ip": "2001:1488:0:3::2",
+          "steps": [
+            {
+              "url": "https://nic.cz/",
+              "status": 301,
+              "is_redirect": true,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:24 GMT",
+                "content-type": "text/html",
+                "content-length": { "raw": "178", "value": 178 },
+                "connection": "keep-alive",
+                "location": "https://www.nic.cz/",
+                "strict-transport-security": {
+                  "raw": "max-age=31536000",
+                  "includeSubdomains": false,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "ip": "2001:1488:0:3::2",
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            },
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:24 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "iZMEdbpEgJUTMGVlYlU3bCZdOlu8lc02XU66R3Yh6AqnJADgD9ZUZeuOQOOzRPj4",
+                    "secure": true,
+                    "expires": 1617617784,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 1
+        }
+      ],
+      "WEB6_443_www": [
+        {
+          "ip": "2001:1488:0:3::2",
+          "steps": [
+            {
+              "url": "https://www.nic.cz/",
+              "status": 200,
+              "is_redirect": false,
+              "headers": {
+                "server": "nginx",
+                "date": "Mon, 06 Apr 2020 10:16:24 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "content-length": { "raw": "17948", "value": 17948 },
+                "connection": "keep-alive",
+                "content-language": "cs",
+                "vary": "Accept-Language, Cookie",
+                "x-xss-protection": "1; mode=block",
+                "x-frame-options": "SAMEORIGIN",
+                "x-content-type-options": "nosniff",
+                "set-cookie": [
+                  {
+                    "domain": "www.nic.cz",
+                    "name": "csrftoken",
+                    "value": "gTKwSWb7kfc1Zao23ynC8wEzEP1ESrqtyHMLXjwDl10oxVC4tCyOxSyRlASxpBix",
+                    "secure": true,
+                    "expires": 1617617784,
+                    "HttpOnly": null,
+                    "SameSite": "Lax"
+                  }
+                ],
+                "strict-transport-security": {
+                  "raw": "max-age=31536000; includeSubdomains",
+                  "includeSubdomains": true,
+                  "preload": false,
+                  "max-age": 31536000
+                },
+                "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/",
+                "x-content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' https://onlinechat2.nic.cz https://test-ipv6.nic.cz https://*.test-ipv6.nic.cz https://piwik.nic.cz/piwik.js https://platform.twitter.com https://cdn.syndication.twimg.com https://s.ytimg.com https://*.googleapis.com https://*.google.com https://connect.facebook.net https://*.mapy.cz; object-src 'self'; style-src 'self' 'unsafe-inline' https://platform.twitter.com https://*.nic.cz https://fonts.googleapis.com https://api.mapy.cz; img-src *; media-src *; frame-src *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.test-ipv6.nic.cz https://*.labs.nic.cz https://rdap.nic.cz https://www.rhybar.cz https://akademie.nic.cz https://piwik.nic.cz/piwik.php https://www.nic.cz/files/CORS/projects-bar/ https://mojeid.cz https://syndication.twitter.com; report-uri https://csp.nic.cz/report/"
+              },
+              "ip": "2001:1488:0:3::2",
+              "tls": {
+                "version": "TLSv1.2",
+                "cipher_bits": 128,
+                "cipher_name": "ECDHE-RSA-AES128-GCM-SHA256"
+              },
+              "cert": [
+                {
+                  "not_before": "2020-03-26 09:01:34",
+                  "not_after": "2020-06-24 09:01:34",
+                  "expired": false,
+                  "validity_period": 90,
+                  "subject": { "CN": "nic.cz" },
+                  "issuer": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "version": 3,
+                  "serial": "3d9c26cc69342a8cb4471536c50877d38b5",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "11f7fb0e17682d032c6cb2c3cfcb62aad4bc0f2de8a0f997f3e09c7d3a4668db",
+                      "sha512": "74b6675f60b96fbe0fbbdcfc3b492c828e0a2d2315560e4337157bbf631149f3439160ff7e59c09d2a474df303a6daddef1ae4458556e579e8857e11bd2911c1"
+                    },
+                    "pubkey": {
+                      "sha256": "a1c442880eb3fdf5ea9978c3821b806520d39735cfa9fdfb0fc7b5c27c679db4",
+                      "sha512": "f5fc5b02b5a4b2f48f8687edfdcb1c85bed333488060d94cea93236e1dfc5afd3ffd3bd299afaef2c08f4c170a0c3b0c8653d9fa825fd3edd91457f32360e6d8"
+                    }
+                  },
+                  "algorithm": "sha256",
+                  "alt_names": [
+                    "edice.nic.cz",
+                    "enum.nic.cz",
+                    "files.nic.cz",
+                    "kariera.nic.cz",
+                    "knihy.nic.cz",
+                    "nic.cz",
+                    "podpora.nic.cz",
+                    "pozvanka.nic.cz",
+                    "prace.nic.cz",
+                    "prihlasky.nic.cz",
+                    "www.enum.nic.cz",
+                    "www.nic.cz"
+                  ]
+                },
+                {
+                  "not_before": "2016-03-17 16:40:46",
+                  "not_after": "2021-03-17 16:40:46",
+                  "expired": false,
+                  "validity_period": 1826,
+                  "subject": {
+                    "C": "US",
+                    "O": "Let's Encrypt",
+                    "CN": "Let's Encrypt Authority X3"
+                  },
+                  "issuer": {
+                    "O": "Digital Signature Trust Co.",
+                    "CN": "DST Root CA X3"
+                  },
+                  "version": 3,
+                  "serial": "a0141420000015385736a0b85eca708",
+                  "fingerprint": {
+                    "cert": {
+                      "sha256": "25847d668eb4f04fdd40b12b6b0740c567da7d024308eb6c2c96fe41d9de218d",
+                      "sha512": "2e1e12dacb350e69317a7f37d769f46f16f437cf8d392319279c93515e5600baed3d3acd5dc83b673e8c60cf7fba0dce00a4d162a3b966a3ebf72487c376fca0"
+                    },
+                    "pubkey": {
+                      "sha256": "60b87575447dcba2a36b7d11ac09fb24a9db406fee12d2cc90180517616e8a18",
+                      "sha512": "774fad8c9a6afc2bdb44faba8390d213ae592fb0d56c5dfab152284e334d7cd6abd05799236e7aa6266edf81907c60404c57ee54c10a3a82fcc2a9146629b140"
+                    }
+                  },
+                  "algorithm": "sha256"
+                }
+              ]
+            }
+          ],
+          "final_status": 200,
+          "redirect_count": 0
+        }
+      ]
+    },
+    "HSTS": false
+  }
+}

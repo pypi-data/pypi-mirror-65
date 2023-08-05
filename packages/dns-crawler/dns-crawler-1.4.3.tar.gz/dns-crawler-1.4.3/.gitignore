@@ -1,0 +1,12 @@
+.venv
+__pycache__
+*.pyc
+.vscode
+*.mmdb
+GeoLite2*
+GeoIP2*
+*.egg-info
+.eggs
+/build
+/dist
+config.yml.bak
