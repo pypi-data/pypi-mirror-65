@@ -1,0 +1,7 @@
+urllib3<1.25
+assemblyline
+docker
+
+[test]
+fakeredis[lua]
+pytest
