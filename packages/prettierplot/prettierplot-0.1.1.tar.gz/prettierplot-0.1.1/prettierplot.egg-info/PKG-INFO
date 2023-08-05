@@ -1,0 +1,25 @@
+Metadata-Version: 1.2
+Name: prettierplot
+Version: 0.1.1
+Summary: Quickly create prettier plots
+Home-page: https://github.com/petersontylerd/prettierplot
+Maintainer: Tyler Peterson
+Maintainer-email: petersontylerd@gmail.com
+License: MIT
+Project-URL: bug tracker, https://github.com/petersontylerd/prettierplot/issues
+Project-URL: source code, https://github.com/petersontylerd/prettierplot
+Description: prettierplot is a Python library that makes it easy to create high-quality, polished data visualizations with minimal code.
+Keywords: machine learning,data science
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.1
