@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: clevr-parser
+Version: 0.0.1
+Summary: PGM factoring, object candidate proposal generator for CLEVR dataset
+Home-page: https://github.com/raeidsaqur/clevr-parser
+Author: Raeid Saqur
+Author-email: raeidsaqur@cs.toronto.edu
+License: UNKNOWN
+Download-URL: https://github.com/raeidsaqur/clevr-parser/archive/0.0.1.tar.gz
+Description: ## CLEVR PARSER
+        An object candidate proposal parser for the CLEVR dataset. Code currrently under review stage - soon to be released. 
+        
+        
+        ### Demo ### 
+        Download the data folder from: https://drive.google.com/drive/folders/1FdlfB-t18MDLAYZaH-KJel8olvRkdEbU?usp=sharing
+        
+        And place it in the top/root directory:
+        
+        clevr_parser
+        	|-data
+        
+        ### Install ###
+        
+        #### Prerequisites #### 
+        Select the backend to use:
+        
+        -*- Spacy -*-
+        
+        
+        -*- Stanford NLP -*-
+        
+        
+        
+Keywords: pytorch,CLEVR,language compositionality,geometric learning,graph neural networks
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
