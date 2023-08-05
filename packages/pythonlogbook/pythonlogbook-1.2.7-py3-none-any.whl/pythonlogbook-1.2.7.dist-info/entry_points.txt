@@ -1,0 +1,5 @@
+[console_scripts]
+combinelogs = pythonlogbook.combineLogs:main
+makelogmd = pythonlogbook.combineLogs:makeMd
+newlog = pythonlogbook.addentry:main
+
