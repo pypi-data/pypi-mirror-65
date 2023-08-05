@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: fa-common
+Version: 0.4.5
+Summary: FastAPI Common Framework
+Home-page: https://gitlab.com/csiro-geoanalytics/python-shared/fastapi-common-framework
+Maintainer: Samuel Bradley
+Maintainer-email: sam.bradley@csiro.au
+License: MIT
+Description: # FastAPI Common Framework
+        
+        [![PyPI version](https://badge.fury.io/py/fa-common.svg)](https://badge.fury.io/py/fa-common)
+        [![coverage report](https://gitlab.com/csiro-geoanalytics/python-shared/fastapi-common-framework/badges/master/coverage.svg)](https://gitlab.com/csiro-geoanalytics/python-shared/fastapi-common-framework/-/commits/master)
+        
+        ## Version: 0.4.5
+        
+        This is the common API framework used by the CSIRO geoanalytics software team. Not currently designed for use outside of the CSIRO geoanalytics team.
+        
+        Code and concepts borrow heavily from [FastAPI Contrib](https://pypi.org/project/fastapi-contrib/) I suggest you check them out if you are looking for a user friendly open source FastAPI Utility framework.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5, <4
+Description-Content-Type: text/markdown
+Provides-Extra: sentry
+Provides-Extra: mongo
+Provides-Extra: gcp
+Provides-Extra: minio
+Provides-Extra: windows
