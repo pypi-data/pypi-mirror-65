@@ -1,0 +1,74 @@
+Metadata-Version: 1.2
+Name: trytond-currency
+Version: 5.2.2
+Summary: Tryton module with currencies
+Home-page: http://www.tryton.org/
+Author: Tryton
+Author-email: bugs@tryton.org
+License: GPL-3
+Download-URL: http://downloads.tryton.org/5.2/
+Project-URL: Bug Tracker, https://bugs.tryton.org/
+Project-URL: Documentation, https://docs.tryton.org/
+Project-URL: Forum, https://www.tryton.org/forum
+Project-URL: Source Code, https://hg.tryton.org/modules/currency
+Description: Currency Module
+        ###############
+        
+        The currency module defines the concepts of currency and rate.
+        
+        
+        Currency
+        ********
+        
+        A currency is defined by a name, a symbol, a code, a list of rates, a
+        rounding factor and some formatting properties: the digits to be
+        displayed after the decimal separator, the way the numbers should be
+        grouped, the thousands separator, the decimal separator, the positive
+        and negative signs and their positions, the currency symbol position
+        and if it should be separated from the number by a space.
+        
+        
+        Rate
+        ****
+        
+        A rate is defined by a date and a numeric value. The date gives the
+        time from which this rate is correct. All rates are defined implicitly
+        with respect to the same currency (the one whose rate is 1).
+        
+Keywords: tryton currency
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Framework :: Tryton
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Manufacturing
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: Bulgarian
+Classifier: Natural Language :: Catalan
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Natural Language :: Czech
+Classifier: Natural Language :: Dutch
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Finnish
+Classifier: Natural Language :: French
+Classifier: Natural Language :: German
+Classifier: Natural Language :: Hungarian
+Classifier: Natural Language :: Italian
+Classifier: Natural Language :: Persian
+Classifier: Natural Language :: Polish
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Natural Language :: Russian
+Classifier: Natural Language :: Slovenian
+Classifier: Natural Language :: Spanish
+Classifier: Natural Language :: Turkish
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Office/Business
+Requires-Python: >=3.5
