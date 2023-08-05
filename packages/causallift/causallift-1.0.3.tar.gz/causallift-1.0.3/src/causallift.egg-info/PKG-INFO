@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: causallift
+Version: 1.0.3
+Summary: CausalLift: Python package for Uplift Modeling for A/B testing and observational data.
+Home-page: https://github.com/Minyus/causallift
+Author: Yusuke Minami
+Author-email: me@minyus.github.com
+License: BSD 2-Clause
+Description: UNKNOWN
+Keywords: uplift lift causal propensity ipw observational
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: optional
