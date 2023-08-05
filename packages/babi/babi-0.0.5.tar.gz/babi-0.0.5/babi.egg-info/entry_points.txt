@@ -1,0 +1,4 @@
+[console_scripts]
+babi = babi.main:main
+babi-textmate-demo = babi.textmate_demo:main
+
