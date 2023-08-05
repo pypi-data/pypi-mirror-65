@@ -1,0 +1,119 @@
+Metadata-Version: 2.1
+Name: bismuthcore
+Version: 0.0.9
+Summary: Core Bismuth libraries for stable nodes versions.
+Home-page: https://github.com/bismuthfoundation/bismuthcore
+Author: EggdraSyl Bismuth Foundation
+Author-email: dev@eggpool.net
+License: MIT license
+Keywords: bismuthcore
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: polysign (>=0.1.0)
+Requires-Dist: Tornado
+Requires-Dist: ConcurrentLogHandler
+
+============
+Bismuth Core
+============
+
+
+.. image:: https://img.shields.io/pypi/v/bismuthcore.svg
+        :target: https://pypi.python.org/pypi/bismuthcore
+
+.. image:: https://img.shields.io/travis/eggpool/bismuthcore.svg
+        :target: https://travis-ci.org/eggpool/bismuthcore
+
+.. image:: https://readthedocs.org/projects/bismuthcore/badge/?version=latest
+        :target: https://bismuthcore.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/eggpool/bismuthcore/shield.svg
+     :target: https://pyup.io/repos/github/eggpool/bismuthcore/
+     :alt: Updates
+
+
+
+Core Bismuth libraries for stable nodes versions.
+
+
+* Free software: MIT license
+* Documentation: https://bismuthcore.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.0.9 (2020-04-04)
+------------------
+
+* Add Block.to_blocks_dict()
+
+0.0.8 (2020-03-28)
+------------------
+
+* Include RpcConnection class
+
+
+0.0.7 (2020-03-13)
+------------------
+
+* Small tweaks and name normalization
+
+0.0.6 (2020-02-5)
+------------------
+
+* Handling of mirror blocks (no sig nor pubkey)
+* Default sanitization of tx data
+
+0.0.5 (2020-02-4)
+------------------
+
+* Add methods to "Block" class
+
+0.0.4 (2020-02-3)
+------------------
+
+* Renamed "sender" key to "address" in order to keep legacy naming
+
+0.0.3 (2020-02-2)
+------------------
+
+* Slight reorg, basis for node evolution.
+
+
+0.0.2 (2019-01-07)
+------------------
+
+* Reorg, many new code, still WIP
+
+
+0.0.1 (2019-01-03)
+------------------
+
+* First release on PyPI.
+  Some core code dup.
+
+
