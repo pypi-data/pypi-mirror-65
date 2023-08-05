@@ -1,0 +1,604 @@
+#!/usr/bin/env python
+
+"""
+This python script performs Discrete Digital Image Correlation using SPAM functions
+Copyright (C) 2020 SPAM Contributors
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+from __future__ import print_function
+import spam.helpers
+import spam.label as ltk
+import spam.DIC
+import spam.deformation
+import progressbar
+import sys
+import os
+import numpy
+import tifffile
+import argparse
+import scipy.ndimage
+if sys.version_info >= (3, 0):
+    import queue  # python3
+else:
+    import Queue as queue  # python2
+
+
+# Make sure prints come out straight away
+if sys.version_info >= (3, 0):
+    pass
+else:
+    sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
+
+# Define argument parser object
+parser = argparse.ArgumentParser(description="spam-ddic "+spam.helpers.optionsParser.GLPv3descriptionHeader +\
+                                             "This script performs Discrete Digital Image Correlation script between two 3D greyscale images"+\
+                                             " (reference and deformed configurations) and requires the input of a labelled image for the reference configuration"+\
+                                             "\nSee for more details: https://ttk.gricad-pages.univ-grenoble-alpes.fr/spam/tutorial-04-discreteDIC.html",
+                                 formatter_class=argparse.RawTextHelpFormatter)
+
+# Parse arguments with external helper function
+args = spam.helpers.optionsParser.ddicParser(parser)
+
+if args.MPI:
+    import mpi4py.MPI
+
+    mpiComm = mpi4py.MPI.COMM_WORLD
+    mpiSize = mpiComm.Get_size()
+    mpiRank = mpiComm.Get_rank()
+    mpiStatus = mpi4py.MPI.Status()
+    numberOfWorkers = mpiSize - 1
+
+    boss = mpiSize - 1
+
+    if mpiSize < 2:
+        mpi = False
+        if mpiRank == boss:
+            print("spam-ddic: I was launched with {} processes, need at least 2 for MPI, using single thread mode".format(mpiSize))
+        numberOfWorkers = 1
+        workersActive = numpy.array([0])
+    else:
+        mpi = True
+        if mpiRank == boss:
+            print("spam-ddic: I was launched with {} processes, using MPI parallelisation".format(mpiSize))
+
+        numberOfWorkers = mpiSize - 1
+        workersActive = numpy.zeros(numberOfWorkers)
+else:
+    mpi = False
+    mpiRank = None
+    boss = "Eddy"
+
+    numberOfWorkers = 1
+    workersActive = numpy.array([0])
+
+# The "else" for this "if" is a poor worker in the end of the script...
+if mpiRank == boss or not mpi:
+    print("spam-ddic: Current Settings:")
+    argsDict = vars(args)
+    for key in sorted(argsDict):
+        print("\t{}: {}".format(key, argsDict[key]))
+
+    print("\nspam-ddic: Loading Data...", end='')
+    im1  = tifffile.imread(args.im1.name).astype('<f4')
+    lab1 = tifffile.imread(args.lab1.name).astype(ltk.labelType)
+    im2  = tifffile.imread(args.im2.name).astype('<f4')
+    print("done."),
+
+    # Detect unpadded 2D image first:
+    if len(im1.shape)  == 2: im1  = im1[ numpy.newaxis, ...]
+    if len(lab1.shape) == 2: lab1 = lab1[numpy.newaxis, ...]
+    if len(im2.shape)  == 2: im2  = im2[ numpy.newaxis, ...]
+
+    if (im1.shape != lab1.shape):
+        print("#############################################################")
+        print("#           im1 and lab1 have different shapes!!!           #")
+        print("#############################################################")
+
+    ###############################################################
+    # Analyse labelled volume in state 01 in order to get bounding
+    # boxes and centres of mass for correlation
+    ###############################################################
+    numberOfLabels = (lab1.max() + 1).astype('u4')
+
+    print("spam-ddic: Number of labels = {}\n".format(numberOfLabels))
+
+    print("spam-ddic: Calculating Bounding Boxes and Centres of Mass of all labels.")
+    boundingBoxes = ltk.boundingBoxes(lab1)
+    centresOfMass = ltk.centresOfMass(lab1, boundingBoxes=boundingBoxes)
+    print("\n")
+
+    ###############################################################
+    # Set up kinematics array
+    ###############################################################
+    outputMatrix = numpy.zeros((numberOfLabels, 19))
+
+    PhiField         = numpy.zeros((numberOfLabels, 4, 4), dtype='<f4')
+    PSCC             = numpy.zeros((numberOfLabels),       dtype='<f4')
+    error          = numpy.zeros((numberOfLabels),       dtype='<i2')
+    iterations     = numpy.zeros((numberOfLabels),       dtype='<u2')
+    returnStatus   = numpy.zeros((numberOfLabels),       dtype='<i2')
+    deltaPhiNorm   = numpy.zeros((numberOfLabels),       dtype='<f4')
+    labelDilateList  = numpy.zeros((numberOfLabels),       dtype='<u2')
+
+    # Initialise field of Fs with the identity matrix
+    for label in range(numberOfLabels):
+        PhiField[label] = numpy.eye(4)
+    # define empty rigid displacements for registration:
+    if args.REGSUB: rigidDisp = numpy.zeros((numberOfLabels, 3))
+
+    # Fill in search range for pixel-search as a dictionary
+    searchRange = {'xRange': [args.PSR[4], args.PSR[5]],
+                   'yRange': [args.PSR[2], args.PSR[3]],
+                   'zRange': [args.PSR[0], args.PSR[1]]}
+
+    ##################################################################
+    # Rough estimates of displacement:
+    # Option 1: Do a registration (single-image correlation)
+    # Option 2a: Load a previous registration
+    # Option 2b: Load a displacement field
+    # Option 3: Perform a displacement-only pixel search
+    ##################################################################
+
+    # Option 1 -- attempt registration
+    #####################################
+    registrationSuccessful = False
+    if args.REG:
+        print("spam-ddic: Starting registration")
+        if args.REG_BIN == 1:
+            im1Reg = im1
+            im2Reg = im2
+        else:
+            im1Reg = spam.DIC.binning(im1, args.REG_BIN)
+            im2Reg = spam.DIC.binning(im2, args.REG_BIN)
+
+        regReturns = spam.DIC.correlate.register(im1Reg, im2Reg,
+                                                    margin=int(args.REG_MARGIN * min(im1Reg.shape)),
+                                                    interpolationOrder=1,
+                                                    maxIterations=500,
+                                                    deltaPhiMin=0.0001,
+                                                    verbose=True,
+                                                    imShowProgress=None)
+
+        if regReturns['returnStatus'] != 2:
+            print("spam-ddic: Registration did not converge, try increasing the registration margin?")
+        else:
+            print("spam-ddic: Registration converged beautifully...")
+            registrationSuccessful = True
+
+            print("\tTranslations (px)")
+            print("\t\t", spam.deformation.decomposePhi(regReturns['Phi'])['t'])
+            print("\tRotations (deg)")
+            print("\t\t", spam.deformation.decomposePhi(regReturns['Phi'])['r'])
+
+            regPhi = regReturns['Phi']
+            regCentre = (numpy.array(im1Reg.shape) - 1) / 2.0
+
+            # Not right in 100% of cases, but disactivate pixelSearch if the registration has converged
+            # args.PS = False
+            # Also disactive loading further guesses.
+            args.PHIFILE = None
+
+            # if args.TSV:
+            spam.helpers.tsvio.writeRegistrationTSV(args.OUT_DIR + "/" + args.PREFIX + "-bin{:d}".format(args.REG_BIN) + "-registration.tsv", regCentre, regReturns)
+
+            # HACK: overwrite variables regPhi, regCentre with binning 1 versions
+            if args.REG_BIN != 1:
+                regPhi[0:3, 3] *= float(args.REG_BIN)
+                regCentre *= float(args.REG_BIN)
+
+        # tidy up after registration:
+        del im1Reg, im2Reg
+
+    # Option 2 - load previous DVC
+    #################################
+    if args.PHIFILE is not None:
+        PhiFromFile = spam.helpers.tsvio.readCorrelationTSV(args.PHIFILE.name, fieldBinRatio=args.PHIFILE_BIN_RATIO)
+
+        # We read an F file, also prevent pixel search
+        # args.PS = False
+
+        # If the read F-file has only one line -- it's a single point registration!
+        if PhiFromFile['fieldCoords'].shape[0] == 1:
+            regPhi = PhiFromFile['PhiField'][0]
+            regCentre = PhiFromFile['fieldCoords'][0]
+            registrationSuccessful = True
+            print("\tI read a registration from a file in binning {} at centre {} at this scale".format(args.PHIFILE_BIN_RATIO, regCentre))
+            print("\tTranslations (px)")
+            print("\t\t", spam.deformation.decomposePhi(regPhi)['t'])
+            print("\tRotations (deg)")
+            print("\t\t", spam.deformation.decomposePhi(regPhi)['r'])
+
+        # If the read F-file contains multiple lines it's an F field!
+        else:
+            # Disactivate the application of registration
+            registrationSuccessful = False
+
+            # Replace F components of the current grid to zeros
+            # 2019-09-11 EA: I doubt this is such a wonderful idea...
+            for label in range(centresOfMass.shape[0]):
+                PhiField[label][:-1] = numpy.zeros((3, 4))
+
+            # Read the coordinates and values of the input F field
+            fieldCoords = PhiFromFile["fieldCoords"]
+
+            if args.PHIFILE_DIRECT:
+                print("spam-ddic: Assuming phi-file grain numbering is coherent with the current labelled image.")
+                PhiField = PhiFromFile["PhiField"]
+
+            else:
+                # Check if the correction of the input field is asked
+                if args.CF:
+                    fieldValues = spam.deformation.correctPhiField(fileName=args.PHIFILE.name,
+                                                                   fieldBinRatio=args.PHIFILE_BIN_RATIO,
+                                                                   correctBadPoints=True, nNeighbours=args.NEIGHBOURS)
+                else:
+                    fieldValues = PhiFromFile["PhiField"]
+
+                # KD-tree needs no-nans
+                goodPoints = numpy.where(numpy.isfinite(fieldValues[:,0,-1]))
+
+                # Create the k-d tree of the coordinates of the input F field
+                from scipy.spatial import KDTree
+                nNeighbours = args.NEIGHBOURS
+
+                fieldTree = KDTree(fieldCoords[goodPoints])
+
+                # Loop over each point of the current grid
+                for label in range(numberOfLabels):
+                    # Calculate the distance of the point of the current grid to the points of the input F field
+                    distance, indices = fieldTree.query(centresOfMass[label], k=nNeighbours)
+                    print(label, distance, indices)
+
+                    # Check if we've hit the same point in the two grids
+                    if numpy.any(distance == 0):
+                        # Copy F of that point to the F in the current grid point
+                        PhiField[label] = fieldValues[goodPoints][indices][numpy.where(distance == 0)].copy()
+
+                    # If not, consider the closest neighbours
+                    else:
+                        # Compute the "Inverse Distance Weighting" since the closest points should have the major influence
+                        weightSumInv = sum(1 / distance)
+
+                        # Loop over each neighbour
+                        for neighbour in range(nNeighbours):
+                            if numpy.isfinite(distance[neighbour]):
+                                # Calculate its weight
+                                weightInv = (1 / distance[neighbour]) / float(weightSumInv)
+
+                                # Fill the F of the current grid point with the weighted F components of the ith nearest neighbour in the input F field
+                                PhiField[label][:-1] += fieldValues[goodPoints][indices[neighbour]][:-1] * weightInv
+                    print(PhiField[label])
+
+
+    # Apply registration (just done or loaded) to mesh
+    if registrationSuccessful:
+        # We have a registration to apply to all points.
+        # This is done in 2 steps:
+        #   1. by copying the registration's little F to the Fs of all points
+        #   2. by calling the FtoTranformation function to compute the translation of each point
+        for label in range(numberOfLabels):
+            PhiField[label] = regPhi.copy()
+            PhiField[label][0:3, -1] = spam.deformation.decomposePhi(regPhi.copy(),
+                                                                     PhiCentre=regCentre,
+                                                                     PhiPoint=centresOfMass[label])["t"]
+
+        # Now recompute F to be only rigid, and calculate rigid-body translations for each point
+        if args.REGSUB:
+            regPhiComponents = spam.deformation.decomposePhi(regPhi.copy())
+            regPhirigid = spam.deformation.computePhi( {'t': regPhiComponents['t'],
+                                                        'r': regPhiComponents['r']} )
+            for label in range(numberOfLabels):
+                rigidDisp[label] = spam.deformation.decomposePhi(regPhirigid.copy(),
+                                                                 PhiCentre=regCentre,
+                                                                 PhiPoint=centresOfMass[label])["t"]
+
+    # Add labels to a queue -- mostly useful for MPI
+    q = queue.Queue()
+    for label in range(1, numberOfLabels):
+        q.put((label, args.LABEL_DILATE))
+
+    finishedLabels = 0
+
+    writeReturns = False
+
+    print("spam-ddic: Starting label correlation")
+    widgets = [progressbar.FormatLabel(''), ' ', progressbar.Bar(), ' ', progressbar.AdaptiveETA()]
+    pbar = progressbar.ProgressBar(widgets=widgets, maxval=numberOfLabels-1)
+    pbar.start()
+
+    while finishedLabels != numberOfLabels-1:
+        # If there are workers not working, satisfy their requests...
+        #   Note: this condition is always true if we are not in MPI and there are jobs to do
+        if workersActive.sum() < numberOfWorkers and not q.empty():
+            worker = numpy.where(numpy.logical_not(workersActive))[0][0]
+            # Get the next label off the queue
+            label, labelDilateCurrent = q.get()
+
+            grainOK = False
+            getLabel = ltk.getLabel(lab1, label,
+                                    extractCube=False,
+                                    boundingBoxes=boundingBoxes,
+                                    centresOfMass=centresOfMass,
+                                    margin=labelDilateCurrent + args.GRID_POINT_MARGIN,
+                                    maskOtherLabels=args.MASK,
+                                    labelDilate=labelDilateCurrent)
+
+            # In case the label is missing...
+            if getLabel is None:
+                finishedLabels += 1
+                returnStatus[label] = -7
+                grainOK = True
+
+            else:
+                # Maskette 1 is either a boolean array if args.MASK
+                #   otherwise it contains ints i.e., labels
+                if args.MASK:
+                    maskette1 = getLabel['subvol']
+                else:
+                    maskette1 = None
+                slicette1 = getLabel['slice']
+                imagette1 = im1[slicette1].copy()
+
+                if numpy.sum(maskette1) > args.VOLUME_THRESHOLD:
+                    if args.PS == 'on' or (not registrationSuccessful and args.PS == 'auto'):
+                        labelDisplacementInt = numpy.round(PhiField[label][0:3, -1])
+
+                        # Add initial displacement guess to search range
+                        searchRangeForThisLabel = {'zRange': [searchRange['zRange'][0] + labelDisplacementInt[0], searchRange['zRange'][1] + labelDisplacementInt[0]],
+                                                   'yRange': [searchRange['yRange'][0] + labelDisplacementInt[1], searchRange['yRange'][1] + labelDisplacementInt[1]],
+                                                   'xRange': [searchRange['xRange'][0] + labelDisplacementInt[2], searchRange['xRange'][1] + labelDisplacementInt[2]]}
+
+                        # Slice for image 2
+                        subVolSlice2 = (slice(int(boundingBoxes[label][0] - max(labelDilateCurrent, 0) + searchRangeForThisLabel['zRange'][0]),
+                                              int(boundingBoxes[label][1] + max(labelDilateCurrent, 0) + searchRangeForThisLabel['zRange'][1] + 1)),
+                                        slice(int(boundingBoxes[label][2] - max(labelDilateCurrent, 0) + searchRangeForThisLabel['yRange'][0]),
+                                              int(boundingBoxes[label][3] + max(labelDilateCurrent, 0) + searchRangeForThisLabel['yRange'][1] + 1)),
+                                        slice(int(boundingBoxes[label][4] - max(labelDilateCurrent, 0) + searchRangeForThisLabel['xRange'][0]),
+                                              int(boundingBoxes[label][5] + max(labelDilateCurrent, 0) + searchRangeForThisLabel['xRange'][1] + 1)))
+
+                        # Extract it...
+                        imagette2 = im2[subVolSlice2]
+
+                        # point in im2 that we are searching around
+                        searchCentre = (numpy.array(imagette2.shape, dtype='<f4') - 1) / 2.0 - labelDisplacementInt
+
+                        pixelSearchReturns = spam.DIC.correlate.pixelSearch(imagette1, imagette2,
+                                                                            searchRange=searchRangeForThisLabel,
+                                                                            searchCentre=searchCentre)
+
+                        # 2020-01-21 EA: Add displacements back in
+                        PhiField[label, 0:3, 3] = pixelSearchReturns['transformation']['t'] + labelDisplacementInt
+                        PSCC[label] = pixelSearchReturns['cc']
+
+                    if args.GRID_POINT:
+                        labelDisplacementInt = numpy.round(PhiField[label][0:3, -1])
+
+                        slicette2 = (slice(int(boundingBoxes[label][0] - args.GRID_POINT_MARGIN - max(labelDilateCurrent, 0) + labelDisplacementInt[0]), int(boundingBoxes[label][1] + args.GRID_POINT_MARGIN + max(labelDilateCurrent, 0) + labelDisplacementInt[0] + 1)),
+                                     slice(int(boundingBoxes[label][2] - args.GRID_POINT_MARGIN - max(labelDilateCurrent, 0) + labelDisplacementInt[1]), int(boundingBoxes[label][3] + args.GRID_POINT_MARGIN + max(labelDilateCurrent, 0) + labelDisplacementInt[1] + 1)),
+                                     slice(int(boundingBoxes[label][4] - args.GRID_POINT_MARGIN - max(labelDilateCurrent, 0) + labelDisplacementInt[2]), int(boundingBoxes[label][5] + args.GRID_POINT_MARGIN + max(labelDilateCurrent, 0) + labelDisplacementInt[2] + 1)))
+
+                        # Get imagettes size difference
+                        imagette2imagette1sizeDiff = numpy.array(im2[slicette2].shape) - numpy.array(imagette1.shape)
+
+                        # Catch register DimProblem
+                        if not (imagette2imagette1sizeDiff < 0).any():
+
+                            # Remove int() part of displacement since it's already used to extract imagette2
+                            PhiTemp = PhiField[label].copy()
+                            PhiTemp[0:3, -1] -= labelDisplacementInt
+                            #PhiTemp[0:3,0:3] = numpy.linalg.inv(PhiField[label][0:3,0:3])
+
+                            if not mpi:
+                                returns = spam.DIC.correlate.register(imagette1,
+                                                                      im2[slicette2],
+                                                                      im1mask=maskette1,
+                                                                      margin=1,
+                                                                      PhiInit=PhiTemp,
+                                                                      maxIterations=args.GRID_POINT_MAX_ITERATIONS,
+                                                                      deltaPhiMin=args.GRID_POINT_MIN_PHI_CHANGE,
+                                                                      interpolationOrder=args.GRID_POINT_INTERPOLATION_ORDER,
+                                                                      verbose=False,
+                                                                      imShowProgress=None)
+                                writeReturns = True
+
+                            elif mpi:
+                                # build message for lukasKanade worker
+                                m = {'label': label,
+                                    'im1': imagette1,
+                                    'im2': im2[slicette2],
+                                    'im1mask': maskette1,
+                                    'PhiInit': PhiTemp,
+                                    'margin': 1,  # see top of this file for compensation
+                                    'maxIterations': args.GRID_POINT_MAX_ITERATIONS,
+                                    'deltaPhiMin': args.GRID_POINT_MIN_PHI_CHANGE,
+                                    'interpolationOrder': args.GRID_POINT_INTERPOLATION_ORDER,
+                                    'labelDisplacementInt': labelDisplacementInt,
+                                    'writeReturns': writeReturns,
+                                    'labelDilate': labelDilateCurrent
+                                    }
+
+                                # print("\t\tBoss: sending label {} to worker {}".format(label, worker))
+                                mpiComm.send(m, dest=worker, tag=1)
+
+                                # Mark this worker as working
+                                workersActive[worker] = True
+                        else:  # Regardless of MPI or single proc failed imDiff condition
+                            finishedLabels += 1
+                            returnStatus[label] = -5
+                            print("\t\tBoss: Fail imDiff", imagette2imagette1sizeDiff)
+                            grainOK = True
+
+                    else: # No args.GRID_POINT
+                        finishedLabels += 1
+                        grainOK = True
+
+                else:  # Regardless of MPI or single proc failed the volume condition
+                    finishedLabels += 1
+                    returnStatus[label] = -5
+                    grainOK = True
+                    # print("\tBoss: Fail maskVol")
+
+        # Otherwise spend time waiting for replies from workers
+        elif mpi:
+            message = mpiComm.recv(source=mpi4py.MPI.ANY_SOURCE, tag=2, status=mpiStatus)
+            tag = mpiStatus.Get_tag()
+            if tag == 2:
+                worker               = message[0]
+                label                = message[1]
+                returns              = message[2]
+                labelDisplacementInt = message[3]
+                labelDilateCurrent   = message[4]
+                # print "\tBoss: received label {} from worker {}".format( labelNumber, worker )
+                workersActive[worker] = False
+                writeReturns = True
+            else:
+                print("spam-ddic (Boss): Don't recognise tag ", tag)
+
+        # If we have new DVC returns (either from single proc or from an MPI worker), save them in our output matrices
+        if writeReturns:
+            # Before announcing that it is finished, check that it has not diverged.
+            # If it has diverged, check if we can increase labelDilate
+            if returns['returnStatus'] < 2 and labelDilateCurrent < args.LABEL_DILATE_MAX:
+                #print("\nspam-ddic label=", label,"RS=", returns['returnStatus'], "labelDilateCurrent", labelDilateCurrent, "arg.LABEL_DILATE_MAX", args.LABEL_DILATE_MAX)
+                #print("rescheduling with larger labelDilate")
+                q.put((label, labelDilateCurrent+1))
+
+            else:
+                finishedLabels += 1
+                writeReturns = False
+                # Overwrite transformation operator for this label
+                PhiField[label] = returns['Phi']
+                # Add back in the translation from the initial guess
+                PhiField[label, 0:3, 3] += labelDisplacementInt
+                # print("\nInside writeReturns  PhiField[label, 0:3, 3]:{}".format(PhiField[label, 0:3, 3]))
+
+                error[label]        = returns['error']
+                iterations[label]   = returns['iterations']
+                returnStatus[label] = returns['returnStatus']
+                deltaPhiNorm[label] = returns['deltaPhiNorm']
+                labelDilateList[label]      = labelDilateCurrent
+                # print("error={:05.0f}\titerations={:02d}\treturnStat={:+1d}".format(returns['error'], returns['iterationNumber'], returns['returnStatus']), end='')
+                # print("\r\tCorrelating label {:04d} of {:04d}\t".format(label, numberOfLabels), end='')
+                widgets[0] = progressbar.FormatLabel("  it={:0>3d}  dPhiNorm={:0>6.4f}  rs={:+1d} ".format(returns['iterations'], returns['deltaPhiNorm'], returns['returnStatus']))
+                pbar.update(finishedLabels)
+            writeReturns = False
+
+    pbar.finish()
+    print()
+
+    # Redundant output for VTK visualisation
+    magDisp = numpy.zeros(numberOfLabels)
+    for label in range(numberOfLabels):
+        magDisp[label] = numpy.linalg.norm(PhiField[label][0:3,-1])
+
+    # Finished! Get ready for output.
+    if args.REGSUB:
+        print("\n\tFinished correlations. Subtracting rigid-body motion from displacements of each particle")
+        PhiFieldMinusRigid = PhiField.copy()
+        magDispRegsub = numpy.zeros(numberOfLabels)
+        for label in range(numberOfLabels):
+            PhiFieldMinusRigid[label][0:3,-1] -= rigidDisp[label]
+            magDispRegsub[label] = numpy.linalg.norm(PhiFieldMinusRigid[label][0:3,-1])
+
+    outMatrix = numpy.array([numpy.array(range(numberOfLabels)),
+                             centresOfMass[:, 0], centresOfMass[:, 1], centresOfMass[:, 2],
+                             PhiField[:, 0, 3], PhiField[:, 1, 3], PhiField[:, 2, 3],
+                             PhiField[:, 0, 0], PhiField[:, 0, 1], PhiField[:, 0, 2],
+                             PhiField[:, 1, 0], PhiField[:, 1, 1], PhiField[:, 1, 2],
+                             PhiField[:, 2, 0], PhiField[:, 2, 1], PhiField[:, 2, 2],
+                             PSCC,
+                             error, iterations, returnStatus, deltaPhiNorm,
+                             labelDilateList]).T
+
+    numpy.savetxt(args.OUT_DIR + "/" + args.PREFIX + "-discreteDVC.tsv",
+                  outMatrix,
+                  fmt='%.7f',
+                  delimiter='\t',
+                  newline='\n',
+                  comments='',
+                  header="Label\tZpos\tYpos\tXpos\t" +
+                  "Zdisp\tYdisp\tXdisp\t" +
+                  "Fzz\tFzy\tFzx\t" +
+                  "Fyz\tFyy\tFyx\t" +
+                  "Fxz\tFxy\tFxx\t" +
+                  "PSCC\terror\titerations\treturnStatus\tdeltaPhiNorm\tLabelDilate")
+
+    VTKglyphDict = {'displacements': PhiField[:, 0:3, -1],
+                    'mag(displacements)': magDisp,
+                    'RS': returnStatus}
+
+    # if regsub add a line to VTK output and also save separate TSV file
+    if args.REGSUB:
+            VTKglyphDict['displacements-regsub'] = PhiFieldMinusRigid[:, 0:3, -1]
+            VTKglyphDict['mag(displacements-regsub)'] = magDispRegsub
+
+            outMatrix = numpy.array([numpy.array(range(numberOfLabels)),
+                                     centresOfMass[:, 0], centresOfMass[:, 1], centresOfMass[:, 2],
+                                     PhiFieldMinusRigid[:, 0, 3], PhiFieldMinusRigid[:, 1, 3], PhiFieldMinusRigid[:, 2, 3],
+                                     PhiFieldMinusRigid[:, 0, 0], PhiFieldMinusRigid[:, 0, 1], PhiFieldMinusRigid[:, 0, 2],
+                                     PhiFieldMinusRigid[:, 1, 0], PhiFieldMinusRigid[:, 1, 1], PhiFieldMinusRigid[:, 1, 2],
+                                     PhiFieldMinusRigid[:, 2, 0], PhiFieldMinusRigid[:, 2, 1], PhiFieldMinusRigid[:, 2, 2],
+                                     PSCC,
+                                     error, iterations, returnStatus, deltaPhiNorm,
+                                     labelDilateList]).T
+
+            numpy.savetxt(args.OUT_DIR + "/" + args.PREFIX + "-discreteDVC-regsub.tsv",
+                          outMatrix,
+                          fmt='%.7f',
+                          delimiter='\t',
+                          newline='\n',
+                          comments='',
+                          header="Label\tZpos\tYpos\tXpos\t" +
+                          "Zdisp\tYdisp\tXdisp\t" +
+                          "Fzz\tFzy\tFzx\t" +
+                          "Fyz\tFyy\tFyx\t" +
+                          "Fxz\tFxy\tFxx\t" +
+                          "PSCC\terror\titerations\treturnStatus\tdeltaPhiNorm\tLabelDilate")
+
+    spam.helpers.writeGlyphsVTK(centresOfMass, VTKglyphDict, fileName=args.OUT_DIR + "/" + args.PREFIX + "-discreteDVC.vtk")
+
+    # tidy up, send message type -1 to all workers
+    if mpi:
+        for worker in range(numberOfWorkers):
+            mpiComm.send(None, dest=worker, tag=3)
+
+    print("\n")
+
+elif mpi:  # We are not the mpi boss, so we are a lukasKanade worker
+    while True:
+        m = mpiComm.recv(source=boss, tag=mpi4py.MPI.ANY_TAG, status=mpiStatus)
+        tag = mpiStatus.Get_tag()
+        # We've recieved a label to process
+        if tag == 1:
+            returns = spam.DIC.correlate.register(m['im1'],
+                                                     m['im2'],
+                                                     im1mask=m['im1mask'],
+                                                     PhiInit=m['PhiInit'],
+                                                     margin=m['margin'],
+                                                     maxIterations=m['maxIterations'],
+                                                     deltaPhiMin=m['deltaPhiMin'],
+                                                     interpolationOrder=m['interpolationOrder']
+                                                     )
+            # print("\t\t\tI am worker {} Sending result for label {}".format( mpiRank, m['label'] ))
+            mpiComm.send([mpiRank, m['label'], returns, m['labelDisplacementInt'], m['labelDilate']], dest=boss, tag=2)
+
+        elif tag == 3:
+            # print("\t\tWorker {}: Quitting, bye!".format(mpiRank))
+            exit()
+
+        else:
+            print("spam-ddic (Worker {}): Don't recognise tag {}".format(mpiRank, tag))
+            # print("\t\tMessage:", message)
