@@ -1,0 +1,58 @@
+Metadata-Version: 1.2
+Name: trytond-sale-stock-quantity
+Version: 5.2.1
+Summary: Tryton module to add stock warning on sale
+Home-page: http://www.tryton.org/
+Author: Tryton
+Author-email: bugs@tryton.org
+License: GPL-3
+Download-URL: http://downloads.tryton.org/5.2/
+Project-URL: Bug Tracker, https://bugs.tryton.org/
+Project-URL: Documentation, https://docs.tryton.org/
+Project-URL: Forum, https://www.tryton.org/forum
+Project-URL: Source Code, https://hg.tryton.org/modules/sale_stock_quantity
+Description: Sale Stock Quantity
+        ###################
+        
+        The sale_stock_quantity module check the stock quantity of the products when
+        quoting a sale. The check will warn the user if the forecast quantity at the
+        sale date (and further dates until next supply) is lower than the quantity sold
+        by considering other sales and the stock forecasts.
+        
+Keywords: tryton sale stock
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Framework :: Tryton
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Legal Industry
+Classifier: Intended Audience :: Manufacturing
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: Bulgarian
+Classifier: Natural Language :: Catalan
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Natural Language :: Czech
+Classifier: Natural Language :: Dutch
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Finnish
+Classifier: Natural Language :: French
+Classifier: Natural Language :: German
+Classifier: Natural Language :: Hungarian
+Classifier: Natural Language :: Italian
+Classifier: Natural Language :: Persian
+Classifier: Natural Language :: Polish
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Natural Language :: Russian
+Classifier: Natural Language :: Slovenian
+Classifier: Natural Language :: Spanish
+Classifier: Natural Language :: Turkish
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Office/Business
+Requires-Python: >=3.5
