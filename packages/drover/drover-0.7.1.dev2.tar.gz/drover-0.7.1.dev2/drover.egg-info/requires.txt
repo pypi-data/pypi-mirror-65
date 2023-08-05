@@ -1,0 +1,8 @@
+boto3>=1.12
+botocore>=1.15
+pydantic>=1.4
+pyyaml>=5.3
+tqdm>=4.44
+
+[:python_version < "3.7"]
+dataclasses
