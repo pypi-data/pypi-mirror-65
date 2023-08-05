@@ -1,0 +1,10 @@
+--- server/requirements.txt
++++ server/requirements.txt
+@@ -23,6 +23,5 @@ jinja2
+ defusedxml
+ productmd
+ pygobject
+-koji
+-pyldap
+-celery+python-ldap
++celery
