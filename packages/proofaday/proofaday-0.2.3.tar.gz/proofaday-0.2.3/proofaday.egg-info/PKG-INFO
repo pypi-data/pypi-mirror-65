@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: proofaday
+Version: 0.2.3
+Summary: Print random proofs from ProofWiki
+Home-page: https://github.com/whonore/proofaday
+Author: Wolf Honoré
+Author-email: wolfhonore@gmail.com
+License: MIT
+Description: # proofaday
+        Print random proofs from ProofWiki
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
