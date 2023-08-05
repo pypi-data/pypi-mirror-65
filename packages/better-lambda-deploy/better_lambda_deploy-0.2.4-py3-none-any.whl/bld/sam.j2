@@ -1,0 +1,133 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: {{ description }}
+Parameters:
+  ENVIRONMENT:
+    Type: String
+    Default: test
+  {% for variable in environment_variables %}
+  {{ variable.alpha_name }}:
+    Type: {{ variable.type }}
+  {% endfor %}
+Resources:
+  {% for table in dynamo_tables %}
+  {{ table.name }}:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName:
+        Fn::Join:
+          - "-"
+          - - {{ table.name }}
+            - Ref: ENVIRONMENT
+      AttributeDefinitions:
+        - AttributeName: {{ table.primary_key }}
+          AttributeType: S
+      KeySchema:
+        - AttributeName: {{ table.primary_key }}
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      SSESpecification:
+        SSEEnabled: True
+  {% endfor %}
+  CustomerManagedPolicy:
+      Type: AWS::IAM::ManagedPolicy
+      Properties:
+        PolicyDocument:
+          Version: 2012-10-17
+          Statement:
+            - Sid: DynamoDB
+              Action:
+                - 'dynamodb:*'
+              Effect: Allow
+              Resource:
+                - "*"
+  RestApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name:
+        Fn::Join:
+          - ""
+          - - {{ subdomain }}
+            - "-"
+            - Ref: ENVIRONMENT
+      StageName: Prod
+      Auth:
+        DefaultAuthorizer: CognitoAuthorizer
+        Authorizers:
+          CognitoAuthorizer:
+            UserPoolArn: "arn:aws:cognito-idp:us-east-1:267653903190:userpool/us-east-1_RIZE20fug"
+      Cors:
+        AllowMethods: "'*'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+      Domain:
+        CertificateArn: arn:aws:acm:us-east-1:267653903190:certificate/6ed4866c-16dd-4db8-81cf-fb1316227679
+        DomainName:
+          Fn::Join:
+            - ""
+            - - {{ subdomain }}
+              - "-"
+              - Ref: ENVIRONMENT
+              - .alexwiss.com
+        Route53:
+          HostedZoneName: alexwiss.com.
+  {% for function in api_functions %}
+  {{ function.name }}:
+    Type: AWS::Serverless::Function
+    Properties:
+      Policies:
+        Ref: CustomerManagedPolicy
+      CodeUri: .
+      Handler: api.{{ function.name }}Handler
+      Timeout: 300
+      Runtime: python3.8
+      Environment:
+        Variables:
+          ENVIRONMENT:
+            Ref: ENVIRONMENT
+          {% for variable in environment_variables %}
+          {{ variable.name }}:
+            Ref: {{ variable.alpha_name }}
+          {% endfor %}
+      Events:
+        {% for method in function.methods %}
+        {{ method }}Endpoint:
+          Type: Api
+          Properties:
+            Path: {{ function.endpoint }}
+            Method: {{ method }}
+            RestApiId:
+              Ref: RestApi
+            Auth:
+              Authorizer: CognitoAuthorizer
+        {% endfor %}
+        CorsEndpoint:
+          Type: Api
+          Properties:
+            Path: {{ function.endpoint }}
+            Method: options
+            RestApiId:
+              Ref: RestApi
+            Auth:
+              Authorizer: NONE
+  {% endfor %}
+  {% for function in functions %}
+  {{ function.name }}:
+    Type: AWS::Serverless::Function
+    Properties:
+      Policies:
+        Ref: CustomerManagedPolicy
+      CodeUri: .
+      Handler: function.{{ function.name }}Handler
+      Timeout: 900
+      Runtime: python3.8
+      Environment:
+        Variables:
+          ENVIRONMENT:
+            Ref: ENVIRONMENT
+      Events:
+        ScheduleEvent:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 hour)
+  {% endfor %}
