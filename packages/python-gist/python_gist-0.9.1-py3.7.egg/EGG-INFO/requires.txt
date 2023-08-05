@@ -1,0 +1,8 @@
+docopt
+python-gnupg>=0.4.1
+requests
+simplejson
+
+[dev]
+responses
+pycodestyle
