@@ -1,0 +1,96 @@
+CHANGES
+=======
+
+1.0.0
+-----
+
+* Fix travis file
+
+0.9.10
+------
+
+* Travis - deploy to PyPi from stable branch
+
+0.9.9
+-----
+
+* List the requirements also in docs
+
+0.9.8
+-----
+
+* Docs - Fix access to file\_access\_base
+
+0.9.7
+-----
+
+* Prevent printing of password
+* Groups - Change API to use a type instead of a tuple
+* Complete  Gateway and Portal File Access implementation
+* Portal - Add base\_portal\_url property
+* Update README.rst
+* remove m2r since not needed
+* HTTP - Use requests instead of urllib
+* Portal - fix class type of the files variable
+* Shares.set\_acl - fixed docstring to include warning
+* Documentation fixes
+
+0.9.6
+-----
+
+* Docs - Fix edge cache pin APIs
+* Edge Shares - Changes for Ansible
+* Portal - Use file url when needed
+* Run coveralls only on travis
+* Add support for pinning folders (#32)
+* Samples - Services Portal Create Directories
+* Restore apidoc.template
+* Bugfix: re-enable support remote access to Agent devices (#30)
+
+0.9.5
+-----
+
+* Use PBR instead of setuptools\_scm
+
+0.9.2
+-----
+
+* Fix topic classifier
+
+0.9.0
+-----
+
+* Get version using setuptools\_scm
+* Expose SDK types to the user
+* Remove PYC files that were added by mistake
+* Gateway Sample - fix user add call
+* Complete directory service module test coverage (#27)
+* Setup - update version to release to staging
+* Travis - deploy to test from staging branch
+
+3.1.3
+-----
+
+* SDK-38 Add APIs in edge modules for Ansible modules
+* Update links to new organization name
+* Support assigning domain users as owners of folders (#22)
+* Add the ability to set existing shares to use win-acls, block file types and disable the first time wizard (#25)
+* Resolve attribute doesn;t exist error for named tuple. Instead, read folder name and owner from tuple (#24)
+* Add unit tests for edge modules. Add RAID level enumerator (#23)
+* Add edge unit tests for modules (#20)
+* Add unit tests for converting objects from and to XML and JSON (#19)
+* SDK-37 Edge Users - Add modify API
+* Update README.rst
+* Add badge from snyk.io to README file
+* Unit Tests - Environment definition and initial tests
+* Travis - Build only master and version tags
+* Saimon/add retrieval functions (#16)
+* toxml - Treat bool type differently
+* Create new Samples
+
+3.1.2
+-----
+
+* Fix PyPi Test URL
+* Travis deploy only from master
+* Travis - allow building on all branches
