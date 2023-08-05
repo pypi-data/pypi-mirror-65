@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: databricks-bundle
+Version: 0.3.2
+Summary: Databricks bundle for the Pyfony framework
+Home-page: https://github.com/DataSentics/databricks-bundle
+License: MIT
+Author: Jiri Koutny
+Author-email: jiri.koutny@datasentics.com
+Requires-Python: >=3.7.3,<3.8.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: injecta (>=0.7.0,<0.8.0)
+Requires-Dist: ipython (>=7.0.0,<8.0.0)
+Requires-Dist: pandas (>=0.24.2,<0.25.0)
+Requires-Dist: pyarrow (>=0.16.0,<0.17.0)
+Requires-Dist: pyfony-bundles (>=0.2.0,<0.3.0)
+Project-URL: Repository, https://github.com/DataSentics/databricks-bundle
+Description-Content-Type: text/markdown
+
+Databricks bundle for the Pyfony framework
+
