@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: aks-helloworld
+Version: 0.0.1
+Summary: My hello world
+Home-page: http://www.google.com
+Author: Anand Saha
+Author-email: foo@bar.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: blessings (~=1.7)
+Provides-Extra: dev
+Requires-Dist: pytest (>=3.7) ; extra == 'dev'
+
+## Hello World Package
+
+Blah Blah
+
+## Usage
+
+```
+from helloworld import say_hello
+
+# Generate "Hello, World!"
+say_hello()
+
+# Generate "Hello, Tokyo!"
+say_hello('Tokyo')
+```
+
+
