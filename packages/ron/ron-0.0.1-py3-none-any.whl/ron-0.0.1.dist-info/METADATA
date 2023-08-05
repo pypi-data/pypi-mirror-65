@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: ron
+Version: 0.0.1
+Summary: Python Helper Modules
+Home-page: https://github.com/ronaldocpontes/python-notebooks
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+
+# PYTHON HELPER MODULES
+
+*** Interactive Notebooks ***
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ronaldocpontes/python-notebooks/master)
+
+*** Data Feeds ***
+https://iexcloud.io
+https://fmpcloud.io
+
+
