@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: talkflow
+Version: 0.1.0
+Summary: Full function pplatform for conversational agent
+Home-page: https://github.com/howl-anderson/talkflow
+Author: Xiaoquan Kong
+Author-email: u1mail2me@gmail.com
+License: MIT license
+Keywords: talkflow
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: Click (>=7.0)
+
+# talkflow
+
+
+[![](https://img.shields.io/pypi/v/talkflow.svg)](https://pypi.python.org/pypi/talkflow)
+
+[![](https://img.shields.io/travis/howl-anderson/talkflow.svg)](https://travis-ci.org/howl-anderson/talkflow)
+
+[![Documentation Status](https://readthedocs.org/projects/talkflow/badge/?version=latest)](https://talkflow.readthedocs.io/en/latest/?badge=latest)
+
+
+
+
+Full function pplatform for conversational agent
+
+
+* Free software: MIT license
+* Documentation: https://talkflow.readthedocs.io.
+
+
+## Features
+
+* TODO
+
+## Credits
+
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter).
+
+
+=======
+History
+=======
+
+0.1.0 (2020-04-03)
+------------------
+
+* First release on PyPI.
+
+
