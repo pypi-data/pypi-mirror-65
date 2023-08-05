@@ -1,0 +1,2 @@
+recursive-include openProduction/UI/qml *.qml *.wav *.png *.txt *.qrc *.pro
+recursive-include openProduction/connectors *.yapsy-plugin

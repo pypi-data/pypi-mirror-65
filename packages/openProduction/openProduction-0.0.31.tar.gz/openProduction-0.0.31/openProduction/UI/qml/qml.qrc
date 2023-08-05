@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>SideMenuModel.qml</file>
+        <file>TitleBar.qml</file>
+        <file>MenuAnim.qml</file>
+        <file>Installation.qml</file>
+        <file>TestRunnerSimple/TestRunnerSimple.qml</file>
+        <file>Common/BusyIndication.qml</file>
+        <file>Common/BusyIndicationPopup.qml</file>
+        <file>Common/ErrorIcon.qml</file>
+        <file>Common/MultilineText.qml</file>
+        <file>Common/SuccessIcon.qml</file>
+        <file>ProductChoose/ProductChoose.qml</file>
+        <file>main.cpp</file>
+        <file>icons/bookmark.png</file>
+        <file>icons/change.png</file>
+        <file>icons/create.png</file>
+        <file>icons/dashboard.png</file>
+        <file>icons/documentation.png</file>
+        <file>icons/drawerWhite.png</file>
+        <file>icons/export.png</file>
+        <file>icons/file.png</file>
+        <file>icons/full-box.png</file>
+        <file>icons/img2.png</file>
+        <file>icons/import.png</file>
+        <file>icons/install.png</file>
+        <file>icons/label.png</file>
+        <file>icons/load.png</file>
+        <file>icons/loading.png</file>
+        <file>icons/notebook.png</file>
+        <file>icons/openProductionNurLogo-transparent.png</file>
+        <file>icons/git.png</file>
+        <file>icons/tag.png</file>
+        <file>icons/details.png</file>
+        <file>Dashboard/Dashboard.qml</file>
+        <file>icons/open-folder.png</file>
+        <file>Common/BusyIndicationWindow.qml</file>
+        <file>ProductRun/ProductEquip.qml</file>
+        <file>ProductRun/ProductRun.qml</file>
+        <file>Common/ParamsViewer.qml</file>
+    </qresource>
+</RCC>
