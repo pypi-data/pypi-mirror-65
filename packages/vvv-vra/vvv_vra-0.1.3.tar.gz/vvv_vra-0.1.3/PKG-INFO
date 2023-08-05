@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: vvv_vra
+Version: 0.1.3
+Summary: VMware vRealize Automation Python SDK (based event driven<gevent>)
+Home-page: https://github.com/HyechurnJang/vvv_vra
+Author: Hyechurn Jang
+Author-email: jangh@vmware.com
+License: Apache 2.0
+Description: vvv_vra
+        
+        VMware vRealize Automation Python SDK (based event driven<gevent>)
+        
+        1. Install
+        
+        	1.1 From PIP
+        		$ pip install vvv_vra
+        
+        	1.2 From GIT
+        		$ python setup.py build
+        		$ python setup.py install
+        
+        2. Example
+        
+        	Look samples in sample directory
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown

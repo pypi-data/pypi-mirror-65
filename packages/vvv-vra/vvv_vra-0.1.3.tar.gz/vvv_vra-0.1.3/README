@@ -1,0 +1,16 @@
+vvv_vra
+
+VMware vRealize Automation Python SDK (based event driven<gevent>)
+
+1. Install
+
+	1.1 From PIP
+		$ pip install vvv_vra
+
+	1.2 From GIT
+		$ python setup.py build
+		$ python setup.py install
+
+2. Example
+
+	Look samples in sample directory
