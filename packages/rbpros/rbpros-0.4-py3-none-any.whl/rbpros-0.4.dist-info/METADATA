@@ -1,0 +1,17 @@
+Metadata-Version: 2.0
+Name: rbpros
+Version: 0.4
+Summary: ROS2 on Raspberry PI
+Home-page: UNKNOWN
+Author: Dirk Zhou
+Author-email: dontbmh2011@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: rpi.gpio
+Requires-Dist: smbus
+Requires-Dist: spidev
+
+UNKNOWN
+
+
