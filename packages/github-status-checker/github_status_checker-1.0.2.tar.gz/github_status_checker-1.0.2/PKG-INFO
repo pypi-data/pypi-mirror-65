@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: github_status_checker
+Version: 1.0.2
+Summary: Python module/tool for checking the status of GitHub.
+Home-page: https://github.com/rapid7/github-status-checker
+Author: Rapid7 Integration Alliance
+Author-email: integrationalliance@rapid7.com
+License: MIT
+Description: 
+        # GitHub Status Checker
+        
+        [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+        [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+        ![Tests](https://github.com/rapid7/github-status-checker/workflows/Tests/badge.svg)
+        ![Python Lint](https://github.com/rapid7/github-status-checker/workflows/Python%20Lint/badge.svg)
+        ![Markdown Lint](https://github.com/rapid7/github-status-checker/workflows/Markdown%20Lint/badge.svg)
+        
+        ## What this is
+        
+        A tool and Python module for checking the status of GitHub.
+        
+        ## Installation
+        
+        ### Install the module via `pip`
+        
+        ```
+        moose@rapid7:~$ pip install github-status-checker
+        ...
+        ```
+        
+        ## Usage
+        
+        ```
+        moose@rapid7:~$ github-status webhooks
+        Service 'Webhooks' is currently operational!
+        ```
+        
+        ## Contributions
+        
+        Contributions are welcome! This project utilizes [black](https://github.com/psf/black)
+        and [pre-commit](https://pre-commit.com/) for handling code
+        style. Simply follow the instructions for installing pre-commit and 
+        run `pre-commit install` in the repository after cloning and you will
+        be on your way to contributing!
+        
+        ## Changelog
+        
+        * 1.0.2 - Update to handle crash on outage report | Code style: black
+        | Add contribution section
+        * 1.0.1 - Update homepage and author name
+        * 1.0.0 - Swap dataclasses for traditional classes for greater Python version 
+        compatibility (Python 3.x+)
+        * 0.1.0 - Initial development, support Summary 
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Version Control :: Git
+Classifier: Topic :: System :: Networking :: Monitoring
+Description-Content-Type: text/markdown
