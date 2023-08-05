@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: notify-discord
+Version: 0.1
+Summary: A simple python script to push notification on discord's channel using webhooks
+Home-page: UNKNOWN
+Author: Jean-Luc Szpyrka
+Author-email: jeanluc.szpyrka@gmail.com
+License: UNKNOWN
+Keywords: discord,webhook,notify
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+## notify-discord
+
+### What ?
+
+notify-discord is a simple python helper script to ease the post of messages on discord channels using webhooks.
+
+### Requesite
+
+you should how a discord server and create a webhook in one of its channels. The channel token will be necessary to use this script.
+
+### Usage
+
+```
+notify-discord -m <message> -w <webhook>
+```
+
+### Example
+
+```
+notify-discord -m 'some useful message' -w '0000WEBHOOK0000/1111CHANNELTOKEN1111'
+```
+
+### caveats
+
+Unknown.
+
+
