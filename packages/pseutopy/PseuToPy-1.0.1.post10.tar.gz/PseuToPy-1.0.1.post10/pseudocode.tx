@@ -1,0 +1,191 @@
+Module: statements*=RootStatement;
+RootStatement: Statement;
+
+Statement: (
+    // 1. Assignment statements
+    AssignmentStatement | DeclarationStatement |
+    // 2. Standard IO Statements
+    PrintStatement | PromptStatement |
+    // 3. Control structure statements
+    IfStatement | WhileStatement | ForStatement |
+    // 4. Function call and definition statements
+    FunctionDefinitionStatement | FunctionCallStatement | ReturnStatement |
+    // 5. Keyword statements
+    BreakStatement | ContinueStatement | PassStatement |
+    // 6. List statements
+    ListMethodStatement
+)
+;
+// Statement: (AssignmentStatement | ForStatement | PassStatement 
+//     | FunctionDefinitionStatement | FunctionCallStatement | ReturnStatement 
+//     | DeclarationStatement | PromptStatement | IfStatement 
+//     | WhileStatement | BreakStatement | ContinueStatement 
+//     | ListMethodStatement | PrintStatement)
+// ;
+
+DeclarationStatement: 'declare' name=Name;
+AssignmentStatement: ('set' target=Name 'to' value=Expression) 
+    | target=Name '=' value=Expression
+;
+
+// ----------------------------------------------------------------------------
+// Rules for stdio statements
+// ----------------------------------------------------------------------------
+PrintStatement: ('print' | 'display' | 'show') args=Expression 
+    ('followed by' args=Expression)*
+;
+// Do not change (typeToCast=CastType)? to typeToCast?=CastType
+// The second instruction is the boolean assignment as defined in textX
+PromptStatement: 'prompt' (cast_type=CastType)? ('('? text=Expression ')'?);
+CastType: 'number' | 'integer';
+
+// ----------------------------------------------------------------------------
+// Rules for control structure statements
+// ----------------------------------------------------------------------------
+
+// Specific rule here to prevent infinite recursion with else ifs
+// This rule is quite similar to the one implemented for algebraic operations
+IfStatement: 'if' test=Expression /:|then((\s)*:)?/ 
+    body*=Statement orelse*=OrElse 'end'
+;
+OrElse: (ElseIfStatement | ElseStatement);
+ElseStatement: 'else' body*=Statement & 'end';
+ElseIfStatement: 'else if' test=Expression /:|then((\s)*:)?/ 
+    body*=Statement & ('end' | 'else')
+;
+
+WhileStatement: 'while' test=Expression 
+    /:|do((\s)*:)?/ 
+    body*=Statement 
+    orelse*=OrElse 
+    'end'
+;
+
+ForStatement: 'for' target=Expression 
+    ('in' iterations=Expression | 'going' iterations=Range)
+    /:|do((\s)*:)?/ 
+    body*=Statement 
+    orelse*=OrElse 
+    'end'
+;
+
+Range: 'from' start=Expression 'to' stop=Expression ('with a step of' step=Expression)?;
+
+// ----------------------------------------------------------------------------
+// Rules for function calls and definitions
+// ----------------------------------------------------------------------------
+FunctionDefinitionStatement: 'define function' name=Name 
+    // Arguments below are optional
+    (/(with argument(s)?)/  args=Name (','? args=Name)*)? 'as' 
+    body*=Statement
+    'end'
+;
+FunctionCallStatement: 'call function' name=Name 
+    // Arguments below are optional
+    ('with' args=Expression (','? args=Expression)* /as argument(s)?/)?
+;
+ReturnStatement: 'return' (value=Expression)?;
+
+// ----------------------------------------------------------------------------
+// Rules for 'keyword' statements
+// ----------------------------------------------------------------------------
+BreakStatement: _='break';
+ContinueStatement: _='continue';
+PassStatement: _='pass';
+
+// ----------------------------------------------------------------------------
+// Rules for expressions
+// ----------------------------------------------------------------------------
+Expression: logical_terms=AndExpression 
+    (operators=OrOperator logical_terms=AndExpression)*
+;
+AndExpression: logical_factors=BooleanTerm 
+    (operators=AndOperator logical_factors=BooleanTerm)*
+;
+ComparisonExpression: left=AddSubExpression 
+    (operator=ComparisonOperator 
+        (right=AddSubExpression | '(' right=Expression ')')
+    )?
+;
+BooleanTerm: (sign=BooleanUnaryOperator)? 
+    (operand=ComparisonExpression | '(' operand=Expression ')')
+;
+
+OrOperator: '||' | 'or' ;
+AndOperator: '&&' | 'and' ;
+BooleanUnaryOperator: '!' | 'not' ;
+
+ComparisonOperator: EqualOperator 
+    | NotEqualOperator 
+    | GreaterOperator 
+    | GreaterOrEqualOperator 
+    | LowerOperator 
+    | LowerOrEqualOperator
+;
+
+EqualOperator: '==' | 'is equal to' ;
+NotEqualOperator: '!=' | 'is not equal to' | 'is different from';
+GreaterOperator: '>' | 'is greater than' ;
+GreaterOrEqualOperator: '>=' | 'is greater or equal to';
+LowerOperator: '<' | 'is lower than' ;
+LowerOrEqualOperator: '<=' | 'is lower or equal to';
+
+AddSubExpression: terms=MultDivExpression 
+    (operators=AddSubOperator terms=MultDivExpression)*
+;
+MultDivExpression: factors=PowExpression 
+    (operators=MultDivOperator factors=PowExpression)*
+;
+PowExpression: (sign=UnaryOperator)? 
+    base=BaseValue (operators=PowOperator exponents=ExponentValue)*
+;
+BaseValue: operand=Value | '(' operand=Expression ')' ;
+ExponentValue: (sign=UnaryOperator)? (operand=PowExpression | '(' operand=Expression ')') ;
+
+AddSubOperator: '+' | '-' | 'plus' | 'minus';
+MultDivOperator: '*' | 'times' | '/' | 'divided by' | '%' | 'modulo';
+PowOperator: '**' | 'power' | 'to the power of' ;
+UnaryOperator:  '+' | 'plus' | '-' | 'minus';
+
+
+// ----------------------------------------------------------------------------
+// Rules for Values
+// TODO: Rules for Lists might need to be reworked
+// ----------------------------------------------------------------------------
+Value: (Range | Num | Boolean| List | ListReadable | PromptStatement | FunctionCallStatement | Name | Str);
+Num: n=NUMBER;
+Name: id=SafeID;
+Str: s=STRING;
+Boolean: boolean_value=BooleanValue;
+BooleanValue: "true" | "false";
+List: ('a list with' elements=Expression (','? elements=Expression)* 'end of list' | '[' elements=Expression (','? elements=Expression)* ']' | empty?=EmptyList);
+EmptyList: ('an empty list' | '[]');
+
+ListGetElement: 'element at index' index=Expression 'of' list_expr=Expression;
+
+ListMethodStatement: ListAddElementStatement | ListRemoveElementStatement | 
+            ListRemoveAndGetElementStatement | ListRemoveFirstElementStatement | 
+            ListRemoveAndGetFirstElementStatement | ListRemoveLastElementStatement  | 
+            ListRemoveAndGetLastElementStatement | ListSumStatement | ListMaxStatement | 
+            ListMinStatement | ListLengthStatement ;
+
+ListReadable:   ListGetElement | ListLengthStatement | ListSumStatement | ListMaxStatement | ListMinStatement |
+                ListRemoveAndGetElementStatement | ListRemoveAndGetFirstElementStatement | ListRemoveAndGetLastElementStatement;
+
+ListAddElementStatement: 'add' element=Expression 'to' list_expr=Expression ('at index' index=Expression)?;
+ListRemoveElementStatement: 'remove element at index' index=Expression 'of' list_expr=Expression;
+ListRemoveAndGetElementStatement: 'remove and get element at index' index=Expression 'of' list_expr=Expression;
+ListRemoveFirstElementStatement: 'remove first element of' list_expr=Expression;
+ListRemoveAndGetFirstElementStatement: 'remove and get first element of' list_expr=Expression;
+ListRemoveLastElementStatement: 'remove last element of' list_expr=Expression;
+ListRemoveAndGetLastElementStatement: 'remove and get last element of' list_expr=Expression;
+ListSumStatement: 'sum of' list_expr=Expression;
+ListMaxStatement: ('max' | 'maximum') 'of' list_expr=Expression;
+ListMinStatement: ('min' | 'minimum') 'of' list_expr=Expression;
+ListLengthStatement: 'length of' list_expr=Expression;
+
+
+
+SafeID: !Keyword ID;
+Keyword: 'end' | 'define' | 'as' | 'with';
+
