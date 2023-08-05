@@ -1,0 +1,67 @@
+{% extends "trionyx/base.html" %}
+{% load crispy_forms_tags i18n static %}
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        {% trans "Create" %} {{ model_verbose_name }}
+    {% endif %}
+{% endblock %}
+
+{% block page_title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        {{ object }}
+    {% endif %}
+{% endblock %}
+
+{% block extra_head %}
+    {% if form.css_files %}
+        {% for css in form.css_files %}
+            <link rel="stylesheet" type="text/css" href="{% static css %}">
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block content_top %}
+    <form role="form" action="" method="post" enctype="multipart/form-data" novalidate style="display: inline">
+{% endblock %}
+
+
+{% block header_buttons %}
+    <a href="{{ cancel_url }}" class="btn bg-theme">{% trans "Cancel" %}</a>
+    <input type="submit" value="{% if submit_value %}{{ submit_value }}{% else %}{% trans "Create" %}{% endif %}" class="btn btn-flat btn-success"/>
+{% endblock %}
+
+
+{% block content %}
+    <div class="info-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">{% trans "Create" %} {{ model_verbose_name }}</h3>
+        </div>
+        <div class="box-body">
+            {% csrf_token %}
+
+            {% crispy form %}
+
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content_bottom %}
+    </form>
+{% endblock %}
+
+{% block extra_foot %}
+    {% if form.js_files %}
+        {% for js in form.js_files %}
+            <script src="{% static js %}"></script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+
+
