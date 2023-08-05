@@ -1,0 +1,8 @@
+# include README.md file
+include *.md
+
+# include LICENSE file
+include LICENCE.txt
+
+# include data for examples
+recursive-include examples *.musicxml

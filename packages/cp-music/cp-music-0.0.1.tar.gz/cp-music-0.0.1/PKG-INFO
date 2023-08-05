@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: cp-music
+Version: 0.0.1
+Summary: A small library for constraint programming with musicxml in python using ortools
+Home-page: https://github.com/CorbinMoon/cp-music
+Author: Corbin Moon
+Author-email: clangmoon@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/CorbinMoon/cp-music
+Description: ## cp-music
+        
+        A small library for constraint programming with `.musicxml` files in python using ortools (google's operation research library).
+        
+        [![Build Status](https://travis-ci.org/CorbinMoon/cp-music.svg?branch=master)](https://travis-ci.org/CorbinMoon/cp-music)
+        
+        refer to `/examples` directory for code examples
+        
+        ### Limitations
+        The music xml parser in this library does not currently support `<backoff>` tags and multi-part scores (scores with multiple instruments).
+        All notes comprising a chord must have separate voicings.
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6, <=3.7
+Description-Content-Type: text/markdown
