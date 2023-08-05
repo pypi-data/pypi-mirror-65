@@ -1,0 +1,5 @@
+include amle_py/data/rom/*
+include amle_py/data/resources/*.*
+include amle_py/data/resources/freedesktop/*
+include amle_py/*amle_*
+include amle_py/*.dll
