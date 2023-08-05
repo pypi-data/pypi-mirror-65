@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+src/apk_bitminer/__init__.py
+src/apk_bitminer/parsing.py
+src/apk_bitminer/pyaxmldump
+src/apk_bitminer/pydexdump
+src/apk_bitminer.egg-info/PKG-INFO
+src/apk_bitminer.egg-info/SOURCES.txt
+src/apk_bitminer.egg-info/dependency_links.txt
+src/apk_bitminer.egg-info/namespace_packages.txt
+src/apk_bitminer.egg-info/top_level.txt
+test/test_axmldump.py
+test/test_dexdump.py
