@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: wtf-backhoe
+Version: 0.0.0
+Summary: Bulk-insert for WTForms
+Home-page: https://github.com/bulatb/wtf-backhoe
+Author: Bulat Bochkariov
+Author-email: wtf-backhoe@bulat.bochkariov.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/bulatb/wtf-backhoe
+Project-URL: Issues, https://github.com/bulatb/wtf-backhoe/issues
+Description: # WTF-Backhoe
+        
+        Shovel rows of records from uploaded files to your app, using your existing forms for validation. Process the result as if you'd filled a hundred copies of the form by hand.
+        
+        Think of Backhoe as a powerful form-filling macro for WTForms.
+        
+        ## Status
+        
+        Nothing implemented. Plans in [design.md](design.md).
+        
+Keywords: wtforms bulk insert upload import
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Provides-Extra: develop
+Provides-Extra: test
