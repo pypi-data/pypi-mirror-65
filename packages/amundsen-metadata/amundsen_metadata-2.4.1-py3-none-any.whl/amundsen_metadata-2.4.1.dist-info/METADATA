@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: amundsen-metadata
+Version: 2.4.1
+Summary: Metadata service for Amundsen
+Home-page: https://www.github.com/lyft/amundsenmetadatalibrary
+Maintainer: Lyft
+Maintainer-email: dev@lyft.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Requires-Dist: flake8 (==3.5.0)
+Requires-Dist: flake8-tidy-imports (==1.1.0)
+Requires-Dist: pytest (==3.5.1)
+Requires-Dist: pytest-cov (==2.5.1)
+Requires-Dist: mock (==2.0.0)
+Requires-Dist: mypy (==0.660)
+Requires-Dist: pytest-mock (==1.1)
+Requires-Dist: typing (==3.6.4)
+Requires-Dist: amundsen-common (<1.0,>=0.3.0)
+Requires-Dist: flasgger (==0.9.3)
+Requires-Dist: Flask-RESTful (==0.3.6)
+Requires-Dist: Flask (==1.0.2)
+Requires-Dist: flask-cors (==3.0.8)
+Requires-Dist: gremlinpython (==3.4.3)
+Requires-Dist: aniso8601 (==3.0.0)
+Requires-Dist: attrs (==19.1.0)
+Requires-Dist: click (==6.7)
+Requires-Dist: itsdangerous (==0.24)
+Requires-Dist: Jinja2 (>=2.10.1)
+Requires-Dist: jsonschema (==2.6.0)
+Requires-Dist: marshmallow (==2.15.3)
+Requires-Dist: marshmallow-annotations (==2.4.0)
+Requires-Dist: MarkupSafe (==1.1)
+Requires-Dist: pytz (==2018.4)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: Werkzeug (==0.15.3)
+Requires-Dist: wheel (==0.33.1)
+Requires-Dist: neo4j-driver (==1.6.0)
+Requires-Dist: neotime (==1.0.0)
+Requires-Dist: requests-aws4auth (==0.9)
+Requires-Dist: statsd (==3.2.1)
+Requires-Dist: pyatlasclient (==1.0.3)
+Requires-Dist: beaker (>=1.10.0)
+Requires-Dist: mocket (==3.7.3)
+Requires-Dist: overrides (==2.5)
+Requires-Dist: websocket-client (==0.56.0)
+Provides-Extra: oidc
+Requires-Dist: flaskoidc (==0.0.2) ; extra == 'oidc'
+
+UNKNOWN
+
+
