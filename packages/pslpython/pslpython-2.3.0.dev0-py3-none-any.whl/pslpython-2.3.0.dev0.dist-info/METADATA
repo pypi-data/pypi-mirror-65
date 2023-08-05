@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pslpython
+Version: 2.3.0.dev0
+Summary: A python inferface to the PSL SRL/ML software.
+Home-page: https://psl.linqs.org
+Author: LINQS
+Author-email: psl-users@googlegroups.com
+License: UNKNOWN
+Keywords: PSL ML SRL
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: pyyaml
+
+## pslpython
+
+A Python interface to the PSL SRL framework.
+
+PSL information can be found at: [psl.linqs.org](https://psl.linqs.org/).
+Example usage can be in the PSL Examples repository:
+ - [Stable](https://github.com/linqs/psl-examples)
+ - [Development](https://github.com/linqs/psl-examples/tree/develop)
+
+
