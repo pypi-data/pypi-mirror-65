@@ -1,0 +1,3 @@
+[asreview.datasets]
+covid19 = asreviewcontrib.covid19.datasets:Covid19DataGroup
+
