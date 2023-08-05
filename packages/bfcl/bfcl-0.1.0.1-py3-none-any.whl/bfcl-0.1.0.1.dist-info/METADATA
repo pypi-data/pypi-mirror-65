@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: bfcl
+Version: 0.1.0.1
+Summary: Python library for working with circuit definitions represented using the Bristol Fashion.
+Home-page: https://github.com/nthparty/bfcl
+Author: Andrei Lapets
+Author-email: a@lapets.io
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/x-rst
+Requires-Dist: parts
+Requires-Dist: circuit
+
+====
+bfcl
+====
+
+Bristol Fashion Circuit Library (BFCL) for working with circuit definitions represented using the Bristol Fashion.
+
+.. image:: https://badge.fury.io/py/bfcl.svg
+   :target: https://badge.fury.io/py/bfcl
+   :alt: PyPI version and link.
+
+Package Installation and Usage
+------------------------------
+The package is available on PyPI::
+
+    python -m pip install bfcl
+
+The library can be imported in the usual way::
+
+    import bfcl
+    from bfcl import *
+
+
