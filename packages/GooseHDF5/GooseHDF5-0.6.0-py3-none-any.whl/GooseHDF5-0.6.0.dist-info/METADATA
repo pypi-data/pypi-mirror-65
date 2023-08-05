@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: GooseHDF5
+Version: 0.6.0
+Summary: Wrapper around h5py
+Home-page: https://github.com/tdegeus/GooseHDF5
+Author: Tom de Geus
+Author-email: tom@geus.me
+License: MIT
+Keywords: HDF5,h5py
+Platform: UNKNOWN
+Requires-Dist: docopt (>=0.6.2)
+Requires-Dist: h5py (>=2.8.0)
+
+Wrapper around h5py
+
+
