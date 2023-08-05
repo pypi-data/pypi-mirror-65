@@ -1,0 +1,25 @@
+{
+  "name": "kk",
+  "authors": [
+    "zhangkai <zhangkai@vongcloud.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "clipboard": "^2.0.6",
+    "fex-webuploader": "fex-team/webuploader#^0.1.5",
+    "highlightjs": "^9.16.2",
+    "layui": "sentsin/layui#^2.5.6",
+    "DPlayer": "MoePlayer/DPlayer#^1.25.0",
+    "reveal.js": "^3.9.2"
+  }
+}
