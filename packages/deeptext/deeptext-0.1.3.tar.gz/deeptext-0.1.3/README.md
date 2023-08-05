@@ -1,0 +1,93 @@
+[![PyPI version](https://badge.fury.io/py/deeptext.svg)](https://badge.fury.io/py/deeptext)
+[![Conda version](https://anaconda.org/fcakyon/deeptext/badges/version.svg)](https://anaconda.org/fcakyon/deeptext)
+[![CI](https://github.com/fcakyon/deeptext/workflows/CI/badge.svg)](https://github.com/fcakyon/deeptext/actions?query=event%3Apush+branch%3Amaster+is%3Acompleted+workflow%3ACI)
+
+# deeptext
+A cross-platform framework for deep learning based text detection, recoginition and parsing
+
+
+## Getting started
+### Installation
+- Install using conda for Linux, Mac and Windows (preferred):
+```console
+conda install -c fcakyon deeptext
+```
+- Install using pip for Linux and Mac:
+```console
+pip install deeptext
+```
+Install [teserract-ocr](https://tesseract-ocr.github.io/tessdoc/Home.html) for text recognition.
+
+### Basic Usage
+```python
+# import package
+import deeptext
+
+# set image path and export folder directory
+image_path = 'idcard.png'
+output_dir = 'outputs/'
+
+# apply text detection and export detected regions to output directory
+detection_result = deeptext.detect_text(image_path, output_dir)
+
+# apply text recognition to detected texts
+recognition_result = deeptext.recognize_text(image_path=detection_result["text_crop_paths"])
+```
+
+### Advanced Usage
+You can pass filter parameters if you want to scrap texts from image by predefined regions.
+```python
+# import package
+import deeptext
+
+# set image path and export folder directory
+image_path = 'idcard.png'
+output_dir = 'outputs/'
+
+# define regions that you want to scrap, by quad (box) points
+filter_params = {"type": "box"
+                 "boxes": [[[0.1460 , 0.0395],
+                            [0.8417, 0.0535],
+                            [0.8412, 0.1099],
+                            [0.1455, 0.0959]],
+                           [[0.3467, 0.3398],
+                            [0.5417, 0.3535],
+                            [0.5412, 0.4099],
+                            [0.3455, 0.3959]]],
+                 "marigin_x": 0.05,
+                 "marigin_y": 0.05,
+                 "min_intersection_ratio": 0.9}
+
+# or define regions that you want to scrap, by centroids
+filter_params = {"type":"centroid",
+                 "centers": [[0.44, 0.49],[0.49, 0.08]],
+                 "marigin_x": 0.03,
+                 "marigin_y": 0.05}
+
+# apply craft text detection in predefined regions and export detected regions to output directory
+detection_result = deeptext.detect_text(image_path,
+                                         output_dir,
+                                         detector="craft",
+                                         filter_params=filter_params)
+                                         
+# apply tesseract (eng) text recognition to detected texts
+recognition_result = deeptext.recognize_text(image_path=detection_result["text_crop_paths"],
+                                             recognizer="tesseract-eng")
+```
+
+## Updates
+**6 April, 2020**: Conda package release
+
+**3 April, 2020**: Tesseract text recoginition and positional text scraping support
+
+**30 March, 2020**: Craft text detector support
+
+## TODO
+- [X] Craft text detection (inference)
+- [ ] Ctpn text detection (inference)
+- [ ] Psenet text detection (inference)
+- [X] Tesseract text recoginition (inference)
+- [ ] Aster text recognition (training and inference)
+- [ ] Moran text recognition (training and inference)
+- [X] Positional text scraping
+
