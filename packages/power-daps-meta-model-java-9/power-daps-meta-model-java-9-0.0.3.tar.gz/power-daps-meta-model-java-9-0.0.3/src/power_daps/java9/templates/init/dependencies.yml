@@ -1,0 +1,6 @@
+default:
+  junit:
+    version: "4.12"
+    installer: jar
+    group_id: junit
+
