@@ -1,0 +1,4 @@
+[console_scripts]
+flirror-crawler=flirror.crawler.main:main
+flirror-web=flirror:run_web
+

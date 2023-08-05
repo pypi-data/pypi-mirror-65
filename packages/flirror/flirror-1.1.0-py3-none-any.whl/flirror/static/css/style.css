@@ -1,0 +1,137 @@
+/* General */
+body {
+    font-family: Roboto,sans-serif;
+    font-weight: 300 !important;
+    line-height: 1.5em;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 3.3125rem !important;
+    line-height: 1.15em !important;
+}
+
+h2 {
+    font-size: 2.25rem !important;
+}
+
+h3 {
+    font-size: 1.5625rem !important;
+    font-weight: 300 !important;
+    line-height: 1.4em !important;
+}
+
+h4 {
+    font-size: 1.15rem !important;
+    font-weight: 300 !important;
+    line-height: 1.4em !important;
+}
+
+h5 {
+    font-size: 1.0625rem !important;
+    font-weight: 300 !important;
+    font-weight: 300 !important;
+}
+
+.card {
+    border: none;
+}
+
+.card-footer {
+    border-top: none;
+}
+
+.dark {
+    background-color: #121212;
+}
+
+.bg-primary {
+    background-color: #BB86FC !important;
+}
+
+.primary {
+    color: #BB86FC;
+}
+
+.secondary {
+    color: #FF9;
+}
+
+.third {
+    color: #99F;
+}
+
+.error {
+    color: #E57373;
+}
+
+.high-emphasis {
+    color: #FFF;
+    opacity: .87;
+}
+
+.medium-emphasis {
+    color: #FFF;
+    opacity: .6;
+}
+
+.disabled {
+    color: #FFF;
+    opacity: .38;
+}
+
+/* Carousel */
+.carousel-indicators {
+    bottom: -20px;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+/* Weather */
+
+.weather-icon {
+    font-size: 5rem;
+}
+
+/* Calendar */
+.badge {
+    border-radius: 0;
+}
+
+.qr-img {
+    display: inline;
+    width: 150px;
+    height: 150px;
+}
+
+/* Stocks */
+.chg-up {
+    color: #99F; /* Same as .third */
+}
+
+.chg-up::before {
+    content: "▲";
+
+}
+
+.chg-down {
+    color: #E57373; /* Same as .error */
+}
+
+.chg-down::before {
+    content: "▼";
+}
+
+.chg-up span,
+.chg-down span {
+    padding-left: 3px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
