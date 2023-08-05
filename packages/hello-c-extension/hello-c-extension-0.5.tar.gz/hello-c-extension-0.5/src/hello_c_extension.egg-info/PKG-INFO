@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: hello-c-extension
+Version: 0.5
+Summary: Showcase use and packaging of a C++ extension module
+Home-page: https://github.com/bsolomon1124/hello-c-extension
+Author: Brad Solomon
+Author-email: bsolomon@protonmail.com
+License: MIT
+Description: # hello-c-extension
+        
+        Showcase use and packaging of a C++ extension module.
+        
+        ```bash
+        $ python -m pip install hello-c-extension
+        ```
+        
+        Use:
+        
+        ```python
+        >>> from cmod import CONSTANT, pymod, _cmod
+        >>> CONSTANT
+        10
+        >>> pymod.hello()
+        Hello from Python!
+        >>> _cmod.foo()
+        5
+        >>> pymod
+        <module 'cmod.pymod' from '.../site-packages/cmod/pymod.py'>
+        >>> _cmod
+        <module 'cmod._cmod' from '.../site-packages/cmod/_cmod.cpython-37m-x86_64-linux-gnu.so'>
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
+Description-Content-Type: text/markdown
