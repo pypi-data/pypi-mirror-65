@@ -1,0 +1,46 @@
+=======
+Didacto
+=======
+
+Didacto creates a index of keywords used in files of a corpora of pdf files. It is entended to help music teachers organise their music notation corpora 
+Keywords are displayed in regard with files names and paths. Pdf files can easily by open, as well as their source in music notation software format file.
+
+Requirements
+============
+
+To execute this application, you need Python >= 3.7.5 and the library *python-tk*
+
+On Debian/Ubuntu
+
+    sudo apt-get install python-tk
+
+On ArchLinux  
+
+    sudo pacman -S tk
+	
+	
+How to install
+==============
+
+Ensure you have all the requirements on your system.
+
+* via PyPi/pip
+
+   pip install didacto
+    
+* manually
+   with pipenv
+
+   pipenv install
+   python -m didacto
+          
+   with pip
+    
+   pip install -r requirements.txt
+   python -m didacto
+          
+Thanks to
+=========
+
+Itopie informatique, Noam Kestin, Ninn Langel
+
