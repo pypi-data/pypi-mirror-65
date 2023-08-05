@@ -1,0 +1,10 @@
+aiohttp<4.0.0,>=3.5.4
+Babel>=2.6.0
+certifi>=2019.3.9
+
+[fast]
+uvloop<0.15.0,>=0.14.0
+ujson>=1.35
+
+[proxy]
+aiohttp-socks<0.4.0,>=0.3.4
