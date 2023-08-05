@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: opentelemetry-ext-lightstep
+Version: 0.6b0
+Summary: LightStep Exporter for OpenTelemetry
+Home-page: https://github.com/lightstep/opentelemetry-exporter-python
+Author: LightStep Authors
+License: Apache-2.0
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: thrift (>=0.10.0)
+Requires-Dist: opentelemetry-api (>=0.6b0)
+Requires-Dist: opentelemetry-sdk (>=0.6b0)
+Requires-Dist: lightstep
+
+![build status](https://github.com/lightstep/opentelemetry-exporter-python/workflows/build/badge.svg) [![PyPI version](https://badge.fury.io/py/opentelemetry-ext-lightstep.svg)](https://badge.fury.io/py/opentelemetry-ext-lightstep)
+# LightStep OpenTelemetry Python Exporter
+This is an exporter for opentelemetry-python
+
+### Install
+
+```bash
+pip install opentelemetry-ext-lightstep
+```
+
+### Initialize
+
+```python
+exporter = LightStepSpanExporter(
+    name="test-service",
+    token=<PROJECT_ACCESS_TOKEN>,
+    host=<SATELLITE_URL>,
+    port=<SATELLITE_PORT>,
+)
+span_processor = BatchExportSpanProcessor(exporter)
+tracer.add_span_processor(span_processor)
+```
+
+
