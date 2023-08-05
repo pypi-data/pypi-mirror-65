@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: floydpink.jsii-code-samples
+Version: 1.0.6
+Summary: Code samples that accompany the AWS blog post on jsii
+Home-page: https://github.com/floydpink/jsii-code-samples#readme
+Author: Hari Pachuveetil <pachuvee@amazon.com>
+License: MIT
+Project-URL: Source, https://github.com/floydpink/jsii-code-samples.git
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Classifier: License :: OSI Approved
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: jsii (~=1.1.0)
+Requires-Dist: publication (>=0.0.3)
+
+# jsii-code-samples
+
+> An example jsii package authored in TypeScript that gets published as GitHub packages for Node.js, Python, Java and dotnet.
+
+
