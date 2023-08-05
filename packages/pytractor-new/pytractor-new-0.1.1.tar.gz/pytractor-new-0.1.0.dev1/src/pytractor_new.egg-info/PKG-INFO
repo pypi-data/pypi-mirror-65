@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: pytractor-new
+Version: 0.1.0.dev1
+Summary: Selenium testing for Angular.js apps
+Home-page: https://github.com/kpodl/pytractor
+Author: Konrad Podloucky
+Author-email: konrad+pytractor@crunchy-frog.org
+License: Apache 2.0
+Description: pytractor provides utilities for testing Angular.js applications with selenium for Python. Selenium webdrivers are extended with functionality for dealing with Angular.js applications.
+        
+        pytractor uses scripts provided by protractor (the javascript testing framework for Angular.js).
+        
+Keywords: selenium angular.js testing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
