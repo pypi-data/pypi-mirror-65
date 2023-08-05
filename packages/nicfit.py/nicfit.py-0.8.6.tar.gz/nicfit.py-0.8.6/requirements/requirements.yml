@@ -1,0 +1,31 @@
+main:
+    - deprecation
+    - attrs
+    - PyYaml
+
+extra_cookiecutter:
+    - cookiecutter
+
+extra_shell:
+    - prompt-toolkit
+    - pygments
+
+test:
+    - tox
+    - pytest
+    - pytest-cov
+    - pytest-runner
+    - pytest-asyncio
+    - babel
+
+dev:
+    - Sphinx
+    - sphinx_rtd_theme
+    - babel
+    - check-manifest
+    - flake8
+    - pip-tools
+    - twine
+    - wheel
+    - pss
+    - git+https://github.com/nicfit/gitchangelog.git

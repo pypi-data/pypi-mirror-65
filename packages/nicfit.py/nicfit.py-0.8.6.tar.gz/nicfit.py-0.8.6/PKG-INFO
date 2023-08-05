@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: nicfit.py
+Version: 0.8.6
+Summary: Common Python utils (App, logging, config, etc.)
+Home-page: https://github.com/nicfit/nicfit.py
+Author: Travis Shirk
+Author-email: travis@pobox.com
+License: MIT
+Download-URL: https://github.com/nicfit/nicfit.py/releases/downloads/v0.8.6/nicfit.py-0.8.6.tar.gz
+Description: =================
+        nicfit.py README
+        =================
+        
+        |Build Status| |License| |PyPI| |Python versions| |Coverage| |Status|
+        
+        Basic building blocks for building Python applications.
+        
+        
+        Features
+        --------
+        
+        * Common appplication skeletons (including async) providing common argument
+          parsing add-ons and utilities, error handling boiler-plate, and application
+          life-cycle hooks. Including intregrated `cookiecutter` that
+          suuports updating to future versions with auto-merging.
+        * Simple command API based on `argparse` and sub-parsers.
+        * Integrated configuation file (based on configparser) utitiles.
+        * Logging extras (e.g. verbose level) and command line configuration.
+        * Free software: MIT license
+        
+        
+        .. |Build Status| image:: https://travis-ci.org/nicfit/nicfit.py.svg?branch=master
+           :target: https://travis-ci.org/nicfit/nicfit.py
+           :alt: Build Status
+        .. |PyPI| image:: https://img.shields.io/pypi/v/nicfit.py.svg
+           :target: https://pypi.python.org/pypi/nicfit.py/
+           :alt: Latest Version
+        .. |Python versions| image:: https://img.shields.io/pypi/pyversions/nicfit.py.svg
+           :target: https://pypi.python.org/pypi/nicfit.py/
+           :alt: Supported Python versions
+        .. |License| image:: https://img.shields.io/pypi/l/nicfit.py.svg
+           :target: https://pypi.python.org/pypi/nicfit.py/
+           :alt: License
+        .. |Status| image:: https://img.shields.io/pypi/status/nicfit.py.svg
+           :target: https://pypi.python.org/pypi/nicfit.py/
+           :alt: Project Status
+        .. |Coverage| image:: https://coveralls.io/repos/nicfit/nicfit.py/badge.svg
+           :target: https://coveralls.io/r/nicfit/nicfit.py
+           :alt: Coverage Status
+        
+        
+        See the `changelog <https://github.com/nicfit/nicfit.py/blob/master/HISTORY.rst>`_ file for release history and changes.
+Keywords: python,application,cookiecutter,utils
+Platform: Any
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 5 - Production/Stable
+Provides-Extra: cookiecutter
+Provides-Extra: shell
