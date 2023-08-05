@@ -1,0 +1,6 @@
+<div is="x-todo-counter" id="{{ this.id }}">
+  <!-- This should be `0 items left` by default -->
+  {% with amount=this.items.active.count %}
+    <span class="todo-count"><strong>{{ amount }}</strong> item{{ amount|pluralize }} left</span>
+  {% endwith %}
+</div>

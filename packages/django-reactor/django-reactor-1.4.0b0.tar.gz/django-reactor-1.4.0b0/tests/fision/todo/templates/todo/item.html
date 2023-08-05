@@ -1,0 +1,29 @@
+{% load reactor %}
+<div is="x-todo-item" id="{{ this.id }}">
+  <li class="
+      {{ this.item.completed|then:'completed' }}
+      {{ this.editing|then:'editing' }}
+      {{ this.is_visible|ifnot:'hidden' }}
+    "
+  >
+    <div class="view">
+      <input
+        class="toggle"
+        type="checkbox"
+        name="completed"
+        {{ this.item.completed|then:'checked' }}
+        @change="completed"
+      >
+      <label @click="toggle_editing">{{ this.item.text }}</label>
+      <button @click="destroy" class="destroy"></button>
+    </div>
+    <input
+      class="edit"
+      name="text"
+      value="{{ this.item.text }}"
+      @blur="save"
+      @keypress.enter="save"
+      {{ this.editing|then:'reactor-focus' }}
+    >
+  </li>
+</div>
