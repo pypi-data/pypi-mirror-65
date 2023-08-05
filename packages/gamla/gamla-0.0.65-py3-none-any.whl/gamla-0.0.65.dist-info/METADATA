@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: gamla
+Version: 0.0.65
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: async-timeout
+Requires-Dist: dataclasses-json
+Requires-Dist: heapq-max
+Requires-Dist: pytest-asyncio
+Requires-Dist: pytest
+Requires-Dist: requests
+Requires-Dist: toolz
+Requires-Dist: frozendict
+
+[![Build Status](https://travis-ci.com/hyroai/gamla.svg?branch=master)](https://travis-ci.com/hyroai/gamla)
+
+Gamla is a functional programming library for python.
+
+`pip install gamla`
+
+## Releasing a new  version
+
+1. Create a pypi account.
+1. Download twine and give it your pypi credentials.
+1. Get pypi permissions for the project from its owner.
+1. `python setup.py sdist bdist_wheel; twine upload dist/*; rm -rf dist;`
+
+
