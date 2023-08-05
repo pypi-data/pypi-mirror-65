@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: rapunzel
+Version: 0.3.34
+Summary: Turns OpenSesame into a Python code editor
+Home-page: https://github.com/smathot/rapunzel
+Author: Sebastiaan Mathot
+Author-email: s.mathot@cogsci.nl
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pyqode.core
+Requires-Dist: pyqode.python
+Requires-Dist: python-levenshtein
+Requires-Dist: python-opensesame
+Requires-Dist: qtconsole
+Requires-Dist: nbformat
+Requires-Dist: pyyaml
+Requires-Dist: pyspellchecker
+
+UNKNOWN
+
+
