@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: curses-snake
+Version: 1.0.2
+Summary: Snake game in console based on cureses.
+Home-page: https://github.com/VoIlAlex
+Author: voilalex
+Author-email: ilya.vouk@gmail.com
+License: MIT
+Download-URL: https://github.com/VoIlAlex/curses-snake/archive/v1.0.2.tar.gz
+Description: # Curses Snake
+        
+        The snake console game written with curses.
+        
+        ## Installing
+        
+        Enter in your terminal:
+        
+        ```bash
+        pip install curses-snake
+        ```
+        
+        ## Usage
+        
+        Enter in your terminal:
+        
+        ```bash
+        curses-snake
+        ```
+        
+        ## License
+        
+        [MIT](LICENSE.md)
+        
+Keywords: game,console,curses,snake
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console :: Curses
+Classifier: Topic :: Games/Entertainment
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
