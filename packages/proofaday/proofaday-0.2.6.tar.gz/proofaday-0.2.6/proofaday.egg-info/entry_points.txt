@@ -1,0 +1,4 @@
+[console_scripts]
+dproofaday = proofaday.daemon_cli:main
+proofaday = proofaday.proofaday:main
+
