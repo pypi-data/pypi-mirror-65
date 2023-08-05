@@ -1,0 +1,23 @@
+
+import os, sys
+import glob
+import numpy as np
+
+from astropy.time import Time
+
+gpstime = 1240327334.353516
+skymap = "../data/GW190426/bayestar1.fits.gz"
+cl = 0.9
+
+outputDir = "../output/GW190426/%.3f_ZTF_DECam_GIT"%cl
+system_command = "python gwemopt_run --telescope ZTF,DECam,GIT --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 30.0 --powerlaw_cl %.3f --doMinimalTiling --doChipGaps --doIterativeTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+print(stop)
+
+outputDir = "../output/GW190427/%.3f_DECam"%cl
+system_command = "python gwemopt_run --telescope DECam --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 30.0 --powerlaw_cl %.3f --doMinimalTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+print(stop)
+

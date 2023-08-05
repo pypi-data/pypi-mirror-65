@@ -1,0 +1,25 @@
+
+import os, sys
+import glob
+import numpy as np
+
+from astropy.time import Time
+
+gpstime = 1246243544.418039
+skymap = "../data/S190704c/bayestar.fits.gz"
+cl = 0.9
+
+outputDir = "../output/S190704c/%.3f_TCA_OAJ_ZADKO"%cl
+system_command = "python gwemopt_run --telescope TCA,OAJ,Zadko --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doIterativeTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+#print(system_command)
+#print(stop)
+
+telescope_list = ["Abastunami-T48","Abastunami-T70","Zadko","UBAI-T60S","UBAI-T60N","ShAO-T60","Makes-60","Lisnyky-AZT8","IRIS","TNT"]
+telescope_str = ",".join(telescope_list)
+
+outputDir = "../output/S190704c/%.3f_GRANDMA_long_galaxy"%cl
+system_command = "python gwemopt_run --telescope %s --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 180.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog --doIterativeTiling"%(telescope_str,skymap,gpstime,outputDir,cl)
+print(system_command)
+#os.system(system_command)
+print(stop)

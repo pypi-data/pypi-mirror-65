@@ -1,0 +1,192 @@
+#!/usr/bin/python
+
+# Copyright (C) 2017 Michael Coughlin
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 3 of the License, or (at your
+# option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
+# Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+""".
+Gravitational-wave Electromagnetic Optimization
+
+This script generates an optimized list of pointings and content for
+reviewing gravitational-wave skymap likelihoods.
+
+Comments should be e-mailed to michael.coughlin@ligo.org.
+
+"""
+
+
+import os, sys, glob, optparse, shutil, warnings
+import numpy as np
+np.random.seed(0)
+
+import healpy as hp
+#import ephem
+import astropy, astroplan
+from astropy import table
+
+import gwemopt.utils, gwemopt.gracedb
+import gwemopt.rankedTilesGenerator, gwemopt.waw
+import gwemopt.lightcurve, gwemopt.coverage
+import gwemopt.efficiency, gwemopt.plotting
+import gwemopt.moc, gwemopt.catalog
+import gwemopt.tiles, gwemopt.segments
+#import gwemopt.tiles, gwemopt.segments_astroplan
+
+import gwemopt.footprint, gwemopt.transients
+import gwemopt.quadrants, gwemopt.mapsplit
+
+if not os.getenv("DISPLAY", None):
+    import matplotlib
+    matplotlib.use("agg", warn=False)
+
+__author__ = "Michael Coughlin <michael.coughlin@ligo.org>"
+__version__ = 1.0
+__date__    = "6/17/2017"
+
+# =============================================================================
+#
+#                               DEFINITIONS
+#
+# =============================================================================
+
+def parse_commandline():
+    """@Parse the options given on the command-line.
+    """
+    parser = optparse.OptionParser(usage=__doc__,version=__version__)
+
+    parser.add_option("-c", "--configDirectory", help="GW-EM config file directory.", default ="../config/")
+    parser.add_option("-s", "--skymap", help="GW skymap.", default='../output/skymaps/G268556.fits')
+    parser.add_option("-o", "--outputDir", help="output directory",default="../output")
+    parser.add_option("--tilingDir", help="tiling directory",default="../tiling")
+
+    parser.add_option("--nside",default=256,type=int)
+
+    parser.add_option("--powerlaw_cl",default=0.9,type=float)
+    parser.add_option("--powerlaw_n",default=1.0,type=float)
+    parser.add_option("--powerlaw_dist_exp",default=0,type=float)
+
+    parser.add_option("--doMinimalTiling",  action="store_true", default=False)
+
+    parser.add_option("--doPlots",  action="store_true", default=False)
+    parser.add_option("-t", "--telescopes", help="Telescope names.",
+                      default ="ATLAS")
+
+    parser.add_option("--doChipGaps",  action="store_true", default=False)
+    parser.add_option("--doParallel",action="store_true",default=False)
+
+    parser.add_option("-v", "--verbose", action="store_true", default=False,
+                      help="Run verbosely. (Default: False)")
+
+    opts, args = parser.parse_args()
+
+    # show parameters
+    if opts.verbose:
+        print >> sys.stderr, ""
+        print >> sys.stderr, "running gwemopt_run..."
+        print >> sys.stderr, "version: %s"%__version__
+        print >> sys.stderr, ""
+        print >> sys.stderr, "***************** PARAMETERS ********************"
+        for o in opts.__dict__.items():
+          print >> sys.stderr, o[0]+":"
+          print >> sys.stderr, o[1]
+        print >> sys.stderr, ""
+
+    return opts
+
+def params_struct(opts):
+    """@Creates gwemopt params structure
+    @param opts
+        gwemopt command line options
+    """
+
+    telescopes = opts.telescopes.split(",")
+    
+
+    params = {}
+    params["config"] = {}
+    configFiles = glob.glob("%s/*.config"%opts.configDirectory)
+    for configFile in configFiles:
+        telescope = configFile.split("/")[-1].replace(".config","")
+        if not telescope in telescopes: continue
+        params["config"][telescope] = gwemopt.utils.readParamsFromFile(configFile)
+        params["config"][telescope]["telescope"] = telescope
+        if "tesselationFile" in params["config"][telescope]:
+            if not os.path.isfile(params["config"][telescope]["tesselationFile"]):
+                if params["config"][telescope]["FOV_type"] == "circle": 
+                    gwemopt.tiles.tesselation_spiral(params["config"][telescope])
+                elif params["config"][telescope]["FOV_type"] == "square":
+                    gwemopt.tiles.tesselation_packing(params["config"][telescope])
+            params["config"][telescope]["tesselation"] = np.loadtxt(params["config"][telescope]["tesselationFile"],usecols=(0,1,2),comments='%')
+
+        if "referenceFile" in params["config"][telescope]:
+            refs = table.unique(table.Table.read(
+                params["config"][telescope]["referenceFile"],
+                format='ascii', data_start=2, data_end=-1)['field', 'fid'])
+            reference_images =\
+                {group[0]['field']: group['fid'].astype(int).tolist()
+                 for group in refs.group_by('field').groups}
+            reference_images_map = {1: 'g', 2: 'r', 3: 'i'}
+            for key in reference_images:
+                reference_images[key] = [reference_images_map.get(n, n)
+                                         for n in reference_images[key]]
+            params["config"][telescope]["reference_images"] = reference_images
+
+        location = astropy.coordinates.EarthLocation(params["config"][telescope]["longitude"],params["config"][telescope]["latitude"],params["config"][telescope]["elevation"])
+        observer = astroplan.Observer(location=location)
+        params["config"][telescope]["observer"] = observer
+
+        # observer = ephem.Observer()
+        # observer.lat = str(params["config"][telescope]["latitude"])
+        # observer.lon = str(params["config"][telescope]["longitude"])
+        # observer.horizon = str(-12.0)
+        # observer.elevation = params["config"][telescope]["elevation"]
+        # params["config"][telescope]["observer"] = observer
+
+    params["skymap"] = opts.skymap
+    params["telescopes"] = telescopes
+    params["outputDir"] = opts.outputDir
+    params["tilingDir"] = opts.tilingDir
+    params["doPlots"] = opts.doPlots
+    params["doDatabase"] = False
+    params["doIterativeTiling"] = False
+    params["doMinimalTiling"] = opts.doMinimalTiling
+    params["nside"] = opts.nside
+    params["powerlaw_cl"] = opts.powerlaw_cl
+    params["powerlaw_n"] = opts.powerlaw_n
+    params["powerlaw_dist_exp"] = opts.powerlaw_dist_exp
+
+    params["doChipGaps"] = opts.doChipGaps
+    params["doParallel"] = opts.doParallel
+
+    return params
+
+# =============================================================================
+#
+#                                    MAIN
+#
+# =============================================================================
+
+warnings.filterwarnings("ignore")
+
+# Parse command line
+opts = parse_commandline()
+if not os.path.isdir(opts.outputDir): os.makedirs(opts.outputDir)
+
+params = params_struct(opts)
+
+map_struct = gwemopt.utils.read_skymap(params, is3D=False)
+
+print("Generating MOC struct...")
+moc_structs = gwemopt.moc.create_moc(params, map_struct=map_struct)

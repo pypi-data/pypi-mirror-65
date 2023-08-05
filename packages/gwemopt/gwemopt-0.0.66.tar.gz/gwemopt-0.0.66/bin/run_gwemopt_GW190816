@@ -1,0 +1,127 @@
+
+import os, sys
+import glob
+import numpy as np
+
+from astropy.time import Time
+
+gpstime = 1250025751.
+skymap = "../data/GW190816/GBM-190816-with-LV-v1.fits"
+cl = 0.9
+
+outputDir = "../output/GW190816/%.3f_ZTF"%cl
+system_command = "python gwemopt_run --telescope ZTF --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+print(stop)
+
+outputDir = "../output/GW190426/%.3f_TCA_OAJ_IRIS"%cl
+system_command = "python gwemopt_run --telescope TCA,OAJ,IRIS --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+#print(system_command)
+#print(stop)
+
+outputDir = "../output/GW190426/%.3f_TCA_OAJ_IRIS_Iterative"%cl
+system_command = "python gwemopt_run --telescope TCA,OAJ,IRIS --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doIterativeTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+#print(stop)
+
+outputDir = "../output/GW190426/%.3f_TCA_OAJ_IRIS_Overlapping"%cl
+system_command = "python gwemopt_run --telescope TCA,OAJ,IRIS --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doOverlappingScheduling --mindiff 3600.0"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_DECam_ZTF_GIT"%cl
+system_command = "python gwemopt_run --telescope DECam,ZTF,GIT --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_DECam_ZTF_GIT_Iterative"%cl
+system_command = "python gwemopt_run --telescope DECam,ZTF,GIT --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doIterativeTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_DECam_ZTF_GIT_Overlapping"%cl
+system_command = "python gwemopt_run --telescope DECam,ZTF,GIT --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 90.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doOverlappingScheduling --mindiff 3600.0"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_PS1_ATLAS"%cl
+system_command = "python gwemopt_run --telescope PS1,ATLAS --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 120.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_ATLAS_PS1"%cl
+system_command = "python gwemopt_run --telescope ATLAS,PS1 --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 120.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_PS1_ATLAS_Iterative"%cl
+system_command = "python gwemopt_run --telescope PS1,ATLAS --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 120.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doIterativeTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+#print(system_command)
+#print(stop)
+
+outputDir = "../output/GW190426/%.3f_PS1_ATLAS_Overlapping"%cl
+system_command = "python gwemopt_run --telescope PS1,ATLAS --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 120.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doOverlappingScheduling --mindiff 3600.0"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_ATLAS_PS1_Iterative"%cl
+system_command = "python gwemopt_run --telescope ATLAS,PS1 --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 120.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doIterativeTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+outputDir = "../output/GW190426/%.3f_ATLAS_PS1_Overlapping"%cl
+system_command = "python gwemopt_run --telescope ATLAS,PS1 --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 120.0 --powerlaw_cl %.3f --doChipGaps --doReferences --doMinimalTiling --doOverlappingScheduling --mindiff 3600.0"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
+telescope_list = ["Abastunami-T70", "Zadko", "IRIS"]
+telescope_str = ",".join(telescope_list)
+
+outputDir = "../output/GW190426/%.3f_GRANDMA_galaxy"%cl
+system_command = "python gwemopt_run --telescope %s --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 180.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog"%(telescope_str,skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+#print(stop)
+
+outputDir = "../output/GW190426/%.3f_GRANDMA_galaxy_Iterative"%cl
+system_command = "python gwemopt_run --telescope %s --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 180.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog --doIterative"%(telescope_str,skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+#print(stop)
+
+outputDir = "../output/GW190426/%.3f_GRANDMA_galaxy_Overlapping"%cl
+system_command = "python gwemopt_run --telescope %s --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 180.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog --doOverlappingScheduling"%(telescope_str,skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+#print(stop)
+
+telescope_list = ["Abastunami-T48","Abastunami-T70","Zadko","UBAI-T60S","UBAI-T60N","ShAO-T60","Makes-60","Lisnyky-AZT8","IRIS","TNT"]
+telescope_str = ",".join(telescope_list)
+
+outputDir = "../output/GW190426/%.3f_GRANDMA_long_galaxy"%cl
+system_command = "python gwemopt_run --telescope %s --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 180.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog"%(telescope_str,skymap,gpstime,outputDir,cl)
+os.system(system_command)
+print(system_command)
+#print(stop)
+
+outputDir = "../output/GW190426/%.3f_GRANDMA_long_galaxy_Iterative"%cl
+system_command = "python gwemopt_run --telescope %s --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 180.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog --doIterative"%(telescope_str,skymap,gpstime,outputDir,cl)
+os.system(system_command)
+print(system_command)
+print(stop)
+
+outputDir = "../output/GW190426/%.3f_GIT_KPED_Nickel"%cl
+system_command = "python gwemopt_run --telescope GIT,KPED,Nickel --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 30.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+print(stop)
+
+outputDir = "../output/GW190426/%.3f_GIT_KPED_Nickel_Iterative"%cl
+system_command = "python gwemopt_run --telescope GIT,KPED,Nickel --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 30.0 --powerlaw_cl %.3f --tilesType galaxy --doCatalog --doIterativeTiling"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+
