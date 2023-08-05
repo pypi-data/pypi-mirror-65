@@ -1,0 +1,17 @@
+flask>=0.12.1
+Flask-HTTPAuth
+pytz
+six
+
+[docs]
+sphinx
+sphinx-prompt
+
+[mongo]
+pymongo
+
+[test]
+coverage
+pytest
+pytest-cov
+tox

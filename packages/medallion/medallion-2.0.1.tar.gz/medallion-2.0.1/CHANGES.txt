@@ -1,0 +1,79 @@
+Version 2.0.1
+2020-04-03
+- #112 Test revamp for consistency across backends
+- Resolves an issue with MongoBackend delete object where wrong version would be removed
+- Resolved an issue with Content-Type header validation causing 415 Response for valid content
+
+Version 2.0.0
+2020-03-27
+First major and stable release to support TAXII 2.1
+- Supports pagination
+- Supports all defined match filters (id, spec_version, version, type)
+- Header Validation for GET, POST requests
+- Updated tests (except view-level tests)
+
+Version 1.0.0
+2020-03-26
+First major and stable release to support TAXII 2.0
+- #108, #109 Additional checks to Accept, Content-Type and Content-Length headers and API root existence
+- #108 Add or clean documentation for Endpoints defined in the spec
+- #108 Design change in validation procedures. These no longer used to evaluate True or raise Exception
+- #108 Update packaging, tests per new changes, code quality
+- #108 Bug under MemoryBackend that would cause a 400 Error when filtering under manifests
+
+Version 0.5.0
+2020-03-20
+- #60 Fixes to tests and Default Values
+- #58, #91,  Updating documentation, or configuration
+- #59 Directory Backend Plus Auth Improvements
+- #74, #104, #105 Update docker configuration
+- #77 mongo filters, example data, port methods that overlap with 2.1
+- #76, #78 Directory Backend changes and general improvements, checks
+- The MongoBackend has received changes in data representation, bug fixes, and filters.
+- The MemoryBacked has received changes in data representation, bug fixes, and filters.
+- JWT login support, API Key, heartbeat, and routes functionality via Endpoints.
+- Headers are being checked.
+
+Version 0.4.0
+2019-07-16
+- @jamesfitzsimons implemented Pagination support and fixed a couple of MongoDB errors
+- #47, #51 Fix issue when objects returned from MongoBackend would strip some properties out
+- #28 Added support for X-TAXII Custom Headers
+- Added new Docker & Docker Compose configuration:
+- Uses mongo image, mongo-express (lightweight web administrative interface for mongoDB) and the medallion build which is slightly tweaked
+- The following bugs were fixed:
+- The MemoryBackend was manipulating its manifest data. When using match[version] against a manifest resource with multiple versions available. It would get modified permanently
+- Removed MongoBackend $project in pipelines that would cause loss of properties or custom properties
+- Errors produced by the TAXII Server now return JSON that align with Section 3.6 of the spec
+- Simplified some of the code for checking permission or determining if a collection exists
+- The rest are code quality changes and consistency
+
+Version 0.3.1
+2018-10-05
+- Fix packaging problem
+
+Version 0.3.0
+2018-10-05
+- #41 Fixed MemoryBackend bug where checking for an object was incorrectly being performed.
+- #34 Performance enhancements for the MongoDBBackend.
+- #29 #30 #31 #30 Improvements to the server error handling.
+
+Version 0.2.1
+2018-03-26
+- Fix packaging problem
+
+Version 0.2.0
+2018-03-26
+- Fix error in MongoBackend that resulted in manifests not being updated
+- Fix error in MongoBackend that resulted in manifests versions not being sorted properly
+- Use argparse for medallion CLI
+- Return correct status responses from MemoryBackend and MongoBackend
+- Decouple some medallion initialization to allow usage as library or further integration
+- Use application proxy for endpoints
+- Allow for dynamic backend via JSON config file or set methods
+- Add logging messages
+- Improve code coverage/testing
+
+Version 0.1.0
+2017-07-14
+- Initial release
