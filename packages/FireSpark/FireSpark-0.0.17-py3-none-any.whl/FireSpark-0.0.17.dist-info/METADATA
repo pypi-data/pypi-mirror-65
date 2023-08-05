@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: FireSpark
+Version: 0.0.17
+Summary: FireSpark data processing utility library
+Home-page: https://elc-github.magna.global/Magna-Autonomous-Systems/FireSpark
+Author: Hai Yu
+Author-email: hai.yu1@magna.com
+License: Apache License 2.0
+Keywords: dataset processing
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: absl-py (>=0.9.0)
+Requires-Dist: protobuf (>=3.7.1)
+Requires-Dist: boto3 (>=1.5.11)
+Requires-Dist: urllib3 (>=1.25.7)
+Requires-Dist: numpy (>=1.13.3)
+Requires-Dist: packaging (>=15.0)
+Requires-Dist: pandas (>=0.19.0)
+Requires-Dist: psutil (>=4.0.0)
+Requires-Dist: pyspark (>=2.1.0)
+Requires-Dist: pyzmq (>=14.0.0)
+Requires-Dist: pyarrow (>=0.12.0)
+Requires-Dist: six (>=1.5.0)
+Requires-Dist: petastorm (>=0.8.2)
+Requires-Dist: tqdm (>=4.43.0)
+Provides-Extra: imgaug
+Requires-Dist: imgaug (>=0.4.0) ; extra == 'imgaug'
+Provides-Extra: opencv
+Requires-Dist: opencv-python (>=3.2.0.6) ; extra == 'opencv'
+Provides-Extra: test
+Requires-Dist: Pillow (>=3.0) ; extra == 'test'
+Requires-Dist: codecov (>=2.0.15) ; extra == 'test'
+Requires-Dist: mock (>=2.0.0) ; extra == 'test'
+Requires-Dist: opencv-python (>=3.2.0.6) ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: pylint (>=1.9) ; extra == 'test'
+Requires-Dist: pytest (>=3.0.0) ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.5.1) ; extra == 'test'
+Requires-Dist: pytest-forked (>=0.2) ; extra == 'test'
+Requires-Dist: pytest-logger (>=0.4.0) ; extra == 'test'
+Requires-Dist: pytest-timeout (>=1.3.3) ; extra == 'test'
+Requires-Dist: s3fs (>=0.0.1) ; extra == 'test'
+Requires-Dist: gcsfs (>=0.2.0) ; extra == 'test'
+Provides-Extra: tf
+Requires-Dist: tensorflow (==1.14.0) ; extra == 'tf'
+Provides-Extra: tf_datasets
+Requires-Dist: tensorflow-datasets (>=1.2.0) ; extra == 'tf_datasets'
+Provides-Extra: tf_gpu
+Requires-Dist: tensorflow-gpu (==1.14.0) ; extra == 'tf_gpu'
+Provides-Extra: torch
+Requires-Dist: torchvision (>=0.5.0) ; extra == 'torch'
+Requires-Dist: torch (>=1.2.0) ; extra == 'torch'
+
+FireSpark
+=========
+
+FireSpark aims to provide Magna ML/MAS team a flexible and standardized library supporting data processing, management, dataset curation, and ETL related activities. 
+
+A dataset created using FireSpark is stored in [Apache Parquet](https://parquet.apache.org/) format. On top of a Parquet
+schema, FireSpark takes advantage of open source [Petastorm](https://github.com/uber/petastorm) library to support multidimensional arrays. 
+
+**This repo is at its early phase development stage. Please contact [me](hai.yu1@magna.com) if you have question, especially on contributing use case specification, requirements, suggestions.** :innocent:
+
+
+
+
+
