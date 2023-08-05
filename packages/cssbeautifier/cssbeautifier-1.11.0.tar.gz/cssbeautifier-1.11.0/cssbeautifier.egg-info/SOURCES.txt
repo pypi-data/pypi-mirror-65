@@ -1,0 +1,17 @@
+MANIFEST.in
+js-beautify-test
+setup-css.py
+setup.py
+cssbeautifier/__init__.py
+cssbeautifier.egg-info/PKG-INFO
+cssbeautifier.egg-info/SOURCES.txt
+cssbeautifier.egg-info/dependency_links.txt
+cssbeautifier.egg-info/entry_points.txt
+cssbeautifier.egg-info/requires.txt
+cssbeautifier.egg-info/top_level.txt
+cssbeautifier/css/__init__.py
+cssbeautifier/css/beautifier.py
+cssbeautifier/css/options.py
+cssbeautifier/tests/__init__.py
+cssbeautifier/tests/generated/__init__.py
+cssbeautifier/tests/generated/tests.py
