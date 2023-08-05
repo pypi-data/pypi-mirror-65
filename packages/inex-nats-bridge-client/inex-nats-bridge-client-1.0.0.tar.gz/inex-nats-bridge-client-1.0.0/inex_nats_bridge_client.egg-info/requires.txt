@@ -1,0 +1,6 @@
+nats-python==0.7.0
+
+[:python_version >= "3.6" and python_version < "3.7"]
+dataclasses==0.7
+
+[dev]
