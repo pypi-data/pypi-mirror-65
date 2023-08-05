@@ -1,0 +1,3 @@
+[console_scripts]
+seir-model = seir.scripts.cli:main
+
