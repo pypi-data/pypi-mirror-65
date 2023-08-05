@@ -1,0 +1,8 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/macros.html' as forms %}
+{% block body %}
+<article class="container" style="margin-top: 10px;">
+  <h2 class="h2">Menu</h2>
+  {{ forms.render_form(form, return_url=url_for('menu.index')) }}
+</article>
+{% endblock %}
