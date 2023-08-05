@@ -1,0 +1,5 @@
+[console_scripts]
+gdformat = gdtoolkit.formatter.__main__:main
+gdlint = gdtoolkit.linter.__main__:main
+gdparse = gdtoolkit.parser.__main__:main
+
