@@ -1,0 +1,9 @@
+httpx==0.12
+lxml
+ipython
+pandas<1
+
+[dev]
+flake8
+black
+pytest-asyncio
