@@ -1,0 +1,154 @@
+{% load common_config_tags static %}
+<style>
+
+    .multi_image_upload_widget .items li {
+        float: left;
+        margin-right: 9px;
+        margin-bottom: 9px;
+        width: 79px;
+        height: 79px;
+        background: no-repeat center center;
+        background-size: cover;
+        background-color: #bbb;
+        position: relative;
+    }
+
+    .multi_image_upload_widget .items .delete {
+        display: none;
+    }
+
+    .multi_image_upload_widget .items li:hover .delete {
+        display: inline-block;
+        color: black;
+        font-size: 30px;
+        position: absolute;
+        line-height: 1;
+        text-align: right;
+        height: 30px;
+        background-color: #ddd;
+        right: 2px;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .weui-uploader__input-box {
+        float: left;
+        position: relative;
+        margin-right: 9px;
+        margin-bottom: 9px;
+        width: 77px;
+        height: 77px;
+        border: 1px solid #D9D9D9;
+    }
+
+    .weui-uploader__input-box:before, .weui-uploader__input-box:after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background-color: #D9D9D9;
+    }
+
+    .weui-uploader__input-box:after {
+        width: 39.5px;
+        height: 2px;
+    }
+
+    .weui-uploader__input-box:before {
+        width: 2px;
+        height: 39.5px;
+    }
+</style>
+<div class="multi_image_upload_widget col-md-8 form-group" data-data='{{ images|dump_images_json }}'
+     data-fieldname="{{ fieldname|default:"images" }}">
+    <label class="col-sm-4 col-md-4 control-label" style="padding-top: 0;">图片</label>
+
+    <div class="weui-uploader col-sm-8 col-md-8">
+        <div class="weui-uploader__hd">
+            <p class="weui-uploader__title">(每次可选择多个图片，单图片不超过5M,格式支持jpg,png,gif)</p>
+            <div class="weui-uploader__info"></div>
+        </div>
+        <div class="weui-uploader__bd">
+            <ul class="list-unstyled items">
+            </ul>
+            <div class="weui-uploader__input-box btn_add">
+            </div>
+        </div>
+    </div>
+</div>
+
+{#<script src="{% static "qiye/js/SimpleAjaxUploader.min.js" %}"></script>#}
+<script>
+    $(function () {
+        var MultiFileUploadWidget = {
+            addItem: function (data) {
+                var h = '<li style="background-image:url(' + data.thumb_url + ')"><input type="hidden" name="' + this.fieldName + '" value="' + data.id + '"><i class="iconfont icon-chacha delete" style="background:#fff;line-height:1;border-radius:50%"></i></li>'
+                this.$items.append(h)
+            },
+            init: function (container) {
+                this.container = container
+                this.$items = container.find(".items")
+                this.data = data = container.data("data")
+                this.fieldName = container.data("fieldname")
+                for (var i in data) {
+                    this.addItem(data[i])
+                }
+                this.bindEvents();
+            },
+            bindEvents: function () {
+                var container = this.container
+                container.on("click", '.delete', function () {
+                    $(this).parent().remove();
+                })
+
+                var btn = container.find('.btn_add'),
+                    progressBar = $('#progressBar'),
+                    progressOuter = $('#progressOuter'),
+                    msgBox = $('#msgBox');
+
+                var uploader = new ss.SimpleUpload({
+                    button: btn,
+                    url: '{% url "common_config:image-upload" %}',
+                    name: 'file',
+                    responseType: 'json',
+                    maxUploads: 1,
+                    multiple: true,
+                    maxSize: 5120,
+                    //allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+                    onProgress: function (pct,filename) {
+                        var inf;
+                        var tet;
+                        if (pct <= 100) {
+                            inf = "info"
+                            tet = filename + '已上传' + pct + "%"
+                        }
+                        bootstrapWarn({
+                            type: inf,
+                            text: tet,
+                        })
+                    },
+
+                    onComplete: function (filename, response) {
+
+                        if (response.error_code === 0) {
+                            bootstrapWarn({
+                                type: "success",
+                                text: filename + "上传成功",
+                            })
+                            var file = response.file
+                            MultiFileUploadWidget.addItem(file)
+                        }
+                    },
+                    onError: function () {
+                        msgBox.innerHTML = '上传失败，请联系管理员';
+                    }
+                });
+            }
+        };
+
+        MultiFileUploadWidget.init($(".multi_image_upload_widget"))
+
+    });
+</script>
