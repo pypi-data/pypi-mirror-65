@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: brainlit
+Version: 0.1.0
+Summary: Code to process and analyze brainlit data
+Home-page: https://github.com/neurodata/brainlit
+Author: ('Bijan Varjivand, Ryan Lu, Matt Figdore, Alex Fiallos, Stanley Wang, Victor Wang',)
+Author-email: bvarjav1@jhu.edu
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: networkx (>=2.1)
+Requires-Dist: numpy (>=1.8.1)
+Requires-Dist: scikit-learn (>=0.19.1)
+Requires-Dist: opencv-python (==4.2.0.32)
+Requires-Dist: scipy (>=1.1.0)
+Requires-Dist: seaborn (>=0.9.0)
+Requires-Dist: simpleitk (>=1.2.4)
+Requires-Dist: cloud-volume (>=1.6.0)
+Requires-Dist: tensorflow (>=1.15)
+Requires-Dist: statsmodels (>=0.11.1)
+
+# Brainlit
+Link to mouselight article [here](https://www.hhmi.org/news/mouselight-project-maps-1000-neurons-and-counting-in-the-mouse-brain).
+
+[![Python](https://img.shields.io/badge/python-3.7-blue.svg)]()
+[![Build Status](https://travis-ci.com/neurodata/brainlit.svg?branch=master)](https://travis-ci.com/neurodata/brainlit)
+[![Documentation Status](https://readthedocs.org/projects/brainlight/badge/?version=latest)](https://brainlight.readthedocs.io/en/latest/?badge=latest)
+[![codecov](https://codecov.io/gh/neurodata/brainlit/branch/master/graph/badge.svg)](https://codecov.io/gh/neurodata/brainlit)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+# Overview
+Tools to read and analyze brainlit data sets.
+
+
+
