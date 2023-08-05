@@ -1,0 +1,22 @@
+Metadata-Version: 1.2
+Name: matid
+Version: 0.5.9
+Summary: MatID is a python package for identifying and analyzing atomistic systems based on their structure.
+Home-page: https://singroup.github.io/matid/
+Author: Lauri Himanen
+License: Apache License 2.0
+Description: MatID is a python package for identifying and analyzing atomistic systems based on their structure.
+Keywords: atoms structure materials science crystal symmetry
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.5
