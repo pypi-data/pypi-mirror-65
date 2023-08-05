@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_global_config.egg-info/PKG-INFO
+django_global_config.egg-info/SOURCES.txt
+django_global_config.egg-info/dependency_links.txt
+django_global_config.egg-info/top_level.txt
+global_config/__init__.py
+global_config/admin.py
+global_config/apps.py
+global_config/config.py
+global_config/models.py
+global_config/migrations/0001_initial.py
+global_config/migrations/__init__.py
