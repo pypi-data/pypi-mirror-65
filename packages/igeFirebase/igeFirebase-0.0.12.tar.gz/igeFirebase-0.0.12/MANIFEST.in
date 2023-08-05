@@ -1,0 +1,17 @@
+include LICENSE
+include MANIFEST.in
+include README.md
+include setup.py
+include igeFirebase.cpp
+include igeFirebaseAnalytics.cpp
+include igeFirebaseAdmob.cpp
+include igeFirebase.h
+include igeFirebaseAnalytics.h
+include igeFirebaseAdmob.h
+include Firebase.cpp
+include FirebaseAnalytics.cpp
+include FirebaseAdmob.cpp
+include Firebase.h
+include FirebaseAnalytics.h
+include FirebaseAdmob.h
+include igeFirebase_doc_en.h
