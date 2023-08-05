@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mercure
+Version: 0.0.1
+Summary: The service to push events between parties. The messenger of gods.
+Author: BCD TripTech
+Author-email: development@bcdtriptech.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: async
+Provides-Extra: common
+Provides-Extra: gevent
+Requires-Dist: aiohttp (>=3.4.4,<4.0.0); extra == "async"
+Requires-Dist: gevent (>=1.4.0,<2.0.0); extra == "gevent"
+Requires-Dist: requests (>=2.21,<3.0); extra == "common" or extra == "gevent"
