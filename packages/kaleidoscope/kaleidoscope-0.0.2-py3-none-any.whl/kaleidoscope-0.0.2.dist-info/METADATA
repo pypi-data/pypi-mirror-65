@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: kaleidoscope
+Version: 0.0.2
+Summary: Kaleidoscope
+Home-page: UNKNOWN
+Author: kaleidoscope Development Team
+Author-email: nonhermitian@gmail.com
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: qiskit (>=0.16)
+Requires-Dist: numpy (>=1.15)
+Requires-Dist: matplotlib (>=3.1)
+Requires-Dist: seaborn (>=0.9.0)
+Requires-Dist: jupyter
+Requires-Dist: plotly (>=4.5)
+
+A visualization toolkit for Qiskit and the IBM Quantum devices.
+
+
