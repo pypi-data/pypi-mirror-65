@@ -1,0 +1,11 @@
+[console_scripts]
+edk2_capsule_tool = edk2toolext.capsule.capsule_tool:main
+nuget-publish = edk2toolext.nuget_publishing:go
+omnicache = edk2toolext.omnicache:main
+stuart_build = edk2toolext.invocables.edk2_platform_build:main
+stuart_ci_build = edk2toolext.invocables.edk2_ci_build:main
+stuart_ci_setup = edk2toolext.invocables.edk2_ci_setup:main
+stuart_pr_eval = edk2toolext.invocables.edk2_pr_eval:main
+stuart_setup = edk2toolext.invocables.edk2_setup:main
+stuart_update = edk2toolext.invocables.edk2_update:main
+
