@@ -1,0 +1,7 @@
+requests>=2.22.0
+
+[autocompletion]
+argcomplete<2,>=1.10.0
+
+[yaml]
+PyYaml>=5.2
