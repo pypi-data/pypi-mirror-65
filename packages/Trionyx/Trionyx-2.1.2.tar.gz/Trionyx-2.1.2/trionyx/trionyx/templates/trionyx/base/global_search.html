@@ -1,0 +1,44 @@
+{% load i18n %}
+
+<div id="trionyx-global-search-app">
+
+    <span v-on:click="open()" class="header-global-search">
+        <i class="fa fa-search"></i> {% blocktrans %}Type anywhere to <strong>search</strong>{% endblocktrans %}
+    </span>
+
+    <div class="global-search-container" v-if="show" v-cloak="">
+        <span v-on:click="close()" class="fa fa-close close-button"></span>
+
+        <input v-model="search" class="no-border overlay-search" placeholder="{% trans "Search" %}..." autocomplete="off" spellcheck="false" autofocus>
+
+        <div class="text-bold global-search-results">{% trans "Search results" %}</div>
+
+        <div class="global-search-results-wrapper">
+            <div v-for="modelResults in results" class="col-lg-3 col-sm-6">
+                <div class="info-box">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">[[modelResults.name]]</h3>
+                    </div>
+                    <div class="box-body">
+                        <ul class="global-search-list">
+                            <li v-for="item in modelResults.items" class="item" v-on:click="itemClick(item.url)">
+                                <a v-bind:href="item.url" class="product-title">
+                                    [[item.title]]
+                                </a>
+                                <p class="product-description" v-if="item.description">
+                                    [[item.description]]
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Needs better fix -->
+            <div style="clear: both; padding: 100px"></div>
+        </div>
+    </div>
+</div>
+
+
+

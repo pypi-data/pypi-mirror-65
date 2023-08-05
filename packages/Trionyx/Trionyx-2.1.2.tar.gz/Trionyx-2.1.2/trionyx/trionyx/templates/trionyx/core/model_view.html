@@ -1,0 +1,129 @@
+{% extends "trionyx/base.html" %}
+{% load i18n static %}
+
+{% block title %}{% if title %}{{ title|truncatechars:80 }}{% else %}{{ object|truncatechars:80 }} | {{ model_verbose_name }}{% endif %}{% endblock %}
+{% block page_title %}{% if title %}{{ title|truncatechars:80 }}{% else %}{{ object|truncatechars:80 }}{% endif %}{% endblock %}
+
+{% block header_buttons %}
+    {% if back_url %}
+        <a href="{{ back_url }}" class="btn btn-flat bg-theme">{% trans "Back" %}</a>
+    {% endif %}
+
+    <span id="trionyx-model-header-buttons"></span>
+
+    {% if delete_url and delete_permission and model_config.display_delete_button %}
+        <a href="{{ delete_url }}" class="btn btn-flat bg-theme">{% trans "Delete" %}</a>
+    {% endif %}
+    {% if edit_url and change_permission and model_config.display_change_button %}
+        <a href="{{ edit_url }}" class="btn btn-flat bg-theme">{% trans "Edit" %}</a>
+    {% endif %}
+
+{% endblock %}
+
+{% block content_before_messages %}
+    {% if page_detail_tabs %}
+        <div class="row detail-tab-view-tabs" style="margin-top: -16px">
+            <ul class="nav nav-pills">
+                {% for item in page_detail_tabs %}
+                    <li {% if item.code == active_tab %}class="active"{% endif %}>
+                        <a href="#{{ item.code }}" data-toggle="tab" class="trionyx-detail-tab" id="detail-tab-link-{{ item.code }}">{{ item.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if page_detail_tabs %}
+        <div class="tab-content">
+        {% for item in page_detail_tabs %}
+            <div class="tab-pane fade in {% if item.code == active_tab %}active{% endif %}" id="{{ item.code }}">
+                <div class="row tab-content" style="padding:0px" id="trionyx-tab-{{ item.code }}">
+                    <div style="font-size: 40px; margin: 0 auto; margin-top: 5%; text-align: center;">
+                        <i class="fa fa-refresh fa-spin text-theme"></i>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="clearfix"></div>
+        </div>
+    {% else %}
+        <p class="alert alert-warning">
+            {% blocktrans %}There are no layouts registered for {{ object }}.{% endblocktrans %}
+        </p>
+    {% endif %}
+{% endblock %}
+
+{% block extra_foot %}
+    <script type="text/javascript">
+        var trionyx_model_alias = '{{ model_alias }}';
+        var trionyx_tab_url = '{% url 'trionyx:model-tab' app_label model_name object.id %}';
+        var trionyx_loaded_tabs = {};
+        var trionyx_current_tab = '{{ active_tab }}';
+
+        function trionyx_load_tab(tab_id, show_tab) {
+            tab_id = tab_id || trionyx_current_tab;
+            show_tab = show_tab || true;
+
+            if (tab_id in trionyx_loaded_tabs) {
+                $('#trionyx-model-header-buttons').html(trionyx_loaded_tabs[tab_id].header_buttons);
+                return;
+            }
+
+            trionyx_loaded_tabs[tab_id] = {header_buttons: ''};
+            var tab_content = $('#trionyx-tab-' + tab_id);
+
+            $.ajax({
+                url: trionyx_tab_url,
+                data: {
+                    tab: tab_id,
+                    model_alias: trionyx_model_alias,
+                },
+                success: function(data) {
+                    if(data.status === 'success'){
+                        trionyx_loaded_tabs[tab_id].header_buttons = data.data.header_buttons;
+                        $('#trionyx-model-header-buttons').html(data.data.header_buttons);
+                        $(tab_content).html(data.data.content);
+                    } else {
+                        $(tab_content).html('<div class="alert alert-danger">Could not load tab</div>');
+                        delete trionyx_loaded_tabs[tab_id];
+                    }
+
+                    if(show_tab){
+				        $('#detail-tab-link-' + tab_id).tab('show');
+			        }
+                },
+            });
+        };
+
+        function trionyx_reload_tab(tab_id, show_tab) {
+            tab_id = tab_id || trionyx_current_tab;
+            show_tab = show_tab || false;
+
+            if(tab_id in trionyx_loaded_tabs){
+			    delete trionyx_loaded_tabs[tab_id];
+		    }
+
+		    trionyx_load_tab(tab_id, show_tab);
+        };
+
+        $(function () {
+            var tab_id = window.location.hash.substr(1);
+            if ($('#trionyx-tab-' + tab_id).length) {
+                trionyx_current_tab = tab_id;
+            }
+
+            $('a.trionyx-detail-tab').on('shown.bs.tab', function (e) {
+                var target = $(e.target).attr("href");
+                trionyx_current_tab = target.substr(1);
+                window.location.hash = trionyx_current_tab;
+                window.scrollTo(0,0); // BUG where large content is show in middle
+                trionyx_load_tab();
+            });
+
+            trionyx_load_tab(trionyx_current_tab, true);
+        });
+    </script>
+
+{% endblock %}
