@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: cpprb
+Version: 8.4.2
+Summary: ReplayBuffer for Reinforcement Learning written by C++ and Cython
+Home-page: https://ymd_h.gitlab.io/cpprb/
+Author: Yamada Hiroyuki
+Author-email: incoming+ymd-h-cpprb-10328285-issue-@incoming.gitlab.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/plain
+Requires-Dist: numpy
+Provides-Extra: all
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: pyvirtualdisplay ; extra == 'all'
+Requires-Dist: sphinx ; extra == 'all'
+Requires-Dist: sphinx-rtd-theme ; extra == 'all'
+Requires-Dist: sphinx-automodapi ; extra == 'all'
+Requires-Dist: coverage ; extra == 'all'
+Requires-Dist: cython ; extra == 'all'
+Requires-Dist: gym[box2d] ; extra == 'all'
+Requires-Dist: twine ; extra == 'all'
+Requires-Dist: unittest-xml-reporting ; extra == 'all'
+Requires-Dist: wheel ; extra == 'all'
+Provides-Extra: api
+Requires-Dist: sphinx ; extra == 'api'
+Requires-Dist: sphinx-rtd-theme ; extra == 'api'
+Requires-Dist: sphinx-automodapi ; extra == 'api'
+Provides-Extra: dev
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: cython ; extra == 'dev'
+Requires-Dist: gym[box2d] ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: unittest-xml-reporting ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Provides-Extra: gym
+Requires-Dist: matplotlib ; extra == 'gym'
+Requires-Dist: pyvirtualdisplay ; extra == 'gym'
+
+ReplayBuffer for Reinforcement Learning written by C++ and Cython
+
+
