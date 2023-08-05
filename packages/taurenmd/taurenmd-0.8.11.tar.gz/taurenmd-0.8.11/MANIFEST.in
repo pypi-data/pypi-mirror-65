@@ -1,0 +1,30 @@
+graft docs
+graft src
+graft tests
+graft tests/data
+
+include .bumpversion.cfg
+include .coveragerc
+include .cookiecutterrc
+include .editorconfig
+include .readthedocs.yml
+include .codeclimate.yml
+include pyproject.toml
+
+include README.rst
+include AUTHORS.rst
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include LICENSE
+include requirements.yml
+
+prune alphas
+prune .ci
+prune joss
+
+include tox.ini .travis.yml
+
+global-exclude *.py[cod] __pycache__/* *.so *.dylib
+global-exclude tags
+global-exclude *.swp
+global-exclude .taurenmd.* *.debug

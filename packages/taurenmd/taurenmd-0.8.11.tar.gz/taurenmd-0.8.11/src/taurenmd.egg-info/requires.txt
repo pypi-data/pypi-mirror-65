@@ -1,0 +1,16 @@
+bioplottemplates>0.1
+pyquaternion
+
+[all]
+MDAnalysis<1,>=0.2
+mdtraj<2,>=1
+matplotlib<4,>=3
+numpy<2,>=1
+
+[md]
+MDAnalysis<1,>=0.2
+mdtraj<2,>=1
+
+[sup]
+matplotlib<4,>=3
+numpy<2,>=1
