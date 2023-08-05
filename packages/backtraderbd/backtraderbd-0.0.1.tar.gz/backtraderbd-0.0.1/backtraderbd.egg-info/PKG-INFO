@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: backtraderbd
+Version: 0.0.1
+Summary: A backtrader utility
+Home-page: https://github.com/rochi88/backtraderbd
+Author: Raisul Islam
+Author-email: raisul.exe@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/elastictools/
+Description: # backtraderbd
+        A backtester utility for dse
+        
+        
+        # Change log
+        
+        ## [0.0.1] - 2020-04-06
+        
+        ### Added
+        - `DocTools.make_search_body()`
+        - `DocTools.search()`
+        - `DocTools.msearch()`
+        - `HISTORY.md`
+        
+        ### Changed
+        
+        ### Removed
+Keywords: backtrader,backtester
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
