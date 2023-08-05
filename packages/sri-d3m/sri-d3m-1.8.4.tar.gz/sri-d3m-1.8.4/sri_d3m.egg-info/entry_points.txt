@@ -1,0 +1,9 @@
+[d3m.primitives]
+classification.general_relational_dataset.GeneralRelationalDataset = sri.psl.general_relational_dataset:GeneralRelationalDataset
+classification.vertex_nomination.VertexClassification = sri.psl.vertex_classification:VertexClassification
+data_preprocessing.dataset_text_reader.DatasetTextReader = sri.autoflow.dataset_text_reader:DatasetTextReader
+data_transformation.conditioner.Conditioner = sri.autoflow.conditioner:Conditioner
+data_transformation.conditioner.StaticEnsembler = sri.autoflow.static_ensembler:StaticEnsembler
+data_transformation.simple_column_parser.DataFrameCommon = sri.autoflow.simple_column_parser:SimpleColumnParser
+data_transformation.vertex_classification_parser.VertexClassificationParser = sri.graph.vertex_classification:VertexClassificationParser
+
