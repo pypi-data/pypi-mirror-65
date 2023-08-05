@@ -1,0 +1,30 @@
+Metadata-Version: 2.0
+Name: gibson2
+Version: 0.0.3rc2
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Stanford University
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: GPUtil (==1.4.0)
+Requires-Dist: Pillow (==6.1.0)
+Requires-Dist: PyYAML
+Requires-Dist: aenum (==2.2.3)
+Requires-Dist: cloudpickle (==1.2.2)
+Requires-Dist: future
+Requires-Dist: gym (==0.12)
+Requires-Dist: ipython (==5.9.0)
+Requires-Dist: matplotlib (==2.2.5)
+Requires-Dist: networkx (==2.0)
+Requires-Dist: numpy (==1.16.6)
+Requires-Dist: opencv-python (==4.2.0.32)
+Requires-Dist: pybullet (==2.6.4)
+Requires-Dist: pytest (==4.6.9)
+Requires-Dist: scipy (==1.2.3)
+Requires-Dist: tqdm (==4.19.9)
+Requires-Dist: transforms3d (==0.3.1)
+
+UNKNOWN
+
+
