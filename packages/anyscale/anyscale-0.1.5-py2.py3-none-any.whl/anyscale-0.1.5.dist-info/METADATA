@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: anyscale
+Version: 0.1.5
+Summary: Command Line Interface for Anyscale
+Home-page: UNKNOWN
+Author: Anyscale Inc.
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: boto3
+Requires-Dist: Click (>=7.0)
+Requires-Dist: GitPython
+Requires-Dist: jsonschema
+Requires-Dist: ray
+Requires-Dist: requests
+Requires-Dist: tabulate
+Requires-Dist: aiohttp
+
+UNKNOWN
+
+
