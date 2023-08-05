@@ -1,0 +1,6 @@
+[cms.djangoapp]
+course_access_groups = course_access_groups.apps:CourseAccessGroupsConfig
+
+[lms.djangoapp]
+course_access_groups = course_access_groups.apps:CourseAccessGroupsConfig
+
