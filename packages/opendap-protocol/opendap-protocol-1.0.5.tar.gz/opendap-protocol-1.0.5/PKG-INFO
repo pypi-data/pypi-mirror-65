@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: opendap-protocol
+Version: 1.0.5
+Summary: A pure Python implementation of the OPeNDAP server protocol.
+Home-page: https://github.com/MeteoSwiss/opendap-protocol
+Author: Philipp Falke
+Author-email: philipp.falke@meteoswiss.ch
+License: BSD-3-Clause license
+Description: opendap-protocol
+        ================
+        
+        
+        
+        [![Build Status](https://travis-ci.com/MeteoSwiss/opendap-protocol.svg?branch=master)](https://travis-ci.com/MeteoSwiss/opendap-protocol) [![codecov](https://codecov.io/gh/MeteoSwiss/opendap-protocol/branch/master/graph/badge.svg)](https://codecov.io/gh/MeteoSwiss/opendap-protocol) [![Documentation Status](https://readthedocs.org/projects/opendap-protocol/badge/?version=latest)](https://opendap-protocol.readthedocs.io/en/latest/?badge=latest)
+        
+        
+        
+        A pure Python implementation of the OPeNDAP server protocol.
+        
+        This module allows you to serve arbitrary data structures through the web
+        framework of your choice as OPeNDAP data objects. It implements just the bare
+        minimum of the DAP 2.0 protocol: DDS, DAS, and DODS responses and slicing. Array
+        data needs to be supplied as `numpy.ndarray`.
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-03-27)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: opendap_protocol
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: test
