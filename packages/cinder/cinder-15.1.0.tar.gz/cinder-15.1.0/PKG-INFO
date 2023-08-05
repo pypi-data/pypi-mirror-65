@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: cinder
+Version: 15.1.0
+Summary: OpenStack Block Storage
+Home-page: https://docs.openstack.org/cinder/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/cinder.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        ======
+        CINDER
+        ======
+        
+        You have come across a storage service for an open cloud computing service.
+        It has identified itself as `Cinder`. It was abstracted from the Nova project.
+        
+        * Wiki: https://wiki.openstack.org/Cinder
+        * Developer docs: https://docs.openstack.org/cinder/latest/
+        * Blueprints: https://blueprints.launchpad.net/cinder
+        * Release notes: https://docs.openstack.org/releasenotes/cinder/
+        * Design specifications: https://specs.openstack.org/openstack/cinder-specs/
+        
+        Getting Started
+        ---------------
+        
+        If you'd like to run from the master branch, you can clone the git repo:
+        
+            git clone https://opendev.org/openstack/cinder
+        
+        For developer information please see
+        `HACKING.rst <https://opendev.org/openstack/cinder/src/branch/master/HACKING.rst>`_
+        
+        You can raise bugs here https://bugs.launchpad.net/cinder
+        
+        Python client
+        -------------
+        https://opendev.org/openstack/python-cinderclient
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: all
+Provides-Extra: datacore
+Provides-Extra: powermax
+Provides-Extra: vnx
+Provides-Extra: unity
+Provides-Extra: fujitsu
+Provides-Extra: hpe3par
+Provides-Extra: kaminario
+Provides-Extra: ds8k
+Provides-Extra: infinidat
+Provides-Extra: pure
+Provides-Extra: rsd
+Provides-Extra: storpool
+Provides-Extra: test
