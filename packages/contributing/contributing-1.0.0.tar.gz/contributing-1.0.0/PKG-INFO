@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: contributing
+Version: 1.0.0
+Summary: Simple CONTRIBUTING.md generator.
+Home-page: https://github.com/VoIlAlex/contributing
+Author: voilalex
+Author-email: ilya.vouk@gmail.com
+License: MIT
+Download-URL: https://github.com/VoIlAlex/contributing
+Description: # ✨ Contributing
+        
+        Simple [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) generator.
+        
+        ## Installation
+        
+        Before you install **contributing** you should have Python 3.x and PIP installed.
+        
+        Then enter in your terminal:
+        
+        ```bash
+        pip install contributing
+        ```
+        
+        ## Usage
+        
+        To generate CONTRIBUTING.md in the current working directory enter in your terminal:
+        
+        ```bash
+        contributing
+        ```
+        
+        If you want to specify path to which the CONTRIBUTING.md content should be saved enter in your terminal:
+        
+        ```bash
+        contributing -o <path>
+        ```
+        
+        ## Author
+        
+        - **Ilya Vouk** (voilalex) - initial work.
+        
+        ## License
+        
+        [MIT](LICENSE.md)
+        
+Keywords: open source,cli,contributing,generator,markdown,license
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
