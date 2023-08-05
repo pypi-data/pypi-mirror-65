@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: identicallist
+Version: 0.1.2
+Summary: A mutable list that allows only identical objects and inherits their properties and methods.
+Home-page: https://gitlab.com/Thawn/identicallist
+Author: thawn
+Author-email: webmaster@korten.at
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.3
+Description-Content-Type: text/markdown
+
+# identicallist
+
+A mutable Python list that allows only identical objects and inherits their properties and methods.
+
+If a list property changes, it changes this property in all items.
+If a list method is invoked, it invokes the method on all items.
+
+## Examples
+
+IdenticalList behaves just like a list:
+
+```python
+from identicallist import IdenticalList
+
+
+class DummyItem:
+    def __init__(self):
+        self.num = 5
+
+    def inc(self):
+        self.num += 1
+
+    def dec(self):
+        self.num -= 1
+
+
+il = IdenticalList(DummyItem(), DummyItem())
+print(len(il)) # 2
+print(iter(il)) # <generator object Sequence.__iter__ at 0x7fc3b708d5d0>
+for i, item in enumerate(il):
+    print('item number {} has the attribute num with value {}'.format(i, item.num))
+# item number 0 has the attribute num with value 5
+# item number 1 has the attribute num with value 5
+```
+At the same time, it also behaves like the first object of the list:
+```python
+print(il.num) # 5
+il.inc()
+print(il.num) # 6
+```
+Changing properties and calling methods on the list object affects all items in the list:
+```python
+for i, item in enumerate(il):
+    print('item number {} has the attribute num with value {}'.format(i, item.num))
+# item number 0 has the attribute num with value 6
+# item number 1 has the attribute num with value 6
+il.dec()
+il.dec()
+print(il.num) # 4
+for i, item in enumerate(il):
+    print('item number {} has the attribute num with value {}'.format(i, item.num))
+# item number 0 has the attribute num with value 4
+# item number 1 has the attribute num with value 4
+il.num = 7
+for i, item in enumerate(il):
+    print('item number {} has the attribute num with value {}'.format(i, item.num))
+# item number 0 has the attribute num with value 7
+# item number 1 has the attribute num with value 7
+```
+Changing properties on individual items in the list only affect that item:
+```python
+il[1].num = 8
+for i, item in enumerate(il):
+    print('item number {} has the attribute num with value {}'.format(i, item.num))
+# item number 0 has the attribute num with value 7
+# item number 1 has the attribute num with value 8
+il[0].dec()
+for i, item in enumerate(il):
+    print('item number {} has the attribute num with value {}'.format(i, item.num))
+# item number 0 has the attribute num with value 6
+# item number 1 has the attribute num with value 8
+```
+Now, calling inc on the list increases all item's num property. Note that because they started with different values, the resulting values are still different:
+```python
+il.inc()
+for i, item in enumerate(il):
+    print('item number {} has the attribute num with value {}'.format(i, item.num))
+# item number 0 has the attribute num with value 7
+# item number 1 has the attribute num with value 9
+```
+
