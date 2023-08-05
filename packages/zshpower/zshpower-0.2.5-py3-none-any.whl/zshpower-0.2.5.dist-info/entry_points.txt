@@ -1,0 +1,4 @@
+[console_scripts]
+zshpower=zshpower.cli:main
+zshpower-shell=zshpower.prompt:main
+
