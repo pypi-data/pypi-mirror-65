@@ -1,0 +1,114 @@
+.jp-NbConda-EnvToolbar {
+  justify-content: space-evenly;
+  box-shadow: none;
+}
+
+.jp-NbConda-ToolbarPackages {
+  align-items: center;
+  height: 40px;
+}
+
+.jp-NbConda-ToolbarPackages > .jp-Toolbar-item > .jp-select-wrapper {
+  height: 100%;
+  background-color: var(--jp-notebook-select-background);
+}
+
+.jp-NbConda-ToolbarPackages select.jp-mod-styled {
+  font-size: var(--jp-ui-font-size1);
+  background-size: 16px;
+  padding-right: 16px;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background-color: transparent;
+}
+
+.jp-NbConda-ToolbarPackages > .jp-Toolbar-item > button.jp-mod-accept {
+  background: var(--jp-brand-color1);
+  color: white;
+  border: 1px solid var(--jp-brand-color1);
+}
+
+.jp-NbConda-ToolbarPackages > .jp-Toolbar-item > button.jp-mod-accept:hover {
+  background: var(--jp-brand-color2);
+}
+
+.jp-NbConda-ToolbarPackages > .jp-Toolbar-item > button.jp-mod-reject {
+  background: var(--md-grey-500);
+  border: 1px solid var(--md-grey-500);
+  color: white;
+}
+
+.jp-NbConda-ToolbarPackages > .jp-Toolbar-item > button.jp-mod-reject:hover {
+  background: var(--md-grey-400);
+}
+
+.jp-NbConda-search-wrapper input {
+  background: transparent;
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color0);
+  line-height: var(--jp-private-commandpalette-search-height);
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+.jp-NbConda-search-wrapper input:focus {
+  box-shadow: inset 0 0 0 1px var(--jp-input-active-box-shadow-color),
+    inset 0 0 0 3px var(--jp-input-active-box-shadow-color);
+}
+
+button.jp-button-hide {
+  display: none;
+}
+
+/* Table theme */
+
+.jp-NbConda .ReactVirtualized__Table__headerRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.jp-NbConda .ReactVirtualized__Table__row {
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color0);
+  line-height: normal;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.jp-NbConda .ReactVirtualized__Table__headerTruncatedText {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.jp-NbConda .ReactVirtualized__Table__headerColumn,
+.jp-NbConda .ReactVirtualized__Table__rowColumn {
+  margin-right: 10px;
+  min-width: 0px;
+}
+.jp-NbConda .ReactVirtualized__Table__rowColumn {
+  text-overflow: ellipsis;
+}
+
+.jp-NbConda .ReactVirtualized__Table__headerColumn:first-of-type,
+.jp-NbConda .ReactVirtualized__Table__rowColumn:first-of-type {
+  margin-left: 10px;
+}
+.jp-NbConda .ReactVirtualized__Table__sortableHeaderColumn {
+  cursor: pointer;
+}
+
+.jp-NbConda .ReactVirtualized__Table__sortableHeaderIconContainer {
+  display: flex;
+  align-items: center;
+}
+.jp-NbConda .ReactVirtualized__Table__sortableHeaderIcon {
+  flex: 0 0 24px;
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
+}

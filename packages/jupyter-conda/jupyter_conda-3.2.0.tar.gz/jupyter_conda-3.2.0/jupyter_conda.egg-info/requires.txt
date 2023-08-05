@@ -1,0 +1,12 @@
+nb_conda_kernels>=2.2.0
+notebook>=4.3.1
+packaging
+
+[:python_version < "3.7"]
+typing
+
+[test]
+nose
+requests
+coverage
+flake8

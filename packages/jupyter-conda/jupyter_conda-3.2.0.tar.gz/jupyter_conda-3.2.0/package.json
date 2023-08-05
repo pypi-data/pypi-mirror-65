@@ -1,0 +1,33 @@
+{
+  "name": "jupyter_conda",
+  "version": "3.2.0",
+  "description": "Development tools for jupyter_conda",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && coverage run -m pytest jupyter_conda && coverage report && cd labextension && npm run eslint:check && npm run test",
+    "lint": "flake8 setup.py jupyter_conda"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcollonval/jupyter_conda.git"
+  },
+  "author": "Continuum Analytics",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/fcollonval/jupyter_conda/issues"
+  },
+  "homepage": "https://github.com/fcollonval/jupyter_conda",
+  "devDependencies": {
+    "casperjs": "^1.1.1",
+    "eslint": "^6.8.0",
+    "phantomjs-prebuilt": "^2.1.7",
+    "watch": "^0.17.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "phantomjs": true
+    }
+  }
+}
