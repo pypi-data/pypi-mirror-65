@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: htmltable2csv
+Version: 0.4.0
+Summary: Transform HTML tables in a Web Page to CSV files.
+Home-page: https://github.com/aqib-git/table2csv
+Author: Aqib
+Author-email: aqib@codecrud.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# HTMLTable2CSV
+
+HTMLTable2CSV is a package for transforming HTML tables in a WebPage to CSV files.
+
+
+### Using as a package inside a project.
+
+```
+from htmltable2csv.htmltable2csv import Table2CSV
+
+Table2CSV('http://example.com/page.html', 'csvfiles')
+```
+
+It will parse all the HTML tables in *http://example.com/page.html* and store theme in csvfiles directory.
+
+
+### Using as a utility from command line.
+
+```
+python3 -m  htmltable2csv.htmltable2csv 'http://example.com/page.html' 'csvfiles'
+```
+
+
