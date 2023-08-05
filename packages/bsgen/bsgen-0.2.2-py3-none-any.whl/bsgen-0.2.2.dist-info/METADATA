@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: bsgen
+Version: 0.2.2
+Summary: BullshitGenerator
+Home-page: https://github.com/voidful/BullshitGenerator
+Author: Voidful
+Author-email: voidful.stack@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: inquirer
+
+# BullshitGenerator
+forked from https://github.com/menzi11/BullshitGenerator
+
+## Update
+- modify to support multi-language
+- Flexible architecture
+
+## Usage
+### pip
+`pip install bsgen`  
+Then,run
+`bsgen`
+
+### clone and run
+git clone this project and run `/bsgen/generate.py`
+
