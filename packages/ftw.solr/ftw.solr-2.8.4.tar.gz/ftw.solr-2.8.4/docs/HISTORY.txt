@@ -1,0 +1,174 @@
+Changelog
+=========
+
+2.8.4 (2020-04-02)
+------------------
+
+- Fix update of the modified index. [njohner]
+
+
+2.8.3 (2020-04-02)
+------------------
+
+- Update the modified index to match new rounding of DateTime. [njohner]
+
+
+2.8.2 (2020-03-27)
+------------------
+
+- Fix to_iso8601 prevent rounding errors with DateTime milliseconds above 999500. [deiferni]
+- Fix blob extraction for DX items. [mbaechtold]
+
+
+2.8.1 (2020-02-05)
+------------------
+
+- Fix to_iso8601 for years before 1900.
+  [deiferni]
+
+
+2.8.0 (2019-12-06)
+------------------
+
+- Add support for uploading blobs to extract handler.
+  [lgraf]
+
+- Add support for Plone 5.0 and 5.1.
+  [buchi]
+
+
+2.7.0 (2019-09-16)
+------------------
+
+- Add console script for maintenance tasks.
+  [buchi]
+
+- Add registry setting for enabling/disabling indexing.
+  [buchi]
+
+
+2.6.2 (2019-09-12)
+------------------
+
+- Avoid sending atomic update commands with null-documents. [lgraf]
+
+
+2.6.1 (2019-08-26)
+------------------
+
+- Fix 'path_depth' indexing handling, when 'path_depth' is not part of the schema. [phgross]
+
+
+2.6.0 (2019-08-19)
+------------------
+
+- Use Solr Cell only for text extraction. The SearchableText is now also indexed
+  using the update handler which allows atomic updates. Also fixes #137.
+  [buchi]
+
+- Fix error when trying to delete an object without a unique key. [jone]
+
+
+2.5.0 (2019-07-02)
+------------------
+
+- Make sure to always update 'path_depth' if 'path' is (re)indexed.
+  [lgraf]
+
+- Handle facet_counts in solr response.
+  [njohner]
+
+
+2.4.0 (2019-06-13)
+------------------
+
+- Perform soft commits and wait for new searcher by default to allow near real
+  time (NRT) searching.
+  [buchi]
+
+- Additionaly index metadata of files using an update command to make them
+  visible as soon as possible.
+  [buchi]
+
+- Flush optimize command.
+  [buchi]
+
+- Add support for indexing path depth.
+  [buchi]
+
+
+2.3.2 (2019-04-29)
+------------------
+
+- Fix partial reindexing (atomic updates) for fields without a value.
+  [buchi]
+
+
+2.3.1 (2018-11-01)
+------------------
+
+- Fix reindexObjectSecurity patch to account for special handling of system
+  roles in allowedRolesAndUsers indexer.
+  [lgraf]
+
+
+2.3.0 (2018-10-18)
+------------------
+
+- Patch reindexObjectSecurity to optimize indexing of large trees.
+  [lgraf]
+
+- Fix diff for items with a modification date that has no fractional seconds.
+  [buchi]
+
+- Provide an error message when raising an AttributeError in SolrDocument.
+  [buchi]
+
+
+2.2.0 (2018-09-21)
+------------------
+
+- Add option to synchronize Solr with catalog in maintenance view.
+  [buchi]
+
+
+2.1.2 (2018-05-15)
+------------------
+
+- Set Content-Type 'application/x-www-form-urlencoded' for requests to
+  /update/extract endpoint to ensure compatibility with Solr 7.3.
+  [lgraf]
+
+- Maintenance view: Allow reindexing without dooming the transaction.
+  [lgraf]
+
+
+2.1.1 (2018-02-20)
+------------------
+
+- Make sure we do not pass invalid dates to Solr.
+  [buchi]
+
+
+2.1.0 (2018-02-20)
+------------------
+
+- Declare dependency on plone.namedfile[blobs].
+  [lgraf]
+
+- Add diff function to maintenance view to compare UIDs in portal catalog with
+  UIDs in Solr.
+  [buchi]
+
+- Fix security filter: Properly quote roles/users with spaces.
+  [buchi]
+
+- Add option to reindex Solr from a catalog query.
+  [buchi]
+
+
+2.0.0 (2018-02-15)
+------------------
+
+- Complete rewrite. Not compatible with previous versions.
+  [buchi]
