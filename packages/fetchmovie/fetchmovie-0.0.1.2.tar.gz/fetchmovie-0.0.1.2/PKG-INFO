@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: fetchmovie
+Version: 0.0.1.2
+Summary: movie searcher
+Home-page: https://github.com/coghost/fetchmovie
+Author: lihe
+Author-email: imanux@sina.com
+License: GPL
+Project-URL: Bug Reports, https://github.com/coghost/fetchmovie/issues
+Project-URL: Source, https://github.com/coghost/fetchmovie
+Description: # fetchmovie
+        
+        fetch movies
+        
+        ## sites
+        
+        - [x] [bbt](https://bbt.tv)
+        - [ ] [btdx8](https://www.btdx8.com/)
+        
+        
+Keywords: movie,movie searcher,douban
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
