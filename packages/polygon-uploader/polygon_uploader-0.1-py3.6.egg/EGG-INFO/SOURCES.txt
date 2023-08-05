@@ -1,0 +1,17 @@
+README.md
+setup.py
+polygon_uploader/__init__.py
+polygon_uploader.egg-info/PKG-INFO
+polygon_uploader.egg-info/SOURCES.txt
+polygon_uploader.egg-info/dependency_links.txt
+polygon_uploader.egg-info/entry_points.txt
+polygon_uploader.egg-info/requires.txt
+polygon_uploader.egg-info/top_level.txt
+polygon_uploader/common/__init__.py
+polygon_uploader/common/authentication.py
+polygon_uploader/common/file_download.py
+polygon_uploader/common/tmp_file_system.py
+polygon_uploader/lojac/__init__.py
+polygon_uploader/lojac/lojac.py
+polygon_uploader/usaco/__init__.py
+polygon_uploader/usaco/usaco.py
