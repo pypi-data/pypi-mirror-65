@@ -1,0 +1,16 @@
+README.rst
+setup.py
+src/sphinx_c_autodoc/__init__.py
+src/sphinx_c_autodoc/loader.py
+src/sphinx_c_autodoc.egg-info/PKG-INFO
+src/sphinx_c_autodoc.egg-info/SOURCES.txt
+src/sphinx_c_autodoc.egg-info/dependency_links.txt
+src/sphinx_c_autodoc.egg-info/requires.txt
+src/sphinx_c_autodoc.egg-info/top_level.txt
+src/sphinx_c_autodoc/clang/__init__.py
+src/sphinx_c_autodoc/clang/comments.py
+src/sphinx_c_autodoc/clang/patches.py
+src/sphinx_c_autodoc/domains/__init__.py
+src/sphinx_c_autodoc/domains/c.py
+src/sphinx_c_autodoc/napoleon/__init__.py
+src/sphinx_c_autodoc/viewcode/__init__.py
