@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+./variables
+prodpad/__init__.py
+prodpad/__main__.py
+prodpad.egg-info/PKG-INFO
+prodpad.egg-info/SOURCES.txt
+prodpad.egg-info/dependency_links.txt
+prodpad.egg-info/top_level.txt
+prodpad/main/myclass.py
+prodpad/main/parser.py
