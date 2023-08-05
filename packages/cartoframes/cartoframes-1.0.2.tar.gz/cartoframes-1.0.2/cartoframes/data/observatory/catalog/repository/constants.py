@@ -1,0 +1,7 @@
+CATEGORY_FILTER = 'category'
+COUNTRY_FILTER = 'country'
+DATASET_FILTER = 'dataset'
+GEOGRAPHY_FILTER = 'geography'
+PROVIDER_FILTER = 'provider'
+VARIABLE_FILTER = 'variable'
+VARIABLE_GROUP_FILTER = 'variable_group'
