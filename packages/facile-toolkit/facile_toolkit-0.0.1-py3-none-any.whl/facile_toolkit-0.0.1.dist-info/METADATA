@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: facile-toolkit
+Version: 0.0.1
+Summary: A robotframework keywords toolkit used by Facile.it 
+Home-page: https://www.facile.it
+Author: Andrea Gubellini
+Author-email: agubellini@yahoo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: robotframework
+Requires-Dist: robotframework-seleniumlibrary
+
+# roboJSlib
+## How to use
+
+###### Install with PIP:
+Install pip and run:
+```
+pip install robojslib
+```
+
+###### Manual installation:
+download roboJSlib.py and place it on your Python scripts folder or inside your tests.robot folder.
+Once done, import in robotframework by running
+```
+Library       robojslib.py
+```
+
+###### Dependencies:
+Dependencies are automatically installed along with Robojslib.
+
+###### Keyword documentation:
+You can find a full keyword documentation @ https://engineering.facile.it/robojslib/
+
+
