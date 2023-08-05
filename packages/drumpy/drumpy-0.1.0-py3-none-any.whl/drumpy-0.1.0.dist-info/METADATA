@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: drumpy
+Version: 0.1.0
+Summary: Play drums on your keyboard
+Home-page: https://github.com/olbed/drumpy
+Author: olbed
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pygame (<2,>=1.9.6)
+Requires-Dist: PyYAML (<6,>=5.3.1)
+
+# 🥁 Drumpy 🎵
+
+Keyboard drums with pygame
+
+Keymap, sound files and volumes settings are in ```drumpy/static/keymap.yaml```
+
+Sound samples are in ```drumpy/static/samples```
+
+## Install
+```shell script
+pip install -U drumpy
+```
+
+## Run
+```shell script
+drumpy
+```
+
