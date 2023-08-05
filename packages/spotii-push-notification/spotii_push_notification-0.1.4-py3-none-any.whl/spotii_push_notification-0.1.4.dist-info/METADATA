@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: spotii-push-notification
+Version: 0.1.4
+Summary: Spotii Push Notification
+Home-page: UNKNOWN
+Author-email: hello@nuclearo.com
+License: UNKNOWN
+Keywords: Spotii,Push Notification
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp
+Requires-Dist: django
+Requires-Dist: djangorestframework
+Requires-Dist: asgiref
+
+# push-notifications
+Push Notifications Django Application
+
+```
+{
+  "callback_url": "http://localhost:8003/wow",
+  "pattern": "consumer/registration/*"
+}
+```
+
+
