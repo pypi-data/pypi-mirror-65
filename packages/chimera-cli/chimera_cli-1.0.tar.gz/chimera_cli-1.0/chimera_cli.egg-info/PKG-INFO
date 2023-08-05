@@ -1,0 +1,147 @@
+Metadata-Version: 2.1
+Name: chimera-cli
+Version: 1.0
+Summary: Command line interface for chimera
+Home-page: UNKNOWN
+Author: Me
+License: UNKNOWN
+Description: # CLI
+        
+        The chimera CLI handles basic communication with the chimera cluster and image building through docker. All commands should be run from a folder that is contained in a git repository, since the CLI relies on it's tagging to tag images in the build process.
+        
+        ## Installation
+        Run the following command on this folder
+        ```Bash
+        make build
+        ```
+        ## Init
+        
+        The `init` command initializes a repository to contain the needed files for the CLI. Should be run on an empty directory, and will prompt the user to inform all needed information for connection with the cluster.
+        
+        ### Usage
+        
+            chimera init [-h] [--help]
+        
+        ## Deploy
+        
+        The `deploy` command sends chimera elements to the chimera cluster. All chimera elements should be defined in `YAML` files, which should be in the following format
+        
+        ### Pipeline
+        
+            version: 1.0
+            type: pipeline # this specifies the type of the yaml (required) (pipeline or channel)
+            
+            namespace: example # this is the name of the namespace (required)
+            
+            name: example_pipeline # this is the name of the pipeline (required)
+            
+            apps:   # this is the definition of the nodes in the pipeline (required)
+            	# many nodes can be defined in a pipeline, and all
+            	# will be deployed upon deploying the pipeline
+            
+            	example_node1: # this is the name of the node (required)
+            
+            		build:  # this is the necessary information 
+            			# for the build of the node (required)
+            			image: example_image # image path (required)
+            			context: example_node1 # Dockerfile context (required)
+            
+            		inputs: # defines the names of the input channels (optional)
+            			- example_channel1
+            		
+            		outputs: # defines the names of the output channels (optional)
+            			- example_channel2
+            		
+            		expose: 80      # port which should be exposed in the ingress
+            				# the node will be accessible through the path
+            				# {namespace}.inspr.com/{name}
+            				# where namespace is the name of the namespace
+            				# and name is the name of the node
+            				# (optional)
+            		
+            		replicas: 2     # number of replicas of the kubernetes deployment
+            				# object (optional) (default: 3)
+            		
+            		env:    # defines the environment variables which should be passed
+            			# on to the deployment object (optional)
+            			
+            			EXAMPLE_VARIABLE: EXAMPLE_VALUE # definition of an environment variable
+            				
+        
+        ### Channel
+        
+            version: 1.0
+            
+            type: channel # this specifies the type of the yaml (required) (pipeline or channel)
+            
+            namespace: example # this is the name of the namespace (required)
+            
+            channels: # from here starts the channel definition (required)
+            	example_channel1: example_channel1.avsc # this is the definition of a channel
+            						# the definition consists on the name
+            						# of the channel on the left and the
+            						# corresponding avro schema file on
+            						# the right (required)
+        
+        ### Usage
+        
+            chimera deploy [-h] [--namespace NAMESPACE] {pipeline,channel}
+        
+        The `namespace` argument specifies the namespace from which elements will be deployed. When specified, only elements defined in the corresponding namespace will be created and sent to the cluster.
+        
+        ### Subcommands
+        
+        The `pipeline` and `channel` subcommands specify what type of elements will be sent to chimera. When neither is specified, both are sent to the cluster.
+        
+        Whenever a `pipeline` is set to be sent, it triggers the build for the image in it's apps. This build is made through `docker` and tags the image with the current `git describe` command output.
+        
+        ### Subcommand arguments
+        
+        The `name` argument specifies the name of the pipeline or channel that will be sent to chimera. When specified, only the pipelines or channels that have that name will be sent.
+        
+        ## Delete
+        
+        The `delete` command deletes an element from chimera. When using the command, the `namespace` argument must be set.
+        
+        ### Usage
+        
+            chimera delete [-h] [--namespace NAMESPACE] {pipeline,channel} 
+        
+        The `delete` command needs namespace specification. When the namespace is not set, the command fails.
+        
+        ### Subcommands
+        
+        The `pipeline` and `channel` subcommands specify which type of elements will be deleted from chimera. When neither is set, both pipelines and channels contained in the specified namespace will be deleted.
+        
+        ### Subcommand arguments
+        
+        The `name` argument from the subcommands specify the name of the pipeline or channel that will be deleted from the chimera cluster. When not set, all of the corresponding elements will be deleted from the given namespace.
+        
+        ## Get
+        
+        The `get` command gets information from the running chimera cluster's namespaces, pipelines and channels.
+        
+        ### Usage
+        
+            chimera get [-h] [--namespace NAMESPACE] {pipeline,channel}
+        
+        The `namespace` argument specifies which namespace you want to get the information from. When not specified, the cluster will respond with information from all namespaces.
+        
+        ### Subcommands
+        
+        The `pipeline` and `channel` subcommands specify which type of elements will be gotten from the chimera cluster. Currently, there is no information on specific pipelines and channels, so whenever you send the command, the information on all of the specified type will be received.
+        
+        ## Watch
+        
+        The `watch` command starts a routine that looks for changes in files contained in the contexts specified in the pipeline YAML files, and triggers a build process to them whenever there is a change.
+        
+         
+        
+        ### Usage
+        
+            chimera watch [-h] [--help]# Chimera CLI
+        
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
