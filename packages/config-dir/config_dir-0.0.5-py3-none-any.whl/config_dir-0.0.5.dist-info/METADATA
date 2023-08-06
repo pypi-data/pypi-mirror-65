@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: config-dir
+Version: 0.0.5
+Summary: Configuration directory utilities
+Home-page: https://github.com/jan-g/{name}
+Author: jan grant 
+Author-email: config-dir@ioctl.org
+License: Apache License 2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml
+
+# Configuration directory utilities
+
+This supplies some very basic helper functions that manage configuration directories under the
+user's home directory.
+
