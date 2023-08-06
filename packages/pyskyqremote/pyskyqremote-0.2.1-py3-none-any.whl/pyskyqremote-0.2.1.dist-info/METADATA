@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pyskyqremote
+Version: 0.2.1
+Summary: Library for Sky Q Remote
+Home-page: https://github.com/RogerSelwyn/skyq_remote
+Maintainer: Roger Selwyn
+License: MIT
+Keywords: SKYQ Remote
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: ws4py (==0.5.1)
+Requires-Dist: xmltodict (==0.12.0)
+
+Python module for accessing SkyQ box and EPG, and sending commands
+
+
