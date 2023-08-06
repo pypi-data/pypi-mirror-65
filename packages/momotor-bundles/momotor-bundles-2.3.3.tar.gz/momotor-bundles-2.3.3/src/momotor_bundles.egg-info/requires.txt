@@ -1,0 +1,20 @@
+
+[:python_version < "3.9"]
+pyxb~=1.2.6
+
+[:python_version >= "3.9"]
+pyxb>1.2.6
+
+[docs]
+Sphinx
+sphinx-autodoc-typehints
+
+[lxml]
+lxml
+
+[test]
+pytest
+pytest-cov
+pytest-pythonpath
+xmljson
+lxml
