@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+bengali_letters/__init__.py
+bengali_letters/_version.py
+bengali_letters/main.py
+bengali_letters.egg-info/PKG-INFO
+bengali_letters.egg-info/SOURCES.txt
+bengali_letters.egg-info/dependency_links.txt
+bengali_letters.egg-info/requires.txt
+bengali_letters.egg-info/top_level.txt
+bin/bengali_letters
