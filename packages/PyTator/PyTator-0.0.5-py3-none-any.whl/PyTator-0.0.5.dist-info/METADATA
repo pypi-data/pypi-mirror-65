@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: PyTator
+Version: 0.0.5
+Summary: Python Bindings for Tator Online REST API
+Home-page: http://cvision.tatorapp.com
+Author: CVision AI
+Author-email: info@cvisionai.com
+License: UNKNOWN
+Keywords: tator
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: requests (>=2.21.0)
+Requires-Dist: progressbar2 (>=3.42.0)
+Requires-Dist: tuspy (>=0.2.4)
+Requires-Dist: pandas (>=0.24.2)
+
+UNKNOWN
+
+
