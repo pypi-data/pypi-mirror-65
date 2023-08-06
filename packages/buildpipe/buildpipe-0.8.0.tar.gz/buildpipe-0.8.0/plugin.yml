@@ -1,0 +1,20 @@
+name: Buildpipe
+description: Dynamically generate Buildkite pipelines based on project changes
+author: https://github.com/ksindi
+requirements:
+  - python3
+  - pip3
+configuration:
+  properties:
+    default_branch:
+      type: string
+    diff_default:
+      type: string
+    diff_pr:
+      type: string
+    dynamic_pipeline:
+      type: string
+    log_level:
+      type: string
+  required:
+    - dynamic_pipeline
