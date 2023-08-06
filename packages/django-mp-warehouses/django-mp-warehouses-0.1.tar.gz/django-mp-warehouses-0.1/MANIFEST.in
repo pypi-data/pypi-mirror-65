@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include requirements.txt
+recursive-include warehouses/locale *
+recursive-include warehouses/static *
+recursive-include warehouses/templates *
+prune *.pyc
