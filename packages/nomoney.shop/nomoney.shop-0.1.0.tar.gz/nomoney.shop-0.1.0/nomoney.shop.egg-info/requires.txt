@@ -1,0 +1,8 @@
+django
+
+[dev]
+check-manifest
+
+[test]
+coverage
+pylint
