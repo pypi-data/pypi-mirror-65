@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: annotell-auth
+Version: 1.2.0
+Summary: Annotell Authentication
+Home-page: https://github.com/annotell/annotell-python
+Author: Annotell
+Author-email: Michel Edkrantz <michel.edkrantz@annotell.com>
+License: MIT
+Download-URL: https://github.com/annotell/annotell-python/tarball/1.2.0
+Keywords: API,Annotell
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests (<3,>=2.20)
+Requires-Dist: authlib (<1,>=0.14.1)
+
+# Annotell Authentication
+
+Python 3 library providing foundations for Annotell Authentication
+
+Builds on the standard Oauth 2.0 Client Credentials flow.
+
+Set tokens in constructor in AuthSession constructor or set environment variables `ANNOTELL_CLIENT_ID` and
+ `ANNOTELL_CLIENT_SECRET`
+
