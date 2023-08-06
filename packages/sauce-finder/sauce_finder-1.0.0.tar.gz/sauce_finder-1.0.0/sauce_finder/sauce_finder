@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+from sauce_finder import sauce_finder
+
+
+if __name__ == '__main__':
+	sauce_finder.main()
