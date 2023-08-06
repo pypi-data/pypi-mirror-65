@@ -1,0 +1,1 @@
+import deliverable_model.serving.remote_model.endpoints
