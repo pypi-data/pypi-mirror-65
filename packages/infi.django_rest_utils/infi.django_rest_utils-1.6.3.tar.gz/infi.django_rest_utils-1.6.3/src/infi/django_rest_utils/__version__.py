@@ -1,0 +1,11 @@
+__version__ = "1.6.3"
+__git_commiter_name__ = "Roy Belio"
+__git_commiter_email__ = "rbelio@infinidat.com"
+__git_branch__ = 'develop'
+__git_remote_tracking_branch__ = 'origin/develop'
+__git_remote_url__ = 'git@github.com:Infinidat/infi.django_rest_utils.git'
+__git_head_hash__ = '99bfc02978533572874e82bd2199ec8945e3985c'
+__git_head_subject__ = 'Finished Release v1.6.3'
+__git_head_message__ = ''
+__git_dirty_diff__ = ''
+__git_commit_date__ = '2019-11-26 14:37:21'
