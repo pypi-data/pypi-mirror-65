@@ -1,0 +1,13 @@
+TatSu==4.4.0
+numpy==1.18.1
+
+[dev]
+pytest
+pytest-cov
+pytest-xdist
+pytest-timeout
+hypothesis
+flake8
+pylint
+sphinx
+sphinx_rtd_theme
