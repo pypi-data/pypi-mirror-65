@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: sumgram
+Version: 0.0.17
+Summary: sumgram is a tool that summarizes a collection of text documents by generating the most frequent sumgrams (conjoined ngrams)
+Home-page: https://github.com/oduwsdl/sumgram/
+Author: Alexander C. Nwala
+Author-email: anwala@cs.odu.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: numpy (==1.17.0)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: sklearn (==0.0)
+
+See: https://github.com/oduwsdl/sumgram/
+
+
