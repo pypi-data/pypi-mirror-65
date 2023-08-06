@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: minotor
+Version: 0.0.2
+Summary: Easy to use plug and play ML monitoring tool.
+Home-page: https://github.com/datarmada/minotor
+Author: Datarmada
+Author-email: contact@datarmada.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: numpy (>=1.18.1)
+Requires-Dist: pandas (>=1.0.1)
+Requires-Dist: tornado (>=6.0.4)
+Requires-Dist: scikit-learn (>=0.22.2)
+Requires-Dist: scipy (>=1.4.1)
+Requires-Dist: wheel (>=0.34.2)
+
+UNKNOWN
+
+
