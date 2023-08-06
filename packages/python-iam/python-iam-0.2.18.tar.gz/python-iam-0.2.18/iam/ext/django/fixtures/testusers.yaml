@@ -1,0 +1,40 @@
+-   model: iam.passwordcredential
+    pk: 00000000-0000-0000-0000-000000000001
+    fields:
+        value: pbkdf2_sha256$180000$Ni73TwAzM9uw$jmkbR73kqpdEAbPw84lnll+jBDPWINLstytRy1c/dRU=
+-   model: iam.principal
+    pk: 1
+    fields:
+        realm: default
+        kind: id.iam.unimatrixone.io/email
+        subject: 00000000-0000-0000-0000-000000000001
+        value: testuser1@test.iam.unimatrixone.io
+-   model: iam.principal
+    pk: 2
+    fields:
+        realm: default
+        kind: id.iam.unimatrixone.io/phonenumber
+        subject: 00000000-0000-0000-0000-000000000001
+        value: "+31612345678"
+-   model: iam.realm
+    pk: default
+    fields:
+        label: default
+-   model: iam.realm
+    pk: master
+    fields:
+        label: Master
+-   model: iam.subject
+    pk: 00000000-0000-0000-0000-000000000001
+    fields:
+        realm: default
+- model: iam.subjectstringproperty
+  fields:
+    subject: 00000000-0000-0000-0000-000000000001
+    kind: iam.unimatrixone.io/first-name
+    value: Test
+- model: iam.subjectstringproperty
+  fields:
+    subject: 00000000-0000-0000-0000-000000000001
+    kind: iam.unimatrixone.io/last-name
+    value: "User 1"

@@ -1,0 +1,71 @@
+{% extends "iam/login.html.j2" %}
+{% set subject=request.user %}
+{% set css_container_classes="landscape-fullwidth col-xs-12 col-sm-12 col-md-6 col-lg-6 mx-auto" %}
+{% set content_max_width="750" %}
+{% set disable_scrolling=False %}
+
+{% block container %}
+<div class="jumbotron">
+  <h1 class="display-4">Welcome, {{ subject.get_full_name() }}</h1>
+  <p class="lead">This is the testing page for the Python IAM Django application.</p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="{{ url('iam:logout') }}">Logout</a></br>
+</div>
+
+    {% if backends.associated %}
+    <h2>Associated backends</h2>
+    <table>
+      <tr>
+        <th><strong>Provider</strong></th>
+        <th><strong>UID</strong></th>
+        <th><strong>Data</strong></th>
+      </tr>
+      {% for backend in backends.associated %}
+      <tr>
+        <td><pre>{{ backend.provider }}</pre></td>
+        <td><pre>{{ backend.uid }}</pre></td>
+        <td><pre>{{ backend.extra_data|to_yaml }}</pre></td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+    </br>
+    <h2>Principals</h2>
+    <p>
+      A <strong>Principal</strong> is a concrete piece of information that
+      identifies a <strong>Subject</strong>. In combination with a
+      <strong>Credential</strong>, a Subject can authenticate itself with the
+      system. The table below lists the Principals that are associated to the
+      current authenticated user.
+    </p>
+    {% if request.user.principals.exists() %}
+    <table class="table">
+      <tr>
+        <th><strong>Kind</strong></th>
+        <th><strong>Value</strong></th>
+      </tr>
+      {% for principal in request.user.principals.all() %}
+      <tr>
+        <td><strong>{{ principal.kind }}</strong></td>
+        <td><pre>{{ principal.value }}</pre></td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+    </br>
+    <h2>Properties</h2>
+    <table class="table">
+      <tr>
+        <th><strong>Kind</strong></th>
+        <th><strong>Type</strong></th>
+        <th><strong>Value</strong></th>
+      </tr>
+      {% for prop in request.user.stringproperties.all() %}
+      <tr>
+        <td><pre>char[]</pre></td>
+        <td><strong>{{ prop.kind }}</strong></td>
+        <td>{{ prop.value }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock %}

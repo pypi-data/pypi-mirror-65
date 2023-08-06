@@ -1,0 +1,111 @@
+{% extends "iam/login.html.j2" %}
+{% set iam_public_realm=True %}
+
+{% block main_content %}
+{% if iam_registration_method is defined and not form.fake_success %}
+
+{% elif form.fake_success %}
+<div class="row">
+  <div class="col mx-auto w-100">
+    {% if form.using == 'phonenumber' %}
+    {{ _('Complete the form below to register a new account.') }}
+    {% elif form.using == 'iam.unimatrixone.io/v1/EmailPrincipal' %}
+    <p>
+      {{ _("Your account is ready.") }}
+      {{ _("We sent an activation link to your email address.") }}
+    </p>
+    {% else %}
+    <p>{{ _("Your account is ready.") }}</p>
+    {% endif %}
+    <p>
+      <a href="{{ url(iam_urls.login) }}{{ next_url }}">
+        <strong>{{ _("Follow this link to login.") }}</strong>
+      </a>
+    </p>
+  </div>
+</div>
+{% else %}
+<div class="row">
+  <div class="col mx-auto w-100">
+    <p>
+      {{ _('Complete the form below to register a new account.') }}
+    </p>
+    <form action="" method="POST">{{ csrf_input }}
+      <div class="form-group">
+        <input required name="principal"
+          class="form-control{% if form.principal.errors %} is-invalid{% endif %}"
+          maxlength="64"
+          placeholder="{{ iam_principals_placeholder }}"
+          {% if form.principal.value() %}
+          value="{{ form.principal.value() }}"
+          {% endif %}
+        >
+        {% if form.principal.errors %}
+        <p class="invalid-feedback">{{ form.principal.errors[0] }}</p>
+        {% endif %}
+      </div>
+      <div class="form-group">
+        <input name="password"
+          type="password"
+          required="true"
+          class="form-control{% if form.password.errors %} is-invalid{% endif %}"
+          maxlength="64"
+          placeholder="{{ _('Password') }}"
+          {% if form.password.value() %}
+          value="{{ form.password.value() }}"
+          {% endif %}
+        >
+        {% if form.password.errors %}
+        <p class="invalid-feedback">{{ form.password.errors[0] }}</p>
+        {% endif %}
+      </div>
+      <div class="form-group">
+        <input required name="first_name"
+          class="form-control{% if form.first_name.errors %} is-invalid{% endif %}"
+          maxlength="32"
+          placeholder="{{ _('First name') }}"
+          {% if form.first_name.value() %}
+          value="{{ form.first_name.value() }}"
+          {% endif %}
+        >
+        {% if form.first_name.errors %}
+        <p class="invalid-feedback">{{ form.first_name.errors[0] }}</p>
+        {% endif %}
+      </div>
+      <div class="form-group">
+        <input required name="last_name"
+          class="form-control{% if form.last_name.errors %} is-invalid{% endif %}"
+          maxlength="32"
+          placeholder="{{ _('Last name') }}"
+          {% if form.last_name.value() %}
+          value="{{ form.last_name.value() }}"
+          {% endif %}
+        >
+        {% if form.last_name.errors %}
+        <p class="invalid-feedback">{{ form.last_name.errors[0] }}</p>
+        {% endif %}
+      </div>
+      {% if iam_require_username %}
+      <div class="form-group">
+        <input required name="username"
+          class="form-control"
+          placeholder="{{ _('Username') }}">
+      </div>
+      {% endif %}
+      <button type="submit" class="btn btn-primary w-100">
+        {{ _('Register and continue') }}
+      </button>
+    </form>
+  </div>
+</div>
+<hr/>
+<div class="row mb-1">
+  <div class="col mx-auto">
+    <a href="{{ url(iam_urls.login) }}{{ next_url }}"
+      class="btn btn-outline-primary w-100" role="button">
+      <i class="fas fa-angle-left"></i> {{ _("Return to login options") }}
+    </a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

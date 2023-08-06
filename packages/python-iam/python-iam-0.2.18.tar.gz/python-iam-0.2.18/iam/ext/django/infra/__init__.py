@@ -1,0 +1,2 @@
+from .hashedpasswordrepository import HashedPasswordRepository
+from .subjectrepository import SubjectRepository

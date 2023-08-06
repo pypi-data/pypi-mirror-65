@@ -1,0 +1,35 @@
+{% extends "iam/login.html.j2" %}
+{% set agreement=iam_privacy_policy %}
+
+
+{% block main_content %}
+<div class="row">
+  <div class="col mx-auto w-100">
+    <p>
+      {{ _("Please review and accept our Privacy Policy to continue.") }}
+    </p>
+    <div class="tos small pt-4 pb-4">
+    {{ agreement.render()|safe }}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col mx-auto w-100">
+    <form class="submit-inplace" action="{{ url(iam_urls.forms.terms) }}" method="POST">{{ csrf_input }}
+        <input type="hidden" name="agreement" value="{{ agreement.checksum }}"/>
+      <button type="submit" class="btn btn-primary w-100">
+        {{ _('I accept the Privacy Policy') }}
+      </button>
+    </form>
+  </div>
+</div>
+<div class="row mb-1 mt-4">
+  <div class="col mx-auto text-center">
+    <a href="{{ url(iam_urls.logout) }}{{ next_url }}">
+      <strong>{{ _("I reject the Privacy Policy") }}</strong>
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+

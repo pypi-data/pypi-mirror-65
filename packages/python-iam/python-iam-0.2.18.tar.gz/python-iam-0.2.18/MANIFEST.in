@@ -1,0 +1,5 @@
+include requirements.txt
+recursive-include iam/ext/django/jinja2 *
+recursive-include iam/ext/django/locale *
+recursive-include iam/ext/django/static *
+recursive-include iam/ext/django/fixtures *

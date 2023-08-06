@@ -1,0 +1,30 @@
+{% extends "iam/login.html.j2" %}
+
+
+{% block main_content %}
+<div class="row">
+  <div class="col mx-auto w-100" style="max-width:500px;">
+    <p>
+      {{ _('A magic link allows you login with just one click.') }}
+      {{ _('Each magic link is unique and can only be used once.') }}
+    </p>
+    <form action="" method="POST">{{ csrf_input }}
+      <div class="form-group">
+        <input required name="email" type="email" class="form-control" placeholder="E-Mail">
+      </div>
+      <button type="submit" class="btn btn-primary w-100">
+        {{ _('Send my magic link') }}
+      </button>
+    </form>
+  </div>
+</div>
+<hr/>
+<div class="row mb-1">
+  <div class="col mx-auto" style="max-width:500px; vertical-align: middle;">
+    <a href="{{ url(iam_urls.login) }}{{ next_url }}"
+      class="btn btn-outline-primary w-100" role="button">
+      <i class="fas fa-angle-left"></i> {{ _("Return to login options") }}
+    </a>
+  </div>
+</div>
+{% endblock %}
