@@ -1,0 +1,256 @@
+CHANGES
+=======
+
+v1.4.12
+-------
+
+* Fixes yaml serialization with TypeNode that were introduced in #83
+* Readd biolink-model.native.shexj
+* Fix issue #107, "can't assign to operator" error when prefix contains a '-'
+* Fix issue #107, "can't assign to operator" error when prefix contains a '-'
+* Fixed the import mappings
+* Add prefix=True to json-ld parsing
+* Update rdflib-jsonld
+* Add a unittest for issue #103
+* Add a testcase
+* Message: PyCharm's notebook editor not yet ready for prime time
+* Ran all of the cells
+* Added notebook to document prefixcommons CURIE issue
+* #83 #100 dynamically use extended\_str, extended\_int, extended\_float in pythongen
+* #83 #100 Added more missing line numbers in schemaloader. Also added tests
+* #101 implement namespacegen and test
+* Update to include all test results
+* tweak to get a dev version
+
+v1.4.10
+-------
+
+* Update to include all test results
+* #83 Add support for python >= 3.7.6
+* Passes all unit tests except for a minor issue in test\_issue\_83
+* Update mappings.yaml
+* Fix dumper to not include line and column numbes
+* #83 Add support for python >= 3.7.6
+* #83 Implemented overwriting dataclasses \_init\_fn to add \*\*kwargs in \_\_init\_\_
+* Checkpoint - runs with line numbers
+* Checkpoint - sample of update sans dataclasses change
+* Partial progress on line numbers for errors
+* Version 1.4.9 pypi release
+
+v1.4.9
+------
+
+* Fix case issue introduced in documentation generator
+* Fix case issue introduced in documentation generator
+* Added test cases for issue 50 and 84
+* Added test cases for issue 50 and 84
+* Fix for issue #80
+* Update AltDescription.md
+* Update to include class URI
+* Proposed for Issue #80
+* Escape vertical bar as test for github docs
+* Escape vertical bar as test for github docs
+* Escape vertical bar as test for github docs
+* Fixed broken link
+* Update README.md
+* Manual fix for JSONld context uri's
+* Proposed fix for issue #70
+* Added ability to redirect imports
+* Implemented issue #68
+* Fix for issue #65
+* Add first cut at model import notebook
+* Allow empty slots/types/classes/subsets sections
+* Use the latest biolink-model for testing
+* adding basic example
+* Fix test\_mappings\_generators issue
+* Remove accidentally added files and add new ones
+* Switch to logger output
+* import\_map added to all generators
+* Add import\_mapping to SchemaLoader
+* Documented how to do a model change and updated all of test suite except biolink-model
+* Final set of issues resolved for the mappings import
+* Add central context utilities
+* Pass multiple contexts to context and rdf generators
+* Move test metadata filters to their own module
+* Add mappings as separate include file
+* Refactor RDF comparison test
+* Add code to emit the metamodel in JSON
+* Update for 1.4.6
+* Turn of ShEx validation tests
+* Adding a couple more tests
+* Fix to issue #56. Do not check slot domain/class slot for now
+* sexpr
+* adding sxpr
+* more docs and tests
+* defining slots
+* defining slots
+* defining slots
+* domain test
+* Fix to issue 50.  class.slots entry does not set slot.domain
+* Documenting slot model
+* Contents now in README
+* Moving stuff from index.md to README
+* Fixing broken README links and adding intro
+* Correct doc links in README
+* Adding link to notebook from README
+* More test files
+* Update (minor) test output changes for issue 41
+
+v1.4.4
+------
+
+* Add test outputs
+* Fix issue #41
+
+v1.4.3
+------
+
+* Hard code biolink.model path for python import
+* Fix Issue #39
+* Fix Issue #38
+* Remove all native contexts except in the biolink model
+* Add biolink-model contextn.jsonld test case
+
+v1.4.2
+------
+
+* Release 1.4.1
+
+v1.4.1
+------
+
+* Fixed metauri's parameter linkage
+* Released version 1.4.0
+
+v1.4.0
+------
+
+* Add one more test file
+* Implemented native URI mode
+* Added the metauris parameter
+* Addresses some issues in incorrect type arcs
+* Shex Generation completely revised
+* Checkpoint -- NodeIdentifier and ElementIdentifier more or less in place
+* Checkpoint to allow folks to look at current state of model.py
+* Experiment with NamedThingId type checking
+* First cut at the yamlutils.as\_rdf function
+* Add all namespaces to python file
+* Partial implementation of issue #21
+* Part 1 of computable isabsent
+* Partial implementation of issue #21
+* Partial implementation of issue #21
+* Fix for Issues #24, #25 and #26
+* Fix for Issues #24, #25 and #26
+* Fix for Issues #24, #25 and #26
+* Address Issue #6  -- slot labels with a ':' are an error
+* Fix to issue #4 -- map meta:Uri to shex:iri
+* Updated tests that got missed in the prior submission
+* Fixes issue #3 -- switch date and datetime URI's
+* Fixes issue #9 -- switch date and datetime URI's
+* New version
+
+v1.3.7
+------
+
+* Updates to metamodel output
+* New markdown output for review
+
+v1.3.6
+------
+
+* Add functions to generator to support biolink-model-toolkit, issue #10
+* Switch back to w3id server in test case
+* Fix for issue #8
+
+v1.3.5
+------
+
+* Checkpoint -- most things working
+
+1.3.4
+-----
+
+* Checkpoint -- most things working
+* Checkpoint -- most things working
+* Update the examples notebook
+
+v0.6.3
+------
+
+* Slot and class uri's are no longer inherited
+* Slot and class uri's are no longer inherited
+* Multiple tweaks and bug fixes
+* Complete build.  Image of distro 0.6.2
+
+v0.6.2
+------
+
+* Adding all the tests for previous changes
+* ShEx definitions now link to parent even if there are no parent tripleexprs
+* Move inherited names inside classes
+* Fix element URI so text is CURIE and link is URI
+* Fixed several issues in context.jsonld generation
+
+v0.6.1
+------
+
+* Update jupyter notebook example
+* Bumped metamodel version number
+* Bumped metamodel version number
+* Update the example notebook.  0.6.0 release
+
+v0.6.0
+------
+
+* Add tests for modified biolink model
+* Change the header because we use text/yaml
+* Checkpoint --
+* Update w3id.org -- redirects now work correctly
+* Commit all test directories
+* Synchronize with PyShEx and other models
+* New steady state.  Everything in the core works w/ exception of the ShEx CLOSED statement
+* Add binder link
+* ShEx validation example working
+* Add as\_json function w/ passed context
+* Fix bug in text loader -- TextIO typing problem
+* Five changes
+* slot.key forces required
+* Checkpoint
+* Checkpoint on notebook
+* Add examples notebook
+* Checkpoint on the biolink metamodel and model task
+* Complete imports model.  Now generates all metamodel elements
+* Added a summary generator for viewing models in tsv format
+* Fix an issue where some of the base types miss getting imported
+* clarifying domain != slot
+* Complete imports model.  Now generates all metamodel elements
+
+v0.5.3
+------
+
+* Uses imports in python
+* Several files missed in previous commit
+* removed 'include' from model types identifier in mod\_rewrite
+* Clarification in the httpd README
+* Adds w3id rewrite rules and corresponding tester
+* Upgrade to new cachier without the annoying mongodb message
+
+v0.5.2
+------
+
+* Emit all type definitions in Python
+* Re-add aliases and mappings for modeling use
+* Require a URI on a non typeof type
+* Fix URI of metamodel type element
+* Set theme jekyll-theme-dinky
+* More README cleanup - we need a new one
+* Remove DOI from README
+* Fix PyYAML issue in requirements files
+* Fix PyHAML vunerability
+* Checkpoint
+
+v0.5.1
+------
+
+* Initial drop
+* Initial drop

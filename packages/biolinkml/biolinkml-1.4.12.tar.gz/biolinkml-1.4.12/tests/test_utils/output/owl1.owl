@@ -1,0 +1,96 @@
+@prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix meta: <https://w3id.org/biolink/biolinkml/meta/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/owl1> a owl:Ontology ;
+    rdfs:label "owl1" ;
+    meta:generation_date "2020-02-27 16:12" ;
+    meta:metamodel_version "1.4.3" ;
+    meta:source_file "owl1.yaml" ;
+    meta:source_file_date "Thu Dec 26 23:54:45 2019" ;
+    meta:source_file_size 639 .
+
+meta:SubsetDefinition a owl:Class ;
+    rdfs:label "subset_definition" ;
+    skos:definition "the name and description of a subset" .
+
+meta:string a owl:Class,
+        meta:TypeDefinition ;
+    rdfs:label "string" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty meta:topValue ;
+            owl:qualifiedCardinality 1 ] .
+
+meta:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" ;
+    skos:definition "A data type definition." .
+
+meta:slotopt a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slotopt" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:C2 .
+
+meta:slotreq a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slotreq" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:C2 .
+
+meta:slotzeromany a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slotzeromany" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:C2 .
+
+meta:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
+meta:ClassDefinition a owl:Class ;
+    rdfs:label "class_definition" ;
+    skos:definition "the definition of a class or interface" .
+
+meta:slotonemany a owl:ObjectProperty,
+        meta:SlotDefinition ;
+    rdfs:label "slotonemany" ;
+    rdfs:domain meta:C1 ;
+    rdfs:range meta:C2 .
+
+meta:C1 a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "c1" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom meta:C2 ;
+            owl:onProperty meta:slotzeromany ],
+        [ a owl:Restriction ;
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:slotreq ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass meta:C2 ;
+            owl:onProperty meta:slotopt ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom meta:C2 ;
+                        owl:onProperty meta:slotonemany ] [ a owl:Restriction ;
+                        owl:onProperty meta:slotonemany ;
+                        owl:someValuesFrom meta:C2 ] ) ] .
+
+meta:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" ;
+    skos:definition "the definition of a property or a slot" .
+
+meta:C2 a owl:Class,
+        meta:ClassDefinition ;
+    rdfs:label "c2" .
+
+
