@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: jcson
+Version: 0.1.5
+Summary: jcson - enhanced json for configuration
+Home-page: https://github.com/zakalibit/jcson
+Author: Alex Revetchi
+Author-email: alex.revetchi@gmail.com
+License: License :: OSI Approved :: MIT License
+Platform: Linux
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
+
+# jcson - enhanced json for configuration
+
+[![Build Status](https://travis-ci.org/zakalibit/jcson.svg?branch=master)](https://travis-ci.org/zakalibit/jcson)
+
+## Introdcution
+The jcson python module is an enhanced json parser, that supports:
+
+* path expression sustitutions, a way of referring to other parts of the json/dictionary tree
+* include directive
+* new line and inline comments
+
+
+## Instaling
+
+Install and update using pip:
+
+```
+pip install -U jcson
+```
+
+
+## A simple example
+
+Sample config file simple.jcson:
+
+```
+{
+    "foo" : {
+        "bar": "some value"
+    },
+
+    "bar_value": "${foo.bar}",
+
+    "concatenated": "${foo.bar} used later"
+}
+```
+
+
+Pyhton code that reads it:
+
+```pyhton
+
+import json
+import jcson
+
+c = jcson.read('simple.jcson')
+
+print (json.dumps(c, indent=4))
+```
+
+Output:
+
+```
+{
+    "foo" : {
+        "bar": "some value"
+    },
+
+    "bar_value": "some value",
+
+    "concatenated": "some value used later"
+}
+```
+
+
