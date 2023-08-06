@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: tcpwave-client
+Version: 0.0.1
+Summary: Client for interacting with Tcpwave's IPAM
+Home-page: https://github.com/TCPWAVE/tims-python-client
+Author: Suman Saurabh
+Author-email: saurabh.suman@tcpwave.com
+License: Apache
+Download-URL: https://github.com/TCPWAVE/tims-python-client/archive/master.zip
+Description: 
+        
+        0.0.1 (2020-04-15)
+        ---------------------
+        * Added connector to send API requests to Tcpwave's IPAM
+        * First release on PyPI.
+        * Supports operation as follows:
+            * Create/list/detail/delete Network
+            * Create/list/detail/delete Subnet
+            * Fetches Next Available IP in the Subnet
+            * Create/delete IP Object
+Keywords: tcpwave-client,ipam-client,tcpwave
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
