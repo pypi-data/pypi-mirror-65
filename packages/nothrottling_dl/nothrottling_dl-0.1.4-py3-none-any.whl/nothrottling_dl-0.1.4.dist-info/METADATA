@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: nothrottling_dl
+Version: 0.1.4
+Summary: Download media playlist contents, employing draconian anti-throttling measures.
+Home-page: https://github.com/theychx/nothrottling-dl
+License: UNKNOWN
+Author: theychx
+Author-email: theychx@fastmail.com
+Requires-Python: >=3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Multimedia :: Video
+Requires-Dist: youtube-dl >=2020.3.24
