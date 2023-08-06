@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: drf-toolkit
+Version: 0.0.21
+Summary: Django rest framework toolkit
+Home-page: https://github.com/agorinenko/drf-toolkit
+Author: Gorinenko Anton
+Author-email: anton.gorinenko@gmail.com
+License: UNKNOWN
+Description: # What's the good of that?
+        [![PyPI version](https://badge.fury.io/py/drf-toolkit.svg)](https://pypi.org/project/drf-toolkit/)
+        [![Supported Python versions](https://img.shields.io/pypi/pyversions/drf-toolkit)](https://img.shields.io/pypi/pyversions/drf-toolkit)
+        [![License](https://img.shields.io/pypi/l/drf-toolkit)](https://img.shields.io/pypi/l/drf-toolkit)
+        1. Validate and transform an incoming request based on schema rules. See [example](https://github.com/agorinenko/drf-toolkit/blob/master/examples/views.py) 
+        1. Django rest framework toolkit
+        1. REST views decorators
+        1. Base REST views
+        1. Attention! Requires django 2.2.10
+        
+Keywords: python,drf,django rest framework,toolkit,utils
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
