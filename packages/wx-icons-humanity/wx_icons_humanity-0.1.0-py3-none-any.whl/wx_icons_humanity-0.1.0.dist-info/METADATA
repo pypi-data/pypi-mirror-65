@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: wx-icons-humanity
+Version: 0.1.0
+Summary: description goes here
+Home-page: https://github.com/domdfcoding/custom_wx_icons
+Author: Dominic Davis-Foster
+Author-email: dominic@davis-foster.co.uk
+License: GPLv2
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Desktop Environment :: Gnome
+Classifier: Environment :: X11 Applications :: GTK
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Dist: wx-icons-adwaita
+Requires-Dist: importlib-resources (>=1.0.2)
+
+*****************************************************
+Humanity and Humanity_Dark Icon Themes for wxPython
+*****************************************************
+
+This package provides a wxPython wxArtProvider class with icons from the Humanity Icon Theme.
+
+To use it in your application:
+
+.. code-block:: python
+
+	from wx_icons_humanity import wxHumanityIconTheme
+
+	class MyApp(wx.App):
+		def OnInit(self):
+			wx.ArtProvider.Push(wxHumanityIconTheme())
+			self.frame = TestFrame(None, wx.ID_ANY)
+			self.SetTopWindow(self.frame)
+			self.frame.Show()
+			return True
+
+And then the icons can be accessed through wx.ArtProvider:
+
+.. code-block:: python
+
+	wx.ArtProvider.GetBitmap('document-new', wx.ART_OTHER, wx.Size(48, 48))
+
+Any `FreeDesktop Icon Theme Specification <https://specifications.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html>`_ name can be used.
+
+Currently the `Client ID` is not used, so just pass `wx.ART_OTHER`.
+
+
+
