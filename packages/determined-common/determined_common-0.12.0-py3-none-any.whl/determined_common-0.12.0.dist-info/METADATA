@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: determined-common
+Version: 0.12.0
+Summary: Determined Deep Learning Training Platform
+Home-page: https://determined.ai/
+Author: Determined AI
+Author-email: hello@determined.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.5
+Requires-Dist: boto3 (>=1.9.220)
+Requires-Dist: dai-sgqlc-3.5
+Requires-Dist: google-cloud-storage (>=1.20.0)
+Requires-Dist: graphql-core (==2.3.1)
+Requires-Dist: hdfs (>=2.2.2)
+Requires-Dist: lomond (==0.3.3)
+Requires-Dist: pathspec (>=0.6.0)
+Requires-Dist: requests (>=2.20.0)
+Requires-Dist: ruamel.yaml (>=0.15.78)
+Requires-Dist: simplejson (==3.16.0)
+
+See https://docs.determined.ai/ for more information.
+
+
