@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: pygmes
+Version: 0.1.3
+Summary: Run GeneMark-ES using pretrained models
+Home-page: https://github.com/openpaul/pygmes
+Author: Paul Saary
+Author-email: saary@ebi.ac.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: ete3
+Requires-Dist: pyfaidx (>=0.5.8)
+
+# pygmes is a wraper for GeneMark-ES
+
+This project aims at making GeneMark-ES more usable. By default 
+GeneMark-ES has some problems with fragmented and incomplete genomes.
+
+For metagenomic analysis this is an issue, thus I developed pygmes.
+
+## Status
+Currently this project is very much WIP, so do expect problems and
+incomplete documentation.
+
+It is just on pip already as it is a suggested package for EukCC (https://github.com/Finn-Lab/EukCC/)
+
+
+
