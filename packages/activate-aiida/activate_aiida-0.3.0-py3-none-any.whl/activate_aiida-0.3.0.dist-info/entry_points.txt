@@ -1,0 +1,4 @@
+[console_scripts]
+read-aiida-args = activate_aiida.parse_args:run
+read-aiida-config = activate_aiida.read_config:run
+

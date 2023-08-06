@@ -1,0 +1,170 @@
+#!/usr/bin/env bash
+
+# for help
+# source script_name -h
+
+if [ $_ == $0 ]; then
+    echo "this script must be sourced: source $(basename $0)"
+    exit
+fi
+
+function boolean() {
+  case $1 in
+    True) echo true ;;
+    False) echo false ;;
+    TRUE) echo true ;;
+    FALSE) echo false ;;
+    true) echo true ;;
+    false) echo false ;;
+    *) echo "Err: Unknown boolean value \"$1\"" 1>&2; exit 1 ;;
+   esac
+}
+
+activate_aiida () {
+
+    local args=$(read-aiida-args "$@")
+    if [[ -z $args ]]; then
+      # echo -e "${COLORRED}QUITTING PROCESS${COLORNONE}"
+      return
+    fi
+  
+    local CONFIG_YAML
+    local CREATE_DB
+    local DAEMON_WORKERS
+    IFS=',' read -r CONFIG_YAML CREATE_DB DAEMON_WORKERS <<< "$args"
+
+    CREATE_DB=$(boolean "$CREATE_DB")
+
+    echo "  parsed args: -c $CREATE_DB -w $DAEMON_WORKERS $CONFIG_YAML"
+    
+    # NB: if you are using the echo command, be sure to use the -e flag to allow backslash escapes.
+    local COLORRED='\033[0;31m'
+    local COLORGREEN='\033[0;32m'
+    local COLORORANGE='\033[0;33m'
+    local COLORBLUE='\033[0;34m'
+    local COLORNONE='\033[0m'
+
+    # --------------------------------------------------------------------------
+    # READ CONFIG FILE
+
+    echo -e "${COLORBLUE}- Reading variables from ${CONFIG_YAML}${COLORNONE}"
+
+    local output1=$(read-aiida-config "${CONFIG_YAML}")
+
+    if [[ -z $output1 ]]; then
+        echo -e "${COLORRED}QUITTING PROCESS${COLORNONE}"
+        return
+    fi
+
+    # comma delimited
+    local outarray
+    IFS=',' read -ra outarray <<< "$output1"
+
+    local STORE_PATH=${outarray[0]}
+    local SU_USER=${outarray[1]}
+    local SQLPORT=${outarray[2]}
+    local PROFILE=${outarray[3]}
+
+    # --------------------------------------------------------------------------
+    # SETUP SQL SERVER
+
+    echo -e "${COLORBLUE}- Setting Up SQL Database${COLORNONE}"
+
+    local SQLPATH="${STORE_PATH}/pgsql"
+
+    # set database path
+    echo -e "  PGDATA='${SQLPATH}'"
+    export PGDATA="$SQLPATH"
+
+    # ensure the database system exists
+    initdb -D "$SQLPATH" -U "$SU_USER" &>/dev/null
+    # TODO --pwfile=
+
+    # activate server
+    if [[ -z `pg_ctl -D $SQLPATH status | grep "server is running"` ]]; then
+        # close any other active server (from: https://askubuntu.com/questions/547434/how-to-nicely-stop-all-postgres-processes)
+        psql -Xtc 'show data_directory' &>/dev/null && pg_ctl -D $(psql -Xtc 'show data_directory') stop &>/dev/null
+        pkill postgres
+        echo -e "${COLORBLUE}- Activating Postgres server: $SQLPATH on port $SQLPORT${COLORNONE}"
+        pg_ctl -D "$SQLPATH" start -o "-F -p $SQLPORT" -l "$SQLPATH/postgres_env_$ENV.log"
+        echo -e "${COLORORANGE}  Logging Postgres server to: $SQLPATH/postgres_env_$ENV.log${COLORNONE}"
+    else
+        echo -e "  Postgres server already running: $SQLPATH"
+    fi
+
+    # --------------------------------------------------------------------------
+    echo -e "${COLORBLUE}- Ensure RabbitMQ Running${COLORNONE}"
+
+    # RabbitMQ is a message queue application that allows AiiDA to send messages to the daemon
+    # it should start automatically (after system reboot), but just in case
+    if hash rabbitmq-server 2>/dev/null; then
+        # TODO check if its already running. use `rabbitmqctl status`, but what to grep for?
+        rabbitmq-server -detached >/dev/null 2>&1
+    else
+        echo -e "${COLORRED}  Warning: rabbitmq-server not available.${COLORNONE}"
+        echo -e "${COLORRED}  To install: conda install rabbitmq-server${COLORNONE}"
+        return
+    fi
+    # --------------------------------------------------------------------------
+
+    # --------------------------------------------------------------------------
+    # AIIDA DATABASE SETUP
+
+    echo -e "${COLORBLUE}- Setting Up AiiDa Database${COLORNONE}"
+
+    local new_profile=false
+
+    # use correct .aiida path
+    echo -e "  AIIDA_PATH='${STORE_PATH}'"
+    export AIIDA_PATH="${STORE_PATH}"
+
+    # check if profile already exists
+    if [[ -z `verdi profile list | grep -w $PROFILE` ]]; then
+        if [ ${CREATE_DB} == true ] ;then
+            verdi quicksetup --config="$CONFIG_YAML"
+            new_profile=true
+        else
+            echo -e "${COLORRED}  Profile: $PROFILE, was not found (and -c flag not set).$COLORNONE"
+            echo "  available profiles:"
+            verdi profile list
+            return
+        fi
+    fi
+    # --------------------------------------------------------------------------
+
+    # --------------------------------------------------------------------------
+    # START AIIDA
+    echo -e "${COLORBLUE}- Starting AiiDA${COLORNONE}"
+
+    # ensure plugins are up to date
+    echo -e "  Rescanning aiida plugins"
+    reentry scan -r aiida
+
+    echo -e "  Setting default profile: $PROFILE"
+    verdi profile setdefault $PROFILE
+
+    echo -e "  Stopping any current daemon"
+    verdi daemon stop
+
+    # start aiida daemon
+    if ((DAEMON_WORKERS > 0)); then
+        echo -e "  Activating daemon for profile: $PROFILE with $DAEMON_WORKERS workers"
+        if [[ ! -z `verdi -p $PROFILE daemon start $DAEMON_WORKERS | grep "You are not the daemon user!"` ]]; then
+            verdi daemon configureuser 
+            verdi -p $PROFILE daemon start $DAEMON_WORKERS
+        fi
+    fi
+
+    # setup terminal tab completion of verdi sub commands
+    echo -e "  Activating verdi tab completion"
+    eval "$(_VERDI_COMPLETE=source verdi)"
+
+    # print out status
+    echo -e "${COLORGREEN}- Finishing Status:${COLORNONE}"
+    verdi status
+
+    # --------------------------------------------------------------------------
+
+}
+
+activate_aiida "$@"
