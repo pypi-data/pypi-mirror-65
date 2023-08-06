@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: web-terminal
+Version: 0.1.0
+Summary: Web_Terminal is a server that gives an easy web-based interface to a terminal window, with plenty of nice features
+Home-page: https://danielle-galvao.github.io/web-terminal/
+Maintainer: John Meyer
+Maintainer-email: dev@johnmeyer.dev
+License: BSD3
+Download-URL: https://github.com/danielle-galvao/web-terminal/archive/v_0.1.0.tar.gz
+Description: # web-terminal
+        [![GitHub Stars](https://img.shields.io/github/stars/danielle-galvao/web-terminal.svg)](https://github.com/danielle-galvao/web-terminal/stargazers)
+        [![Client CI Workflow](https://github.com/danielle-galvao/web-terminal/workflows/Client%20CI/badge.svg)](https://github.com/danielle-galvao/web-terminal/actions?query=workflow%3A%22Client+CI%22)
+        [![Join the chat at https://gitter.im/web-terminal/community](https://badges.gitter.im/web-terminal/community.svg)](https://gitter.im/web-terminal/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+        
+        CSE 40677 Open Source Software Development -  Web Terminal Project
+        
+        [Project Website - GitHub Pages](https://danielle-galvao.github.io/web-terminal/)
+        
+        [Kanban Board](https://opensourcewebterminalproject.atlassian.net)
+        
+        ## Getting Started
+        
+        ### Prerequisites
+        
+        ```sh
+        pip install Flask websockets
+        npm install -g @angular/cli
+        cd client
+        npm install
+        cd -
+        ```
+        
+        ### Running
+        
+        ```sh
+        cd client
+        ng build
+        cd -
+        python web-terminal.py
+        ```
+        
+        build can optionally be run with `--prod` or `--watch`
+Keywords: web,terminal
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
