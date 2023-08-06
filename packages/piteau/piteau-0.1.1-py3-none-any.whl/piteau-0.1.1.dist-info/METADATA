@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: piteau
+Version: 0.1.1
+Summary: Python asynchronous chat
+Home-page: https://pypi.org/project/piteau/
+License: MIT
+Keywords: chat,chat-application,asynchronous
+Author: Gabriel Oger
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Software Development
+Requires-Dist: aioconsole (>=0.1.16,<0.2.0)
+Project-URL: Documentation, https://piteau.readthedocs.io/
+Project-URL: Repository, https://github.com/cimourdain/piteau
+Description-Content-Type: text/markdown
+
+Piteau is an asynchronous chat application written in python for education purposes.
+
