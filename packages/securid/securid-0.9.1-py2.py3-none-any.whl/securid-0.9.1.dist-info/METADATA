@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: securid
+Version: 0.9.1
+Summary: Python RSA SecurID 128-bit library
+Home-page: http://github.com/andreax79/python-securid
+Author: Andrea Bonomi
+Author-email: andrea.bonomi@gmail.com
+License: MIT
+Keywords: securid
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pycrypto
+
+python-securid is a Python library for generating RSA SecurID 128-bit token codes.
+
+
