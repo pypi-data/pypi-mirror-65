@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: django-quickstart
+Version: 0.1
+Summary: A tool for automating the Django project creation process.
+Home-page: https://github.com/andyrobles/django-quickstart
+Author: Andy Robles
+Author-email: andyrobles805@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Django Quickstart
+
+A command line interface for automating the Django project creation process.
+
+# Operating System
+
+These instructions are meant for Mac OS.
+
+## Setup
+
+1. Navigate to this directory and run `chmod +x quickstart.sh`
+2. Run `./quickstart.sh` and the names for the project and app when prompted
+3. Move project to desired directory.
+
+## Virtual environment
+
+1. Create a virtual environment `virtualenv venv`
+2. Activate virtual environment `source venv/bin/activate`
+3. Run `pip install -r requirements.txt`
+
+## Database
+2. Run `python manage.py migrate`
+3. Run `python manage.py createsuperuser` then enter the requested information
+4. Start the server `python manage.py runserver`
+
+The app should now be viewable in a browser window at `http://localhost:8000/[APP NAME]/`.
+
+
+
