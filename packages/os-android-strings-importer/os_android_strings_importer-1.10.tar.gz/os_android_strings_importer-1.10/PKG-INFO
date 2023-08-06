@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: os_android_strings_importer
+Version: 1.10
+Summary: This module will import an xlsx file (made by os_android_strings_extractor) and convert it to an Android strings.xml file
+Home-page: https://github.com/osfunapps/os_android_strings_importer-py
+Author: Oz Shabat
+Author-email: osfunapps@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: python,osfunapps,android,strings,xml,automation,translatetools,utils,excel,xls,xlsx
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
