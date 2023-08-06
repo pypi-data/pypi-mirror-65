@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+REPO_DIR="$(git rev-parse --show-toplevel)"
+
+rm "$REPO_DIR"/.git/hooks/pre-commit
