@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+movement/__init__.py
+movement.egg-info/PKG-INFO
+movement.egg-info/SOURCES.txt
+movement.egg-info/dependency_links.txt
+movement.egg-info/not-zip-safe
+movement.egg-info/requires.txt
+movement.egg-info/top_level.txt
+movement/io/__init__.py
+movement/io/dlc.py
+movement/movement/__init__.py
+movement/movement/velocity.py
+movement/position/__init__.py
+movement/position/angles.py
