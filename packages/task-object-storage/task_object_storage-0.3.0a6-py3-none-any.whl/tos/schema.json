@@ -1,0 +1,56 @@
+{
+  "\\$jsonSchema": {
+    "bsonType": "object",
+    "required": [
+      "status",
+      "stage",
+      "payload",
+      "analytics",
+      "last_error",
+      "retry_count",
+      "executor",
+      "build_number"
+    ],
+    "properties": {
+      "status": {
+        "bsonType": "string",
+        "description": "Current status",
+        "enum": ["new", "processing", "pass", "fail"]
+      },
+      "stage": {
+        "bsonType": "int",
+        "minimum": 0,
+        "description": "Current stage"
+      },
+      "priority": {
+        "bsonType": "int",
+        "description": "Priority"
+      },
+      "payload": {
+        "bstonType": "object",
+        "description": "can contain virtually anything"
+      },
+      "analytics": {
+        "bstonType": "object",
+        "description": "can contain virtually anything"
+      },
+      "last_error": {
+        "bstonType": "string",
+        "description": "Last exception type and message"
+      },
+      "retry_count": {
+        "bstonType": "int",
+        "minimum": 0,
+        "description": "Current number of retries"
+      },
+      "executor": {
+        "bstonType": "string",
+        "description": "Jenkins agent name or localhost"
+      },
+      "build_number": {
+        "bstonType": "string",
+        "description": "Jenkins Build number"
+      }
+    }
+  }
+}
