@@ -1,0 +1,47 @@
+---
+- name: apt-get install git virtualenv python-pip and python-setuptools python-backports.ssl-match-hostname
+  apt:
+    name: [ git, virtualenv, python-pip, python-setuptools, python-backports.ssl-match-hostname ]
+    state: present
+
+- name: pip install docker and docker-compose
+  pip:
+    name: [ docker, docker-compose ]
+
+- name: chown debian /srv
+  file:
+    path: /srv
+    owner: debian
+
+- name: git clone https://github.com/WeblateOrg/docker
+  git:
+    repo: 'https://github.com/WeblateOrg/docker'
+    version: 706fb3675c14c47d22a97f1f1df4698f47ff245d
+    force: yes
+    dest: /srv/weblate
+  become: False
+
+- name: Copy docker-compose-infrastructure.yml
+  template:
+    src: docker-compose-infrastructure.yml
+    dest: /srv/weblate/docker-compose-infrastructure.yml
+    owner: debian
+    mode: "0600"
+  notify:
+    - recreate weblate
+
+- name: Copy crontab
+  template:
+    src: crontab
+    dest: /srv/crontab
+    owner: debian
+    mode: "0600"
+  register: crontab
+
+- debug:
+    var: crontab
+
+- name: Activate crontab
+  shell: crontab /srv/crontab
+  when: crontab is changed
+  become: False

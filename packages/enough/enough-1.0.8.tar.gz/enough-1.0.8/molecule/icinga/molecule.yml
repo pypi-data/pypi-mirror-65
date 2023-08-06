@@ -1,0 +1,42 @@
+---
+driver:
+  name: delegated
+lint:
+  name: yamllint
+platforms:
+  - name: bind-host
+  - name: icinga-host
+  - name: website-host
+  - name: packages-host
+provisioner:
+  name: ansible
+  options:
+    i: ../../inventory/firewall.yml
+    limit: bind-host,icinga-host,website-host,packages-host,localhost
+  lint:
+    name: ansible-lint
+  env:
+    ANSIBLE_ROLES_PATH: roles:../infrastructure/roles:../firewall/roles:../postfix/roles:../bind/roles:../icinga/roles:../backup/roles:../misc/roles:../packages/roles:../jdauphant.nginx/roles:../enough-nginx/roles:../certificate/roles
+  inventory:
+    links:
+      group_vars: ../../inventory/group_vars
+      host_vars: ../../inventory/host_vars
+scenario:
+  name: icinga
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - verify
+    - destroy
+verifier:
+  name: testinfra
+  options:
+    v: True
+    x: True
+#    s: True
+#    k: test_icinga_ntp_time
+  env:
+    PYTHONPATH: ../..
+  lint:
+    name: flake8

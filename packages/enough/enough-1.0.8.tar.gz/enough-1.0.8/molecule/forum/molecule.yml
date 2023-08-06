@@ -1,0 +1,39 @@
+---
+driver:
+  name: delegated
+lint:
+  name: yamllint
+platforms:
+  - name: bind-host
+  - name: postfix-host
+  - name: icinga-host
+  - name: forum-host
+provisioner:
+  name: ansible
+  options:
+    i: ../../inventory/firewall.yml
+    limit: bind-host,postfix-host,icinga-host,forum-host,localhost
+  lint:
+    name: ansible-lint
+  env:
+    ANSIBLE_ROLES_PATH: roles:../infrastructure/roles:../firewall/roles:../postfix/roles:../bind/roles:../icinga/roles:../jdauphant.nginx/roles:../enough-nginx/roles:../certificate/roles
+  inventory:
+    links:
+      # Path is relative to directory in which this molecule.yml file resides
+      group_vars: ../../inventory/group_vars
+      host_vars: ../../inventory/host_vars
+scenario:
+  name: forum
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - verify
+    - destroy
+verifier:
+  name: testinfra
+  options:
+    v: True
+    s: True
+  lint:
+    name: flake8

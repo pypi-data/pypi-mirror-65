@@ -1,0 +1,32 @@
+---
+- name: mkdir /usr/lib/backup
+  file:
+    state: directory
+    path: /usr/lib/backup
+
+- name: copy openrc.sh
+  template:
+    src: openrc.sh
+    dest: /usr/lib/backup/openrc.sh
+
+- name: copy backup scripts
+  template:
+    src: "{{ item }}.sh"
+    dest: "/etc/cron.daily/{{ item }}"
+    mode: +x
+  loop:
+    - backup
+    - volume-snapshots
+
+- name: copy prune scripts
+  template:
+    src: "{{ item }}.sh"
+    dest: "/etc/cron.daily/{{ item }}"
+    mode: +x
+  loop:
+    - prune-backup
+    - prune-volume-snapshots
+
+- name: apt-get install python-openstackclient
+  apt:
+    name: python-openstackclient

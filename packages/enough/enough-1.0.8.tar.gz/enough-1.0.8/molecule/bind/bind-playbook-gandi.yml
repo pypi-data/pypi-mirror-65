@@ -1,0 +1,78 @@
+---
+
+- name: setup DNS server Gandi
+  hosts: bind-host
+  become: true
+
+  roles:
+
+    - role: bind
+      bind_zone_name: "{{ domain }}"
+      bind_master:
+        - |
+          options {
+            directory "/var/cache/bind";
+            auth-nxdomain no;    # conform to RFC1035
+            listen-on { {{ ansible_host }}; };
+            allow-query { any; };
+            recursion yes;
+            allow-transfer  {
+              217.70.177.40; # ns6.gandi.net
+              {% if 'external-host' in hostvars and 'ansible_host' in hostvars['external-host'] %}
+              {{ hostvars['external-host'].ansible_host }};
+              {% endif %}
+            };
+            include "/etc/bind/named.conf.allow-recursion";
+          };
+
+          include "/etc/bind/named.conf.default-zones";
+
+          zone "{{ domain }}" IN {
+            type master;
+            file "{{ domain }}";
+            notify yes;
+            allow-update { localhost; };
+          };
+
+          zone "test.{{ domain }}" IN {
+            type master;
+            file "test.{{ domain }}";
+            allow-update { localhost; };
+            allow-transfer { "none"; };
+          };
+
+          zone "d.{{ domain }}" IN {
+            type master;
+            file "d.{{ domain }}";
+            allow-update { localhost; };
+            allow-transfer { "none"; };
+          };
+
+      bind_zone:
+        - |
+          $ORIGIN {{ domain }}.
+          $TTL 1W
+
+          @ IN SOA ns1.{{ domain }}. hostmaster.{{ domain }}. (
+          {{ bind_timestamp.stdout }}
+          1D
+          1H
+          1W
+          1D )
+
+                     IN  NS     ns1.{{ domain }}.
+                     IN  NS     ns6.gandi.net.
+
+          ns1 1800 IN A {{ ansible_host }}
+
+          test 1800 IN NS ns1.{{ domain }}.
+          d    1800 IN NS ns1.{{ domain }}.
+
+          imap 1800 IN CNAME access.mail.gandi.net.
+          pop 1800 IN CNAME access.mail.gandi.net.
+          smtp 1800 IN CNAME relay.mail.gandi.net.
+
+          @ 1800 IN MX 50 fb.mail.gandi.net.
+          @ 1800 IN MX 10 spool.mail.gandi.net.
+
+          @ IN CAA 0 issue "letsencrypt.org"

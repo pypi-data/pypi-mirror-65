@@ -1,0 +1,64 @@
+---
+driver:
+  name: delegated
+lint:
+  name: yamllint
+platforms:
+  - name: api-host
+  - name: bind-host
+  - name: postfix-host
+    # remove when https://github.com/ansible/molecule/issues/1650 is resolved
+    groups:
+      - wazuh_agent
+  - name: icinga-host
+  - name: wazuh-host
+  - name: weblate-host
+    # remove when https://github.com/ansible/molecule/issues/1650 is resolved
+    groups:
+      - pets
+  - name: gitlab-host
+  - name: runner-host
+  - name: packages-host
+  - name: website-host
+  - name: chat-host
+  - name: cloud-host
+    # remove when https://github.com/ansible/molecule/issues/1650 is resolved
+    groups:
+      - enough
+      - firewall_ssh_server_group
+      - firewall_web_server_group
+  - name: wereport-host
+    # remove when https://github.com/ansible/molecule/issues/1650 is resolved
+    groups:
+      - enough
+      - firewall_ssh_server_group
+      - firewall_web_server_group
+  - name: forum-host
+provisioner:
+  name: ansible
+  options:
+    i: ../../inventory/firewall.yml
+  lint:
+    name: ansible-lint
+  env:
+    ANSIBLE_ROLES_PATH: roles:../infrastructure/roles:../firewall/roles:../postfix/roles:../bind/roles:../icinga/roles:../backup/roles:../misc/roles:../packages/roles:../jdauphant.nginx/roles:../enough-nginx/roles:../certificate/roles
+  inventory:
+    links:
+      group_vars: ../../inventory/group_vars
+      host_vars: ../../inventory/host_vars
+scenario:
+  name: preprod
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - verify
+    - destroy
+verifier:
+  name: testinfra
+  options:
+    v: True
+    s: True
+    x: True
+  lint:
+    name: flake8
