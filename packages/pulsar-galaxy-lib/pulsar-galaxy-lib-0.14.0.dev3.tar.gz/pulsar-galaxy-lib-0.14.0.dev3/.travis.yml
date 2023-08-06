@@ -1,0 +1,32 @@
+# TODO: test condor
+language: python
+dist: trusty
+matrix:
+  include:
+  - python: 2.7
+    env: TOX_ENV=py27-lint
+  - python: 2.7
+    env: TOX_ENV=py27-lint-dist
+  - python: 2.7
+    env: TOX_ENV=lint-docs
+  - python: 2.7
+    env: TOX_ENV=py27 SETUP=true
+  - python: 2.7
+    env:  TOX_ENV=py27-install-wheel
+  - python: 3.5
+    env: TOX_ENV=py35-lint
+  - python: 3.5
+    env: TOX_ENV=py35 SETUP=true
+  - python: 3.5
+    env: TOX_ENV=py35-unit SETUP=true
+  allow_failures:
+    - env: TOX_ENV=py35 SETUP=true
+
+install:
+  - pip install tox
+  - if [ "$SETUP" == "true" ]; then .travis/setup_tests.sh; fi
+
+script: export PULSAR_TEST_KEY=test_data/testkey; export TEST_WEBAPP_POST_SHUTDOWN_SLEEP=1; . local_env.sh; tox -e $TOX_ENV
+
+after_success:
+  - coveralls

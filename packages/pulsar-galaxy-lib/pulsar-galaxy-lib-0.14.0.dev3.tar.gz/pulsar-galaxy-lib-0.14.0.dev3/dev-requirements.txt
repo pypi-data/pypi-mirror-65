@@ -1,0 +1,21 @@
+# Optional requirements used by test cases
+pycurl
+kombu
+pykube
+
+# For testing
+nose
+webtest
+coverage
+stopit
+
+# For dev
+sphinx==1.2
+
+# Used for code checking.
+pyflakes
+flake8
+
+# For release
+wheel
+twine

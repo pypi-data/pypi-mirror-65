@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<job_conf>
+    <plugins>
+        <plugin id="drmaa" type="runner" load="galaxy.jobs.runners.drmaa:DRMAAJobRunner"/>
+        <plugin id="pulsar" type="runner" load="galaxy.jobs.runners.pulsar:PulsarMQJobRunner">
+            <!-- Must tell Pulsar where to send files. -->
+            <param id="galaxy_url">https://galaxyserver</param>
+            <!-- Message Queue Connection (should match message_queue_url in Pulsar's app.yml)
+            -->
+            <param id="amqp_url">amqp://rabbituser:rabb8pa8sw0d@mqserver:5672//</param>
+        </plugin>
+    </plugins>
+    <handlers>
+        <handler id="main"/>
+    </handlers>
+    <destinations default="drmaa">
+        <destination id="local_cluster" runner="drmaa">
+            <param id="native_specification">-P littlenodes -R y -pe threads 4</param>
+        </destination>
+        <destination id="remote_cluster" runner="pulsar">
+            <!-- Tell Galaxy where files are being stored on remote system, so
+                 the web server can simply ask for this information.
+            -->
+            <param id="jobs_directory">/path/to/remote/pulsar/files/staging/</param>
+            <!-- Remaining parameters same as previous example -->
+            <param id="submit_native_specification">-P bignodes -R y -pe threads 16</param>
+        </destination>
+    </destinations>
+    <tools>
+        <tool id="trinity" destination="remote_cluster" />
+        <tool id="abyss" destination="remote_cluster" />
+	</tools>
+</job_conf>

@@ -1,0 +1,16 @@
+webob
+psutil
+PasteDeploy
+six==1.11.0
+pyyaml
+paramiko
+PasteScript
+paste
+
+[:python_version=="2.7"]
+paste
+PasteScript
+
+[galaxy_extended_metadata]
+galaxy-job-execution>=19.9.0.dev0
+galaxy-util[template]
