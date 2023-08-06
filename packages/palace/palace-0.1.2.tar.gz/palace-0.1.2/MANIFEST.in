@@ -1,0 +1,1 @@
+include src/*.pxd src/*.pyx src/*.h tests/*.py examples/*.py CMakeLists.txt
