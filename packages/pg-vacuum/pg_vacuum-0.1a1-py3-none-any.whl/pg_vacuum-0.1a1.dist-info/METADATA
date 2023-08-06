@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pg-vacuum
+Version: 0.1a1
+Summary: View and manage PostgteSQL vacuums and autovacuums.
+Home-page: https://github.com/levkk/pg-vacuum
+Author: Lev Kokotov
+Author-email: lev.kokotov@instacart.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+Requires-Dist: Click (>=7.0)
+Requires-Dist: colorama (>=0.4.3)
+Requires-Dist: prettytable (>=0.7.2)
+Requires-Dist: psycopg2 (>=2.8.4)
+
+# pg-vacuum
+Managing PostgreSQL Vacuum
+
+
