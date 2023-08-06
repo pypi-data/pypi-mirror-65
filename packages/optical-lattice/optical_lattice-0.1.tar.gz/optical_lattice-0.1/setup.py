@@ -1,0 +1,31 @@
+from setuptools import setup
+
+setup(name='optical_lattice',
+      version='0.1',
+      description='Resolve atom occupations in an optical lattice',
+      url='https://github.com/phys201/optical_lattice',
+      author='Furkan Ozturk, Can Knaut, Erik Knall',
+      author_email='erikknall@g.harvard.edu',
+      license='GNU GPL',
+      packages=['optical_lattice'],
+      install_requires=[
+            'astroid>=2.3.3',
+            'cycler>=0.10.0',
+            'isort>=4.3.21',
+            'kiwisolver>=1.2.0',
+            'lazy-object-proxy>=1.4.3',
+            'matplotlib>=3.2.1',
+            'mccabe>=0.6.1',
+            'numpy>=1.18.2',
+            'Pillow>=7.1.1',
+            'pylint>=2.4.4',
+            'pyparsing>=2.4.7',
+            'python-dateutil>=2.8.1',
+            'six>=1.14.0',
+            'typed-ast>=1.4.1',
+            'wrapt>=1.11.2',
+            'pymc3'
+      ],
+      test_suite='nose.collector',
+      tests_require=['nose'],
+      zip_safe=False)
