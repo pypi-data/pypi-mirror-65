@@ -1,0 +1,11 @@
+__pycache__
+_build
+*.pyc
+.env
+bundles
+*.mpy
+.idea
+*.DS_Store
+.eggs
+dist
+**/*.egg-info
