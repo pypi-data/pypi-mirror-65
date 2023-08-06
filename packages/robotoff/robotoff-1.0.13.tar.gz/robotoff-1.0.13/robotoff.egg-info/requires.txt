@@ -1,0 +1,18 @@
+requests<3.0.0,>=2.13.0
+peewee==3.10.0
+psycopg2-binary<2.9,>=2.8
+elasticsearch==6.3.1
+Click==7.0
+sentry-sdk==0.14.1
+Pillow>=5.0.0
+numpy>=1.16.0
+protobuf>=3.5.1
+Pint==0.9
+flashtext==2.7
+langid==1.1.6
+more-itertools>=8.0.0
+spacy<2.3.0,>=2.2.0
+pymongo>=3.0.0<3.1.0
+
+[:python_version < "3.7"]
+dataclasses>=0.6
