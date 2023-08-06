@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: covid_india
+Version: 0.0.1
+Summary: A package to provide information regarding COVID-19 cases in India.
+Home-page: https://github.com/debdutgoswami/covid-india
+Author: Debdut Goswami
+Author-email: debdutgoswami@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/debdutgoswami/covid-india/archive/v_0.0.1.tar.gz
+Description: [![HitCount](http://hits.dwyl.io/debdutgoswami/covid-india.svg)](http://hits.dwyl.io/debdutgoswami/covid-india)
+        
+        # COVID-19 India
+        
+        Python package for providing data for the `COVID-19` cases in India. This can provide data both online as well as offline.
+        
+        ## requirements
+        
+        For running this, you need to have python3 installed in your system.
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
