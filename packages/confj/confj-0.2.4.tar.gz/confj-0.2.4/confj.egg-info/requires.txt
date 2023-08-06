@@ -1,0 +1,9 @@
+
+[aws]
+boto3
+
+[test]
+pytest
+
+[validation]
+jsonschema
