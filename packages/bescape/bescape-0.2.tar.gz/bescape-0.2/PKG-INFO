@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: bescape
+Version: 0.2
+Summary: BESCA proportion estimator - BESCAPE is a cell deconvolution package. The user can specify a custom basis vector, as well as the preferred deconvolution method. Thus it allows us to detach the deconvolution algorithm from the underlying basis vector it originally comes packaged with.
+Home-page: https://github.com/bedapub/bescape
+Author: Miro Phan
+Author-email: phanmir@gmail.com
+License: gpl-3.0
+Download-URL: https://github.com/bedapub/bescape/releases/tag/v0.2
+Description: UNKNOWN
+Keywords: bescape,deconvolution
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
