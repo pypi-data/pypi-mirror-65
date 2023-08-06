@@ -1,0 +1,6 @@
+setuptools>=18.0
+cython
+geopandas
+pyrobuf
+pygeos
+cykhash@ git+https://github.com/realead/cykhash@master
