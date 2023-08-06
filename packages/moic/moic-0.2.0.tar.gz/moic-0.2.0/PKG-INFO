@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: moic
+Version: 0.2.0
+Summary: My Own Issue CLI (Jira, Gitlab etc...)
+Author: Brice Santus
+Author-email: brice.santus@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: antidote (>=0.7.0,<0.8.0)
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: dynaconf (>=2.2.3,<3.0.0)
+Requires-Dist: jira
+Requires-Dist: keyring (>=21.1.1,<22.0.0)
+Requires-Dist: pyyaml (>=5.3,<6.0)
+Requires-Dist: rich (>=0.8.1,<0.9.0)
