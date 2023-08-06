@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+
+# This python script will register a binary format for qemu franken-chroot.
+
+import os, sys
+
+gitpath = os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "../.git")
+if os.path.exists(gitpath):
+	# run from git repo
+	sys.path.append(os.path.join(os.path.dirname(os.path.realpath(sys.argv[0])), "../modules"))
+
+from fchroot.binfmt import get_binary_hexstring, register_binfmt, QEMUException
+
+def usage():
+	print("""Usage:
+ {bin} register [arch_desc] [wrapper]
+		Configure system for binfmt_misc for arch_desc.'
+ {bin} hexstring bin_path
+		Print out magic hexstring for specified binary path.
+""".format(bin=sys.argv[0]))
+	sys.exit(1)
+
+
+if __name__ == "__main__":
+	try:
+		if len(sys.argv) <= 2:
+			usage()
+		elif sys.argv[1] == "register":
+			if len(sys.argv) != 4:
+				usage()
+			register_binfmt(sys.argv[2], sys.argv[3])
+		elif sys.argv[1] == "hexstring":
+			if len(sys.argv) != 3:
+				usage()
+			print(get_binary_hexstring(sys.argv[2]))
+		else:
+			sys.stderr.write("Unrecognized command: %s\n" % sys.argv[1])
+			sys.exit(1)
+	except QEMUException as e:
+		sys.stderr.write(str(e))
+		sys.exit(1)
+
+# vim: ts=4 sw=4 noet
