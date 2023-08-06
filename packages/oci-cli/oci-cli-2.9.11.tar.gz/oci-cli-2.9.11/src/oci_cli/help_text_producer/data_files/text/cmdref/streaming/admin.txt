@@ -1,0 +1,66 @@
+admin
+*****
+
+
+Description
+===========
+
+Admin operations for streaming service
+
+
+Available Commands
+==================
+
+* archiver
+
+  * create
+
+  * get
+
+  * start
+
+  * stop
+
+  * update
+
+* connect-harness
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* stream
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* stream-pool
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update

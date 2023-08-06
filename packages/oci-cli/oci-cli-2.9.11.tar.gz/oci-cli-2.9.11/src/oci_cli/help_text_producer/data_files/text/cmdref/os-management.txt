@@ -1,0 +1,118 @@
+os-management
+*************
+
+
+Description
+===========
+
+OS Management as a Service CLI definition
+
+
+Available Commands
+==================
+
+* erratum
+
+  * get
+
+* managed-instance
+
+  * attach-child
+
+  * attach-parent
+
+  * detach-child
+
+  * detach-parent
+
+  * get
+
+  * install-all-updates
+
+  * install-package
+
+  * install-update
+
+  * list
+
+  * list-available-packages
+
+  * list-available-software-sources
+
+  * list-available-updates
+
+  * list-installed-packages
+
+  * remove-package
+
+* managed-instance-group
+
+  * attach
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * detach
+
+  * get
+
+  * list
+
+  * update
+
+* scheduled-job
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * list-upcoming
+
+  * run-now
+
+  * skip-next-execution
+
+  * update
+
+* software-source
+
+  * add-packages
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * get-package
+
+  * list
+
+  * list-packages
+
+  * remove-packages
+
+  * search-packages
+
+  * update
+
+* work-request
+
+  * get
+
+  * list
+
+  * list-errors
+
+  * list-logs
