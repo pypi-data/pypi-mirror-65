@@ -1,0 +1,31 @@
+---
+- name: Get the path of tripleo undercloud config file
+  become: true
+  hiera:
+    name: "tripleo_undercloud_conf_file"
+
+- name: Get dhcp_start value from the undercloud.conf file
+  become: true
+  validations_read_ini:
+    path: "{{ tripleo_undercloud_conf_file }}"
+    section: ctlplane-subnet
+    key: dhcp_start
+    ignore_missing_file: true
+    default: "192.0.2.5"
+  register: dhcp_start
+
+- name: Get dhcp_end value from the undercloud.conf file
+  become: true
+  validations_read_ini:
+    path: "{{ tripleo_undercloud_conf_file }}"
+    section: ctlplane-subnet
+    key: dhcp_end
+    ignore_missing_file: true
+    default: "192.0.2.24"
+  register: dhcp_end
+
+- name: Check the size of the DHCP range for overcloud nodes
+  ip_range:
+    start: "{{ dhcp_start.value }}"
+    end: "{{ dhcp_end.value }}"
+    min_size: "{{ ctlplane_iprange_min_size }}"
