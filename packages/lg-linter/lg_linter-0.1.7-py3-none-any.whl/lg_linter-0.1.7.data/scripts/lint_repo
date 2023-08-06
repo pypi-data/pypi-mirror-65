@@ -1,0 +1,22 @@
+#!python
+import argparse
+import pathlib
+import sys
+sys.path.append('../src')
+
+from lg_linter import lint
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Lint all staged files')
+    parser.add_argument('repo_path')
+    args = parser.parse_args()
+
+    if not lint(pathlib.Path(args.repo_path)):
+        return 1
+
+    return 0
+
+
+if __name__ == '__main__':
+    main()
