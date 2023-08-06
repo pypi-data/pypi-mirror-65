@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: cykooz.buildout.fixnamespace
+Version: 1.0
+Summary: A zc.buildout extension changes value of NAMESPACE_PACKAGE_INIT constant from setuptools
+Home-page: https://github.com/Cykooz/cykooz.buildout.fixnamespace
+Author: Kirill Kuzminykh
+Author-email: cykooz@gmail.com
+License: MIT
+Description: ****************************
+        cykooz.buildout.fixnamespace
+        ****************************
+        
+        This buildout extension changes value of NAMESPACE_PACKAGE_INIT
+        constant from ``setuptools``. This value used to fix namespace packages
+        installed from wheels (https://github.com/pypa/setuptools/issues/2069).
+        
+        Extension replace value of NAMESPACE_PACKAGE_INIT with code:
+        
+        .. code-block:: python
+        
+            __path__ = __import__('pkgutil').extend_path(__path__, __name__)
+        
+        Minimal usage example::
+        
+            [buildout]
+            extensions = cykooz.buildout.fix_namespace
+        
+        
+        
+        ..  Changelog format guide.
+            - Before make new release of core egg you MUST add here a header for new version with name "Next release".
+            - After all headers and paragraphs you MUST add only ONE empty line.
+            - At the end of sentence which describes some changes SHOULD be identifier of task from our task manager.
+              This identifier MUST be placed in brackets. If a hot fix has not the task identifier then you
+              can use the word "HOTFIX" instead of it.
+            - At the end of sentence MUST stand a point.
+            - List of changes in the one version MUST be grouped in the next sections:
+                - Features
+                - Changes
+                - Bug Fixes
+                - Docs
+        
+        CHANGELOG
+        *********
+        
+        1.0 (2020-04-14)
+        ================
+        
+        - Initial release.
+        
+Keywords: development build
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Buildout
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/x-rst
+Provides-Extra: test
