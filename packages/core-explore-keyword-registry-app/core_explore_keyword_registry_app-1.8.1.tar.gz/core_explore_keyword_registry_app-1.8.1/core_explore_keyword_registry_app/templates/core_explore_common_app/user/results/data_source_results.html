@@ -1,0 +1,39 @@
+{% load xsl_transform_tag %}
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'core_explore_keyword_registry_app/user/css/search/search.css' %}" />
+<script src="{% static 'core_explore_keyword_registry_app/user/libs/jquery-shorten/1.1.0/jquery.shorten.js' %}"></script>
+<script src="{% static 'core_explore_keyword_registry_app/user/js/search/search.js' %}"></script>
+
+<div class="result-toolbar">
+    {% if sorting_display_type == 'single' %}
+        {% include "core_explore_common_app/user/ordering_menu/single_criteria_sorting_menu.html" %}
+    {% elif sorting_display_type == 'multi' %}
+        {% include "core_explore_common_app/user/ordering_menu/multi_criteria_sorting_menu.html" %}
+    {% endif %}
+    <button type="button" class="result-toolbar-button persistent-query-button">
+        {% include "core_explore_common_app/user/persistent_query/button_persistent_query.html" with url=get_shareable_link_url %}
+    </button>
+    {% if exporter_app %}
+        <button type="button" class="result-toolbar-button export-button">
+            {% include "core_exporters_app/user/exporters/list/link_exporters_selector.html" %}
+        </button>
+    {% endif %}
+    <div id="date-toggle" class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" class="switch-input" />
+            <span class="switch-label" data-on="Date" data-off="Date"></span>
+            <span class="handle"></span>
+        </label>
+    </div>
+</div>
+
+{% for result in results %}
+    {% xsl_transform_list xml_content=result.xml_content template_id=result.template_info.id template_hash=result.template_info.hash as xml_representation%}
+    {% include 'core_explore_common_app/user/results/data_source_info.html' with xml_representation=xml_representation|safe %}
+{% empty %}
+<h4> No results were found.</h4>
+{% endfor %}
+
+{% include 'core_explore_common_app/user/results/data_source_pagination.html'%}
+
