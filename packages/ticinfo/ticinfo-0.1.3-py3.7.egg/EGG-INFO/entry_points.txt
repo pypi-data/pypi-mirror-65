@@ -1,0 +1,6 @@
+[console_scripts]
+toco = toco.toco:toco
+tococ = toco.toco:toco_coords
+tocon = toco.toco:toco_name
+tocot = toco.toco:toco_simbad
+
