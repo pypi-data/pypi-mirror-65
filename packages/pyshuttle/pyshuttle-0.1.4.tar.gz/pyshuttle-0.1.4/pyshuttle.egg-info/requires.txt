@@ -1,0 +1,16 @@
+requests<3,>=2.22.0
+cryptos<2,>=1.36
+chainside-btcpy<1,>=0.6.4
+mnemonic<1,>=0.19
+py-equity<1,>=0.1.0
+click<8,>=7.1.1
+btmhdw<3,>=2.2.2
+
+[docs]
+sphinx<3,>=2.4.4
+sphinx_rtd_theme<1,>=0.4.3
+sphinx_click<3,>=2.3.1
+
+[tests]
+pytest<6,>=5.4.1
+pytest-cov<3,>=2.8.1
