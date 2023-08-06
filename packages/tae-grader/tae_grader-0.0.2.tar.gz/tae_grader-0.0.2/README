@@ -1,0 +1,7 @@
+source ~/env/anaconda.sh
+python setup.py sdist
+pip install twine
+twine upload dist/*
+
+
+pip install tae_grader --upgrade
