@@ -1,0 +1,13 @@
+torch
+vak
+
+[article]
+vak
+crowsetta>=2.1.0
+joblib
+pandas
+seaborn
+jupyterlab
+
+[tests]
+pytest
