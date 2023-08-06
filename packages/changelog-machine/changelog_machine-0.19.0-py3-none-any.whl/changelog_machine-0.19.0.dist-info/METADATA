@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: changelog-machine
+Version: 0.19.0
+Summary: A tool to generate changelogs integrated in a pull/merge request workflow
+Home-page: https://github.com/greenhalos/changelog-machine
+Author: Ben Antony
+Author-email: antony@greenhalos.lu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: PyYAML (>=5.3.1)
+
+# Changelog machine
+
+## Getting started
+
+### Install
+```bash
+pip3 install -i https://test.pypi.org/simple/ changelog-machine
+python3 -m changelog-machine -h # will print the help
+```
+
+### Create new entry
+```bash
+python3 -m changelog-machine entry -m "Message of the entry"
+```
+for further options see:
+```bash
+python3 -m changelog-machine entry -h
+```
+
+### Generate changelog for new release
+The new release with its entries will be inserted in the existing `CHNAGELOG.md` or create a new on in order that the highest version will be on top.
+```bash
+python3 -m changelog-machine changelog --releaseVersion "1.0.0"
+```
+
+
