@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+bin/ipfs-api-mount
+ipfs_api_mount/__init__.py
+ipfs_api_mount/ipfs.py
+ipfs_api_mount/ipfs_mounted.py
+ipfs_api_mount/unixfs.proto
+ipfs_api_mount.egg-info/PKG-INFO
+ipfs_api_mount.egg-info/SOURCES.txt
+ipfs_api_mount.egg-info/dependency_links.txt
+ipfs_api_mount.egg-info/requires.txt
+ipfs_api_mount.egg-info/top_level.txt
