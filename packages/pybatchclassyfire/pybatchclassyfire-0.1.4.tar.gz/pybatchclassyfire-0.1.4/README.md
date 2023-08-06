@@ -1,0 +1,74 @@
+## pybatchclassyfire
+
+
+This package provides a set of helper functions in python for 
+annotating chemical structures with the chemical ontology developed by 
+Djoumbou et. al using the [ClassyFire API](http://classyfire.wishartlab.com/)
+
+Such function are available from the pyclassyfire package (https://github.com/JamesJeffryes/pyclassyfire) developped by James Jeffryes and from pyMolNetEnhancer (https://pypi.org/project/pyMolNetEnhancer/) package written by Madeleine Ernst, which relied in part on pyclassyfire.
+
+However the ClassyFire API now only returns paginated JSON files (10 compounds/page) see <http://classyfire.wishartlab.com/access> and tolerates no more than 10 GET request per second.
+
+Building on pyclassyfire and pyMolNetEnhancer functions, pybatchclassyfire as for objective to overcome these limits and allow the batch classification of large tables of structures.
+
+
+
+### Table of contents
+
+* [Installation](#installation)
+* [Running the batch classification](#running_instructions)
+* [Dependencies](#dependencies)
+* [Main citation](#main_citation)
+* [License](#license)
+
+
+
+## Instalation <a name="instalation"></a>
+
+Install pybatchclassyfire with:
+
+ `pip install pybatchclassyfire`
+
+And additional required packages with:
+
+ `pip install -r requirements.txt`
+
+
+## Running the batch classification <a name="running_instructions"></a>
+ 
+In order to run the batch classification make sure to have InChI and InChIKey formated chemical structures.
+Check [Getting Started with the RDKit in Python](https://www.rdkit.org/docs/GettingStartedInPython.html) for format conversion process.
+
+ 
+* After installation of the pybatchclassyfire package, download the corresponding gitlab repository
+
+ `git clone https://gitlab.unige.ch/Pierre-Marie.Allard/pybatchclassyfire.git`
+
+* Make sure to be able to run the Jupyter notebook (pybatchclassyfire_nb.ipynb) on the example file (test_datatable.tsv)
+
+* Adapt Jupyter notebook to treat your file.
+
+
+## Dependencies <a name="dependencies"></a>
+
+decorator==4.4.2
+joblib==0.14.1
+networkx==2.4
+numpy==1.18.2
+pandas==1.0.3
+pybatchclassyfire==0.1.3
+python-dateutil==2.8.1
+pytz==2019.3
+requests==2.5.4.1
+requests-cache==0.5.2
+six==1.14.0
+
+
+## Main citation <a name="main_citation"></a>
+
+https://gitlab.unige.ch/Pierre-Marie.Allard/pybatchclassyfire.git
+
+## License <a name="license"></a>
+This repository is available under the following license https://gitlab.unige.ch/Pierre-Marie.Allard/pybatchclassyfire/-/blob/master/LICENSE.md
+
+
