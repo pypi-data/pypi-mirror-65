@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: inpynamodb
+Version: 4.1.1
+Summary: asyncio wrapper of PynamoDB
+Author: sunghyun-lee
+Author-email: sunghyunlee@mymusictaste.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: aiobotocore (>=0.10.3,<0.11.0)
+Requires-Dist: async-property (>=0.2.1,<0.3.0)
+Requires-Dist: coveralls (>=2.0.0,<3.0.0)
+Requires-Dist: pynamodb (==4.1.0)
