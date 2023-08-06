@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+src/gaussianlda/__init__.py
+src/gaussianlda/model.py
+src/gaussianlda/prior.py
+src/gaussianlda/utils.py
+src/gaussianlda.egg-info/PKG-INFO
+src/gaussianlda.egg-info/SOURCES.txt
+src/gaussianlda.egg-info/dependency_links.txt
+src/gaussianlda.egg-info/requires.txt
+src/gaussianlda.egg-info/top_level.txt
+src/gaussianlda/trainer/__init__.py
+src/gaussianlda/trainer/chol.py
+src/gaussianlda/trainer/chol_alias.py
+src/gaussianlda/trainer/test_vose.py
