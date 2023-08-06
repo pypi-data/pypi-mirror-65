@@ -1,0 +1,16 @@
+README.rst
+setup.cfg
+setup.py
+django_jsoneditor.egg-info/PKG-INFO
+django_jsoneditor.egg-info/SOURCES.txt
+django_jsoneditor.egg-info/dependency_links.txt
+django_jsoneditor.egg-info/not-zip-safe
+django_jsoneditor.egg-info/requires.txt
+django_jsoneditor.egg-info/top_level.txt
+jsoneditor/__init__.py
+jsoneditor/forms.py
+jsoneditor/fields/__init__.py
+jsoneditor/fields/django_extensions_jsonfield.py
+jsoneditor/fields/django_json_field.py
+jsoneditor/fields/django_jsonfield.py
+jsoneditor/fields/postgres_jsonfield.py
