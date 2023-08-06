@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.py
+aliyun_python_sdk_geoip.egg-info/PKG-INFO
+aliyun_python_sdk_geoip.egg-info/SOURCES.txt
+aliyun_python_sdk_geoip.egg-info/dependency_links.txt
+aliyun_python_sdk_geoip.egg-info/requires.txt
+aliyun_python_sdk_geoip.egg-info/top_level.txt
+aliyunsdkgeoip/__init__.py
+aliyunsdkgeoip/request/__init__.py
+aliyunsdkgeoip/request/v20200101/DescribeGeoipInstanceRequest.py
+aliyunsdkgeoip/request/v20200101/DescribeGeoipInstanceStatisticsRequest.py
+aliyunsdkgeoip/request/v20200101/DescribeGeoipInstancesRequest.py
+aliyunsdkgeoip/request/v20200101/DescribeIpv4LocationRequest.py
+aliyunsdkgeoip/request/v20200101/DescribeIpv6LocationRequest.py
+aliyunsdkgeoip/request/v20200101/__init__.py
