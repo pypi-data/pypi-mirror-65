@@ -1,0 +1,5 @@
+exclude .gitignore
+
+include pip_readme.md
+recursive-include pyjano/ *.py
+recursive-include escrun/ *.py
