@@ -1,0 +1,6 @@
+[console_scripts]
+flownet = flownet._command_line:main
+flownet_delete_simulation_output = flownet.ahm:delete_simulation_output
+flownet_render_realization = flownet.realization:render_realization
+flownet_save_iteration_parameters = flownet.ahm:save_iteration_parameters
+

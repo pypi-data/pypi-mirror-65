@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: flownet
+Version: 0.1.0
+Summary: Simplified training of reservoir simulation models
+Home-page: https://github.com/equinor/flownet
+Author: R&T Equinor
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: configsuite (~=0.5)
+Requires-Dist: cwrap (~=1.6)
+Requires-Dist: ecl2df (~=0.5.1)
+Requires-Dist: jinja2 (~=2.10)
+Requires-Dist: matplotlib (~=3.1)
+Requires-Dist: numpy (~=1.17)
+Requires-Dist: pandas (~=0.25)
+Requires-Dist: pyarrow (~=0.14)
+Requires-Dist: pyscal (~=0.4.1)
+Requires-Dist: pyvista (~=0.23)
+Requires-Dist: pyyaml (~=5.2)
+Requires-Dist: scipy (~=1.4)
+Requires-Dist: tqdm (~=4.43)
+Requires-Dist: webviz-config (>=0.0.42)
+Requires-Dist: webviz-config-equinor (>=0.0.9)
+Requires-Dist: webviz-subsurface (>=0.0.24)
+Provides-Extra: tests
+Requires-Dist: black ; extra == 'tests'
+Requires-Dist: mypy (~=0.761) ; extra == 'tests'
+Requires-Dist: pylint (~=2.3) ; extra == 'tests'
+Requires-Dist: pytest (~=5.3) ; extra == 'tests'
+Requires-Dist: pytest-cov (~=2.8) ; extra == 'tests'
+Requires-Dist: sphinx ; extra == 'tests'
+Requires-Dist: sphinx-rtd-theme ; extra == 'tests'
+
+UNKNOWN
+
+
