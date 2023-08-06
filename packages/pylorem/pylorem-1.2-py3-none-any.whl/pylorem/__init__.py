@@ -1,0 +1,1 @@
+from .lorem import LoremIpsum
