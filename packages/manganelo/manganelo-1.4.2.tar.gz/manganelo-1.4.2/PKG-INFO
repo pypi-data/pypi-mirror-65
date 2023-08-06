@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: manganelo
+Version: 1.4.2
+Summary: Unofficial API for the Manganelo (and Mangakakalot) website.
+Home-page: https://github.com/nixonjoshua98/manganelo
+Author: Joshua Nixon
+Author-email: nixonjoshua98@gmail.com
+License: MIT
+Download-URL: https://github.com/nixonjoshua98/manganelo/archive/v1.4.2.tar.gz
+Description: # Unofficial Manganelo API
+        
+        #### Package to scrape the website Manganelo (and Mangakakalot)
+        
+        ###### Warning: API usages are still being worked on and may change over time
+        
+        Installation
+        -
+        
+        **Python 3.7 +**
+        ```cmd
+        pip install manganelo
+        ```
+        
+        Usages
+        -
+        
+        ```python
+        from manganelo import (MangaInfo, SearchManga, DownloadChapter)
+        
+        # Perform a search for a Manga
+        search = SearchManga("Naruto", threaded=False)
+        
+        # Turn the generator into a list
+        results = list(search.results())
+        
+        # Get the homepage of the first search result
+        info = MangaInfo(results[0].url)
+        
+        # Iterate through all the chapters
+        for chapter in info["chapters"]:
+            file = f"./Naruto {chapter.chapter_num}.pdf"
+        
+            # Download the chapter
+            dl = DownloadChapter(chapter, file)
+        
+            print(f"Downloaded: {dl.ok}")
+        ```
+        
+        Contact Me
+        -
+        
+        - nixonjoshua98-at-gmail-dot-com
+Keywords: manga,manganelo,scrapper,web,mangakakalot,thread
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
