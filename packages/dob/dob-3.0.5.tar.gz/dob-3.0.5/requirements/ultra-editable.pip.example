@@ -1,0 +1,41 @@
+# USAGE: Copy this file to `requirements/ultra-editable.pip`.
+#
+#        Then when you run `make develop` or `tox`, pip installs
+#        each of the HOTH projects from local, editable sources,
+#        rather than from the PyPI server.
+#
+#        - This ensures that your local changes are used when you
+#          run the code or run the tests!
+
+# NOTE:  Be sure to comment/uncomment projects below as appropriate.
+#
+#        - The first set of projects are (fairly) stable HOTH libraries and
+#          forks that you may not need to checkout locally. But if you do,
+#          uncomment those projects below to have them installed as editable.
+#
+#        - The second set of the projects are the 4 projects (besides dob)
+#          that you will want to checkout locally to develop dob.
+
+# NOTE:  Modify these paths as appropriate -- the default paths here assume
+#        that every project is checked out (or symlinked) from the parent
+#        directory (../) of the dob/ repo. Edit as necessary for your user.
+
+# *** HOTH libraries and forks.
+
+#  -e ../ansi-escape-room
+#  -e ../click-hotoffthehamster
+#  -e ../click-hotoffthehamster-alias
+#  -e ../config-decorator
+#  -e ../human-friendly_pedantic-timedelta
+#  -e ../pep440-version-compare-cli
+#  -e ../python-prompt-toolkit
+#  -e ../sqlalchemy-migrate-hotoffthehamster
+
+# *** dob libraries and nark.
+
+-e ../nark
+
+-e ../dob-bright
+-e ../dob-prompt
+-e ../dob-viewer
+

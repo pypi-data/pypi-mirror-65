@@ -1,0 +1,9 @@
+# This file exists within 'dob':
+#
+#   https://github.com/hotoffthehamster/dob
+
+# (lb): Including this file to be pedantic.
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
