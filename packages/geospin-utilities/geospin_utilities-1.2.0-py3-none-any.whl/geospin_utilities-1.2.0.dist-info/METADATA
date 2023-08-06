@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: geospin-utilities
+Version: 1.2.0
+Summary: Geo-processing utility functions
+Home-page: UNKNOWN
+Author: Geospin GmbH
+Author-email: it@geospin.de
+License: GNU General Public License v3.0
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: numpy (>=1.18.1)
+Requires-Dist: scikit-learn (>=0.22.1)
+Requires-Dist: shapely (>=1.7.0)
+Requires-Dist: pyproj (>=2.4.2.post1)
+Requires-Dist: pandas (>=1.0.1)
+Requires-Dist: folium (>=0.10.1)
+Requires-Dist: matplotlib (>=3.1.3)
+Requires-Dist: geopandas (>=0.6.2)
+Requires-Dist: fiona (>=1.8.13)
+Requires-Dist: h3 (>=3.4.3)
+Requires-Dist: branca (>=0.3.1)
+Requires-Dist: geojson (>=2.5.0)
+Requires-Dist: sqlalchemy (>=1.3.12)
+Requires-Dist: psycopg2-binary (>=2.8.4)
+
+=================
+Geospin Utilities
+=================
+
+Utility functions for Geo Spatial Data Science.
+
+Package requirements
+--------------------
+
+geospin-utilities requires Python >= 3.6.
+
+::
+
+  numpy>=1.18.1
+  scikit-learn>=0.22.1
+  shapely>=1.7.0
+  pyproj>=2.4.2.post1
+  pandas>=1.0.1
+  folium>=0.10.1
+  matplotlib>=3.1.3
+  geopandas>=0.6.2
+  fiona>=1.8.13
+  h3>=3.4.3
+  branca>=0.3.1
+  geojson>=2.5.0
+  sqlalchemy>=1.3.12
+  psycopg2-binary>=2.8.4
+
+
+Installation
+------------
+Install ``geospin-utilities`` via pip with
+::
+
+  pip install geospin-utilities
+
+Documentation
+-------------
+Link to the documentation will follow.
+
+
