@@ -1,0 +1,4 @@
+[console_scripts]
+nlp2go = nlp2go.server:main
+nlp2go-preload = nlp2go.prep:main
+
