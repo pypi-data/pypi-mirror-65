@@ -1,0 +1,40 @@
+#!/usr/bin/python
+#
+#    Copyright (c) 2009-2015 Tom Keffer <tkeffer@gmail.com>
+#
+#    See the file LICENSE.txt for your rights.
+#
+"""Configure the configuration file."""
+from __future__ import with_statement
+
+import logging
+import optparse
+import sys
+
+from nimbuscfg.config import ConfigEngine
+
+usage = """Usage: nimbus_config --help
+       nimbus_config [--debian]
+"""
+
+
+def main():
+
+    # Create a command line parser:
+    parser = optparse.OptionParser(usage=usage)
+
+    parser.add_option("--debian", action="store_true", help="Configure for debian startup")
+
+    (options, args) = parser.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format='%(message)s')
+
+    config_mgr = ConfigEngine()
+
+    config_mgr.run(options)
+
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
