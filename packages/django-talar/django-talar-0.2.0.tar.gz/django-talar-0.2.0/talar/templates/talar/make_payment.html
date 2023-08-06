@@ -1,0 +1,9 @@
+{% load i18n %}
+
+    <div>
+        <p>{% trans 'After continuing you will be redirected to payment provider site.' %}</p>
+        <form action="{{ url }}" method="post" class="form-inline">
+            {{ payment_form.as_p }}
+            <button type=submit class="btn btn-primary">{% trans 'Pay' %}</button>
+        </form>
+    </div>
