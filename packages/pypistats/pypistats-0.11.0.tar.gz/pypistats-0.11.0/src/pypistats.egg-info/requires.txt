@@ -1,0 +1,17 @@
+appdirs
+pytablewriter[html]>=0.48
+python-dateutil
+python-slugify
+requests
+
+[numpy]
+numpy
+
+[pandas]
+pandas
+
+[tests]
+freezegun
+pytest
+pytest-cov
+requests_mock
