@@ -1,0 +1,8 @@
+beautifulsoup4
+halo
+requests
+tqdm
+
+[dev]
+black<=19.10b0
+pytest<=4.*
