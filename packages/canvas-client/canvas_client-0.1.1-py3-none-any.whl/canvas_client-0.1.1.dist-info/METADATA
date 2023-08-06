@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: canvas-client
+Version: 0.1.1
+Summary: Canvas LMS client: Download submissions, upload grades and comments from excel
+Home-page: UNKNOWN
+Author: Csanad Sandor
+Author-email: scsanad@cs.ubbcluj.ro
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: jsonpickle
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: pyunpack
+Requires-Dist: xlwt
+Requires-Dist: xlrd
+
+UNKNOWN
+
+
