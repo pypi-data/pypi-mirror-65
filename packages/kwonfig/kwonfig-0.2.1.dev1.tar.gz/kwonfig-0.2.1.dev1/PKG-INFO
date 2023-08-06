@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: kwonfig
+Version: 0.2.1.dev1
+Summary: Complete, extensible configuration manager
+Home-page: https://gitlab.kokakiwi.net/kokakiwi/kwonfig
+License: BSD-3-Clause
+Author: KokaKiwi
+Author-email: kokakiwi+git@kokakiwi.net
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Provides-Extra: all
+Provides-Extra: ini
+Provides-Extra: pydantic
+Provides-Extra: toml
+Provides-Extra: yaml
+Requires-Dist: deepmerge (>=0.1,<0.2)
+Requires-Dist: hjson (>=3.0,<4.0); extra == "all"
+Requires-Dist: ini-parser (>=1.0,<2.0); extra == "all" or extra == "ini"
+Requires-Dist: json5 (>=0.9,<0.10); extra == "all"
+Requires-Dist: loguru (>=0.4,<0.5)
+Requires-Dist: pluggy (>=0.13,<0.14)
+Requires-Dist: pydantic (>=1.4,<2.0); extra == "all" or extra == "pydantic"
+Requires-Dist: qtoml (>=0.3,<0.4); extra == "all" or extra == "toml"
+Requires-Dist: ruamel.yaml (>=0.16,<0.17); extra == "all" or extra == "yaml"
+Project-URL: Issues, https://gitlab.kokakiwi.net/kokakiwi/kwonfig/-/issues
+Project-URL: Repository, https://gitlab.kokakiwi.net/kokakiwi/kwonfig.git
