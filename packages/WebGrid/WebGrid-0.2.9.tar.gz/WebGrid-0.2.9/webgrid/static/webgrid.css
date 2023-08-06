@@ -1,0 +1,311 @@
+.datagrid p.no-records {
+    padding: 1.5em;
+    margin-bottom: 2em;
+    background-color: #FFF9DD;
+    border: solid 1px #DBDBB3;
+    font-size: 1.2em;
+}
+
+.datagrid form.header {
+    border: solid 1px #ccc;
+    padding: 5px;
+    background: #efefef;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.datagrid form.header > div {
+    /* use long hand form to avoid IE bugs */
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+.datagrid form.header select,
+.datagrid form.header input {
+    margin: 0;
+    padding: 0;
+}
+
+.datagrid form.header .links {
+    text-align: left;
+    padding-top: 10px;
+    border-top: 1px solid #cccccc;
+    /* use long hand form to avoid IE bugs */
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
+}
+
+.datagrid table.filters {
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.datagrid table.filters th,
+.datagrid table.filters td {
+    margin: 0;
+    padding: 2px 10px 0 0;
+}
+
+.datagrid table.filters tr td:last-child {
+    min-width: 300px;
+}
+
+.datagrid table.filters button.ui-state-default span {
+    color: #000000;
+    font-size: 0.9em;
+}
+
+.datagrid table.filters button.ui-corner-all {
+    -moz-border-radius: 0;
+}
+
+.datagrid table.filters button.ui-state-default {
+    background: #FFFFFF;
+    border: 1px inset #F0F0F0;
+}
+
+.ui-multiselect-header a:hover {
+    color: #FFFFFF;
+}
+
+.datagrid table.filters button.ui-multiselect {
+    padding: 1px;
+}
+
+.datagrid tr.add-filter th {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.datagrid dl.sorting {
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.datagrid dl.sorting dd {
+    margin: 4px 0 0 0;
+}
+
+.datagrid dl.sorting select {
+    width: 100%;
+}
+
+.datagrid .paging {
+    padding: 0;
+    margin: 0 15px 5px 0;
+    width: auto;
+    min-width: 250px;
+}
+
+.datagrid .paging dl {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.datagrid .paging dl dt,
+.datagrid .paging dl dd {
+    /* use long hand form to avoid IE bugs */
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 33.333%;
+}
+
+.datagrid .paging dl dt {
+    order: 10;
+}
+
+.datagrid .paging dl dd {
+    order: 5;
+    margin: 0;
+}
+
+.datagrid .paging .perpage input {
+    width: 50px;
+}
+
+
+.datagrid div.footer p {
+    float: left;
+}
+
+.datagrid .footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.datagrid div.footer ul.paging li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.datagrid div.footer ul.paging li.dead {
+    color: #999;
+}
+
+div.datagrid-filter-controls-wrapper label {
+    font-weight: bold;
+    font-size: .8em;
+    padding-left: 3px;
+}
+
+div.filteron-wrapper {
+    float: left;
+}
+
+select.datagrid-filteronop {
+    float: left;
+}
+
+div.filterfor-wrapper {
+    float: left;
+}
+
+
+form.datagrid-form input,
+form.datagrid-form select {
+    margin-bottom: 1px;
+}
+
+.manage-add-link {
+    float: right;
+    margin-top: 0.8em;
+}
+
+.datagrid table.records,
+table.datagrid {
+    margin-top: 1em;
+}
+
+.datagrid table.records th,
+.datagrid table.records td,
+table.datagrid th,
+table.datagrid td {
+    padding: .5em 1em;
+    margin: 0px;
+    text-align: center;
+}
+
+.datagrid table.records td.ta-left,
+table.datagrid td.ta-left {
+    text-align: left;
+}
+
+.datagrid table.records th,
+table.datagrid th {
+    font-weight: bold;
+    color: #ececec;
+    background-color: #31527C;
+    text-align: center;
+    border-bottom: solid 1px white;
+    border-right: solid 1px white;
+    border-top: solid 1px white;
+}
+
+.datagrid table.records th.buffer {
+    background-color: transparent;
+}
+
+.datagrid table.records th a,
+table.datagrid th a {
+    color: #ececec;
+}
+
+.datagrid table.records th a.sort-asc,
+table.datagrid th a.sort-asc {
+    padding-right: 40px;
+    background: url(th_arrow_up.png) no-repeat right -7px;
+}
+
+.datagrid table.records th a.sort-desc,
+table.datagrid th a.sort-desc {
+    padding-right: 40px;
+    background: url(th_arrow_down.png) no-repeat right -7px;
+}
+
+.datagrid table.records td,
+table.datagrid td {
+    border-bottom: solid 1px white;
+    border-right: solid 1px white;
+}
+
+.datagrid table.records tr.even td,
+table.datagrid tr.even td{
+    background-color: #d5d5d5;
+}
+
+.datagrid table.records td,
+.datagrid table.records tr.odd td,
+table.datagrid td,
+table.datagrid tr.odd td{
+    background-color: #e5e5e5;
+}
+
+.datagrid table.records td a.edit_link,
+.datagrid table.records td a.delete_link,
+table.datagrid td a.edit_link,
+table.datagrid td a.delete_link {
+    float: left;
+    height: 16px;
+    width: 16px;
+    text-indent: -9999px;
+}
+
+.datagrid table.records td a.edit_link:focus,
+.datagrid table.records td a.delete_link:focus,
+table.datagrid td a.edit_link:focus,
+table.datagrid td a.delete_link:focus {
+    outline: 0;
+}
+
+.datagrid table.records td a.edit_link,
+table.datagrid td a.edit_link {
+    background: url(application_form_edit.png);
+    margin-left: 1em;
+}
+
+.datagrid table.records td a.delete_link,
+table.datagrid td a.delete_link {
+    background: url(delete.png);
+}
+
+/* multipleselect style overrides */
+div.ms-parent input[type="checkbox"] {
+    top: auto;
+    margin-right: 0.25em;
+}
+
+.ms-choice {
+    height: 20px;
+    line-height: 1.5;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.ms-choice > div {
+    height: 19px;
+    background: url('multiple-select.png') left top no-repeat !important;
+}
+
+.ms-drop {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.ms-drop input[type="checkbox"] {
+    top: 0;
+}
+
+.ms-choice > span {
+    padding-top: 1px;
+}
+
+.ms-drop label {
+    font-weight: normal;
+}
