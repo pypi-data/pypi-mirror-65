@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: igwn-rucio-lfn2pfn
+Version: 0.0.14
+Summary: LFN2PFN algorithms for IGWN
+Home-page: https://git.ligo.org/rucio/igwn-rucio-lfn2pfn
+Author: James Alexander Clark
+Author-email: james.clark@ligo.org
+License: UNKNOWN
+Description: # igwn-rucio-lfn2pfn
+        
+        Algorithm for LFN to PFN conversion for rucio in the international gravitational wave network
+        
+        ## Plugging into rucio as an external module
+        As currently configured, this module should be made available to rucio by setting the following in the `rucio.cfg`:
+        ```
+        [policy]
+        lfn2pfn_module=igwn_lfn2pfn.frames_lfn2pfn
+        lfn2pfn_algorithm=ligo_legacy
+        ```
+        And installing via e.g.,:
+        ```
+        pip install git+https://git.ligo.org/rucio/igwn-rucio-lfn2pfn.git
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
