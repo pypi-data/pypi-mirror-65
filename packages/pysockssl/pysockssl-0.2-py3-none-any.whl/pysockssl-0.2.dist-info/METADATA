@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: pysockssl
+Version: 0.2
+Summary: Simple TCP/TLS mitm engine supports SOCKSv4 + SOCKSv5 + Cert store
+Home-page: https://github.com/trichimtrich/pysockssl
+Author: trichimtrich
+Author-email: trichimtrich@gmail.com
+License: GPL v3
+Keywords: mitm,proxy,ssl,tls,socksv4,socksv5,socks4,socks5
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: twisted
+Requires-Dist: kaitaistruct
+Requires-Dist: pyOpenSSL
+Requires-Dist: service-identity
+Requires-Dist: click
+
+# pySockSSL
+
+[![Python 3](https://img.shields.io/badge/python-3-blue.svg)](https://www.python.org/downloads/) [![Documentation Status](https://readthedocs.org/projects/pysockssl/badge/?version=latest)](https://pysockssl.readthedocs.io/en/latest/?badge=latest)
+
+Similar to 
+- [Burpsuite](https://portswigger.net/burp) 
+- [mitmproxy](https://mitmproxy.org/)
+- [Charles Proxy](https://www.charlesproxy.com/)
+- [Fiddler](https://www.telerik.com/fiddler)
+- and many more ...
+
+But more simple and focus on TCP/TLS stream capture ONLY - NO data analyzing 🤐
+
+## Support
+
+- TCP only
+- SOCKSv4 + user auth
+- SOCKSv5 + user/pwd auth
+- [Dummy] cert generator
+- SSL/TLS man-in-the-middle 😎
+- API to intercept captured data
+
+## Install
+
+```bash
+pip3 install pysockssl
+```
+
+or
+
+```bash
+git clone https://github.com/trichimtrich/pysockssl
+cd pysockssl
+python3 setup.py install
+```
+
+## Usage & API
+
+Check out the doc at [https://pysockssl.readthedocs.io](https://pysockssl.readthedocs.io)
+
+## TODO
+
+- Interactive interface
+- CLI addon to save dummy cert from rootCA
+- Blacklist / whitelist / passthru TLS Domain
+
+## License
+
+GNU GPLv3
+
