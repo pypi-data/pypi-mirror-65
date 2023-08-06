@@ -1,0 +1,10 @@
+#!python
+
+from cleo import Application
+from larapy_installer.src.Command.NewCommand import NewCommand
+
+application = Application("Larapy")
+application.add(NewCommand())
+
+if __name__ == '__main__':
+    application.run()
