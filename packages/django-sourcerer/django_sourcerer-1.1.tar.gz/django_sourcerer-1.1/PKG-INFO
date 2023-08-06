@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: django_sourcerer
+Version: 1.1
+Summary: Django app that import and correlating data from external sources.
+Home-page: https://github.com/nokia-wroclaw/innovativeproject-django-sourcerer
+Author: nokia
+Author-email: cmarslan06@gmail.com
+License: UNKNOWN
+Description: # innovativeproject-django-sourcerer
+        
+        ## Links
+        
+         - Pypi https://pypi.org/project/django-sourcerer/
+         - Source code https://github.com/nokia-wroclaw/innovativeproject-django-sourcerer
+        
+        ## Install
+        ```pip install django-sourcerer```
+        
+        Then add `django_sourcerer` to your project.
+        
+        ## Usage
+        ```
+        from django_sourcerer.domain.import_datas.intermediate_layer import Adapter
+        ```
+        Then `Adapter("yaml_file").get_data_type_columns()`
+        It works with 'csv' datas now. It will be updated for json&xls formats.
+        
+        ## Example .yaml File
+        ```
+        name: <name of data source>
+        source: <endpoint of data source>
+        format: csv
+        columns:
+          - external_name: <column name>
+            type: <column type e.g : int>
+          - external_name: <column name>
+            type: <column type e.g : str>
+        ```
+        
+        ### Requires
+        
+        - Python 3
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
