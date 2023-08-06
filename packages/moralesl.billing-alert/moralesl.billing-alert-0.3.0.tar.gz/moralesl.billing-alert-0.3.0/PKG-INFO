@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: moralesl.billing-alert
+Version: 0.3.0
+Summary: Utility CDK construct to setup billing alerts easily
+Home-page: https://github.com/moralesl/cdk-billing-alert.git
+Author: Luis Morales
+License: MIT
+Project-URL: Source, https://github.com/moralesl/cdk-billing-alert.git
+Description: ## CDK Billing Alert utility
+        
+        ---
+        
+        
+        [![Build Status](https://travis-ci.com/moralesl/cdk-billing-alert.svg?branch=master)](https://travis-ci.com/moralesl/cdk-billing-alert)
+        [![GitHub release](https://img.shields.io/github/release/moralesl/cdk-billing-alert/all.svg)](https://img.shields.io/github/release/moralesl/cdk-billing-alert/all.svg)
+        
+        ---
+        
+        
+        Utility CDK construct to setup billing alerts easily
+        
+        ## Example
+        
+        The following example shows how to set up a billing alert:
+        
+        ```python
+        # Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+        from moralesl.billing_alert import BillingAlert
+        
+        BillingAlert(self, "BillingAlertTenDollars",
+            amount=10,
+            emails=["test@example.com"
+            ]
+        )
+        ```
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Classifier: License :: OSI Approved
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
