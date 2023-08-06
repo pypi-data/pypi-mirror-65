@@ -1,0 +1,66 @@
+[avocado.plugins.cli]
+journal = avocado.plugins.journal:Journal
+json = avocado.plugins.jsonresult:JSONCLI
+json_variants = avocado.plugins.json_variants:JsonVariantsCLI
+replay = avocado.plugins.replay:Replay
+tap = avocado.plugins.tap:TAP
+wrapper = avocado.plugins.wrapper:Wrapper
+xunit = avocado.plugins.xunit:XUnitCLI
+zip_archive = avocado.plugins.archive:ArchiveCLI
+
+[avocado.plugins.cli.cmd]
+assets = avocado.plugins.assets:Assets
+config = avocado.plugins.config:Config
+diff = avocado.plugins.diff:Diff
+distro = avocado.plugins.distro:Distro
+exec-path = avocado.plugins.exec_path:ExecPath
+list = avocado.plugins.list:List
+nlist = avocado.plugins.nlist:List
+nrun = avocado.plugins.nrun:NRun
+plugins = avocado.plugins.plugins:Plugins
+run = avocado.plugins.run:Run
+sysinfo = avocado.plugins.sysinfo:SysInfo
+variants = avocado.plugins.variants:Variants
+vmimage = avocado.plugins.vmimage:VMimage
+
+[avocado.plugins.job.prepost]
+human = avocado.plugins.human:HumanJob
+jobscripts = avocado.plugins.jobscripts:JobScripts
+merge_files = avocado.plugins.expected_files_merge:FilesMerge
+sysinfo = avocado.plugins.sysinfo:SysInfoJob
+teststmpdir = avocado.plugins.teststmpdir:TestsTmpDir
+
+[avocado.plugins.resolver]
+avocado-instrumented = avocado.plugins.resolvers:AvocadoInstrumentedResolver
+exec-test = avocado.plugins.resolvers:ExecTestResolver
+python-unittest = avocado.plugins.resolvers:PythonUnittestResolver
+tap = avocado.plugins.resolvers:TapResolver
+
+[avocado.plugins.result]
+json = avocado.plugins.jsonresult:JSONResult
+xunit = avocado.plugins.xunit:XUnitResult
+zip_archive = avocado.plugins.archive:Archive
+
+[avocado.plugins.result_events]
+fetchasset = avocado.plugins.assets:FetchAssetJob
+human = avocado.plugins.human:Human
+journal = avocado.plugins.journal:JournalResult
+tap = avocado.plugins.tap:TAPResult
+
+[avocado.plugins.runner]
+nrunner = avocado.plugins.runner_nrunner:Runner
+runner = avocado.plugins.runner:TestRunner
+
+[avocado.plugins.varianter]
+json_variants = avocado.plugins.json_variants:JsonVariants
+
+[console_scripts]
+avocado-runner = avocado.core.nrunner:main
+avocado-runner-avocado-instrumented = avocado.core.nrunner_avocado_instrumented:main
+avocado-runner-exec = avocado.core.nrunner:main
+avocado-runner-exec-test = avocado.core.nrunner:main
+avocado-runner-noop = avocado.core.nrunner:main
+avocado-runner-python-unittest = avocado.core.nrunner:main
+avocado-runner-tap = avocado.core.nrunner_tap:main
+avocado-software-manager = avocado.utils.software_manager:main
+
