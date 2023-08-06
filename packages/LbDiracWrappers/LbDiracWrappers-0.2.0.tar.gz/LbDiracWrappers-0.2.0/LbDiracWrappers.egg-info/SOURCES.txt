@@ -1,0 +1,15 @@
+.gitignore
+.gitlab-ci.yml
+LICENSE
+README.rst
+setup.cfg
+setup.py
+LbDiracWrappers/__init__.py
+LbDiracWrappers.egg-info/PKG-INFO
+LbDiracWrappers.egg-info/SOURCES.txt
+LbDiracWrappers.egg-info/dependency_links.txt
+LbDiracWrappers.egg-info/entry_points.txt
+LbDiracWrappers.egg-info/requires.txt
+LbDiracWrappers.egg-info/top_level.txt
+LbDiracWrappers.egg-info/zip-safe
+tests/test_all.py

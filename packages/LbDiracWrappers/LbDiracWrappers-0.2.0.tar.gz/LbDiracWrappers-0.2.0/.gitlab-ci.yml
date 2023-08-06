@@ -1,0 +1,78 @@
+stages:
+  - test
+  - deploy
+
+centos7:
+  except:
+    - tags
+  image: gitlab-registry.cern.ch/lhcb-docker/python-deployment:centos7
+  tags:
+    - cvmfs
+  script:
+    - python --version
+    - pip install --upgrade setuptools
+    - python -m pip install -e '.[testing]'
+    - pytest
+
+slc6:
+  except:
+    - tags
+  image: gitlab-registry.cern.ch/lhcb-docker/python-deployment:slc6
+  tags:
+    - cvmfs
+  script:
+    - python --version
+    - pip install --upgrade setuptools
+    - python -m pip install -e '.[testing]'
+    - pytest
+
+python2.7:
+  image: gitlab-registry.cern.ch/lhcb-docker/python-deployment:python-2.7
+  tags:
+    - cvmfs
+  script:
+    - python --version
+    - python -m pip install -e '.[testing]'
+    - pytest
+    - python setup.py sdist --dist-dir public/${CI_PROJECT_NAME,,}
+    - python setup.py bdist_wheel --dist-dir public/${CI_PROJECT_NAME,,}
+
+python3.5:
+  except:
+    - tags
+  image: gitlab-registry.cern.ch/lhcb-docker/python-deployment:python-3.5
+  tags:
+    - cvmfs
+  script:
+    - python --version
+    - python -m pip install -e '.[testing]'
+    - pytest
+
+python3.6:
+  except:
+    - tags
+  image: gitlab-registry.cern.ch/lhcb-docker/python-deployment:python-3.6
+  tags:
+    - cvmfs
+  script:
+    - python --version
+    - python -m pip install -e '.[testing]'
+    - pytest
+
+# see https://gitlab.cern.ch/gitlabci-examples/deploy_eos for the details
+# of the configuration
+deploy-packages:
+  stage: deploy
+  only:
+    - tags
+  image: gitlab-registry.cern.ch/ci-tools/ci-web-deployer:latest
+  tags:
+    - cvmfs
+  script:
+    - test -z "$EOS_ACCOUNT_USERNAME" -o -z "$EOS_ACCOUNT_PASSWORD" -o -z "$EOS_PATH" && exit 0 || true
+    # Script that performs the deploy to EOS. Makes use of the variables defined in the project
+    # It will copy the generated content to the folder in EOS
+    - deploy-eos
+  # do not run any globally defined before_script or after_script for this step
+  before_script: []
+  after_script: []

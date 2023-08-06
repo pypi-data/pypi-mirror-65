@@ -1,0 +1,5 @@
+[console_scripts]
+lb-dirac = LbDiracWrappers:lb_dirac
+lhcb-proxy-info = LbDiracWrappers:lhcb_proxy_info
+lhcb-proxy-init = LbDiracWrappers:lhcb_proxy_init
+

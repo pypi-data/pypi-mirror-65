@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: LbDiracWrappers
+Version: 0.2.0
+Summary: Wrappers for LHCbDirac commands
+Home-page: https://gitlab.cern.ch/lhcb-core/lbdiracwrappers
+Author: CERN - LHCb Core Software
+Author-email: lhcb-core-soft@cern.ch
+License: UNKNOWN
+Description: LbDiracWrappers
+        ===============
+        
+        Wrappers for usual LHCbDirac commands.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: testing
