@@ -1,0 +1,426 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:sale.sale:"
+msgid ""
+"Missing stock for products with \"Self Pickup\":\n"
+"\n"
+"To proceed you can\n"
+"- correct the stock of the product\n"
+"- or correct the line quantity\n"
+"- or deactivate \"Self Pickup\" to create a shipment\n"
+"- or delete the sale line(s) for \"%s\"."
+msgstr ""
+"Fehlender Lagerbestand für \"Selbstmitnahme\":\n"
+"\n"
+"Folgende Möglichkeiten existieren:\n"
+"- den Lagerbestand der Variante korrigieren\n"
+"- oder die Anzahl auf der Verkaufsposition anpassen\n"
+"- oder \"Selbstabholung\" deaktivieren und ggf. einen Lieferposten erstellen\n"
+"- oder die Verkaufsposition mit \"%s\" löschen."
+
+msgctxt "field:sale.channel,pos_party:"
+msgid "Default POS Party"
+msgstr "Standardpartei für POS"
+
+msgctxt "field:sale.channel,self_pick_up:"
+msgid "Default Self Pick Up"
+msgstr "Standardwert für Selbstmitnahme"
+
+msgctxt "field:sale.configuration,pos_sequence:"
+msgid "POS Sequence"
+msgstr "Nummernkreis POS"
+
+msgctxt "field:sale.line,amount_w_tax:"
+msgid "Amount with Tax"
+msgstr "Bruttobetrag"
+
+msgctxt "field:sale.line,currency:"
+msgid "Currency"
+msgstr "Währung"
+
+msgctxt "field:sale.line,currency_digits:"
+msgid "Currency Digits"
+msgstr "Nachkommastellen Währung"
+
+msgctxt "field:sale.line,unit_price_w_tax:"
+msgid "Unit Price with Tax"
+msgstr "Bruttopreis"
+
+msgctxt "field:sale.payment.form,self_pick_up:"
+msgid "Self Pick Up"
+msgstr "Selbstmitnahme"
+
+msgctxt "field:sale.sale,pos_create_date:"
+msgid "Create Date"
+msgstr "Erstellungsdatum"
+
+msgctxt "field:sale.sale,self_pick_up:"
+msgid "Self Pick Up"
+msgstr "Selbstmitnahme"
+
+msgctxt "field:sale.sale,ticket_number:"
+msgid "Ticket Number"
+msgstr "Bon-Nr."
+
+msgctxt "field:sale_pos_channel.add_product_form,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:sale_pos_channel.add_product_form,lines:"
+msgid "Lines"
+msgstr "Positionen"
+
+msgctxt "field:sale_pos_channel.add_product_form,sale:"
+msgid "Sale"
+msgstr "Verkauf"
+
+msgctxt "help:sale.channel,self_pick_up:"
+msgid ""
+"The goods are picked up directly by the customer. (Delivery without "
+"shipment)"
+msgstr "Die Waren werden vom Kunden direkt mitgenommen (ohne Lieferschein)."
+
+msgctxt "help:sale.sale,self_pick_up:"
+msgid ""
+"The goods are picked up directly by the customer. (Delivery without "
+"shipment)"
+msgstr "Die Waren werden vom Kunden direkt mitgenommen (ohne Lieferschein)."
+
+msgctxt "model:ir.action,name:act_sale_form"
+msgid "POS Sales"
+msgstr "POS-Verkäufe"
+
+msgctxt "model:ir.action,name:report_sale_ticket"
+msgid "POS Ticket"
+msgstr "POS Kassenbon"
+
+msgctxt "model:ir.action,name:report_sales_summary"
+msgid "Sales Summary"
+msgstr "Verkäufe Zusammenfassung"
+
+msgctxt "model:ir.action,name:report_sales_summary_by_party"
+msgid "Sales Summary by Party"
+msgstr "Verkäufe Zusammenfassung nach Partei"
+
+msgctxt "model:ir.action,name:wizard_add_product"
+msgid "Add Products"
+msgstr "Artikel hinzufügen"
+
+msgctxt "model:ir.action.act_window.domain,name:act_sale_form_domain_all"
+msgid "All"
+msgstr "Alle"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_sale_form_domain_confirmed"
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+msgctxt "model:ir.action.act_window.domain,name:act_sale_form_domain_draft"
+msgid "Draft"
+msgstr "Entwurf"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_sale_form_domain_processing"
+msgid "Processing"
+msgstr "In Ausführung"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_sale_form_domain_quotation"
+msgid "Quotation"
+msgstr "Angebot"
+
+msgctxt "model:ir.sequence.strict,name:sequence_sale_pos_channel"
+msgid "POS"
+msgstr "POS"
+
+msgctxt "model:ir.sequence.type,name:sequence_type_sale_pos_channel"
+msgid "POS"
+msgstr "POS"
+
+msgctxt "model:ir.ui.menu,name:menu_sale"
+msgid "POS Sales"
+msgstr "POS-Verkäufe"
+
+msgctxt "model:sale_pos_channel.add_product_form,name:"
+msgid "Add Product Form"
+msgstr "Artikel hinzufügen"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Amount"
+msgstr "Betrag"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Customer:"
+msgstr "Kunde:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Date:"
+msgstr "Datum:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Description"
+msgstr "Bezeichnung"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Draft Sale N°"
+msgstr "Entwurf Nr. "
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Paid:"
+msgstr "Bezahlt:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Qty"
+msgstr "Anz"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Residual:"
+msgstr "Verbleibend:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Sale N°"
+msgstr "Verkauf Nr. "
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Salesman:"
+msgstr "Verkäufer:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Taxes:"
+msgstr "Steuern:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Ticket Nº"
+msgstr "Bon-Nr. "
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Total (excl. taxes):"
+msgstr "Netto:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Total:"
+msgstr "Gesamt:"
+
+msgctxt "report:sale_pos_channel.sale_ticket:"
+msgid "Unit Price"
+msgstr "Preis"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "$"
+msgstr "$"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "("
+msgstr "("
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid ")"
+msgstr ")"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "Amount"
+msgstr "Betrag"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "Date"
+msgstr "Datum"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "Notes:"
+msgstr "Bemerkungen:"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "POS SALES SUMMARY"
+msgstr "POS-Verkäufe Zusammenfassung"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "Party"
+msgstr "Partei"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "TOTAL"
+msgstr "Gesamt"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "Tax"
+msgstr "Steuer"
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "Ticket Nº"
+msgstr "Bon-Nr. "
+
+msgctxt "report:sale_pos_channel.sales_summary:"
+msgid "Total"
+msgstr "Gesamt"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "$"
+msgstr "$"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "("
+msgstr "("
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid ")"
+msgstr ")"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "Amount"
+msgstr "Betrag"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "From:"
+msgstr "Von:"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "Notes:"
+msgstr "Bemerkungen:"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "POS SALES BY PARTY"
+msgstr "POS-Verkäufe nach Partei"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "Party"
+msgstr "Partei"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "TOTAL"
+msgstr "Gesamt"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "Tax"
+msgstr "Steuer"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "To:"
+msgstr "Bis:"
+
+msgctxt "report:sale_pos_channel.sales_summary_by_party:"
+msgid "Total"
+msgstr "Gesamt"
+
+msgctxt "selection:sale.channel,source:"
+msgid "POS"
+msgstr "POS"
+
+msgctxt "view:sale.line:"
+msgid "Lines"
+msgstr "Positionen"
+
+msgctxt "view:sale.payment.form:"
+msgid ""
+"If you pay the entire amount, it will process this sale, moving the products"
+" without shipment and invoicing it."
+msgstr ""
+"Bei Zahlung der Gesamtsumme wird der Verkauf durchgeführt, Lagerbewegungen "
+"ohne Lieferposten erstellt und die Fakturierung durchgeführt."
+
+msgctxt "view:sale.payment.form:"
+msgid ""
+"If you want to manage the sale step by step or generate a shipment to manage"
+" the delivery, uncheck the Self Pick Up field in Sale's form and use the "
+"buttons in the bottom line."
+msgstr ""
+"Wenn ein Verkauf schrittweise durch den Workflow getätigt werden soll oder "
+"ein Lieferposten für die Auslieferung erstellt werden soll, muss "
+"Selbstmitnahme deaktiviert sein."
+
+msgctxt "view:sale.payment.form:"
+msgid "Payment"
+msgstr "Zahlung"
+
+msgctxt "view:sale.sale:"
+msgid "Add Products"
+msgstr "Artikel hinzufügen"
+
+msgctxt "view:sale.sale:"
+msgid "Add Sum"
+msgstr "Zwischensumme einfügen"
+
+msgctxt "view:sale.sale:"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgctxt "view:sale.sale:"
+msgid "Comment"
+msgstr "Kommentar"
+
+msgctxt "view:sale.sale:"
+msgid "Confirm"
+msgstr "Bestätigen"
+
+msgctxt "view:sale.sale:"
+msgid "Draft"
+msgstr "Entwurf"
+
+msgctxt "view:sale.sale:"
+msgid "Handle Invoice Exception"
+msgstr "Rechnungsvorbehalt bearbeiten"
+
+msgctxt "view:sale.sale:"
+msgid "Handle Shipment Exception"
+msgstr "Nachfrage Liefervorbehalt"
+
+msgctxt "view:sale.sale:"
+msgid "Pay"
+msgstr "Bezahlen"
+
+msgctxt "view:sale.sale:"
+msgid "Payments"
+msgstr "Zahlungen"
+
+msgctxt "view:sale.sale:"
+msgid "Pos Cash Sales"
+msgstr "POS-Verkäufe"
+
+msgctxt "view:sale.sale:"
+msgid "Pos Sales"
+msgstr "POS-Verkäufe"
+
+msgctxt "view:sale.sale:"
+msgid "Process"
+msgstr "Ausführen"
+
+msgctxt "view:sale.sale:"
+msgid "Quote"
+msgstr "Angebot"
+
+msgctxt "view:sale.sale:"
+msgid "Sale"
+msgstr "Verkauf"
+
+msgctxt "view:sale.sale:"
+msgid "Ticket"
+msgstr "Kassenbon"
+
+msgctxt "view:sale.sale:"
+msgid "Time"
+msgstr "Zeit"
+
+msgctxt "view:sale.sale:"
+msgid "Total Amount"
+msgstr "Gesamtbetrag"
+
+msgctxt "view:sale.sale:"
+msgid "Untaxed Amount"
+msgstr "Nettobetrag"
+
+msgctxt "view:sale_pos_channel.add_product_form:"
+msgid "Add products"
+msgstr "Artikel hinzufügen"
+
+msgctxt "wizard_button:sale_pos_channel.add_product,start,add_:"
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgctxt "wizard_button:sale_pos_channel.add_product,start,add_new_:"
+msgid "Add and New"
+msgstr "Hinzufügen und Neu"
+
+msgctxt "wizard_button:sale_pos_channel.add_product,start,end:"
+msgid "Cancel"
+msgstr "Abbrechen"

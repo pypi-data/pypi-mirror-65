@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@id='order']"
+            position="inside">
+        <label name="pos_party"/>
+        <field name="pos_party"/>
+        <label name="self_pick_up"/>
+        <field name="self_pick_up"/>
+    </xpath>
+</data>
