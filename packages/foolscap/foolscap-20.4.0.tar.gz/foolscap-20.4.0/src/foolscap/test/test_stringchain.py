@@ -1,0 +1,191 @@
+
+from twisted.trial import unittest
+from foolscap.stringchain import StringChain as BufClass
+
+def str(s):
+    return s.as_bytes()
+
+class T(unittest.TestCase):
+    def test_al(self):
+        c = BufClass()
+        c.append(b"ab")
+        self.assertEqual(len(c), 2)
+        c.append(b"")
+        self.assertEqual(len(c), 2)
+        c.append(b"c")
+        self.assertEqual(len(c), 3)
+
+    def test_str(self):
+        c = BufClass()
+        c.append(b"ab")
+        c.append(b"c")
+        self.assertEqual(str(c), b"abc")
+
+    def test_trim(self):
+        c = BufClass()
+        c.append(b"ab")
+        c.append(b"c")
+        c.trim(1)
+        self.assertEqual(str(c.copy()), b"bc")
+        c.trim(1)
+        self.assertEqual(str(c.copy()), b"c")
+        c.trim(1)
+        self.assertEqual(str(c.copy()), b"")
+        c.append(b"ab")
+        c.append(b"c")
+        c.trim(2)
+        self.assertEqual(str(c.copy()), b"c")
+        c.trim(1)
+        self.assertEqual(str(c.copy()), b"")
+        c.append(b"a")
+        c.append(b"bc")
+        c.trim(2)
+        self.assertEqual(str(c.copy()), b"c")
+        c.trim(1)
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"abc")
+        c.trim(4) # We just silently trim all.
+        self.assertEqual(str(c.copy()), b"")
+
+    def test_popleft_new_stringchain(self):
+        c = BufClass()
+        c.append(b"ab")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"a")
+        self.assertEqual(str(c.copy()), b"b")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"b")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"abc")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"a")
+        self.assertEqual(str(c.copy()), b"bc")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"b")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"abc")
+        s = c.popleft_new_stringchain(2)
+        self.assertEqual(str(s), b"ab")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"ab")
+        c.append(b"c")
+        s = c.popleft_new_stringchain(2)
+        self.assertEqual(str(s), b"ab")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"a")
+        c.append(b"bc")
+        s = c.popleft_new_stringchain(2)
+        self.assertEqual(str(s), b"ab")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft_new_stringchain(1)
+        self.assertEqual(str(s), b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"abc")
+        s = c.popleft_new_stringchain(4) # We just silently pop them all.
+        self.assertEqual(str(s), b"abc")
+        self.assertEqual(str(c.copy()), b"")
+
+    def test_popleft(self):
+        c = BufClass()
+        c.append(b"ab")
+        s = c.popleft(1)
+        self.assertEqual(s, b"a")
+        self.assertEqual(str(c.copy()), b"b")
+        s = c.popleft(1)
+        self.assertEqual(s, b"b")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"abc")
+        s = c.popleft(1)
+        self.assertEqual(s, b"a")
+        self.assertEqual(str(c.copy()), b"bc")
+        s = c.popleft(1)
+        self.assertEqual(s, b"b")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft(1)
+        self.assertEqual(s, b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"abc")
+        s = c.popleft(2)
+        self.assertEqual(s, b"ab")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft(1)
+        self.assertEqual(s, b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"ab")
+        c.append(b"c")
+        s = c.popleft(2)
+        self.assertEqual(s, b"ab")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft(1)
+        self.assertEqual(s, b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"a")
+        c.append(b"bc")
+        s = c.popleft(2)
+        self.assertEqual(s, b"ab")
+        self.assertEqual(str(c.copy()), b"c")
+        s = c.popleft(1)
+        self.assertEqual(s, b"c")
+        self.assertEqual(str(c.copy()), b"")
+
+        c.append(b"abc")
+        s = c.popleft(4) # We just silently pop them all.
+        self.assertEqual(s, b"abc")
+        self.assertEqual(str(c.copy()), b"")
+
+    def test_tailignored(self):
+        c1 = BufClass()
+        c1.append(b"abcde")
+        c2 = c1.popleft_new_stringchain(2)
+        assert str(c2.copy()) == b"ab", (str(c2.copy()),)
+        c2.append(b"f")
+        self.assertEqual(str(c2.copy()), b"abf")
+
+    def test_appendleft(self):
+        c1 = BufClass()
+        c1.append(b"abcd")
+        c1.appendleft(b"ef")
+        self.assertEqual(str(c1.copy()), b"efabcd")
+        s = c1.popleft(1)
+        self.assertEqual(s, b"e")
+        s = c1.popleft(2)
+        self.assertEqual(s, b"fa")
+        s = c1.popleft(3)
+        self.assertEqual(s, b"bcd")
+
+        c1 = BufClass()
+        c1.append(b"abcd")
+        c1.popleft(1)
+        c1.appendleft(b"ef")
+        self.assertEqual(str(c1.copy()), b"efbcd")
+        s = c1.popleft(1)
+        self.assertEqual(s, b"e")
+        s = c1.popleft(2)
+        self.assertEqual(s, b"fb")
+        s = c1.popleft(3)
+        self.assertEqual(s, b"cd")
+
+    def test_clear(self):
+        c1 = BufClass()
+        c1.append(b"abcd")
+        c1.clear()
+        self.assertEqual(str(c1.copy()), b"")

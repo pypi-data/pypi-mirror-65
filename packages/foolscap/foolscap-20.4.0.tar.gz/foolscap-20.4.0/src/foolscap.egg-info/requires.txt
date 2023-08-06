@@ -1,0 +1,10 @@
+six
+twisted[tls]>=16.0.0
+pyOpenSSL
+
+[dev]
+mock
+txtorcon>=19.0.0
+
+[tor]
+txtorcon>=19.0.0
