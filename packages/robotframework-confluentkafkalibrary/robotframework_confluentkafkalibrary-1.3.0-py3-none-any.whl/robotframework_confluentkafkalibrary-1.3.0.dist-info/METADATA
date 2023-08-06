@@ -1,0 +1,21 @@
+Metadata-Version: 2.0
+Name: robotframework-confluentkafkalibrary
+Version: 1.3.0
+Summary: Confluent Kafka library for Robot Framework
+Home-page: https://github.com/robooo/robotframework-ConfluentKafkaLibrary
+Author: Robert Karasek
+Author-email: <robo.karasek@gmail.com>
+License: Apache License 2.0
+Keywords: robotframework confluent kafka
+Platform: any
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: robotframework (==3.1.2)
+Requires-Dist: confluent-kafka (==1.3.0)
+Requires-Dist: uuid (==1.30)
+
+Confluent Kafka wrapped in Robot Framework.
+
+
