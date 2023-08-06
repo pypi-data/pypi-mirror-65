@@ -1,0 +1,6 @@
+[console_scripts]
+miniwdl = WDL.CLI:main
+
+[miniwdl.plugin.file_download]
+gs = WDL.runtime.download:gsutil_downloader
+
