@@ -1,0 +1,21 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+
+python:
+  - "2.7"
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+after_install: flake8
+
+install:
+   - pip install -r requirements_test.txt
+   - pip install tox-travis
+
+script: tox
+
+after_success:
+  - codecov -e TOX_ENV
