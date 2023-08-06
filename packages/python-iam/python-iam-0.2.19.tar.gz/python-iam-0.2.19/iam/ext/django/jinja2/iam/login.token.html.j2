@@ -1,0 +1,66 @@
+{% extends "iam/login.html.j2" %}
+{% set principal=form.principal.value() %}
+{% set iam_public_realm=True %}
+
+
+{% block main_content %}
+<div class="row">
+  <div class="col mx-auto w-100">
+    <p>
+      {{ _("We sent a challenge to") }} <strong>{{ principal }}</strong>.
+      {{ _('Enter the six-digit code that you received in the input field below.') }}
+    </p>
+    <form action="{{ url(iam_urls.login_token) }}{{ next_url }}" method="POST">{{ csrf_input }}
+        <input required name="principal"
+          type="hidden"
+          {% if form.principal.value() %}
+          value="{{ form.principal.value() }}"
+          {% endif %}
+        >
+      <div class="form-group">
+        <input required name="token"
+          {% if form.token|default(None) %}
+          class="form-control{% if form.token.errors %} is-invalid{% endif %}"
+          {% else %}
+          class="form-control"
+          {% endif %}
+          maxlength="6"
+          placeholder="{{ _('Code') }}"
+          {% if form.token|default(None) and form.token.value() %}
+          value="{{ form.token.value() }}"
+          {% endif %}
+        >
+        {% if form.token|default(None) and form.token.errors %}
+        <p class="invalid-feedback">{{ form.token.errors[0] }}</p>
+        {% else %}
+        <small class="form-text">{{ _("Enter the six-digit code that you received.") }}</small>
+        {% endif %}
+      </div>
+      <button type="submit" class="btn btn-primary w-100">
+        {{ _('Continue') }}
+      </button>
+    </form>
+    <form class="mt-1" action="{{ url(iam_urls.resetcredentials) }}{{ next_url }}" method="POST">{{ csrf_input }}
+        <input required name="principal"
+          type="hidden"
+          {% if form.principal.value() %}
+          value="{{ form.principal.value() }}"
+          {% endif %}
+        >
+      <button type="submit" class="btn btn-outline-primary w-100">
+        {{ _('Send a new code') }}
+      </button>
+    </form>
+  </div>
+</div>
+<hr/>
+<div class="row mb-1">
+  <div class="col mx-auto">
+    <a href="{{ url(iam_urls.login) }}{{ next_url }}"
+      class="btn btn-outline-primary w-100" role="button">
+      <i class="fas fa-angle-left"></i> {{ _("Return to login options") }}
+    </a>
+  </div>
+</div>
+{% endblock %}
+

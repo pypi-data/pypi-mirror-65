@@ -1,0 +1,10 @@
+{% if messages %}
+{% for message in messages %}
+{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+{% set alert_class='danger' %}
+{% else %}
+{% set alert_class='primary' %}
+{% endif %}
+<div class="alert alert-{{ alert_class }}" role="alert">{{ message }}</div>
+{% endfor %}
+{% endif %}

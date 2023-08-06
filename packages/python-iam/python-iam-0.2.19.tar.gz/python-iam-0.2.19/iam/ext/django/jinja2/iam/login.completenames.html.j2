@@ -1,0 +1,28 @@
+{% extends "iam/login.html.j2" %}
+{% set subject=request.user %}
+{% if subject.first_name and subject.last_name %}
+{% set display_name=subject.first_name + " " + subject.last_name %}
+{% endif %}
+
+
+{% block main_content %}
+<div class="row">
+  <div class="col mx-auto w-100" style="max-width:500px;">
+    <p>
+      {{ _("The configuration of your account is not yet completed.") }}
+      {{ _("Fill out the form below to finish setting up your account.") }}
+    </p>
+    {% include "iam/includes/forms/login.completenames.html.j2" %}
+  </div>
+</div>
+<hr/>
+<div class="row mb-1">
+  <div class="col mx-auto" style="max-width:500px; vertical-align: middle;">
+    <a href="{{ url(iam_urls.logout) }}{{ next_url }}"
+      class="btn btn-outline-primary w-100" role="button">
+      <i class="fas fa-angle-left"></i> {{ _("Logout and return to login options") }}
+    </a>
+  </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,85 @@
+html {
+  height: 100%;
+}
+
+body {
+  overflow-y: hidden;
+  height: 100%;
+  background-size: cover;
+  background-image: url(./splash.jpg);
+}
+
+
+.landscape-fullwidth {
+  overflow-y: scroll;
+}
+
+
+@media (orientation: portrait) {
+  .landscape-fullwidth {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+
+  .row, hr {
+    max-width: 500px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .vertical-center {
+    margin-top: 0px !important;
+  }
+}
+
+
+.vertical-center {
+  margin-top: 10%;
+  margin-top: 10vh;
+}
+
+
+.iam-login-logo {
+  max-width: 500px;
+  margin: auto;
+  display: block;
+}
+
+
+.tos {
+  overflow-y: scroll;
+  max-height: 50vh;
+}
+
+
+.tos h1 {
+  font-size: 1.5rem;
+}
+
+
+.tos h2 {
+  font-size: 1rem;
+}
+
+
+.tos h3 {
+  font-size: 0.75rem;
+}
+
+
+.tos:after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0px;
+  right: 0;
+  background: -webkit-linear-gradient(transparent, white);
+  background: -o-linear-gradient(transparent, white);
+  background: -moz-linear-gradient(transparent, white);
+  background: linear-gradient(transparent, white);
+}

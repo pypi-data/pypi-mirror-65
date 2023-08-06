@@ -1,0 +1,279 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-17 19:17+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Cochise Ruhulessin <cochise.ruhulessin@wizardsofindustry."
+"com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: jinja2/iam/email/resetpassword.body.txt.j2:6
+msgid "Use the following code to verify your identity:"
+msgstr "Gebruik de onderstaande code om je identiteit te verifiëren:"
+
+#: jinja2/iam/email/resetpassword.body.txt.j2:8
+msgid "Follow this link to set your new password:"
+msgstr "Volg deze link om een nieuw wachtwoord in te stellen."
+
+#: jinja2/iam/email/resetpassword.body.txt.j2:12
+msgid "Thanks,"
+msgstr "Bedankt,"
+
+#: jinja2/iam/includes/forms/login.completenames.html.j2:16
+#: jinja2/iam/register.html.j2:66
+msgid "First name"
+msgstr "Voornaam"
+
+#: jinja2/iam/includes/forms/login.completenames.html.j2:35
+#: jinja2/iam/register.html.j2:79
+msgid "Last name"
+msgstr "Achternaam"
+
+#: jinja2/iam/includes/forms/login.completenames.html.j2:45
+#: jinja2/iam/login.token.html.j2:39 jinja2/iam/resetcredentials.html.j2:30
+#: jinja2/iam/resetcredentials.html.j2:54
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: jinja2/iam/login.completenames.html.j2:12
+msgid "The configuration of your account is not yet completed."
+msgstr "Het instellen van je account is nog niet volledig."
+
+#: jinja2/iam/login.completenames.html.j2:13
+msgid "Fill out the form below to finish setting up your account."
+msgstr "Vul de onderstaande velden in om dit af te ronden."
+
+#: jinja2/iam/login.completenames.html.j2:23
+#: jinja2/iam/login.passwordexpired.html.j2:69
+msgid "Logout and return to login options"
+msgstr "Afmelden en terug naar aanmeldopties"
+
+#: jinja2/iam/login.html.j2:62
+msgid "Login"
+msgstr "Aanmelden"
+
+#: jinja2/iam/login.html.j2:80
+msgid "Choose one of the options below to sign in."
+msgstr "Kies uit één van de onderstaande opties om je aan te melden."
+
+#: jinja2/iam/login.html.j2:99 jinja2/iam/register.html.j2:53
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: jinja2/iam/login.html.j2:105
+msgid "Sign in"
+msgstr "Aanmelden"
+
+#: jinja2/iam/login.html.j2:114
+msgid "Forgot password?"
+msgstr "Wachtwoord vergeten?"
+
+#: jinja2/iam/login.html.j2:126
+msgid "Send magic link"
+msgstr "Verstuur een magic link"
+
+#: jinja2/iam/login.html.j2:136
+msgid "Register / login with Google"
+msgstr "Registreren / aanmelden met Google"
+
+#: jinja2/iam/login.html.j2:146
+msgid "Register / login with Twitter"
+msgstr "Registreren / aanmelden met Twitter"
+
+#: jinja2/iam/login.html.j2:156
+msgid "Register / login with Facebook"
+msgstr "Registreren / aanmelden met Facebook"
+
+#: jinja2/iam/login.html.j2:166
+msgid "Register / login with LinkedIn"
+msgstr "Registreren / aanmelden met LinkedIn"
+
+#: jinja2/iam/login.html.j2:175
+msgid "Register a new account"
+msgstr "Registreer een nieuwe account"
+
+#: jinja2/iam/login.magic.html.j2:8
+msgid "A magic link allows you login with just one click."
+msgstr "Met een magic link kun je inloggen met één klik."
+
+#: jinja2/iam/login.magic.html.j2:9
+msgid "Each magic link is unique and can only be used once."
+msgstr "Een magic link is uniek en kan maar één keer gebruikt worden."
+
+#: jinja2/iam/login.magic.html.j2:16
+msgid "Send my magic link"
+msgstr "Stuur mij een magic link"
+
+#: jinja2/iam/login.magic.html.j2:26 jinja2/iam/login.token.html.j2:60
+#: jinja2/iam/register.html.j2:106 jinja2/iam/resetcredentials.html.j2:65
+msgid "Return to login options"
+msgstr "Terug naar aanmeldopties"
+
+#: jinja2/iam/login.passwordexpired.html.j2:16
+msgid "Your password is expired. Use the form below to choose a new one."
+msgstr ""
+"Je wachtwoord is verlopen. Gebruik het onderstaand formulier om een nieuwe "
+"te kiezen."
+
+#: jinja2/iam/login.passwordexpired.html.j2:30
+msgid "New password"
+msgstr "Nieuw wachtwoord"
+
+#: jinja2/iam/login.passwordexpired.html.j2:49
+msgid "New password (again)"
+msgstr "Nieuw wachtwoord (nog een keer)"
+
+#: jinja2/iam/login.passwordexpired.html.j2:59
+msgid "Set my password"
+msgstr "Wachtwoord instellen"
+
+#: jinja2/iam/login.token.html.j2:9
+msgid "We sent a challenge to"
+msgstr "We hebben een code verstuurd naar"
+
+#: jinja2/iam/login.token.html.j2:10
+msgid "Enter the six-digit code that you received in the input field below."
+msgstr "Vul de code die je hebt ontvangen in op het onderstaande invoerveld."
+
+#: jinja2/iam/login.token.html.j2:27 jinja2/iam/resetcredentials.html.j2:25
+msgid "Code"
+msgstr "Code"
+
+#: jinja2/iam/login.token.html.j2:35 jinja2/iam/resetcredentials.html.j2:27
+msgid "Enter the six-digit code that you received."
+msgstr "Vul de zescijferige code in die je hebt ontvangen."
+
+#: jinja2/iam/login.token.html.j2:50
+msgid "Send a new code"
+msgstr "Opnieuw versturen"
+
+#: jinja2/iam/register.html.j2:11 jinja2/iam/register.html.j2:31
+msgid "Complete the form below to register a new account."
+msgstr "Vul het onderstaande formulier in om een nieuwe account te maken."
+
+#: jinja2/iam/register.html.j2:14 jinja2/iam/register.html.j2:18
+msgid "Your account is ready."
+msgstr "Je account is klaar."
+
+#: jinja2/iam/register.html.j2:15
+msgid "We sent an activation link to your email address."
+msgstr "We hebben een activatielink naar je emailadres verzonden."
+
+#: jinja2/iam/register.html.j2:22
+msgid "Follow this link to login."
+msgstr "Volg deze link om je aan te melden."
+
+#: jinja2/iam/register.html.j2:92
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: jinja2/iam/register.html.j2:96
+msgid "Register and continue"
+msgstr "Registreren en verder"
+
+#: jinja2/iam/resetcredentials.html.j2:12
+msgid "Enter the code you received in the input field below."
+msgstr "Vul de code die je hebt ontvangen in op het onderstaande invoerveld."
+
+#: jinja2/iam/resetcredentials.html.j2:35
+msgid ""
+"Enter your email address or phonenumber to receive instructions on resetting "
+"your account password."
+msgstr ""
+"Vul je emailadres of telefoonnummer in om aanwijzingen te ontvangen voor het "
+"herstellen van je wachtwoord."
+
+#: jinja2/iam/resetcredentials.html.j2:48
+msgid "Please enter a valid email address or phonenumber."
+msgstr "Vul een geldig emailadres of telefoonnummer in."
+
+#: jinja2/iam/resetcredentials.html.j2:50
+msgid ""
+"We will send a challenge to the email address or phonenumber you provide."
+msgstr ""
+"We versturen een code naar het door jou opgegeven emailadres of "
+"telefoonnummer."
+
+#: lib/forms.py:10
+msgid "Do not use only uppercase characters."
+msgstr "Gebruik niet alleen maar hoofdletters."
+
+#: lib/forms.py:16
+msgid "Do not use only lowercase characters."
+msgstr "Gebruik niet alleen maar kleine letters."
+
+#: services/passwordreset.py:59
+msgid "Reset your password"
+msgstr "Wachtwoord instellen"
+
+#: urls.py:30
+msgid "login/"
+msgstr "aanmelden/"
+
+#: urls.py:31
+msgid "login/magic"
+msgstr "aanmelden/magic"
+
+#: urls.py:32
+msgid "login/token"
+msgstr "aanmelden/token"
+
+#: urls.py:33
+msgid "logout"
+msgstr "afmelden"
+
+#: urls.py:34
+msgid "register"
+msgstr "registreren"
+
+#: urls.py:39
+msgid "login/reset"
+msgstr "aanmelden/herstel"
+
+#: views/forms.py:137 views/forms.py:149
+msgid "The login credentials that you provided are not valid."
+msgstr "De door jou ingevulde aanmeldgegevens zijn ongeldig."
+
+#: views/forms.py:204
+msgid "The passwords do not match."
+msgstr "De wachtwoorden komen niet overeen."
+
+#: views/iamcontextmixin.py:10
+msgid "username"
+msgstr "gebruikersnaam"
+
+#: views/iamcontextmixin.py:11
+msgid "email address"
+msgstr "emailadres"
+
+#: views/iamcontextmixin.py:12
+msgid "phonenumber"
+msgstr "telefoonnummer"
+
+#: views/iamcontextmixin.py:77
+msgid "or"
+msgstr "of"
+
+#: views/logintoken.py:38
+msgid "The code you entered is not valid."
+msgstr "De door jou ingevulde code is ongeldig."
+
+msgid "Dear %(name)s"
+msgstr "Beste %(name)s"
+
+msgid ""
+"You recently requested to reset the password for your %(brand_name)s "
+"account."
+msgstr "Je hebt zojuist verzocht om je wachtwoord opnieuw in te stellen."

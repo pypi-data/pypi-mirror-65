@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% if form is defined %}
+{% set form_global_errors=form.errors['__all__'] %}
+{% endif %}
+{% if next %}
+{% set next_url=('?' + iam_redirect_field_name + '=' + next) %}
+{% else %}
+{% set next_url='' %}
+{% endif %}
+{% set next_url_encoded='?payload='+iam_state_param %}
+{% if next_url %}
+{% set next_url_encoded=next_url_encoded+'&next='+ (request.path+next_url)|urlencode %}
+{% else %}
+{% set next_url_encoded=next_url_encoded+'&next='+ (request.path)|urlencode %}
+{% endif %}
+<html>
+  <head>
+    {% block head_meta %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% endblock %}
+    {% block head_css %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{{ static('iam/main.css') }}"/>
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/21c34bb7db.js" crossorigin="anonymous"></script>
+    <title>{% block head_title %}{{ _("Login") }}{% endblock %}</title>
+  </head>
+  <body {% if iam_image_splash is defined %}data-background-image="{{ static(iam_image_splash) }}"{% endif %}>
+    <div class="container-fluid w-100 h-100 px-0">
+      <div class="{{ css_container_classes|default('landscape-fullwidth col-xs-12 col-sm-12 col-md-4 col-lg-4 bg-white float-right') }} h-100">
+        <div class="container vertical-center m-0">
+        {% block container %}
+          <div class="row">
+            <div class="col-9 mx-auto">
+              <img class="iam-login-logo" src='{{ static(iam_image_logo) }}' alt='{{ iam_portal_name }}'/>
+            </div>
+          </div>
+          {% include "iam/includes/row.messages.html.j2" %}
+          {% block main_content %}
+          <div class="row">
+            <div class="col mx-auto w-100">
+            {% if form_global_errors or form.errors %}
+            {% if form_global_errors %}
+            <p class="text-danger">{{ form_global_errors[0] }}</p>
+            {% else %}
+            <p class="text-danger">{{ _("The login credentials that you provided are not valid.") }}</p>
+            {% endif %}
+            {% else %}
+            <p>{{ _("Choose one of the options below to sign in.") }}</p>
+            {% endif %}
+          {% if iam_enable_local %}
+              <form action="" method="POST">{{ csrf_input }}
+                <div class="form-group">
+                  <input name="principal"
+                    required="true"
+                    class="form-control"
+                    placeholder="{{ iam_principals_placeholder }}"
+                    {% if form.principal.value() %}
+                    value="{{ form.principal.value() }}"
+                    {% endif %}
+                  >
+                </div>
+                <div class="form-group">
+                  <input name="password"
+                    type="password"
+                    required="true"
+                    class="form-control"
+                    placeholder="{{ _('Password') }}"
+                    {% if form.password.value() %}
+                    value="{{ form.password.value() }}"
+                    {% endif %}
+                  >
+                </div>
+                <button type="submit" class="btn btn-primary w-100">{{ _("Sign in") }}</button>
+              </form>
+            </div>
+          </div>
+          {% if iam_enable_password_reset %}
+          </br>
+          <div class="row mb-1">
+            <div class="col mx-auto text-center">
+              <a href="{{ url(iam_urls.resetcredentials) }}{{ next_url }}">
+                <strong>{{ _("Forgot password?") }}</strong>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          <hr/>
+          {% endif %}
+          {% if iam_enable_magic_link %}
+          <div class="row mb-1">
+            <div class="col mx-auto">
+              <a href="{{ url(iam_url_namespace + ':login.magic') }}"
+                class="btn btn-primary w-100" role="button">
+                <i class="fas fa-magic"></i> {{ _("Send magic link") }}
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% if 'login:google-oauth2' in iam_capabilities %}
+          <div class="row mb-1">
+            <div class="col mx-auto">
+              <a href="{{ url(social_auth_begin_url, kwargs={'backend': 'google-oauth2'}) }}{{ next_url_encoded }}"
+                class="btn btn-outline-primary w-100" role="button">
+                <i class="fab fa-google"></i> {{ _("Register / login with Google") }}
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% if 'login:twitter' in iam_capabilities %}
+          <div class="row mb-1">
+            <div class="col mx-auto">
+              <a href="{{ url(social_auth_begin_url, kwargs={'backend': 'twitter'}) }}{{ next_url_encoded }}"
+                class="btn btn-outline-primary w-100" role="button">
+                <i class="fab fa-twitter"></i> {{ _("Register / login with Twitter") }}
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% if 'login:facebook' in iam_capabilities %}
+          <div class="row mb-1">
+            <div class="col mx-auto">
+              <a href="{{ url(social_auth_begin_url, kwargs={'backend': 'facebook'}) }}{{ next_url_encoded }}"
+                class="btn btn-outline-primary w-100" role="button">
+                <i class="fab fa-facebook"></i> {{ _("Register / login with Facebook") }}
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% if 'login:linkedin' in iam_capabilities %}
+          <div class="row mb-1">
+            <div class="col mx-auto">
+              <a href="{{ url(social_auth_begin_url, kwargs={'backend': 'linkedin-oauth2'}) }}{{ next_url_encoded }}"
+                class="btn btn-outline-primary w-100" role="button">
+                <i class="fab fa-linkedin"></i> {{ _("Register / login with LinkedIn") }}
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% if iam_allow_signup %}
+          </br>
+          <div class="row mb-1">
+            <div class="col mx-auto text-center">
+              <a href="{{ url(iam_urls.register) }}{{ next_url }}">
+                <strong>{{ _("Register a new account") }}</strong>
+              </a>
+            </div>
+          </div>
+          {% endif %}
+          {% endblock %}
+          {% if not iam_public_realm|default(False) %}
+          <hr/>
+          <div class="row">
+            <div class="col mx-auto w-100">
+              <p class="text-danger font-weight-bold">
+                {{ _('WARNING') }}</br>
+                {{ _('You are accessing a secured system and your actions will be logged along
+with identifying information.') }}
+                {{ _('Disconnect immediately if you are not an authorized user of this system.') }}
+              </p>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endblock %}
+      </div>
+    </div>
+    {% block tail_js %}
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+    </script>
+    <script src="{{ static('iam/js/popper.min.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="{{ static('iam/index.js') }}"></script>
+    {% endblock %}
+  </body>
+</html>
