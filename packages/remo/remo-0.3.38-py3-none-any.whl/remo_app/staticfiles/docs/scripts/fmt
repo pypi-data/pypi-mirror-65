@@ -1,0 +1,130 @@
+#!/usr/bin/env python
+import os
+import re
+import sys
+
+rgx_todo = re.compile(r'#TODO[:\s]+')
+
+
+def is_new_block(line: str):
+    return line.startswith('#')
+
+
+def is_todo_line(line: str):
+    return bool(rgx_todo.search(line))
+
+
+class Node:
+    rgx_level = re.compile(r'(#+)')
+    rgx_name = re.compile(r'#+ ([^(]+)')
+    rgx_details = re.compile(r'#+ (.+)')
+    rgx_args = re.compile(r'\s+\*\s\*\*\w+\*\*')
+
+    def __init__(self, line: str, level: str = None):
+
+        if level is not None:
+            self.level = level
+        else:
+            try:
+                self.level = self.rgx_level.match(line).group(1)
+            except Exception:
+                self.level = ''
+
+        try:
+            self.name = self.rgx_name.match(line).group(1)
+            self.name = self.name.strip()
+        except Exception:
+            self.name = ''
+
+        try:
+            self.details = self.rgx_details.match(line).group(1)
+            self.details = self.details.strip()
+        except Exception:
+            self.details = ''
+
+        if self.details == self.name:
+            self.details = ''
+
+        self.text = []
+
+    def is_args_line(self, line: str):
+        return bool(self.rgx_args.search(line))
+
+    def add_text(self, line: str):
+        self.text.append(line)
+
+    def split_text(self):
+        index = len(self.text)
+        for i, line in enumerate(self.text):
+            if any(val in line for val in ('**Parameters**', '**Returns**')):
+                index = i - 1
+                break
+
+        description, parameters = self.text[:index], self.text[index + 1 :]
+        return description, parameters
+
+    def fmt(self):
+        result = []
+        if self.name:
+            result.append(f'{self.level} {self.name}\n')
+
+        description, parameters = self.split_text()
+        result += description
+
+        if self.details:
+            result.append(
+                f"""
+??? Abstract "documentation"
+
+    ``` python
+    {self.details}
+    ```
+
+"""
+            )
+        if parameters:
+            parameters = list(map(lambda line: f'    {line}', parameters))
+            result += parameters
+            result.append('---\n')
+
+        return ''.join(result)
+
+
+def fmt(input_file, output_file):
+    print('Apply fmt to', input_file)
+
+    nodes = [Node('', level='')]
+    with open(input_file) as in_file:
+        for line in in_file:
+            if is_todo_line(line):
+                continue
+            if is_new_block(line):
+                nodes.append(Node(line, level='##'))
+            else:
+                nodes[-1].add_text(line)
+
+    with open(output_file, mode='w') as out_file:
+        for node in nodes:
+            out_file.write(node.fmt())
+
+
+def file_ext(file_path):
+    _, ext = os.path.splitext(file_path)
+    return ext
+
+
+if __name__ == '__main__':
+    args = sys.argv[1:]
+
+    if len(args) == 2:
+        input_file, output_file = args
+        if os.path.isfile(input_file):
+            fmt(input_file, output_file)
+
+    elif len(args) == 1:
+        path = args[0]
+        if os.path.isdir(path):
+            files = [os.path.join(path, file_name) for file_name in os.listdir(path)]
+            md_files = filter(lambda file_path: file_ext(file_path) == '.md', files)
+            for md_file in md_files:
+                fmt(md_file, md_file)

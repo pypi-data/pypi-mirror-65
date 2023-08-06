@@ -1,0 +1,150 @@
+{
+    "info": {
+        "description": "COCO 2017 Dataset",
+        "url": "",
+        "version": "",
+        "year": "",
+        "contributor": "",
+        "date_created": ""
+    },
+    "licences": [
+        {
+            "url": "",
+            "id": "",
+            "name": ""
+        }
+    ],
+    "images": [
+        {
+            "date_captured": "",
+            "file_name": "000000093437.jpg",
+            "id": 1,
+            "license": [],
+            "url": "",
+            "height": 361,
+            "width": 640
+        },
+        {
+            "date_captured": "",
+            "file_name": "000000491216.jpg",
+            "id": 2,
+            "license": [],
+            "url": "",
+            "height": 640,
+            "width": 480
+        },
+        {
+            "date_captured": "",
+            "file_name": "000000065485.jpg",
+            "id": 3,
+            "license": [],
+            "url": "",
+            "height": 364,
+            "width": 640
+        }
+    ],
+    "annotations": [
+        {
+            "segmentation": "",
+            "area": "",
+            "iscrowd": 0,
+            "image_id": 1,
+            "bbox": [
+                [
+                    432.45,
+                    169.84,
+                    68.32,
+                    91.44
+                ],
+                [
+                    432.45,
+                    169.84,
+                    68.31,
+                    91.46
+                ],
+                [
+                    432.45,
+                    169.84,
+                    68.31,
+                    91.44
+                ]
+            ],
+            "category_id": 62,
+            "id": 1
+        },
+        {
+            "segmentation": "",
+            "area": "",
+            "iscrowd": 0,
+            "image_id": 2,
+            "bbox": [
+                [
+                    179.73,
+                    423.31,
+                    91.19,
+                    92.69
+                ],
+                [
+                    179.73,
+                    423.32,
+                    91.2,
+                    92.69
+                ],
+                [
+                    179.73,
+                    423.32,
+                    91.19,
+                    92.69
+                ]
+            ],
+            "category_id": 17,
+            "id": 2
+        },
+        {
+            "segmentation": "",
+            "area": "",
+            "iscrowd": 0,
+            "image_id": 3,
+            "bbox": [
+                [
+                    387.98,
+                    97.43,
+                    84.99,
+                    81.29
+                ],
+                [
+                    387.99,
+                    97.42,
+                    84.99,
+                    81.29
+                ],
+                [
+                    387.99,
+                    97.43,
+                    84.99,
+                    81.29
+                ]
+            ],
+            "category_id": 18,
+            "id": 3
+        }
+    ],
+    "categories": [
+        {
+            "supercategory": "furniture",
+            "id": 62,
+            "name": "chair"
+        },
+        {
+            "supercategory": "animal",
+            "id": 17,
+            "name": "cat"
+        },
+        {
+            "supercategory": "animal",
+            "id": 18,
+            "name": "dog"
+        }
+    ]
+}
+
