@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: wfdispatcher
+Version: 0.0.11
+Summary: UNKNOWN
+Home-page: https://github.com/sqre-lsst/wfdispatcher
+Author: Adam Thornton
+Author-email: athornton@lsst.org
+License: MIT
+Keywords: lsst,rubinobservatory,argo,workflow,jupyter
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: requests (<3.0.0,>=2.0.0)
+Requires-Dist: semver (<3.0.0,>=2.0.0)
+Requires-Dist: jupyterhubutils (<1.0.0,>=0.16.9)
+Requires-Dist: wsgiserver (<2.0.0,>=1.3)
+Requires-Dist: falcon (<3.0.0,>=2.0.0)
+Requires-Dist: python-jose[cryptography] (<4.0.0,>=3.1.0)
+
+# wf-dispatcher
+
+Dispatch engine for Argo Workflows in the Nublado environment.  Requires
+an HTTP header on the request that looks like what we get at NCSA carrying
+user and group information.
+
+
