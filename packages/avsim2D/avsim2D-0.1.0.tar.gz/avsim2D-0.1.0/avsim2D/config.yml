@@ -1,0 +1,14 @@
+can_dbw:
+    bustype: socketcan
+    channel: vcan0
+#    bustype: virtual
+#    channel: slcan0
+    bitrate: 250000
+#can_lighting:
+#    bustype: socketcan
+#    channel: vcan1
+#    bitrate: 250000    
+#can_sensing:
+#    bustype: socketcan
+#    channel: vcan2
+#    bitrate: 250000

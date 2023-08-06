@@ -1,0 +1,4 @@
+[build-system]
+requires = ["setuptools", "wheel", "pygame", "pylint", "python-can", "PyTMX", "PyYAML"]
+
+    
