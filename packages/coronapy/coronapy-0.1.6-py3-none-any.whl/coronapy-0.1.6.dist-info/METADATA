@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: coronapy
+Version: 0.1.6
+Summary: UNKNOWN
+Home-page: https://github.com/SylvainGuieu/corona
+Author: Sylvain Guieu
+Author-email: sylvain.guieu@univ-grenoble-alpes.fr
+License: Creative Commons Attribution-Noncommercial-Share Alike license
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+
+
+Tools to load and annylise the Corona virus daily report data from the GitHub of Johns Hopkins University Center for Systems Science and Engineering
+
+See home page [home](https://github.com/SylvainGuieu/corona)
+
+
