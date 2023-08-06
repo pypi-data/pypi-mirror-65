@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: shouldi
+Version: 0.0.8
+Summary: Meta static analysis tool for Python packages
+Home-page: https://github.com/intel/dffml/blob/master/examples/shouldi/README.md
+Author: John Andersen
+Author-email: john.s.andersen@intel.com
+Maintainer: John Andersen
+Maintainer-email: john.s.andersen@intel.com
+License: MIT
+Description: # shouldi
+        
+        ![shouldi](https://github.com/intel/dffml/raw/master/examples/shouldi/shouldi.jpg)
+        
+        ## Usage
+        
+        ```console
+        $ shouldi install insecure-package bandit
+        bandit is okay to install
+        Do not install insecure-package! {'safety_check_number_of_issues': 1}
+        ```
+        
+        ## Dependencies
+        
+        `shouldi` depends on safety, pylint, and bandit being installed separately.
+        
+        ```console
+        $ python3.7 -m pip install -U safety pylint bandit
+        ```
+        
+        ## WTF is this
+        
+        `shouldi` is a tool that runs static analysis tools to let you know if there are
+        any issues in any of the python packages you were thinking of installing.
+        
+        `shouldi` is similar to things like [Go Report Card](https://goreportcard.com/).
+        
+        Right now `shouldi` runs the following static analysis tools and complains if:
+        
+        - [safety](https://pyup.io/safety/)
+        - [bandit](https://pypi.org/project/bandit/)
+        - [golangci_lint](https://github.com/golangci/golangci-lint/blob/master/README.md)
+        - [npm-audit](https://docs.npmjs.com/cli/audit)
+        
+        ## License
+        
+        shouldi is distributed under the [MIT License](LICENSE).
+        
+        #### What's This Really Called
+        
+        The real name of this package is "DFFML Evaluator for PyPi Packages". `shouldi`
+        is mearly the command line invokation, and we claim `shouldi`, the package name
+        on PyPi, to avoid a supply chain attack.
+        
+Keywords: dffml
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
