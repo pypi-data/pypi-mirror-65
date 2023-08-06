@@ -1,0 +1,5 @@
+[console_scripts]
+bump=lgblkb_tools.dev_script:version_patch
+export_reqs=lgblkb_tools.dev_script:export_reqs
+publish=lgblkb_tools.dev_script:publish
+
