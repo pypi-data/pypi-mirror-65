@@ -1,0 +1,18 @@
+v1.3.1 10th April 2020
+  - A bug fix release.
+
+v1.3.0 3rd April 2020
+  - Added the '--exclude' command line option to pyqt-bundle.
+
+v1.2.0 6th January 2020
+  - Added the 'target-qt-dir' project option and corresponding
+    '--target-qt-dir' command line option to sip-wheel.
+
+v1.1.0 18th December 2019
+  - Added support for bundling Qt v5.14.
+
+v1.0.1 3rd November 2019
+  - A bug fix release.
+
+v1.0.0 4th October 2019
+  - The release of PyQt-builder v1.
