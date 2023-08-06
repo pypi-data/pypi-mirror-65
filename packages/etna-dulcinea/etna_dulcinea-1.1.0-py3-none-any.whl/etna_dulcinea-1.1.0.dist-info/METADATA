@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: etna-dulcinea
+Version: 1.1.0
+Summary: Script to test Quixote moulinettes locally
+Home-page: https://github.com/etna-alternance/dulcinea
+Author: Clément Doumergue
+Author-email: clement.doumergue@etna.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: etna-panza
+Requires-Dist: etna-quixote
+
+Dulcinea
+========
+
+Script allowing to test Quixote moulinettes locally.
+
+## Install
+```
+pip install -r requirements.txt
+```
+
+## How to use dulcinea
+
+```
+usage: dulcinea [-h] [-c CONFIG_FILE] [-i INFO_FILE | --auto-info]
+                [-r ROOT_DIR] [--docker-bridge-ip DOCKER_BRIDGE_IP]
+                [--override-deliveries OVERRIDE_DELIVERIES]
+                moulinette_directory
+
+positional arguments:
+  moulinette_directory
+
+optional arguments:
+  -h, --help                                show this help message and exit
+  -c CONFIG_FILE, --config-file CONFIG_FILE json file containing the user informations
+  -i INFO_FILE,	 --info-file INFO_FILE      json file containing the information of the jobs to execute
+  -r ROOT_DIR,	--root-dir ROOT_DIR         directory where the jobs will be executed
+  --override-deliveries DELIVERIES          directory containing the deliveries to use
+  --auto-info                               when using --override-deliveries, deduce the group IDs
+```
+
+### Conf file example
+
+The conf file can be given using the `-c` option and contains useful meta-data to insert in the context such as the user's information.
+
+```json
+{
+  "intra_user": "login_z",
+  "intra_password": "superPassSecure",
+  "gitlab_token": "superCuteToken"
+}
+```
+
+### Blueprint
+
+In order to test the moulinette locally, the script must be able to fetch some dummy deliveries to test.
+
+Typically, it can be achieved by replacing the fetching step with a "local" fetch using the `fetch.copy` built-in:
+
+```python
+import quixote.fetch.copy as fetch
+
+@quixote.fetcher
+def fetch_by_copying():
+    fetch.copy(path_to_the_dummy_delivery_folder)
+```
+
+> The dummy delivery folder must contain a directory for each `group_id` specified in the info file,
+> which will act as dummy delivery for the specific job. See the documentation for `fetch.copy`.
+
+However, the `--override-deliveries` can be used to provide a directory containing the dummy deliveries, and ask
+Dulcinea to automatically override the existing fetchers with data from the given directory.  
+This solution is preferred as it is easier to use when testing simple blueprints.
+
+### Info file example
+
+The info file must be given using the `-i` option and should contain the meta-data of all dummy deliveries.
+
+```
+[
+    {
+        "module_id": 1,
+        "activity_id": 1,
+        "group_id": 1,
+        "leader": "login_x"
+    },
+    {
+        "module_id": 1,
+        "activity_id": 1,
+        "group_id": 2,
+        "leader": "login_y"
+    }
+]
+```
+
+> The only mandatory value is `group_id`, which must match the directory name inside the dummy delivery folder.
+> If any other value is missing, Dulcinea will use a default value instead.
+
+

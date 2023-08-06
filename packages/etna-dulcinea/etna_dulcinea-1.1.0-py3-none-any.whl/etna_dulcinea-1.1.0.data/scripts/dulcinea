@@ -1,0 +1,108 @@
+#!python
+
+import argparse
+from datetime import datetime, timezone
+import json
+import logging
+import os
+from panza.jobs import new_job_workspace, add_logger_handler
+from panza.config import init_config
+from quixote import Fetcher
+from quixote.fetch.copy import copy
+from typing import Dict, List
+
+
+def load_config(cmd_args) -> Dict:
+    conf = {}
+
+    if cmd_args.config_file:
+        with open(cmd_args.config_file, 'r') as config_file:
+            conf = json.load(config_file)
+    return conf
+
+
+def load_info(cmd_args) -> List[Dict]:
+    if cmd_args.info_file:
+        with open(cmd_args.info_file, 'r') as info_file:
+            return json.load(info_file)
+    elif cmd_args.auto_info:
+        if args.override_deliveries is None:
+            arg_parser.error("cannot use '--auto-info' without '--override-deliveries'")
+        return [{"group_id": entry} for entry in os.listdir(args.override_deliveries)]
+    else:
+        arg_parser.error("missing either '--info-file' or '--auto-info'")
+
+
+arg_parser = argparse.ArgumentParser()
+arg_parser.add_argument("-c", "--config-file", type=str)
+info_parser_group = arg_parser.add_mutually_exclusive_group()
+info_parser_group.add_argument("-i", "--info-file", type=str)
+info_parser_group.add_argument("--auto-info", action='store_true')
+arg_parser.add_argument("-r", "--root-dir", type=str, default="/tmp")
+arg_parser.add_argument("--docker-bridge-ip", type=str, default="10.9.8.7/24")
+arg_parser.add_argument("--override-deliveries", type=str)
+arg_parser.add_argument("moulinette_directory", type=str)
+
+args = arg_parser.parse_args()
+
+config = load_config(args)
+infos = load_info(args)
+override_deliveries = args.override_deliveries
+
+init_config({**config, "root_dir": args.root_dir, "docker_bridge_ip": args.docker_bridge_ip})
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s [%(name)s] %(levelname)s: %(message)s')
+console_handler.setFormatter(formatter)
+add_logger_handler(console_handler)
+
+request_date = datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%dT%H:%M:%S%z')
+
+results = []
+
+for info in infos:
+    try:
+        defaults = {
+            "leader": "login_x",
+            "request_date": request_date,
+            "module_id": 1,
+            "activity_id": 1,
+        }
+        if "group_id" not in info:
+            print(f"Warning: missing mandatory field 'group_id' in {info}, skipping")
+            continue
+        for k, v in defaults.items():
+            info.setdefault(k, v)
+        environment_name = f"dulcinea-{info['module_id']}-{info['activity_id']}"
+        job_name = f"{info['module_id']}-{info['activity_id']}-{info['group_id']}"
+        with new_job_workspace(args.moulinette_directory, job_name) as workspace:
+            if override_deliveries is None:
+                result = workspace \
+                    .build_job_environment(environment_name) \
+                    .fetch_data(context=info) \
+                    .execute_job(context=info)
+            else:
+                handle = workspace.build_job_environment(environment_name)
+                handle.blueprint.fetchers = [Fetcher(lambda: copy(override_deliveries))]
+                result = handle \
+                    .fetch_data(context=info) \
+                    .execute_job(context=info)
+            results.append((info['group_id'], result))
+    except Exception as e:
+        print(f"Cannot execute job for delivery {info['group_id']}: {str(e)}")
+        exit(1)
+
+print("\nRESULTS\n")
+for name, result in results:
+    print(f"Results for group {name}")
+    status, feedback = result
+    if status.is_success():
+        messages = feedback["messages"]
+        if len(messages) > 0:
+            for message in messages:
+                print(message)
+        else:
+            print("All tests passed")
+    else:
+        print(f"Job execution failed: {status.message}")
