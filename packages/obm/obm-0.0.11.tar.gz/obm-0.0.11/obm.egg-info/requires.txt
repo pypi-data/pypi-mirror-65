@@ -1,0 +1,12 @@
+aiohttp<4,>=3.6
+web3<6,>=5.7
+marshmallow<4,>=3.5
+
+[dev]
+sphinx<3,>=2.4
+sphinx-rtd-theme
+python-dotenv
+pytest
+pylint
+mypy
+rope
