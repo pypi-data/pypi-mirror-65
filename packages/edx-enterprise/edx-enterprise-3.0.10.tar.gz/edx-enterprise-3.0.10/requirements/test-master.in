@@ -1,0 +1,6 @@
+#
+# Requirements installation for various testing purposes.
+#
+
+-c edx-platform-constraints.txt
+-r base.in
