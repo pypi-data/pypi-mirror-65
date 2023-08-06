@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+qt_thread_updater/__init__.py
+qt_thread_updater/__meta__.py
+qt_thread_updater/global_utils.py
+qt_thread_updater/thread_updater.py
+qt_thread_updater.egg-info/PKG-INFO
+qt_thread_updater.egg-info/SOURCES.txt
+qt_thread_updater.egg-info/dependency_links.txt
+qt_thread_updater.egg-info/requires.txt
+qt_thread_updater.egg-info/top_level.txt
+qt_thread_updater/widgets/__init__.py
+qt_thread_updater/widgets/quick_text_edit.py
