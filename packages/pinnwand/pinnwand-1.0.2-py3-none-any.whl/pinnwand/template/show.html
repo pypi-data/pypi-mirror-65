@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<main class="paste-show{% if len(paste.files) > 1 %} multiple{% end %}">
+    <div class="paste-meta">
+        {% if paste.exp_date %}
+            <p>This paste expires on <span>{{ paste.exp_date }}</span>.
+        {% else %}
+            <p>This paste <span>never</span> expires.
+        {% end %}
+        {% if can_delete %}
+            <a href="/remove/{{ paste.removal }}">Remove now</a>.
+        {% end %}
+
+        <a href="/repaste/{{ paste.slug }}">Repaste</a> this paste.
+
+        Pasted through <em>{{ paste.src }}</em>.
+        </p>
+    </div>
+    <div class="file-container">
+        <div class="files">
+            {% for file in paste.files %}
+            <div class="file-show" id="{{ file.slug }}" class="lang-{{ file.lexer }} code{% if not linenos %} nolinenos{% end %}">
+                <div class="code">
+                    {% raw file.fmt %}
+                </div>
+                <div class="meta">
+                    Filename: {{ file.filename }}.
+                    Size: {{ file.pretty_size }}.
+                    View <a href="/raw/{{ file.slug }}">raw</a> or <a href="/download/{{ file.slug }}">download</a> this file.
+                </div>
+            </div>
+            {% end %}
+        </div>
+        <!--
+        {% if len(paste.files) > 1 %}
+        <aside>
+            <ul>
+                {% for file in paste.files %}
+                <li><a href="#{{ file.slug }}">{{ file.filename }}</a></li>
+                {% end %}
+            </ul>
+        </aside>
+        {% end %}
+        -->
+    </div>
+</main>
+{% end %}

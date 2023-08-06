@@ -1,0 +1,287 @@
+:root {
+    --color0: #eee;
+    --color1: #fff;
+    --color2: #333;
+    --color3: #39c;
+
+    --color-pygments-gh: #000080;
+    --color-pygments-gp: #000080;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color0: #333;
+        --color1: #222;
+        --color2: #eee;
+        --color3: #fffd70;
+
+        --color-pygments-gh: #555580;
+        --color-pygments-gp: #555580;
+    }
+}
+
+
+html {
+    color: var(--color2);
+    font-family: sans-serif;
+    font-size: 13px;
+    background: var(--color0);
+}
+
+body {
+    margin: 2rem;
+}
+
+@media only screen and (min-width: 1280px) {
+    body {
+        margin: 2rem 8rem;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    body {
+        margin: 2rem 16rem;
+    }
+}
+
+a {
+    color: var(--color3);
+}
+
+a:hover {
+    background-color: var(--color3);
+    color: var(--color1);
+}
+
+span.gh {
+    color: var(--color-pygments-gh);
+}
+
+span.gp {
+    color: var(--color-pygments-gp);
+}
+
+section.file-template {
+    display: none;
+}
+
+section.paste-help {
+    background-color: var(--color1);
+    padding: .5rem;
+    margin-bottom: .5rem;
+    opacity: .5;
+}
+
+section.paste-help:hover {
+    opacity: .9;
+    transition: opacity .1s;
+}
+
+section.file-part {
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+section.file-part textarea {
+    background-color: var(--color1);
+    width: 100%;
+    resize: vertical;
+    color: var(--color2);
+    border: none;
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 25rem;
+    font-size: 1.25rem;
+    font-family: monospace;
+    padding: .5rem;
+}
+
+section.file-part div.file-meta select,
+section.paste-submit select {
+    background-color: var(--color1);
+    font-size: 1rem;
+    color: var(--color2);
+    border: .0625rem solid var(--color0);
+    padding: .25rem;
+}
+
+section.file-part div.file-meta input {
+    background-color: var(--color1);
+    font-size: 1rem;
+    color: var(--color2);
+    border: .0625rem solid var(--color0);
+    padding: .25rem;
+}
+
+section.file-part div.file-meta {
+    background-color: var(--color1);
+    padding: .5rem;
+    margin-bottom: .0625rem;
+}
+
+section.paste-submit {
+    background-color: var(--color1);
+    padding: .5rem;
+}
+
+div.file-meta button,
+section.paste-submit button {
+    box-sizing: border-box;
+    border: .0625rem solid var(--color3);
+    padding: .4rem 1.4rem;
+    margin: 0 .2rem;
+    background: var(--color3);
+    color: var(--color1);
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+div.file-meta button:hover,
+section.paste-submit button:hover {
+    color: var(--color3);
+    background: var(--color1);
+    border: .0625rem solid var(--color3);
+}
+
+
+article, div.paste-meta {
+    background-color: var(--color1);
+    padding: .5rem;
+}
+
+div.paste-meta {
+    opacity: .5;
+}
+
+div.paste-meta:hover {
+    opacity: 1;
+}
+
+footer {
+    padding: .5rem;
+    opacity: .5;
+}
+
+footer:hover {
+    opacity: 1;
+    transition: opacity .1s;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: .5rem;
+}
+
+footer {
+    margin-top: .5rem;
+}
+
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header nav ul li img.logo {
+    width: 3rem;
+}
+
+div.file-show {
+    margin-top: .5rem;
+}
+
+div.file-show div.code {
+    background-color: var(--color1);
+    padding: .5rem;
+}
+
+div.file-show div.meta {
+    background-color: var(--color1);
+    padding: .5rem;
+    opacity: .5;
+}
+
+div.file-show div.meta:hover {
+    opacity: .9;
+    transition: opacity .1s;
+}
+
+td.linenos {
+    background: var(--color0);
+    padding: 0 .25rem;
+    opacity: .5;
+}
+
+div.code {
+    font-size: 1.2rem;
+    overflow-x: auto;
+}
+
+div.code:hover td.linenos {
+    opacity: .75;
+}
+
+td.code {
+    padding-left: .5rem;
+}
+
+pre {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    line-height: 1.4em;
+}
+
+p + p {
+    margin-top: .5rem;
+}
+
+div.file-container {
+    display: flex;
+}
+
+div.file-container div.files {
+    width: 100%;
+}
+
+div.file-container aside {
+    background-color: var(--color1);
+    margin-top: .5rem;
+    margin-left: .5rem;
+    padding: .5rem;
+    min-width: 10rem;
+    opacity: .5;
+}
+
+div.file-container aside:hover {
+    opacity: .9;
+    transition: opacity .1s;
+}
+
+div.file-container aside ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.file-container aside ul li {
+    list-style: none;
+}
+
+article h1 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+button.remove, button.add {
+    margin: 0 .5rem 0 0;
+    float: right;
+}
