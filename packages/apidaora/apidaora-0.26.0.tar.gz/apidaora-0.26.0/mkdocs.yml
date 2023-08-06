@@ -1,0 +1,58 @@
+site_name: apidaora
+site_description: Asgi App using typing annotation
+
+theme:
+    name: 'material'
+    custom_dir: 'theme'
+    palette:
+      primary: 'pink'
+      accent: 'grey'
+    logo: 'apidaora-white.svg'
+    favicon: 'favicon.png'
+
+repo_name: dutradda/apidaora
+repo_url: https://github.com/dutradda/apidaora
+edit_uri: ''
+
+nav:
+    - apidaora: index.md
+    # - Features: features.md
+    - Python dataclass intro: python-dataclass.md
+    - JSON intro: json.md
+    # - Http intro: http.md
+    - Middlewares:
+        - Middlewares: middlewares/index.md
+        - Background Tasks: middlewares/background-tasks.md
+        - Async Background Tasks: middlewares/background-tasks-async.md
+        - Extra Arguments: middlewares/extra-args.md
+    - Background Task Controller:
+        - Background Task: background-task-controller/index.md
+        - Async Background Task: background-task-controller/async.md
+        - Background Task with Redis: background-task-controller/redis.md
+        - Async Background Task with Redis: background-task-controller/async-redis.md
+        - Background Task with Lock: background-task-controller/lock.md
+        - Background Task with Lock by Args: background-task-controller/lock-args.md
+        - Background Task with Lock by Args and Redis: background-task-controller/lock-args-redis.md
+    - Class Controllers: using-class-controller.md
+    - Core Module: using-asgi-module.md
+    - Default Options: using-options.md
+    - Upload gzip files: using-request-body-gzip.md
+    # - Complete Request/Response: tutorial/01-complete-request-response.md
+    # - Deserializations bad requests: tutorial/02-deserializations-bad-requests.md
+    # - Validating fields: tutorial/03-validating-fields.md
+    # - Complex nested structures: tutorial/04-complex-nested-structures.md
+    # - Alternatives, Inspiration and Comparisons: alternatives.md
+    # - Benchmarks: benchmarks.md
+    # - Help apidaora - Get Help: help.md
+    - Development - Contributing: contributing.md
+    - Changelog: changelog.md
+
+markdown_extensions:
+    - markdown_include.include:
+        base_path: docs
+    - codehilite:
+        guess_lang: false
+
+extra_css:
+  - stylesheets/dark_theme.css
+  - stylesheets/codehilite.css
