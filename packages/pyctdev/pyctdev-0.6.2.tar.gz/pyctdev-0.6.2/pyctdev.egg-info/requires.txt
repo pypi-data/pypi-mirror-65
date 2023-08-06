@@ -1,0 +1,17 @@
+doit
+cloudpickle
+pluggy
+py
+pip>=19.1.1
+
+[ecosystem_conda]
+conda>=4.4
+conda-build>=3.10.1
+
+[ecosystem_pip]
+tox
+twine
+wheel
+
+[tests]
+flake8
