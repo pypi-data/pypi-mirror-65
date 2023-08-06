@@ -1,0 +1,21 @@
+[paths]
+source =
+   src
+   */site-packages
+
+[run]
+branch = true
+source =
+    ebonite
+    tests
+omit =
+   tests/*
+; some tests generate and run distributions in tmpdirs and duplicated code distracts coverage
+   *pytest-*
+
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*

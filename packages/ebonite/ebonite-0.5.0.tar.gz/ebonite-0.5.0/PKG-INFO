@@ -1,0 +1,224 @@
+Metadata-Version: 2.1
+Name: ebonite
+Version: 0.5.0
+Summary: Machine Learning Lifecycle Framework
+Home-page: https://github.com/zyfra/ebonite
+Author: Mikhail Sveshnikov
+Author-email: mike0sv@gmail.com
+License: Apache-2.0
+Project-URL: Changelog, https://github.com/zyfra/ebonite/blob/master/CHANGELOG.rst
+Project-URL: Issue Tracker, https://github.com/zyfra/ebonite/issues
+Description: .. image:: ebonite.jpg
+        
+        
+        
+        Ebonite is a machine learning lifecycle framework.
+        It allows you to persist your models and reproduce them (as services or in general).
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install ebonite
+        
+        Quickstart
+        =============
+        
+        Before starting with Ebonite prepare your model.
+        This could be a model from your favorite library (list of supported libraries is presented above) or
+        a custom Python function working with typical machine learning data structures.
+        
+        .. code-block:: python
+        
+          import numpy as np
+          def clf(data):
+            return (np.sum(a, axis=-1) > 1).astype(np.int32)
+        
+        Moreover, your custom function could wrap a model from some library.
+        This gives you flexibility to use not only pure ML models but rule-based ones (e.g., as a service stub at project start)
+        and hybrid (ML with pre/postprocessing) ones which are often applied to solve real world problems.
+        
+        When a model is prepared you should create a Ebonite client.
+        
+        .. code-block:: python
+        
+          from ebonite import Ebonite
+          ebnt = Ebonite.local()
+        
+        Then create a task and push your model object with some sample data.
+        Sample data is required for Ebonite to determine structure of inputs and outputs for your model.
+        
+        .. code-block:: python
+        
+           task = ebnt.get_or_create_task('my_project', 'my_task')
+           model = task.create_and_push_model(clf, test_x, 'my_clf')
+        
+        You are awesome! Now your model is safely persisted in a repository.
+        
+        Later on in other Python process you can load your model from this repo and do some wonderful stuff with it,
+        e.g., create a Docker image named `my_service` with an HTTP service wrapping your model.
+        
+        .. code-block:: python
+        
+          from ebonite import Ebonite
+          ebnt = Ebonite.local()
+          task = ebnt.get_or_create_task('my_project', 'my_task')
+          model = client.get_model('my_clf', task)
+          client.build_image('my_service', model)
+        
+        Check out examples (in `examples` directory) and documentation to learn more.
+        
+        Documentation
+        =============
+        ... is available `here <https://ebonite.readthedocs.io/en/latest/>`_
+        
+        Supported libraries and repositories
+        ====================================
+        
+        * Models
+        
+          * your arbitrary Python function
+        
+          * scikit-learn
+        
+          * TensorFlow (1.x and 2.x)
+        
+          * XGBoost
+        
+          * LightGBM
+        
+          * PyTorch
+        
+          * CatBoost
+        
+        * Model input / output data
+        
+          * NumPy
+        
+          * pandas
+        
+          * images
+        
+        * Model repositories
+        
+          * in-memory
+        
+          * local filesystem
+        
+          * SQLAlchemy
+        
+          * Amazon S3
+        
+        * Serving
+        
+          * Flask
+        
+          * aiohttp
+        
+        
+        
+        Contributing
+        ============
+        
+        Read `this <https://github.com/zyfra/ebonite/blob/master/CONTRIBUTING.rst>`_
+        Changelog
+        =========
+        
+        Current release candidate
+        -------------------------
+        
+        0.5.0 (2020-04-10)
+        ------------------
+        
+        * Built Docker images and running Docker containers along with their metadata are now persisted in metadata repository
+        * Added possibility to track running status of Docker container via Ebonite client
+        * Implemented support for pushing built images to remote Docker registry
+        * Improved testing of metadata repositories and Ebonite client and fixed discovered bugs in them
+        * Fixed bug with failed transactions not being rolled back
+        * Fixed bug with serialization of complex models some component of which could not be pickled
+        * Decomposed model IO from model wrappers
+        * bytes are now used for binary datasets instead of file-like objects
+        * Eliminated build_model_flask_docker in favor of Server-driven abstraction
+        * Sped up PickleModelIO by avoiding ModelAnalyzer calls for non-model objects
+        * Sped up Model.create by calling model methods with given input data just once
+        * Dataset types and model wrappers expose their runtime requirements
+        
+        0.4.0 (2020-02-17)
+        ------------------
+        
+        * Implemented asyncio-based server via aiohttp library
+        * Implemented support for Tensorflow 2.x models
+        * Changed default type of base python docker image to "slim"
+        * Added 'description' and 'params' fields to Model. 'description' is a text field and 'params' is a dict with arbitrary keys
+        * Fixed bug with building docker image with different python version that the Model was created with
+        
+        0.3.5 (2020-01-31)
+        ------------------
+        
+        * Fixed critical bug with wrapper_meta
+        
+        0.3.4 (2020-01-31)
+        ------------------
+        
+        * Fixed bug with deleting models from tasks
+        * Support working with model meta without requiring installation of all model dependencies
+        * Added region argument for s3 repository
+        * Support for delete_model in Ebonite client
+        * Support for force flag in delete_model which deletes model even if artifacts could not be deleted
+        
+        0.3.3 (2020-01-10)
+        ------------------
+        
+        * Eliminated tensorflow warnings. Added more tests for providers/loaders. Fixed bugs in multi-model provider/builder.
+        * Improved documentation
+        * Eliminate useless "which docker" check which fails on Windows hosts
+        * Perform redirect from / to Swagger API docs in Flask server
+        * Support for predict_proba method in ML model
+        * Do not fix first dimension size for numpy arrays and torch tensors
+        * Support for Pytorch JIT (TorchScript) models
+        * Bump tensorflow from 1.14.0 to 1.15.0
+        * Added more tests
+        
+        0.3.2 (2019-12-04)
+        ------------------
+        
+        * Multi-model interface bug fixes
+        
+        0.3.1 (2019-12-04)
+        ------------------
+        
+        * Minor bug fixes
+        
+        0.3.0 (2019-11-27)
+        ------------------
+        
+        * Added support for LightGBM models
+        * Added support for XGBoost models
+        * Added support for PyTorch models
+        * Added support for CatBoost models
+        * Added uwsgi server for flask containers
+        
+        0.2.1 (2019-11-19)
+        ------------------
+        
+        * Minor bug fixes
+        
+        0.2.0 (2019-11-14)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Provides-Extra: testing
