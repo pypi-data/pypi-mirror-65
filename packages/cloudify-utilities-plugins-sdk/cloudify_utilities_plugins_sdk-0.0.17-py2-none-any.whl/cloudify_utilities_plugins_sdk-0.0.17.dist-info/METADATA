@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: cloudify-utilities-plugins-sdk
+Version: 0.0.17
+Summary: Utilities SDK for extending Cloudify
+Home-page: https://github.com/cloudify-incubator/cloudify-utilities-plugins-sdk
+Author: Cloudify Platform Ltd.
+Author-email: hello@cloudify.co
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: GitPython
+Requires-Dist: Jinja2 (>=2.7.2)
+Requires-Dist: gitdb (>=0.6.4)
+Requires-Dist: paramiko (>=2.7.1)
+Requires-Dist: pycdlib
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: xmltodict
+
+# Cloudify Utilities SDK
+
+Utilities SDK for extending Cloudify features.
+
+
