@@ -1,0 +1,1 @@
+from translingual import translate
