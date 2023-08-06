@@ -1,0 +1,4 @@
+[console_scripts]
+simple-youtube-downloader = sytd.__main__:run
+sytd = sytd.__main__:run
+
