@@ -1,0 +1,187 @@
+/*
+ * Copyright 2018 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+package {{package}};
+
+import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableMap;
+import com.google.api.pathtemplate.PathTemplate;
+import {{resource_name_global_package_name}}.ResourceName;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * AUTO-GENERATED DOCUMENTATION AND CLASS
+ */
+@javax.annotation.Generated("by GAPIC protoc plugin")
+public class {{class_name}} {{extension_keyword}} {{parent_interface}} {
+
+  private static final PathTemplate PATH_TEMPLATE =
+      PathTemplate.createWithoutUrlEncoding("{{format_string}}");
+
+  private volatile Map<String, String> fieldValuesMap;
+
+  {{#format_fields}}
+  private final String {{lower}};
+  {{/format_fields}}
+
+  {{#format_fields}}
+  public String get{{upper}}() {
+    return {{lower}};
+  }
+
+  {{/format_fields}}
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
+  public Builder toBuilder() {
+    return new Builder(this);
+  }
+
+  private {{class_name}}(Builder builder) {
+    {{#format_fields}}
+    {{lower}} = Preconditions.checkNotNull(builder.get{{upper}}());
+    {{/format_fields}}
+  }
+
+  public static {{class_name}} of({{#parameter_list}}String {{parameter}}{{#not_last}}, {{/not_last}}{{/parameter_list}}) {
+    return newBuilder(){{#format_fields}}
+      .set{{upper}}({{lower}}){{/format_fields}}
+      .build();
+  }
+
+  public static String format({{#parameter_list}}String {{parameter}}{{#not_last}}, {{/not_last}}{{/parameter_list}}) {
+    return newBuilder(){{#format_fields}}
+      .set{{upper}}({{lower}}){{/format_fields}}
+      .build()
+      .toString();
+  }
+
+  public static {{class_name}} parse(String formattedString) {
+    if (formattedString.isEmpty()) {
+      return null;
+    }
+    Map<String, String> matchMap =
+        PATH_TEMPLATE.validatedMatch(formattedString, "{{class_name}}.parse: formattedString not in valid format");
+    return of({{#parameter_list}}matchMap.get("{{parameter_name}}"){{#not_last}}, {{/not_last}}{{/parameter_list}});
+  }
+
+  public static List<{{class_name}}> parseList(List<String> formattedStrings) {
+    List<{{class_name}}> list = new ArrayList<{{resourceTypeFullClassName}}>(formattedStrings.size());
+    for (String formattedString : formattedStrings) {
+      list.add(parse(formattedString));
+    }
+    return list;
+  }
+
+  public static List<String> toStringList(List<{{class_name}}> values) {
+    List<String> list = new ArrayList<String>(values.size());
+    for ({{class_name}} value : values) {
+      if (value == null) {
+        list.add("");
+      } else {
+        list.add(value.toString());
+      }
+    }
+    return list;
+  }
+
+  public static boolean isParsableFrom(String formattedString) {
+    return PATH_TEMPLATE.matches(formattedString);
+  }
+
+  public Map<String, String> getFieldValuesMap() {
+    if (fieldValuesMap == null) {
+      synchronized (this) {
+        if (fieldValuesMap == null) {
+          ImmutableMap.Builder<String, String> fieldMapBuilder = ImmutableMap.builder();
+          {{#format_fields}}
+          fieldMapBuilder.put("{{parameter_name_in_map}}", {{lower}});
+          {{/format_fields}}
+          fieldValuesMap = fieldMapBuilder.build();
+        }
+      }
+    }
+    return fieldValuesMap;
+  }
+
+  public String getFieldValue(String fieldName) {
+    return getFieldValuesMap().get(fieldName);
+  }
+
+  @Override
+  public String toString() {
+    return PATH_TEMPLATE.instantiate({{#parameter_list}}"{{parameter_name}}", {{parameter}}{{#not_last}}, {{/not_last}}{{/parameter_list}});
+  }
+
+  /** Builder for {{class_name}}. */
+  public static class Builder {{#builder_parent_class}}extends {{builder_parent_class}}.Builder {{/builder_parent_class}}{
+
+    {{#format_fields}}
+    private String {{lower}};
+    {{/format_fields}}
+
+    {{#format_fields}}
+    public String get{{upper}}() {
+      return {{lower}};
+    }
+
+    {{/format_fields}}
+    {{#format_fields}}
+    public Builder set{{upper}}(String {{lower}}) {
+      this.{{lower}} = {{lower}};
+      return this;
+    }
+
+    {{/format_fields}}
+    private Builder() {
+    }
+
+    private Builder({{class_name}} {{var_name}}) {
+      {{#format_fields}}
+      {{lower}} = {{var_name}}.{{lower}};
+      {{/format_fields}}
+    }
+
+    public {{class_name}} build() {
+      return new {{class_name}}(this);
+    }
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    }
+    if (o instanceof {{class_name}}) {
+      {{class_name}} that = ({{class_name}}) o;
+      return {{#parameter_list}}{{#not_first}}
+          && {{/not_first}}(this.{{parameter}}.equals(that.{{parameter}})){{/parameter_list}};
+    }
+    return false;
+  }
+
+  @Override
+  public int hashCode() {
+    int h = 1;
+    {{#parameter_list}}
+    h *= 1000003;
+    h ^= {{parameter}}.hashCode();
+    {{/parameter_list}}
+    return h;
+  }
+}
+
