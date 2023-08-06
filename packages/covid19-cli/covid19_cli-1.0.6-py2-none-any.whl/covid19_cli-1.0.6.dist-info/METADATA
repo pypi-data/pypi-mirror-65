@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: covid19-cli
+Version: 1.0.6
+Summary: A CLI for getting covid19 status at lightning speed.
+Home-page: https://github.com/asprazz/covid19-cli
+Author: Ankush Patil
+Author-email: aspraz2658@gmail.com
+License: MIT
+Keywords: covid19,covid19-india,coronavirus,cli python
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Requires-Dist: argparse
+Requires-Dist: colorama
+Requires-Dist: halo
+Requires-Dist: prettytable
+Requires-Dist: requests (>=2.23)
+
+UNKNOWN
+
+
