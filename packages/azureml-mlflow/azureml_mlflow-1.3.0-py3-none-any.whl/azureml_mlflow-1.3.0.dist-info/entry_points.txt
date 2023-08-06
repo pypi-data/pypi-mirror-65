@@ -1,0 +1,8 @@
+[mlflow.artifact_repository]
+adbazureml = azureml.mlflow:adb_azureml_artifacts_builder
+azureml = azureml.mlflow:azureml_artifacts_builder
+
+[mlflow.tracking_store]
+adbazureml = azureml.mlflow:adb_azureml_store_builder
+azureml = azureml.mlflow:azureml_store_builder
+
