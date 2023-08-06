@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: pylorem
+Version: 1.0
+Summary: A Python lorem ipsum generator
+Home-page: https://github.com/Julian-Nash/pylorem
+Author: Julian Nash
+Author-email: julianjamesnash@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/Julian-Nash/pylorem
+Project-URL: Documentation, https://github.com/Julian-Nash/pylorem
+Project-URL: Source Code, https://github.com/Julian-Nash/pylorem
+Keywords: lorem ipsum placeholder dummy text generator
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+
+## Pylorem - A Python lorem ipsum generator
+
+![Python package](https://github.com/Julian-Nash/pylorem/workflows/Python%20package/badge.svg?branch=master)
+
+Generate random words, sentences and paragraphs, useful for placeholder or dummy text.
+
+#### installation
+
+```shell script
+pip install pylorem
+```
+
+### usage
+
+Importing
+
+```pycon
+>>> from pylorem import LoremIpsum
+```
+
+Generate a random word
+
+```pycon
+>>> LoremIpsum.word()
+'Omnino'
+>>> LoremIpsum.word()
+'Leno'
+>>> LoremIpsum.word()
+'Opera'
+>>> LoremIpsum.word()
+'Aliquot'
+>>> LoremIpsum.word()
+'Dissimulo'
+```
+
+Generate a string of `n` words
+
+```pycon
+>>> LoremIpsum.words(4)
+'Mando refectorium termes quercus'
+>>> LoremIpsum.words(8)
+'Induco alioquin mortuus eum eloquens concupiscentia utorutiusus habeohabuihabitum'
+>>> LoremIpsum.words(12)
+'Aequitasequitas sodalitas vel indutiae infectus proeo nuncquidem passer adstringo vorax concupiscentia xiphias'
+```
+
+Generate a sentence
+
+```pycon
+>>> LoremIpsum.sentence()
+'Contingo praesumopresumo praegravopregravo illeillaillud odio ruoruirutum reluctor anser discedodiscessum hosteshostium redemptor nequeo scelestus absconditus calculus.'
+```
+
+Generate a string of `n` sentences
+
+```pycon
+>>> LoremIpsum.sentences(3)
+'Persevero pactum proluoproluprolutum depereo conitor pravitas iacio genus subiungo iuxta refero impudens repletus juventus propter scriptor ait. Patientia aegrus arceo tyrannus furor partim thalassinus denuntio accuso praestantiaprestantia commissum infrainferiusinfimus milia expletus meretrixmeretricis affligeniensis,haffligeniensis consido culpo stillicidium tenax ait notarius bellus. Claudeo subsequor iucunditas creptio improvidus infectus pestifere vulturvolturvulturiusvolturius textortextrix moneo iusiuris sacculus lascivio obstinatus alteralteraalterum compositus.'
+```
+
+Generate a paragraph
+
+```pycon
+>>> LoremIpsum.paragraph()
+'Suffragium decimus sui lesciense,monasteryof superfluo dissimulo peragro quapropter ultra arbitroarbitror occidooccidioccasum promulgatio desparatus in pollicitus elementum. praeponoprepono comiter expugno inveteratus superbia efficio nimis lacero habeohabuihabitum pupula speculum hortusortus templovium repens labo deorsum erepo labellum. infindoinfidiinfissum utorutiusus exigo interrogatio te queritor requiro labrusca infligoinflixiinflictum adulatio aro obstinatus iudico etsi saturo altus humilis adfero malepeiuspessime proprie sic quare iumentum ponspontis. prenda apparatus relinquo satura munusmuneris ego textus teres curtus pretium incito cupiditas sufficio canto illudoillusiillusum sano didicerat. canonicus plector legatarius expletio dito falsus cicuta quanti exigo provisor cras inquis cunae immunda commodo labefacto importo largior comminor praevenio,prevenio coepipresincipio nisi infit pestifere. intendo exesto pluitpluvit comprobo verbum salvus infrainferiusinfimus illis amiculum infeliciter furtim perniciosus impendium aliquando iusiurandumiurisiurandietc pluma hoienses priores,um adficio brevis censura. quem utorutiusus everto evito gravis repletus patefacio civis timidus novem prorsus umquam vel prosperitas cunae comprovincialis princeps nisi temeritas doleo.'
+```
+
+Generate `n` paragraphs
+
+```pycon
+>>> LoremIpsum.paragraphs(3)
+'Subsequor contendo materia recordatio vestis paulatim pluma dissimulo reluctor absque praeferoprefero congrego protinus contego digressio absum praedicopredico nequitianequities improviso caritas confugo apto detegodetectum frequento. brevis lacus lentulus tremo praenuntio,prenuntio perturpis toties,toties revenio imperiosus recognosco funis relegorelegirelectum lento grassor ustilo continuus infeliciter adopto. stips,stipis hodiernus dominadomina infenso capillus percontorpercunctor constringoconstrixiconstrictum praetereapreterea contentus ascit singuli dito navigatio mador molestus ostium plures expletus pudeo priusquam pulex hoienses. praeponoprepono quinquennis titulus periculum alioqui nosternostri requiescorequievirequietum maiores tertius contraho saluto sonitus strues piapium nunc. depraedordepredor dispono pupilluspupilla sabbatum cetera labefacto inflo exorsus summopere diuturnus offensio anser honorabilis domito chirographum restituo.\nVestrumvestri percontorpercunctor lues promptuinpromptuesse deduco eum labeslabis callidus nullus cunabula deprecor ceno lacto gregatim redemptor somnium auris suadeo ademptio ancilla adipiscor sanctusrodoenus. tam texo rusruris creptio mundus laetabilisletabilis adulescens salvus rumor umerushumerus exponoexposuiexpositum edoediessum ver,veris pauci victoria volutabrum foveofovifotum lamia his subito libido universi vulpesvolpes. praecipio,precipio gravitas consulto innotesco,innotui prolecto opponoopposuioppositum exerceo quadruplator eum stabilis amiculum chirographum progener annus lenio libere contigo credo devoveo volosibivelle. agoegiactum impedo blanditia asvesniis trestria praecipio,precipio nequaquam extollo litterae sero occupo infectumreddere laborlaboris nascornascinatus auditor leviculus contagiocontagium integer incipio servitus.\nLiberlibera,liberum adamo unus genus repleo spiculum constupator prohibeo caelum picea maero comitto laborlaboris imberymber quamobrem,quamobrem contemptio dudum curtus plector onus alveus inceptor arma. familiaris quercus voluptarius currus piscator impelloimpuliimpulsum terminus tabgotetigitactum stipes,itis cena discrepo rarus cibo haud laetans adsum inflatius. praemiumpremium nolo,nolle,nolui capio substantia infecundus pirus inclino postea victoria immundus consilio exoro aperte gratiaagere ineptio doceodocuidoctum famulatus. pallium praenuntio,prenuntio testimonium mansuetus omnipotens censura manentia potior retribuo testis macer termes inservio plorator molestus.'
+```
+
+
