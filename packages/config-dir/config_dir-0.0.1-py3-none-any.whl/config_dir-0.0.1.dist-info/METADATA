@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: config-dir
+Version: 0.0.1
+Summary: Configuration directory utilities
+Home-page: https://github.com/jan-g/{name}
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml
+
+# Configuration directory utilities
+
+This supplies some very basic helper functions that manage configuration directories under the
+user's home directory.
+
