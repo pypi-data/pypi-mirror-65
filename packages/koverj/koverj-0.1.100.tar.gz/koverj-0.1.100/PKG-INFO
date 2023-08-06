@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: koverj
+Version: 0.1.100
+Summary: Test coverage for selenium based tests
+Home-page: https://github.com/Igur007/koverj-py
+License: MIT
+Author: Ivan Huryn
+Author-email: igur007@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: configparser (>=5.0.0,<6.0.0)
+Requires-Dist: future (>=0.18.2,<0.19.0)
+Requires-Dist: pytest (>=5.4.1,<6.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: selene (>=1.0.2,<2.0.0)
+Requires-Dist: selenium (==3.141)
+Requires-Dist: uplink (>=0.9.1,<0.10.0)
+Project-URL: Repository, https://github.com/Igur007/koverj-py
+Description-Content-Type: text/markdown
+
+### Python (>=3.7) agent that allow to collect locators from Selenium based UI tests.
+Inspired by SergeyPirogov koverj-java-agent.
+Browser_driver instance (e.g. webdriver.Chrome()) has to be created and passed to a LocatorsWatchingDriver
+
+#### - Selenium usage:
+```
+chrome_driver = webdriver.Chrome(executable_path=executable_path, options=chrome_options)
+driver = LocatorsWatchingDriver(driver=chrome_driver)
+```
+
+#### - Selene usage:
+```
+driver = LocatorsWatchingDriver(driver=chrome_driver)
+browser.set_driver(driver)
+```
+
+An web_driver may be created as pytest fixture, e.g.:
+
+```
+@pytest.fixture()    
+def web_driver(chrome_driver):
+    driver = LocatorsWatchingDrive(driver=chrome_web_driver)
+    browser.set_driver(driver)
+    yield browser.driver()
+    browser.quit()
+```
+
+If pytest is used the koverj plugin may be registered in conftest.py:
+```
+pytest_plugins = [
+    'koverj.common.plugin.pytest_koverj_plugin',
+]
+```
+
+#### Supported integrations:
+- Selene
+- Selenium
+
+#### Supported test runners:
+- pytest
+
+In order to collect data you have to run koverj server (thanks to):
+docker run -p 8086:8086 spirogov/koverj:0.1.0
+
+In order to see results in your browser add **koverj-browser-plugin** to your browser.

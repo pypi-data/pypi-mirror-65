@@ -1,0 +1,83 @@
+{
+  "body > app-root": {
+      "type": "css",
+      "id": "83b76399-e95d-44bd-9610-484d41a0d9b0",
+      "tests": [
+          "testRelativeCssLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  },
+  "body > app-root app-layout-header > nav": {
+      "type": "css",
+      "id": "44a729e1-1305-4125-8695-62fc82c2857f",
+      "tests": [
+          "testRelativeCssLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  },
+  "body > app-root app-layout-header > nav [href='/login']": {
+      "type": "css",
+      "id": "566111f2-dca2-426f-ad77-54cbfaa8c74c",
+      "tests": [
+          "testRelativeCssLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  },
+  "//body//app-root": {
+      "type": "xpath",
+      "id": "93a1a62d-d0d0-4f09-872f-446aa1eed005",
+      "tests": [
+          "testRelativeXpathLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  },
+  "//body//app-root  .//app-layout-header//nav": {
+      "type": "xpath",
+      "id": "3b09c915-95a6-449b-9106-3af5edb97f00",
+      "tests": [
+          "testRelativeXpathLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  },
+  "//body//app-root  .//app-layout-header//nav  .//*[@href='/login']": {
+      "type": "xpath",
+      "id": "26ea5cd0-87ba-4917-bdcd-03367c1ffa52",
+      "tests": [
+          "testRelativeXpathLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  },
+  "[href='/login']": {
+      "type": "css",
+      "id": "4665a837-de59-4819-9aba-d0484c188e0f",
+      "tests": [
+          "testSimpleAndRelativeCssLocators()",
+          "testSimpleCssLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  },
+  "//*[@href='/login']": {
+      "type": "xpath",
+      "id": "bbb97447-be02-42d7-a8fb-99a5c945d5d8",
+      "tests": [
+          "testSimpleXpathLocators()"
+      ],
+      "urls": [
+          "https://angular.realworld.io/"
+      ]
+  }
+}
