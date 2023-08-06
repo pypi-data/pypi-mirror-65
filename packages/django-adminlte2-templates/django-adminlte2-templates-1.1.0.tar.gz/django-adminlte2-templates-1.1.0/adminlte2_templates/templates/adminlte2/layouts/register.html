@@ -1,0 +1,68 @@
+{% extends 'adminlte2/base.html' %}
+
+{% load adminlte2_tags %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body_class %}hold-transition register-page{% endblock body_class %}
+
+{% block body %}
+<div class="register-box">
+
+    {% block register_logo %}
+        <div class="register-logo">
+            <a href="{% block register_logo_href %}{% endblock register_logo_href %}">
+                {% block register_logo_text %}
+                    <b>Admin</b>LTE
+                {% endblock register_logo_text %}
+            </a>
+        </div>
+    {% endblock register_logo %}
+
+    {% block register_content %}
+        <div class="register-box-body">
+
+            <p class="login-box-msg">
+                {% block register_description %}
+                    Register a new membership
+                {% endblock register_description %}
+            </p>
+
+            {% block register_form %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="text-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+                    {% for field in form %}
+                        <div class="form-group {% if field.errors %}has-error{% endif %}">
+                            {{ field.label_tag }}
+                            {% if field.errors %}
+                                <div class="text-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                            {{ field|add_class:'form-control' }}
+                            {% if field.help_text %}
+                                <p class="help-block">{{ field.help_text|safe }}</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-default" type="reset">Clear</button>
+                </form>
+            {% endblock register_form %}
+
+            <div class="social-auth-links text-center">
+                {% block register_social_auth %}
+                {% endblock register_social_auth %}
+            </div>
+
+            {% block register_links %}
+            {% endblock register_links %}
+        </div>
+    {% endblock register_content %}
+</div>
+{% endblock body %}

@@ -1,0 +1,17 @@
+<footer class="main-footer">
+    {% block footer_content %}
+
+        <div class="pull-right hidden-xs">
+            {% block footer_right %}
+                <b>Version</b> {% block footer_version %}#.#.#{% endblock footer_version %}
+            {% endblock footer_right %}
+        </div>
+
+        {% block footer_left %}
+            {% block footer_legal %}
+                <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
+            {% endblock footer_legal %}
+        {% endblock footer_left %}
+
+    {% endblock footer_content %}
+</footer>
