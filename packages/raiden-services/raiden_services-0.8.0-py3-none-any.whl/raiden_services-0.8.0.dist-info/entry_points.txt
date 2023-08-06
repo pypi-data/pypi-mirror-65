@@ -1,0 +1,7 @@
+[console_scripts]
+claim-pfs-fees = pathfinding_service.claim_fees:main
+monitoring-service = monitoring_service.cli:main
+pathfinding-service = pathfinding_service.cli:main
+request-collector = request_collector.cli:main
+service-registry = raiden_libs.service_registry:main
+

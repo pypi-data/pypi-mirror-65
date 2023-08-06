@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: raiden-services
+Version: 0.8.0
+Summary: Raiden Services contain additional tools for the Raiden Network.
+Home-page: https://github.com/raiden-network/raiden-services
+Author: Brainbot Labs Est.
+Author-email: contact@brainbot.li
+License: MIT
+Keywords: raiden,ethereum,blockchain
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: raiden (==0.200.0-rc4)
+Requires-Dist: raiden-contracts (==0.37.0b2)
+Requires-Dist: structlog (==19.1.0)
+Requires-Dist: colorama (==0.4.1)
+Requires-Dist: click (==7.0)
+Requires-Dist: coincurve (==13.0.0)
+Requires-Dist: web3 (==5.7.0)
+Requires-Dist: eth-utils (==1.8.4)
+Requires-Dist: eth-abi (==2.1.0)
+Requires-Dist: eth-account (==0.4.0)
+Requires-Dist: eth-typing (==2.2.1)
+Requires-Dist: flask (==1.0.3)
+Requires-Dist: flask-restful (==0.3.7)
+Requires-Dist: gevent (==1.5a3)
+Requires-Dist: networkx (==2.3)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: marshmallow (==3.4.0)
+Requires-Dist: marshmallow-dataclass (==6.0.0)
+Requires-Dist: sentry-sdk[flask] (==0.14.1)
+Provides-Extra: dev
+Requires-Dist: pip ; extra == 'dev'
+Requires-Dist: wheel (>=0.30.0) ; extra == 'dev'
+Requires-Dist: watchdog (>=0.8.3) ; extra == 'dev'
+Requires-Dist: flake8 (==3.7.9) ; extra == 'dev'
+Requires-Dist: flake8-bugbear (==20.1.2) ; extra == 'dev'
+Requires-Dist: flake8-tuple (==0.4.1) ; extra == 'dev'
+Requires-Dist: isort (==4.3.21) ; extra == 'dev'
+Requires-Dist: mypy (==0.770) ; extra == 'dev'
+Requires-Dist: black (==19.10b0) ; extra == 'dev'
+Requires-Dist: pylint (==2.4.4) ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-gevent ; extra == 'dev'
+Requires-Dist: pytest-runner ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-structlog (==0.2) ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Requires-Dist: coverage (>=4.5.4) ; extra == 'dev'
+Requires-Dist: ipython (==4.2.1) ; extra == 'dev'
+Requires-Dist: pdbpp ; extra == 'dev'
+Requires-Dist: eth-tester[py-evm] (==0.4.0b1) ; extra == 'dev'
+Requires-Dist: bump2version ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+# Raiden Services
+
+Supplemental services for the [Raiden Network](https://raiden.network/).
+
+[![Build Status](https://travis-ci.com/raiden-network/raiden-services.svg?branch=master)](https://travis-ci.com/raiden-network/raiden-services)
+[![Coverage](https://img.shields.io/codecov/c/github/raiden-network/raiden-services.svg?style=round)](https://codecov.io/gh/raiden-network/raiden-services/)
+
+More information can be found in the [documentation](https://raiden-services.readthedocs.io/en/latest/) and in the
+[service intro blogpost](https://medium.com/raiden-network/raiden-service-bundle-explained-f9bd3f6f358d).
+
+### Monitoring Service
+
+The Monitoring Service watches open payment channels when the user is not online. In case one of the user’s channel partners wants to close a channel while the user is offline, the monitoring service sends the latest balance proof to the smart contract and thus ensures the correct settlement of the channel.
+
+### Pathfinding Service
+
+The Pathfinding service supports users in finding the cheapest or shortest way to route a payment through the network. A pathfinding service relies on data from the network, the respective smart contract as well as information provided voluntarily by mediating nodes. This information consists of the mediation fees charged and the respective available channel capacities.
+
+### Specification
+
+For more technical details see:
+- [Services smart contracts specification](https://raiden-network-specification.readthedocs.io/en/latest/service_contracts.html)
+- [Monitoring Service specification](https://raiden-network-specification.readthedocs.io/en/latest/monitoring_service.html)
+- [Pathfinding Service specification](https://raiden-network-specification.readthedocs.io/en/latest/pathfinding_service.html)
+
+## Service Providers
+
+To become a service provider, follow the instructions in the [Raiden Service Bundle repository](https://github.com/raiden-network/raiden-service-bundle).
+
+## Developers
+
+The Raiden Services require Python 3.7+.
+
+To install the latest development version of the services run the following commands:
+
+```sh
+git clone git@github.com:raiden-network/raiden-services.git
+cd raiden-services
+virtualenv -p python3.7 venv
+source venv/bin/activate
+make install-dev
+```
+
+
