@@ -1,0 +1,60 @@
+[console_scripts]
+dffml = dffml.cli.cli:CLI.main
+
+[dffml.configloader]
+json = dffml.configloader.json:JSONConfigLoader
+
+[dffml.db]
+sqlite = dffml.db.sqlite:SqliteDatabase
+
+[dffml.input.network]
+memory = dffml.df.memory:MemoryInputNetwork
+
+[dffml.kvstore]
+memory = dffml.df.memory:MemoryKeyValueStore
+
+[dffml.lock.network]
+memory = dffml.df.memory:MemoryLockNetwork
+
+[dffml.model]
+slr = dffml.model.slr:SLRModel
+
+[dffml.operation]
+AcceptUserInput = dffml.operation.io:AcceptUserInput
+associate = dffml.operation.output:Associate
+dffml.dataflow.run = dffml.operation.dataflow:run_dataflow
+dffml.mapping.create = dffml.operation.mapping:create_mapping
+dffml.mapping.extract = dffml.operation.mapping:mapping_extract_value
+dffml.model.predict = dffml.operation.model:model_predict
+get_multi = dffml.operation.output:GetMulti
+get_single = dffml.operation.output:GetSingle
+group_by = dffml.operation.output:GroupBy
+literal_eval = dffml.operation.preprocess:literal_eval
+print_output = dffml.operation.io:print_output
+
+[dffml.operation.implementation.network]
+memory = dffml.df.memory:MemoryOperationImplementationNetwork
+
+[dffml.operation.network]
+memory = dffml.df.memory:MemoryOperationNetwork
+
+[dffml.orchestrator]
+memory = dffml.df.memory:MemoryOrchestrator
+
+[dffml.port]
+json = dffml.port.json:JSON
+
+[dffml.redundancy.checker]
+memory = dffml.df.memory:MemoryRedundancyChecker
+
+[dffml.service.cli]
+dev = dffml.service.dev:Develop
+
+[dffml.source]
+csv = dffml.source.csv:CSVSource
+db = dffml.source.db:DbSource
+idx1 = dffml.source.idx1:IDX1Source
+idx3 = dffml.source.idx3:IDX3Source
+json = dffml.source.json:JSONSource
+memory = dffml.source.memory:MemorySource
+
