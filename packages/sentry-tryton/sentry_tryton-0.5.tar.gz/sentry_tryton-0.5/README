@@ -1,0 +1,42 @@
+Sentry-Tryton
+=============
+
+Sentry integration for the Tryton application framework.
+
+This module creates a new LoggingHandler for registering tryton exceptions on
+sentry. This exception will get some information available on tryton:
+
+* Info about the current user
+* The list of modules activated and it's verions.
+* The database name
+* The backend name
+* The request context
+
+It also allows to define a custom error message and description that will be
+sent to the user instead of showing the full traceback.
+
+Usage
+-----
+
+The trytond-logconf.cfg provides an example config file for using this handler.
+You only have to specify your sentry dsn on the first arg of the sentry
+handler. Once you have modified this file just lunch your trytond with::
+
+    trytond --logconf trytond-logconf.cfg
+
+Issues
+------
+
+Feel free to open Issues on the
+`bitbucket issue tracker <https://bitbucket.org/pokoli/sentry-tryton/issues>`_
+if you have some problems with the software or do you want to discuss some
+posible improvements.
+
+Pull Request are very welcomme also!
+
+Support
+-------
+
+You can send me and email on sergi@koolpi.com if you encounter any problems.
+I will try to reply ASAP, but it may take some time to get a reply, so please
+be patient.
