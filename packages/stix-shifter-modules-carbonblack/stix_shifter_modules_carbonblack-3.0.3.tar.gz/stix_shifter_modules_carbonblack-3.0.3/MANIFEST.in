@@ -1,0 +1,12 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include JSON files (generated values)
+include stix_shifter_modules/carbonblack/configuration/carbonblack_config.json 
+include stix_shifter_modules/carbonblack/configuration/carbonblack_lang.json 
+include stix_shifter_modules/carbonblack/stix_translation/json/binary_from_stix_map.json 
+include stix_shifter_modules/carbonblack/stix_translation/json/process_from_stix_map.json 
+include stix_shifter_modules/carbonblack/stix_translation/json/to_stix_map.json 
