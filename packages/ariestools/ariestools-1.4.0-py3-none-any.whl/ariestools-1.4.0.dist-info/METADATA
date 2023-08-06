@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ariestools
+Version: 1.4.0
+Summary: Common Tools for python lib
+Home-page: UNKNOWN
+Author: jasonzhang
+Author-email: 864040015@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: urllib3 (>=1.25.7)
+Requires-Dist: PyYAML (>=5.3.1)
+Requires-Dist: pendulum (>=2.1.0)
+Requires-Dist: namedtupled (>=0.3.3)
+
+UNKNOWN
+
+
