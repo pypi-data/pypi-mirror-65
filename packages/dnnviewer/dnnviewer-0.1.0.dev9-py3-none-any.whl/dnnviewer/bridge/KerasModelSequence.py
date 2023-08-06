@@ -1,0 +1,143 @@
+from . import tensorflow
+from .AbstractModelSequence import AbstractModelSequence, ModelError
+from .AbstractActivationMapper import AbstractActivationMapper
+from ..Grapher import Grapher
+from ..layers.AbstractLayer import AbstractLayer
+
+import tensorflow.keras as keras
+import numpy as np
+from pathlib import Path
+import glob
+import re
+import logging
+
+
+class KerasModelSequence(AbstractModelSequence, AbstractActivationMapper):
+    """ Handling a sequence of Keras models, saved as checkpoints or HDF5 """
+
+    def __init__(self, test_data):
+        AbstractModelSequence.__init__(self)
+        self.model_paths = []
+        self.current_model = None
+        self.test_data = test_data
+
+    # @override
+    def reset(self):
+        AbstractModelSequence.reset(self)
+        self.model_paths = []
+        self.current_model = None
+
+    def load_single(self, file_path):
+        """" Load a single Keras model from file_path"""
+
+        self.reset()
+        self.number_epochs = 1
+        self.model_paths = [file_path]
+
+    def load_sequence(self, dir_path):
+        """ Load a sequence of models over epochs from dir_path with pattern on {epoch} tag """
+
+        self.reset()
+        checkpoint_glob = dir_path.replace('{epoch}', '[0-9]*')
+
+        checkpoint_path_list = glob.glob(checkpoint_glob)
+        checkpoint_epoch_regexp = re.compile(dir_path.replace('{epoch}', '([0-9]*)'))
+        checkpoints = {int(checkpoint_epoch_regexp.search(path).group(1)): path for path in checkpoint_path_list}
+        checkpoint_epochs = list(checkpoints)
+        checkpoint_epochs.sort()
+        self.model_paths = [checkpoints[i] for i in checkpoint_epochs]
+        self.number_epochs = len(self.model_paths)
+
+    # @override
+    def list_models(self, directories, model_sequence_pattern='{model}_{epoch}'):
+        """ List all models in directories """
+        seq_pat1 = model_sequence_pattern.replace('{model}', '*').replace('{epoch}', '[0-9]*')
+        seq_pat2 = model_sequence_pattern.replace('{model}', r'(\w+)').replace('{epoch}', '([0-9]+)')
+        models = []
+
+        logger = logging.getLogger(__name__)
+
+        try:
+            for dir_path in directories:
+
+                # HDF5 & TF files
+                model_glob_hdf5 = dir_path + '/*.h5'
+                model_path_list = glob.glob(model_glob_hdf5)
+                models.extend(model_path_list)
+                model_glob_tf = dir_path + '/*.tf'
+                model_path_list = glob.glob(model_glob_tf)
+                models.extend(model_path_list)
+
+                # Checkpoints using pattern
+                model_glob_seq = dir_path + '/' + seq_pat1
+                model_path_list = glob.glob(model_glob_seq)
+                # Detect unique models
+                reg1 = re.compile(dir_path + '/' + seq_pat2)
+                seq_model_path_list = [reg1.search(path).group(1) for path in model_path_list]
+                model_path_list = [dir_path + '/' + model_sequence_pattern.replace('{model}', m)
+                                   for m in set(seq_model_path_list)]
+                models.extend(model_path_list)
+        except Exception:
+            logger.warning('Failed to list directories')
+        models.sort()
+        return models
+
+    # @override
+    def get_activation(self, img, layer: AbstractLayer, unit=None):
+
+        logger = logging.getLogger(__name__)
+
+        # Format input if needed
+        if img.dtype == np.uint8:
+            img = img.astype(np.float) / 255
+
+        # Handle convolution input
+        if len(self.current_model.layers) > 0 \
+                and type(self.current_model.layers[0]).__name__ == 'Conv2D':
+
+            # Padding if required
+            pad = False
+            padding = np.zeros((2, 2), dtype=np.int)
+            input_shape = self.current_model.layers[0].input.get_shape()
+            for d in [0, 1]:
+                delta = input_shape[d + 1] - img.shape[0]
+                if delta > 0:
+                    padding[d, 0] = delta // 2
+                    padding[d, 1] = delta - padding[d, 0]
+                    pad = True
+            if pad:
+                logger.warning(f'Padding image before activation with pad={padding}')
+                img = np.pad(img, padding)
+
+            # Convolution requires 3D input
+            if len(img.shape) == 2:
+                img = np.expand_dims(img, 2)
+
+        # Create partial model
+        intermediate_model = keras.models.Model(inputs=self.current_model.input,
+                                                outputs=self.current_model.get_layer(layer.name).output)
+
+        # Expand dimension to create a mini-batch of 1 element
+        maps = intermediate_model.predict(np.expand_dims(img, 0))[0]
+        if unit is None:
+            return maps
+        else:
+            return maps[:, :, unit]
+
+    def _load_model(self, grapher: Grapher, model_index: int):
+
+        model_path = Path(self.model_paths[model_index])
+
+        if not model_path.exists():
+            raise ModelError('Model path not found %s' % str(model_path))
+
+        self.current_model = keras.models.load_model(str(model_path))
+
+        # Top level properties of the DNN model
+        tensorflow.keras_set_model_properties(grapher, self.current_model)
+
+        # Create all other layers from the Keras Sequential model
+        tensorflow.keras_extract_sequential_network(grapher, self.current_model, self.test_data)
+
+        self.current_epoch_index = model_index
+        return self.current_epoch_index
