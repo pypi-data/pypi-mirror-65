@@ -1,0 +1,136 @@
+Metadata-Version: 1.2
+Name: pycollect
+Version: 0.2.3
+Summary: Utility library to collect files recursively
+Home-page: https://github.com/allrod5/pycollect
+Author: Rodrigo Martins de Oliveira
+Author-email: allrod5@hotmail.com
+License: MIT license
+Project-URL: Documentation, https://allrod5.github.io/pycollect/
+Project-URL: Changelog, https://allrod5.github.io/pycollect/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/allrod5/pycollect/issues
+Description: .. _pycollect:
+        
+        pycollect
+        =========
+        
+        
+        
+        Utility library dealing with Python files.
+        
+        **Features**
+         * Collect Python files recursively from a given directory
+         * Find the Python module name respective to a Python file
+        
+        Installation
+        ============
+        
+        .. code-block:: bash
+        
+            pip install pycollect
+        
+        
+        Basic Usage
+        ===========
+        
+        Collect Python files
+        --------------------
+        
+        .. code-block:: python
+        
+            collector = PythonFileCollector()
+            python_files = collector.collect()
+        
+        When no explicit directory is given the parent folder of caller's file will be used.
+        
+        It is possible to define custom exclusion patterns. `See the docs for more <https://allrod5.github.io/pycollect/reference/pycollect.html#pycollect.PythonFileCollector>`__.
+        
+        Get the module name of a Python file
+        ------------------------------------
+        
+        .. code-block:: python
+        
+            module_name = find_module_name(filepath)
+        
+        As there can be multiple valid module names for a given file, by default the outermost
+        module name is returned. The inverse behaviour can be enabled with the ``innermost``
+        parameter. `See the docs for more <https://allrod5.github.io/pycollect/reference/pycollect.html#pycollect.find_module_name>`__.
+        
+        Documentation
+        =============
+        
+        See the complete docs at `allrod5.github.io/pycollect <https://allrod5.github.io/pycollect/>`__.
+        
+        `Integration tests <https://github.com/allrod5/pycollect/tree/master/tests/integration>`__
+        can be pretty helpful to understand pycollect usage more in-depth too.
+        
+        See also
+        --------
+        
+        * `CONTRIBUTING <https://allrod5.github.io/pycollect/contributing.html>`__: Bug reports, feature requests, documentation & pull requests.
+        * `CHANGELOG <https://allrod5.github.io/pycollect/changelog.html>`__: See what's changed in each version.
+        * `AUTHORS <https://allrod5.github.io/pycollect/authors.html>`__: Know who's behind the project.
+        
+        Changelog
+        =========
+        
+        0.2.3 (2020-04-14)
+        ------------------
+        
+        * Adds support for Windows case insensitivity
+        * Adds official support for Python 3.8
+        * States official support for PathLike objects in the ``find_module_name`` function
+        * Fixes and updates the release workflow in GitHub Actions
+        * Bumps pycollect from 0.2.2 to 0.2.3
+        
+        0.2.2 (2020-02-29)
+        ------------------
+        
+        * Lift ``__init__.py`` requirement for considering a path as importable
+        
+        0.2.1 (2020-02-29)
+        ------------------
+        
+        * Fix module finder for Windows
+        
+        0.2.0 (2020-02-28)
+        ------------------
+        
+        * Added utility function to find a file's module name
+        
+        0.1.1 (2020-02-24)
+        ------------------
+        
+        * Update docs
+        
+        0.1.0 (2019-12-22)
+        ------------------
+        
+        * First beta release
+        
+        0.0.1 (2019-09-01)
+        ------------------
+        
+        * Fix GitHub release workflow.
+        
+        0.0.0 (2019-08-31)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: file,py,traversal,directory
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
