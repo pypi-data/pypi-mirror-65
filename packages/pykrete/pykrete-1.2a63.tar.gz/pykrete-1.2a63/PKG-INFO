@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pykrete
+Version: 1.2a63
+Summary: Build script foundation
+Home-page: http://ait-tool-center.iil.intel.com/
+Author: Shai A. Bennathan
+Author-email: shai.bennathan@intel.com
+License: MIT
+Description: # python-utils
+        Common python utilities, currently for Build scripts
+        
+        ## pykrete
+        Python package for import in Build scripts:  
+        pykrete  
+        |-- args - argument types verifiers  
+        |-- builder - build management  
+        | . |-- info - build information  
+        | . |-- manager - build managers  
+        |-- calls - shell calls  
+        |-- ci - manage Continuous Integration  
+        |-- credentials - manage access credentials  
+        |-- distrib - distutils commands  
+        | . |-- pylint - pylint commands  
+        |-- lgging - logging helpers  
+        |-- packages - package management   
+        |-- patterns - Design patterns bases  
+        | . |-- visitor - Visitor pattern bases  
+        |-- repo - repository management  
+        |-- versioning - version management
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
