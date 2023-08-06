@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: falsecolor
+Version: 1.1.4.8
+Summary: Methods for H&E pseudo coloring of grayscale fluorescent images
+Home-page: https://github.com/serrob23/FalseColor
+Author: Robert Serafin
+Author-email: serrob23@uw.edu
+License: GNU Affero General Public License v3.0
+Download-URL: https://github.com/serrob23/falsecolor/releases/download/v1.1.4.7/falsecolor-1.1.4.7.tar.gz
+Keywords: Image Analysis,Fluorescence Microscopy,Color Translation,Virtual Staining,Histology
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: h5py (>=2.9.0)
+Requires-Dist: matplotlib (>=3.1.1)
+Requires-Dist: numpy (>=1.16.5)
+Requires-Dist: numba (>=0.45.1)
+Requires-Dist: opencv-python (>=4.1.2.30)
+Requires-Dist: pathos (>=0.2.5)
+Requires-Dist: scikit-image (>=0.16.2)
+Requires-Dist: scipy (>=1.3.1)
+Requires-Dist: tifffile (>=2019.7.26.2)
+Requires-Dist: jupyter (>=1.0.0)
+Requires-Dist: argparse (>=1.1)
+
+UNKNOWN
+
+
