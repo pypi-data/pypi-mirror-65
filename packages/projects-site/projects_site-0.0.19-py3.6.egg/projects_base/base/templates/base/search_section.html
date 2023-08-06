@@ -1,0 +1,15 @@
+{% if form_field is not defined %}
+    {% from 'base/_formhelpers.html' import form_field %}
+{% endif %}
+
+<p> {{ search_description }} </p>
+<form id="form-search">
+    <div class="left">
+        {% for field in form %}
+            {{ form_field(field) }}
+        {% endfor %}
+    </div>
+</form>
+<img class="loading-spinner"
+     src="{{ url_for(static_link, filename='gif/light_green_loader.gif') }}"
+     hidden>
