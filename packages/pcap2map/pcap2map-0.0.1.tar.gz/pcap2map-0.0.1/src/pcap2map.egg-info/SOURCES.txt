@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+src/pcap2map/IP2Location.py
+src/pcap2map/__init__.py
+src/pcap2map/__main__.py
+src/pcap2map/conftest.py
+src/pcap2map/ip2map.py
+src/pcap2map/pcap2ip.py
+src/pcap2map/pcap2map.py
+src/pcap2map.egg-info/PKG-INFO
+src/pcap2map.egg-info/SOURCES.txt
+src/pcap2map.egg-info/dependency_links.txt
+src/pcap2map.egg-info/requires.txt
+src/pcap2map.egg-info/top_level.txt
+src/pcap2map/data/ip.BIN
