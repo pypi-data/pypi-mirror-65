@@ -1,0 +1,63 @@
+Metadata-Version: 1.1
+Name: Flask-TemplateSupport
+Version: 1.0.1
+Summary: Template support for flask application
+Home-page: https://github.com/cs91chris/flask_template_support
+Author: cs91chris
+Author-email: cs91chris@voidbrain.me
+License: MIT
+Description: Flask-TemplateSupport
+        =====================
+        
+        Template support for flask application
+        
+        
+        Quickstart
+        ~~~~~~~~~~
+        
+        Install ``flask_template_support`` using ``pip``:
+        
+        ::
+        
+           $ pip install Flask-TemplateSupport
+        
+        .. _section-1:
+        
+        Example usage
+        ^^^^^^^^^^^^^
+        
+        .. code:: python
+        
+            from flask import render_template
+            from flask_template_support import TemplateSupport
+        
+        
+            def test_sum(a, b):
+                return a + b
+        
+        
+            def test_sub(a, b):
+                return a - b
+        
+        
+            app = Flask(__name__)
+            ts = TemplateSupport()
+        
+            ts.init_app(app, functs=(
+        	    (test_sum, 'sum'),
+        	    (test_sub, 'sub'),
+        	))
+        
+        Run ``test.py`` in example folder and go to http://127.0.0.1:5000/ to see if it works
+        
+        
+        License MIT
+        
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
