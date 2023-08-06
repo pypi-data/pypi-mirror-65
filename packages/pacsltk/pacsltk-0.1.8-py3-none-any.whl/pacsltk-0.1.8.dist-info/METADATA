@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: pacsltk
+Version: 0.1.8
+Summary: Developed in PACS Lab to ease the process of deployment and testing of our benchmarking workload to AWS Lambda.
+Home-page: https://nima-dev.com
+Author: Nima Mahmoudi
+Author-email: nma@ieee.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: boto3 (==1.11.5)
+Requires-Dist: numpy (==1.18.1)
+Requires-Dist: scipy (==1.4.1)
+
+PACSLTK (PACS Lambda ToolKit)
+=============================
+
+Developed in PACS Lab to ease the process of deployment and testing of
+our benchmarking workload to AWS Lambda. To see how you can use pacsltk,
+check out the `github
+repository <https://github.com/nimamahmoudi/serverless-performance-modeling>`__.
+
+Installation
+------------
+
+.. code:: sh
+
+   pip install pacsltk
+
+Updating README in RST file
+---------------------------
+
+.. code:: sh
+
+   pandoc -s README.md -o README.rst
+
+
