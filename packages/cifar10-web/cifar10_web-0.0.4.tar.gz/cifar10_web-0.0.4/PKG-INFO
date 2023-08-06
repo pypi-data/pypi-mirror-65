@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: cifar10_web
+Version: 0.0.4
+Summary: A package for obtaining data from CIFAR10
+Home-page: https://github.com/QData/cifar10_web
+Author: QData
+Author-email: jm8wx@virginia.edu
+License: UNKNOWN
+Description: ## CIFAR-10 Web
+        
+        Load CIFAR-10 from user-specified directory (default /home/USER/data/cifar10 or Windows equivalent). Automatically download to that directory the CIFAR-10 tar file if not present.
+        
+        ### Install
+        
+        ```pip install cifar10_web```
+        
+        ### Usage
+        
+        ```
+        from cifar10_web import cifar10
+        
+        train_images, train_labels, test_images, test_labels = cifar10(path=None)
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
