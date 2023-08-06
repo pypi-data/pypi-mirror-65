@@ -1,0 +1,10 @@
+click<8,>=7.0
+gitpython<4,>=3.0.8
+invoke<2,>=1.4.1
+semver<3,>=2.8.0
+twine<4,>=3.0.0
+requests<3,>=2.21
+wheel
+ndebug~=0.1
+toml==0.10.0
+python-gitlab<2,>=1.10.0
