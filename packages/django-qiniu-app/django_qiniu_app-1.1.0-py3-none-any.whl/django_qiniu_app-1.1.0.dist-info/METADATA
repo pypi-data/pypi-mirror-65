@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: django-qiniu-app
+Version: 1.1.0
+Summary: django的七牛app
+Home-page: https://github.com/ramwin/django-qiniu-app
+Author: Xiang Wang
+Author-email: ramwin@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: django
+Requires-Dist: djangorestframework
+Requires-Dist: qiniu
+
+# django-qiniu-app
+django的七牛app. 
+
+# Install
+```
+pip install django-qiniu-app
+```
+
+# Usage
+```
+INSTALLED_APPS = [
+    ...
+    "django_qiniu",
+]
+python manage.py migrate
+```
+
+
