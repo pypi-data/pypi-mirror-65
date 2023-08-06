@@ -1,0 +1,14 @@
+numpy
+pandas
+six
+boto3
+
+[testing]
+pytest>=3.1
+pytest-cov
+pyspark
+nbformat
+nbconvert
+ipykernel
+jupyter_client
+moto
