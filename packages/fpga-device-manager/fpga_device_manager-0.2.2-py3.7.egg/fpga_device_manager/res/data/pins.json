@@ -1,0 +1,136 @@
+{
+  "1": {
+    "pwm": true,
+    "addr": 0
+  },
+  "2": {
+    "pwm": true,
+    "addr": 1
+  },
+  "3": {
+    "pwm": true,
+    "addr": 2
+  },
+  "4": {
+    "pwm": true,
+    "addr": 3
+  },
+  "6": {
+    "pwm": true,
+    "addr": 4
+  },
+  "9": {
+    "pwm": true,
+    "addr": 5
+  },
+  "10": {
+    "pwm": true,
+    "addr": 6
+  },
+  "11": {
+    "pwm": false,
+    "addr": 7
+  },
+  "12": {
+    "pwm": false,
+    "addr": 8
+  },
+  "13": {
+    "pwm": false,
+    "addr": 9
+  },
+  "14": {
+    "pwm": false,
+    "addr": 10
+  },
+  "19": {
+    "pwm": false,
+    "addr": 11
+  },
+  "20": {
+    "pwm": false,
+    "addr": 12
+  },
+  "21": {
+    "pwm": false,
+    "addr": 13
+  },
+  "22": {
+    "pwm": false,
+    "addr": 14
+  },
+  "23": {
+    "pwm": true,
+    "addr": 15
+  },
+  "25": {
+    "pwm": true,
+    "addr": 16
+  },
+  "26": {
+    "pwm": true,
+    "addr": 17
+  },
+  "27": {
+    "pwm": true,
+    "addr": 18
+  },
+  "32": {
+    "pwm": true,
+    "addr": 19
+  },
+  "33": {
+    "pwm": true,
+    "addr": 20
+  },
+  "34": {
+    "pwm": true,
+    "addr": 21
+  },
+  "35": {
+    "pwm": true,
+    "addr": 22
+  },
+  "97": {
+    "pwm": true,
+    "input": false,
+    "name": "D1",
+    "addr": 23
+  },
+  "98": {
+    "pwm": true,
+    "input": false,
+    "name": "D2",
+    "addr": 24
+  },
+  "99": {
+    "pwm": true,
+    "input": false,
+    "name": "D3",
+    "addr": 25
+  },
+  "100": {
+    "pwm": true,
+    "input": false,
+    "name": "D4",
+    "addr": 26
+  },
+  "104": {
+    "pwm": true,
+    "input": false,
+    "name": "D5",
+    "addr": 27
+  },
+  "105": {
+    "pwm": true,
+    "input": false,
+    "name": "D6",
+    "addr": 28
+  },
+  "106": {
+    "pwm": true,
+    "input": false,
+    "name": "D7",
+    "addr": 29
+  }
+}

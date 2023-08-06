@@ -1,0 +1,157 @@
+{
+  "1": {
+    "name": "Button",
+    "description": "An input device that sends a signal as long as it is active, and another when it is not. Generally used with a switch.",
+    "driver": "In_Button",
+    "uses_clk": true,
+    "compatible_devices": [1],
+    "pins": {
+      "signal": {
+        "active_low": false
+      }
+    }
+  },
+  "2": {
+    "name": "Toggle",
+    "description": "Sends two different signals that can be switched when the input fires. Usually hooked up to a push button.",
+    "driver": "In_Toggle",
+    "uses_clk": true,
+    "compatible_devices": [1],
+    "pins": {
+      "signal": {
+        "active_low": false
+      }
+    }
+  },
+  "3": {
+    "name": "Dimmer cycle button",
+    "description": "A button that, when hooked up to a Dimmer, cycles through 5 different brightness values when it is pressed.",
+    "driver": "In_Cycle_Dimmer",
+    "uses_clk": true,
+    "compatible_devices": [2],
+    "pins": {
+      "signal": {
+        "active_low": false
+      }
+    },
+    "parameters": {
+      "brightness_1": {
+        "name": "Brightness 1",
+        "type": "percent",
+        "description": "Brightness value 1. The device starts out in this state.",
+        "default": 0
+      },
+      "brightness_2": {
+        "name": "Brightness 2",
+        "type": "percent",
+        "description": "Brightness value 2.",
+        "default": 25
+      },
+      "brightness_3": {
+        "name": "Brightness 3",
+        "type": "percent",
+        "description": "Brightness value 3.",
+        "default": 50
+      },
+      "brightness_4": {
+        "name": "Brightness 4",
+        "type": "percent",
+        "description": "Brightness value 4.",
+        "default": 75
+      },
+      "brightness_5": {
+        "name": "Brightness 5",
+        "type": "percent",
+        "description": "Brightness value 5.",
+        "default": 100
+      }
+    }
+  },
+  "4": {
+    "name": "Color cycle button",
+    "description": "A button that, when hooked up to an RGB lamp, cycles through 8 different color settings when it is pressed. Use black (RGB 0, 0, 0) to turn the lamp off.",
+    "driver": "In_Cycle_RGB",
+    "uses_clk": true,
+    "compatible_devices": [3],
+    "pins": {
+      "signal": {
+        "active_low": false
+      }
+    },
+    "parameters": {
+      "color_1": {
+        "name": "Color 1",
+        "type": "color",
+        "description": "Color 1. The device starts out in this state.",
+        "default": 0
+      },
+      "color_2": {
+        "name": "Color 2",
+        "type": "color",
+        "description": "Color 2.",
+        "default": 16711680
+      },
+      "color_3": {
+        "name": "Color 3",
+        "type": "color",
+        "description": "Color 3.",
+        "default": 16742144
+      },
+      "color_4": {
+        "name": "Color 4",
+        "type": "color",
+        "description": "Color 4.",
+        "default": 16776960
+      },
+      "color_5": {
+        "name": "Color 5",
+        "type": "color",
+        "description": "Color 5.",
+        "default": 65280
+      },
+      "color_6": {
+        "name": "Color 6",
+        "type": "color",
+        "description": "Color 6.",
+        "default": 30719
+      },
+      "color_7": {
+        "name": "Color 7",
+        "type": "color",
+        "description": "Color 7.",
+        "default": 255
+      },
+      "color_8": {
+        "name": "Color 8",
+        "type": "color",
+        "description": "Color 8.",
+        "default": 16711935
+      }
+    }
+  },
+    "5": {
+    "name": "Shutter control",
+    "description": "Contains two buttons for moving a Shutter up or down. Holding a button makes the Shutter go all the way.",
+    "driver": "In_Shutter",
+    "uses_clk": true,
+    "compatible_devices": [4],
+    "pins": {
+      "up": {
+        "active_low": false
+      },
+      "down": {
+        "active_low": false
+      }
+    },
+    "parameters": {
+      "full_press_time": {
+        "name": "Full movement press time",
+        "description": "How long (in ms) the buttons need to be held down to move the shutter all the way.",
+        "type": "int",
+        "default": 2000,
+        "min": 500,
+        "max": 10000
+      }
+    }
+  }
+}
