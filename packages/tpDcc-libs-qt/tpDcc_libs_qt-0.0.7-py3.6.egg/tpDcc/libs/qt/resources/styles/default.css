@@ -1,0 +1,1497 @@
+/*
+ --------------------------------------------------------------------------
+ Default Style
+ --------------------------------------------------------------------------
+*/
+
+
+/*
+ --------------------------------------------------------------------------
+ Qt Widgets
+ --------------------------------------------------------------------------
+*/
+
+* {
+    font-family: @font_family;
+    color: @primary_text_color;
+    background-color: @background_color;
+    font-size: @default_font_size@unit;
+    selection-color: @text_color_inverse;
+    selection-background-color: @accent_color;
+}
+
+/*
+QScrollBar
+*/
+
+QScrollBar:horizontal
+{
+    border: 0 solid @border_color;
+    height: 9px;
+    margin: 0 32px 0 0;
+    background-color: @border_color;
+}
+
+QScrollBar::handle:horizontal
+{
+    background-color: @background_selected_color;
+    min-width: 10px;
+}
+
+QScrollBar::add-line:horizontal
+{
+    subcontrol-origin: margin;
+    subcontrol-position: right center;
+    background: @border_color;
+    width: 15px;
+}
+
+QScrollBar::sub-line:horizontal
+{
+    subcontrol-origin: margin;
+    subcontrol-position: right center;
+    background: @border_color;
+    width: 15px;
+    right: 16px;
+}
+
+QScrollBar::left-arrow:horizontal
+{
+    width: 9px;
+    height: 9px;
+    position: relative;
+    image: url(@left_icon);
+}
+
+QScrollBar::right-arrow:horizontal
+{
+    width: 9px;
+    height: 9px;
+    position: relative;
+    image: url(@right_icon);
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+    background: none;
+}
+
+QScrollBar:vertical
+{
+    border: 0 solid @border_color;
+    width: 9px;
+    margin: 0 0 32px 0 ;
+    background-color: @border_color;
+}
+
+QScrollBar::handle:vertical
+{
+    background-color: @background_selected_color;
+    min-height: 10px;
+}
+
+QScrollBar::add-line:vertical
+{
+    subcontrol-origin: margin;
+    subcontrol-position: center bottom;
+    background: @border_color;
+    height: 15px;
+}
+
+QScrollBar::sub-line:vertical
+{
+    subcontrol-origin: margin;
+    subcontrol-position: center bottom;
+    background: @border_color;
+    height: 15px;
+    bottom: 16px;
+}
+
+QScrollBar::up-arrow:vertical
+{
+    width: 9px;
+    height: 9px;
+    position: relative;
+    image: url(@up_icon)
+}
+
+QScrollBar::down-arrow:vertical
+{
+    width: 9px;
+    height: 9px;
+    position: relative;
+    image: url(@down_icon)
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+{
+    background: none;
+}
+
+/*
+QSplitter
+*/
+
+QSplitter::handle
+{
+    background-color: @border_color;
+    image: url(@splitter_icon);
+}
+
+QSplitter::handle:horizontal
+{
+    width: 2px;
+}
+
+QSplitter::handle:vertical
+{
+    height: 2px;
+}
+
+/*
+QSpinBox
+*/
+
+QAbstractSpinBox
+{
+    spacing: 4px;
+    border: 1px solid @border_color;
+    border-radius: 3px;
+    color: @primary_text_color;
+    background-color:@background_in_color;
+}
+
+QAbstractSpinBox:focus
+{
+    border: 1px solid @accent_color;
+}
+
+QAbstractSpinBox::up-button
+{
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    margin-top: 1px;
+    margin-right: 1px;
+    border-left: 1px solid @border_color;
+    background: @background_out_color;
+}
+
+QAbstractSpinBox::down-button
+{
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    border-left: 1px solid @border_color;
+    border-top: 1px solid @border_color;
+    background: @background_out_color;
+}
+
+QAbstractSpinBox::up-button:hover,
+QAbstractSpinBox::down-button:hover
+{
+    border-left: 1px solid @accent_color;
+}
+
+QAbstractSpinBox::up-arrow
+{
+    image: url(@up_icon);
+}
+
+QAbstractSpinBox::down-arrow
+{
+    image: url(@down_icon);
+}
+
+QAbstractSpinBox::up-arrow:disabled,
+/*QAbstractSpinBox::up-arrow:off,*/
+QAbstractSpinBox::down-arrow:disabled
+/*QAbstractSpinBox::down-arrow:off*/
+{
+    background-color: @disable_color;
+}
+
+/*
+QComboBox
+*/
+
+
+QCombBox > QLineEdit{
+    background-color: red;
+}
+
+/*
+QToolButton
+*/
+
+QToolButton#qt_calendar_prevmonth
+{
+    qproperty-icon: url(@left_icon);
+}
+
+QToolButton#qt_calendar_nextmonth
+{
+    qproperty-icon: url(@right_icon);
+}
+
+QToolButton#qt_calendar_monthbutton
+{
+    padding-right: 20px;
+}
+
+QToolButton#qt_calendar_yearbutton
+{
+    padding-right: 20px;
+}
+
+QToolButton#qt_calendar_monthbutton::menu-indicator
+{
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    right: 0;
+    width: 10px;
+}
+
+QCalendarWidget QWidget
+{
+  alternate-background-color: @background_out_color;
+}
+
+
+/*
+QCalendarWidget
+*/
+
+#qt_calendar_calendarview
+{
+    background: @background_color;
+}
+
+#qt_calendar_navigationbar
+{
+    background: @background_color;
+}
+
+QCalenderWidget > QToolButton
+{
+    icon-size: 14px, 14px;
+    width: 16px;
+    height: 16px;
+    background: @background_out_color;
+}
+
+/*
+ --------------------------------------------------------------------------
+ tpDcc
+ --------------------------------------------------------------------------
+*/
+
+/*
+ --------------------------------------------------------------------------
+ Sizes
+ --------------------------------------------------------------------------
+*/
+
+QAbstractButton[theme_size="@tiny"],
+QAbstractSpinBox[theme_size="@tiny"],
+QComboBox[theme_size="@tiny"],
+QLineEdit[theme_size="@tiny"]
+{
+    font-size: @font_size_small@unit;
+    border-radius: @border_radius_small@unit;
+    min-height: @tiny@unit;
+    max-height: @tiny@unit;
+}
+
+QAbstractButton[theme_size="@small"],
+QAbstractSpinBox[theme_size="@small"],
+QComboBox[theme_size="@small"],
+QLineEdit[theme_size="@small"]
+{
+    font-size: @font_size_small@unit;
+    border-radius: @border_radius_small@unit;
+    min-height: @small@unit;
+    max-height: @small@unit;
+}
+
+QAbstractButton[theme_size="@medium"],
+QAbstractSpinBox[theme_size="@medium"],
+QComboBox[theme_size="@medium"],
+QLineEdit[theme_size="@medium"]
+{
+    font-size: @font_size_base@unit;
+    border-radius: @border_radius_base@unit;
+    min-height: @medium@unit;
+    max-height: @medium@unit;
+}
+
+QAbstractButton[theme_size="@large"],
+QAbstractSpinBox[theme_size="@large"],
+QComboBox[theme_size="@large"],
+QLineEdit[theme_size="@large"]
+{
+    font-size: @font_size_large@unit;
+    border-radius: @border_radius_large@unit;
+    min-height: @large@unit;
+    max-height: @large@unit;
+}
+
+QAbstractButton[theme_size="@huge"],
+QAbstractSpinBox[theme_size="@huge"],
+QComboBox[theme_size="@huge"],
+QLineEdit[theme_size="@huge"]
+{
+    font-size: @font_size_large@unit;
+    border-radius: @border_radius_large@unit;
+    min-height: @huge@unit;
+    max-height: @huge@unit;
+}
+
+QAbstractSpinBox[theme_size="@tiny"]::up-button
+{
+    width: 18px;
+    border-top-right-radius: @border_radius_small@unit;
+}
+
+QAbstractSpinBox[theme_size="@tiny"]::down-button
+{
+    width: 18px;
+    border-bottom-right-radius: @border_radius_small@unit;
+}
+
+QAbstractSpinBox[theme_size="@small"]::up-button
+{
+    width: 20px;
+    border-top-right-radius: @border_radius_small@unit;
+}
+
+QAbstractSpinBox[theme_size="@small"]::down-button
+{
+    width: 20px;
+    border-bottom-right-radius: @border_radius_small@unit;
+}
+
+QAbstractSpinBox[theme_size="@medium"]::up-button
+{
+    width: 24px;
+    border-top-right-radius: @border_radius_base@unit;
+}
+
+QAbstractSpinBox[theme_size="@medium"]::down-button
+{
+    width: 24px;
+    border-bottom-right-radius: @border_radius_base@unit;
+}
+
+QAbstractSpinBox[theme_size="@large"]::up-button
+{
+    width: 26px;
+    border-top-right-radius: @border_radius_large@unit;
+}
+
+QAbstractSpinBox[theme_size="@large"]::down-button
+{
+    width: 26px;
+    border-bottom-right-radius: @border_radius_large@unit;
+}
+
+QAbstractSpinBox[theme_size="@huge"]::up-button
+{
+    width: 28px;
+    border-top-right-radius: @border_radius_large@unit;
+}
+
+QAbstractSpinBox[theme_size="@huge"]::down-button
+{
+    width: 28px;
+    border-bottom-right-radius: @border_radius_large@unit;
+}
+
+QAbstractSpinBox[theme_size="@tiny"]::up-arrow,
+QAbstractSpinBox[theme_size="@tiny"]::down-arrow {
+    width: 6px;
+    height: 6px;
+}
+
+QAbstractSpinBox[theme_size="@small"]::up-arrow,
+QAbstractSpinBox[theme_size="@small"]::down-arrow
+{
+    width: 8px;
+    height: 8px;
+}
+
+QAbstractSpinBox[theme_size="@medium"]::up-arrow,
+QAbstractSpinBox[theme_size="@medium"]::down-arrow
+{
+    width: 10px;
+    height: 10px;
+}
+
+QAbstractSpinBox[theme_size="@large"]::up-arrow,
+QAbstractSpinBox[theme_size="@large"]::down-arrow
+{
+    width: 12px;
+    height: 12px;
+}
+
+QAbstractSpinBox[theme_size="@huge"]::up-arrow,
+QAbstractSpinBox[theme_size="@huge"]::down-arrow
+{
+    width: 14px;
+    height: 14px;
+}
+
+/*
+BaseLabel
+*/
+
+BaseLabel
+{
+    padding: 2px;
+    background-color: transparent;
+    font-size: @font_size_base@unit;
+    color: @primary_text_color;
+    font-weight: 400;
+}
+
+BaseLabel[theme_level="1"]
+{
+    font-size: @h1_size@unit;
+    font-weight: 500;
+    color: @title_color;
+}
+BaseLabel[theme_level="2"]
+{
+    font-size: @h2_size@unit;
+    font-weight: 500;
+    color: @title_color;
+}
+BaseLabel[theme_level="3"]
+{
+    font-size: @h3_size@unit;
+    font-weight: 500;
+    color: @title_color;
+}
+BaseLabel[theme_level="4"]
+{
+    font-size: @h4_size@unit;
+    font-weight: 500;
+    color: @title_color;
+}
+
+BaseLabel[theme_underline=true]
+{
+    text-decoration: underline;
+}
+
+BaseLabel[theme_delete=true]
+{
+    text-decoration: line-through;
+}
+
+BaseLabel[theme_strong=true]
+{
+    font-weight: bold;
+}
+
+BaseLabel[theme_code=true]
+{
+    background-color: @background_out_color;
+    border: 1px solid @border_color;
+}
+
+BaseLabel[theme_mark=true]
+{
+    background-color: @warning_1;
+}
+
+BaseLabel[theme_type=danger]
+{
+    color: @error_6;
+}
+
+BaseLabel[theme_type=warning]
+{
+    color: @warning_6;
+}
+
+BaseLabel[theme_type=secondary]
+{
+    color: @secondary_text_color;
+}
+
+BaseLabel:disabled
+{
+    color:@disable_color;
+}
+
+/*
+BaseMenu
+*/
+
+BaseMenu
+{
+    background-color: @background_color;
+    padding: 0;
+    border-radius: 2px;
+    border: 1px solid @border_color;
+}
+
+BaseMenu[checked=true]
+{
+    color: @accent_color;
+    background-color: @background_out_color;
+}
+
+BaseMenu::item
+{
+    padding: 2px 2px;
+}
+
+BaseMenu::item
+{
+    padding: 8px auto;
+}
+
+BaseMenu::item:checked
+{
+    color: @accent_color;
+    background-color: @background_out_color;
+}
+
+BaseMenu::item:selected
+{
+    background-color: @background_out_color;
+}
+
+BaseMenu::indicator {
+    left: 6px;
+}
+
+BaseMenu::indicator:non-exclusive
+{
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    border: 1px solid @border_color;
+    background-color: @background_in_color;
+}
+
+BaseMenu::indicator:non-exclusive:disabled
+{
+    border: 1px solid @border_color;
+    background-color: @background_selected_color;
+}
+
+BaseMenu::indicator:non-exclusive:hover
+{
+    border: 1px solid @accent_color_5;
+    background-color: @background_in_color;
+}
+
+BaseMenu::indicator:non-exclusive:checked
+{
+    background-color: @accent_color;
+    image: url(@check_icon);
+}
+
+BaseMenu::indicator:non-exclusive:checked:disabled
+{
+    background-color: @disable_color;
+}
+
+BaseMenu::indicator:exclusive
+{
+    width: 14px;
+    height: 14px;
+    border-radius: 8px;
+    border: 1px solid @border_color;
+    background-color: @background_in_color;
+}
+
+BaseMenu::indicator:exclusive:disabled
+{
+    border: 1px solid @border_color;
+    background-color: @background_selected_color;
+}
+
+BaseMenu::indicator:exclusive:hover
+{
+    border: 1px solid @accent_color_5;
+}
+
+BaseMenu::indicator:exclusive:checked
+{
+    background-color: @accent_color;
+    image: url(@circle_icon);
+}
+
+BaseMenu::indicator:exclusive:checked:disabled
+{
+    background-color: @disable_color;
+}
+
+/*
+BaseButton
+*/
+
+BaseButton
+{
+    font-weight: 400;
+    border-radius: 5%;
+    padding: 1% 10%;
+}
+
+BaseButton[theme_type=default]
+{
+    background-color: @background_out_color;
+    border: 1px solid @border_color;
+}
+
+BaseButton[theme_type=default]:hover{
+    border-color: @accent_color_5;
+}
+
+BaseButton[theme_type=default]:pressed{
+    border-color: @accent_color_7;
+}
+
+BaseButton[theme_type=primary]
+{
+    border: none;
+    color: @text_color_inverse;
+    background-color: @accent_color;
+}
+
+BaseButton[theme_type=primary]:hover{
+    background-color: @accent_color_5;
+}
+
+BaseButton[theme_type=primary]:pressed{
+    background-color: @accent_color_7;
+}
+
+BaseButton[theme_type=success]
+{
+    border: none;
+    color: @text_color_inverse;
+    background-color: @success_6;
+}
+
+BaseButton[theme_type=success]:hover{
+    background-color: @success_5;
+}
+
+BaseButton[theme_type=success]:pressed{
+    background-color: @success_7;
+}
+
+BaseButton[theme_type=warning]
+{
+    border: none;
+    color: @text_color_inverse;
+    background-color: @warning_6;
+}
+
+BaseButton[theme_type=warning]:hover{
+    background-color: @warning_5;
+}
+
+BaseButton[theme_type=warning]:pressed{
+    background-color: @warning_7;
+}
+
+BaseButton[theme_type=danger]
+{
+    border: none;
+    color: @text_color_inverse;
+    background-color: @error_6;
+}
+
+BaseButton[theme_type=danger]:hover
+{
+    background-color: @error_5;
+}
+
+BaseButton[theme_type=danger]:pressed
+{
+    background-color: @error_7;
+}
+
+BaseButton[theme_size="@tiny"]
+{
+    qproperty-iconSize: @tiny_icon@unit @tiny_icon@unit;
+}
+
+BaseButton[theme_size="@small"]
+{
+    qproperty-iconSize: @small_icon@unit @small_icon@unit;
+}
+
+BaseButton[theme_size="@medium"]
+{
+    qproperty-iconSize: @medium_icon@unit @medium_icon@unit;
+}
+
+BaseButton[theme_size="@large"]
+{
+    qproperty-iconSize: @large_icon@unit @large_icon@unit;
+}
+
+BaseButton[theme_size="@huge"]
+{
+    qproperty-iconSize: @huge_icon@unit @huge_icon@unit;
+}
+
+BaseButton[combine=horizontal][position=left]{
+    margin-left: 1px;
+    border-left: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+BaseButton[combine=horizontal][position=right]
+{
+    border-right: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+BaseButton[combine=horizontal][position=center]
+{
+    /*border: none;*/
+    border-radius: 0;
+}
+BaseButt
+on[combine=vertical][position=top]
+{
+    border-top: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+BaseButton[combine=vertical][position=bottom]
+{
+    border-bottom: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+BaseButton::menu-indicator
+{
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    right: 5px;
+    bottom: 5px;
+    height: 10px;
+    width: 10px;
+    image: url(@down_icon);
+}
+
+BaseButton:disabled
+{
+    color: @disable_color;
+    border: 2px dashed @disable_color;
+    padding: none;
+    background-color: @background_color;
+}
+
+/*
+BaseToolButton
+*/
+
+BaseToolButton
+{
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+BaseToolButton:hover
+{
+    color: @accent_color_5;
+}
+
+BaseToolButton:pressed
+{
+    color: @accent_color_7;
+}
+
+BaseToolButton:checked
+{
+    background-color: @accent_color_9;
+}
+
+BaseToolButton:disabled
+{
+    background-color: @disable_color;
+}
+
+BaseToolButton[theme_size="@tiny"]
+{
+    qproperty-iconSize: @tiny_icon@unit @tiny_icon@unit;
+}
+
+BaseToolButton[theme_size="@small"]
+{
+    qproperty-iconSize: @small_icon@unit @small_icon@unit;
+}
+
+BaseToolButton[theme_size="@medium"]
+{
+    qproperty-iconSize: @medium_icon@unit @medium_icon@unit;
+}
+
+BaseToolButton[theme_size="@large"]
+{
+    qproperty-iconSize: @large_icon@unit @large_icon@unit;
+}
+
+BaseToolButton[theme_size="@huge"]
+{
+    qproperty-iconSize: @huge_icon@unit @huge_icon@unit;
+}
+
+BaseToolButton[combine=horizontal]
+{
+    border-radius: 0;
+}
+
+BaseToolButton[combine=vertical]
+{
+    border-radius: 0;
+}
+
+BaseToolButton::menu-indicator {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    right: 5px;
+    bottom: 5px;
+    height: 10px;
+    width: 10px;
+    image: url(@down_icon);
+}
+
+
+/*
+BaseRadioButton
+ */
+
+BaseRadioButton
+{
+    spacing: 4px;
+}
+
+BaseRadioButton:disabled
+{
+    color: @disable_color;
+}
+
+BaseRadioButton::indicator
+{
+    width: 14px;
+    height: 14px;
+    border-radius: 8px;
+    border: 1px solid @border_color;
+    background-color: @background_in_color;
+}
+
+BaseRadioButton::indicator:disabled
+{
+    border: 1px solid @border_color;
+    background-color: @background_selected_color;
+}
+
+BaseRadioButton::indicator:hover
+{
+    border: 1px solid @accent_color_5;
+}
+
+BaseRadioButton::indicator:checked
+{
+    background-color: @accent_color;
+    image: url(@radio_checked_icon);
+}
+
+BaseRadioButton::indicator:checked:disabled
+{
+    background-color: @disable_color;
+}
+
+BaseRadioButton::indicator:unchecked
+{
+    image: url(@radio_unchecked_icon);
+}
+
+/*
+BaseComboBox
+*/
+
+BaseComboBox::drop-down
+{
+    subcontrol-origin: content;
+    subcontrol-position: center right;
+    image: url(@down_icon);
+    border: 1px solid @border_color;
+    background-color: @background_in_color;
+}
+
+BaseComboBox:focus
+{
+    border: 1px solid @accent_color_5;
+}
+
+BaseComboBox:hover
+{
+    border: 1px solid @accent_color_7;
+}
+
+BaseComboBox[theme_size="@tiny"]::drop-down
+{
+    width: @tiny@unit;
+    height: @tiny_icon@unit;
+}
+
+BaseComboBox[theme_size="@small"]::drop-down
+{
+    width: @small@unit;
+    height: @small_icon@unit;
+}
+
+BaseComboBox[theme_size="@medium"]::drop-down
+{
+    width: @medium@unit;
+    height: @medium_icon@unit;
+}
+
+BaseComboBox[theme_size="@large"]::drop-down
+{
+    width: @large@unit;
+    height: @large_icon@unit;
+}
+
+
+BaseComboBox[theme_size="@huge"]::drop-down
+{
+    width: @huge@unit;
+    height: @huge_icon@unit;
+}
+
+BaseComboBox[combine=horizontal][position=left]
+{
+    margin-left: 1px;
+    border-left: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+BaseComboBox[combine=horizontal][position=right]
+{
+    border-right: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+BaseComboBox[combine=horizontal][position=center]
+{
+    border-radius: 0;
+}
+
+BaseComboBox[combine=vertical][position=top]
+{
+    border-top: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+BaseComboBox[combine=vertical][position=bottom]
+{
+    border-bottom: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/*
+BaseSlider
+*/
+
+BaseSlider::groove:horizontal
+{
+    border-radius: 3px;
+    height: 4px;
+}
+
+BaseSlider::handle
+{
+    background: @background_in_color;
+    border: 2px solid @accent_color;
+    width: 8px;
+    height: 8px;
+    border-radius: 6px;
+}
+
+BaseSlider::handle:hover
+{
+    background-color: @accent_color;
+    border: 2px solid @accent_color_2;
+}
+
+BaseSlider::handle:horizontal
+{
+    margin: -4px 0;
+}
+
+BaseSlider::groove:vertical
+{
+    border-radius: 3px;
+    width: 4px;
+}
+
+BaseSlider::handle:vertical
+{
+    margin: 0 -4px;
+}
+
+BaseSlider::add-page:horizontal
+{
+    background: @border_color;
+}
+
+BaseSlider::sub-page:horizontal
+{
+    background: @accent_color;
+}
+
+BaseSlider::add-page:vertical
+{
+    background: @accent_color;
+}
+
+BaseSlider::sub-page:vertical
+{
+    background: @border_color;
+}
+
+/*
+SwitchWidget
+*/
+
+SwitchWidget
+{
+    spacing: -20px;
+}
+
+SwitchWidget::indicator{
+    subcontrol-origin: border;
+    subcontrol-position: center left;
+    image: url(@radio_checked_icon);
+}
+
+SwitchWidget[theme_size="@tiny"]::indicator
+{
+    width: 18@unit;
+    height: 10@unit;
+    border-radius: 5@unit;
+}
+
+SwitchWidget[theme_size="@small"]::indicator
+{
+    width: 28@unit;
+    height: 14@unit;
+    border-radius: 7@unit;
+}
+
+SwitchWidget[theme_size="@medium"]::indicator
+{
+    width: 38@unit;
+    height: 19@unit;
+    border-radius: 9@unit;
+}
+
+SwitchWidget[theme_size="@large"]::indicator
+{
+    width: 48@unit;
+    height: 24@unit;
+    border-radius: 12@unit;
+}
+
+SwitchWidget[theme_size="@huge"]::indicator
+{
+    width: 56@unit;
+    height: 30@unit;
+    border-radius: 15@unit;
+}
+
+SwitchWidget::indicator:checked
+{
+    image-position: center right;
+    background-color: @accent_color;
+}
+
+SwitchWidget::indicator:unchecked
+{
+    image-position: center left;
+    background-color: @background_selected_color;
+}
+
+SwitchWidget::indicator:disabled
+{
+    background-color: @disable_color;
+}
+
+/*
+BaseDateTimeEdit
+*/
+
+BaseDateTimeEdit::drop-down
+{
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    image: url(@calendar_icon);
+}
+
+BaseDateTimeEdit[theme_size="@tiny"]::drop-down
+{
+    width: @tiny@unit;
+    height: @tiny_icon@unit;
+}
+
+BaseDateTimeEdit[theme_size="@small"]::drop-down
+{
+    width: @small@unit;
+    height: @small_icon@unit;
+}
+
+BaseDateTimeEdit[theme_size="@medium"]::drop-down
+{
+    width: @medium@unit;
+    height: @medium_icon@unit;
+}
+
+BaseDateTimeEdit[theme_size="@large"]::drop-down
+{
+    width: @large@unit;
+    height: @large_icon@unit;
+}
+
+
+BaseDateTimeEdit[theme_size="@huge"]::drop-down
+{
+    width: @huge@unit;
+    height: @huge_icon@unit;
+}
+
+
+/*
+BaseDateEdit
+*/
+
+BaseDateEdit::drop-down
+{
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    image: url(@calendar_icon);
+}
+
+BaseDateEdit[theme_size="@tiny"]::drop-down
+{
+    width: @tiny@unit;
+    height: @tiny_icon@unit;
+}
+
+BaseDateEdit[theme_size="@small"]::drop-down
+{
+    width: @small@unit;
+    height: @small_icon@unit;
+}
+
+BaseDateEdit[theme_size="@medium"]::drop-down
+{
+    width: @medium@unit;
+    height: @medium_icon@unit;
+}
+
+BaseDateEdit[theme_size="@large"]::drop-down
+{
+    width: @large@unit;
+    height: @large_icon@unit;
+}
+
+
+BaseDateEdit[theme_size="@huge"]::drop-down
+{
+    width: @huge@unit;
+    height: @huge_icon@unit;
+}
+
+/*
+BaseMessage
+*/
+
+BaseMessage
+{
+    border: 1px solid @border_color;
+    border-radius: 4px;
+}
+
+BaseMessage[theme_type=info]{
+    border-color: @info_3;
+    background-color: @info_1;
+}
+
+BaseMessage[theme_type=success]{
+    border-color: @success_3;
+    background-color: @success_1;
+}
+
+BaseMessage[theme_type=warning]{
+    border-color: @warning_3;
+    background-color: @warning_1;
+}
+
+BaseMessage[theme_type=error]{
+    border-color: @error_3;
+    background-color: @error_1;
+}
+
+/*
+Avatar
+*/
+
+Avatar
+{
+    background-color: transparent;
+}
+
+/*
+Badge
+*/
+
+Badge
+{
+    margin: 0;
+}
+
+Badge > QPushButton
+{
+    font-size:10px;
+    min-height:16px;
+    max-height:16px;
+    min-width:16px;
+    border-radius: 8px;
+    background-color: red;
+    border: none;
+    color: white;
+    font-weight:bold;
+    margin: 0;
+}
+
+Badge[dot=true] > QPushButton
+{
+    min-height:8px;
+    max-height:8px;
+    min-width:8px;
+    max-width:8px;
+    border-radius: 4px;
+    padding: 0 0;
+}
+
+
+/*
+BaseCard
+*/
+
+BaseCard[border=true]
+{
+    border: 1px solid @border_color;
+    border-radius: @border_radius_small@unit;
+}
+
+BaseCard[border=false]
+{
+    border: 0 solid @border_color;
+    border-radius: @border_radius_small@unit;
+    background-color: @background_in_color;
+}
+
+/*
+MetaCard
+*/
+
+MetaCard
+{
+    border: 1px solid @border_color;
+    border-radius: @border_radius_small@unit;
+    background-color: @background_in_color;
+}
+
+/*
+ Window Dragger
+*/
+
+WindowDragger {
+    background-color: @window_dragger_color;
+    border-top-left-radius: @window_dragger_rounded_corners@unit;
+    border-top-right-radius: @window_dragger_rounded_corners@unit;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+ToolsetFrame {
+    background-color: @window_dragger_color;
+}
+
+ToolsetFrame QFrame {
+    background-color: @window_dragger_color;
+}
+
+ClippedLabel#WindowDraggerLabel {
+    color: @window_dragger_label_color;
+    background-color: @window_dragger_color;
+    font-weight: bold;
+    font-size: @window_dragger_font_size@unit;
+}
+
+WindowContents {
+    background-color: @background_color;
+    border-top-left-radius: 0@unit;
+    border-top-right-radius: 0@unit;
+    border-bottom-left-radius: @window_rounded_corners@unit;
+    border-bottom-right-radius: @window_rounded_corners@unit;
+}
+
+/*
+SliderPanel
+*/
+
+SliderPanel
+{
+    padding: 2px;
+    border: 1px solid @border_color;
+    border-radius: 2px;
+    background-color: @background_color;
+}
+
+/*
+PopupMessage
+*/
+
+PopupMessage
+{
+    padding: 2px;
+    border: 1px solid @border_color;
+    border-radius: 2px;
+    background-color: @background_color;
+}
+
+/*
+MenuTabWidget
+*/
+
+MenuTabWidget::pane
+{
+    /* The tab widget frame */
+    border: 1px solid @border_color;
+    border-radius: 3px;
+    top: -1px;
+    background-color: @background_color;
+}
+
+MenuTabWidget::tab-bar
+{
+    padding: 5px;
+}
+
+/*!**/
+/* Stack*/
+/**!*/
+
+/*StackItem#title {*/
+/*    background-color: STACK_ITEM_BACKGROUND_COLOR;*/
+/*}*/
+
+/*StackItem#title:hover {*/
+/*    border: 0px solid transparent;*/
+/*    background-color: HOVER_BACKGROUND_COLOR;*/
+/*}*/
+
+/*StackItem .QToolButton{*/
+/*    background-color: transparent;*/
+/*    border-color: transparent;*/
+/*}*/
+
+/*!*StackItem QLineEdit*!*/
+/*!*{*!*/
+/*!*    background-color: transparent;*!*/
+/*!*}*!*/
+
+/*StackTitleFrame {*/
+/*    background-color: STACK_ITEM_BACKGROUND_COLOR;*/
+/*    border-radius: ONE_PIXELpx;*/
+/*}*/
+
+/*StackTitleFrame#selected {*/
+/*    background-color: PRIMARY_COLOR;*/
+/*    border-radius: ONE_PIXELpx;*/
+/*}*/
+
+/*StackTitleFrame QLineEdit*/
+/*{*/
+/*    background-color: transparent;*/
+/*}*/
+
+/*StackTitleFrame QLineEdit:focus {*/
+/*    background-color: transparent;*/
+/*}*/
+
+
+/*StackTitleFrame QLineEdit:disabled {*/
+/*    color: transparent;*/
+/*}*/
+
+/*StackTitleFrame QLineEdit#disabled*/
+/*{*/
+/*    color: STACK_TITLE_DISABLED;*/
+/*}*/
+
+/*!**/
+/* Search*/
+/**!*/
+
+
+/*SearchFindWidget {*/
+/*    background-color: red;*/
+/*}*/
+/*SearchFindWidget QLineEdit {*/
+/*    background-color: BACKGROUND_COLOR_DARKER;*/
+/*}*/
+
+/*SearchWidget, SearchWidget QLabel {*/
+/*	font: 22*DPIpx;*/
+/*	height: 35px;*/
+/*	padding: 0 2px;*/
+/*	color: ACCENT_FOREGROUND_COLOR;*/
+/*	background-color: ACCENT_COLOR;*/
+/*	selection-background-color: rgb(ACCENT_FOREGROUND_COLOR_R, ACCENT_FOREGROUND_COLOR_G, ACCENT_FOREGROUND_COLOR_B, 210);*/
+/*	selection-color: ACCENT_COLOR;*/
+/*}*/
+
+/*SearchWidget:focus {*/
+/*	border: 0px;*/
+/*	border-bottom: 0px solid rgb(255, 255, 255, 0);*/
+/*	background-color: rgb(255, 255, 255, 50);*/
+/*	selection-background-color: rgb(255, 255, 255, 240);*/
+/*	selection-color: ACCENT_COLOR;*/
+/*}*/
+
+/*SearchWidget QLabel {*/
+/*	border: 0px;*/
+/*	color: FOREGROUND_COLOR;*/
+/*}*/
+
+/*SearchWidget QPushButton, SearchWidget QPushButton:hover {*/
+/*	border: 0px;*/
+/*	padding: 0 2px;*/
+/*	color: ACCENT_FOREGROUND_COLOR;*/
+/*	background-color: rgb(255, 255, 255, 0);*/
+/*}*/
