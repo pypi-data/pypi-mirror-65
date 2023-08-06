@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: tbmodels
+Version: 1.4.0
+Summary: A tool for reading, creating and modifying tight-binding models.
+Home-page: https://tbmodels.greschd.ch
+Author: Dominik Gresch
+Author-email: greschd@gmx.ch
+License: Apache 2.0
+Keywords: tight-binding,condensed matter,solid-state,physics,materials science
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy (>=0.15)
+Requires-Dist: h5py
+Requires-Dist: fsc.export
+Requires-Dist: symmetry-representation (>=0.2)
+Requires-Dist: click (!=7.1.0,>=7.0)
+Requires-Dist: bands-inspect
+Requires-Dist: fsc.hdf5-io (>=0.6.0)
+Provides-Extra: dev
+Requires-Dist: kwant ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pythtb ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: ipython (>=7.10) ; extra == 'dev'
+Requires-Dist: sphinx-click ; extra == 'dev'
+Requires-Dist: black (==19.10b0) ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: prospector (==1.2.0) ; extra == 'dev'
+Requires-Dist: pylint (==2.4.4) ; extra == 'dev'
+Requires-Dist: mypy (==0.770) ; extra == 'dev'
+Provides-Extra: kwant
+Requires-Dist: kwant ; extra == 'kwant'
+
+<!--
+(c) 2015-2018, ETH Zurich, Institut fuer Theoretische Physik
+Author: Dominik Gresch <greschd@gmx.ch>
+-->
+
+# TBmodels
+
+A tool for creating, modifying and evaluating tight-binding models
+
+- Documentation: <https://tbmodels.greschd.ch>
+
+[![Build Status](https://travis-ci.org/Z2PackDev/TBmodels.svg?branch=dev)](https://travis-ci.org/Z2PackDev/TBmodels)
+[![Documentation Status](https://readthedocs.org/projects/tbmodels/badge/?version=latest)](https://tbmodels.greschd.ch/en/latest/?badge=latest)
+[![codecov](https://codecov.io/gh/Z2PackDev/TBmodels/branch/dev/graph/badge.svg)](https://codecov.io/gh/Z2PackDev/TBmodels)
+
+
