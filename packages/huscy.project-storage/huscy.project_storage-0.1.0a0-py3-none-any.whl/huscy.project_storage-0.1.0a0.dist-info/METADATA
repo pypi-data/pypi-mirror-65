@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: huscy.project-storage
+Version: 0.1.0a0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Khaled Bahlawan
+Author-email: Khaled_Engineer92@hotmail.com
+License: AGPLv3+
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Requires-Dist: Django (>=2.0)
+Requires-Dist: djangorestframework (>=3.10)
+Requires-Dist: huscy.projects
+Provides-Extra: development
+Requires-Dist: psycopg2-binary ; extra == 'development'
+Provides-Extra: docs
+Requires-Dist: django-extensions ; extra == 'docs'
+Requires-Dist: pydot ; extra == 'docs'
+Provides-Extra: testing
+Requires-Dist: tox ; extra == 'testing'
+Requires-Dist: watchdog (==0.9) ; extra == 'testing'
+
+UNKNOWN
+
+
