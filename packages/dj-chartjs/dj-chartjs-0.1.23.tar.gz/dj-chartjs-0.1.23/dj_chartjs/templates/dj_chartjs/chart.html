@@ -1,0 +1,24 @@
+{% load static %}
+<!--<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.4.0/dist/chartjs-plugin-datalabels.min.js"></script> -->
+<canvas width="{{ width }}" height="{{ height }}" id="chart_view"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+<script type="text/javascript">
+    var chartOptions = {{ chart.options|safe }};
+    var tooltip = "{{ chart.tooltip }}";
+    callback = {
+        callbacks: {
+            label: function(tooltipItem,data) {
+                var dataset = data.datasets[tooltipItem.datasetIndex];
+                return tooltip + dataset.data[tooltipItem.index];
+            }
+        }
+    }
+    chartOptions.tooltips = Object.assign(callback);
+    $(function(){       
+        new Chart(document.getElementById("chart_view"), {
+            type: "{{ type_chart }}",
+            data: {{ chart.data|safe }},
+            options: chartOptions
+        });
+    });
+</script>
