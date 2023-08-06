@@ -1,0 +1,15 @@
+README.rst
+setup.py
+pynomial/__init__.py
+pynomial/pynomial_configuration.py
+pynomial.egg-info/PKG-INFO
+pynomial.egg-info/SOURCES.txt
+pynomial.egg-info/dependency_links.txt
+pynomial.egg-info/not-zip-safe
+pynomial.egg-info/requires.txt
+pynomial.egg-info/top_level.txt
+pynomial/azure/__init__.py
+pynomial/azure/access_manager.py
+pynomial/data_source/__init__.py
+pynomial/data_source/connection.py
+pynomial/data_source/odbc_connection.py
