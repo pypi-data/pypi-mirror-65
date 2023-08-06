@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: canano
+Version: 0.0.3
+Summary: Python library for Canano Raspberry Pi add-on board
+Home-page: https://github.com/Tbruno25/canano
+Author: Tj Bruno
+Author-email: Tbruno25@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: aenum (==2.2.3)
+Requires-Dist: in-place (==0.4.0)
+Requires-Dist: python-can (==3.3.2)
+Requires-Dist: RPi.GPIO (==0.7.0)
+Requires-Dist: wrapt (==1.12.1)
+
+# canano
+
+Python library for Canano Raspberry Pi add-on board.
+
+## Installation
+
+Use [pip](https://pip.pypa.io/en/stable/) to install package on Raspberry Pi
+
+```bash
+pip install canano
+```
+Copy ```/scripts``` using [svn](https://subversion.apache.org/) or by cloning the repo
+```bash
+sudo svn checkout https://github.com/Tbruno25/canano/trunk/scripts
+```
+
+Run ```rpi_setup.py``` to modify ```/boot/config``` and ```/etc/network/interfaces```  for use with the canano board
+
+```bash
+sudo python3 scripts/rpi_setup.py
+sudo reboot
+```
+
+
+
+
+## Usage
+
+```python
+from canano import canano, relay
+
+relay.on() # activate
+relay.off() # deactivate
+
+canano.interface.state # returns socketcan state
+canano.state # returns python-can state
+canano.baud = 250000 # sets bus baudrate to 250k
+canano.bus.recv() # returns next message
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+
