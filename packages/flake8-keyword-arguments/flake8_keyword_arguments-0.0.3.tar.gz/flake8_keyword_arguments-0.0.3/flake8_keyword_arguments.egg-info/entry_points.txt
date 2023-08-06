@@ -1,0 +1,3 @@
+[flake8.extension]
+FKA = flake8_keyword_arguments.checker:KeywordArgumentsChecker
+
