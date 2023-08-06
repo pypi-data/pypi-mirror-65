@@ -1,0 +1,42 @@
+# config.yml
+1: a
+a: 1
+666: ww
+
+email:
+  biz:
+    subject: 邮件测试
+    receivers: [yuanjie@xiaomi.com,]
+    msg: 测试信息,
+    emoji: ↓
+    msg_prefix: ↓
+    msg_suffix: ↑
+    date: 20200202
+    msg_fn: 'lambda x: x'
+  watchdog.hdfs:
+    subject: watchdog.hdfs文件监控
+    receivers: [yuanjie@xiaomi.com,]
+    msg: 测试信息,
+    emoji: ↓
+    msg_prefix: HDFS文件监控\n
+    msg_suffix: mipush@xiaomi.com
+    date: 20200202
+    msg_fn: 'lambda x: x'
+
+watchdog:
+  hdfs: [
+    /user/h_data_platform/platform/browser/mipush_train_real_expose_label,
+    /user/h_browser/guoziyue/PushUserFeature_tmp,
+    /user/h_data_platform/platform/browser/push_doc_feats,
+    /user/h_data_platform/platform/browser/mipush_train_libsvm,
+    /user/h_data_platform/platform/browser/user_recall_feats_v33,
+    /user/h_data_platform/platform/browser/user_recall_feats_v33_300_599,
+    /user/h_data_platform/platform/browser/push_user_activity_today,
+    /user/h_data_platform/platform/browser/user_embedding_feats,
+    /user/h_data_platform/platform/browser/user_receive_push_count,
+    /user/h_data_platform/platform/browser/push_profile_mifeeds_algo,
+    /user/h_browser/algo/guoziyue/push_doc_feats_xk,
+    /user/h_data_platform/platform/browser/xkpush_real_expose_train,
+    /user/h_data_platform/platform/browser/xiangkan_user_recall_feats_v33,
+    /user/h_data_platform/platform/browser/xiangkan_user_embedding_feats
+  ]
