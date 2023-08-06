@@ -1,0 +1,16 @@
+numpy
+scipy
+aiocache
+dask[complete]
+distributed
+pandas
+requests
+sanic
+Sanic-Cors
+pysam
+h5py
+ujson
+
+[testing]
+pytest
+pytest-cov
