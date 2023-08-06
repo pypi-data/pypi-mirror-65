@@ -1,0 +1,12 @@
+pypika>=0.35.21
+aiosqlite>=0.11.0
+typing-extensions>=3.7
+
+[:python_version < "3.7"]
+aiocontextvars>=0.2.2
+
+[:sys_platform != "win32" and implementation_name == "cpython"]
+ciso8601>=2.1.2
+
+[:sys_platform == "win32" or implementation_name != "cpython"]
+iso8601>=0.1.12
