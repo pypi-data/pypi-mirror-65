@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: hyperborea
+Version: 1.2.0
+Summary: Library for streaming and recording from Asphodel devices
+Home-page: https://bitbucket.org/suprocktech/hyperborea
+Author: Suprock Technologies, LLC
+Author-email: inquiries@suprocktech.com
+License: UNKNOWN
+Description: # Hyperborea
+        
+        ## About
+        Hyperborea is an intermediate library between the Asphodel Python Library and high level applications.
+        
+        Hyperborea provides process isolation, streaming, disk recording and uploading functionality.
+        
+        The Asphodel communication protocol was developed by Suprock Technologies (http://www.suprocktech.com)
+        
+        ## License
+        Hyperborea is licensed under the ISC license.
+        
+        The ISC license is a streamlined version of the BSD license, and permits usage in both open source and propretary projects.
+        
+Keywords: asphodel suprock apd
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Hardware
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
