@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: projects-site
+Version: 0.0.20
+Summary: 
+                A website template for hosting project
+                metadata information via flask                
+Home-page: https://github.com/rasmunk/projects-site
+Author: Rasmus Munk
+Author-email: rasmus.munk@nbi.ku.dk
+License: UNKNOWN
+Keywords: Website,Flask,MetaData
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: Flask
+Requires-Dist: flask-bootstrap
+Requires-Dist: flask-nav
+Requires-Dist: flask-wtf
+Requires-Dist: wtforms
+Requires-Dist: requests
+Requires-Dist: wtforms-components
+Requires-Dist: flask-login
+Requires-Dist: flask-mail
+Requires-Dist: bcrypt
+Requires-Dist: configparser
+
+.. image:: https://travis-ci.org/rasmunk/projects-site.svg?branch=master
+    :target: https://travis-ci.org/rasmunk/projects-site
+
+=============
+projects-site
+=============
+
+Basic template for providing websites that presents projects and their associated metadata.
+
+
