@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: yalafi
+Version: 0.9.0
+Summary: Yet another LaTeX filter
+Home-page: https://github.com/matze-dd/YaLafi
+Author: Matthias Baumann
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Text Processing :: Markup :: LaTeX
+Classifier: Topic :: Text Processing :: Filters
+Description-Content-Type: text/markdown
+
+
+# YaLafi: Yet another LaTeX filter
+
+This Python package extracts plain text from LaTeX documents.
+The software may be integrated with a proofreading tool and an editor.
+It provides
+
+- mapping of character positions between LaTeX and plain text,
+- simple inclusion of own LaTeX macros and environments with tailored
+  treatment,
+- careful conservation of text flows,
+- detection of trailing interpunction in equations,
+- proper handling of nestable LaTeX elements like {} braces.
+
+A more complete description, including interfaces to the plug-ins
+[vim-grammarous](https://github.com/rhysd/vim-grammarous)
+for Vim and
+[Emacs-langtool](https://github.com/mhayashi1120/Emacs-langtool)
+for Emacs, is available at the
+[GitHub page](https://github.com/matze-dd/YaLafi).
+For instance, the LaTeX input
+```
+Only few people\footnote{We use
+\textcolor{red}{redx colour.}}
+is lazy.
+```
+will lead to the subsequent output from example application script
+yalafi/shell/shell.py.
+The script invokes [LanguageTool](https://www.languagetool.org)
+as proofreading software, using a local installation or the Web server
+hosted by LanguageTool.
+```
+1.) Line 2, column 17, Rule ID: MORFOLOGIK_RULE_EN_GB
+Message: Possible spelling mistake found
+Suggestion: red; Rex; reds; redo; Red; Rede; redox; red x
+Only few people is lazy.    We use redx colour. 
+                                   ^^^^
+2.) Line 3, column 1, Rule ID: PEOPLE_VBZ[1]
+Message: If 'people' is plural here, don't use the third-person singular verb.
+Suggestion: am; are; aren
+Only few people is lazy.    We use redx colour. 
+                ^^
+```
+The script can also emulate a LanguageTool server with integrated LaTeX filter,
+and it produces an HTML report when run with option '--output html':
+
+![HTML report](https://raw.githubusercontent.com/matze-dd/YaLafi/master/shell.png)
+
+
+
