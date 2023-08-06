@@ -1,0 +1,16 @@
+include pyproject.toml
+
+# Include the license file
+include LICENSE
+
+# Include Markdown files, including README
+global-include *.md
+
+# Include versioning file
+global-include VERSION
+
+# Include the data files
+recursive-include data *
+
+# Remove Python related files to keep only source code
+global-exclude *.py[cod]
