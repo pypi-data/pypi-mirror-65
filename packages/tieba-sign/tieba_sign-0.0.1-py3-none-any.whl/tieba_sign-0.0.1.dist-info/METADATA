@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: tieba-sign
+Version: 0.0.1
+Summary: 贴吧自动签到
+Home-page: https://github.com/zcq100/tieba-sign
+Author: zcq100
+Author-email: zcq100@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+## 百度贴吧自动签到
+
+### 安装
+```
+pip install --user tieba-sign
+```
+
+### 使用
+```
+tieba-sign [--cookie YOUR_BAIDU_COOKIE] [-f cookie_file]
+```
+
+###  
+```
+from tieba import Tieba
+
+tieba=Tieba("Your Cookie")
+tieba.get_bars()
+tieba.batch_sign(1)
+```
+
