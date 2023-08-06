@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: sqlwrap
+Version: 0.0.1
+Summary: Easy wrapper for various SQL libraries
+License: MIT
+Author: mitch3x3
+Author-email: mitch3x3@github.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: psycopg2-binary (>=2.8.5,<3.0.0)
