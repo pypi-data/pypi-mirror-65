@@ -1,0 +1,9 @@
+aiorwlock
+
+[:python_version < "3.7"]
+asyncio_extras
+
+[test]
+pytest
+pytest-cov
+pytest-pythonpath
