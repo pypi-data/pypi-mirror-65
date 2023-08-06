@@ -1,0 +1,3 @@
+EasyProcess ; python_version > '3.6'
+mss ; python_version > '3.6'
+jeepney ; python_version > '3.6' and platform_system == 'Linux'

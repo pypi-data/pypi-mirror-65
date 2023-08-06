@@ -1,0 +1,7 @@
+
+[:python_version > "3.6"]
+EasyProcess
+mss
+
+[:python_version > "3.6" and platform_system == "Linux"]
+jeepney
