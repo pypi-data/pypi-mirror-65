@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyxantech
+Version: 0.4.6
+Summary: Python RS232 API for Monoprice/Xantech/Dayton Audio multi-zone amps
+Home-page: https://github.com/rsnodgrass/pymonoprice
+Author: Egor Tsinko
+Author-email: etsinko@gmail.com
+License: MIT
+Download-URL: https://github.com/rsnodgrass/pymonoprice/archive/0.4.6.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pyserial (>=3.4)
+Requires-Dist: pyserial-asyncio (>=0.4)
+
+UNKNOWN
+
+
