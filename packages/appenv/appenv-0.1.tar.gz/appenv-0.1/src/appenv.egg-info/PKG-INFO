@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: appenv
+Version: 0.1
+Summary: Self-contained bootstrapping/updating of Python applications deployed
+through shared repositories.
+Home-page: https://github.com/flyingcircusio/appenv/
+Author: Christian Theune
+Author-email: ct@flyingcircus.io
+License: BSD (3-clause)
+Description: UNKNOWN
+Keywords: deployment
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
