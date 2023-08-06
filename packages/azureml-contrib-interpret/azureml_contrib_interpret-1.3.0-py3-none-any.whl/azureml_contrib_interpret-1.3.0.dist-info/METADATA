@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: azureml-contrib-interpret
+Version: 1.3.0
+Summary: UNKNOWN
+Home-page: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+Author: Microsoft Corp
+License: Proprietary https://aka.ms/azureml-preview-sdk-license 
+Platform: UNKNOWN
+Requires-Python: >=3.5,<4
+Description-Content-Type: text/x-rst
+Provides-Extra: han
+Provides-Extra: lime
+Requires-Dist: azureml-interpret (~=1.3.0)
+Provides-Extra: han
+Requires-Dist: spacy; extra == 'han'
+Requires-Dist: gensim; extra == 'han'
+Requires-Dist: tensorflow; extra == 'han'
+Provides-Extra: lime
+Requires-Dist: lime; extra == 'lime'
+
+The azureml-contrib-interpret package contains experimental functionality for the
+azureml-interpret package, which offers a variety of services for machine learning model
+interpretability. Eventually, useful pieces of this package will be moved into the full package.
+
+APIs and functionality in this contrib package are subject to breaking changes without warning.
+
+
+
