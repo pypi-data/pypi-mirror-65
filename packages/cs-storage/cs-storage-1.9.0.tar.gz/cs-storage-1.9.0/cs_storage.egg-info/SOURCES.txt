@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+cs_storage/__init__.py
+cs_storage/screenshot.py
+cs_storage.egg-info/PKG-INFO
+cs_storage.egg-info/SOURCES.txt
+cs_storage.egg-info/dependency_links.txt
+cs_storage.egg-info/requires.txt
+cs_storage.egg-info/top_level.txt
+cs_storage/templates/index.html
+cs_storage/tests/__init__.py
+cs_storage/tests/test_cs_storage.py
+cs_storage/tests/test_screenshot.py
