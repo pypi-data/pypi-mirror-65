@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+video_cli/__init__.py
+video_cli.egg-info/PKG-INFO
+video_cli.egg-info/SOURCES.txt
+video_cli.egg-info/dependency_links.txt
+video_cli.egg-info/entry_points.txt
+video_cli.egg-info/requires.txt
+video_cli.egg-info/top_level.txt
+video_cli/utils/__init__.py
+video_cli/utils/get_macro_block_size.py
+video_cli/utils/natural_sort.py
