@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: testflows.core
+Version: 1.4.200414.1214842
+Summary: TestFlows - Core
+Home-page: https://github.com/testflows/testflows-core
+Author: Vitaliy Zakaznikov
+Author-email: vzakaznikov@testflows.com
+License: Apache-2.0
+Description: # TestFlows - Core
+        
+        **The core module is still work in progress and is currently under development.
+        Please use it only for reference.**
+        
+        TestFlows Testing Framework Core module.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
