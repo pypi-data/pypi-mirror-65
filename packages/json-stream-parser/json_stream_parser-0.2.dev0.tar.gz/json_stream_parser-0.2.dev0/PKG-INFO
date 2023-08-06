@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: json_stream_parser
+Version: 0.2.dev0
+Summary: parsing a stream of json objects without loading the whole stream into memory
+Home-page: https://github.com/account-login/json_stream_parser
+Author: account-login
+Author-email: 
+License: MIT
+Description: Parsing a stream of json objects without loading the whole stream into memory.
+        Solution to https://stackoverflow.com/questions/6886283/how-i-can-i-lazily-read-multiple-json-values-from-a-file-stream-in-python
+        
+        ```python
+        import sys
+        from json_stream_parser import load_iter
+        for obj in load_iter(sys.stdin):
+            print(obj)
+        ```
+        
+Keywords: json stream parser lazy
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
