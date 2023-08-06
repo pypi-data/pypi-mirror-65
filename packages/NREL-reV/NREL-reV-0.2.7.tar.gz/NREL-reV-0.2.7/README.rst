@@ -1,0 +1,108 @@
+reV
+***
+
+.. image:: https://badge.fury.io/py/NREL-reV.svg
+    :target: https://badge.fury.io/py/NREL-reV
+
+.. image:: https://github.com/NREL/reV/workflows/Documentation/badge.svg
+    :target: https://nrel.github.io/reV/
+
+.. image:: https://github.com/NREL/reV/workflows/Pytests/badge.svg
+    :target: https://github.com/NREL/reV/actions?query=workflow%3A%22Pytests%22
+
+The Renewable Energy Potential (reV) Model
+
+.. inclusion-intro
+
+reV command line tools
+======================
+
+- `reV <https://nrel.github.io/reV/reV/reV.cli.html#rev>`_
+- `reV-gen <https://nrel.github.io/reV/reV/reV.generation.cli_gen.html#rev-gen>`_
+- `reV-econ <https://nrel.github.io/reV/reV/reV.econ.cli_econ.html#rev-econ>`_
+- `reV-offshore <https://nrel.github.io/reV/reV/reV.offshore.cli_offshore.html#rev-offshore>`_
+- `reV-collect <https://nrel.github.io/reV/reV/reV.handlers.cli_collect.html#rev-collect>`_
+- `reV-multiyear <https://nrel.github.io/reV/reV/reV.handlers.cli_multi_year.html#rev-multiyear>`_
+- `reV-supply-curve-aggregation <https://nrel.github.io/reV/reV/reV.supply_curve.cli_sc_aggregation.html#rev-supply-curve-aggregation>`_
+- `reV-supply-curve <https://nrel.github.io/reV/reV/reV.supply_curve.cli_supply_curve.html#rev-supply-curve>`_
+- `reV-rep-profiles <https://nrel.github.io/reV/reV/reV.rep_profiles.cli_rep_profiles.html#rev-rep-profiles>`_
+- `reV-pipeline <https://nrel.github.io/reV/reV/reV.pipeline.cli_pipeline.html#rev-pipeline>`_
+- `reV-batch <https://nrel.github.io/reV/reV/reV.batch.cli_batch.html#rev-batch>`_
+
+Using Eagle Module
+==================
+
+If you would like to run reV on Eagle (NREL's HPC) you can use a pre-compiled
+module:
+
+.. code-block:: bash
+
+    module use /shared-projects/rev/modulefiles
+    module load reV
+
+Launching a run
+---------------
+
+Tips
+
+- Only use a screen session if running the pipeline module: `screen -S rev`
+- `Full pipeline execution <https://nrel.github.io/reV/misc/examples.full_pipeline_execution.html>`_
+
+.. code-block:: bash
+
+    reV -c "/scratch/user/rev/config_pipeline.json" pipeline
+
+- Running simply generation or econ can just be done from the console:
+
+.. code-block:: bash
+
+    reV -c "/scratch/user/rev/config_pipeline.json" generation
+
+General Run times and Node configuration on Eagle
+-------------------------------------------------
+
+- WTK Conus: 10-20 nodes per year walltime 1-4 hours
+- NSRDB Conus: 5 nodes walltime 2 hours
+
+`Eagle node requests <https://nrel.github.io/reV/misc/examples.eagle_node_requests.html>`_
+
+Installing reV
+==============
+
+Option 1: PIP Install (recommended for analysts):
+-------------------------------------------------
+
+1. Create a new environment:
+    ``conda create --name rev python=3.7``
+2. Activate directory:
+    ``conda activate rev``
+3. Install reV:
+    ``pip install NREL-reV``
+
+Option 2: Clone repo (recommended for developers)
+-------------------------------------------------
+
+1. from home dir, ``git clone https://github.com/NREL/reV.git``
+    1) enter github username
+    2) enter github password
+
+2. Install reV environment and modules (using conda)
+    1) cd into reV repo cloned above
+    2) cd into ``bin/$OS/``
+    3) run the command: ``conda env create -f rev.yml``. If conda can't find
+       any packages, try removing them from the yml file.
+
+    4) run the command: ``conda activate rev``
+    5) prior to running ``pip`` below, make sure branch is correct (install
+       from master!)
+
+    6) cd back to the reV repo (where setup.py is located)
+    7) install pre-commit: ``pre-commit install``
+    8) run ``pip install .`` (or ``pip install -e .`` if running a dev branch
+       or working on the source code)
+
+3. Check that rev was installed successfully
+    1) From any directory, run the following commands. This should return the
+       help pages for the CLI's.
+
+        - ``reV``
