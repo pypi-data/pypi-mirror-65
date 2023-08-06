@@ -1,0 +1,4 @@
+[console_scripts]
+raspydht = raspydht.__main__:runConsoleMain
+raspydht-plot = raspydhtplot.__main__:runPlotMain
+
