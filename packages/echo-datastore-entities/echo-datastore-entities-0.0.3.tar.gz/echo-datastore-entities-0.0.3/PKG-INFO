@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: echo-datastore-entities
+Version: 0.0.3
+Summary: Client library for use with Google Cloud Datastore to provide an entities concept
+Home-page: https://github.com/echomobi/echo-datastore-entities
+Author: Echo Mobile
+Author-email: engineering@echomobile.io
+License: UNKNOWN
+Description: # Echo Datastore Entities (<a href="https://echomobi.github.io/echo-datastore-entities/" target="_blank">docs</a>)
+        
+        [![CircleCI](https://circleci.com/gh/echomobi/echo-datastore-entities.svg?style=svg)](https://circleci.com/gh/echomobi/echo-datastore-entities)
+        [![codecov](https://codecov.io/gh/echomobi/echo-datastore-entities/branch/master/graph/badge.svg)](https://codecov.io/gh/echomobi/echo-datastore-entities)
+        
+        Client library for use with Google Cloud Datastore to provide an entities concept
+        
+        Install:
+        ```shell script
+        pip install echo-datastore-entities
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
