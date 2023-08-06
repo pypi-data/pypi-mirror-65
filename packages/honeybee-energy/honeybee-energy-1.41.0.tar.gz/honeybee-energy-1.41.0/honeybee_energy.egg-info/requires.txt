@@ -1,0 +1,5 @@
+honeybee-core==1.26.1
+
+[cli]
+click==7.1.1
+honeybee-core[cli]==1.26.1
