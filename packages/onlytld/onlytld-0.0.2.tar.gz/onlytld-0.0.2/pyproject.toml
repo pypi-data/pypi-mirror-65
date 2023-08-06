@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "onlytld"
+version = "0.0.2"
+description = ""
+authors = ["abersheeran <me@abersheeran.com>"]
+readme = "README.md"
+license = "Apache-2.0"
+
+homepage = "https://github.com/abersheeran/onlytld"
+repository = "https://github.com/abersheeran/onlytld"
+documentation = "https://github.com/abersheeran/onlytld"
+
+classifiers=[
+    "Programming Language :: Python :: 3",
+]
+
+packages = [
+    { include = "onlytld" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+pylint = "^2.4.4"
+pytest = "^5.4.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
