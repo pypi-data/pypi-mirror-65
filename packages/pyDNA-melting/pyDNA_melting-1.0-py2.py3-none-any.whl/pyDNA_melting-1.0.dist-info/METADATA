@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: pyDNA-melting
+Version: 1.0
+Summary: Calculate DNA melting score
+Home-page: https://github.com/YichaoOU/pyDNA_melting
+Author: Yichao Li
+Author-email: yl079811@ohio.edu
+License: LICENSE
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+[![DOI](https://zenodo.org/badge/254798322.svg)](https://zenodo.org/badge/latestdoi/254798322)
+
+
+# Summary
+A python wrapper for https://github.com/JanZrimec/DNA_melting_bubbles_TIDD
+
+
+# Dependency
+
+- pandas
+
+- matlab
+
+- java
+
+
+# Installation
+
+`pip install pyDNA-melting`
+
+# Usage
+
+Any sequence long than 10bp
+
+`pyDNA_melting.py -s AAAAAAAAAGTGTGTAA`
+
+
+
+
