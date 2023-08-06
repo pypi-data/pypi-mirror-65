@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+pareidolia/__init__.py
+pareidolia/detection.py
+pareidolia/hic_utils.py
+pareidolia/io.py
+pareidolia/preprocess.py
+pareidolia/stats.py
+pareidolia.egg-info/PKG-INFO
+pareidolia.egg-info/SOURCES.txt
+pareidolia.egg-info/dependency_links.txt
+pareidolia.egg-info/requires.txt
+pareidolia.egg-info/top_level.txt
