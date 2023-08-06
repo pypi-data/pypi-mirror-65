@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: quick-data-clean
+Version: 1.1.12
+Summary: Data fast processing framework
+Home-page: https://www.maybetodaystudio.com/
+Author: jaymi_k
+Author-email: jinming_huang@foxmail.com
+License: GPL
+Keywords: data,quick_data,data_clean,quick_data_clean,database,quick_gui,sm2,sm3,rsa
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: lxml
+Requires-Dist: PySmartCard
+Requires-Dist: pyodbc
+Requires-Dist: xlrd
+Requires-Dist: xlwt
+Requires-Dist: xlutils
+Requires-Dist: openpyxl
+Requires-Dist: rsa
+Requires-Dist: PyInstaller
+
+Data fast processing framework, only for python 3.6 and above.Specific information for technical documentation is not available for now
+
+
