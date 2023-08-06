@@ -1,0 +1,10 @@
+
+[auth]
+pyjwt
+
+[aws]
+boto3
+
+[dev]
+pytest>=5.4
+pytest-cov
