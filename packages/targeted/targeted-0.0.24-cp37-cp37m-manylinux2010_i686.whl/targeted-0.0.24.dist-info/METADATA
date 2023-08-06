@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: targeted
+Version: 0.0.24
+Summary: Targeted inference
+Home-page: https://research.maersk-digital.net
+Author: Klaus Kähler Holst
+Author-email: klaus.holst@maersk.com
+License: Apache Software License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C++
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: scipy (>=1.3.2)
+Requires-Dist: statsmodels (>=0.10.2)
+Requires-Dist: patsy (>=0.5)
+Requires-Dist: numpy (>=1.15)
+
+# Targeted Learning Library
+
+Python package for targeted inference.
+
+
