@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: noterrors-sdk
+Version: 0.1.11
+Summary: noterrors sdk client
+Home-page: https://github.com/jarodut/noterrors-sdk
+Author: noterrors
+Author-email: jarod@ukr.net
+License: UNKNOWN
+Description: NOT-ERRORS SDK
+        
+        
+        Use this command to build WHL file:
+        
+        ```$ python3 setup.py bdist_wheel```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
