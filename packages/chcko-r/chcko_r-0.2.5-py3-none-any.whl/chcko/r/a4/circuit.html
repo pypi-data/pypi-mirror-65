@@ -1,0 +1,50 @@
+
+<%
+
+def circuitsvg():
+    import SchemDraw
+    from SchemDraw import elements as elm
+    from SchemDraw import logic
+    from SchemDraw import dsp
+    from SchemDraw import flow
+
+    d = SchemDraw.Drawing()
+    d.add(elm.DOT, lftlabel='$V_i$')
+    d.add(elm.RES, d='right', label='$R_b$')
+    Q1 = d.add(elm.BJT_NPN_C, label='$h_{fe}=%s$'%g.hfe)
+    d.add(elm.DOT, xy=Q1.collector)
+    d.push()
+    d.add(elm.LINE, d='right',  l=d.unit*1.75)
+    d.add(elm.DOT)#, label='$V_o$')
+    d.add(elm.RES, d='down', label='$R_L=%s$'%P(g.RL))
+    d.add(elm.GND)
+    d.pop()
+    d.add(elm.RES, d='up', botlabel='$R_c=%s$'%P(g.Rc))
+    d.add(elm.DOT, toplabel='$V_{cc}=%s$'%P(g.Vcc))
+    d.add(elm.RES, xy=Q1.emitter, d='down', botlabel='$R_e=%s$'%P(g.Re))
+    d.add(elm.GND)
+
+    d.draw(showplot=False)
+
+    from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+    from scipy import signal
+    import matplotlib.pyplot as plt
+    t = np.linspace(0, 1, 500, endpoint=False)
+    inset_axes(d.ax, width="20%", height="20%", loc=3)
+    Vi = g.Vi.magnitude
+    Vi2 = Vi/2
+    plt.xticks([])
+    plt.yticks([0,Vi])
+    plt.title("$V_i$")
+    plt.plot(t, Vi2*(signal.square(2*np.pi*t+np.pi)+1))
+
+    from io import StringIO
+    sio = StringIO()
+    d.fig.savefig(sio,format='svg')
+    sio.seek(0)
+    svgstr = sio.read()
+    svgstr = '<svg style="float:left;margin:1em;" '+svgstr.split('<svg')[1]
+
+    return svgstr
+end
+%>
