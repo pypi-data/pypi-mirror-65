@@ -1,0 +1,52 @@
+openEPDA Changelog
+==================
+
+Version 0.1.7 (unreleased)
+--------------------------
+- *Add your changes here*
+
+Version 0.1.6 (2020.04.14)
+--------------------------
+- Update project description for pypi
+- Add more details on license terms (#35)
+- Add Contribution section to the web-site (#36)
+- Improve information about authors and contributors.
+- Add links to the changelog and authors to the pypi description.
+- Add validation of the pin_in and pin_out names in the uPDK blocks.
+- Add ensure_num() method for quick evaluation of numerical values.
+- Add uPDK blocks data import and GDS creation (#37).
+- Add validators.updk submodule to the documentation.
+
+Version 0.1.5 (2020.04.01)
+--------------------------
+- Add _BaseParser for expression parsing and evaluation
+- Add parameter check to the uPDK BBs
+- Add expression checks to the uPDK BBs (#21)
+- Make schemas available on openepda.org/schemas (#16)
+- Add CDF documentation for v.0.3 (#28)
+- Add analytic expression grammar description to the documentation (#31)
+- Change documentation structure (#32)
+- Add information about licensing policy (#30)
+- Add API pages to the documentation (#33)
+- Remove pyyaml from the requirements (#24)
+- Add Changelog to the documentation (#34)
+- Create validate.openepda.org (#10)
+
+Version 0.1.4 (2020-03-13)
+--------------------------
+- Add required attribute `bbox` to the CDF (#19)
+- Use dict for ios and fiducials in CDF (#27)
+- Bump CDF version to 0.3.
+
+Version 0.1.3 (2020-02-03)
+--------------------------
+- Fix bug with schemas distribution (#25)
+
+Version 0.1.2 (2020-02-03)
+--------------------------
+- add uPDK validator (#8, #20)
+- drop Python 3.5 support (#17)
+
+Version 0.0.1   (2019-01-10)
+----------------------------
+- first public release.
