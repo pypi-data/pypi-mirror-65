@@ -1,0 +1,15 @@
+click
+pytest
+hypothesis
+negmas
+prettytable
+pulp
+python-constraint
+negmas>=0.6.11
+tqdm
+joblib
+jupyter
+gif
+
+[:python_version=="3.6"]
+dataclasses
