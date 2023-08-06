@@ -1,0 +1,95 @@
+# FireEye
+
+# THIS PROJECT IS NO LONGER MAINTAINED. USE [SOCKET.ENGINE](https://github.com/0xJeremy/socket.engine) INSTEAD.
+
+## Installation
+
+Node.js installation:
+```
+npm install fireeye
+```
+
+Python installation:
+```
+pip install FireEye
+```
+
+These libraries are developed in parallel, and designed to be used together.
+Please note: The Python side of this library is tested only with Python 3.
+
+## Features
+
+FireEye enables real-time bidirectional communication between a Node.js server, and a Python process. It is specifically designed to stream video between these two processes when running on separate devices. 
+
+Its main features are:
+
+### Speed
+
+Connections are made using TCP sockets and can pass information from processes extremely quickly and reliably. FireEye operates using IPv4.
+
+### Easy to use
+
+This library was designed to lower the barrier to entry as much as possible. As such, it has a built in wrapper to send images from process to process.
+
+## How to use — Node.js
+
+The following example imports and creates the data socket in Node.js, and then sets up a listener event.
+```javascript
+const FireEye = require('fireeye');
+
+var socket = new FireEye();
+
+socket.on('image', (data) => {
+	/* your code here */
+})
+
+```
+The example above can be used to receive entire images sent from Python.
+
+FireEye can also be used to send arbitrary information across the TCP socket. Any JSON serializable object can be sent:
+```javascript
+const FireEye = require('fireeye');
+
+var socket = new FireEye();
+
+var channel = 'channel_1';
+
+socket.write(channel, 'Hello from Node.js!');
+
+socket.on(channel, (data) => {
+	/* your code here */
+});
+```
+Any channel name can be used, except for `image` which is reserved for sending images from Python → Node.js
+
+## How to use — Python
+
+The following is a simple example of how to use FireEye in Python:
+```python
+from FireEye import FireEye
+import cv2
+
+socket = FireEye.FireEye()
+
+cap = cv2.VideoCapture(0) #Camera Number Here
+
+ret, frame = cap.read()
+
+socket.writeImg(frame)
+```
+Please Note: Creating a FireEye socket in Python is a _blocking action_ and will not finish until the socket is opened.
+
+As shown above, arbitrary data can be sent across FireEye. Here is an example in Python that matches the one above:
+```python
+from FireEye import FireEye
+
+socket = FireEye.FireEye()
+
+channel = 'channel_1'
+
+socket.write(channel, 'Hello from Python!')
+
+response = socket.get(channel)
+```
+
+FireEye will automatically store the most recent piece of data received over a channel. This data is accessible via the `get` method. FireEye runs on a separate thread from the rest of your program and will therefore be constantly reading from the data socket.
