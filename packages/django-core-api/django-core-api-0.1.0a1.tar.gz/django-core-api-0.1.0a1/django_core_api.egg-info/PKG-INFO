@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: django-core-api
+Version: 0.1.0a1
+Summary: Django Core RESTFul API
+Home-page: UNKNOWN
+Author: Joao Daher
+Author-email: joao@daher.dev
+License: BSD
+Description: ![Github CI](https://github.com/joaodaher/django-core-api/workflows/Github%20CI/badge.svg)
+        [![python](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/)
+        [![django](https://img.shields.io/badge/django-3-green.svg)](https://www.djangoproject.com/)
+        # Django Core API
+        
+        This Django Core API allows APIs to follow predefined styleguide and remove a bunch of boilerplate code from them.
+        
+        The implemented features are all in the [Wiki](https://github.com/joaodaher/django-core-api/wiki).
+        
+        
+        ## Setup
+          - clone this project
+          - install [Pyenv](https://github.com/pyenv/pyenv#installation)
+          - install the project's Python version: `pyenv install`
+          - install dependencies: `make dependencies`
+        
+        
+        ### Deploy an Alpha version of this project
+          - clone this project
+          - update version with a `aN` as suffix (eg. `1.2.3a1`)
+          - remove build files: `make clean`
+          - deploy to PyPi: `make publish`
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
