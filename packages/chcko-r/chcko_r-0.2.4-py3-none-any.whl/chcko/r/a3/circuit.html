@@ -1,0 +1,59 @@
+
+<%
+
+def circuitsvg():
+    import SchemDraw
+    from SchemDraw import elements as elm
+    from SchemDraw import logic
+    from SchemDraw import dsp
+    from SchemDraw import flow
+
+    d = SchemDraw.Drawing()
+    d.add(elm.DOT, lftlabel='$V_i$')
+    d.add(elm.RES, d='right', label='$R_b$')
+    Q1 = d.add(elm.BJT_NPN_C)
+    d.add(elm.DOT, xy=Q1.collector)
+    d.push()
+    d.add(elm.LINE, d='right')
+    d.add(elm.DOT, rgtlabel='$V_o$')
+    d.pop()
+    d.add(elm.RES, d='up', label='$R_c$')
+    d.add(elm.DOT, toplabel=P(g.Vcc))
+    d.add(elm.RES, xy=Q1.emitter, d='down', label='$R_e$')
+    d.add(elm.GND)
+
+    d.draw(showplot=False)
+
+    from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+    from scipy import signal
+    import matplotlib.pyplot as plt
+    t = np.linspace(0, 1, 500, endpoint=False)
+    inset_axes(d.ax, width="20%", height="20%", loc=3)
+    Vi = g.Vi.magnitude
+    Vi2 = Vi/2
+    plt.xticks([])
+    plt.yticks([0,Vi])
+    plt.title("$V_i$")
+    plt.plot(t, Vi2*(signal.square(2*np.pi*2*t+np.pi)+1))
+    inset_axes(d.ax, width="20%", height="20%", loc=4)
+    Vo = g.Vo.magnitude
+    Vcc = g.Vcc.magnitude
+    Vo2 = (Vcc-Vo)/2
+    plt.xticks([])
+    plt.yticks([Vo,Vcc])
+    plt.title("$V_o$")
+    plt.plot(t, Vo2*signal.square(2*np.pi*2*t)+Vo+Vo2)
+
+    from io import StringIO
+    sio = StringIO()
+    d.fig.savefig(sio,format='svg')
+    sio.seek(0)
+    svgstr = sio.read()
+    svgstr = '<svg style="float:left;margin:1em;" '+svgstr.split('<svg')[1]
+
+    return svgstr
+end
+%>
+
+{{! circuitsvg()}}
+
