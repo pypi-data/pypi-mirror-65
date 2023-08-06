@@ -1,0 +1,8 @@
+-r requirements.txt
+boto3
+tox
+mock
+Flask
+pylint-quotes
+django
+pytest
