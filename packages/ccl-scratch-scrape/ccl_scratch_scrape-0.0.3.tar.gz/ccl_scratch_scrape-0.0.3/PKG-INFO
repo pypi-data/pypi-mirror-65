@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: ccl_scratch_scrape
+Version: 0.0.3
+Summary: Tools by which to scrape Scratch JSON files.
+Home-page: https://github.com/GSE-CCL/scratch-studio-scrape
+Author: Creative Computing Lab
+Author-email: jarchibald@college.harvard.edu
+License: UNKNOWN
+Description: # Scratch Scrape
+        A Python package with which to scrape Scratch JSON files.
+        
+        This project has been relocated to [https://github.com/GSE-CCL/scratch-tools](https://github.com/GSE-CCL/scratch-tools).
+        
+        
+        ## Setup
+        
+        Make sure you have Python 3.7 or higher. Then install the package by running ```pip install ccl-scratch-scrape```.
+        
+        Check it out on PyPI: [https://pypi.org/project/ccl-scratch-scrape/](https://pypi.org/project/ccl-scratch-scrape/).
+        
+        ## Documentation
+        
+        Read the documentation of the package [here](https://ccl-scratch-scrape.readthedocs.io/en/latest/).
+        
+        ## Resources
+        [https://github.com/LLK/scratch-rest-api/wiki/](https://github.com/LLK/scratch-rest-api/wiki/) for API documentation
+        
+        [https://api.scratch.mit.edu/studios/{ID}/projects](https://api.scratch.mit.edu/studios/{ID}/projects) to get a list of all the projects, with IDs and descriptions
+        
+        [https://projects.scratch.mit.edu/{ID}](https://projects.scratch.mit.edu/{ID}) to download project JSON
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
