@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "aioetherscan"
+version = "0.2.1"
+description = "Etherscan API async Python wrapper"
+authors = ["ape364 <ape364@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/ape364/aioetherscan"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+aiohttp = "^3.4"
+asyncio_throttle = "^0.1.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.0"
+pytest-asyncio = "^0.10.0"
+asynctest = "^0.12.2"
+coveralls = "^1.5"
+twine = "^1.13"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
