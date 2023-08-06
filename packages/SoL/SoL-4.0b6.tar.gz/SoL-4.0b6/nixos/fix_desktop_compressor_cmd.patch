@@ -1,0 +1,30 @@
+diff --git a/src/metapensiero/extjs/desktop/scripts/minifier.py b/src/metapensiero/extjs/desktop/scripts/minifier.py
+index 8f9ad1d..f1a7bd5 100644
+--- a/src/metapensiero/extjs/desktop/scripts/minifier.py
++++ b/src/metapensiero/extjs/desktop/scripts/minifier.py
+@@ -22,7 +22,6 @@ from re import compile, DOTALL, MULTILINE
+ from subprocess import PIPE, Popen, call
+ from tempfile import mktemp
+ 
+-from yuicompressor import get_jar_filename
+ 
+ try:
+     FileNotFoundError
+@@ -64,7 +63,7 @@ def minify_js(args, scripts):
+             concat.write(src)
+             concat.write("\n")
+ 
+-    compressor_cmd = ['java', '-jar', get_jar_filename(),
++    compressor_cmd = ['@yuicompressorBin@',
+                       "--type", "js",
+                       "-o", output]
+ 
+@@ -178,7 +177,7 @@ def minify_css(args, styles, map):
+ 
+     logging.info("Compressing %d stylesheets to %s...", len(styles), output)
+ 
+-    compressor_cmd = ['java', '-jar', get_jar_filename(),
++    compressor_cmd = ['@yuicompressorBin@',
+                       "--type", "css",
+                       "-o", output]
+ 
