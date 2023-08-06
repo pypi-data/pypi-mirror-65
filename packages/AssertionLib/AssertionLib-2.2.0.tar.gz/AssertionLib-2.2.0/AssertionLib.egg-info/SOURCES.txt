@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+AssertionLib.egg-info/PKG-INFO
+AssertionLib.egg-info/SOURCES.txt
+AssertionLib.egg-info/dependency_links.txt
+AssertionLib.egg-info/not-zip-safe
+AssertionLib.egg-info/requires.txt
+AssertionLib.egg-info/top_level.txt
+assertionlib/__init__.py
+assertionlib/__version__.py
+assertionlib/dataclass.py
+assertionlib/functions.py
+assertionlib/manager.py
+assertionlib/ndrepr.py
+assertionlib/signature.py
