@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: gsdcli
+Version: 0.1.2
+Summary: A cli for installing game servers
+Author: egee-irl
+Author-email: brian@egee.io
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Click (>=7.1.1,<8.0.0)
