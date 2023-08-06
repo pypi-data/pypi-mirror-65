@@ -1,0 +1,11 @@
+include README.md LICENSE requirements.txt
+exclude .*
+exclude *.egg-info
+exclude data_samples*
+exclude dist*
+exclude docs*
+exclude dev*
+exclude htmlcov*
+exclude testing*
+exclude building*
+exclude tutorials*
