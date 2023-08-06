@@ -1,0 +1,11 @@
+from .models import %%NAME%%
+from frest.forms import ModelForm
+
+
+class %%NAME%%Form(ModelForm):
+    model = %%NAME%%
+
+    def __init__(self, data):
+        super().__init__(self.model)
+        self.data = data
+        self.ignore = []
