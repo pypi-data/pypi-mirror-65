@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pythie-serving
+Version: 0.5.2
+Summary: A GRPC server to serve model types using tensorflow-serving .proto services
+Home-page: https://gitlab.cayzn.com/wiremind/data-science/pythie-neos.git
+Author: wiremind data science team
+Author-email: data-science@wiremind.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Requires-Python: >=3.6
+Requires-Dist: numpy (~=1.17)
+Requires-Dist: grpcio (~=1.24)
+Requires-Dist: protobuf (~=3.10)
+Requires-Dist: xgboost (~=0.90)
+Requires-Dist: lightgbm (~=2.3)
+Provides-Extra: dev
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: flake8-mutable ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+
+UNKNOWN
+
+
