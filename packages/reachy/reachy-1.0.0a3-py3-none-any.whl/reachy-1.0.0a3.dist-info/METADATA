@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: reachy
+Version: 1.0.0a3
+Summary: Open source interactive robot to explore real-world applications!
+Home-page: https://github.com/pollen-robotics/reachy
+Author: Pollen Robotics
+Author-email: contact@pollen-robotics.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pyluos (==1.1.1b1)
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: orbita (>=0.3.1)
+Requires-Dist: pyquaternion
+Requires-Dist: websockets
+Provides-Extra: doc
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: sphinx-autoapi ; extra == 'doc'
+Provides-Extra: head
+Requires-Dist: opencv-python ; extra == 'head'
+Provides-Extra: lint
+Requires-Dist: flake8 ; extra == 'lint'
+Requires-Dist: pydocstyle ; extra == 'lint'
+Provides-Extra: log
+Requires-Dist: zzlog ; extra == 'log'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+# Reachy: Open source interactive robot to explore real-world applications!
+
+Reachy is a unique open prototyping platform. It makes AI & robotics accessible to researchers, innovation professionals and creatives. 
+
+[![Hello I'm Reachy, presentation video](https://img.youtube.com/vi/iSL39WFxCLE/0.jpg)](https://www.youtube.com/watch?v=iSL39WFxCLE)
+
+In this repository, you will find:
+* the software to control and program your Reachy,
+* the 3d models,
+* documentation and examples to get you started.
+
+The software is open-sourced and released under an [Apache License v2.0](./software/LICENSE).
+
+Visit [pollen-robotics.com](https://pollen-robotics.com) to learn more or visit [our forum](https://forum.pollen-robotics.com).
+
+Follow [@PollenRobotics](https://twitter.com/pollenrobotics) on Twitter for important announcements.
+
+This project adheres to the Contributor [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [contact@pollen-robotics.com](mailto:contact@pollen-robotics.com).
+
+## Documentation (WIP)
+
+* The full documentation is available at: [https://pollen-robotics.github.io/reachy-docs/](https://pollen-robotics.github.io/reachy-docs/)
+* The APIs can be found at: [https://pollen-robotics.github.io/reachy/](https://pollen-robotics.github.io/reachy/)
+
+
