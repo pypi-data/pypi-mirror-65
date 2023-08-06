@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>CancelController</Identifier>
+    <DisplayName>Cancel Controller</DisplayName>
+    <Description>
+        This feature cancel's any currently running command on the server
+    </Description>
+    <Command>
+        <Identifier>Cancel</Identifier>
+        <DisplayName>Cancel</DisplayName>
+        <Description>
+            Cancels all currently running commands on this server
+        </Description>
+        <Observable>No</Observable>
+    </Command>
+</Feature>
