@@ -1,0 +1,178 @@
+---
+# Copyright 2020 Red Hat, Inc.
+# All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
+- name: Setup server
+  hosts: all
+  vars:
+    ipa_domain: example.test
+    ipa_server_ip: 172.18.0.22
+    ipa_server_user: admin
+    ipa_server_password: password123
+    ipa_server_hostname: ipa.example.test
+    undercloud_fqdn: test-0.example.test
+  tasks:
+    - name: install python urllib gssapi
+      pip:
+        name: urllib_gssapi
+    - name: install ipa client
+      package:
+        name: ipa-client
+        state: present
+
+    - name: set resolv.conf to point to the ipa server
+      shell:
+        cmd: cat > /etc/resolv.conf
+        stdin: |
+          search {{ ipa_domain }}
+          nameserver {{ ipa_server_ip }}
+    - name: Set fqdn in /etc/hosts
+      shell:
+        cmd: cat > /etc/hosts
+    - name: Set fqdn in /etc/hosts
+      shell:
+        cmd: cat > /etc/hosts
+        stdin: |
+          127.0.0.1 test-0.example.test test-0 localhost localhost.localdomain
+
+    - name: enroll the server as an ipa client using admin creds
+      shell: |
+        ipa-client-install -U  \
+          --server "{{ ipa_server_hostname }}" \
+          --domain "{{ ipa_domain }}" \
+          --realm "{{ ipa_domain | upper }}" \
+          --principal "{{ ipa_server_user }}" \
+          --password "{{ ipa_server_password }}" \
+          --no-ntp --force-join --no-nisdomain
+      args:
+        creates: /etc/ipa/default.conf
+
+    # we need this keytab for operations that we cannot do yet with ansible
+    - name: kinit to get admin creds
+      command: kinit "{{ ipa_server_user }}"
+      args:
+        stdin: "{{ ipa_server_password }}"
+
+    - name: Ensure "tripleo-admin" group exists
+      group:
+        name: tripleo-admin
+        state: present
+
+    - name: create users, perms, get keytab
+      include_role:
+        name: tripleo_ipa_setup
+        apply:
+          environment:
+            IPA_USER: "{{ ipa_server_user }}"
+            IPA_HOST: "{{ ipa_server_hostname }}"
+            IPA_PASS: "{{ ipa_server_password }}"
+
+- name: Converge - add host and relevant services
+  hosts: all
+  vars:
+    tripleo_ipa_enroll_base_server: true
+    tripleo_ipa_base_server_fqdn: test-0.example.test
+    tripleo_ipa_base_server_short_name: test-0
+    tripleo_ipa_base_server_domain: example.test
+    tripleo_ipa_delegate_server: localhost
+    tripleo_ipa_server_metadata: |
+      {
+        "compact_service_HTTP": [
+          "ctlplane",
+          "storage",
+          "storagemgmt",
+          "internalapi",
+          "external"
+        ],
+        "compact_service_haproxy": [
+          "ctlplane",
+          "storage",
+          "storagemgmt",
+          "internalapi"
+        ],
+        "compact_service_libvirt-vnc": [
+          "internalapi"
+        ],
+        "compact_service_mysql": [
+          "internalapi"
+        ],
+        "compact_service_neutron_ovn": [
+          "internalapi"
+        ],
+        "compact_service_novnc-proxy": [
+          "internalapi"
+        ],
+        "compact_service_ovn_controller": [
+          "internalapi"
+        ],
+        "compact_service_ovn_dbs": [
+          "internalapi"
+        ],
+        "compact_service_rabbitmq": [
+          "internalapi"
+        ],
+        "compact_service_redis": [
+          "internalapi"
+        ],
+        "managed_service_haproxyctlplane": "haproxy/test-0.ctlplane.example.test",
+        "managed_service_haproxyexternal": "haproxy/test-0.example.test",
+        "managed_service_haproxyinternal_api": "haproxy/test-0.internalapi.example.test",
+        "managed_service_haproxystorage": "haproxy/test-0.storage.example.test",
+        "managed_service_haproxystorage_mgmt": "haproxy/test-0.storagemgmt.example.test",
+        "managed_service_mysqlinternal_api": "mysql/test-0.internalapi.example.test",
+        "managed_service_ovn_dbsinternal_api": "ovn_dbs/test-0.internalapi.example.test",
+        "managed_service_redisinternal_api": "redis/test-0.internalapi.example.test"
+      }
+  roles:
+    - name: tripleo_ipa_registration
+  environment:
+    IPA_USER: admin
+    IPA_HOST: ipa.example.test
+    IPA_PASS: password123
+
+
+- name: Converge - add dns entries
+  hosts: all
+  vars:
+    cloud_domain: ooo.test
+    hosts_entry:
+      - 2001:0db8:85a3:0000:0000:8a2e:0370:7334 foo.ooo.test
+      - 2001:0db8:85a3:0000:0000:8a2e:0370:7333 foo.ooo.test
+      - 2001:0db8:85a3:0000:0000:8a2e:0370:7333 bar.ooo.test
+      - 192.168.24.111 bar.ooo.test
+      - 192.168.24.1 undercloud.ctlplane.ooo.test undercloud.ctlplane
+      - 192.168.24.115  overcloud.ctlplane.ooo.test
+      - 10.0.0.135  overcloud.ooo.test
+      - 172.17.0.15  overcloud.internalapi.ooo.test
+      - 172.18.0.231  overcloud.storage.ooo.test
+      - 172.19.0.164  overcloud.storagemgmt.ooo.test
+      - 172.17.0.46 overcloud-controller-0.ooo.test overcloud-controller-0
+      - 10.0.0.116 overcloud-controller-0.external.ooo.test overcloud-controller-0.external
+      - 172.17.0.46 overcloud-controller-0.internalapi.ooo.test overcloud-controller-0.internalapi
+      - 172.18.0.185 overcloud-controller-0.storage.ooo.test overcloud-controller-0.storage
+      - 172.19.0.107 overcloud-controller-0.storagemgmt.ooo.test overcloud-controller-0.storagemgmt
+      - 172.16.0.72 overcloud-controller-0.tenant.ooo.test overcloud-controller-0.tenant
+      - 192.168.24.122 overcloud-controller-0.ctlplane.ooo.test overcloud-controller-0.ctlplane
+      - 172.17.0.110 overcloud-novacompute-0.ooo.test overcloud-novacompute-0
+      - 172.17.0.110 overcloud-novacompute-0.internalapi.ooo.test overcloud-novacompute-0.internalapi
+      - 172.18.0.243 overcloud-novacompute-0.storage.ooo.test overcloud-novacompute-0.storage
+      - 172.16.0.195 overcloud-novacompute-0.tenant.ooo.test overcloud-novacompute-0.tenant
+      - 192.168.24.128 overcloud-novacompute-0.ctlplane.ooo.test overcloud-novacompute-0.ctlplane
+  roles:
+    - name: tripleo_ipa_dns
+  environment:
+    IPA_USER: admin
+    IPA_HOST: ipa.example.test
+    IPA_PASS: password123

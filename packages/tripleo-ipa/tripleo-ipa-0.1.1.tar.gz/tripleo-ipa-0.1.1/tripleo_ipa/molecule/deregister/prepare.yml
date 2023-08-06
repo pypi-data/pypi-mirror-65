@@ -1,0 +1,74 @@
+---
+# Copyright 2020 Red Hat, Inc.
+# All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: set facts for domains
+      set_fact:
+        domain: example.test
+        ipa_password: password123
+
+    - name: Download FreeIPA Container
+      docker_image:
+        name: freeipa/freeipa-server:fedora-28
+        source: pull
+
+    - name: Make IPA data dir
+      file:
+        path: /tmp/ipa-data
+        state: directory
+
+    - name: Toggle SELinux boolean
+      seboolean:
+        name: container_manage_cgroup
+        state: true
+        persistent: true
+      become: true
+
+    - name: Remove any old IPA container
+      docker_container:
+        name: freeipa-server-container
+        state: absent
+
+    - name: Create network
+      docker_network:
+        name: ipa_network
+        ipam_config:
+          - subnet: 172.18.0.0/16
+
+    - name: Configure FreeIPA
+      shell: >
+        docker run --name freeipa-server-container
+        --sysctl net.ipv6.conf.lo.disable_ipv6=0
+        --security-opt seccomp=unconfined
+        --net ipa_network --ip 172.18.0.22
+        -e IPA_SERVER_IP={{ ansible_default_ipv4.address | default('127.0.0.1') }}
+        -e PASSWORD={{ ipa_password }}
+        -h ipa.{{ domain }}
+        --read-only --tmpfs /run --tmpfs /tmp
+        -v /sys/fs/cgroup:/sys/fs/cgroup:ro
+        -v /tmp/ipa-data:/data:Z freeipa/freeipa-server:fedora-28 exit-on-finished
+        -U -r {{ domain | upper }} --setup-dns --no-reverse --no-ntp
+        --forwarder={{ unbound_primary_nameserver_v4 | default('1.1.1.1') }}
+        --forwarder={{ unbound_secondary_nameserver_v4 | default('8.8.8.8') }} &
+
+    - name: Wait for FreeIPA server install
+      wait_for:
+        path: "/tmp/ipa-data/var/log/ipaserver-install.log"
+        search_regex: "(INFO The ipa-server-install command was successful|ERROR The ipa-server-install command failed)"
+        timeout: 900
+      become: true

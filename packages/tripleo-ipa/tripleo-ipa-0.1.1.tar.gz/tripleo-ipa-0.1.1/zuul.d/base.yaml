@@ -1,0 +1,16 @@
+---
+- job:
+    description: tripleo-ipa molecule job
+    name: tripleo-ipa-centos-8-molecule
+    nodeset: centos-8
+    parent: base
+    success-url: "reports.html"
+    failure-url: "reports.html"
+    pre-run:
+      - zuul.d/playbooks/pre.yml
+    run:
+      - zuul.d/playbooks/run.yml
+    post-run:
+      - zuul.d/playbooks/post.yml
+    timeout: 3600
+    voting: true
