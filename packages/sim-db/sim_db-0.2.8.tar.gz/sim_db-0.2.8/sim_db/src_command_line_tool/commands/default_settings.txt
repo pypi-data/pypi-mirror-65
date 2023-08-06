@@ -1,0 +1,43 @@
+# Settings
+(Comments are encapseled in parantheses.)
+
+## Parameter filenames
+(If no parameter file is passed to 'add_sim', the first match here is used.)
+sim_params.txt
+
+## Personalized print configurations
+(print_sim -p 'KEY_STRING', print_sim == print_sim -p default)
+(format: "'key_string': 'print_sim arguments'")
+
+default: --columns id status name --params --results
+name: --columns id name
+description: --columns id name description 
+status: --columns id name status job_id
+time: --columns id name status time_submitted time_started used_walltime job_id
+git: --columns id name git_hash commit_message git_diff_stat sha1_executables
+cpu: -v --columns id name used_walltime cpu_info
+last: -n 1 -v --not_columns time_submitted time_started used_walltime job_id cpu_info git_hash commit_message git_diff_stat git_diff sha1_executables
+
+## Prefix for 'run_command' for multithreaded/core simulations 
+(Added to the start of 'run_command' when run or submitted with >1 tasks.)
+(' # ' is replaced with ' N ', where 'N' is the number of tasks.)
+
+## Settings for job scheduler
+
+### Which job scheduler
+(SLURM or PBS)
+
+### Number of logical cpus per node
+
+### Memory per node
+(in GB)
+(Probably have to be slightly lower than the actual memory on a node.)
+
+### Account 
+(user account batch system)
+
+### Email for notifications
+
+### Add to all job scripts submitted:
+(import/load statements etc. or more )
+(Can be multiple lines.)
