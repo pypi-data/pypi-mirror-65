@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: kubeflow-fairing
+Version: 0.7.2
+Summary: Kubeflow Fairing Python SDK.
+Home-page: https://github.com/kubeflow/fairing
+Author: Kubeflow Authors
+Author-email: hejinchi@cn.ibm.com
+License: Apache License Version 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: python-dateutil (<=2.8.0,>=2.1)
+Requires-Dist: numpy (>=1.17.3)
+Requires-Dist: kfserving (>=0.2.1.1)
+Requires-Dist: docker (>=3.4.1)
+Requires-Dist: notebook (>=5.6.0)
+Requires-Dist: kubernetes (==10.0.1)
+Requires-Dist: future (>=0.17.1)
+Requires-Dist: six (>=1.11.0)
+Requires-Dist: google-cloud-storage (>=1.13.2)
+Requires-Dist: google-cloud-logging (>=1.13.0)
+Requires-Dist: requests (<2.23,>=2.21.0)
+Requires-Dist: setuptools (>=34.0.0)
+Requires-Dist: google-auth (>=1.6.2)
+Requires-Dist: httplib2 (>=0.12.0)
+Requires-Dist: oauth2client (>=4.0.0)
+Requires-Dist: tornado (>=6.0.1)
+Requires-Dist: google-api-python-client (>=1.7.8)
+Requires-Dist: cloudpickle (>=0.8)
+Requires-Dist: urllib3 (==1.24.2)
+Requires-Dist: boto3 (>=1.9.0)
+Requires-Dist: azure-storage-file (>=2.1.0)
+Requires-Dist: azure-mgmt-storage (>=9.0.0)
+Requires-Dist: retrying (>=1.3.3)
+Requires-Dist: kubeflow-tfjob (>=0.1.1)
+Requires-Dist: kubeflow-pytorchjob (>=0.1.1)
+Requires-Dist: ibm-cos-sdk (>=2.6.0)
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-pep8 ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+
+Python SDK for Kubeflow Fairing components.
+
+
