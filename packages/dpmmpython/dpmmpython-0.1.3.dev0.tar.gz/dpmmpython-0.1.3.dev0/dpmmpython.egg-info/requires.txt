@@ -1,0 +1,9 @@
+julia
+numpy
+wget
+
+[test]
+numpy
+ipython
+pytest>=4.4
+mock
