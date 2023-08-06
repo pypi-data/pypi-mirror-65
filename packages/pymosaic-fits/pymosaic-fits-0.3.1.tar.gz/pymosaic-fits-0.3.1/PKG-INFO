@@ -1,0 +1,54 @@
+Metadata-Version: 1.1
+Name: pymosaic-fits
+Version: 0.3.1
+Summary: pymosaic-fits
+Home-page: https://odahub.io/
+Author: V.S.
+Author-email: vladimir.savchenko@gmail.com
+License: GPL-2+
+Description: # pymosaics
+        
+        Merge FITS file mosaic
+        
+        * maps all images in the same pixels (taken from one of the images, or healpix)
+        * sums with a flexible alhorithm
+        
+        * output mosaics format is compatible with input - allowing map-reduce operations
+        
+          note that pixilization used for mosaic and for the output is not neccessarily the same, i.e. for healpix it's useful to have "regular" projection output.
+        
+          clearly, heapix pixels are  useful primarily for all-sky.
+        
+        ## Installation
+        
+        ```bash
+        $ pip install pymosaics
+        ```
+        
+        ## Example:
+        
+        ```bash
+        $ mosaic tests/data/isgri_sky_ima_{1,2}.fits.gz out.fits # just a normal mosaic, pixels/output from first image
+        $ mosaic tests/data/isgri_sky_ima_{1,2}.fits.gz out.fits --mock # mock, to show assembly
+        $ mosaic tests/data/isgri_sky_ima_{1,2}.fits.gz out.fits --pixels healpix # healpix pixels, projected output
+        ```
+        
+        ```python
+        import mosaic$                                                               
+        mosaic.mosaic_fn_list(["tests/data/isgri_sky_ima_1.fits.gz", "tests/data/isgri_sky_ima_2.fits.gz"], "out.fits")
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet
+Classifier: Topic :: Scientific/Engineering :: Astronomy
