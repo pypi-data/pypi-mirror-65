@@ -1,0 +1,15 @@
+arrow>=0.15
+Click<8
+colorama
+PyYAML>=5.1.2
+
+[geo]
+googlemaps==4.2.0
+
+[storage]
+google-cloud-storage==1.23
+
+[tests]
+Flask==1.1.1
+googlemaps==4.2.0
+google-cloud-storage==1.23

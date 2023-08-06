@@ -1,0 +1,8 @@
+include README.md LICENSE
+
+exclude VERSION
+exclude .bumpversion.cfg
+exclude .properties
+exclude tox.ini
+
+prune tests
