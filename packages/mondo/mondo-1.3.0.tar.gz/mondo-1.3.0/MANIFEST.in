@@ -1,0 +1,13 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+exclude *.launch
+exclude .project
+exclude .pydevproject
+exclude .gitignore
+exclude build_info.txt
+exclude azure-pipelines.yml
+exclude bitbucket-pipelines.yml

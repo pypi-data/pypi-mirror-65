@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DateTimeSubsetDialog</class>
+ <widget class="QDialog" name="DateTimeSubsetDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>283</width>
+    <height>284</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Select Data Range</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="4" column="0" colspan="3">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <widget class="QRadioButton" name="useAllData">
+     <property name="text">
+      <string>Use all data</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <layout class="QFormLayout" name="formLayout_2">
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="startLabel">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Start Time (UTC):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QDateTimeEdit" name="startDateTime">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="wrapping">
+        <bool>true</bool>
+       </property>
+       <property name="displayFormat">
+        <string>M/d/yyyy h:mm:ss AP</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="endLabel">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>End Time (UTC):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QDateTimeEdit" name="endDateTime">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="wrapping">
+        <bool>true</bool>
+       </property>
+       <property name="displayFormat">
+        <string>M/d/yyyy h:mm:ss AP</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="durationLabel">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Duration:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Relative Start Time</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Relative End Time</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="startSeconds">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="suffix">
+        <string> s</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QSpinBox" name="endSeconds">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="suffix">
+        <string> s</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QSpinBox" name="duration">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="suffix">
+        <string> s</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>13</width>
+       <height>13</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <widget class="QRadioButton" name="useSubset">
+     <property name="text">
+      <string>Use data within range</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="2">
+    <layout class="QFormLayout" name="formLayout_4">
+     <item row="0" column="0">
+      <widget class="QLabel" name="allStartLabel">
+       <property name="text">
+        <string>Start Time (UTC):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="allStart">
+       <property name="text">
+        <string>1/1/2000 12:00:00 AM</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="allEndLabel">
+       <property name="text">
+        <string>End Time (UTC):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="allEnd">
+       <property name="text">
+        <string>1/1/2000 12:00:00 AM</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="allDurationLabel">
+       <property name="text">
+        <string>Duration:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="allDuration">
+       <property name="text">
+        <string>0 s</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>useAllData</tabstop>
+  <tabstop>useSubset</tabstop>
+  <tabstop>startDateTime</tabstop>
+  <tabstop>endDateTime</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DateTimeSubsetDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>245</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DateTimeSubsetDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>275</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>101</x>
+     <y>134</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startDateTime</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>134</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>endLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>106</x>
+     <y>160</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>endDateTime</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>222</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>160</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>durationLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>73</x>
+     <y>238</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useAllData</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>allStartLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>60</x>
+     <y>34</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useAllData</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>allStart</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>17</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useAllData</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>allEndLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>14</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>80</x>
+     <y>54</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useAllData</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>allEnd</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>150</x>
+     <y>16</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>60</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useAllData</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>allDurationLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>98</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>76</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useAllData</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>allDuration</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>197</x>
+     <y>14</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>187</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>59</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>46</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startSeconds</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>222</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>213</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>endSeconds</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>useSubset</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>duration</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>197</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

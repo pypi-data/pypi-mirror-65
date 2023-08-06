@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MondoMainWindow</class>
+ <widget class="QMainWindow" name="MondoMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>617</width>
+    <height>351</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mondo</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,1">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="2">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>Frequency Analysis</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="psdButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Power Spectral Density (PSD)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="singleChannelPsdButton">
+           <property name="toolTip">
+            <string>Overlaid PSD streamlined for plotting a single channel across multiple time slices</string>
+           </property>
+           <property name="text">
+            <string>Single Channel Overlaid PSD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="singleSlicePsdButton">
+           <property name="toolTip">
+            <string>Overlaid PSD streamlined for plotting multiple channels in a single time slice</string>
+           </property>
+           <property name="text">
+            <string>Single Time Slice Overlaid PSD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="overlaidPsdButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Ovelaid PSD for plotting arbitrary channels and time slices </string>
+           </property>
+           <property name="text">
+            <string>Overlaid PSD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="title">
+         <string>Raw Data</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QPushButton" name="csvButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>CSV Output</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="csvDownsampledButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>CSV Downsampled Output</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>Time/Frequency Analysis</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QPushButton" name="spectrogramButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Spectrogram</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="title">
+         <string>Time Analysis</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QPushButton" name="timeButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Time Data</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="synchronousTimeButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Synchronous Time Data</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="overlaidTimeButton">
+           <property name="minimumSize">
+            <size>
+             <width>175</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Overlaid Time Data</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="title">
+         <string>File Manipulation</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <widget class="QPushButton" name="fileInformationButton">
+           <property name="text">
+            <string>File Information</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="viewSettingsButton">
+           <property name="text">
+            <string>View Settings</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="rawExportButton">
+           <property name="text">
+            <string>Advanced Raw Export</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="splitFileButton">
+           <property name="text">
+            <string>Rend File Asunder</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>0</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>617</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <widget class="QMenu" name="menuCheckForUpdates">
+     <property name="title">
+      <string>Check for Updates</string>
+     </property>
+     <addaction name="actionUpdateLatestStable"/>
+     <addaction name="actionUpdateCurrentBranch"/>
+     <addaction name="actionUpdateSpecificBranch"/>
+     <addaction name="actionUpdateSpecificCommit"/>
+    </widget>
+    <addaction name="menuCheckForUpdates"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAboutLibraries"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About Mondo...</string>
+   </property>
+   <property name="toolTip">
+    <string>About Mondo...</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAboutLibraries">
+   <property name="text">
+    <string>About Libraries...</string>
+   </property>
+   <property name="toolTip">
+    <string>About Libraries...</string>
+   </property>
+  </action>
+  <action name="actionUpdateLatestStable">
+   <property name="text">
+    <string>Latest Stable</string>
+   </property>
+  </action>
+  <action name="actionUpdateSpecificBranch">
+   <property name="text">
+    <string>Specific Branch...</string>
+   </property>
+  </action>
+  <action name="actionUpdateSpecificCommit">
+   <property name="text">
+    <string>Specific Commit..</string>
+   </property>
+  </action>
+  <action name="actionUpdateCurrentBranch">
+   <property name="text">
+    <string>Latest branch</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences...</string>
+   </property>
+   <property name="toolTip">
+    <string>Preferences...</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MondoMainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>152</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
