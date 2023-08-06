@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: polyswarm-artifact
+Version: 1.3.3
+Summary: Library containing artifact type enums and functions
+Home-page: https://github.com/polyswarm/polyswarm-artifact
+Author: PolySwarm Developers
+Author-email: info@polyswarm.io
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.5.2,<4
+Description-Content-Type: text/markdown
+Requires-Dist: jsonschema (==3.0.2)
+
+# PolySwarm Artifact
+
+[![pipeline status](https://gitlab.polyswarm.io/externalci/polyswarm-artifact/badges/master/pipeline.svg)](https://gitlab.polyswarm.io/externalci/polyswarm-artifact/commits/master)
+[![coverage report](https://gitlab.polyswarm.io/externalci/polyswarm-artifact/badges/master/coverage.svg)](https://gitlab.polyswarm.io/externalci/polyswarm-artifact/commits/master)
+
+Python package for mapping artifact types to the ArtifactType enum in the BountyRegistry contract.
+
+Supports python3 >=3.5.2 and >=3.6.5.
+
+# Versions in this schema
+
+Everything in here is meant to be a part of an evolving schema. 
+No versions, but all changes are additions only. 
+
+## Use non-null and required carefully
+
+Since we cannot remove fields, when a field is no longer useful, it needs to be nullable.
+Unfortunately we cannot add nullable at a later date, as that would invalidate new schemas when being read by an old  
+
+We can easily remove required fields, but we cannot add more. 
+Doing so would invalidated old schemas.  
+
+
