@@ -1,0 +1,56 @@
+[build-system]
+requires = ['flit']
+build-backend = 'flit.buildapi'
+
+[tool.flit.metadata]
+module = 'scirpy'
+author = 'Gregor Sturm'
+author-email = 'gregor.sturm@i-med.ac.at'
+home-page = 'https://github.com/grst/scirpy'
+description-file = "README.rst"
+classifiers = [
+    'License :: OSI Approved :: BSD License',
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Science/Research',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: R'
+]
+requires-python = '>= 3.6'
+requires = [
+    'get_version',
+    'scanpy',
+    # pandas <1 until scanpy is fully compatible...
+    'pandas<1',
+    'numpy',
+    'scipy',
+    'parasail',
+    'scikit-learn',
+    'python-levenshtein',
+    'python-igraph',
+    'networkx',
+]
+
+[tool.flit.metadata.requires-extra]
+optional = [
+    'rectangle-packer',
+    'squarify'
+]
+test = [
+    'pytest',
+    'black'
+]
+doc = [
+    'sphinx>=2,<3',
+    'sphinx_autodoc_typehints>=1.8.0',
+    'sphinx_rtd_theme>=0.4',
+    'scanpydoc',
+    # for tutorial
+    'leidenalg',
+    'nbsphinx',
+    'jupytext',
+    'sphinxcontrib-bibtex',
+    'pycairo',
+    'jupyter_client',
+    'ipykernel',
+]
