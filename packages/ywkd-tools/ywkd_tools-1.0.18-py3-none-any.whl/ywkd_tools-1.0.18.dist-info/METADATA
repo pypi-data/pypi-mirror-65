@@ -1,0 +1,134 @@
+Metadata-Version: 2.1
+Name: ywkd-tools
+Version: 1.0.18
+Summary: 娱网科道内部python 公用包
+Home-page: UNKNOWN
+Author: ywkd
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: django
+Requires-Dist: djangorestframework (<4,>=3)
+Requires-Dist: django-log-request-id
+
+娱网科道内部python 公用包
+===================================
+
+安装
+-----
+
+使用 pip 安装
+
+    $ pip install ywkd_tools
+
+
+pip 地址
+-----
+https://pypi.org/project/ywkd-tools/
+
+
+使用
+-----
+
+### PRC 调用
+```python
+from ywkd_tools.inner_service_apis import InnerServices
+InnerServices.setup(service_name=<调用者名称>, base_url=<RPC Domain>, secret=<RPC 认证密码>)
+
+# 发送短信
+InnerServices.MSG().send_sms([57], 'SMS_177552091', {'username': 'tester','password': 'pwd12345'})
+
+# 用户过滤
+InnerServices.Cperm().filter_users(group_codes__in=['ceo'])
+
+# 调用自定义方法 fun
+InnerServices.Cperm().rpc_client.fun(...)
+
+# 获取用户详情
+InnerServices.Cperm().get_user(1)
+
+# 实例1:
+class AViewOrSerializer(xxx):
+    def some_method(...):
+        cperm = InnerServices.Cperm()
+        cperm.get_user(...)
+        cperm.filter_users(...)
+        cperm.rpc_client.fun(...)
+        ...
+
+# 实例2:
+@app.task(...)
+def asyn_job(...):
+    cperm = InnerServices.Cperm(request_id='xxxxxxxxxx') # or cperm = InnerServices.Cperm(request=request)
+    cperm.get_user(...)
+    cperm.filter_users(...)
+    cperm.rpc_client.fun(...)
+    ...
+
+```
+
+### Auth 认证
+```python
+# 在初始化文件中执行
+from ywkd_tools.auth import Auth
+Auth.setup(service_name=<调用者名称>, rpc_base_url=<RPC Domain>, rpc_secret=<RPC 认证密码>)
+
+
+# 在django view文件中
+from ywkd_tools.auth import Auth
+
+class SomeView(BaseView):
+    """需要认证的Django Vew"""
+
+    authentication_classes = [Auth.RSTFBasciAuthentication]
+    ...
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+
+# 在对外提供RPC服务的文件中
+from modernrpc.core import rpc_method
+from modernrpc.auth import set_authentication_predicate
+from ywkd_tools.auth import Auth
+
+@rpc_method
+def ping():
+    """不需要认证的rpc 接口"""
+    return 'pong'
+
+@rpc_method
+@set_authentication_predicate(Auth.RPCBasciAuthentication().authenticate)
+def get_import_info():
+    """需要认证的rpc 接口"""
+    return ...
+```
+
+发布包
+-----
+
+```bash
+# 确保您拥有setuptools并wheel 安装了最新版本
+$ python3 -m pip install --upgrade setuptools wheel
+
+# 安装Twine
+$ python3 -m pip install --upgrade twine
+
+# 从setup.py位于的同一目录运行此命令
+$ python3 setup.py sdist bdist_wheel
+
+# 运行Twine以上传所有存档dist
+$ python3 -m twine upload dist/*
+$ python3 -m twine upload --skip-existing dist/*
+
+```
+
+
