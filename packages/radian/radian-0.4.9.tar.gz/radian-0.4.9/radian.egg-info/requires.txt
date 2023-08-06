@@ -1,0 +1,11 @@
+rchitect>=0.3.20<0.4.0
+lineedit>=0.1.5<0.2.0
+six>=1.9.0
+pygments>=2.5.0
+
+[test]
+coverage
+pytest
+pyte>=0.8.0
+pexpect
+ptyprocess
