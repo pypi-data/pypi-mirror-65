@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_smarturlfield.egg-info/PKG-INFO
+django_smarturlfield.egg-info/SOURCES.txt
+django_smarturlfield.egg-info/dependency_links.txt
+django_smarturlfield.egg-info/top_level.txt
+smarturlfield/__init__.py
+smarturlfield/dbfields.py
+smarturlfield/formfields.py
+smarturlfield/idn.py
+smarturlfield/utils.py
