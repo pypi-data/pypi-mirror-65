@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: mkcloud
+Version: 0.0.6
+Summary: 童心制物云服务
+Home-page: https://github.com/pypa/mkcloud
+Author: makeblock
+Author-email: developer@makeblock.com
+License: MIT
+Description: ## mkcloud 童心制物云服务
+        #### 目前提供的功能
+        * 聊天机器人
+            
+            `发消息 mkcloud.robot.chat('哈哈哈哈')`
+            
+            `切换中英文服务 mkcloud.robot.setLanguage('en')`
+Platform: all
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
