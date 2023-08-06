@@ -1,0 +1,17 @@
+setup.py
+pyuni/__init__.py
+pyuni/client.py
+pyuni/exceptions.py
+pyuni/university.py
+pyuni.egg-info/PKG-INFO
+pyuni.egg-info/SOURCES.txt
+pyuni.egg-info/dependency_links.txt
+pyuni.egg-info/requires.txt
+pyuni.egg-info/top_level.txt
+pyuni/objects/__init__.py
+pyuni/objects/subject.py
+pyuni/scraper/__init__.py
+pyuni/scraper/scraper.py
+pyuni/scraper/university_scraper/__init__.py
+pyuni/scraper/university_scraper/university_of_melbourne_scraper.py
+pyuni/scraper/university_scraper/university_scraper.py
