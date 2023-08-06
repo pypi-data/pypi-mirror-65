@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: namebuster
+Version: 1.0.2
+Summary: A tool for generating common username permutations from a list of names, a file, or url, to aid with username enumeration
+Home-page: https://github.com/benbusby/namebuster
+Author: Ben Busby
+Author-email: contact@benbusby.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4 (==4.9.0)
+Requires-Dist: blis (==0.4.1)
+Requires-Dist: bs4 (==0.0.1)
+Requires-Dist: catalogue (==1.0.0)
+Requires-Dist: certifi (==2020.4.5.1)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: cymem (==2.0.3)
+Requires-Dist: idna (==2.9)
+Requires-Dist: importlib-metadata (==1.6.0)
+Requires-Dist: murmurhash (==1.0.2)
+Requires-Dist: numpy (==1.18.2)
+Requires-Dist: plac (==1.1.3)
+Requires-Dist: preshed (==3.0.2)
+Requires-Dist: pycurl (==7.43.0.5)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: soupsieve (==2.0)
+Requires-Dist: spacy (==2.2.4)
+Requires-Dist: srsly (==1.0.2)
+Requires-Dist: thinc (==7.4.0)
+Requires-Dist: tqdm (==4.45.0)
+Requires-Dist: urllib3 (==1.25.8)
+Requires-Dist: wasabi (==0.6.0)
+Requires-Dist: zipp (==3.1.0)
+
+# namebuster
+Generates a list of possible common username permutations given a list of names, a url, or a file.
+
+## Install
+`pip install namebuster`
+
+## Usage
+### Command Line
+- Name list: `namebuster "John Broccoli, Adam Blueberry, Queen Mango"`
+- URL: `namebuster https://sauna.htb`
+- File: `namebuster document.txt`
+
+### Python
+```python
+import namebuster
+
+# Create a list of all usernames as one large list
+split_usernames = namebuster.generate("https://sauna.htb")
+
+# With name_sep=True, create a dict with "real_name: [usernames]" mapping
+split_usernames = namebuster.generate("John Broccoli, Tim Apple", name_sep=True)
+```
+
+For each discovered name, namebuster will generate ~200 possible usernames. You can then use this list with a tool like kerbrute, for example:
+
+```bash
+[ benbusby : ~/test ]
+$ namebuster "Fergus Smith" > usernames.txt
+[ benbusby : ~/test ]
+$ ./kerbrute_linux_amd64 userenum ./usernames.txt -d DOMAIN.LOCAL --dc domain.com
+
+    __             __               __
+   / /_____  _____/ /_  _______  __/ /____
+  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
+ / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
+/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/
+
+Version: v1.0.3 (9dad6e1) - 02/18/20 - Ronnie Flathers @ropnop
+
+2020/02/18 23:47:59 >  Using KDC(s):
+2020/02/18 23:47:59 >  	domain.com:88
+
+2020/02/18 23:47:59 >  [+] VALID USERNAME:	 fsmith@DOMAIN.LOCAL
+2020/02/18 23:47:59 >  Done! Tested 125 usernames (1 valid) in 1.585 seconds
+```
+
+
