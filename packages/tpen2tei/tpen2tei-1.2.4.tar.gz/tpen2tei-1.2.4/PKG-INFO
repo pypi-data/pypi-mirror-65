@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: tpen2tei
+Version: 1.2.4
+Summary: A module for conversion of SharedCanvas-JSON transcription data to TEI XML
+Home-page: https://github.com/DHUniWien/tpen2tei
+Author: Tara L Andrews
+Author-email: tla@mit.edu
+License: MIT
+Description: tpen2tei
+        ========
+        
+        This repository is a home for a collection of tools for working with <a href="http://t-pen.org/">T-PEN</a> transcriptions, rendering them into XML, and collating them with <a href="http://collatex.net/">CollateX</a>.
+        
+        
+        
+Keywords: TEI-XML SC-JSON manuscript transcription
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Text Processing :: Markup :: XML
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >3
+Description-Content-Type: text/markdown
