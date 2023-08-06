@@ -1,0 +1,21 @@
+body {
+    overflow-y: scroll;
+}
+
+.thumbnail {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.thumbnail img {
+    min-width: 128px;
+    min-height: 128px;
+}
+
+.detail-section h5 {
+    margin-top: 7px;
+}
+
+.detail-tab ul {
+    padding-inline-start: 20px;
+}
