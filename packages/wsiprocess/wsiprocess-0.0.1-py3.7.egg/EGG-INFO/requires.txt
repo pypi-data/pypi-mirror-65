@@ -1,0 +1,9 @@
+joblib
+lxml
+numpy
+opencv-python
+pathlib
+pyvips
+
+[:python_version >= "3.4"]
+importlib
