@@ -1,0 +1,12 @@
+fusepy
+indexed_gzip
+indexed_bzip2
+
+[legacy-serializers]
+lz4
+msgpack
+simplejson
+pyyaml
+ujson
+cbor
+python-rapidjson
