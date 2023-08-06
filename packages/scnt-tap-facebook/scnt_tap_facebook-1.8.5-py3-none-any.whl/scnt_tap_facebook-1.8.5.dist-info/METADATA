@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: scnt-tap-facebook
+Version: 1.8.5
+Summary: Singer.io tap for extracting data from the Facebook Ads API
+Home-page: https://singer.io
+Author: Stitch, Scentbird
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Dist: attrs (==16.3.0)
+Requires-Dist: backoff (==1.8.0)
+Requires-Dist: pendulum (==1.2.0)
+Requires-Dist: facebook-business (==5.0)
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: singer-python (==5.8.1)
+Provides-Extra: dev
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: ipdb ; extra == 'dev'
+Requires-Dist: nose ; extra == 'dev'
+
+UNKNOWN
+
+
