@@ -1,0 +1,4 @@
+[console_scripts]
+odd-crack = oddhash.crack:main
+odd-hash = oddhash.main:main
+
