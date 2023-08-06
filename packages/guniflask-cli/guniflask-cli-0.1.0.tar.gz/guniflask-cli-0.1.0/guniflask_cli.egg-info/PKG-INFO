@@ -1,0 +1,33 @@
+Metadata-Version: 1.2
+Name: guniflask-cli
+Version: 0.1.0
+Summary: Standard tooling for Flask development with guniflask
+Home-page: https://github.com/jadbin/guniflask-cli
+Author: jadbin
+Author-email: jadbin.com@hotmail.com
+License: MIT
+Description: =============
+        guniflask-cli
+        =============
+        
+        .. image:: https://img.shields.io/badge/license-Apache 2-blue.svg
+            :target: https://github.com/jadbin/guniflask-cli/blob/master/LICENSE
+        
+        Overview
+        ========
+        
+        guniflask-cli是自动化生成基于flask + gunicorn的服务端项目基础代码的构建工具。
+        
+        Documentation
+        =============
+        
+        https://guniflask.readthedocs.io/
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
