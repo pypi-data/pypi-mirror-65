@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: via-sudoku-solver
+Version: 1.0.0
+Summary: Sudoku game based on cv2 with autosolver.
+Home-page: https://github.com/VoIlAlex
+Author: voilalex
+Author-email: ilya.vouk@gmail.com
+License: MIT
+Download-URL: https://github.com/VoIlAlex/via-sudoku-solver/archive/v1.0.0.tag.gz
+Description: # Sudoku solver | VIA
+        
+        ## Installation
+        
+        To install sudoku solver type the following in the terminal:
+        
+        ```bash
+        pip install via-sudoku-solver
+        ```
+        
+        ## Usage
+        
+        To start sudoku-solver type the following in your terminal:
+        
+        ```bash
+        via-sudoku-solver
+        ```
+        
+        For help about arguments type:
+        
+        ```bash
+        via-sudoku-solver --help
+        ```
+        
+        ## License
+        
+        [MIT](LICENSE.md)
+        
+        ## Contributing
+        
+        See [CONTRIBUTING.md](CONTRIBUTING.md).
+Keywords: game,sudoku,solver
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Topic :: Games/Entertainment
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
