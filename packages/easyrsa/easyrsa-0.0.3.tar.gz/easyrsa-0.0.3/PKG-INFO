@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: easyrsa
+Version: 0.0.3
+Summary: Encrypt symmetric keys with RSA.
+Home-page: https://github.com/foxe6-temp/easyrsa
+Author: f̣ộx̣ệ6
+Author-email: foxe6@protonmail.com
+License: AGPL-3.0
+Description: # Easy RSA
+        
+        <i>Encrypt symmetric keys with RSA.</i>
+        
+        # Hierarchy
+        
+        ```
+        easyrsa
+        '---- EasyRSA()
+            |---- gen_private_key()
+            |---- gen_public_key()
+            |---- encrypt()
+            '---- decrypt()
+        ```
+        
+        # Example
+        
+        ## python
+        ```python
+        from easyrsa import *
+        
+        # generate a key pair
+        kp = {}
+        EasyRSA(bits=512*2).gen_private_key(kp).gen_public_key(kp)
+        print(kp)
+        
+        # encryption and decryption
+        from base64 import b64encode
+        symmetric_key = "abc" or b"abc"
+        encrypted_key = EasyRSA(public_key=kp["public_key"]).encrypt(symmetric_key)
+        key_in_b64 = b64encode(encrypted_key).decode("utf-8")
+        print(encrypted_key)
+        print(key_in_b64)
+        print(symmetric_key == EasyRSA(private_key=kp["private_key"]).decrypt(encrypted_key))
+        print(symmetric_key == EasyRSA(private_key=kp["private_key"]).decrypt(key_in_b64))
+        ```
+        
+        ## shell
+        ```shell script
+        rem easyrsa.exe {private key|public key} {base64 string to decrypt|key to encrypt}
+        ```
+Keywords: easy rsa
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
