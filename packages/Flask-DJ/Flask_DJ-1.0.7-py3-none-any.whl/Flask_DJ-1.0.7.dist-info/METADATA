@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: Flask-DJ
+Version: 1.0.7
+Summary: Django (mvc) structure for your Flask project.
+Home-page: https://github.com/AlexandrovRoman/Flask-DJ
+Author: Alexandrov Roman
+Author-email: flask-dj.feedback@yandex.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/AlexandrovRoman/Flask-DJ
+Project-URL: Docs, https://flask-dj.readthedocs.io/en/latest/
+Keywords: mvc django flask structure
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: waitress (>=1.4.3)
+Requires-Dist: flask (>=1.1.1)
+Requires-Dist: Flask-Migrate (>=2.5.2)
+Requires-Dist: Flask-Script (>=2.0.6)
+Requires-Dist: Flask-SQLAlchemy (>=2.4.1)
+Requires-Dist: WTForms (>=2.2.1)
+Requires-Dist: SQLAlchemy (>=1.3.13)
+Requires-Dist: Flask-WTF (>=0.14.3)
+Requires-Dist: Flask-Login (>=0.5.0)
+
+![image](https://habrastorage.org/webt/fm/uv/j0/fmuvj0qq8vym2hnf01n0wpeupn0.png)
+
+
+# Flask-DJ
+
+ Since the flask has no strict architecture, <br>
+it's easy to get confused when creating a project.<br>
+This library was created to help everyone who wants to <br>
+create a project with mvc structure.<br>
+
+ ## Quick start
+ ### Start project:
+
+ ```shell script
+$ flask-dj startproject app
+```
+
+or
+
+ ```python
+from flask_dj import startproject
+from os import getcwd
+
+your_project_name = 'app'
+startproject(your_project_name, getcwd())
+```
+ ### New app:
+
+   ```shell script
+ python manage.py startapp {app_name}
+```
+
+### Start server:
+
+```shell script
+ python manage.py runserver
+```
+
+
