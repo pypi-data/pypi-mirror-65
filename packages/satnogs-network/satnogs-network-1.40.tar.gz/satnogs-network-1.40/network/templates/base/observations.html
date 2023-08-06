@@ -1,0 +1,305 @@
+{% extends "base.html" %}
+{% load tags %}
+{% load staticfiles %}
+{% load humanize %}
+
+{% block title %} - Observations{% endblock %}
+
+{% block css %}
+  <link href="{% static 'lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'lib/bootstrap-select/dist/css/bootstrap-select.min.css' %}">
+{% endblock css %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3 col-xs-3">
+      <h2>
+        Observations
+      </h2>
+    </div>
+    {% if is_paginated %}
+      <div class="col-md-6 visible-md visible-lg">
+        <span class="pull-right">{% load paginator %}{% paginator request 3%}</span>
+      </div>
+    {% endif %}
+    <div class="col-md-3 pull-right visible-md visible-lg">
+      <span class="pull-right observations-actions">
+        <a href="#legend" class="btn btn-default" data-toggle="modal" data-target="#LegendModal">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+        </a>
+        <a class="btn btn-default" role="button" data-toggle="collapse"
+           href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
+          <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+        </a>
+      	{% if can_schedule %}
+          <a class="btn btn-primary" href="{% url 'base:observation_new' %}">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Observation
+          </a>
+        {% endif %}
+      </span>
+    </div>
+    <div class="col-md-6 pull-right hidden-md hidden-lg">
+      <h2 class="pull-right">
+        <a class="btn btn-default" role="button" data-toggle="collapse"
+                href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
+          <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+        </a>
+        {% if can_schedule %}
+          <a class="btn btn-primary" href="{% url 'base:observation_new' %}">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </a>
+        {% endif %}
+      </h2>
+    </div>
+  </div>
+
+  <div class="collapse{% if norad %} in{% endif %}" id="collapseFilters" data-filtered="{{ filtered }}">
+    <div class="filter-section well well-sm row">
+      <form id="observation-filter" class="form" methon="get" action="{% url 'base:observations_list' %}">
+        <div class="form-group status-filter col-md-3">
+          <label for="status-selector">Status</label>
+          <div id="status-selector" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-future btn-sm {% if future == '0' %}active btn-inactive{% endif %}"
+                   aria-expanded="true"
+                   aria-controls="future"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   title="Future">
+              <input type="checkbox" name="future" value="0" {% if future == '0' %}checked{% endif %} autocomplete="off">
+              <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+            </label>
+            <label class="btn btn-good btn-sm {% if good == '0' %}active btn-inactive{% endif %}"
+                   aria-expanded="true"
+                   aria-controls="good"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   title="Good">
+              <input type="checkbox" name="good" value="0" {% if good == '0' %}checked{% endif %} autocomplete="off">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </label>
+            <label class="btn btn-bad btn-sm {% if bad == '0' %}active btn-inactive{% endif %}"
+                   aria-expanded="true"
+                   aria-controls="bad"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   title="Bad">
+              <input type="checkbox" name="bad" value="0" {% if bad == '0' %}checked{% endif %} autocomplete="off">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </label>
+            <label class="btn btn-unknown btn-sm {% if unvetted == '0' %}active btn-inactive{% endif %}"
+                   aria-expanded="true"
+                   aria-controls="unvetted"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   title="Unvetted">
+              <input type="checkbox" name="unvetted" value="0" {% if unvetted == '0' %}checked{% endif %} autocomplete="off">
+              <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            </label>
+            <label class="btn btn-failed btn-sm {% if failed == '0' %}active btn-inactive{% endif %}"
+                   aria-expanded="true"
+                   aria-controls="failed"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   title="Failed">
+              <input type="checkbox" name="failed" value="0" {% if failed == '0' %}checked{% endif %} autocomplete="off">
+              <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="satellite-selection">Satellite</label>
+          <select class="form-control selectpicker" name="norad" autocomplete="off" id="satellite-selection" data-live-search="true">
+            <option value="" selected>All</option>
+            {% for satellite in satellites %}
+              <option data-norad="{{ satellite.norad_cat_id }}" value="{{ satellite.norad_cat_id }}"
+                      {% ifequal satellite.norad_cat_id norad %}selected{% endifequal %}>
+                {{ satellite.norad_cat_id }} - {{ satellite.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="observer-selection">Observer</label>
+          <select class="form-control selectpicker" name="observer" autocomplete="off" id="observer-selection" data-live-search="true">
+            <option value="" selected>All</option>
+            {% for author in authors %}
+              <option data-author="{{ author.id }}" value="{{ author.id }}"
+                      {% ifequal author.id observer_id %}selected{% endifequal %}>
+                {{ author.displayname }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="station-selection">Station</label>
+          <select class="form-control selectpicker" name="station" autocomplete="off" id="station-selection" data-live-search="true">
+            <option value="" selected>All</option>
+            {% for station in stations %}
+              <option data-station="{{ station }}" value="{{ station.id }}"
+                      {% ifequal station.id station_id %}selected{% endifequal %}>
+                {{ station.id }} - {{ station.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="results-selection">Results</label>
+          <select class="form-control selectpicker" name="results" autocomplete="off" id="results-selection" multiple>
+            <optgroup label="Waterfall" data-icon="glyphicon-picture" data-max-options="1">
+              <option value="w1" {% if 'w1' in results %}selected{% endif %}>With Waterfall</option>
+              <option value="w0" {% if 'w0' in results %}selected{% endif %}>Without Waterfall </option>
+            </optgroup>
+            <optgroup label="Audio" data-icon="glyphicon-volume-up" data-max-options="1">
+              <option value="a1" {% if 'a1' in results %}selected{% endif %}>With Audio</option>
+              <option value="a0" {% if 'a0' in results %}selected{% endif %}>Without Audio</option>
+            </optgroup>
+            <optgroup label="Data" data-icon="glyphicon-file" data-max-options="1">
+              <option value="d1" {% if 'd1' in results %}selected{% endif %}>With Data</option>
+              <option value="d0" {% if 'd0' in results %}selected{% endif %}>Without Data</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-group col-sm-3 ">
+          <label class="control-label">Start Time</label>
+          <div class='input-group date' id="datetimepicker-start">
+            <input type="text"
+                   class="form-control"
+                   name="start"
+                   data-date-format="YYYY-MM-DD HH:mm"
+                   {% if start is not None %}
+                     value = "{{ start }}"
+                   {% endif %}
+                   autocomplete="off"/>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-sm-3 ">
+          <label class="control-label">End Time</label>
+          <div class='input-group date' id="datetimepicker-end">
+            <input type="text"
+                   class="form-control"
+                   name="end"
+                   data-date-format="YYYY-MM-DD HH:mm"
+                   {% if end is not None %}
+                     value = "{{ end }}"
+                   {% endif %}
+                   autocomplete="off"/>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-sm-12">
+          <button type="submit" class="btn btn-primary pull-right">Update filters</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead>
+          <th>ID</th>
+          <th>Satellite</th>
+          <th>Frequency</th>
+          <th>Encoding</th>
+          <th>Timeframe</th>
+          <th>Results</th>
+          <th>Observer</th>
+          <th>Station</th>
+        </thead>
+        <tbody>
+          {% for observation in observations %}
+            <tr data-norad="{{ observation.satellite.norad_cat_id }}"
+                  class="clickable-row{% if observation.id in scheduled %} bg-info{% endif %}"
+                  data-href="{% url 'base:observation_view' observation_id=observation.id %}">
+                <td>
+                  <a href="{% url 'base:observation_view' observation_id=observation.id %}" class="obs-link">
+                    {% if observation.is_vetted %}
+                      <span class="label label-{{observation.vetted_status }}">{{ observation.id }}</span>
+                    {% elif observation.is_future %}
+                      <span class="label label-future">{{ observation.id }}</span>
+                    {% else %}
+                      <span class="label label-unknown">{{ observation.id }}</span>
+                    {% endif %}
+                  </a>
+                </td>
+                <td>
+                  <a href="#" data-toggle="modal" data-target="#SatelliteModal" data-id="{{ observation.satellite.norad_cat_id }}">
+                    {{ observation.satellite.name }}
+                  </a>
+                </td>
+                <td>{{ observation.transmitter_downlink_low|frq }}</td>
+                <td>
+                  <span data-toggle="tooltip" data-placement="bottom" title="{{ observation.transmitter_description }}">
+                    {{ observation.transmitter_mode|default:"-" }}
+                  </span>
+                  <span>
+                    {{ observation.transmitter_baud|floatformat|default:"" }}
+                  </span>
+                </td>
+                <td>
+                  <span data-toggle="tooltip" data-placement="bottom" title="{{ observation.start|naturaltime }}">
+                    <span class="datetime-date">{{ observation.start|date:"Y-m-d" }}</span>
+                    <span class="datetime-time">{{ observation.start|date:"H:i:s" }}</span><br>
+                  </span>
+                  <span data-toggle="tooltip" data-placement="bottom" title="{{ observation.end|naturaltime }}">
+                    <span class="datetime-date">{{ observation.end|date:"Y-m-d" }}</span>
+                    <span class="datetime-time">{{ observation.end|date:"H:i:s" }}</span>
+                  </span>
+                </td>
+                <td>
+                  {% if observation.has_waterfall %}
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"
+                          data-toggle="tooltip" data-placement="bottom"
+                          title="Waterfall uploaded"></span>
+                  {% endif %}
+                  {% if observation.has_audio %}
+                    <span class="glyphicon glyphicon-volume-up" aria-hidden="true"
+                          data-toggle="tooltip" data-placement="bottom"
+                          title="Audio uploaded"></span>
+                  {% endif %}
+                  {% if observation.demoddata.all %}
+                    <span class="glyphicon glyphicon-file" aria-hidden="true"
+                          data-toggle="tooltip" data-placement="bottom"
+                          title="{{ observation.demoddata.all|length }} Data uploaded"></span>
+                    <span class="badge badge-data-count">{{ observation.demoddata.all|length }}</span>
+                  {% endif %}
+                </td>
+                <td>
+                  <a href="{% url 'users:view_user' username=observation.author.username %}">
+                    {{ observation.author.displayname }}
+                  </a>
+                </td>
+                <td>
+                  {% if observation.ground_station %}
+                    <a href="{% url 'base:station_view' station_id=observation.ground_station.id %}">
+                      {{ observation.ground_station }}
+                    </a>
+                  {% endif %}
+                </td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div style="text-align:center">
+	{% if is_paginated %}{% load paginator %}{% paginator request 3 %}{% endif %}
+	Query returned {{ observations|length }} observation{{ observations|length|pluralize }}.
+	<a id="open-all" href="#">Open all in tabs</a>
+      </div>
+    </div>
+  </div>
+  {% include 'includes/satellite.html' %}
+  {% include 'includes/legend.html' %}
+{% endblock content %}
+
+{% block javascript %}
+  <script src="{% static 'lib/moment/min/moment.min.js' %}"></script>
+  <script src="{% static 'lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+  <script src="{% static 'js/observations.js' %}"></script>
+  <script src="{% static 'js/satellite.js' %}"></script>
+{% endblock javascript %}

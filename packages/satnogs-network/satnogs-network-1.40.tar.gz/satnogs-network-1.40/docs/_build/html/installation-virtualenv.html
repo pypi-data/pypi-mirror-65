@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>VirtualEnv Installation &#8212; satnogs-network 1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer Guide" href="developer-guide.html" />
+    <link rel="prev" title="Docker Installation" href="installation-docker.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="developer-guide.html" title="Developer Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation-docker.html" title="Docker Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">satnogs-network 1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="installation.html" accesskey="U">Installation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="virtualenv-installation">
+<h1>VirtualEnv Installation<a class="headerlink" href="#virtualenv-installation" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p><strong>Requirements</strong></p>
+<p>You will need python, python-virtualenvwrapper, pip and git</p>
+</li>
+<li><p><strong>Get the source code</strong></p>
+<p>Clone source code from the <a class="reference external" href="https://gitlab.com/librespacefoundation/satnogs/satnogs-network">repository</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://gitlab.com/librespacefoundation/satnogs/satnogs-network.git
+$ cd satnogs-network
+</pre></div>
+</div>
+</li>
+<li><p><strong>Build the environment</strong></p>
+<p>Set up the virtual environment. On first run you should create it and link it to your project path.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkvirtualenv satnogs-network -a .
+</pre></div>
+</div>
+</li>
+<li><p><strong>Configure settings</strong></p>
+<p>Set your environmental variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp env-dist .env
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install frontend dependencies</strong></p>
+<p>Install dependencies with <code class="docutils literal notranslate"><span class="pre">npm</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install
+</pre></div>
+</div>
+<p>Test and copy the newly downlodaded static assets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./node_modules/.bin/gulp
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run it!</strong></p>
+<p>Activate your python virtual environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ workon satnogs-network
+</pre></div>
+</div>
+<p>Just run it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(satnogs-network)$ ./bin/djangoctl.sh develop .
+</pre></div>
+</div>
+</li>
+<li><p><strong>Populate database</strong></p>
+<p>Create, setup and populate the database with demo data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(satnogs-network)$ ./bin/djangoctl.sh initialize
+</pre></div>
+</div>
+<p>Your satnogs-network development instance is available in localhost:8000. Go hack!</p>
+</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation-docker.html"
+                        title="previous chapter">Docker Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="developer-guide.html"
+                        title="next chapter">Developer Guide</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installation-virtualenv.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="developer-guide.html" title="Developer Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation-docker.html" title="Docker Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">satnogs-network 1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="installation.html" >Installation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2020, Libre Space Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Maintenance &#8212; satnogs-network 1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Releasing" href="releasing.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="releasing.html" title="Releasing"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">satnogs-network 1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="maintenance">
+<h1>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="updating-python-dependencies">
+<h2>Updating Python dependencies<a class="headerlink" href="#updating-python-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>To update the Python dependencies:</p>
+<ol class="arabic">
+<li><p>Execute script to refresh <code class="docutils literal notranslate"><span class="pre">requirements{-dev}.txt</span></code> files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./contrib/refresh-requirements.sh
+</pre></div>
+</div>
+</li>
+<li><p>Stage and commit <code class="docutils literal notranslate"><span class="pre">requirements{-dev}.txt</span></code> files.</p></li>
+</ol>
+</div>
+<div class="section" id="updating-frontend-dependencies">
+<h2>Updating frontend dependencies<a class="headerlink" href="#updating-frontend-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The frontend dependencies are managed with <code class="docutils literal notranslate"><span class="pre">npm</span></code>.
+To update the frontend dependencies, while respecting semver:</p>
+<ol class="arabic">
+<li><p>Update all the packages listed in <code class="docutils literal notranslate"><span class="pre">package.json</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm update
+</pre></div>
+</div>
+</li>
+<li><p>Test and copy the newly downlodaded static assets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./node_modules/.bin/gulp
+</pre></div>
+</div>
+</li>
+<li><p>Stage and commit <code class="docutils literal notranslate"><span class="pre">package-lock.json</span></code> file.</p></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Maintenance</a><ul>
+<li><a class="reference internal" href="#updating-python-dependencies">Updating Python dependencies</a></li>
+<li><a class="reference internal" href="#updating-frontend-dependencies">Updating frontend dependencies</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="releasing.html"
+                        title="previous chapter">Releasing</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/maintenance.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="releasing.html" title="Releasing"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">satnogs-network 1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2020, Libre Space Foundation.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+    </div>
+  </body>
+</html>
