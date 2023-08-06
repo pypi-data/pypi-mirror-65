@@ -1,0 +1,26 @@
+[ironic.hardware.interfaces.deploy]
+staging-amt = ironic_staging_drivers.amt.deploy:AMTISCSIDeploy
+
+[ironic.hardware.interfaces.management]
+staging-amt = ironic_staging_drivers.amt.management:AMTManagement
+staging-libvirt = ironic_staging_drivers.libvirt.power:LibvirtManagement
+staging-ovirt = ironic_staging_drivers.ovirt.ovirt:OVirtManagement
+
+[ironic.hardware.interfaces.power]
+staging-amt = ironic_staging_drivers.amt.power:AMTPower
+staging-iboot = ironic_staging_drivers.iboot.power:IBootPower
+staging-libvirt = ironic_staging_drivers.libvirt.power:LibvirtPower
+staging-ovirt = ironic_staging_drivers.ovirt.ovirt:OVirtPower
+staging-wol = ironic_staging_drivers.wol.power:WakeOnLanPower
+
+[ironic.hardware.interfaces.vendor]
+staging-nm = ironic_staging_drivers.intel_nm.nm_vendor:IntelNMVendorPassthru
+
+[ironic.hardware.types]
+staging-amt = ironic_staging_drivers.amt.drivers:AMTHardware
+staging-iboot = ironic_staging_drivers.iboot:IBootHardware
+staging-libvirt = ironic_staging_drivers.libvirt:LibvirtHardware
+staging-nm = ironic_staging_drivers.intel_nm:IntelNMHardware
+staging-ovirt = ironic_staging_drivers.ovirt:OVirtHardware
+staging-wol = ironic_staging_drivers.wol:WOLHardware
+

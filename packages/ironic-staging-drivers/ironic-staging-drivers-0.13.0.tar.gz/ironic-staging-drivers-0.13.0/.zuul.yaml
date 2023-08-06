@@ -1,0 +1,34 @@
+- job:
+    name: ironic-staging-drivers-all
+    parent: ironic-base
+    timeout: 4800
+    irrelevant-files:
+      - ^test-requirements.txt$
+      - ^setup.cfg$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+      - ^ironic-staging-drivers/tests/.*$
+    required-projects:
+      - openstack/ironic
+      - openstack/ironic-python-agent-builder
+      - x/ironic-staging-drivers
+    vars:
+      devstack_localrc:
+        IRONIC_DEFAULT_DEPLOY_INTERFACE: ""
+      devstack_plugins:
+        ironic-staging-drivers: https://opendev.org/x/ironic-staging-drivers
+
+- project:
+    vars:
+      rtd_webhook_id: '44747'
+    templates:
+      - openstack-python3-ussuri-jobs
+      - openstack-lower-constraints-jobs
+      - docs-on-readthedocs
+      - check-requirements
+    check:
+      jobs:
+        - ironic-staging-drivers-all
+    gate:
+      jobs:
+        - ironic-staging-drivers-all

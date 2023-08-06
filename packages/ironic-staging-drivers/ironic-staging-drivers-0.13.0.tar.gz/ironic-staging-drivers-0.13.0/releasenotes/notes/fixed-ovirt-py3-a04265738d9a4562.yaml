@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fixed parameters types used to call ``ovirtsdk4`` package services in
+    ``ovirt`` driver to make it operational under Python 3 as well.

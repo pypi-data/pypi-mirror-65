@@ -1,0 +1,212 @@
+CHANGES
+=======
+
+0.13.0
+------
+
+* Switch to zuulv3
+* Make flake8 tests more strict
+* Explicitly set ramdisk type
+* Bump hacking to 3.0.0
+* Enforce running tox with correct python version based on env
+* Follow up of stop using six library
+* Stop using six library
+* Drop python 2.7 support and testing
+
+0.12.0
+------
+
+* Fix pycurl args types in ovirt driver
+* Switch from git.openstack.org to opendev.org
+* Add Python 3 Train unit tests
+* Remove enabled\_drivers from tests
+* Drop ostestr in favor of stestr
+* Fixing typo in message format
+* Remove cap from jsonschema
+* OpenDev Migration Patch
+* Add Rocky and Stein to release notes
+
+0.11.0
+------
+
+* WOL driver - include POWER\_OFF in supported power states
+* Add a Python 3.6 unit test job
+* Migrate jobs in-tree
+* Replace openstack.org git:// URLs with https://
+* Update \`enabled\_management\_interfaces\` property
+* Use template for lower-constraints
+* Update the home-page link
+* Change openstack-dev to openstack-discuss
+* Add noop management to iBOOT and WOL hardware types
+* Update the hacking to latst
+
+0.10.1
+------
+
+* Do not use deprecated async parameter for passthru
+* Do not use the official theme from oslosphinx
+* Fix lower constraints
+* Configure webhook for publishing docs
+
+0.10.0
+------
+
+* Remove classic drivers
+* fix tox python3 overrides
+* Drop py34 target
+* Stop using mgr\_utils.mock\_the\_extension\_manager
+* Convert ovirt url to a str
+* pep8 ovirt classes, added copyright statement to ovirt files
+* reboot stopped vms in ovirt
+* fix pep8 w503 warning
+* Update the outdated links in README
+* Updated from global requirements
+* add lower-constraints job
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix ovirt property error logging
+* Updated from global requirements
+* Add Queens to release notes
+
+0.9.0
+-----
+
+* Handle 'timeout' parameter in power methods
+* Zuul: Remove project name
+* Replace curly quotes with straight quotes
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove Ansible-deploy interface
+* Correct branches published as part of release notes
+
+0.8.0
+-----
+
+* Add reno for ovirt driver
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Ovirt support
+* Updated from global requirements
+* Migrate Zuul3 jobs in tree
+* [ansible] Fix grub install for Ansible 2.4
+* Do not monkey-patch in ansible unit tests
+* [ansible] fix wwn facts and root device hints
+* [ansible] fixes for Anible 2.4 compat
+* Deprecate classic drivers
+* Move Ansible-deploy testing to hw types
+* Improve \`cover\` tox env
+* [ansible] configure SSL validation
+* Updated from global requirements
+* Add stestr-specific files
+* Add hardware types
+* Updated from global requirements
+
+0.7.0
+-----
+
+* Change python vs other dependencies install order
+* Removes unnecessary utf-8 encoding
+* Update .gitignore
+* [ansible] add journald and syslog loggers
+* Remove pxe\_ssh\_ansible driver
+* Updated from global requirements
+* Remove translation of log messages
+* [ansible] Fix nits in ironic\_parted module
+* [ansible] re-write grub install as ansible tasks
+* [ansible] Add more thorough disk metadata cleanup
+* [ansible] Add basic root device hints support
+* [ansible] Improve partition images support
+* Updated from global requirements
+* Remove usage of parameter enforce\_type
+* [ansible] Major changes in playbooks "API"
+* Corrected typos from "resposible" to "responsible" and from "tho" to "though""tho" to "though"
+* Updated from global requirements
+* Updated from global requirements
+* [ansible] add metrics collection
+* [ansible] honor deploy\_forces\_oob\_reboot
+* [ansible] driver refactoring
+* [ansible] improve cleaning
+* [ansible] reuse build\_instance\_info\_for\_deploy
+* Updated from global requirements
+* Specify ironic\_staging\_drivers as name of the app
+* Updated from global requirements
+* Update style checkers
+* [ansible] remove call signatures workarounds
+* [ansible] skip latest stable ansible releases
+
+0.6.0
+-----
+
+* Enable testing of particular staging driver
+* Re-use tinyipa image for ansbile-deploy
+* Remove py34 env from tox
+* Updated from global requirements
+* Overrides get\_supported\_power\_states() for WOL Power
+* Removes unnecessary utf-8 encoding
+* Updated from global requirements
+
+0.5.0
+-----
+
+* Remove duplicated 'md5'
+* [ansible] fix some places for Ansible 2.2
+* Fix issue with /etc/hosts in ansible element
+* Fix AMT unit tests
+* Updated from global requirements
+* Fix the 'cover' tox env
+* Use upper constraints it tox envs
+* Add py35 to default tox targets
+* Remove agent vendor passthru from drivers
+
+0.4.0
+-----
+
+* Change cleaning methods to use network interface
+* Add documentation for ansible-deploy driver
+* Add DIB element for ansible-deploy driver ramdisk
+* Don't log success cleaning if ansible fails
+* Add docs for Intel NM vendor passthru driver
+* Enable release notes translation
+* [Docs] give example of dev libvirt pkg name
+* Add Ansible-deploy driver
+* Add docs for libvirt driver
+* Cleanup tox.ini: Remove obsolete constraints
+
+0.3.0
+-----
+
+* Fix iboot mock
+* Mock the 'libvirt' import on tests
+* Fix reference in WoL driver docs
+* Remove kwargs from the vendor passthru continue\_deploy tests
+* Add iBoot driver
+* Remove pass\_deploy\_info() from AMT driver
+* Install amt driver requirements
+* Add devstack plugin
+
+0.2.0
+-----
+
+* Change global names in Intel NM driver
+* Fix boot policy for Intel Node Manager driver
+* Add vendor methods for Intel Node Manager statistics
+* Introduce libvirt power/mgmt driver
+* Improve the readability of AMT doc
+* Add amt driver
+* Remove ipmi module from Intel Node Manager driver
+* Add Intel Node Manager driver
+
+0.1.0
+-----
+
+* Add Wake-On-Lan driver
+* Add documentation links
+* Add reno for release notes management
+* Add the version.py module
+* Add a "how to contribute" section to the README file
+* remove omit in coveragerc
+* Install "ironic" in the unittest environment
+* Skeleton initial commit
+* Added .gitreview
