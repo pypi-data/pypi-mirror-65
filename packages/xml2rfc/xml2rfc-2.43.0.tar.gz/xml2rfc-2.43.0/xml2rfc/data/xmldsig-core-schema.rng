@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  xmldsig-core-schema.rnc (derived from xmldsig-core-schema.xsd)
+  
+  Copyright �[2011] World Wide Web Consortium 
+  (Massachusetts Institute of Technology,  
+   European Research Consortium for Informatics and Mathematics, 
+   Keio University). All Rights Reserved.  
+  This work is distributed under the W3C� Software License [1] in the
+  hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+  PURPOSE. 
+  [1] http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+  
+  
+  1. Differences from dsig-core-schema.xsd.
+  
+  1.1 Attribute-value dependent content models
+  
+  The content models of CanonicalizationMethod, SignatureMethod,
+  Transform, and DigestMethod elemenst are dependent on the value 
+  of the attribute Algorithm.
+  
+  1.2 Customization
+  
+  The original XSD schema uses xsd:any several times, and it is 
+  not intended to be customized.  However, this RELAX NG schema 
+  is intended to be customized always, and provides customization
+  points rather than wildcards. 
+  
+  This schema also defines lists of known algorithms.  These definitions
+  are expected to be customized when algorithms are added.
+  
+  A customization example is xmldsig-allowAnyForeign.rnc, which 
+  allows anything at any cutomization point.
+  
+  2. Customization points
+  
+  2.1 Union-combination (i.e., |= ) is intended
+  
+  (1) Algorithm identifiers and parameters
+  
+  Allow the combination of a particular value of @Algorithm
+  and the parameter elements.  See 6.1 in the xmldsig-core recommendation.
+  
+  ds_CanonicalizationMethodType
+  ds_SignatureMethodType
+  ds_TransformType
+  ds_DigestMethodType
+  
+  Example:
+   namespace foo = "http://www.example.com/someNewAlgorithm"
+   ds_CanonicalizationMethodType |=
+     attribute Algorithm { 
+       xsd:anyURI "http://www.example.com/someNewAlgorithm" }, 
+     element foo:Param1 { text },
+     element foo:Param2 { text } 
+  
+  (2) Other contents
+  
+  Allow one element rather than a sequence of elements or empty sequence.
+  
+  ds_KeyInfoChild
+  ds_KeyValueType
+  ds_X509DataForeignChild
+  ds_SPKIDataForeignChild
+  ds_ObjectChild
+  ds_SignaturePropertyChild
+  ds_PGPDataForeignChild
+  
+  (3) Known algorithms
+  
+  ds_CanonicalizationAlgorithms
+  ds_SignatureAlgorithms
+  ds_TransformAlgorithms
+  ds_DigestAlgorithms =
+  
+  2.2 Overriding
+  
+  (1) ds_IdType
+  
+  This is defined as xsd:NCName.  One might want to use xsd:ID 
+  instead, but jing is likely to report an error.  This is because 
+  of the compatibility requirement for the ID/IDREF/IDREFS feature, 
+  which is specified in the OASIS committee specification 
+  "RELAX NG DTD Compatibility" (December 2001).
+  
+  (2) ds_xslt
+  
+  This is defined as any element, but one might want to use the 
+  schema created by James Clark.
+-->
+<grammar ns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <define name="ds_CryptoBinary">
+    <data type="base64Binary"/>
+  </define>
+  <define name="ds_Signature">
+    <element name="Signature">
+      <interleave>
+        <ref name="ds_SignatureType"/>
+        <optional>
+          <attribute name="xsi:schemaLocation"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+  <define name="ds_SignatureType">
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <ref name="ds_SignedInfo"/>
+    <ref name="ds_SignatureValue"/>
+    <optional>
+      <ref name="ds_KeyInfo"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="ds_Object"/>
+    </zeroOrMore>
+  </define>
+  <define name="ds_SignatureValue">
+    <element name="SignatureValue">
+      <ref name="ds_SignatureValueType"/>
+    </element>
+  </define>
+  <define name="ds_SignatureValueType">
+    <data type="base64Binary"/>
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="ds_SignedInfo">
+    <element name="SignedInfo">
+      <ref name="ds_SignedInfoType"/>
+    </element>
+  </define>
+  <define name="ds_SignedInfoType">
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <ref name="ds_CanonicalizationMethod"/>
+    <ref name="ds_SignatureMethod"/>
+    <oneOrMore>
+      <ref name="ds_Reference"/>
+    </oneOrMore>
+  </define>
+  <define name="ds_CanonicalizationMethod">
+    <element name="CanonicalizationMethod">
+      <mixed>
+        <ref name="ds_CanonicalizationMethodType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_CanonicalizationMethodType">
+    <choice>
+      <attribute name="Algorithm">
+        <choice>
+          <value type="anyURI">http://www.w3.org/TR/2001/REC-xml-c14n-20010315</value>
+          <value type="anyURI">http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</value>
+        </choice>
+      </attribute>
+      <attribute name="Algorithm">
+        <choice>
+          <value type="anyURI">http://www.w3.org/2006/12/xml-c14n11</value>
+          <value type="anyURI">http://www.w3.org/2006/12/xml-c14n11#WithComments</value>
+        </choice>
+      </attribute>
+    </choice>
+  </define>
+  <define name="ds_SignatureMethod">
+    <element name="SignatureMethod">
+      <mixed>
+        <ref name="ds_SignatureMethodType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_SignatureMethodType">
+    <choice>
+      <group>
+        <attribute name="Algorithm">
+          <value type="anyURI">http://www.w3.org/2000/09/xmldsig#hmac-sha1</value>
+        </attribute>
+        <optional>
+          <element name="HMACOutputLength">
+            <ref name="ds_HMACOutputLengthType"/>
+          </element>
+        </optional>
+      </group>
+      <attribute name="Algorithm">
+        <value type="anyURI">http://www.w3.org/2000/09/xmldsig#dsa-sha1</value>
+      </attribute>
+      <attribute name="Algorithm">
+        <value type="anyURI">http://www.w3.org/2000/09/xmldsig#rsa-sha1</value>
+      </attribute>
+    </choice>
+  </define>
+  <define name="ds_Reference">
+    <element name="Reference">
+      <ref name="ds_ReferenceType"/>
+    </element>
+  </define>
+  <define name="ds_ReferenceType">
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="URI">
+        <data type="anyURI"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="Type">
+        <data type="anyURI"/>
+      </attribute>
+    </optional>
+    <optional>
+      <ref name="ds_Transforms"/>
+    </optional>
+    <ref name="ds_DigestMethod"/>
+    <ref name="ds_DigestValue"/>
+  </define>
+  <define name="ds_Transforms">
+    <element name="Transforms">
+      <ref name="ds_TransformsType"/>
+    </element>
+  </define>
+  <define name="ds_TransformsType">
+    <oneOrMore>
+      <ref name="ds_Transform"/>
+    </oneOrMore>
+  </define>
+  <define name="ds_Transform">
+    <element name="Transform">
+      <mixed>
+        <ref name="ds_TransformType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_TransformType">
+    <choice>
+      <ref name="ds_CanonicalizationMethodType"/>
+      <attribute name="Algorithm">
+        <value type="anyURI">http://www.w3.org/2000/09/xmldsig#base64</value>
+      </attribute>
+      <group>
+        <attribute name="Algorithm">
+          <value type="anyURI">http://www.w3.org/TR/1999/REC-xpath-19991116</value>
+        </attribute>
+        <element name="XPath">
+          <data type="string"/>
+        </element>
+      </group>
+      <attribute name="Algorithm">
+        <value type="anyURI">http://www.w3.org/2000/09/xmldsig#enveloped-signature</value>
+      </attribute>
+      <group>
+        <attribute name="Algorithm">
+          <value type="anyURI">http://www.w3.org/TR/1999/REC-xslt-19991116</value>
+        </attribute>
+        <ref name="ds_Xslt"/>
+      </group>
+    </choice>
+  </define>
+  <define name="ds_Xslt">
+    <ref name="security_anyElement"/>
+  </define>
+  <define name="ds_DigestMethod">
+    <element name="DigestMethod">
+      <mixed>
+        <ref name="ds_DigestMethodType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_DigestMethodType">
+    <attribute name="Algorithm">
+      <value type="anyURI">http://www.w3.org/2000/09/xmldsig#sha1</value>
+    </attribute>
+  </define>
+  <define name="ds_DigestValue">
+    <element name="DigestValue">
+      <ref name="ds_DigestValueType"/>
+    </element>
+  </define>
+  <define name="ds_DigestValueType">
+    <data type="base64Binary"/>
+  </define>
+  <define name="ds_KeyInfo">
+    <element name="KeyInfo">
+      <mixed>
+        <ref name="ds_KeyInfoType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_KeyInfoType">
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <oneOrMore>
+      <ref name="ds_KeyInfoChild"/>
+    </oneOrMore>
+  </define>
+  <define name="ds_KeyInfoChild">
+    <choice>
+      <ref name="ds_KeyName"/>
+      <ref name="ds_KeyValue"/>
+      <ref name="ds_RetrievalMethod"/>
+      <ref name="ds_X509Data"/>
+      <ref name="ds_PGPData"/>
+      <ref name="ds_SPKIData"/>
+      <ref name="ds_MgmtData"/>
+    </choice>
+  </define>
+  <define name="ds_KeyName">
+    <element name="KeyName">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="ds_MgmtData">
+    <element name="MgmtData">
+      <data type="string"/>
+    </element>
+  </define>
+  <define name="ds_KeyValue">
+    <element name="KeyValue">
+      <mixed>
+        <ref name="ds_KeyValueType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_KeyValueType">
+    <choice>
+      <ref name="ds_DSAKeyValue"/>
+      <ref name="ds_RSAKeyValue"/>
+    </choice>
+  </define>
+  <define name="ds_RetrievalMethod">
+    <element name="RetrievalMethod">
+      <ref name="ds_RetrievalMethodType"/>
+    </element>
+  </define>
+  <define name="ds_RetrievalMethodType">
+    <optional>
+      <attribute name="URI">
+        <data type="anyURI"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="Type">
+        <data type="anyURI"/>
+      </attribute>
+    </optional>
+    <optional>
+      <ref name="ds_Transforms"/>
+    </optional>
+  </define>
+  <define name="ds_X509Data">
+    <element name="X509Data">
+      <oneOrMore>
+        <choice>
+          <ref name="ds_X509DataChild"/>
+          <optional>
+            <ref name="ds_X509DataForeignChild"/>
+          </optional>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="ds_X509DataChild">
+    <choice>
+      <element name="X509IssuerSerial">
+        <ref name="ds_X509IssuerSerialType"/>
+      </element>
+      <element name="X509SKI">
+        <data type="base64Binary"/>
+      </element>
+      <element name="X509SubjectName">
+        <data type="string"/>
+      </element>
+      <element name="X509Certificate">
+        <data type="base64Binary"/>
+      </element>
+      <element name="X509CRL">
+        <data type="base64Binary"/>
+      </element>
+    </choice>
+  </define>
+  <define name="ds_X509DataForeignChild">
+    <notAllowed/>
+  </define>
+  <define name="ds_X509IssuerSerialType">
+    <element name="X509IssuerName">
+      <data type="string"/>
+    </element>
+    <element name="X509SerialNumber">
+      <data type="integer"/>
+    </element>
+  </define>
+  <define name="ds_PGPData">
+    <element name="PGPData">
+      <ref name="ds_PGPDataType"/>
+    </element>
+  </define>
+  <define name="ds_PGPDataType">
+    <choice>
+      <group>
+        <element name="PGPKeyID">
+          <data type="base64Binary"/>
+        </element>
+        <optional>
+          <element name="PGPKeyPacket">
+            <data type="base64Binary"/>
+          </element>
+        </optional>
+        <zeroOrMore>
+          <ref name="ds_PGPDataForeignChild"/>
+        </zeroOrMore>
+      </group>
+      <group>
+        <element name="PGPKeyPacket">
+          <data type="base64Binary"/>
+        </element>
+        <zeroOrMore>
+          <ref name="ds_PGPDataForeignChild"/>
+        </zeroOrMore>
+      </group>
+    </choice>
+  </define>
+  <define name="ds_PGPDataForeignChild">
+    <notAllowed/>
+  </define>
+  <define name="ds_SPKIData">
+    <element name="SPKIData">
+      <ref name="SPKIDataType"/>
+    </element>
+  </define>
+  <define name="SPKIDataType">
+    <oneOrMore>
+      <choice>
+        <element name="SPKISexp">
+          <data type="base64Binary"/>
+        </element>
+        <optional>
+          <ref name="ds_SPKIDataForeignChild"/>
+        </optional>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="ds_SPKIDataForeignChild">
+    <notAllowed/>
+  </define>
+  <define name="ds_Object">
+    <element name="Object">
+      <mixed>
+        <ref name="ds_ObjectType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_ObjectType">
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="MimeType">
+        <data type="string"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="Encoding">
+        <data type="anyURI"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="ds_ObjectChild"/>
+    </zeroOrMore>
+  </define>
+  <define name="ds_ObjectChild">
+    <ref name="ds_anyDsElement"/>
+  </define>
+  <define name="ds_Manifest">
+    <element name="Manifest">
+      <ref name="ds_ManifestType"/>
+    </element>
+  </define>
+  <define name="ds_ManifestType">
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <oneOrMore>
+      <ref name="ds_Reference"/>
+    </oneOrMore>
+  </define>
+  <define name="ds_SignatureProperties">
+    <element name="SignatureProperties">
+      <ref name="ds_SignaturePropertiesType"/>
+    </element>
+  </define>
+  <define name="ds_SignaturePropertiesType">
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <oneOrMore>
+      <ref name="ds_SignatureProperty"/>
+    </oneOrMore>
+  </define>
+  <define name="ds_SignatureProperty">
+    <element name="SignatureProperty">
+      <mixed>
+        <ref name="ds_SignaturePropertyType"/>
+      </mixed>
+    </element>
+  </define>
+  <define name="ds_SignaturePropertyType">
+    <attribute name="Target">
+      <data type="anyURI"/>
+    </attribute>
+    <optional>
+      <attribute name="Id">
+        <ref name="ds_IdType"/>
+      </attribute>
+    </optional>
+    <zeroOrMore>
+      <ref name="ds_SignaturePropertyChild"/>
+    </zeroOrMore>
+  </define>
+  <define name="ds_SignaturePropertyChild">
+    <notAllowed/>
+  </define>
+  <define name="ds_HMACOutputLengthType">
+    <data type="integer"/>
+  </define>
+  <define name="ds_DSAKeyValue">
+    <element name="DSAKeyValue">
+      <ref name="ds_DSAKeyValueType"/>
+    </element>
+  </define>
+  <define name="ds_DSAKeyValueType">
+    <optional>
+      <element name="P">
+        <ref name="ds_CryptoBinary"/>
+      </element>
+      <element name="Q">
+        <ref name="ds_CryptoBinary"/>
+      </element>
+    </optional>
+    <optional>
+      <element name="G">
+        <ref name="ds_CryptoBinary"/>
+      </element>
+    </optional>
+    <element name="Y">
+      <ref name="ds_CryptoBinary"/>
+    </element>
+    <optional>
+      <element name="J">
+        <ref name="ds_CryptoBinary"/>
+      </element>
+    </optional>
+    <optional>
+      <element name="Seed">
+        <ref name="ds_CryptoBinary"/>
+      </element>
+      <element name="PgenCounter">
+        <ref name="ds_CryptoBinary"/>
+      </element>
+    </optional>
+  </define>
+  <define name="ds_RSAKeyValue">
+    <element name="RSAKeyValue">
+      <ref name="ds_RSAKeyValueType"/>
+    </element>
+  </define>
+  <define name="ds_RSAKeyValueType">
+    <element name="Modulus">
+      <ref name="ds_CryptoBinary"/>
+    </element>
+    <element name="Exponent">
+      <ref name="ds_CryptoBinary"/>
+    </element>
+  </define>
+  <define name="ds_IdType">
+    <data type="NCName"/>
+  </define>
+  <!-- xsd:ID does not work -->
+  <!-- Definitions for mimicking xsd:any -->
+  <define name="ds_anyDsElement">
+    <choice>
+      <ref name="ds_Signature"/>
+      <ref name="ds_SignatureValue"/>
+      <ref name="ds_SignedInfo"/>
+      <ref name="ds_CanonicalizationMethod"/>
+      <ref name="ds_SignatureMethod"/>
+      <ref name="ds_Reference"/>
+      <ref name="ds_Transforms"/>
+      <ref name="ds_Transform"/>
+      <ref name="ds_DigestMethod"/>
+      <ref name="ds_DigestValue"/>
+      <ref name="ds_KeyInfo"/>
+      <ref name="ds_KeyName"/>
+      <ref name="ds_MgmtData"/>
+      <ref name="ds_KeyValue"/>
+      <ref name="ds_RetrievalMethod"/>
+      <ref name="ds_X509Data"/>
+      <ref name="ds_PGPData"/>
+      <ref name="ds_SPKIData"/>
+      <ref name="ds_Object"/>
+      <ref name="ds_Manifest"/>
+      <ref name="ds_SignatureProperties"/>
+      <ref name="ds_SignatureProperty"/>
+      <ref name="ds_DSAKeyValue"/>
+      <ref name="ds_RSAKeyValue"/>
+    </choice>
+  </define>
+  <!-- List of known canonicalization algorithms -->
+  <define name="ds_CanonicalizationAlgorithms">
+    <choice>
+      <value type="anyURI">http://www.w3.org/TR/2001/REC-xml-c14n-20010315</value>
+      <value type="anyURI">http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments</value>
+      <value type="anyURI">http://www.w3.org/2006/12/xml-c14n11</value>
+      <value type="anyURI">http://www.w3.org/2006/12/xml-c14n11#WithComments</value>
+    </choice>
+  </define>
+  <!-- List of known signature algorithms -->
+  <define name="ds_SignatureAlgorithms">
+    <choice>
+      <value type="anyURI">http://www.w3.org/2000/09/xmldsig#hmac-sha1</value>
+      <value type="anyURI">http://www.w3.org/2000/09/xmldsig#dsa-sha1</value>
+      <value type="anyURI">http://www.w3.org/2000/09/xmldsig#rsa-sha1</value>
+    </choice>
+  </define>
+  <!-- List of known transformation-but-non-canonicalization algorithms -->
+  <define name="ds_TransformAlgorithms">
+    <choice>
+      <value type="anyURI">http://www.w3.org/2000/09/xmldsig#base64</value>
+      <value type="anyURI">http://www.w3.org/TR/1999/REC-xpath-19991116</value>
+      <value type="anyURI">http://www.w3.org/2000/09/xmldsig#enveloped-signature</value>
+      <value type="anyURI">http://www.w3.org/TR/1999/REC-xslt-19991116</value>
+    </choice>
+  </define>
+  <!-- List of known digest algorithms -->
+  <define name="ds_DigestAlgorithms">
+    <value type="anyURI">http://www.w3.org/2000/09/xmldsig#sha1</value>
+  </define>
+</grammar>
