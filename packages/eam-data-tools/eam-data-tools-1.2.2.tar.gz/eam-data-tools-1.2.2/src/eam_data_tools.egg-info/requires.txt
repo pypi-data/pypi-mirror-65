@@ -1,0 +1,14 @@
+scipy
+xlrd
+pandas==0.24.2
+numpy
+python-dateutil
+
+[test]
+pytest
+pytest-cov
+codecov
+coveralls
+nbval
+
+[units]
