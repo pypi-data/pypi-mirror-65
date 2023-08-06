@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: hypothesis-pandas
+Version: 0.2.4
+Summary: Provides strategies for generating various `pandas` objects
+Home-page: UNKNOWN
+Author: Bao Wei
+Author-email: baowei.ur521@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: hypothesis (>=5.8)
+Requires-Dist: hypothesis-auto-draw (>=0.1)
+Requires-Dist: pandas (>=1.0)
+
+# hypothesis-pandas
+Provides strategies for generating various `pandas` objects
+
+
