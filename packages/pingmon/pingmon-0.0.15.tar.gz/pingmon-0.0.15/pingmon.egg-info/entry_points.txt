@@ -1,0 +1,5 @@
+[console_scripts]
+getipgeo = pingmon.getipgeo:main
+pinggraph = pingmon.pinggraph:main
+pingmon = pingmon.pingmon:main
+
