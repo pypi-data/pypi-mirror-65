@@ -1,0 +1,44 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    zcml:condition="installed z3c.jbot">
+
+  <!-- Note: this is not loaded automatically.  In your buildout.cfg
+       you need something like this:
+
+         [instance]
+         eggs =
+             collective.honeypot[fixes]
+         zcml =
+             collective.honeypot-fixes
+
+       In Plone 3 the above would give an error when running
+       bin/buildout, so we always load this file.  Instead, if you
+       want to disable the fixes on Plone 3, you should make sure
+       z3c.jbot is not available.  This should do the trick, unless
+       z3c.jbot is already added in some other way:
+
+         [instance]
+         eggs =
+             collective.honeypot
+
+  -->
+
+  <include package="z3c.jbot" />
+
+  <include zcml:condition="installed plone.app.discussion"
+           package=".discussion" />
+
+  <include zcml:condition="installed quintagroup.plonecomments"
+           package=".quinta" />
+
+  <!-- We could add zcml:condition="not-installed
+       plone.app.discussion" to oldcomments, but we always need to
+       protect these old scripts because on newer Plones they are
+       still available. -->
+  <include package=".oldcomments" />
+
+  <include zcml:condition="not-have plone-4" package=".plone3" />
+  <include zcml:condition="have plone-4" package=".plone4" />
+
+</configure>
