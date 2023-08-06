@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: dffml-model-transformers
+Version: 0.0.3
+Summary: UNKNOWN
+Home-page: https://github.com/intel/dffml/blob/master/model/transformers/README.md
+Author: Himanshu Tripathi
+Author-email: himanshutripathi366@gmail.com
+License: MIT
+Description: # DFFML Transformers Models
+        
+        
+        ## About
+        
+        Currently, dffml_model_transformers supports HuggingFace Transformers tensorflow based NER models.
+        
+        ## Documentation
+        
+        Documentation is hosted at https://intel.github.io/dffml/plugins/dffml_model.html#dffml-model-transformers
+        
+        ## Acknowledgement
+        
+        dffml_model_transformers derives code from ![examples available on Transformers git repo.](https://github.com/huggingface/transformers/tree/master/examples), ![License](https://github.com/huggingface/transformers/blob/master/LICENSE)
+        
+        ## License
+        
+        Transformers Models are distributed under the terms of the
+        [MIT License](LICENSE).
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
