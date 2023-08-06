@@ -1,0 +1,15 @@
+click>=7.0
+jinja2>=2.11
+pyyaml>=5.1
+requests>=2.21
+
+[:python_version >= "3.6"]
+black>=19.3b0
+
+[all]
+
+[docs]
+
+[optional]
+
+[tests]
