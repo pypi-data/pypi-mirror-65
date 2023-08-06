@@ -1,0 +1,18 @@
+pyopenssl<18.1.0,>=18.0.0
+clabe<0.3.0,>=0.2.1
+pydantic<2.0,>=1.2
+requests<3.0,>=2.22.0
+luhnmod10<1.1.0,>=1.0.2
+
+[:python_version < "3.7"]
+dataclasses>=0.6
+
+[test]
+pytest
+pytest-vcr
+pycodestyle
+pytest-cov
+black
+isort[pipfile]
+flake8
+mypy
