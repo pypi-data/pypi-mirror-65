@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: cpaDataServices
+Version: 0.0.3
+Summary: CPA data service layer
+Home-page: https://github.com/cisagov/cpa/cpa_data_service/services
+Author: Peter Mercado/ CPA
+Author-email: peter.mercado255@gmail.com
+License: UNKNOWN
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Requires-Dist: schematics (==2.1.0)
+Requires-Dist: pyyaml
+Requires-Dist: motor (==2.0.0)
+
+UNKNOWN
+
+
