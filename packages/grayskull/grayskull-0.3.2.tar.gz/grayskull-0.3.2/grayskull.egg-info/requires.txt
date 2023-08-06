@@ -1,0 +1,16 @@
+requests
+ruamel.yaml>=0.15.3
+ruamel.yaml.jinja2
+stdlib-list
+pip
+setuptools>=30.3.0
+fuzzywuzzy
+python-Levenshtein
+progressbar2
+colorama
+
+[testing]
+pytest
+mock
+pytest-cov
+pytest-console-scripts
