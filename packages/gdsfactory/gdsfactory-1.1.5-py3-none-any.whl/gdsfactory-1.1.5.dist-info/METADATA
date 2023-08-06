@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: gdsfactory
+Version: 1.1.5
+Summary: python libraries to generate GDS layouts
+Home-page: https://github.com/PsiQ/gdsfactory
+Author: PsiQ
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: click
+Requires-Dist: gitpython
+Requires-Dist: gdspy
+Requires-Dist: hiyapyco
+Requires-Dist: jsondiff
+Requires-Dist: klayout
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: phidl
+Requires-Dist: picwriter
+Requires-Dist: pyqtree
+Requires-Dist: qrcode
+Requires-Dist: scipy
+Requires-Dist: shapely
+Requires-Dist: xlrd
+
+UNKNOWN
+
+
