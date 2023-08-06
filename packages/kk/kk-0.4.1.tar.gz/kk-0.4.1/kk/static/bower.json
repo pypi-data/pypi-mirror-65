@@ -1,0 +1,22 @@
+{
+  "name": "kk",
+  "authors": [
+    "zhangkai <zhangkai@vongcloud.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "clipboard": "^2.0.6",
+    "fex-webuploader": "fex-team/webuploader#^0.1.5",
+    "layui": "sentsin/layui#^2.5.6"
+  }
+}
