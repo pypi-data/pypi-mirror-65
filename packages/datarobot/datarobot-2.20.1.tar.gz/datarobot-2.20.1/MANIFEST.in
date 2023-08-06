@@ -1,0 +1,7 @@
+include LICENSE.txt
+include CHANGES.rst
+recursive-include tests *.py *.csv *.xlsx
+recursive-include docs Makefile *.py *.rst *.csv *.ipynb
+recursive-exclude docs */.ipynb_checkpoints/*
+exclude docs/CHANGES.rst
+prune docs/_build
