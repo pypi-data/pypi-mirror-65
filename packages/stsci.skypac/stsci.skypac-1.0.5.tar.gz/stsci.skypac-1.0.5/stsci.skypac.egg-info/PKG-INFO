@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: stsci.skypac
+Version: 1.0.5
+Summary: Sky matching on image mosaic
+Home-page: https://github.com/spacetelescope/stsci.skypac
+Author: Mihai Cara, Warren Hack, Pey Lian Lim
+Author-email: help@stsci.edu
+License: BSD-3-Clause
+Project-URL: Bug Reports, https://github.com/spacetelescope/stsci.skypac/issues/
+Project-URL: Source, https://github.com/spacetelescope/stsci.skypac/
+Project-URL: Help, https://hsthelp.stsci.edu/
+Description: # stsci.skypac
+        
+        [![Documentation Status](https://readthedocs.org/projects/stsci-skypac/badge/?version=latest)](http://stsci-skypac.readthedocs.io/en/latest/?badge=latest)
+        [![Build Status](https://ssbjenkins.stsci.edu/job/STScI/job/stsci.skypac/job/master/badge/icon)](https://ssbjenkins.stsci.edu/job/STScI/job/stsci.skypac/job/master/)
+        [![Powered by Astropy Badge](http://img.shields.io/badge/powered%20by-AstroPy-orange.svg?style=flat)](http://www.astropy.org/)
+        
+        Sky matching for image mosaic.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Development Status :: 5 - Production/Stable
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Provides-Extra: docs
+Provides-Extra: test
+Provides-Extra: all
