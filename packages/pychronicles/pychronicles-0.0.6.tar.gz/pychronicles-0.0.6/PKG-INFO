@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: pychronicles
+Version: 0.0.6
+Summary: A package for chronicle recognition
+Home-page: https://gitlab.inria.fr/tguyet/pychronicles
+Author: Thomas Guyet
+Author-email: thomas.guyet@irisa.fr
+License: UNKNOWN
+Description: # PyChronicle package
+        
+        A chronicle is a specification of the complex temporal behaviors as a temporal constraint graph. It can be used to recognize complex behaviors in sequence the temporal events.
+        
+        A chronicle is a multiset of events and a set of temporal constraints specifying that occurrences of pairs of events must occurs within a given temporal interval.
+        
+        The package implements the model of chronicles and an efficient algorithm to recognize it.
+        
+        There are three different ways to recognize chronicle in a sequence of a events:
+        * the absence/presence recognition (`c.isrecognize(seq)`): its result is a boolean stating whether the chronicle occur at least once in the sequence, this is the most efficient algorithm
+        * the occurrence enumeration (`c.recognize(seq)`): its result is a list of occurrence of the chronicle in a sequence. Contrary to the first implementation, it looks for all possible combinasion of events. Thus it is less efficient
+        * the approximate occurrence enumeration (`c.cmp(seq, 0.7)`): its result is a list of occurrences that are similar of the chronicle with a similarity threshold of 0.7.
+        
+        Please note that the author is not fully sasitfied by the function name and that it appeals to change them in a short delay ...
+        
+        # Requirements
+        
+        Use `pip install -r requirements.txt` to install requirements.
+        
+        Naturally, the latter may require superuser rights (consider prefixing the commands by sudo).
+        
+        If you want to use Python 3 and your system defaults on Python 2.7, you may need to adjust the above commands, e.g., replace pip by pip3.
+        
+        The required libraries are the following
+        * numpy
+        * scipy
+        * lazr.restfulclient
+        * larz.uri
+        
+        LAZR is used to instantiate chronicles from CRS files (with simple grammar).
+        
+        # Usage
+        
+        Example of usage:
+        
+            from pychronicles import *
+            #define a sequence of events
+            seq = [3,4,'b','a','a',1,3,'coucou','b','coucou',5,'coucou',5]
+            
+            #define a chronicle
+            c=Chronicle()
+            c.add_event(0,'b')
+            c.add_event(1,1)
+            c.add_constraint(1,3, (3,45))
+            print(c)
+            
+            #recognize the chronicle in the sequence
+            occs=c.recognize(seq)
+            print("occurrences: "+str(occs))
+        
+        It is possible to specify chronicles using the CRS format. The following code illustrate the syntax for specifying a chronicle in this format.
+        
+            chronicle C27_sub_0[]()
+            {
+        	    event(Event_Type1[], t006)
+        	    event(Event_Type1[], t004)
+        	    event(Event_Type2[], t002)
+        	    event(Event_Type3[], t001)
+        
+        	    t004-t006 in [17,25]
+        	    t006-t002 in [-16,-10]
+        	    t002-t001 in [14,29]
+        	    t004-t001 in [27,35]
+            }
+        
+        
+        # Authorship
+        
+        **Author:** Thomas Guyet
+        **Institution:** AGROCAMPUS-OUEST/IRISA
+        **date:10/2019**
+        
+        # Changes
+        
+        * 04/2020 (v0.0.6) fixed bug on the add of negative constraints between similar events
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
