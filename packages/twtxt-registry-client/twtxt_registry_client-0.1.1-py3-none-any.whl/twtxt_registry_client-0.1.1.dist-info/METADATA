@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: twtxt-registry-client
+Version: 0.1.1
+Summary: API client for twtxt registries
+Home-page: https://gitlab.com/Lucidiot/twtxt-registry-client
+Author: Lucidiot
+License: GNU General Public License 3
+Project-URL: Source Code, https://gitlab.com/Lucidiot/twtxt-registry-client
+Project-URL: GitHub Mirror, https://github.com/Lucidiot/twtxt-registry-client
+Keywords: twtxt twitter registry twtxt-registry client
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Communications
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+Requires-Dist: click (<7,>=6.7)
+Requires-Dist: humanize (<1,>=0.5.1)
+Requires-Dist: objtools (>=0.1.0)
+Requires-Dist: python-dateutil (<3,>=2.6.1)
+Requires-Dist: requests (>=2.22)
+Requires-Dist: twtxt (>=1.2.2)
+Provides-Extra: dev
+Requires-Dist: flake8 (>=3.7) ; extra == 'dev'
+Requires-Dist: Sphinx (>=2.2) ; extra == 'dev'
+Requires-Dist: doc8 (>=0.8) ; extra == 'dev'
+Requires-Dist: mypy (>=0.730) ; extra == 'dev'
+
+twtxt-registry-client
+=====================
+
+A simple API client for servers implementing `twtxt`_'s `registry`_ API.
+`Browse documentation`_
+
+.. _twtxt: https://github.com/buckket/twtxt
+.. _registry: https://twtxt.readthedocs.io/en/stable/user/registry.html
+.. _Browse documentation: https://lucidiot.gitlab.io/twtxt-registry-client
+
+
