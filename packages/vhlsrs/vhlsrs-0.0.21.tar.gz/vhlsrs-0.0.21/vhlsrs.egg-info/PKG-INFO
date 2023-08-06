@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: vhlsrs
+Version: 0.0.21
+Summary: Package to automate the synthesis of vivado HLS components
+Home-page: https://gitlab.inria.fr/lforget/vhls_rs
+Author: Luc Forget
+Author-email: luc.forget@insa-lyon.fr
+License: UNKNOWN
+Description: # vhlsrs
+        
+        It means Vivado HLS run synthesis.
+        
+        This package contains a script that runs vivado synthesis in a (somewhat)
+        reproducible way.
+        
+        It also allow to search for the minimum pipeline depth design for a given clock
+        period constrain.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
