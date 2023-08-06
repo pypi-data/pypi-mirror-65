@@ -1,0 +1,24 @@
+{
+  "objectType": "note",
+  "content": "something",
+  "attachments": [{
+    "objectType": "audio",
+    "stream": {
+      "url": "http://a/podcast.mp3",
+      "duration": 123,
+      "size": 4567
+    }
+  }, {
+    "objectType": "video",
+    "stream": {
+      "url": "http://a/vidjo.mov",
+      "duration": 123,
+      "size": 4567
+    }
+  }],
+  "stream": [{
+    "url": "http://a/vidjo.mov",
+    "duration": 123,
+    "size": 4567
+  }]
+}

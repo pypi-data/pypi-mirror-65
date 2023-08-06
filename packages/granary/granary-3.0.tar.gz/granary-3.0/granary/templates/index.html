@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-XRDS-Location"
+        content="//{{ host }}/.well-known/host-meta.xrds" />
+  <script type="text/javascript" src="/static/demo.js"></script>
+  <script type="text/javascript" src="/oauth_dropins/static/util.js"></script>
+  <title>Granary</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="/oauth_dropins/static/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/oauth_dropins/static/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/style.css" />
+</head>
+
+
+<body>
+
+<!-- highlight fragments -->
+<style type="text/css">
+#contact, #privacy {
+  transition: background-color 2s;
+}
+</style>
+<script type="text/javascript">
+function onHashChange() {
+  var id = location.href.match(/#(.+)$/);
+  if (id) {
+    var elem = document.getElementById(id[1]);
+    if (elem) {
+      elem.style.backgroundColor = "#FFFFAA";
+    }
+  }
+}
+window.addEventListener('hashchange', onHashChange);
+document.addEventListener('DOMContentLoaded', onHashChange);
+window.onload = update_form();
+
+function spinner(visibility) {
+  elems = document.getElementsByClassName('spinner');
+  for (i = 0; i < elems.length; i++) {
+    elems[i].style.visibility = visibility;
+  }
+}
+</script>
+
+<main class="tp-main">
+<div class="container">
+
+
+<h1>
+<img id="logo" src="/static/granary_logo_512.png" width="128px" />
+granary<br>
+<small>The social web translator</small>
+</h1>
+
+<p class="lead">
+Fetches and converts data between
+<a href="https://indiewebcamp.com/silo">social networks</a>, HTML and JSON with
+<a href="http://microformats.org/wiki/microformats2">microformats2</a>,
+<a href="http://activitystrea.ms/">ActivityStreams</a> 1 and 2,
+<a href="http://atomenabled.org/">Atom</a>,
+<a href="http://www.rssboard.org/rss-specification">RSS</a>,
+<a href="https://jsonfeed.org/">JSON Feed</a>, and more.
+Try it below! <a href="https://granary.readthedocs.io/">Docs</a>, <a href="https://github.com/snarfed/granary">source</a>.
+</p>
+
+<p class="lead"><em>
+Want social feeds in your feed reader? Use <a href="https://twitter-atom.appspot.com/">twitter-atom</a>, <a href="https://instagram-atom.appspot.com/">instagram-atom</a>, and <a href="https://facebook-atom.appspot.com/">facebook-atom</a> instead!
+</em></p>
+
+<!--
+  -- oauth login buttons
+  -->
+<br id="logins" />
+<div class="login">
+<div class="row">
+{{ twitter_html|safe }}
+<div class="col-lg-2 col-sm-4 col-xs-6">
+  <img src="/oauth_dropins/static/facebook_bw_2x.png" height="50" class="shadow"
+       title="Facebook is only supported in the library, not in the REST API or demo site here.">
+</div>
+{{ instagram_html|safe }}
+{{ flickr_html|safe }}
+{{ github_html|safe }}
+{{ mastodon_html|safe }}
+</div>
+
+<div class="row">
+
+<div class="col-lg-2 col-sm-4 col-xs-6">
+<form method="get" action="#logins">
+  <input type="image" class="shadow" title="Microformats2" height="50"
+         src="/static/microformats_2x.png"
+         style="background-color: #EEEEEE; padding: 5px" />
+  <input name="input" type="hidden" value="mf2-json" />
+</form></div>
+
+<div class="col-lg-2 col-sm-4 col-xs-6">
+<form method="get" action="#logins">
+  <input type="image" class="shadow" title="ActivityStreams"
+         src="/static/activitystreams_logotype_2x.png" height="50" />
+  <input name="input" type="hidden" value="activitystreams" />
+</form></div>
+
+<div class="col-lg-2 col-sm-4 col-xs-6">
+<form method="get" action="#logins">
+  <input type="image" class="shadow" title="JSON Feed"
+         src="/static/jsonfeed_button.png" height="50" />
+  <input name="input" type="hidden" value="jsonfeed" />
+</form></div>
+
+<div class="col-lg-2 col-sm-4 col-xs-6">
+<form method="get" action="#logins">
+  <input type="image" class="shadow" title="HTML" id="html"
+         src="/static/html_button_2x.png" height="50" />
+  <input name="input" type="hidden" value="html" />
+</form></div>
+
+<div class="col-lg-2 col-sm-4 col-xs-6">
+<form method="get" action="#logins">
+  <input type="image" class="shadow" title="Atom" id="atom"
+         src="/static/atom_button.png" height="50" style="background-color: #EEEEEE" />
+  <input name="input" type="hidden" value="atom" />
+</form></div>
+
+<div class="col-lg-2 col-sm-4 col-xs-6">
+<form method="get" action="#logins">
+  <input type="image" class="shadow" title="RSS" id="rss"
+         src="/static/rss_button.png" height="50" />
+  <input name="input" type="hidden" value="html" />
+  <input name="output" type="hidden" value="rss" />
+</form></div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-2 col-sm-4 col-xs-6">
+  <img src="/oauth_dropins/static/meetup_2x.png" height="50" class="shadow"
+       title="Meetup is only supported in the library, not in the REST API or demo site here.">
+</div>
+</div>
+
+<!--
+  -- interactive form
+  -->
+{% if access_token or access_token_key or access_token_secret or input or site
+     or declined or error or failure %}
+
+<div class="row">
+<p class="lead"><em>
+<span style="color: red">
+  {% if declined or error %}
+    Please accept the prompt to try the demo.
+  {% endif %}
+  {% if failure %}
+    Error: {{ failure }}</span>
+  {% endif %}
+</span>
+{% if entity %}
+<span style="color: green">
+ Authenticated as {{ entity.user_display_name() }} on {{ entity.site_name() }}.</span>
+{% endif %}
+</em></p>
+</div>
+
+
+{% if entity or site %}
+<form id="demo-form" action="/demo" method="get" target="results"
+      onsubmit="spinner('visible')">
+<input type="hidden" id="site" name="site" value="{{ site }}" />
+<input type="hidden" name="cache" value="false" />
+<p><code>
+<label>/ {{ site }} </label>
+
+{% if site == 'mastodon' %}
+<input type="hidden" id="instance" name="instance" value="{{ entity.instance() }}" />
+{% endif %}
+
+{% if site != 'github' %}
+<label>/ </label>
+<input id="user_id" name="user_id" type="text" class="form-control"
+       {% if site == 'instagram' %}
+         placeholder="username" size="12" required
+       {% else %}{% if site == 'mastodon' %}
+         value="{{ entity.user_id() }}" placeholder="user id" size="19" required
+       {% else %}
+         placeholder="username (optional)" size="19"
+       {% endif %}
+       {% endif %} />
+<label> / </label>
+{% endif %}
+
+{% if site == 'facebook' %}
+<label> @self </label>
+<input type="hidden" id="group_id" name="group_id" value="@self" />
+{% elif site != 'github' %}
+<select id="group_id" name="group_id" onchange="update_form()">
+  {% if site != 'instagram' %}
+    <option value="@all">@all</option>
+  {% endif %}
+  <option value="@self">@self</option>
+  <option value="@friends">@friends</option>
+  {% if site in ('mastodon', 'twitter') %}
+    <option value="@search">@search</option>
+  {% endif %}
+  {% if site == 'twitter' %}
+    <option value="@list">@list</option>
+    <option value="@blocks">@blocks</option>
+  {% endif %}
+</select>
+
+<input id="list" name="list" type="text" class="form-control"
+       placeholder="list name" size="12" />
+{% endif %}
+
+<label>/ @app </label>
+<span id="activity_id_span">
+  <label for="activity_id"> / </label>
+  <input id="activity_id" name="activity_id" type="text" class="form-control"
+         placeholder="activity id (optional)" size="12" />
+</span>
+
+?
+<span id="search_query_span">
+  <label for="search_query">search_query =</label>
+  <input id="search_query" name="search_query" type="text" class="form-control"
+         placeholder="search query" size="12" />
+  &
+</span>
+
+<label for="format">format =</label>
+<select id="format" name="format">
+  <option value="as2">as2</option>
+  <option value="as1">as1</option>
+  <option value="as1-xml">as1-xml</option>
+  <option value="atom">atom</option>
+  <option value="html">html</option>
+  <option value="mf2-json">mf2-json</option>
+  <option value="jsonfeed">jsonfeed</option>
+  <option value="rss">rss</option>
+</select>
+
+{% if site != 'github' %}
+<br>
+&nbsp;
+{% endif %}
+
+{% if access_token %}
+  <label for="access_token">&amp; access_token =</label>
+  <input id="access_token" name="access_token" type="text" size="10"
+         class="form-control" value="{{ access_token }}" />
+{% endif %}
+{% if access_token_key and access_token_secret %}
+  <label for="access_token_key">&amp; access_token_key =</label>
+  <input id="access_token_key" name="access_token_key" type="text" size="10"
+         class="form-control" value="{{ access_token_key }}" />
+  <label for="access_token_secret">&amp; access_token_secret =</label>
+  <input id="access_token_secret" name="access_token_secret" type="text" size="10"
+         class="form-control" value="{{ access_token_secret }}" />
+{% endif %}
+
+{% if site == 'instagram' %}
+<nobr>
+  <label for="cookie">& cookie =</label>
+  <input id="cookie" name="cookie" type="text" class="form-control"
+         placeholder="sessionid cookie (for @friends)" size="31" />
+</nobr>
+{% endif %}
+</code>
+
+<input type="hidden" name="cache" value="false" />
+<input type="hidden" name="interactive" value="true" />
+
+<br>
+<button type="submit" class="btn btn-default"
+        onclick="render_demo_request()">GET</button>
+<img id="demo-spinner" class="spinner" src="/static/spinner.gif" width="30" />
+</p>
+</form>
+{% endif %}
+
+{% if input %}
+<form id="url-form" action="/url" method="get" target="results"
+      onsubmit="spinner('visible')">
+<p><code>
+<label>/ url ? input = </label>
+<select id="input" name="input">
+  <option {% if input == "activitystreams" %} selected {% endif %}
+          value="as2">as2</option>
+  <option value="as1">as1</option>
+  <option {% if input == "atom" %} selected {% endif %}
+          value="atom">atom</option>
+  <option {% if input == "html" %} selected {% endif %}
+          value="html">html</option>
+  <option {% if input == "mf2-json" %} selected {% endif %}
+          value="mf2-json">mf2-json</option>
+  <option {% if input == "jsonfeed" %} selected {% endif %}
+          value="jsonfeed">jsonfeed</option>
+</select>
+<label>& output = </label>
+<select id="output" name="output">
+  <option {% if output == "as2" %} selected {% endif %} value="as2">as2</option>
+  <option {% if output == "as1" %} selected {% endif %} value="as1">as1</option>
+  <option {% if output == "as1-xml" %} selected {% endif %} value="as1-xml">as1-xml</option>
+  <option {% if output == "atom" %} selected {% endif %} value="atom">atom</option>
+  <option {% if output == "html" %} selected {% endif %} value="html">html</option>
+  <option {% if output == "mf2-json" %} selected {% endif %} value="mf2-json">mf2-json</option>
+  <option {% if output == "jsonfeed" %} selected {% endif %} value="jsonfeed">jsonfeed</option>
+  <option {% if output == "rss" %} selected {% endif %} value="rss">rss</option>
+</select>
+<label>& url = </label>
+<input id="url" name="url" type="url" required class="form-control"
+       placeholder="http://example.com/post.html" size="30" />
+
+<input type="hidden" name="plaintext" value="true" />
+<input type="hidden" name="cache" value="false" />
+<input type="hidden" name="interactive" value="true" />
+<button type="submit" class="btn btn-default"
+        onclick="render_url_request()">GET</button>
+</code>
+<img id="url-spinner" class="spinner" src="/static/spinner.gif" width="30" />
+</p>
+</form>
+{% endif %}
+
+
+<div id="results">
+<p><code id="request"></code></p>
+<iframe name="results" onload="spinner('hidden')" onerror="spinner('hidden')">
+</iframe>
+</div>
+
+{% endif %}
+
+<div class="row">
+<p id="privacy" class="lead">This app does not store or use any data, yours or
+anyone else's. It only reformats data and passes it through in response to your
+own HTTP requests.
+<a id="contact" href="https://github.com/snarfed/granary/issues">Questions?</a></p>
+</div>
+</div>
+
+</main>
+</body>
+</html>
