@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: google-music
+Version: 3.6.0
+Summary: A Google Music API wrapper.
+Home-page: https://github.com/thebigmunch/google-music
+License: MIT
+Author: thebigmunch
+Author-email: mail@thebigmunch.me
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: dev
+Provides-Extra: doc
+Provides-Extra: lint
+Requires-Dist: appdirs (>=1.0,<2.0)
+Requires-Dist: audio-metadata (>=0.10)
+Requires-Dist: flake8 (>=3.5,<4.0); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-builtins (>=1.0,<2.0); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-comprehensions (>=2.0,<=4.0); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-import-order (>=0.18,<0.19); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-import-order-tbm (>=1.0,<2.0); extra == "dev" or extra == "lint"
+Requires-Dist: google-music-proto (>=2.8.0,<3.0.0)
+Requires-Dist: httpx (>=0.11,<1.0)
+Requires-Dist: importlib-metadata (>=1.5.0,<2.0.0); python_version < "3.8"
+Requires-Dist: nox (>=2019,<2020); extra == "dev"
+Requires-Dist: oauthlib (>=3.0,<4.0)
+Requires-Dist: protobuf (>=3.5,<4.0)
+Requires-Dist: sphinx (>=2.0,<3.0); extra == "dev" or extra == "doc"
+Requires-Dist: sphinx-material (<1.0.0); extra == "dev" or extra == "doc"
+Requires-Dist: tbm-utils (>=2.4,<3.0)
+Requires-Dist: tenacity (>=5.0,<7.0)
+Requires-Dist: wrapt (>=1.0,<2.0)
+Project-URL: Repository, https://github.com/thebigmunch/google-music
+Description-Content-Type: text/markdown
+
+# google-music
+
+[![PyPI](https://img.shields.io/pypi/v/google-music.svg?label=PyPI)](https://pypi.org/project/google-music/)
+![](https://img.shields.io/badge/Python-3.6%2B-blue.svg)  
+[![GitHub CI](https://img.shields.io/github/workflow/status/thebigmunch/google-music/CI?label=GitHub%20CI)](https://github.com/thebigmunch/google-music/actions?query=workflow%3ACI)  
+[![Docs - Stable](https://img.shields.io/readthedocs/google-music/stable.svg?label=Docs%20%28Stable%29)](https://google-music.readthedocs.io/en/stable/)
+[![Docs - Latest](https://img.shields.io/readthedocs/google-music/latest.svg?label=Docs%20%28Latest%29)](https://google-music.readthedocs.io/en/latest/)
+
+[google-music](https://github.com/thebigmunch/google-music) is an API wrapper library for Google Music using my sans-I/O library,
+[google-music-proto](https://github.com/thebigmunch/google-music-proto).
+
+
+## Installation
+
+``pip install -U google-music``
+
+
+## Usage
+
+For the release version, see the [stable docs](https://google-music.readthedocs.io/en/stable/).  
+For the development version, see the [latest docs](https://google-music.readthedocs.io/en/latest/).
+
+
+## Appreciation
+
+Showing appreciation is always welcome.
+
+#### Thank
+
+[![Say Thanks](https://img.shields.io/badge/thank-thebigmunch-blue.svg?style=flat-square)](https://saythanks.io/to/thebigmunch)
+
+Get your own thanks inbox at [SayThanks.io](https://saythanks.io/).
+
+#### Contribute
+
+[Contribute](https://github.com/thebigmunch/google-music/blob/master/.github/CONTRIBUTING.md) by submitting bug reports, feature requests, or code.
+
+#### Help Others/Stay Informed
+
+[Discourse forum](https://forum.thebigmunch.me/)
+
+#### Referrals/Donations
+
+[![Digital Ocean](https://img.shields.io/badge/Digital_Ocean-referral-orange.svg?style=flat-square)](https://bit.ly/DigitalOcean-tbm-referral) [![Namecheap](https://img.shields.io/badge/Namecheap-referral-orange.svg?style=flat-square)](http://bit.ly/Namecheap-tbm-referral) [![PayPal](https://img.shields.io/badge/PayPal-donate-brightgreen.svg?style=flat-square)](https://bit.ly/PayPal-thebigmunch)
+

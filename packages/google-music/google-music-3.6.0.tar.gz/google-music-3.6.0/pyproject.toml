@@ -1,0 +1,63 @@
+[build-system]
+requires = [ "poetry>=1.0.0" ]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "google-music"
+description = "A Google Music API wrapper."
+version = "3.6.0"
+
+license = "MIT"
+
+authors = ["thebigmunch <mail@thebigmunch.me>"]
+
+readme = "README.md"
+
+repository = "https://github.com/thebigmunch/google-music"
+homepage = "https://github.com/thebigmunch/google-music"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+appdirs = "^1.0"
+audio-metadata = ">=0.10"
+google-music-proto = "^2.8.0"
+httpx = ">=0.11,<1.0"
+oauthlib = "^3.0"
+protobuf = "^3.5"
+tbm-utils = "^2.4"
+tenacity = ">=5.0,<7.0"
+wrapt = "^1.0"
+
+flake8 = { version = "^3.5", optional = true }
+flake8-builtins = { version = "^1.0", optional = true }
+flake8-comprehensions = { version = ">=2.0,<=4.0", optional = true }
+flake8-import-order = { version = "^0.18", optional = true }
+flake8-import-order-tbm = { version = "^1.0", optional = true }
+importlib-metadata = { version = "^1.5.0", python = "<3.8", optional = true }
+nox = { version = "^2019", optional = true }
+sphinx = { version = "^2.0", optional = true}
+sphinx-material = { version = "0.*", optional = true }
+
+[tool.poetry.extras]
+dev = [
+	"flake8",
+	"flake8-builtins",
+	"flake8-comprehensions",
+	"flake8-import-order",
+	"flake8-import-order-tbm",
+	"nox",
+	"sphinx",
+	"sphinx-material",
+]
+doc = [
+	"sphinx",
+	"sphinx-material",
+]
+lint = [
+	"flake8",
+	"flake8-builtins",
+	"flake8-comprehensions",
+	"flake8-import-order",
+	"flake8-import-order-tbm",
+]
