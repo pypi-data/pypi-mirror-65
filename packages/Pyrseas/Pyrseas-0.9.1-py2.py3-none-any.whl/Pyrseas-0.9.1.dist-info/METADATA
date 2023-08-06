@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: Pyrseas
+Version: 0.9.1
+Summary: Utilities to assist in database schema versioning
+Home-page: https://perseas.github.io/
+Author: Joe Abbate
+Author-email: jma@freedomcircle.com
+License: BSD
+Platform: OS-independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: SQL
+Classifier: Topic :: Database :: Front-Ends
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Software Development :: Version Control
+Requires-Dist: PyYAML (>=3.10)
+Requires-Dist: pgdbconn (>=0.8.0)
+Requires-Dist: psycopg2 (>=2.5)
+
+=======
+Pyrseas
+=======
+
+.. image:: https://api.travis-ci.org/perseas/Pyrseas.png?branch=master
+           :target: https://travis-ci.org/perseas/Pyrseas
+
+Pyrseas provides utilities to describe a PostgreSQL database schema as
+YAML, to verify the schema against the same or a different database
+and to generate SQL that will modify the schema to match the YAML
+description.
+
+Features
+--------
+
+- Outputs a YAML description of a Postgres database's tables
+  and other objects (metadata), suitable for storing in a version
+  control repository
+
+- Generates SQL statements to modify a database so that it will match
+  an input YAML/JSON specification
+
+- Generates an augmented YAML description of a Postgres database
+  from its catalogs and an augmentation specification.
+
+Requirements
+------------
+
+- PostgreSQL 9.4 or higher
+
+- Python 2.7, 3.4 or higher
+
+License
+-------
+
+Pyrseas is free (libre) software and is distributed under the BSD
+license.  Please see the LICENSE file for details.
+
+Documentation
+-------------
+
+Please visit `Read the Docs <https://pyrseas.readthedocs.io/en/latest/>`_
+for the latest documentation.
+
+
