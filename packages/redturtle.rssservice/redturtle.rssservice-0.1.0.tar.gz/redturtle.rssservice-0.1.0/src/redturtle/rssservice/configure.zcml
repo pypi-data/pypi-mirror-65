@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="redturtle.rssservice">
+
+    <include package="plone.restapi" file="configure.zcml"/>
+    <plone:service
+        method="GET"
+        name="@get_rss_feed"
+        accept="application/rss+xml"
+        for="*"
+        factory=".service.GetRSSFeedService"
+        permission="zope.Public"
+        />
+
+
+</configure>
