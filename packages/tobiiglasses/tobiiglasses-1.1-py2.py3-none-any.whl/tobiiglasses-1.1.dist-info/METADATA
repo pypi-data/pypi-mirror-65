@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: tobiiglasses
+Version: 1.1
+Summary: An open-source Python suite for Tobii Pro Glasses 2
+Home-page: https://github.com/ddetommaso/TobiiGlassesPySuite
+Author: Davide De Tommaso
+Author-email: dtmdvd@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/ddetommaso/TobiiGlassesPySuite/archive/1.1.tar.gz
+Keywords: eye-tracker,tobii,glasses,tobii pro glasses 2,tobii glasses,eye tracking
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: tobiiglassesctrl (>=2.2.6)
+Requires-Dist: tornado
+Requires-Dist: nose
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: opencv-contrib-python
+Requires-Dist: sortedcontainers (==1.5.10)
+Requires-Dist: dlib
+
+UNKNOWN
+
+
