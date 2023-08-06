@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: moz_crlite_query
+Version: 0.1.2
+Summary: Query CRLite for a certificate, or certificate information
+Home-page: http://github.com/mozilla/moz_crlite_query
+Author: J.C. Jones
+Author-email: jc@mozilla.com
+License: Mozilla Public License 2.0 (MPL 2.0)
+Description: Use this tool to download and maintain CRLite information from Mozilla's Remote Settings infrastructure, and query it.
+Keywords: bloom filter cascade multi level mlbf crlite
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Programming Language :: Python :: 3
