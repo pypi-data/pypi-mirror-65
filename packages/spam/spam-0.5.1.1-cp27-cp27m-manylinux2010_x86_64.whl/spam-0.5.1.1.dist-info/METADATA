@@ -1,0 +1,149 @@
+Metadata-Version: 2.1
+Name: spam
+Version: 0.5.1.1
+Summary: Software for the practical analysis of materials
+Home-page: https://ttk.gricad-pages.univ-grenoble-alpes.fr/spam/intro.html
+Author: SPAM authors
+Author-email: edward.ando@3sr-grenoble.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy (==1.16.4)
+Requires-Dist: tifffile (==2019.7.2)
+Requires-Dist: SimpleITK (==1.2.0)
+Requires-Dist: mpi4py (==3.0.2)
+Requires-Dist: pybind11 (==2.3.0)
+Requires-Dist: pyamg (==4.0.0)
+Requires-Dist: pygmsh (==5.0.2)
+Requires-Dist: meshio (==2.3.10)
+Requires-Dist: progressbar (==2.5)
+Requires-Dist: opencv-python (==3.4.3.18)
+Requires-Dist: h5py (==2.9.0)
+Requires-Dist: lxml (==4.3.4)
+Requires-Dist: six
+Requires-Dist: scipy (==1.2.2)
+Requires-Dist: matplotlib (==2.2.4)
+Requires-Dist: ipython (==5.8.0)
+Requires-Dist: scikit-image (==0.14.3)
+
+===============================================================
+spam - The Software for Practical Analysis of Materials
+===============================================================
+
+
+.. image:: https://img.shields.io/badge/license-GPLv3-blue.svg
+    :target: https://gricad-gitlab.univ-grenoble-alpes.fr/ttk/spam/-/blob/master/LICENSE.md
+
+.. image:: https://gricad-gitlab.univ-grenoble-alpes.fr/ttk/spam/badges/master/pipeline.svg
+   :target: https://gricad-gitlab.univ-grenoble-alpes.fr/ttk/spam/-/commits/master
+
+.. image:: https://gricad-gitlab.univ-grenoble-alpes.fr/ttk/spam/badges/master/coverage.svg
+   :target: https://ttk.gricad-pages.univ-grenoble-alpes.fr/spam/coverage/
+
+.. image:: https://badge.fury.io/py/spam.svg
+   :target: https://pypi.org/project/spam/
+
+Spam is a piece of Python software built upon NumPy and SciPy
+for the analysis and manipulation of 3D and 2D data sets in
+material science, be they from x-ray tomography, random fields
+or any other source.
+
+A number of common functions are provided that are
+either lacking or slow in Numpy and Scipy, which are expected
+to be used by users within new python scripts.
+These functions are in the tools/ directory, and include tools
+to work with random fields, morphological operations, digital
+image correlation, and labelled images.
+Some of spam's functions transparently call C/C++ functions
+for speed.
+
+Some user-callable scipts are also provided -- they are more
+complex pieces of code that combine a number of functions and
+which have a command-line interface.
+For the moment the clients are 3 different image correlation
+techniques.
+
+Please have a look at our online documentation for:
+
+* `Installation instructions`_
+* `General introduction`_
+* `Examples`_
+* And a number of detailed tutorials
+
+If you find bugs, need help, or want to talk to the developers, we use a `riot`_/`matrix.org`_ **chat room** for organisation, please join it `here`_ and come and talk to us -- it is easy, there is a chat client that can run in your web broswer.
+All you need to do is choose a user name!
+
+
+.. _Installation instructions: https://ttk.gricad-pages.univ-grenoble-alpes.fr/spam/installation.html
+.. _General introduction: https://ttk.gricad-pages.univ-grenoble-alpes.fr/spam/intro.html
+.. _Examples: https://ttk.gricad-pages.univ-grenoble-alpes.fr/spam/spam_examples/index.html
+
+.. _riot: https://about.riot.im/
+.. _matrix.org: https://matrix.org/
+.. _here: https://riot.im/app/#/room/#spam:matrix.org
+
+
+Changelog
+==========
+
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version        | Date       | Notes                                                                                                                                |
++================+============+======================================================================================================================================+
+| Version 0.5.1.1| 2020-04-08 |  Fix for running `spam-ldic` for pixel search                                                                                        |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.5.1  | 2020-04-07 |  Fix for running `spam-ddic` with mpi, implementation of S. Brisard's Directional Erosion                                            |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.5.0  | 2020-03-27 |  Big rename of scripts, functions, variables, parameters, with some backwards compatibility in TSV file reading.                     |
+|                |            |  Some examples:                                                                                                                      |
+|                |            |                                                                                                                                      |
+|                |            |    - spam.correlate.lucasKanade -> spam.correlate.register                                                                           |
+|                |            |    - spam.helpers.readTSV       -> spam.helpers.readCorrelationTSV                                                                   |
+|                |            |                                                                                                                                      |
+|                |            |  New framework for the calculation of strains, where the computation of F is separated from its decomposition.                       |
+|                |            |  Output fields from correlation with prefixes "SubPix" and "SubPixel" become prefixless                                              |
+|                |            |  In TSV outputs from correlation the components like "F12" are now called "Fzy"                                                      |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.4.3  | 2020-01-16 |  Various fixes to graphical clients (able to save TSV from `spam-mmr-graphical` and do a last, precise run with `spam-mmr`).         |
+|                |            |  Improvement to triangulation (now with CGAL alpha shapes) and discrete strain calculator (tested results)                           |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.4.2  | 2019-09-25 |  spam-mmr-graphical now working, improvements in spam-mmr.                                                                           |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.4.1  | 2019-09-13 |  spam-mmr-graphical now working (c-python type error).                                                                               |
+|                |            |  Various bugfixes in clients.                                                                                                        |
+|                |            |  spam-ITKwatershed now accepts markers                                                                                               |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.4.0  | 2019-07-18 |  c++ now bound with pybind11.                                                                                                        |
+|                |            |  New graphical script `spam-mmr-graphical` for multi-modal registration.                                                             |
+|                |            |  New graphical script `spam-ereg` for eye (manual) registration.                                                                     |
+|                |            |  Python3 upgrade recommended for all users                                                                                           |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.3.3.1| 2019-05-27 |  Binning 2^31 fix, remove lines for immediate prints that are not py3 compatible                                                     |
+|                |            |  First version with CGAL triangulation                                                                                               |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.3.2.1| 2019-05-14 |  Update pip documentation and changelog                                                                                              |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.3.2  | 2019-04-30 |  Fix segfault with images larger than 2^31 voxels, and output both subtracted                                                        |
+|                |            |  and original fields in spam-ldic                                                                                                    |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.3.1  | 2019-04-08 |  Fix a number of forgotten spam.DIC.transformationOperator functions                                                                 |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.3.0  | 2019-03-28 |  Consistent naming in DIC: Phi is 4x4 homogeneous deformation function                                                               |
+|                |            |  and F is its internal 3x3 displacement gradient                                                                                     |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.3.0  | 2019-03-28 |  Consistent naming in DIC: Phi is 4x4 homogeneous deformation function                                                               |
+|                |            |  and F is its internal 3x3 displacement gradient                                                                                     |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.2.2.2| 2019-03-21 |  First version on pip with complete dependencies.                                                                                    |
+|                |            |  This version of spam runs fully in a venv with `pip install spam`                                                                   |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.2.2.1| 2019-03-20 |  Pull in `requirements.txt` into `setup.py` automatically.                                                                           |
+|                |            |  This aligns the build from git with the build from pip.                                                                             |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.2.2  | 2019-02-21 |  Approximate python3 compatibility                                                                                                   |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.2.1  | 2019-02-18 |  Add PyPI documentation to pip in RST                                                                                                |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+| Version 0.2.0  | 2019-02-18 |  Add PyPI documentation to `README.rst` to appear on pip.                                                                            |
+|                |            |  Note that the build status and coverage badges won't appear until access to gitlab is opened                                        |
++----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+
+
+
