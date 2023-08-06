@@ -1,0 +1,1 @@
+covirus is a Python library to centralize data and models related to COVID19 outbreak. Its goal is to make importing data and running models easier, allowing many researchers and also data enthusiasts to help understand how COVID-19 is spreading worldwide and what to expect.
