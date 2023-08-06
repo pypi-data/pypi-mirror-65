@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: seq2annotation
+Version: 0.12.1
+Summary: seq2annotation
+Home-page: https://github.com/howl-anderson/seq2annotation
+Author: Xiaoquan Kong
+Author-email: u1mail2me@gmail.com
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: keras
+Requires-Dist: tokenizer-tools
+Requires-Dist: flask
+Requires-Dist: flask-cors
+Requires-Dist: ioflow
+Requires-Dist: tf-crf-layer
+Requires-Dist: tf-attention-layer
+Requires-Dist: tensorflow (<2.0.0,>=1.15.0)
+Requires-Dist: deliverable-model
+Requires-Dist: gunicorn
+Requires-Dist: micro-toolkit
+Requires-Dist: seq2annotation-for-deliverable
+
+UNKNOWN
+
+
