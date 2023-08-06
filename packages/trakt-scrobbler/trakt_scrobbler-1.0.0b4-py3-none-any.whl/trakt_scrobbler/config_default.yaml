@@ -1,0 +1,49 @@
+version: '1.0'
+
+general:
+  enable_notifs: true
+
+fileinfo:
+
+  # if defined, only files from these directories will be scrobbled
+  whitelist: []  # Keep as [] to allow all
+
+  # custom regex to identify media information, should be posix path
+  include_regexes:
+    movie: []
+    episode: []
+
+players:
+  monitored: []  # players to be monitored. Allowed: mpc-be, mpc-hc, mpv, plex, vlc
+
+  skip_interval: 5  # min percent jump to consider for scrobbling to trakt
+
+  # player specific parameters
+  mpc-be:  # enable web interface from options
+    ip: localhost
+    port: auto-detect  # from Options -> Player -> Web Interface -> Listen on port (ensure it is ticked)
+    poll_interval: 10  # in seconds. How frequently the monitor should check for player update.
+
+  mpc-hc:  # enable web interface from options
+    ip: localhost
+    port: auto-detect  # if both mpchc and mpcbe are to be monitored, then ensure that their ports are different
+    poll_interval: 10  # in seconds
+
+  vlc:  # enable web interface from options
+    ip: localhost
+    port: auto-detect  # from Preferences -> All -> Input/Codecs -> HTTP Server Port
+    password: auto-detect  # from Preferences -> All -> Interface -> Main Interfaces -> Lua -> Lua HTTP Password
+    poll_interval: 10  # in seconds. How frequently the monitor should check for player update.
+
+  mpv:  # enable the JSON IPC server. Either via cmd line arg (eg: --input-ipc-server=\\.\pipe\mpvpipe), or in mpv.conf file
+    ipc_path: auto-detect
+    poll_interval: 10  # in seconds. How frequently the monitor should check for player update.
+
+  plex:
+    ip: localhost  # IP of the plex server
+    port: '32400'
+    poll_interval: 10  # in seconds. How frequently the monitor should check for player update.
+
+backlog:
+  clear_interval: 1800  # 30 minutes
+  expiry: 2592000  # 30 days
