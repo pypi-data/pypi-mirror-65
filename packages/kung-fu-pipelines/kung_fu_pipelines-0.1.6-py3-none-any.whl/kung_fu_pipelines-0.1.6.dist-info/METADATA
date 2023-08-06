@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: kung-fu-pipelines
+Version: 0.1.6
+Summary: Kubeflow pipelines made easy.
+Author: Saad Khan
+Author-email: skhan8@mail.einstein.yu.edu
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: kfp (>=0.1.36,<0.2.0)
+Requires-Dist: the-whole-caboodle (>=0.2.10,<0.3.0)
