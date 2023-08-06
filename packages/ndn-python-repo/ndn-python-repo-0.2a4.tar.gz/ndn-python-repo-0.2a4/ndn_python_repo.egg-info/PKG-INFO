@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: ndn-python-repo
+Version: 0.2a4
+Summary: An NDN Repo implementation using Python
+Home-page: https://github.com/JonnyKong/ndn-python-repo
+Author: Zhaoning Kong
+Author-email: jonnykong@cs.ucla.edu
+License: Apache License 2.0
+Download-URL: https://pypi.python.org/pypi/ndn-python-repo
+Project-URL: Bug Tracker, https://github.com/JonnyKong/ndn-python-repo/issues
+Project-URL: Source Code, https://github.com/JonnyKong/ndn-python-repo
+Description: UNKNOWN
+Keywords: NDN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Database
+Classifier: Topic :: Internet
+Classifier: Topic :: System :: Networking
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Provides-Extra: test
+Provides-Extra: leveldb
+Provides-Extra: mongodb
