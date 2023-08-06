@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: distpy
+Version: 1.17.0
+Summary: distpy : Processing for distributed fibre-optic sensor data
+Home-page: https://github.com/Schlumberger/distpy
+Author: Michael J. Williams
+Author-email: miw@slb.com
+License: ../LICENSE
+Keywords: DAS,DTS,hDVS,DVS
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: numba
+Requires-Dist: matplotlib
+Requires-Dist: h5py
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+
+# distpy
+An Open Source python module for rapid prototyping Distributed Acoustic Sensing (DAS) processing flows.
+
+It provides massively parallel and scalable DAS interpretation using self-describing branched networks.
+
+See the [Wiki](https://github.com/Schlumberger/distpy/wiki) pages for information on installing, using and developing **distpy**
+
+
