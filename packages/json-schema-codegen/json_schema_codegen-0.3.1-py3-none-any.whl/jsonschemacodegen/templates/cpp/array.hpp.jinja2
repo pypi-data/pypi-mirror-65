@@ -1,0 +1,97 @@
+{%-import 'loader.jinja2' as loader-%}
+{%-if schema.GetItemSchema()['$ref'] %}
+    {%-set itemtype = loader.Reference(resolver, schema.GetItemSchema()['$ref']) %}
+{%-else-%}
+    {%-set itemtype = 'Item'-%}
+{%-endif%}
+/*! \class {{Name}}
+ * \brief Wrapper around an array containing {{itemtype}}
+ {%-if schema.description %}
+ * {{schema.description}}
+ {%-endif%}
+ */
+class {{Name}}
+{
+public:
+    {%-if schema.GetItemSchema()['$ref'] is not defined %}
+    {{loader.Class('hpp', resolver, [Name], 'Item', schema.GetItemSchema()) | indent(4) }}
+    {%-endif%}
+
+    {%-if schema.maxItems is defined %}
+    static constexpr int MAX_ITEMS = {{schema.maxItems}};
+    {%-endif%}
+    {%-if schema.minItems is defined %}
+    static constexpr int MIN_ITEMS = {{schema.minItems}};
+    {%-endif%}
+
+    /*! Constructor for {{Name}}
+     * \param arr Vector of {{itemtype}} for initialization. {%if schema.minItems%}Must have at least {{schema.minItems}} elements.{%endif%}{%if schema.maxItems%}Must have at least {{schema.maxItems}} elements.{%endif%}
+     * \throw std::out_of_range if the length of the vector is incorrect
+     */
+    {{Name}}(std::vector<{{itemtype}}> arr);
+
+    {%-if schema.minItems is not defined or schema.minItems == 0 %}
+    /*! Constructor for {{Name}}
+     * Constructs an empty array object
+     */
+    {{Name}}();
+    {%-endif%}
+
+    virtual ~{{Name}}() = default;
+
+    /*! \fn SetArray(const std::vector<{{itemtype}}>& arr)
+     * \param arr resets the array to the provided vector {%if schema.minItems%}Must have at least {{schema.minItems}} elements.{%endif%}{%if schema.maxItems%}Must have at least {{schema.maxItems}} elements.{%endif%}
+     {%-if schema.minItems is defined or schema.maxItems is defined %}
+     * \throw std::out_of_range if the length of the vector is incorrect
+     {%-endif%}
+     */
+    void SetArray(const std::vector<{{itemtype}}>& arr);
+
+    /*! \fn std::vector<{{itemtype}}> GetArray() const
+     * \brief Returns a vector of all the {{itemtype}} items
+     * \return std::vector<{{itemtype}}>
+     */
+    std::vector<{{itemtype}}> GetArray() const;
+
+    /*! \fn void Append(const {{itemtype}}& item)
+     * \brief Adds an {{itemtype}} item to the array
+     * \param item for appending
+     {%-if schema.maxItems is defined %}
+     * \throw std::out_of_range if adding the item would cause the length to be greater than {{Name}}::MAX_ITEMS={{schema.maxItems}}
+     {%-endif%}
+     */
+    void Append(const {{itemtype}}& item);
+
+    {# TODO: Allow this class to be iteratable #}
+
+    /*! \fn {{Name}} FromJson(const rapidjson::Value& json)
+     * \brief Deserializes JSON into a new instance of the {{Name}} object.
+     * \param json is the RapidJSON value which must be of array type and conforming to the schema.
+     * \throw If any of the components don't deserialize correctly according to their schemas.
+     * \returns {{Name}}
+     */
+    static {{Name}} FromJson(const rapidjson::Value& json);
+
+    /*! \fn ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator)
+     * \brief Serializes the array and its elements to JSON
+     * \param value is the RapidJSON value which will be modified to contain the serialization
+     * \param allocator is the top-level RapidJSON document allocator which may be used for allocations
+     */
+    void ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator) const;
+
+    /*! Sets a string handle associated with this {{Name}} instance.
+     * This gets called by a parent object after creating an instance that is used for an object's property.
+     * \param handle is the string name.
+     */
+    void SetHandle(const std::string& handle);
+
+    /*! Gets the string handle associated with this {{Name}} instance.
+     * This is often the property name used in a JSON-object parent.
+     * It may be empty.
+     * \returns the handle string
+     */
+    std::string GetHandle() const;
+private:
+    std::vector<{{itemtype}}> _arr;
+    std::string _handle;
+};

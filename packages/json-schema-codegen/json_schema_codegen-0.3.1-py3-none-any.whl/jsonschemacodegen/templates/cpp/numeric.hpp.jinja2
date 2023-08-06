@@ -1,0 +1,154 @@
+{%-import 'constraints.jinja2' as constraint-%}
+{%-if schema.type == 'integer'%}{%-set cpptype = 'int'%}{%-else%}{%-set cpptype = 'double'%}{%-endif-%}
+/*! {{Name}} is a wrapper around a {{schema.type}}.
+ * \brief wrapper around {{cpptype}}
+ {%-if schema.description %}
+ * {{schema.description}}
+ {%-endif%}
+ */
+class {{Name}}
+{
+public:
+    {%-if schema.minimum is defined %}
+    /*! The encapsulated value must not be less than this minimum number.
+     * This is defined as a static value to encourage static assertations in application code.
+     */
+    static constexpr int {{constraint.ExprName('minimum')}} = {{schema.minimum}};
+    {%endif%}
+    {%-if schema.maximum is defined %}
+    /*! The encapsulated value must not exceed this maximum number.
+     * This is defined as a static value to encourage static assertations in application code.
+     */
+    static constexpr int {{constraint.ExprName('maximum')}} = {{schema.maximum}};
+    {%endif%}
+    {%-if schema.exclusiveMinimum is defined %}
+    /*! The encapsulated value must be greater than this minimum number.
+     * This is defined as a static value to encourage static assertations in application code.
+     */
+    static constexpr int {{constraint.ExprName('exclusiveMinimum')}} = {{schema.exclusiveMinimum}};
+    {%endif%}
+    {%-if schema.exclusiveMaximum is defined %}
+    /*! The encapsulated value must be less than this maximum number.
+     * This is defined as a static value to encourage static assertations in application code.
+     */
+    static constexpr int {{constraint.ExprName('exclusiveMaximum')}} = {{schema.exclusiveMaximum}};
+    {%endif%}
+    {%-if schema.multipleOf is defined %}
+    /*! The encapsulated value must be a multiple of {{schema.multipleOf}}.
+     * This is defined as a static value to encourage static assertations in application code.
+     */
+    static constexpr int {{constraint.ExprName('multipleOf')}} = {{schema.multipleOf}};
+    {%endif%}
+    {%-if schema.default is defined %}
+    /*! This is the default value encapsulated by {{Name}}.
+     * This is defined as a static value to encourage static assertations in application code.
+     */
+    static constexpr int {{constraint.ExprName('default')}} = {{schema.default}};
+    {%endif%}
+    {%-if schema.const is defined %}
+    /*! The encapsulated value must only be this value: {{schema.const}}.
+     * This is defined as a static value to encourage static assertations in application code.
+     */
+    static constexpr int {{constraint.ExprName('const')}} = {{schema.const}};
+    {%endif%}
+    {%-if schema.const is not defined%}
+    /*! Constructor
+     * \param value the initial value
+     */
+    {{Name}}({{cpptype}} value);
+    {%endif%}
+    {%-if schema.default is defined or schema.const is defined %}
+    /*! Default value constructor.
+     * This structure is initialized with the value '{{schema.const or schema.default}}'
+     */
+    {{Name}}();
+    {%-endif%}
+
+    virtual ~{{Name}}() = default;
+
+    /*! Cast to {{cpptype}} operator
+     */
+    operator {{cpptype}}() const;
+
+    /*! Stream operator.
+     */
+    friend std::ostream& operator<<(std::ostream& os, const {{Name}}& num);
+
+    /*! The less than comparison operator.
+     * \param left A {{Name}} instance on the left size of the less than expression.
+     * \param right A {{Name}} instance on the right side of the less than expression.
+     * \return true if the less than expression is true.
+     */
+    friend bool operator< (const {{Name}}& left, const {{Name}}& right);
+
+    /*! Produce a hash value of the object.
+     * \param num A {{Name}} instance from which to produce a hash.
+     * \return a hash number using a boost hashing algorithm.
+     */
+    friend std::size_t hash_value(const {{Name}}& num);
+
+    /*! Gets the value.
+     * \fn {{cpptype}} Get() const
+     * \return {{cpptype}} value
+     */
+    {{cpptype}} Get() const;
+
+    /*! Validates that a value meets schema requirements.
+     * \fn void Validate({{cpptype}} testValue)
+     * \param testValue to validate
+     * \throw if passed value is invalid
+     */
+    static void Validate({{cpptype}} testValue);
+
+    /*! \fn {{Name}} FromJson(const rapidjson::Value& json)
+     * \brief Deserializes a JSON "{{schema.type}}" value into a new instance of {{Name}}.
+     * \param json is the RapidJSON value which must be of "null" type.
+     * \throw If the JSON isn't a {{schema.type}}
+     * \returns {{Name}}
+     */ 
+    static {{Name}} FromJson(const rapidjson::Value& json);
+
+    /*! \fn {{Name}} FromString(const std::string& str)
+     * \brief Performs a "lexical cast" on the string to create a new {{Name}} object
+     * \param str stringified representation of a {{schema.type}}
+     * \throw If the string cannot be cast or does not JSON-schema validate
+     * \return {{Name}}
+     */
+    static {{Name}} FromString(const std::string& str);
+
+    /*! \fn ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator)
+     * \brief Sets 'value' to a {{schema.type}}
+     * \param value is the RapidJSON value which will be modified to contain the serialization
+     * \param allocator is the top-level RapidJSON document allocator which may be used for allocations
+     */
+    void ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator) const;
+
+    /*! Sets a string handle associated with this {{Name}} instance.
+     * This gets called by a parent object after creating an instance that is used for an object's property.
+     * \param handle is the string name.
+     */
+    void SetHandle(const std::string& handle);
+
+    /*! Gets the string handle associated with this {{Name}} instance.
+     * This is often the property name used in a JSON-object parent.
+     * It may be empty.
+     * \returns the handle string
+     */
+    std::string GetHandle() const;
+
+{%if schema.IsReadOnly() or schema.const is defined%}
+private:
+{%-endif%}
+    /*! Assignment from {{cpptype}} operator
+     */
+    {{Name}}& operator=({{cpptype}} value);
+
+    /*! Sets the {{cpptype}} value.
+     * \fn void Set({{cpptype}} value)
+     * \param value new value
+     */
+    {{Name}}& Set({{cpptype}} value);
+private:
+    {{cpptype}} _value;
+    std::string _handle;
+};
