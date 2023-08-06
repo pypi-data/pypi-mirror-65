@@ -1,0 +1,34 @@
+recursive-include scrapbook *.py
+recursive-include scrapbook *.ipynb
+recursive-include scrapbook *.json
+recursive-include scrapbook *.yaml
+recursive-include scrapbook *.keep
+recursive-include scrapbook *.txt
+
+include setup.py
+include setup.cfg
+include requirements.txt
+include requirements-dev.txt
+include tox.ini
+include pytest.ini
+include LICENSE
+include MANIFEST.in
+include *.md
+include *.toml
+
+include scrapbook/tests/fixtures/tiny.png
+
+include .coveragerc
+include .bumpversion.cfg
+
+# Documentation
+graft docs
+# exclude build files
+prune docs/_build
+# exclude sample notebooks for binder
+prune binder
+# Scripts
+graft scripts
+# Build files
+prune .tavis.yml
+prune azure-pipelines.yml
