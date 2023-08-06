@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: swp
+Version: 0.1.2
+Summary: Simple components sharing tool
+Home-page: https://github.com/mathix420/swap
+Author: Arnaud Gissinger
+Author-email: agissing@student.42.fr
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: PyInquirer (>=1.0.3)
+
+<p align="center"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/236/black-universal-recycling-symbol_267b.png"></p>
+<h1 align="center">SWAP</h1>
+<h3 align="center">Simple components sharing tool</h3>
+
+
+# Installation
+
+```bash
+pip install swp
+```
+
+## Optionnal dependencies
+
+```bash
+# Linux
+apt install tree
+
+# MacOS
+brew install tree
+```
+
+# Usage
+
+WIP
+
