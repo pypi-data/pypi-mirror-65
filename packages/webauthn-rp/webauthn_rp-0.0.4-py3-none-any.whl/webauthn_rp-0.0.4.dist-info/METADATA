@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: webauthn-rp
+Version: 0.0.4
+Summary: Web Authentication Relying Party Library
+Home-page: https://github.com/enceladus-rex/webauthn-rp
+Author: enceladus-rex
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: cbor (~=1.0)
+Requires-Dist: cryptography (~=2.6)
+Requires-Dist: pyasn1 (==0.4.8)
+Provides-Extra: test
+Requires-Dist: pytest (~=4.4) ; extra == 'test'
+Requires-Dist: pytest-cov (~=2.7) ; extra == 'test'
+Requires-Dist: codecov (~=2.0) ; extra == 'test'
+Requires-Dist: coverage (~=4.5) ; extra == 'test'
+Requires-Dist: yapf (~=0.27) ; extra == 'test'
+Requires-Dist: mypy (~=0.701) ; extra == 'test'
+Requires-Dist: isort (~=4.3) ; extra == 'test'
+
+<p align="center">
+<br />
+<img src="https://github.com/enceladus-rex/webauthn-rp/raw/master/docs/source/_static/webauthn-rp-logo.png" />
+</p>
+<br />
+<hr />
+
+![Travis Build](https://img.shields.io/travis/com/enceladus-rex/webauthn-rp/master.svg)
+![Codecov](https://img.shields.io/codecov/c/github/enceladus-rex/webauthn-rp/master.svg)
+![Read the Docs](https://img.shields.io/readthedocs/webauthn-rp/latest.svg)
+
+WebAuthn-RP is a Python 3 library to manage credentials that conform to the 
+[Web Authentication specification](https://www.w3.org/TR/webauthn/).
+
+You can use it as a relying party on the server-side to interface with your database and routing layers. It is 
+designed to work across different frameworks without any changes.
+
+## Getting Started
+
+To quickly install the library you can use pip:
+
+```
+pip install webauthn-rp
+```
+
+To learn more about how to use the library (which is currently in alpha), please visit the documentation at [readthedocs](https://webauthn-rp.readthedocs.io/en/latest/).
+
+You can also find some of the examples which are covered in the docs under `/examples`.
+
+
