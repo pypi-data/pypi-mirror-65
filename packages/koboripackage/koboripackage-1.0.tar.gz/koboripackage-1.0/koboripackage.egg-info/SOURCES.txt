@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+koboripackage/__init__.py
+koboripackage/cli.py
+koboripackage/koboripackage.py
+koboripackage.egg-info/PKG-INFO
+koboripackage.egg-info/SOURCES.txt
+koboripackage.egg-info/dependency_links.txt
+koboripackage.egg-info/entry_points.txt
+koboripackage.egg-info/requires.txt
+koboripackage.egg-info/top_level.txt
+tests/__init__.py
+tests/test_koboripackage.py
