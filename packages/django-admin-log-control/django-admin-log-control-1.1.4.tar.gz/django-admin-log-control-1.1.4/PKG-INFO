@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: django-admin-log-control
+Version: 1.1.4
+Summary: Control your admin-panel changes
+Home-page: https://github.com/nkhinatolla/django-admin-logs-control/
+Author: Nurbergen
+Author-email: nhinatolla@gmail.com
+License: MIT
+Description: Control your django admin panel logs(LogEntry)
+        
+        # CustomModelAdmin
+        In admin.py for all apps, instead of admin.ModelAdmin use admintools.models.CustomModelAdmin:
+        
+        ```python
+        from django.contrib import admin
+        from admintools.models import CustomModelAdmin
+        import admintools.admin
+        
+        @admin.register
+        class Polls(CustomModelAdmin):
+        
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
