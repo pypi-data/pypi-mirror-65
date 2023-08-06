@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pi7db
+Version: 0.1.1
+Summary: pi7db is a directory based database built in python.
+Home-page: UNKNOWN
+Author: Shivjeet Singh Bhullar
+Author-email: bhullarshivjeet@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography
+Requires-Dist: Crypto
+
+pidb is a directory based database
+
+
