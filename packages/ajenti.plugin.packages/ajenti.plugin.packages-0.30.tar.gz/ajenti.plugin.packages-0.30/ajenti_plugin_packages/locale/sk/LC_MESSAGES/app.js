@@ -1,0 +1,1 @@
+{"": "", "Install/remove packages": "", "Apply changes": "Pou\u017ei\u0165 zmeny", "Selections": "", "Mark for installation": "", "Mark for upgrade": "", "Installed": "", "Search packages": "", "Upgradeable": "", "pending": "", "Cancel": "Zru\u0161i\u0165", "Close": "", "Update package list": "", "Packages": "", "Mark for removal": ""}

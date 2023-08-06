@@ -1,0 +1,1 @@
+{"": "", "Install/remove packages": "", "Apply changes": "", "Selections": "", "Mark for installation": "", "Mark for upgrade": "", "Installed": "", "Search packages": "", "Upgradeable": "", "pending": "", "Cancel": "Ni\u00feili\u00e7arh", "Close": "Fermarh", "Update package list": "", "Packages": "", "Mark for removal": ""}

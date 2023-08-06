@@ -1,0 +1,1 @@
+{"": "", "Install/remove packages": "", "Apply changes": "Aplicar canvis", "Selections": "", "Mark for installation": "Marca per a instal\u00b7laci\u00f3", "Mark for upgrade": "", "Installed": "Instal\u00b7lat", "Search packages": "", "Upgradeable": "", "pending": "", "Cancel": "Cancel\u00b7lar", "Close": "", "Update package list": "", "Packages": "", "Mark for removal": ""}
