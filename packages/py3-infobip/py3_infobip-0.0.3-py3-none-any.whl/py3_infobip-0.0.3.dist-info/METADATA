@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: py3-infobip
+Version: 0.0.3
+Summary: 
+Home-page: https://github.com/nico722/infobip-python3-client
+Keywords: infobip,api-client
+Author: Nicolas Cardenas
+Author-email: nicolas.cardenas722@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Project-URL: Repository, https://github.com/nico722/infobip-python3-client
