@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: aiosolr
+Version: 1.0.6
+Summary: Lightweight Python client for Apache Solr.
+Home-page: https://github.com/bbelyeu/aiosolr/
+Author: Brad Belyeu
+Author-email: bradley.belyeu@life.church
+License: MIT
+Download-URL: https://github.com/bbelyeu/aiosolr/archive/1.0.6.zip
+Description: # aiosolr
+        Async Python client for Apache Solr
+        
+Keywords: solr,asyncio,aiohttp,search
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >3.6.0
+Description-Content-Type: text/markdown
