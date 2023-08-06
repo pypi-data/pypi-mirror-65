@@ -1,0 +1,239 @@
+/*icon*/
+#LabelIcon{
+	border-top-left-radius:5px;
+	color:green;
+	min-width:46px;
+	min-height:46px;
+	font-size:30px;
+	font-family:"Microsoft Yahei";
+	background:rgba(39, 40, 34, 255);
+}
+/*top widget*/
+#TopWidget{
+    border:0px;
+	border-radius:5px;
+	background-color:rgba(39, 40, 34, 255);
+}
+
+/*title*/
+#Title{
+	color:white;
+	font-size:16px;
+	font-family:"Microsoft Yahei";
+}
+
+/*open and save*/
+#btn_open,#btn_save{
+	font-family:"Microsoft Yahei";
+}
+
+#btn_attach{
+	border:0px;
+	border-radius:20px;
+	color:white;
+	font-size:14px;
+	font-family:"Webdings";
+	min-width:40px;
+	min-height:40px;
+}
+
+#btn_attach:checked{
+	color:rgb(0,128,0);
+}
+
+#btn_open,#btn_save{
+	border:0px;
+	border-radius:20px;
+	min-width:60px;
+	min-height:40px;
+	color:white;
+	font-size:14px;
+}
+
+/*min and close*/
+#btn_min,#btn_close{
+	border:0px;
+	border-radius:20px;
+	min-width:40px;
+	min-height:40px;
+	color:white;
+	font-size:14px;
+	font-family:"Webdings";
+}
+
+#btn_close{
+	margin-right:3px;
+}
+
+#btn_close:hover{
+	background-color:rgba(240, 104, 36,255);
+}
+
+#btn_open:pressed,#btn_save:pressed,#btn_min:pressed,#btn_attach:pressed{
+	background-color:rgba(81,81,81,200);
+}
+
+#btn_close:pressed{
+	background-color:rgba(240, 104, 36,100);
+}
+
+QPushButton:hover
+{
+    background-color:rgba(81 , 81 , 81,100);
+}
+
+/*find and replace*/
+#FRWidget{
+	border:0px solid gray;
+	border-radius:10px;
+	min-height:60px;
+	background-color:rgba(60, 63, 65, 255);
+}
+
+#FRWidget>QLineEdit{
+	border:1px solid gray;
+	min-height:20px;
+	border-radius:5px;
+	color:darkgray;
+	margin-left:10px;
+	font-size:14px;
+	font-family:"Microsoft Yahei";
+	min-height:20px;
+	background-color:rgba(69, 73, 74, 255);
+}
+
+#FRWidget>QLineEdit:focus{
+	border-color:rgb(0, 120, 215);
+}
+
+#FRWidget>QLineEdit:hover{
+	border-color:rgb(0, 120, 215);
+}
+
+#FRWidget>QPushButton{
+	border:0px;
+	min-width:26px;
+	min-height:26px;
+	font-size:18px;
+	font-weight:bold;
+	color:darkgray;
+}
+
+#FRWidget>QPushButton:hover{
+	border-radius:13px;
+	background-color:rgba(81, 81, 81,150);
+}
+
+#FRWidget>QPushButton:pressed{
+	background-color:rgba(81, 81, 81,255);
+}
+
+#btn_pre,#btn_next{
+	font-family:"Wingdings 3";
+}
+
+#btn_replace,#btn_replace_all{
+	font-family:"Wingdings 2";
+}
+
+#btn_next,#btn_replace_all{
+	margin-right:10px;
+}
+
+#LineEditFind,#btn_pre,#btn_next{
+	margin-top:5px;
+}
+
+#LineEditReplace,#btn_replace,#btn_replace_all{
+	margin-bottom:5px;
+}
+
+/*editor*/
+#QssEditor{
+	border:0px;
+}
+
+QScrollBar::vertical{
+	border:0px;
+	background:rgba(39, 40, 34,255);
+	width:12px;
+}
+
+QScrollBar::sub-line:vertical{
+	height:0px;
+}
+
+QScrollBar::sub-page:vertical{
+	background:rgba(39, 40, 34,255);
+}
+
+QScrollBar::handle:vertical{
+	border-radius:5px;
+	background:rgba(81,81,81,100);
+}
+
+QScrollBar::handle:vertical:hover{
+	border-radius:5px;
+	background:rgba(81,81,81,200);
+}
+
+QScrollBar::add-page:vertical{
+	background:rgba(39, 40, 34,255);
+}
+
+QScrollBar::add-line:vertical{
+	height:0px;
+}
+
+QAbstractItemView{
+	border:1px solid rgb(86, 86, 86);
+	color:rgb(160, 161, 162);
+	background:rgb(60, 63, 65);
+}
+
+QAbstractItemView:item{
+	border:0px;
+	color:rgb(160, 161, 162);
+	background:rgb(60, 63, 65);
+}
+
+/*QAbstractItemView:item:hover{*/
+/*	border:0px;*/
+/*	color:rgb(160, 161, 162);*/
+/*	background:rgb(33, 66, 131);*/
+/*}*/
+
+QAbstractItemView:item:selected{
+	border:0px;
+	color:rgb(160, 161, 162);
+	background:rgb(33, 66, 131);
+}
+
+QsciScintilla QAbstractItemView QScrollBar:vertical{
+	border:0px;
+	background:rgb(89, 91, 93);
+	width:8px;
+}
+
+QsciScintilla QAbstractItemView QScrollBar::handle:vertical{
+	border-radius:3px;
+	background:rgb(89, 91, 93);
+}
+
+QsciScintilla QAbstractItemView QScrollBar::handle:vertical:hover{
+	border-radius:3px;
+	background:rgb(89, 91, 93);
+}
+
+QsciScintilla QAbstractItemView QScrollBar::sub-page:vertical{
+	background:rgb(60, 63, 65);
+}
+
+QsciScintilla QAbstractItemView QScrollBar::add-page:vertical{
+	background:rgb(60, 63, 65);
+}
+
+QsciScintilla QAbstractItemView QScrollBar:horizontal{
+	border:0px;
+	width:0px;
+}

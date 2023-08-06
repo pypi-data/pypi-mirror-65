@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: pyqss
+Version: 1.2
+Summary: QSS Editor
+Home-page: https://github.com/luolingchun/pyqss
+Author: llc
+Author-email: luolingchun.com@gmail.com
+License: GPLv3
+Description: 
+        
+        A simple QSS editor
+        
+        ## Install
+        
+        ```shell
+        pip install pyqss
+        ```
+        
+        ## Features
+        
+        - Live preview
+        - Syntax highlighting
+        - Auto-completion
+        - i18n
+        - Find and replace
+        - File drag and drop
+        - Auto-attach
+        
+        ## Usage
+        
+        Import QSS from pyqss and register the MainWindow into QSS, and enjoy it.
+        
+        ```python
+        if __name__ == '__main__':
+            import sys
+            from PyQt5.QtWidgets import QApplication
+            from pyqss import Qss
+        
+            app = QApplication(sys.argv)
+            main_window = MainWindow()
+            main_window.show()
+            # register  MainWindow 
+            qss = Qss(main_window, language='en')
+            qss.show()
+        
+            app.exec_()
+        ```
+        
+Platform: any
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
