@@ -1,0 +1,6 @@
+blessings~=1.7
+boto3
+snowflake-connector-python
+
+[dev]
+pytest>=3.7
