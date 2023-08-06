@@ -1,0 +1,3 @@
+from . import collections, cm, pyplot, style, artist, legend
+
+def use(backend: str) -> None: ...
