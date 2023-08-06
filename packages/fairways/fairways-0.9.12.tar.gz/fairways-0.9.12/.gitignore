@@ -1,0 +1,26 @@
+# Compiled python modules.
+*.pyc
+
+# Setuptools distribution folder.
+dist/*
+
+# Python egg metadata, regenerated from source files by setuptools.
+*.egg-info/*
+
+__pycache__/
+build/*
+.python-version
+
+# draft (custom) prefix
+-*
+
+# gitlab-ci:
+builds/*
+cache/*
+
+# tox:
+*.tox/
+
+docs/_build/*
+docs/_static/*
+docs/_templates/*
