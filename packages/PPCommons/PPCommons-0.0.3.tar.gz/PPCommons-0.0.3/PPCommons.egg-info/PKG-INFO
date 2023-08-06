@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: PPCommons
+Version: 0.0.3
+Summary: A Python3 package to rapidly setup server-less applications for AWS Lambda with generic features
+Home-page: UNKNOWN
+Author: Arpit Gaur
+Author-email: dev.arpitgaur@gmail.com
+License: MIT
+Description: **Welcome to PPCommons Python 3 Package**
+        
+        PPCommons package is useful to rapidly create and launch Serverless applications based on AWS Lambda. It is intended to remove overhead of integrating common libraries for setting up basic features such as database integrations, redis based cache integration, basic authentication and authorization features, templating based on Jinja2 template engine and a few other standard business objects. PPCommons is based on AWS Chalice project. 
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown

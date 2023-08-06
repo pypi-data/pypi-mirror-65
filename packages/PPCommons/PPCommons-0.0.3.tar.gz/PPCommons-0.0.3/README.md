@@ -1,0 +1,3 @@
+**Welcome to PPCommons Python 3 Package**
+
+PPCommons package is useful to rapidly create and launch Serverless applications based on AWS Lambda. It is intended to remove overhead of integrating common libraries for setting up basic features such as database integrations, redis based cache integration, basic authentication and authorization features, templating based on Jinja2 template engine and a few other standard business objects. PPCommons is based on AWS Chalice project. 
