@@ -1,0 +1,15 @@
+README.md
+setup.py
+SciThermo.egg-info/PKG-INFO
+SciThermo.egg-info/SOURCES.txt
+SciThermo.egg-info/dependency_links.txt
+SciThermo.egg-info/requires.txt
+SciThermo.egg-info/top_level.txt
+scithermo/__init__.py
+scithermo/antoine.py
+scithermo/chem_constants.py
+scithermo/cp_ig.csv
+scithermo/cp_ig.py
+scithermo/critical_constants.csv
+scithermo/critical_constants.py
+scithermo/util.py
