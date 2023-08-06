@@ -1,0 +1,33 @@
+# -*- mode: makefile; coding: utf-8 -*-
+# :Project:   SoL -- Docker related targets
+# :Created:   mar 26 mar 2016 10:08:05 CEST
+# :Author:    Lele Gaifax <lele@metapensiero.it>
+# :License:   GNU General Public License version 3 or later
+# :Copyright: © 2016, 2018 Lele Gaifax
+#
+
+DOCKER_RUN = docker run -v sol-data:/srv/data
+
+docker-build: dist
+	docker build -t sol:latest -t sol:$(VERSION) -f docker/Dockerfile .
+
+docker-sol-data:
+	docker volume inspect sol-data >/dev/null 2>&1 || docker volume create --name sol-data
+
+docker-start: docker-sol-data
+	$(DOCKER_RUN) -p 6996:6996 sol:latest
+
+docker-shell: docker-sol-data
+	$(DOCKER_RUN) -ti sol:latest shell
+
+docker-upgrade-db: docker-sol-data
+	$(DOCKER_RUN) -ti sol:latest upgrade-db
+
+docker-backup: docker-sol-data
+	$(DOCKER_RUN) -ti sol:latest backup
+
+docker-restore: docker-sol-data
+	$(DOCKER_RUN) -ti sol:latest restore
+
+docker-change-admin: docker-sol-data
+	$(DOCKER_RUN) -ti sol:latest change-admin

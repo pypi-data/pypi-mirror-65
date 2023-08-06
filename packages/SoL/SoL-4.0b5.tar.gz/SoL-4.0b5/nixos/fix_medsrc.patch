@@ -1,0 +1,13 @@
+diff --git a/Makefile.release b/Makefile.release
+index 28570aa2..fc68c7ec 100644
+--- a/Makefile.release
++++ b/Makefile.release
+@@ -14,7 +14,7 @@ define MEDPRSTMT
+ from importlib.resources import path;
+ print(path('metapensiero.extjs.desktop','').__enter__())
+ endef
+-MEDSRC := $(shell $(PYTHON) -c "$(MEDPRSTMT)")
++MEDSRC := @medsrc@
+ PACKED_CSS := $(SOLSRC)/static/all-styles.css
+ PACKED_JS := $(SOLSRC)/static/all-classes.js
+ MINIFIER := $(BINDIR)minify_js_scripts \

@@ -1,0 +1,17 @@
+exclude .gitlab-ci.yml .mailmap
+include Makefile Makefile.docker Makefile.i18n Makefile.manual Makefile.release manifest.json
+include docker/Dockerfile docker/entrypoint.sh .dockerignore
+include *.txt *.ini *.cfg *.rst *.nix *.sh
+include src/sol/scripts/config.tpl
+include alembic/versions/placeholder.txt
+recursive-include alembic *.py *.mako
+recursive-include docs Makefile *.png *.rst *.css *.py
+recursive-include nixos *.nix *.patch *.sh
+recursive-include src/sol/locale *.mo *.po *.pot *.cfg
+recursive-include src/sol/static/sounds *.ogg
+recursive-include src/sol/static *.css *.gif *.html *.jpg *.js *.png *.swf *.txt
+recursive-include src/sol/views *.mako
+recursive-include tests *.py *.ini data.dbloady
+recursive-include tests/scr *.sol *.gz *.zip
+recursive-include requirements *.cfg *.txt
+prune docs/_build
