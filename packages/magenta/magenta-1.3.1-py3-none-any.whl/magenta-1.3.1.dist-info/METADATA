@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: magenta
+Version: 1.3.1
+Summary: Use machine learning to create art and music
+Home-page: https://magenta.tensorflow.org/
+Author: Google Inc.
+Author-email: magenta-discuss@gmail.com
+License: Apache 2
+Keywords: tensorflow machine learning magenta music art
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: IPython
+Requires-Dist: Pillow (>=3.4.2)
+Requires-Dist: absl-py
+Requires-Dist: attrs
+Requires-Dist: backports.tempfile
+Requires-Dist: bokeh (>=0.12.0)
+Requires-Dist: gast (==0.2.2)
+Requires-Dist: gym (<0.16.0)
+Requires-Dist: imageio
+Requires-Dist: intervaltree (>=2.1.0)
+Requires-Dist: joblib (>=0.12)
+Requires-Dist: librosa (>=0.6.2)
+Requires-Dist: matplotlib (>=1.5.3)
+Requires-Dist: mido (==1.2.6)
+Requires-Dist: mir-eval (>=0.4)
+Requires-Dist: numpy (>=1.14.6)
+Requires-Dist: pandas (>=0.18.1)
+Requires-Dist: pretty-midi (>=0.2.6)
+Requires-Dist: protobuf (>=3.6.1)
+Requires-Dist: pygtrie (>=2.3)
+Requires-Dist: python-rtmidi (<1.2,>=1.1)
+Requires-Dist: scikit-image
+Requires-Dist: scipy (>=0.18.1)
+Requires-Dist: six (>=1.12.0)
+Requires-Dist: sk-video
+Requires-Dist: dm-sonnet (<1.36.0)
+Requires-Dist: sox (>=1.3.7)
+Requires-Dist: tensorflow (<2.0.0,>=1.15.0)
+Requires-Dist: tensorflow-datasets (>=1.0.2)
+Requires-Dist: tensorflow-probability (==0.7.0)
+Requires-Dist: tensor2tensor (>=1.13.4)
+Requires-Dist: wheel
+Requires-Dist: apache-beam[gcp] (<2.19.0,>=2.14.0)
+Requires-Dist: avro-python3 (!=1.9.2)
+Requires-Dist: futures ; python_version == "2.7"
+Provides-Extra: onsets_frames_realtime
+Requires-Dist: pyaudio ; extra == 'onsets_frames_realtime'
+Requires-Dist: colorama ; extra == 'onsets_frames_realtime'
+Requires-Dist: tflite ; extra == 'onsets_frames_realtime'
+
+UNKNOWN
+
+
