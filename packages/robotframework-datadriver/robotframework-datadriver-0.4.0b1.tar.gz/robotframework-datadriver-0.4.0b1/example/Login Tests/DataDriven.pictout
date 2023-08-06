@@ -1,0 +1,16 @@
+username	password
+demo	demo
+mode	${EMPTY}
+Foobar	${EMPTY}
+Foobar	mode
+mode	demo
+${EMPTY}	demo
+mode	mode
+${EMPTY}	mode
+Foobar	Foobar
+demo	Foobar
+${EMPTY}	${EMPTY}
+Foobar	demo
+demo	${EMPTY}
+mode	Foobar
+${EMPTY}	Foobar
