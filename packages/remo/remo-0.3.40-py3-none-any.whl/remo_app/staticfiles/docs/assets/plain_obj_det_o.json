@@ -1,0 +1,42 @@
+[
+  {
+    "file_name": "dog1.jpg",
+    "height": 500,
+    "width": 750,
+    "tags": [],
+    "task": "Object detection",
+    "annotations": [
+      {
+        "classes": [
+          "Dog"
+        ],
+        "bbox": {
+          "xmin": 339,
+          "ymin": 92.5,
+          "xmax": 629,
+          "ymax": 463.5
+        }
+      }
+    ]
+  },
+  {
+    "file_name": "dog2.jpg",
+    "height": 700,
+    "width": 1050,
+    "tags": [],
+    "task": "Object detection",
+    "annotations": [
+      {
+        "classes": [
+          "Dog"
+        ],
+        "bbox": {
+          "xmin": 349.39526102868547,
+          "ymin": 38.83665989956441,
+          "xmax": 808.9844120741101,
+          "ymax": 698.6561720729666
+        }
+      }
+    ]
+  }
+]
