@@ -1,0 +1,9 @@
+[udata.models]
+metrics = udata_metrics.models
+
+[udata.plugins]
+metrics = udata_metrics
+
+[udata.tasks]
+metrics = udata_metrics.tasks
+
