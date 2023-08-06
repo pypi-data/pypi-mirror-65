@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: omnitools
+Version: 0.0.1
+Summary: Cross-platform file handling utilities.
+Home-page: https://github.com/foxe6-temp/omnitools
+Author: f̣ộx̣ệ6
+Author-email: foxe6@protonmail.com
+License: AGPL-3.0
+Description: # File Handling
+        
+        <i>Cross-platform file handling utilities.</i>
+        
+        # Hierarchy
+        ```
+        filehandling
+        |---- path
+        |   |---- temp_dir
+        |   |---- abs_cwd
+        |   |---- abs_dir
+        |   '---- join_path
+        '---- file
+            |---- read
+            |---- write
+            '---- Writer
+        ```
+        
+        # Example
+        
+        ## python
+        ```python
+        from filehandling import *
+        
+        # absolute current working directory
+        print(abs_cwd(), flush=True)
+        # specify an inspect stack depth
+        print(abs_cwd(depth=2), flush=True)
+        
+        # absolute directory of somefile
+        print(abs_dir("somefile"), flush=True)
+        
+        # join path and normalize it
+        print(join_path(abs_cwd(), "..", "somefile"), flush=True)
+        
+        # temporary directory of a bundled python application
+        print(temp_dir(), flush=True)
+        
+        # read file content with automatic encoding detection
+        print(read("somefile"), flush=True)
+        # specify an encoding
+        print(read("somefile", "ascii"), flush=True)
+        
+        # write content to file with attempts to use file queue
+        write("somefile", "ab", "test\n")  # fallback to open()
+        write("somefile", "wb", b"test\n")  # fallback to open()
+        
+        # Writer file queue
+        writer = Writer(server=True)
+        ss = SS(functions=dict(write=lambda args: writer.fileq.put(args)))
+        ss_thread = threading.Thread(target=ss.start)
+        ss_thread.daemon = True
+        ss_thread.start()
+        # direct dispatch with a tuple
+        writer.fileq.put(("somefile", "ab", "test\n"))
+        # use file queue
+        write("somefile", "wb", b"test\n")
+        ```
+        
+        ## shell
+        ```shell script
+        rem filehandling.exe <function name> [argument] ...
+        filehandling.exe abs_cwd
+        filehandling.exe abs_cwd 2
+        filehandling.exe abs_dir somefile
+        filehandling.exe join_path C:\test .. somefile
+        filehandling.exe write file_path wb test1234
+        filehandling.exe write file_path ab test1234
+        rem the followings will fail to execute
+        filehandling.exe temp_dir
+        filehandling.exe read file_path
+        filehandling.exe read file_path ascii
+        ```
+Keywords: omnitools utilities
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
