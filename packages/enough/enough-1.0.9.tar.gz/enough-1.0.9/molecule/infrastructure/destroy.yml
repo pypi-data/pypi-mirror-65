@@ -1,0 +1,12 @@
+- name: Destroy
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars:
+    molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
+    molecule_yml: "{{ lookup('file', molecule_file) | from_yaml }}"
+  tasks:
+
+    - name: delete instances
+      shell: |
+        python -m enough.cmd host delete --domain {{ domain }} --driver {{ infrastructure_driver }} {% for p in molecule_yml.platforms %}{{ p.name }} {% endfor %}

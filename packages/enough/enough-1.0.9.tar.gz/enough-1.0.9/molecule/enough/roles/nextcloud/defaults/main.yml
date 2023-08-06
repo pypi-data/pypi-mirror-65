@@ -1,0 +1,14 @@
+---
+NEXTCLOUD_ADMIN_USER: admin
+NEXTCLOUD_ADMIN_PASS: admin
+enough_nextcloud_db_password: ""
+#enough_nextcloud_version: 15
+#enough_nextcloud_version: 16
+enough_nextcloud_version: 17
+#enough_nextcloud_version: 18
+#enough_nextcloud_database: mysql
+enough_nextcloud_database: pgsql
+#enough_nextcloud_registration: False
+enough_nextcloud_registration: True
+#enough_nextcloud_enough: False
+enough_nextcloud_enough: True

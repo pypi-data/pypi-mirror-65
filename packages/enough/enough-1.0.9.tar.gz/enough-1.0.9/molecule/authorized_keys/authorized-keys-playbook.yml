@@ -1,0 +1,6 @@
+---
+- name: configure authorized_keys
+  hosts: [ 'all' ]
+
+  roles:
+    - role: authorized_keys
