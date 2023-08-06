@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: bisearch
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/KPRATT11/bisearch
+Author-email: pratt.keegan@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Binary Search
+
+This module allows the function of binary searching in strings, lists or tuples
+
+
+## Installation
+
+Run the following to install:
+```python
+pip install bisearch
+```
+
+
+## Usage
+```python
+import bisearch 
+
+# Check if target exists within search range
+bisearch.exist(target,field)
+
+# Check where target is located within search range
+bisearch.location(target,field)
+```
+
+## Notes
+when using location if the target does not exist within the field the function will return None
+
+when using location if the field is a string it will return the target position within the sorted array of string
+
+when using strings if there are multiple words make sure each word is seperated by one white space
+
