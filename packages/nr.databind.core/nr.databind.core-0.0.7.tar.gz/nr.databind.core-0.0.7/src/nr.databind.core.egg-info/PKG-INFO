@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: nr.databind.core
+Version: 0.0.7
+Summary: Bind structured data directly to typed objects.
+Home-page: https://git.niklasrosenstein.com/NiklasRosenstein/nr-python-libs
+Author: Niklas Rosenstein
+Author-email: rosensteinniklas@gmail.com
+License: MIT
+Description: # nr.databind.core
+        
+        The `nr.databind.core` package provides a framework for binding structured data to typed objects
+        as well as the (de-) serialization of that data from/to other formats.
+        
+        See also: [nr.databind.json](https://git.niklasrosenstein.com/NiklasRosenstein/nr/src/branch/master/nr.databind.json).
+        
+        ## Example
+        
+        ```py
+        from nr.databind.core import Field, Struct
+        
+        class Person(Struct):
+            name = Field(str, prominent=True)
+            age = Field(int)
+            address = Field(int, default=None)
+        
+        print(Person('John Wick', 48, 'Wicked St.'))  # Person(name='John Wick')
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: test
