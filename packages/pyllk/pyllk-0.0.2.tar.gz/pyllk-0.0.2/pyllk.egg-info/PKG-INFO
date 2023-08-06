@@ -1,0 +1,208 @@
+Metadata-Version: 2.1
+Name: pyllk
+Version: 0.0.2
+Summary: A python LL(k) parser with a twist where tokens can be any arbitrary objects.
+Home-page: https://github.com/mprivat/pyllk
+Author: Michael Privat
+Author-email: mprivat@majorspot.com
+License: MIT
+Description: [![mprivat](https://circleci.com/gh/mprivat/pyllk.svg?style=shield)](https://app.circleci.com/pipelines/github/mprivat/pyllk)
+        [![codecov](https://codecov.io/gh/mprivat/pyllk/branch/master/graph/badge.svg)](https://codecov.io/gh/mprivat/pyllk)
+        
+        # Pyllk
+        
+        A python LL(k) parser with a twist where tokens can be any arbitrary objects. The current implementation uses the backtracking algorithm. I'll eventually implement predictive parsing but the API is designed to remain backward compatible.
+        
+        ## Example. A simple calculator
+        
+        This is an example of the typical calculator. In this case, we use characters as tokens. The idea is to parse things like `((10+2)*15)/(7-2)` and be able to pull the result.
+        
+        For now, the grammar cannot be expressed in BNF notation so the production rules have to be created in code. It'll change in the future but using non-character tokens complicate things with BNF when representing terminals.
+        
+        There are 3 steps involved in the example:
+        
+        1. Create actions that get executed when production rules are matched. Actions are optional but often necessary if you want to do anything useful with what you've parsed. The function must accept a single parameter of type `ExecutionContext` which will give you access to:
+        
+            - The parser. That's useful if you want to access global configurations like the log level.
+            - The production rule. That's the rule that was just matched.
+            - The list of tokens that where matched to the production rule.
+            - The context given to the parser at the beginning. This is a dictionary containing anything you want to keep around. The example below put a stack inside it to keep track of parentheses in the expression. You can put anything you need in there.
+        
+        1. Create the production rules. A grammar is made of production rules that derives terminal and non-terminal tokens. If you don't know what I'm talking about here, stop right now and go read this first: https://en.wikipedia.org/wiki/Context-free_grammar.
+        
+        1. Execute.
+            - Take the production rules and construct a grammar and a parser.
+            - Push your input into the parser.
+            - Collect the results in the `context` object.
+        
+        ### Create actions
+        
+        ```python
+        def action_make_number(ec):
+            s = ""
+            for token in ec.tokens:
+                s = s + token.representation
+            ec.context['stack'].append(float(s))
+        
+        
+        def add(e):
+            b = e.context['stack'].pop()
+            a = e.context['stack'].pop()
+            e.parser.log("Ex: {} + {}".format(a, b))
+            e.context['stack'].append(a + b)
+        
+        
+        def sub(e):
+            b = e.context['stack'].pop()
+            a = e.context['stack'].pop()
+            e.parser.log("Ex: {} - {}".format(a, b))
+            e.context['stack'].append(a - b)
+        
+        
+        def mul(e):
+            b = e.context['stack'].pop()
+            a = e.context['stack'].pop()
+            e.parser.log("Ex: {} x {}".format(a, b))
+            e.context['stack'].append(a * b)
+        
+        
+        def div(e):
+            b = e.context['stack'].pop()
+            a = e.context['stack'].pop()
+            e.parser.log("Ex: {} / {}".format(a, b))
+            e.context['stack'].append(a / b)
+        ```
+        
+        ### Production rules
+        
+        ```python
+        calculator_rules_with_context = []
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("ROOT"), [NonTerminalToken("expr"), TerminalToken("+"), NonTerminalToken("expr")], add))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("ROOT"), [NonTerminalToken("expr"), TerminalToken("-"), NonTerminalToken("expr")], sub))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("ROOT"), [NonTerminalToken("expr"), TerminalToken("/"), NonTerminalToken("expr")], div))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("ROOT"), [NonTerminalToken("expr"), TerminalToken("*"), NonTerminalToken("expr")], mul))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("expr"), [TerminalToken("("), NonTerminalToken("ROOT"), TerminalToken(")")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("expr"), [NonTerminalToken("number")], action_make_number))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("0"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("1"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("2"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("3"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("4"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("5"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("6"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("7"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("8"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("number"), [TerminalToken("9"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("0"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("2"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("3"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("4"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("5"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("6"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("7"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("8"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("9"), NonTerminalToken("digit_or_empty")]))
+        calculator_rules_with_context.append(ProductionRule(NonTerminalToken("digit_or_empty"), [TerminalToken("")]))
+        ```
+        
+        ### Create a grammar and a parser
+        
+        ```python
+        g = Grammar(calculator_rules_with_context)
+        parser = Parser(g)
+        
+        context = {
+            'stack': []
+        }
+        parser.parse_string("((10+2)*15)/(7-2)", context)
+        result = context['stack'].pop()
+        ```
+        
+        result will contain 36.0
+        
+        ## Non-character input
+        
+        Although character-tokens are the default, nothing prevents you from creating non-character tokens. Here is an example of terminal tokens that are meant to be fed by spaCy, a python NLP library.
+        
+        ```python
+        import json
+        
+        class SpacyToken(TerminalToken):
+            def __init__(self):
+                super().__init__(representation = {})
+        
+            def text(self, text):
+                self.representation['TEXT'] = text
+                return self
+        
+            def lemma(self, text):
+                self.representation['LEMMA'] = text
+                return self
+        
+            def dependency(self, text):
+                self.representation['DEP'] = text
+                return self
+        
+            def part_of_speech(self, text):
+                self.representation['POS'] = text
+                return self
+        
+            def tag(self, text):
+                self.representation['TAG'] = text
+                return self
+        
+            def entity(self, text):
+                self.representation['ENTITY'] = text
+                return self
+        
+        
+            def matches(self, obj):
+                match = True
+        
+                if 'TEXT' in self.representation:
+                    match &= (self.representation['TEXT'] == obj.text)
+        
+                if 'LEMMA' in self.representation:
+                    match &= (self.representation['LEMMA'] == obj.lemma_)
+        
+                if 'DEP' in self.representation:
+                    match &= (self.representation['DEP'] == obj.dep_)
+        
+                if 'POS' in self.representation:
+                    match &= (self.representation['POS'] == obj.pos_)
+        
+                if 'TAG' in self.representation:
+                    match &= (self.representation['TAG'] == obj.tag_)
+        
+                if 'ENTITY' in self.representation:
+                    match &= (self.representation['ENTITY'] == obj.ent_type_)
+        
+                return match
+        
+            def __str__(self):
+                return json.dumps(self.representation)
+        ```
+        
+        When you write your production rules, you can use the `SpacyToken` class where before you'd use the default `TerminalToken`:
+        
+        ```python
+        rules.append(ProductionRule(NonTerminalToken('SOME_PRODUCTION_RULE'), [SpacyToken().dependency("pobj")], record))
+        ```
+        
+        ## Dev setup
+        
+        Run `make init`
+        
+        
+Keywords: parser ll(k) lex yacc
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
