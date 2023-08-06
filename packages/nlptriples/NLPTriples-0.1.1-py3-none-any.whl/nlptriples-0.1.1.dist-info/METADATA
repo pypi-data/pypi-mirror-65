@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: nlptriples
+Version: 0.1.1
+Summary: A package to extract Triples in form of [predictate , object , subject]  form text 
+License: MIT
+Keywords: Poetry,NLP,Triples
+Author: adityaparkhi
+Author-email: theaditya140@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: benepar[cpu] (>=0.1.2,<0.2.0)
+Requires-Dist: cython (>=0.29.16,<0.30.0)
+Requires-Dist: numpy (>=1.18.2,<2.0.0)
+Requires-Dist: spacy (>=2.2.4,<3.0.0)
+Requires-Dist: tensorflow (==1.15.2)
+Description-Content-Type: text/markdown
+
+# NLPTriples
+Extract NLP (RDF )Triples from a sentence
+
