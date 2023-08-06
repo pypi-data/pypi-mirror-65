@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: mincepy
+Version: 0.11.0
+Summary: Python object storage with versioning made simple
+Home-page: https://github.com/muhrin/mincepy.git
+Author: Martin Uhrin
+Author-email: martin.uhrin.10@ucl.ac.uk
+License: GPLv3 and MIT, see LICENSE file
+Keywords: database schemaless nosql object-store concurrent optimistic-locking
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Provides: mincepy.plugins
+Requires-Dist: deprecation
+Requires-Dist: pymongo
+Requires-Dist: bidict
+Requires-Dist: pytray (>=0.2.1)
+Requires-Dist: stevedore
+Requires-Dist: click
+Requires-Dist: tabulate
+Requires-Dist: pyblake2 ; python_version < "3.6"
+Provides-Extra: cli
+Requires-Dist: click ; extra == 'cli'
+Requires-Dist: tabulate ; extra == 'cli'
+Provides-Extra: dev
+Requires-Dist: ipython ; extra == 'dev'
+Requires-Dist: pip ; extra == 'dev'
+Requires-Dist: pytest (>4) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-autobuild ; extra == 'dev'
+Requires-Dist: yapf ; extra == 'dev'
+Requires-Dist: prospector ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Provides-Extra: gui
+Requires-Dist: mincepy-gui ; extra == 'gui'
+
+.. _documentation: https://mincepy.readthedocs.org/
+
+mincePy
+=======
+
+.. image:: https://codecov.io/gh/muhrin/mincepy/branch/develop/graph/badge.svg
+    :target: https://codecov.io/gh/muhrin/mincepy
+    :alt: Coverage
+
+.. image:: https://travis-ci.com/muhrin/mincepy.svg?branch=master
+    :target: https://travis-ci.com/github/muhrin/mincepy
+    :alt: Travis CI
+
+.. image:: https://img.shields.io/pypi/v/mincepy.svg
+    :target: https://pypi.python.org/pypi/mincepy/
+    :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/wheel/mincepy.svg
+    :target: https://pypi.python.org/pypi/mincepy/
+
+.. image:: https://img.shields.io/pypi/pyversions/mincepy.svg
+    :target: https://pypi.python.org/pypi/mincepy/
+
+.. image:: https://img.shields.io/pypi/l/mincepy.svg
+    :target: https://pypi.python.org/pypi/mincepy/
+
+
+mincePy: move the database to one side and let your objects take centre stage.
+
+See `documentation`_ for more information.
+
+
