@@ -1,0 +1,14 @@
+cryptography
+requests
+
+[docs]
+Sphinx
+sphinx-autobuild
+alabaster
+
+[quality]
+isort
+
+[testing]
+responses
+pytest
