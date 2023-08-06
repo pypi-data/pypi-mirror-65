@@ -1,0 +1,25 @@
+[package]
+name = "dhe"
+version = "0.1.0-beta"
+authors = ["Gerhard Bräunlich <g.braeunlich@disroot.org>"]
+edition = "2018"
+readme = "../README.md"
+description = "Downhole heat exchanger simulation"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.9.0", features = ["extension-module"] }
+numpy = "0.8.0"
+libdhe = { version="0.1.0", path = "../libdhe" }
+
+
+
+[package.metadata.maturin]
+requires-dist = ["numpy", "scipy", "wxPython[gui]"]
+classifier = ["Programming Language :: Python"]
+
+[package.metadata.maturin.scripts]
+dhe = "dhe.gui:main"
+dhe-cli = "dhe.cli:run"
