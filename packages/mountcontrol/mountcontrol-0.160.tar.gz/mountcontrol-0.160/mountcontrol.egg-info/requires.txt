@@ -1,0 +1,6 @@
+numpy>=1.18.0
+skyfield>=1.16
+wakeonlan==1.1.6
+
+[:platform_machine != "armv7l"]
+PyQt5==5.14.1
