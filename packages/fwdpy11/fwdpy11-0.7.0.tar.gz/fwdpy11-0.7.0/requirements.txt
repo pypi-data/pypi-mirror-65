@@ -1,0 +1,15 @@
+# As of 0.2.0, pybind11 
+# must not be installed via pip
+# pybind11==2.4.3
+numpy
+sparse
+scipy
+
+#below are for building package,
+#dox, and running tests
+sphinx
+pandas
+ipython
+matplotlib
+seaborn
+msprime

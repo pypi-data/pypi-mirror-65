@@ -1,0 +1,50 @@
+language: python
+
+matrix:
+    include:
+    - os: linux
+      dist: bionic
+      env:
+        - USECONDA=1
+
+    - os: linux
+      dist: xenial
+      python: 3.5
+      env:
+        - XENIAL=1
+        - CC=gcc
+        - CXX=g++
+
+    - os: linux
+      dist: bionic
+      python: 3.6
+      env:
+        - CC=gcc
+        - CXX=g++
+
+#    - os: osx 
+#      osx_image: xcode8.3
+#      env: OSXGCC=1 # Test build with conda's gcc on OS X
+#    - os: osx 
+#      osx_image: xcode8.3
+#      env: OSXGCC=0 # 0 means clang/llvm build
+#    - os: osx
+#      osx_image: xcode8.2
+#      env: OSXGCC=0
+#    - os: osx 
+#      osx_image: xcode8.1
+#      env: OSXGCC=0
+#    - os: osx
+#      osx_image: xcode8
+#      env: OSXGCC=0
+
+sudo: true
+
+notifications:
+    email: false
+
+install: 
+    ./travis_scripts/installation_script.sh
+
+script:
+    ./travis_scripts/build_script.sh
