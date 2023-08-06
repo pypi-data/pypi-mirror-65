@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: poetry-up
+Version: 0.2.0
+Summary: Poetry Up
+Home-page: https://github.com/cjolowicz/poetry-up
+License: MIT
+Author: Claudio Jolowicz
+Author-email: mail@claudiojolowicz.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: poetry (>=1.0.5,<2.0.0)
+Project-URL: Changelog, https://github.com/cjolowicz/poetry-up/releases
+Project-URL: Documentation, https://poetry-up.readthedocs.io
+Project-URL: Repository, https://github.com/cjolowicz/poetry-up
+Description-Content-Type: text/markdown
+
+[![Tests](https://github.com/cjolowicz/poetry-up/workflows/Tests/badge.svg)](https://github.com/cjolowicz/poetry-up/actions?workflow=Tests)
+[![Codecov](https://codecov.io/gh/cjolowicz/poetry-up/branch/master/graph/badge.svg)](https://codecov.io/gh/cjolowicz/poetry-up)
+[![PyPI](https://img.shields.io/pypi/v/poetry-up.svg)](https://pypi.org/project/poetry-up/)
+[![Python Version](https://img.shields.io/pypi/pyversions/poetry-up)](https://pypi.org/project/poetry-up)
+[![Read the Docs](https://readthedocs.org/projects/poetry-up/badge/)](https://poetry-up.readthedocs.io/)
+[![License](https://img.shields.io/pypi/l/poetry-up)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+# poetry-up
+
