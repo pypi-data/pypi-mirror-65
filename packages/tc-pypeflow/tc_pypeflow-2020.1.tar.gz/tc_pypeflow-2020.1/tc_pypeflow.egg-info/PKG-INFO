@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: tc-pypeflow
+Version: 2020.1
+Summary: piping network design and analysis
+Home-page: https://github.com/TomLXXVI/pypeflow
+Author: Tom Christiaens
+Author-email: tom.chr@proximus.be
+License: MIT License
+Description: PypeFlow
+        --------
+        Python package for designing and analyzing piping networks.
+        
+        Designing a piping network involves finding a solution for two kinds of problems:
+        1. The design flow rates in the pipe sections composing the network are known. Also known are the available 
+        friction losses due to fluid flow in the pipe sections. The problem remains to find appropriate diameters
+        for the pipe sections, so that the known flow rates do not generate friction losses that exceed the 
+        available values.
+        2. The design flow rates in the pipe sections composing the network are known. Also known are the diameters
+        of the pipe sections and the fittings/valves present in each pipe section of the network. 
+        The problem consists of finding the pressure drops across the pipe sections when design flow rates are flowing.
+        
+        Once a piping network is designed, PypeFlow can search for all possible flow paths between the start
+        and the end node of the network. This allows for flow balancing the different branches in the network. One
+        can add balancing valves in certain pipe sections to accomplish this. PypeFlow will then calculate the Kvr setting
+        of each balancing valve in the network, so that all flow paths retrieve the same pressure drop when the
+        design flow rates are flowing in the pipe sections. Without flow balancing it is uncertain whether the desired flow rate
+        will flow in each of the pipe sections.
+        
+        Analyzing a piping network involves finding the steady flow rate and pressure distribution in a known piping network.
+        For this, PypeFlow uses the Hardy Cross method. One can also add pumps to the network and make use of so called pseudo
+        sections for networks that are open (eg. drinking water installations).
+        
+        Input data for letting PypeFlow design or analyze a piping network comes from a network configuration file.
+        This is just a csv-file that can be made with any spreadsheet program. The network configuration is entered by the user 
+        in a table in which each row represents a pipe section of the network.
+        
+        PypeFlow is (at this moment) only an API, which means that one should interact with PypeFlow through Python scripts. 
+        Jupyter Notebook is also an excellent tool for doing the design and analysis of a piping network using PypeFlow. 
+        Examples can be found in the accompanying [Github repository](https://github.com/TomLXXVI/pypeflow).
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
