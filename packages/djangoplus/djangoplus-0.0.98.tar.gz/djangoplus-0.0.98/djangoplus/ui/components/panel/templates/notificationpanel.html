@@ -1,0 +1,16 @@
+{% if component.as_pdf %}{% else %}
+<div class="panel panel-default notification-panel">
+        <div class="panel-heading clearfix">
+            <span><i class="fa {{ component.icon }}"></i></span>
+            <span>{{ component.title }}</span>
+        </div>
+    <div class="panel-body">
+        {% for item in component.items %}
+        <a class="ajax" href="{{ item.url }}">
+            <span>{{ item.count }} {{ item.description }}</span>
+        </a>
+        {% if not loop.last %}<br>{% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

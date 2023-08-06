@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% from "ui.html" import box %}
+
+{% if not request.GET.popup %}
+{% block extra_head %}
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="/static/css/jquery.fancybox.min.css" />
+    <script src="/static/js/jquery.fancybox.min.js"></script>
+    <!-- Metis Menu -->
+    <link href="/static/css/metisMenu.min.css" rel="stylesheet">
+    <script src="/static/js/metisMenu.min.js"></script>
+    <!-- Djangoplus -->
+    <link href="/static/css/djangoplus.min.css" rel="stylesheet"/>
+    <script>
+        (function($){
+            var loadOnPush = true;
+          $(function(){
+            window.addEventListener("popstate", function(e) {
+                if(document.location.href.indexOf('#')==-1) {
+                    if(loadOnPush) loadUrl(document.location.href);
+                    loadOnPush = true;
+                } else {
+                    loadOnPush = false;
+                }
+            });
+          }); // end of document ready
+        })(jQuery); // end of jQuery name space
+    </script>
+
+    {% block extra_admin_head %}
+
+    {% endblock %}
+{% endblock %}
+{% endif %}
+
+{% block body %}
+{% if not request.GET.popup %}
+<body id="admin-body">
+
+    <div id="wrapper" class="{% if request.session.hidden_menu or not request.session.side_menu_size %}hidden-menu{% endif %}">
+
+    <!-- Navigation -->
+    {% include "header.html" %}
+
+    <!-- Sidebar -->
+    {% if request.user.is_authenticated %}
+        {{ menu|safe }}
+    {% endif %}
+    <!-- Page Content -->
+    <main id="page-wrapper">
+            {% if request.user.is_authenticated %}
+                {{  breadcrumbs(request, title) }}
+            {% else %}
+                <br>
+            {% endif %}
+            {% for message in messages %}
+            {% if 'error' in message.tags %}
+                <div class="padding-md">
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+                </div>
+            {% endif %}
+            {% endfor %}
+        <div>
+{% endif %}
+            <div {% if not request.GET.popup %}id="content"{% endif %}>
+                {% block content %}
+
+                {% endblock %}
+            </div>
+{% if not request.GET.popup %}
+                {% include "footer.html" %}
+        </div>
+    </main>
+
+    </div>
+
+</body>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% if component.scopes|length > 1 %}
+<h4 align="center">Escopo</h4>
+<select id="scopeSelector" style="width:100%">
+    <option {% if component.request.user.scope_id == None %} selected {% endif %} value="">---------</option>
+    {% for scope in component.scopes %}
+        <option {% if component.request.user.scope_id == scope.pk %} selected {% endif %} value="{{ scope.pk }}">{{ scope }}</option>
+    {% endfor %}
+</select>
+{% endif %}
+
+{% if component.groups %}
+    <h4 align="center">Vínculo{% if component.groups|length > 1 %}s{% endif %}</h4>
+    {% for group in component.groups %}
+        <div>
+            <input  id="{{ group }}Checkbox" class="groups" type="checkbox" value="{{ group.pk }}" {% if group.has_active_roles %}checked{% endif %} onclick="configureReloadScopeButton()"/>
+            <span class="custom-checkbox"></span>
+            <label style="display: initial">{{ group }}</label><br>
+                {% if group.scope_roles %}
+                    <ul>
+                        {% for role in group.scope_roles %}
+                            <li>• {{ role.scope }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+        </div>
+    {% endfor %}
+    <div style="margin: 10px; text-align: center"><button id="reloadScopeButton" class="btn btn-default" onclick="reloadScope()">Aplicar</button></div>
+{% endif %}
+
+<script>
+    function reloadScope(){
+        var scope = $('#scopeSelector').val()
+        var groups = $('.groups:checked').map(function(){return this.value}).get();
+        $.get(document.location.href, {scope:scope, groups:groups}, function(){loadUrl('/admin/')});
+    }
+    function configureReloadScopeButton(){
+        if($('.groups:checked').length > 0){
+            $('#reloadScopeButton').removeClass('disabled');
+            $('#scopeSelector').prop('disabled', false);
+        }
+        else{
+            $('#reloadScopeButton').addClass('disabled');
+            $('#scopeSelector').prop('disabled', true);
+        }
+    }
+    $('#scopeSelector').on('change', function(){reloadScope();});
+</script>
+

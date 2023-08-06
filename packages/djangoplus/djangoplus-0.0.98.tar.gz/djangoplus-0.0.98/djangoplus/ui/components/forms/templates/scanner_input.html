@@ -1,0 +1,59 @@
+<div style="background-color: white" class="scanner-input"></div>
+    <style>
+        .scanner-inputli{
+            font-size: 200%;
+            list-style: none;
+        }
+    </style>
+    <script>
+            function sendQrCode(barcode){
+                $.ajax({url: "{{ url }}?codigo="+barcode}).done(function(data) {
+                    var tokens = data.split('::');
+                    console.log(tokens);
+                    var title = tokens[2];
+                    var barcode = tokens[0];
+                    var msg = tokens[1];
+                    var css = tokens[3];
+                    if(css!='alert-danger') $("#barcodes").html("<li>"+barcode+"</li>"+$("#barcodes").html());
+                    $("#msg").html(msg);
+                    $("#msg").removeClass('alert-danger');
+                    $("#msg").removeClass('alert-info');
+                    $("#msg").removeClass('alert-default');
+                    $("#msg").removeClass('alert-success');
+                    $("#msg").addClass(css);
+                    if(title) $("#title").html(title);
+                });
+            }
+            $(document).ready(function() {
+                var pressed = false;
+                var chars = [];
+                $(window).keypress(function(e) {
+                    if (e.which >= 48 && e.which <= 57) {
+                        chars.push(String.fromCharCode(e.which));
+                    }
+                    if (pressed == false) {
+                        setTimeout(function(){
+                            // check we have a long length e.g. it is a barcode
+                            if (chars.length >= 10) {
+                                var barcode = chars.join("");
+                                sendQrCode(barcode);
+                            }
+                            chars = [];
+                            pressed = false;
+                        },500);
+                    }
+                    pressed = true;
+                });
+            });
+    </script>
+
+    <div class="alert alert-info text-center" id="msg" style="font-size: 400%">
+        {{ msg }}
+    </div>
+    <div class="text-center">
+        <img src="/static/scanner.gif">
+    </div>
+    <div class="text-center">
+        <ul id="barcodes"></ul>
+    </div>
+</div>

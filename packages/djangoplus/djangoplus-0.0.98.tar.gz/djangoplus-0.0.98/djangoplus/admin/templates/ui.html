@@ -1,0 +1,12 @@
+{% macro box(title, class="") %}
+    <div class="panel panel-default info-panel {{ class }}">
+        <div class="panel-heading">{{ title }}</div>
+        <div class="panel-body">{{ caller() }}</div>
+    </div>
+{% endmacro %}
+
+{#
+{% call box("Box") %}{% endcall %}
+{{ obj|fieldset("Dados Gerais", "a,b,(c,d),(e,f),(g,h)", actions="x,y", lookups="w,z") }}
+{{ obj|actions("x,y,z") }}
+#}
