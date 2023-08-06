@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: CodeDrop
+Version: 0.0.1
+Summary: Upload python files directly from your script to dropbox.
+Home-page: https://github.com/pritoms/CodeDrop
+Author: Pritom Sarker
+Author-email: pritoms@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+This script uses Dropbox API to upload your python code to your Dropbox app folder.
+
+How to use:
+
+1. Create a new app from the dropbox developer section and get the access token,
+2. Insert your dropbox access token between "" on line 16 of codedrop.py,
+3. Import codedrop in your python script and use drop() function to upload codes to your dropbox app folder.
+
+drop() needs two parameters, file_source & file_name. Type __file__ for file_source and your desired string for file_name.
+
+Example:
+
+drop(__file__, "test-drop")
+
