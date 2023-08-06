@@ -1,0 +1,250 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+
+
+        {
+            "name": "[concat('xt', resourceGroup().name, 'storage')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "supportsHttpsTrafficOnly": true
+            },
+            "dependsOn": [],
+            "sku": {
+                "name": "Standard_RAGRS"
+            },
+            "kind": "Storage",
+            "tags": {}
+        },
+
+
+        {
+            "apiVersion": "2019-12-12",
+            "kind": "MongoDB",
+            "type": "Microsoft.DocumentDb/databaseAccounts",
+            "name": "[concat('xt', resourceGroup().name, 'mongodb')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "databaseAccountOfferType": "Standard",
+                "locations": [
+                    {
+                        "id": "[concat('xt', resourceGroup().name, 'storage-', resourceGroup().name)]",  
+                        "failoverPriority": 0,
+                        "locationName": "EAST US"
+                    }
+                ],
+                "enableMultipleWriteLocations": false,
+                "isVirtualNetworkFilterEnabled": false,
+                "virtualNetworkRules": [],
+                "ipRangeFilter": "",
+                "dependsOn": [],
+                "capabilities": [],
+                "enableFreeTier": false
+            },
+            "tags": {
+                "defaultExperience": "Azure Cosmos DB for MongoDB API",
+                "hidden-cosmos-mmspecial": "",
+                "CosmosAccountType": "Non-Production"
+            }
+        },
+        
+        
+
+        {
+            "apiVersion": "2018-02-14",
+            "name": "[concat('xt', resourceGroup().name, 'keyvault')]",
+            "location": "[resourceGroup().location]",
+            "type": "Microsoft.KeyVault/vaults",
+            "properties": {
+                "enabledForDeployment": false,
+                "enabledForTemplateDeployment": false,
+                "enabledForDiskEncryption": false,
+                "enableRbacAuthorization": false,
+                "accessPolicies": [
+                    {
+                        "objectId": "279fa8f9-cccf-47a8-8008-6546afc92216",
+                        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                        "permissions": {
+                            "keys": [
+                                "Get",
+                                "List",
+                                "Update",
+                                "Create",
+                                "Import",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore"
+                            ],
+                            "secrets": [
+                                "Get",
+                                "List",
+                                "Set",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore"
+                            ],
+                            "certificates": [
+                                "Get",
+                                "List",
+                                "Update",
+                                "Create",
+                                "Import",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore",
+                                "ManageContacts",
+                                "ManageIssuers",
+                                "GetIssuers",
+                                "ListIssuers",
+                                "SetIssuers",
+                                "DeleteIssuers"
+                            ]
+                        }
+                    }
+                ],
+                "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                "sku": {
+                    "name": "Standard",
+                    "family": "A"
+                },
+                "enableSoftDelete": true,
+                "softDeleteRetentionInDays": 90,
+                "networkAcls": {
+                    "defaultAction": "allow",
+                    "bypass": "AzureServices",
+                    "ipRules": [],
+                    "virtualNetworkRules": []
+                }
+            },
+            "tags": {},
+            "dependsOn": []
+        },
+
+
+
+        {
+            "name": "[concat('xt', resourceGroup().name, 'batch')]",
+            "type": "Microsoft.Batch/batchAccounts",
+            "apiVersion": "2019-08-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [],
+            "properties": {
+                "poolAllocationMode": "BatchService"
+            },
+            "tags": {}
+        },
+        
+        
+        {
+            "type": "Microsoft.MachineLearningServices/workspaces",
+            "apiVersion": "2019-11-01",
+            "name": "[concat('xt', resourceGroup().name, 'aml')]",
+            "location": "[resourceGroup().location]",
+
+            
+            "dependsOn": [
+                "[concat(resourceGroup().id , '/providers/Microsoft.KeyVault/vaults/', 'xt', resourceGroup().name, 'amlkey')]",
+                "[concat(resourceGroup().id , '/providers/Microsoft.Storage/storageAccounts/', 'xt', resourceGroup().name, 'amlsto')]",
+                "[concat(resourceGroup().id , '/providers/microsoft.insights/components/', 'xt', resourceGroup().name, 'amlins')]"
+            ],
+            "tags": {},
+            "sku": {
+                "name": "Enterprise",
+                "tier": "Enterprise"
+            },
+            "identity": {
+                "type": "systemAssigned"
+            },
+            "properties": {
+                "descsription": "",
+                "friendlyName": "",
+                "keyVault": "[concat(resourceGroup().id , '/providers/Microsoft.KeyVault/vaults/', 'xt', resourceGroup().name, 'amlkey')]",
+                "storageAccount": "[concat(resourceGroup().id , '/providers/Microsoft.Storage/storageAccounts/', 'xt', resourceGroup().name, 'amlsto')]",
+                "adbWorkspace": "",
+                "applicationInsights": "[concat(resourceGroup().id , '/providers/microsoft.insights/components/', 'xt', resourceGroup().name, 'amlins')]"
+            }
+        },
+
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2016-12-01",
+            "name": "[concat('xt', resourceGroup().name, 'amlsto')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage"
+        },
+
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "apiVersion": "2015-06-01",
+            "name": "[concat('xt', resourceGroup().name, 'amlkey')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accessPolicies": [],
+                "enabledForDeployment": true,
+                "enabledForTemplateDeployment": true,
+                "enabledForVolumeEncryption": true,
+                "sku": {
+                    "name": "Standard",
+                    "family": "A"
+                },
+                "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+            }
+        },
+
+        {
+            "type": "Microsoft.Insights/components",
+            "apiVersion": "2015-05-01",
+            "name": "[concat('xt', resourceGroup().name, 'amlins')]",
+            "location": "[resourceGroup().location]",
+            "kind": "web",
+            "properties": {
+                "Application_Type": "web"
+            }
+        },
+
+
+        {
+            "type": "Microsoft.ContainerRegistry/registries",
+            "apiVersion": "2019-12-01-preview",
+            "name": "[concat('xt', resourceGroup().name, 'registry')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard"
+            },
+            "properties": {
+                "adminUserEnabled": true,
+                "policies": {
+                    "quarantinePolicy": {
+                        "status": "disabled"
+                    },
+                    "trustPolicy": {
+                        "type": "Notary",
+                        "status": "disabled"
+                    },
+                    "retentionPolicy": {
+                        "days": 7,
+                        "status": "disabled"
+                    }
+                },
+                "encryption": {
+                    "status": "disabled"
+                },
+                "dataEndpointEnabled": false
+            }
+        }        
+
+    
+
+    ],
+    "outputs": {}
+}
