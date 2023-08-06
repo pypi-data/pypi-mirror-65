@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pyluos
+Version: 1.2.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: future
+Requires-Dist: websocket-client
+Requires-Dist: pyserial (>3)
+Requires-Dist: SimpleWebSocketServer
+Requires-Dist: zeroconf
+Requires-Dist: numpy
+Requires-Dist: anytree
+Provides-Extra: jupyter-integration
+Requires-Dist: ipywidgets ; extra == 'jupyter-integration'
+Provides-Extra: scratch
+Requires-Dist: flask ; extra == 'scratch'
+Requires-Dist: Jinja2 ; extra == 'scratch'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: flake8 ; extra == 'tests'
+Provides-Extra: topographe
+Requires-Dist: pyzmq ; extra == 'topographe'
+
+UNKNOWN
+
+
