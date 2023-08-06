@@ -1,0 +1,40 @@
+Metadata-Version: 1.2
+Name: datamart-rest
+Version: 0.2.5
+Summary: Client library for DataMart's REST API
+Home-page: https://gitlab.com/datadrivendiscovery/datamart-api
+Author: Remi Rampin, Fernando Chirigati
+Author-email: remi.rampin@nyu.edu, fchirigati@nyu.edu
+Maintainer: Remi Rampin, Fernando Chirigati
+Maintainer-email: remi.rampin@nyu.edu, fchirigati@nyu.edu
+License: BSD-3-Clause
+Project-URL: Homepage, https://gitlab.com/datadrivendiscovery/datamart-api
+Project-URL: Source, https://gitlab.com/datadrivendiscovery/datamart-api
+Project-URL: Tracker, https://gitlab.com/datadrivendiscovery/datamart-api/issues
+Description: DataMart Python Wrapper for the REST API
+        ========================================
+        
+        Datamart provides both a Python API and a REST API. This is a wrapper which exposes the REST API as the Python one, for use by clients which don't have Datamart locally available, or with Datamart systems that use REST natively (such as NYU's).
+        
+        See also the `REST API documentation <https://datadrivendiscovery.gitlab.io/datamart-api/rest_api.html>`__.
+        
+        How to install?
+        ---------------
+        
+        ::
+        
+            $ pip install datamart-rest
+        
+        How to use?
+        -----------
+        
+        We provide an example using the `NY Taxi Demand data <https://gitlab.datadrivendiscovery.org/d3m/datasets/tree/master/seed_datasets_data_augmentation/DA_ny_taxi_demand/DA_ny_taxi_demand_dataset>`__. The example is available `here <examples/ny-taxi-demand.ipynb>`__.
+        
+Keywords: datamart,rest,auctus
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
