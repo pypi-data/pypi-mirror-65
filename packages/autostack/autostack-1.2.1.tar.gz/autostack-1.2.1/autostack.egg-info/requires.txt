@@ -1,0 +1,16 @@
+Pygments
+requests
+termcolor
+lxml
+beautifulsoup4
+future
+pytest
+pytest-cov
+click
+PyInquirer
+
+[development]
+pytest
+pytest-pep8
+pytest-cov
+pytest-pylint
