@@ -1,0 +1,4 @@
+[foyer.forcefields]
+load_OPLSAA = foyer.forcefields.forcefields:load_OPLSAA
+load_TRAPPE_UA = foyer.forcefields.forcefields:load_TRAPPE_UA
+
