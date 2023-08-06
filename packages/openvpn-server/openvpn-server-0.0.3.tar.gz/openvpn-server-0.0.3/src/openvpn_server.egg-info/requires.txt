@@ -1,0 +1,16 @@
+openvpn_api==0.2.0
+
+[dev]
+tox==3.14.5
+black==19.10b0
+flake8==3.7.*
+flake8-bugbear==19.8.0
+mypy==0.770
+pytest==5.4.1
+
+[testing]
+black==19.10b0
+flake8==3.7.*
+flake8-bugbear==19.8.0
+mypy==0.770
+pytest==5.4.1
