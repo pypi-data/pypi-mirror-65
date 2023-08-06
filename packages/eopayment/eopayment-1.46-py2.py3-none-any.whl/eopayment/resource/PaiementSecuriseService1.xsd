@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:ns2="http://securite.service.tpa.cp.finances.gouv.fr/reponse" xmlns:ns1="http://securite.service.tpa.cp.finances.gouv.fr/requete" xmlns:tns="http://securite.service.tpa.cp.finances.gouv.fr/services/mas_securite/contrat_paiement_securise/PaiementSecuriseService" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://securite.service.tpa.cp.finances.gouv.fr/services/mas_securite/contrat_paiement_securise/PaiementSecuriseService">
+
+  <xs:import namespace="http://securite.service.tpa.cp.finances.gouv.fr/requete" schemaLocation="PaiementSecuriseService2.xsd"/>
+
+  <xs:import namespace="http://securite.service.tpa.cp.finances.gouv.fr/reponse" schemaLocation="PaiementSecuriseService3.xsd"/>
+
+  <xs:element name="FonctionnelleErreur" type="tns:FonctionnelleErreur"/>
+
+  <xs:element name="TechDysfonctionnementErreur" type="tns:TechDysfonctionnementErreur"/>
+
+  <xs:element name="TechIndisponibiliteErreur" type="tns:TechIndisponibiliteErreur"/>
+
+  <xs:element name="TechProtocolaireErreur" type="tns:TechProtocolaireErreur"/>
+
+  <xs:element name="creerPaiementSecurise" type="tns:creerPaiementSecurise"/>
+
+  <xs:element name="creerPaiementSecuriseResponse" type="tns:creerPaiementSecuriseResponse"/>
+
+  <xs:element name="recupererDetailClient" type="tns:recupererDetailClient"/>
+
+  <xs:element name="recupererDetailClientResponse" type="tns:recupererDetailClientResponse"/>
+
+  <xs:element name="recupererDetailPaiementSecurise" type="tns:recupererDetailPaiementSecurise"/>
+
+  <xs:element name="recupererDetailPaiementSecuriseResponse" type="tns:recupererDetailPaiementSecuriseResponse"/>
+
+  <xs:complexType name="creerPaiementSecurise">
+    <xs:sequence>
+      <xs:element name="arg0" type="ns1:CreerPaiementSecuriseRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="creerPaiementSecuriseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="ns2:CreerPaiementSecuriseResponse" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FonctionnelleErreur">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="descriptif" type="xs:string" minOccurs="0"/>
+      <xs:element name="libelle" type="xs:string" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="severite" type="xs:int"/>
+      <xs:element name="suppressed" type="tns:throwable" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="throwable">
+    <xs:sequence>
+      <xs:element name="stackTrace" type="tns:stackTraceElement" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stackTraceElement" final="extension restriction">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="TechDysfonctionnementErreur">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="descriptif" type="xs:string" minOccurs="0"/>
+      <xs:element name="libelle" type="xs:string" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="severite" type="xs:int"/>
+      <xs:element name="suppressed" type="tns:throwable" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TechIndisponibiliteErreur">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="descriptif" type="xs:string" minOccurs="0"/>
+      <xs:element name="libelle" type="xs:string" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="severite" type="xs:int"/>
+      <xs:element name="suppressed" type="tns:throwable" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TechProtocolaireErreur">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="descriptif" type="xs:string" minOccurs="0"/>
+      <xs:element name="libelle" type="xs:string" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+      <xs:element name="severite" type="xs:int"/>
+      <xs:element name="suppressed" type="tns:throwable" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recupererDetailClient">
+    <xs:sequence>
+      <xs:element name="arg0" type="ns2:RecupererDetailClientRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recupererDetailClientResponse">
+    <xs:sequence>
+      <xs:element name="return" type="ns2:RecupererDetailClientResponse" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recupererDetailPaiementSecurise">
+    <xs:sequence>
+      <xs:element name="arg0" type="ns2:RecupererDetailPaiementSecuriseRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recupererDetailPaiementSecuriseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="ns2:RecupererDetailPaiementSecuriseResponse" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
