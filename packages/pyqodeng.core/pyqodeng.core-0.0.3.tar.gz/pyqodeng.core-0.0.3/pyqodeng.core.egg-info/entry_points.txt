@@ -1,0 +1,10 @@
+[console_scripts]
+pyqode-console = pyqodeng.core.tools.console:main
+
+[pygments.styles]
+darcula = pyqodeng.core.styles.darcula:DarculaStyle
+qt = pyqodeng.core.styles.qt:QtStyle
+
+[pyqode_plugins]
+code_edit = pyqodeng.core._designer_plugins
+
