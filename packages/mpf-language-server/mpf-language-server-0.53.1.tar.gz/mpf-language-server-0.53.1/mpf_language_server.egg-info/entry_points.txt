@@ -1,0 +1,6 @@
+[console_scripts]
+mpfls = mpfls.__main__:main
+
+[mpfls]
+mpf = mpfls.plugins.mpf
+
