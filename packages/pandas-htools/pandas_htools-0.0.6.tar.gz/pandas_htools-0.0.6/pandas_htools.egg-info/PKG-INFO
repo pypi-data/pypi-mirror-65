@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: pandas-htools
+Version: 0.0.6
+Summary: Tools for Exploratory data analysis with Pandas
+Home-page: https://github.com/hdmamin/pandas_htools
+Author: Harrison Mamin
+Author-email: UNKNOWN
+License: BSD
+Download-URL: https://github.com/hdmamin/pandas_htools/tarball/0.0.6
+Description: Pandas Extension
+        ===============================
+        
+        version number: 0.0.3
+        author: Harrison Mamin
+        
+        Overview
+        --------
+        
+        Tools for exploratory data analysis with Pandas
+        
+        Installation / Usage
+        --------------------
+        
+        To install use pip:
+        
+            $ pip install pandas_htools
+        
+        Or clone the repo:
+        
+            $ git clone https://github.com/hdmamin/pandas_htools.git
+            $ python setup.py install
+            
+        Example
+        -------
+        
+        TBD
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
