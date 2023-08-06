@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: webarchive
+Version: 0.3.0
+Summary: Archive web articles
+Home-page: https://gitlab.com/mgoral/webarchive
+Author: Michał Góral
+Author-email: dev@goral.net.pl
+License: GPLv3+
+Platform: linux
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7,<3.9
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4 (==4.8.2)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: lxml (==4.5.0)
+Requires-Dist: readability-lxml (==0.7.1)
+Requires-Dist: requests (==2.23.0)
+Provides-Extra: gui
+Requires-Dist: PyQt5 ; extra == 'gui'
+
+# webarchive
+
+Webarchive is command line web pages extractor which producesa readable
+contents of requested web pages. It works with URLs, local file paths and
+standard input.
+
+## Features
+
+The following commands show how webarchive can be feeded with web page
+content:
+
+```
+$ webarchive https://example.com
+
+$ webarchive "$HOME/index.html"
+
+$ webarchive - < "$HOME/index.html"
+```
+
+It then outputs text in various formats:
+
+- Markdown
+- HTML
+- Plain text
+
+If readability algorithms don't work for a particular web page, webarchive
+can use an external command which provides textual dumps of pages. Examples
+of such programs are command line web browsers like links or w3m.
+
+```
+$ webarchive https://example.com -t dump --dump-cmd "w3m -dump"
+```
+
+Webarchive automatically detects and provides contextualized informations
+like page titles, which can be prepended in YAML Front Matter. It's useful if
+webarchive output is later processed by other tools which understand YML
+Front Matter, such as pandoc:
+
+```
+$ webarchive https://example.com -t md | \
+    pandoc -f markdown --standalone > article.html
+$ ebook-convert article.html article.epub  # ebook-convert is part of Calibre
+```
+
+Additionally, a GUI wrapper is provided, which is also script-friendly as it
+prints all saved files to standard output.
+
+```bash
+#!/bin/sh
+
+for f in `webarchive-qt`; do
+  pandoc "$f" --standalone > article.html
+  ebook-convert article.html article.epub
+  mutt -a "article.epub" -s "Good article I found" -- alice@example.com
+  rm -f "article.html" "article.epub" "$f"
+done
+```
+
+## Installation
+
+```
+$ pip3 install webarchive
+```
+
+To install dependencies for GUI wrapper (webarchive-qt):
+
+```
+$ pip3 install webarchive[gui]
+```
+
+You can use tools such as pipx and pipsi to automatically install webarchive
+and its dependencies to isolated environment:
+
+```
+$ pipx install 'webarchive[gui]'
+```
+
+
