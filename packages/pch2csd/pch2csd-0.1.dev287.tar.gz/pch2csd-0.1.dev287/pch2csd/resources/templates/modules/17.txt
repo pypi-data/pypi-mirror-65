@@ -1,0 +1,33 @@
+;@ ins k k
+;@ outs k k
+opcode ValSw2, 0, kkkkk
+kval, kin,kctrl,kout1,kout2 xin
+; TODO check values 1/ 128 / ..
+  k1 zkr kin1
+  kCtrl zkr kctrl
+
+  kVal table kval, giCLA001
+  if (kVal != kCtrl) goto default
+  zkw k1, kout2
+  goto halt
+default:
+  zkw k1, kout1
+halt:
+endop
+
+;@ ins a a
+;@ outs a a
+opcode ValSw2, 0, kkkkk
+kval, kin,kctrl,kout1,kout2 xin
+  setksmps 1
+  a1 zar kin1
+  aCtrl zar kctrl
+  kCtrl = k(aCtrl)
+  kVal table kval, giCLA001
+  if (kVal != kCtrl) goto default
+  zaw a1, kout2
+  goto halt
+default:
+  zaw a1, kout1
+halt:
+endop
