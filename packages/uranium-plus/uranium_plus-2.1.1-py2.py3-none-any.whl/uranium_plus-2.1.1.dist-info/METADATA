@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: uranium-plus
+Version: 2.1.1
+Summary: an opinionated base package for builds using uranium
+Home-page: http://uranium.readthedocs.org
+Author: Yusuke Tsutsumi
+Author-email: yusuke@tsutsumi.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Software Distribution
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: Babel
+Requires-Dist: Sphinx
+Requires-Dist: sphinx-rtd-theme
+Requires-Dist: pytest
+Requires-Dist: pytest-cov
+Requires-Dist: wheel
+Requires-Dist: twine
+Provides-Extra: vscode
+Requires-Dist: pylint ; extra == 'vscode'
+Requires-Dist: rope ; extra == 'vscode'
+Requires-Dist: black ; (python_version >= "3.6") and extra == 'vscode'
+
+# uranium-plus: opinionated usage of uranium
+
+*uranium-plus is an alpha project. use at your own risk, and things are subject to change*
+
+uranium-plus is an opinionated way of using uranium,
+relying on standardization to provide functionality out of the box:
+
+* a `uranium test` directive, using pytest
+* a `uranium publish` directive, to publish packages
+* a `uranium main` directive, 
+
+## standard conventions
+
+* your tests live in either in a "tests" directory under your main module.
+* a setup.py file is used to declare your package
+* the main task can be overriden with any setup required to publish the application.
+
+
+## using uranium-plus in your ubuild.py
+
+You can install uranium-plus, then call the provided boostrap function to bootstrap your repo. from that point on,
+you will have all the standard uranium-plus goodies:
+
+    # ubuild.py
+    build.packages.install("uranium-plus")
+    import uranium_plus
+
+    build.config.update({
+        "uranium-plus": {
+            "module": "my-module"
+        }
+    })
+
+    uranium_plus.bootstrap(build)
+
+
+## Using uranium-plus for vscode
+
+uranium-plus includes built in configuration for
+maximum compatibility with vscode's vscode-python extension.
+
+modify your uranium-plus installation to include the vscode extras:
+
+    # ubuild.py
+    build.packages.install("uranium-plus[vscode]")
+    import uranium_plus
+
+## Design / Best Practices
+
+uranium-plus ensures best practices that are not necessarily enforced by uranium
+itself, this inclues:
+
+### Installing all dependencies and requirements during the main() call.
+
+Developers may go offline at inopportune times. As a result, there should not
+be surprise dependencies that are discovered only when the task is invoked for the 
+first time.
+
+uranium-plus moves almost all dependencies to the setup.py, and moves dependencies
+that can only be resolved by user configuration (such as test.packages) to the main()
+function to be installed then.
+
