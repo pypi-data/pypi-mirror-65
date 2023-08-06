@@ -1,0 +1,2 @@
+class FullContactException(Exception):
+    pass
