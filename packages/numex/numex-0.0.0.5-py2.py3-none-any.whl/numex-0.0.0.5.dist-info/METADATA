@@ -1,0 +1,71 @@
+Metadata-Version: 2.0
+Name: numex
+Version: 0.0.0.5
+Summary: A quick-and-easy explorer for numerical data.
+Home-page: https://github.com/norok2/numex
+Author: Riccardo Metere
+Author-email: rick@metere.it
+License: GPLv3+
+Keywords: automatic,ui,user interface,user-interface,gui,graphical user-interface,tui
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Operating System :: POSIX
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: blessed
+Provides-Extra: nibabel
+Requires-Dist: appdirs
+Requires-Dist: flyingcircus
+Requires-Dist: h5py
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pytk
+Requires-Dist: setuptools
+Provides-Extra: blessed
+Requires-Dist: blessed; extra == 'blessed'
+Provides-Extra: nibabel
+Requires-Dist: nibabel; extra == 'nibabel'
+
+NumEx: a quick-and-easy explorer for numerical data
+===================================================
+
+This Python software implements a quick and easy explore for numerical data.
+
+
+Installation
+------------
+The recommended way of installing the software is through
+`PyPI <https://pypi.python.org/pypi/numex>`_:
+
+.. code:: shell
+
+    $ pip install numex
+
+Alternatively, you can clone the source repository from
+`GitHub <https://github.com/norok2/numex>`_:
+
+.. code:: shell
+
+    $ mkdir numex
+    $ cd numex
+    $ git clone git@github.com:norok2/numex.git
+    $ python setup.py install
+
+(some steps may require additional permissions depending on your configuration)
+
+The software does not have additional dependencies beyond Python and its
+standard library.
+
+It was tested with Python 2.7 and 3.6.
+Other version were not tested.
+
+
