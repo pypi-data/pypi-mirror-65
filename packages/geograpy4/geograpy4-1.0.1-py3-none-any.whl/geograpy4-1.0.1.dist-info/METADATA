@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: geograpy4
+Version: 1.0.1
+Summary: Extract locations from a URL or text and returns the geocoded data
+Home-page: https://github.com/ThomasShih/geograpy4
+Author: Thomas Shih
+Author-email: tshih113@gmail.com
+License: MIT
+Download-URL: https://github.com/ThomasShih/geograpy4
+Requires-Dist: numpy
+Requires-Dist: nltk
+Requires-Dist: jellyfish
+Requires-Dist: pycountry
+Requires-Dist: newspaper3k
+Requires-Dist: geopy
+
+TODO: One TODO is left in this version of Geograpy, which is being able
+
+
