@@ -1,0 +1,28 @@
+
+Warning: [slave2] Presto is not installed.
+
+
+Warning: [master] Presto is not installed.
+
+
+Warning: [slave3] Presto is not installed.
+
+
+Warning: [slave1] Presto is not installed.
+
+
+Fatal error: [slave2] Unable to uninstall package on: slave2
+
+Aborting.
+
+Fatal error: [slave3] Unable to uninstall package on: slave3
+
+Aborting.
+
+Fatal error: [master] Unable to uninstall package on: master
+
+Aborting.
+
+Fatal error: [slave1] Unable to uninstall package on: slave1
+
+Aborting.

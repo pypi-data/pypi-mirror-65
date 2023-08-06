@@ -1,0 +1,16 @@
+
+master: Configuration file at /etc/presto/log.properties:
+io.prestosql=WARN
+
+
+slave1: Configuration file at /etc/presto/log.properties:
+io.prestosql=WARN
+
+
+slave2: Configuration file at /etc/presto/log.properties:
+io.prestosql=WARN
+
+
+slave3: Configuration file at /etc/presto/log.properties:
+io.prestosql=WARN
+

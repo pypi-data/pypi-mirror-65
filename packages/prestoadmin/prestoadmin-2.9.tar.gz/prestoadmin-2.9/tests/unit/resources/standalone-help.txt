@@ -1,0 +1,36 @@
+Usage: presto-admin [options] <command> [arg]
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -d, --display         print detailed information about command
+  --extended-help       print out all options, including advanced ones
+  -I, --initial-password-prompt
+                        Force password prompt up-front
+  --no-config-update    Don't update the cluster after rpm install
+  -p PASSWORD, --password=PASSWORD
+                        password for use with authentication and/or sudo
+
+
+Commands:
+    catalog add
+    catalog remove
+    collect logs
+    collect query_info
+    collect system_info
+    configuration deploy
+    configuration show
+    file copy
+    file run
+    package install
+    package uninstall
+    plugin add_jar
+    server install
+    server restart
+    server start
+    server status
+    server stop
+    server uninstall
+    server upgrade
+    topology show
+

@@ -1,0 +1,72 @@
+
+Fatal error: [slave3] sudo() received nonzero return code 1 while executing!
+
+Requested: set -m; /etc/init.d/presto stop
+Executed: sudo -S -p 'sudo password:'  /bin/bash -l -c "set -m; /etc/init.d/presto stop"
+
+Aborting.
+[slave3] out:
+[slave3] out: We trust you have received the usual lecture from the local System
+[slave3] out: Administrator. It usually boils down to these three things:
+[slave3] out:
+[slave3] out:     #1) Respect the privacy of others.
+[slave3] out:     #2) Think before you type.
+[slave3] out:     #3) With great power comes great responsibility.
+[slave3] out:
+[slave3] out: sudo password:
+[slave3] out: testuser is not in the sudoers file.  This incident will be reported.
+[slave3] out:
+
+Fatal error: [slave1] sudo() received nonzero return code 1 while executing!
+
+Requested: set -m; /etc/init.d/presto stop
+Executed: sudo -S -p 'sudo password:'  /bin/bash -l -c "set -m; /etc/init.d/presto stop"
+
+Aborting.
+[slave1] out:
+[slave1] out: We trust you have received the usual lecture from the local System
+[slave1] out: Administrator. It usually boils down to these three things:
+[slave1] out:
+[slave1] out:     #1) Respect the privacy of others.
+[slave1] out:     #2) Think before you type.
+[slave1] out:     #3) With great power comes great responsibility.
+[slave1] out:
+[slave1] out: sudo password:
+[slave1] out: testuser is not in the sudoers file.  This incident will be reported.
+[slave1] out:
+
+Fatal error: [slave2] sudo() received nonzero return code 1 while executing!
+
+Requested: set -m; /etc/init.d/presto stop
+Executed: sudo -S -p 'sudo password:'  /bin/bash -l -c "set -m; /etc/init.d/presto stop"
+
+Aborting.
+[slave2] out:
+[slave2] out: We trust you have received the usual lecture from the local System
+[slave2] out: Administrator. It usually boils down to these three things:
+[slave2] out:
+[slave2] out:     #1) Respect the privacy of others.
+[slave2] out:     #2) Think before you type.
+[slave2] out:     #3) With great power comes great responsibility.
+[slave2] out:
+[slave2] out: sudo password:
+[slave2] out: testuser is not in the sudoers file.  This incident will be reported.
+[slave2] out:
+
+Fatal error: [master] sudo() received nonzero return code 1 while executing!
+
+Requested: set -m; /etc/init.d/presto stop
+Executed: sudo -S -p 'sudo password:'  /bin/bash -l -c "set -m; /etc/init.d/presto stop"
+
+Aborting.
+[master] out:
+[master] out: We trust you have received the usual lecture from the local System
+[master] out: Administrator. It usually boils down to these three things:
+[master] out:
+[master] out:     #1) Respect the privacy of others.
+[master] out:     #2) Think before you type.
+[master] out:     #3) With great power comes great responsibility.
+[master] out:
+[master] out: sudo password:
+[master] out: testuser is not in the sudoers file.  This incident will be reported.
+[master] out:

@@ -1,0 +1,34 @@
+master: Configuration file at /etc/presto/node.properties:
+node.id=.*
+catalog.config-dir=/etc/presto/catalog
+node.data-dir=/var/lib/presto/data
+node.environment=presto
+node.launcher-log-file=/var/log/presto/launcher.log
+node.server-log-file=/var/log/presto/server.log
+
+
+slave1: Configuration file at /etc/presto/node.properties:
+node.id=.*
+catalog.config-dir=/etc/presto/catalog
+node.data-dir=/var/lib/presto/data
+node.environment=presto
+node.launcher-log-file=/var/log/presto/launcher.log
+node.server-log-file=/var/log/presto/server.log
+
+
+slave2: Configuration file at /etc/presto/node.properties:
+node.id=.*
+catalog.config-dir=/etc/presto/catalog
+node.data-dir=/var/lib/presto/data
+node.environment=presto
+node.launcher-log-file=/var/log/presto/launcher.log
+node.server-log-file=/var/log/presto/server.log
+
+
+slave3: Configuration file at /etc/presto/node.properties:
+node.id=.*
+catalog.config-dir=/etc/presto/catalog
+node.data-dir=/var/lib/presto/data
+node.environment=presto
+node.launcher-log-file=/var/log/presto/launcher.log
+node.server-log-file=/var/log/presto/server.log
