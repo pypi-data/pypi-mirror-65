@@ -1,0 +1,2 @@
+define(["exports"],(function(_exports){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0}),_exports.fileExists=function fileExists(path){if(window.NativeShell&&window.NativeShell.FileSystem)return window.NativeShell.FileSystem.fileExists(path);return Promise.reject()},_exports.directoryExists=function directoryExists(path){if(window.NativeShell&&window.NativeShell.FileSystem)return window.NativeShell.FileSystem.directoryExists(path);return Promise.reject()}}));
+//# sourceMappingURL=filesystem.js.map

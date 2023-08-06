@@ -1,0 +1,2 @@
+"use strict";define(["dom"],(function(dom){return{loadImage:function loadImage(elem,url){return elem?"IMG"!==elem.tagName?(elem.style.backgroundImage="url('"+url+"')",Promise.resolve()):function loadImageIntoImg(elem,url){return new Promise((function(resolve,reject){dom.addEventListener(elem,"load",resolve,{once:!0}),elem.setAttribute("src",url)}))}(elem,url):Promise.reject("elem cannot be null")}}}));
+//# sourceMappingURL=imageFetcher.js.map
