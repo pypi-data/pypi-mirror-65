@@ -1,0 +1,10 @@
+@RELATION PBDNN
+
+@ATTRIBUTE NN0	numeric
+@ATTRIBUTE NN1	numeric
+@ATTRIBUTE NN5	numeric
+@ATTRIBUTE class	numeric
+
+@DATA
+-0.58, -5.22, -1.44, 0
+

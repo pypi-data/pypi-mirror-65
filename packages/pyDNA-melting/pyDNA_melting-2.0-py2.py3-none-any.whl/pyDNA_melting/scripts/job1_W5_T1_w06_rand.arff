@@ -1,0 +1,32 @@
+@RELATION PBDNN
+
+@ATTRIBUTE NN-5	numeric
+@ATTRIBUTE NN-4	numeric
+@ATTRIBUTE NN-3	numeric
+@ATTRIBUTE NN-2	numeric
+@ATTRIBUTE NN-1	numeric
+@ATTRIBUTE NN0	numeric
+@ATTRIBUTE NN1	numeric
+@ATTRIBUTE NN5	numeric
+@ATTRIBUTE NN6	numeric
+@ATTRIBUTE NN7	numeric
+@ATTRIBUTE NN8	numeric
+@ATTRIBUTE NN9	numeric
+@ATTRIBUTE NN10	numeric
+@ATTRIBUTE class	numeric
+
+@DATA
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+-1, -1, -1, -1, -1, -1, -4, -1, -1, -1, -1, -1, -1, 0
+
