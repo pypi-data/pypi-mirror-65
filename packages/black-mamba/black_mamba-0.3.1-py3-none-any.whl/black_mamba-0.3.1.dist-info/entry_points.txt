@@ -1,0 +1,3 @@
+[console_scripts]
+mamba=black_mamba.mamba_cli:parse_cli_args
+
