@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: git-grab
+Version: 0.2.0
+Summary: Git Helper Tool
+Home-page: https://github.com/boomatang/git-grab.git
+Author: Jim Fitzpatrick
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: pony
+Requires-Dist: requests
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+Git Grab
+========
+
+Git Helper Tool used to quickly added repo's to the users system for an
+external source. With not having to worry and were the repo is been
+stored.
+
+Initial Goals of the project
+----------------------------
+
+-   Create a tool to help download git repos
+-   Repos are sorted by which site and user they belong to.
+```
+code
+└── github.com
+        └── Boomatang
+            ├── dotfiles
+            └── git-grab
+```
+
+Usage
+-----
+
+- Main usage
+```
+grab add -u <url-to-repo>
+grab fork <url-to-forked-repo>
+grab --help
+grab <command> --help
+```
+
+
