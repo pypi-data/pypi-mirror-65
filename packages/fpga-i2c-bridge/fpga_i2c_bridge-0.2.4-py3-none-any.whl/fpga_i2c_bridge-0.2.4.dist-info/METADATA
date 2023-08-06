@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: fpga-i2c-bridge
+Version: 0.2.4
+Summary: A library for managing and remotely controlling devices connected to one or several bridges, which in turn are communicated with via a specialized I2C protocol. Belongs to the FPGA Smart Home project.
+Home-page: UNKNOWN
+Author: Hannes Preiss
+Author-email: sophie@sophieware.net
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: smbus2 (>=0.3)
+
+# fpga_i2c_bridge
+A library for managing and remotely controlling devices connected to one or several bridges, which in turn are communicated with via a specialized I²C protocol. Intended for a Smart Home FPGA that was created as part of a Bacherlor's thesis on the subject.
+
+A more comprehensive description will follow shortly.
+
+## Installation
+```
+pip install fpga-i2c-bridge
+```
+
+## Usage
+### Interactive shell
+Run the interactive I2C shell with
+```
+python -m fpga_i2c_bridge
+```
+
+Use the `--dummy` switch to run with simulated dummy devices.
+
+### API
+Under construction
+
+
