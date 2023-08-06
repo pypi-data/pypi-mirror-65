@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: calc-project
+Version: 1.0.0
+Summary: A simple package calculating value
+Home-page: UNKNOWN
+Author: Pragnya Rout
+Author-email: pragnyarout2018@gmail.com
+License: UNKNOWN
+Keywords: package numbers calculations
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+```python
+
+import numdata
+
+print(numdata.calculate.calculate.Square(8))
+print(numdata.calculate.calculate.Cube(8))
+
+```
+
+
