@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: omnitools
+Version: 0.0.7
+Summary: Miscellaneous functions in short forms.
+Home-page: https://github.com/foxe6-temp/omnitools
+Author: f̣ộx̣ệ6
+Author-email: foxe6@protonmail.com
+License: AGPL-3.0
+Keywords: omnitools utilities
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: chardet (>=3.0.4)
+
+# Omnitools
+
+<i>Miscellaneous functions in short forms.</i>
+
+# Hierarchy
+```
+omnitools
+'---- p()
+```
+
+# Example
+
+## python
+```python
+from omnitools import *
+
+# print and always flush buffer
+p("abc")
+# abc
+# 
+```
+
+## shell
+```shell script
+rem omnitools.exe <function name> [argument] ...
+omnitools.exe p abc
+```
+
