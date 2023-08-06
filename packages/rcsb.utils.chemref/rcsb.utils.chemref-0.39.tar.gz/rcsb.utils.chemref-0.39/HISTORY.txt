@@ -1,0 +1,31 @@
+# RCSB_UTILS_CHEMREF HISTORY
+  1-Nov-2018  - V0.10 Created module supporting DrugBank and CCDC model mapping
+  8-Dec-2018  - V0.11 Add export of loadable DrugBank object.
+ 10-Dec-2018  - V0.12 Adjustments for DrugBank schema compliance
+  7-Jan-2019  - V0.13 Qualify default section name in config path lookup
+ 25-Jan-2019  - V0.14 DrugBank schema extension
+ 29-Jan-2019. - V0.15 Add context filtering feature in module ChemCompDataPrep
+ 31-Jan-2019  - V0.16 Make copy of all category and attribute lists on remove cycles.
+ 16-Feb-2019    V0.17 add drugbank_container_identifiers.
+ 23-Mar-2019  - V0.18 adjust item name for affected_organisms
+ 10-Apr-2019  - V0.19 add atc_codes
+ 25-Jun-2019  - V0.20 Update development workflows
+ 12-Aug-2019  - V0.21 Refactor DrugBank workflow
+ 14-Aug-2019  - V0.22 Improve cache management
+ 29-Aug-2019  - V0.23 Add DrugBankProvider() and ChemCompModelProvider() modules
+  9-Sep-2019  - V0.24 Add AtcProvider() module and extract ATC mapping from DrugBank
+ 17-Sep-2019  - V0.25 Schema adjustments to discard private collection keys
+ 16-Oct-2019  - V0.26 Enumerate all ATC parents in tree node list
+ 17-Oct-2019  - V0.27 Ignore root node of the ATC heirarchy and reduce depth by 1.
+ 23-Nov-2019  - V0.28 Add module ChemCompProvider() update to pipeline to py38
+ 14-Dec-2019  - V0.29 Adjust error reporting for DrugBankProvider.testCache()
+ 17-Dec-2019  - V0.30 Prefer http to ftp protocol for default download targets.
+ 24-Jan-2020  - V0.31 Add fallback resource for ATC
+ 29-Jan-2020  - V0.32 Skip escaping non-ascii characters.
+  3-Feb-2020  - V0.33 Update dependencies
+ 18-Mar-2020  - V0.34 Add ResidProvider() and related modules.
+ 19-Mar-2020  - V0.35 Simplify API and eliminate configuration cache directory items
+ 19-Mar-2020  - V0.36 Add PsiModProvider module
+ 24-Mar-2020  - V0.37 Update dependencies.
+  1-Apr-2020  - V0.38 New module PubChemUtils()
+  8-Apr-2020  - V0.39 Extensions for PubChemUtils() with additional tests using namedtuple input
