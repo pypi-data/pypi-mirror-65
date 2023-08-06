@@ -1,0 +1,25 @@
+{%macro SubscribeCallback(resolver, channelItem) -%}
+{%-set operation = channelItem.subscribe -%}
+std::function<void({{channelItem.CppParamList(resolver)-}}
+{%-if channelItem.parameters |length > 0%}, {%endif-%}
+const {{operation.GetMessageType(resolver)}}& msg)>
+{%-endmacro-%}
+
+{%-macro ServerUriVarType(varName, varDef)-%}
+{%-if 'enum' in varDef-%}
+{{-varName|PascalCase-}}
+{%-else-%}
+std::string
+{%-endif-%}
+{%-endmacro-%}
+
+{%-macro ParamHash(parameters) %}
+std::size_t seed = 0;
+{%-for param, _ in parameters%}
+boost::hash_combine(seed, {{param}});{# Need hash value of param #}
+{%-endfor%}
+{%-endmacro-%}
+
+{%-macro Lock(operationId) -%}
+const std::lock_guard<std::mutex> _lock(_{{operationId |camelCase }}Mutex);
+{%-endmacro-%}
