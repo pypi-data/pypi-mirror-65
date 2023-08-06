@@ -1,0 +1,4 @@
+
+[:platform_system == "Windows"]
+comtypes>=1.1.7
+pywin32>=227
