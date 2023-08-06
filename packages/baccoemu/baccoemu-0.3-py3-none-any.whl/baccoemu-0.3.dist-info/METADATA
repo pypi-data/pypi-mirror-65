@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: baccoemu
+Version: 0.3
+Summary: Dark matter power spectrum emulator
+Home-page: http://dipc.org/bacco/
+Author: Raul E Angulo
+Author-email: rangulo@dipc.org
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: sklearn
+Requires-Dist: GPy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: camb
+Requires-Dist: setuptools
+Requires-Dist: requests
+Requires-Dist: progressbar2
+
+UNKNOWN
+
+
