@@ -1,0 +1,40 @@
+managed-instance
+****************
+
+
+Description
+===========
+
+Detail information for an OCI Compute instance that is being managed
+
+
+Available Commands
+==================
+
+* attach-child
+
+* attach-parent
+
+* detach-child
+
+* detach-parent
+
+* get
+
+* install-all-updates
+
+* install-package
+
+* install-update
+
+* list
+
+* list-available-packages
+
+* list-available-software-sources
+
+* list-available-updates
+
+* list-installed-packages
+
+* remove-package

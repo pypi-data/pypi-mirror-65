@@ -1,0 +1,32 @@
+stack
+*****
+
+
+Description
+===========
+
+The stack object. Stacks represent definitions of groups of Oracle
+Cloud Infrastructure resources that you can act upon as a group. You
+take action on stacks by using jobs.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* get-stack-tf-config
+
+* get-stack-tf-state
+
+* list
+
+* list-terraform-versions
+
+* update

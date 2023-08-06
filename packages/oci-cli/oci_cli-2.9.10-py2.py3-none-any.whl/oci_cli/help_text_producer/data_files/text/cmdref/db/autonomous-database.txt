@@ -1,0 +1,46 @@
+autonomous-database
+*******************
+
+
+Description
+===========
+
+An Oracle Autonomous Database.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* create-from-backup-id
+
+* create-from-backup-timestamp
+
+* create-from-clone
+
+* data-safe
+
+  * deregister
+
+  * register
+
+* delete
+
+* generate-wallet
+
+* get
+
+* list
+
+* restart
+
+* restore
+
+* start
+
+* stop
+
+* update
