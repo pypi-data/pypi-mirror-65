@@ -1,0 +1,118 @@
+Metadata-Version: 2.1
+Name: seis-acc
+Version: 0.4.0
+Summary: Auto-Correlogram Calculation in seismology
+Home-page: https://github.com/weijias-opensource/acc
+Author: Weijia SUN
+Author-email: weijia_sun@163.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Physics
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: commentjson
+Requires-Dist: geographiclib
+Requires-Dist: matplotlib (>=2)
+Requires-Dist: numpy
+Requires-Dist: obspy (>=1.0.3)
+Requires-Dist: pandas
+Requires-Dist: setuptools
+Requires-Dist: shapely
+Requires-Dist: scipy (>=0.19.0)
+Requires-Dist: tqdm
+Requires-Dist: netCDF4
+
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.3674643.svg)](http://dx.doi.org/10.5281/zenodo.3674643)
+[![PyPI version](https://badge.fury.io/py/seis-acc.svg)](https://badge.fury.io/py/seis-acc)
+[![GitHub license](https://img.shields.io/github/license/weijias-opensource/acc)](https://github.com/weijias-opensource/acc/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/weijias-opensource/acc)](https://github.com/weijias-opensource/acc/issues)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/seis-acc)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/seis-acc)
+
+
+# ACC: Auto-Correlogram Calculation in seismology
+
+Extracting P-wave reflections between the free surface and the lithospheric discontinuities to image the subsurface structures.
+
+## Requirements
+
+* Python 3 
+* python packages including: 'click', 'commentjson', 'geographiclib', 'matplotlib>=2', 'numpy', 'obspy>=1.0.3', 'pandas', 'setuptools', 'shapely', 'scipy>=0.19.0', 'tqdm'
+
+## Installation
+
+Here I offer two conventional ways to install the package. The first is downloading the code via git clone command.
+
+```
+>>> git clone https://github.com/weijias-opensource/acc.git
+```
+
+and enter the main directory of the package where the `setup.py` file is, then execute
+
+```
+>>> python setup.py install
+```
+. The second is just simply to execute the command of 
+
+```
+>>> pip install seis-acc
+```
+
+I strongly suggest you install [Anaconda3](https://docs.anaconda.com/anaconda/install/) first, since 
+
+
+>Anaconda Distribution is a free, easy-to-install package manager, environment manager, and Python distribution with a collection of 1,500+ open source packages with free community support. Anaconda is platform-agnostic, so you can use it whether you are on Windows, macOS, or Linux.
+
+
+This allow you to install the acc package using the second way above easily.
+
+
+## Tutorials
+
+Please go the the example directory and run 
+
+```
+>>> sh run.sh
+``` 
+
+for a simple example of the Warramungga array data. 
+
+More information can be found at https://acc.readthedocs.io/en/latest/index.html.
+
+
+## Deployment
+
+The package could be run on all operating systems, including Windows, Mac and Linux. But the package is well-tested on Ubuntu Linux (19.10) with Anaconda3 at now.
+
+## Authors
+
+* **Weijia Sun**
+
+If you have any suggestions to help improve the package, please let me know and I will try to carry them out as soon.
+
+## Contributors
+
+* **B. L. N. Kennett**
+* **Huaiyu Yuan**
+
+## Acknowledgments
+
+The author learned to write a flexible, practical and modern software for friendly usage from other packages. More, a small part of code in this package is also reproduced from other projects.
+
+* [rf](https://github.com/trichter/rf)
+* [seispy](https://github.com/xumi1993/seispy)
+* [obspy](https://github.com/obspy/obspy)
+
+
+
