@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: paginate-json
+Version: 0.3
+Summary: CLI tool for fetching paginated JSON from a URL
+Home-page: https://github.com/simonw/paginate-json
+Author: Simon Willison
+License: Apache License, Version 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: click
+Provides-Extra: pyjq
+Requires-Dist: pyjq ; extra == 'pyjq'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: requests-mock ; extra == 'test'
+
+# paginate-json
+
+[![PyPI](https://img.shields.io/pypi/v/paginate-json.svg)](https://pypi.python.org/pypi/paginate-json)
+[![CircleCI](https://circleci.com/gh/simonw/paginate-json.svg?style=svg)](https://circleci.com/gh/simonw/paginate-json)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/simonw/paginate-json/blob/master/LICENSE)
+
+CLI tool for retrieving JSON from paginated APIs.
+
+Currently works against APIs that use the HTTP Link header for pagination. The GitHub API is [the most obvious example](https://developer.github.com/v3/guides/traversing-with-pagination/).
+
+    Usage: paginate-json [OPTIONS] URL
+
+      Fetch paginated JSON from a URL
+
+    Options:
+      --version                Show the version and exit.
+      --nl                     Output newline-delimited JSON
+      --jq TEXT                jq transformation to run on each page
+      --accept TEXT            Accept header to send
+      --sleep INTEGER          Seconds to delay between requests
+      --silent                 Don't show progress on stderr
+      --show-headers           Dump response headers out to stderr
+      --header <TEXT TEXT>...  Send custom request headers
+      --help                   Show this message and exit.
+
+The `--jq` option only works if you install the optional pyjq dependency.
+
+Works well in conjunction with [sqlite-utils](https://github.com/simonw/sqlite-utils). For example, here's how to load all of the GitHub issues for a project into a local SQLite database.
+
+    paginate-json \
+        "https://api.github.com/repos/simonw/datasette/issues?state=all&filter=all" \
+        --nl | \
+        sqlite-utils upsert /tmp/issues.db issues - --nl --pk=id
+
+You can then use [other features of sqlite-utils](https://sqlite-utils.readthedocs.io/en/latest/cli.html) to enhance the resulting database. For example, to enable full-text search on the issue title and body columns:
+
+    sqlite-utils enable-fts /tmp/issues.db issues title body
+
+You can use the `--header` option to send additional request headers. For example, if you have a GitHub OAuth token you can pass it like this:
+
+    paginate-json https://api.github.com/users/simonw/events \
+      --header Authorization "bearer e94d9e404d86..."
+
+
