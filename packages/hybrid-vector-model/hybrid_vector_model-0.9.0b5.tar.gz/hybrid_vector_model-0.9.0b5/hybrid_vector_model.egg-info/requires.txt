@@ -1,0 +1,16 @@
+numpy
+scipy
+matplotlib
+pandas
+statsmodels
+cvxpy
+autograd
+vemomoto_core_npcollections
+numdifftools
+vemomoto_core_tools
+vemomoto_core_concurrent
+lopaths>=0.9.0.a2
+ci_rvm
+
+[inspection_optimization]
+mosek

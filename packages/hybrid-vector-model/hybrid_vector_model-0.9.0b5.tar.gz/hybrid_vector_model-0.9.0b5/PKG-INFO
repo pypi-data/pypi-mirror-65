@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: hybrid_vector_model
+Version: 0.9.0b5
+Summary: Package to model the traffic of invasive species and disease vectors
+Home-page: https://github.com/vemomoto/vemomoto
+Author: Samuel M. Fischer
+License: LGPLv3
+Project-URL: Bug Tracker, https://github.com/vemomoto/vemomoto/issues
+Project-URL: Documentation, https://vemomoto.github.io/hybrid_vector_model
+Project-URL: Source Code, https://github.com/vemomoto/vemomoto/tree/master/hybrid_vector_model
+Project-URL: Publication, https://arxiv.org/abs/1909.08811
+Description: # A Hybrid Gravity and Route Choice Model to Assess Vector Traffic in Large-Scale Systems
+        
+        This package provides an implementation of the hybrid gravity and route choice
+        model introduced by [Fischer et al. (2019)][REF]. If you use this package 
+        in research that leads to a scientific publication, we kindly ask you to 
+        cite the publication.
+        
+        The package is licensed under the [LGPL-v3][LGPL]. For documentation please refer to
+        [the project's documentation page on github][DOC]. Please report any bugs on 
+        [the project's bug tracker][BUG]. You are welcome to adjust the provided
+        files to your needs and to improve the code. It is encouraged that you share any 
+        improvements on [the github page][GIT] if possible.
+        
+        [REF]: https://arxiv.org/abs/1909.08811
+        [LGPL]: https://opensource.org/licenses/lgpl-3.0.html
+        [DOC]: https://vemomoto.github.io/hybrid_vector_model
+        [GIT]: https://github.com/vemomoto/vemomoto/
+        [BUG]: https://github.com/vemomoto/vemomoto/issues
+Keywords: gravity model,hierarchical model,infectious disease,invasive species,propagule pressure
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: inspection_optimization
