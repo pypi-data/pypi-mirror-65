@@ -1,0 +1,22 @@
+# python
+*.pyc
+*.pyo
+*.swp
+__pycache__
+
+# packaging folders
+/build/
+/dist/
+*egg-info
+*_version.py
+
+# tox working folder
+/.tox
+
+# IDEs
+/.vscode
+
+# tools
+/.*_cache
+
+pip-wheel-metadata
