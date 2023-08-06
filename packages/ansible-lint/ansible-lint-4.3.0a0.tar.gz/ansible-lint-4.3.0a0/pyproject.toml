@@ -1,0 +1,13 @@
+[build-system]
+requires = [
+  "setuptools >= 42.0.0",  # required by pyproject+setuptools_scm integration
+  "setuptools_scm[toml] >= 3.5.0",  # required for "no-local-version" scheme
+  "setuptools_scm_git_archive >= 1.0",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+# ATTENTION: the following section must be kept last in
+# `pyproject.toml` because Travis CI appends one line in
+# the end when publishing non-tagged versions.
+[tool.setuptools_scm]
