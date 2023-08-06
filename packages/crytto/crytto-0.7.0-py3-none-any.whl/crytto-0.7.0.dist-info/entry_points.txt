@@ -1,0 +1,5 @@
+[console_scripts]
+decrypt = crytto.main:decrypt_cmd
+encrypt = crytto.main:encrypt_cmd
+encrypt_send = crytto.main:send_cmd
+
