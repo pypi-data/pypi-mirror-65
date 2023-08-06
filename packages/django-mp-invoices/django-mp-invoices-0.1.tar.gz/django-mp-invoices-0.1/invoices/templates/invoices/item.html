@@ -1,0 +1,25 @@
+
+<tr data-role="list-item" data-item-id="{{ object.id }}">
+    <td>{{ object.product.code }}</td>
+    <td>
+        <a href="{{ object.product.get_absolute_url }}" target="_blank">
+            {{ object.product.name }}
+        </a>
+    </td>
+    <td class="invoice-qty-cell">
+        <input data-role="qty-input"
+               type="text"
+               data-url="{{ object.set_qty_url }}"
+               value="{{ object.qty }}">
+    </td>
+    <td class="text-right">{{ object.printable_price }}</td>
+    <td>
+        <button type="button"
+                data-role="delete-action"
+                data-item-id="{{ object.id }}"
+                data-url="{{ object.remove_url }}"
+                class="btn btn-xs btn-danger pull-right">
+            <i class="fa fa-trash"></i>
+        </button>
+    </td>
+</tr>

@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include requirements.txt
+recursive-include invoices/locale *
+recursive-include invoices/templates *
+recursive-include invoices/static *
+prune *.pyc

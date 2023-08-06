@@ -1,0 +1,94 @@
+
+{% extends 'admin/base_site.html' %}
+
+{% load i18n static notify categories %}
+
+
+{% block content %}
+    <h4>
+        {{ invoice.model_name }} #{{ invoice.id }}
+        <small>({{ invoice.get_type_display }})</small>
+        <span class="pull-right">
+            <i class="fa fa-clock-o"></i> {{ invoice.created|date:'d.m.Y' }}
+        </span>
+    </h4>
+
+    {% include 'invoices/product-select-list.html' %}
+
+    <table class="table table-bordered table-sm m-t-20" data-role="invoice-list">
+        <thead>
+            <tr>
+                <th>
+                    {% trans 'Code' %}
+                </th>
+                <th>
+                    {% trans 'Product' %}
+                </th>
+                <th class="text-center" width="100">
+                    {% trans 'Quantity' %}
+                </th>
+                <th class="text-right">
+                    {% trans 'Price' %}
+                </th>
+                <th width="50"></th>
+            </tr>
+        </thead>
+        <tbody data-role="list-items">
+            {% for item in invoice.items.all %}
+                {{ item.render }}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+{% block js %}
+
+    {{ block.super }}
+
+    {% notify_js %}
+
+    <script src="{% static 'invoices/List.js' %}"></script>
+    <script src="{% static 'invoices/SelectProductList.js' %}"></script>
+    <script src="{% static 'invoices/DeleteAction.js' %}"></script>
+    <script src="{% static 'invoices/CellInput.js' %}"></script>
+    <script src="{% static 'invoices/InvoiceList.js' %}"></script>
+    <script src="{% static 'invoices/CategoryTree.js' %}"></script>
+
+    <script>
+        (function ($) {
+
+            {% get_categories as categories %}
+
+            var $productList = $('[data-role=product-list]');
+
+            new CategoryTree({
+                $container: $('[data-role=categories]'),
+                $filter: $('[data-role=category-filter]'),
+                $input: $('[data-role=category-input]'),
+                data: [
+                    {% for c in categories %}
+                        {
+                            text: "{{ c.name|escapejs }}",
+                            id: {{ c.id }}
+                        },
+                    {% endfor %}
+                ]
+            });
+
+            new List({
+                $container: $productList,
+                url: '{% url 'invoices:products' %}'
+            });
+
+            new SelectProductList({
+                $container: $productList
+            });
+
+            new InvoiceList({
+                $container: $('[data-role=invoice-list]'),
+                addItemUrl: '{{ invoice.add_item_url }}'
+            });
+        })(jQuery);
+    </script>
+{% endblock %}

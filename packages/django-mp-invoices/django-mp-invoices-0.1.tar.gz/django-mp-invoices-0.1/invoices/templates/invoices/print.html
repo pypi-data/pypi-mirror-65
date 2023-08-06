@@ -1,0 +1,35 @@
+
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="padding: 0; margin: 0;">
+    <table>
+        <thead>
+            <tr>
+                <th>{% trans 'Code' %}</th>
+                <th>{% trans 'Product' %}</th>
+                <th>{% trans 'Quantity' %}</th>
+                <th>{% trans 'Price' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in invoice.items.all %}
+                <tr>
+                    <td>{{ item.product.code }}</td>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.qty }}</td>
+                    <td>{{ item.printable_price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        window.print();
+    </script>
+</body>
+</html>
