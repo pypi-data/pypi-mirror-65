@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: Mop
+Version: 0.1.1
+Summary: MPEG ID3 tagger using Python, eyeD3, and GTK+
+Home-page: https://github.com/nicfit/Mop
+Author: Travis Shirk
+Author-email: travis@pobox.com
+License: GPL
+Keywords: mp3,id3,eyed3,tagger,gtk,gui
+Platform: Any
+Classifier: Environment :: X11 Applications :: GTK
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Multimedia :: Sound/Audio :: Editors
+Classifier: Development Status :: 5 - Production/Stable
+Requires-Dist: eyeD3 (>=0.9.5)
+Requires-Dist: nicfit.py (>=0.8.6)
+Requires-Dist: PyGObject
+
+UNKNOWN
+
+
