@@ -1,0 +1,27 @@
+# Configuration for i18n workflow.
+
+locales:
+    - en  # English - Source Language
+    - ar  # Arabic
+    - es_419  # Spanish
+    - pt_BR  # Portuguese
+    - zh_CN  # Chinese
+    - fr  # French
+    - fr_CA  # French (Canada)
+    - de_DE  # German
+    - ja_JP  # Japanese
+    - pl_PL # Polish
+    # Add languages here as needed
+
+# The locales used for fake-accented English, for testing.
+dummy_locales:
+    - eo
+
+# Directories we don't search for strings.
+ignore_dirs:
+    - mentoring/v1
+    - mentoring/tests
+    - public/js/translations
+
+generate_merge: {}
+segment: {}
