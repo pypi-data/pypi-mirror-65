@@ -1,0 +1,82 @@
+=============
+dolmen.beaker
+=============
+
+Session
+=======
+
+Configuration
+-------------
+
+   >>> from zope.component import getUtility, queryUtility
+   >>> from dolmen.beaker.interfaces import ISessionConfig
+
+   >>> session_config = queryUtility(ISessionConfig)
+   >>> session_config.get('key')
+   'beaker.session.id' 
+
+
+Setting up the Utility
+----------------------
+
+First let's check if we have the right config for our
+Cache...
+
+   >>> from beaker.cache import CacheManager
+   >>> from dolmen.beaker.cache import setupCache
+   >>> cache_config = setupCache()
+
+   >>> assert cache_config == {
+   ...     'enabled': True,
+   ...     'data_dir': None,
+   ...     'log_file': None,
+   ...     'type': 'memory',
+   ...     'expire': None
+   ... }
+
+Now we can configure a ICacheManager utility for our site
+
+   >>> from zope.component.hooks import getSite
+   >>> site = getSite
+
+   >>> import grokcore.component as grok
+
+   >>> from dolmen.beaker.interfaces import ICacheManager
+   >>> cm = CacheManager(**cache_config)
+
+   >>> from zope.component import provideUtility
+   >>> provideUtility(CacheManager, ICacheManager)
+
+Now we can get our Utility form ZCA
+
+   >>> from zope.component import getUtility
+   >>> utility = getUtility(ICacheManager)()
+   >>> utility
+   <beaker.cache.CacheManager object at ...>
+
+
+The cache Implementation
+------------------------
+
+   >>> from beaker import cache 
+   >>> import time
+
+   >>> cache = utility.get_cache('foo', expire=3)
+
+   >>> @utility.cache('my_search_func', type="memory", expire=3)
+   ... def cachedShort():
+   ...     return time.time()
+
+
+   >>> t1 = cachedShort()
+   >>> t2 = cachedShort()
+
+   >>> t1 is t2
+   True
+
+   >>> from time import sleep
+   >>> sleep(3)
+
+   >>> t3 = cachedShort()
+   >>> t1 is t3
+   False
