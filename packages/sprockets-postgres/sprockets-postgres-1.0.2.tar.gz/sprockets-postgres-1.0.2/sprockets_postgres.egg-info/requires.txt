@@ -1,0 +1,15 @@
+aiopg<2,>=1.0.0
+sprockets.http<3,>=2.1.1
+tornado<7,>=6
+
+[testing]
+coverage
+flake8
+flake8-comprehensions
+flake8-deprecated
+flake8-import-order
+flake8-print
+flake8-quotes
+flake8-rst-docstrings
+flake8-tuple
+pygments
