@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: twistedchecker
+Version: 0.7.3
+Summary: A Twisted coding standard compliance checker.
+Home-page: https://github.com/twisted/twistedchecker
+Author: Twisted Matrix Laboratories
+Author-email: twisted-python@twistedmatrix.com
+License: MIT
+Description: Twisted Coding Standard Checker
+        ===============================
+        
+        TwistedChecker checks Python code for compliance with the `Twisted coding
+        standard <https://twistedmatrix.com/documents/current/core/development/policy/coding-standard.html>`.
+        
+        This was originally a project of Google Summer of Code 2012.
+        
+        TwistedChecker's dependencies are recorded in setup.py.
+        
+        
+        Development
+        -----------
+        
+        .. image:: https://travis-ci.org/twisted/twistedchecker.svg?branch=master
+            :target: https://travis-ci.org/twisted/twistedchecker
+        
+        .. image:: https://badge.fury.io/py/TwistedChecker.svg
+            :target: https://badge.fury.io/py/TwistedChecker
+        
+        Get a development environment::
+        
+            virtualenv build
+            . build/bin/activate
+            pip install -Ue '.[dev]'
+        
+        To test twistedchecker, run the following in the source directory::
+        
+            trial twistedchecker
+        
+        Check pyflakes status ignoring functional tests
+        (#68 some day we might use twistedchecker on itself)::
+        
+            python check_pyflakes.py twistedchecker/
+        
+        Releasing a new version is done via Travis-CI.
+        First commit the version update in a master and wait for test to pass.
+        Create a tag on local branch and then push it::
+        
+            git tag 1.2.3
+            git push --tags
+        
+Keywords: twisted,checker,compliance,pep8
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Quality Assurance
+Provides-Extra: dev

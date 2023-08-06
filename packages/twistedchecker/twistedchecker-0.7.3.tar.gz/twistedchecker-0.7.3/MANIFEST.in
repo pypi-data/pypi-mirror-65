@@ -1,0 +1,7 @@
+include *.py
+include LICENSE
+
+exclude tox.ini setup.cfg .coveragerc
+
+recursive-include twistedchecker *.result
+graft twistedchecker/configuration
