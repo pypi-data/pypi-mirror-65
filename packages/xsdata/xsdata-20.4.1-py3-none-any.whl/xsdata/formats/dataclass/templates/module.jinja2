@@ -1,0 +1,10 @@
+{{ output|lib_imports }}
+
+{%- for source, packages in imports.items() %}
+from {{ source }} import (
+    {%- for package in packages %}
+    {{ "{} as {}".format(package.name, package.alias) if package.alias else package.name }},
+    {%- endfor %}
+)
+{%- endfor %}
+{{ output }}
