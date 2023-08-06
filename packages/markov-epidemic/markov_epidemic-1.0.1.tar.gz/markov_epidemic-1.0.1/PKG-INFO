@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: markov_epidemic
+Version: 1.0.1
+Summary: Library for stochastic simulation and study of epidemics.
+Home-page: https://github.com/sauxpa/markov_epidemic
+Author: Patrick Saux
+Author-email: patrick.jr.saux@gmail.com
+License: UNKNOWN
+Description: # markov_epidemic
+        
+        Markov stochastic models (SIS, SIR, SEIR...) to describe the evolution of epidemics on a network of connected individuals.
+        
+        This package contains standalone code for simulating epidemics and study the influence of the underlying graph and points to some theoretical results regarding the expected lifetime of an epidemic as a function of its infection/recovery rates and the network topology (in particular its adjacency spectrum).
+        
+        Enjoy while you stay indoors helping us reduce our spectral radius :)
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
