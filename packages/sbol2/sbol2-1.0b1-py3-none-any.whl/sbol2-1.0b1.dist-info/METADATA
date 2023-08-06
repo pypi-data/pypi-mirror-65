@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: sbol2
+Version: 1.0b1
+Summary: Pure Python implementation of SBOL 2 standard
+Home-page: https://github.com/SynBioDex/pySBOL2
+Author: Bryan Bartley
+Author-email: editors@sbolstandard.org
+License: Apache-2
+Keywords: synthetic biology
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: rdflib
+Requires-Dist: deprecated
+Requires-Dist: lxml
+Requires-Dist: requests
+
+UNKNOWN
+
+
