@@ -1,0 +1,37 @@
+Metadata-Version: 1.2
+Name: Package-Version-Manager
+Version: 1.0.0
+Summary: Package release tool
+Home-page: https://github.com/Drakkar-Software/Package-Version-Manager
+Author: Drakkar-Software
+Author-email: drakkar-software@protonmail.com
+License: MIT
+Description: # Package-version-manager
+        A toolkit to automate packages version update
+        
+        This toolkit will:
+        1. Look for changes in a changelog file
+        2. Extract the new version number from this changelog file
+        3. Update the version number in readme and version identifying files
+        4. Create a version git branch
+        5. Commit the version updates in this branch
+        6. Log the pull request URL to merge this branch
+        
+        ## Installation
+        ```shell script
+        python -m pip install -r requirements.txt
+        ```
+        
+        ## Usage:
+        ```shell script
+        python cli.py -d "/my/repo/container/folder"
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
