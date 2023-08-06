@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pricelevels
+Version: 0.0.4
+Summary: Small lib to find support and resistance levels
+Home-page: UNKNOWN
+Author: Alex Hurko
+Author-email: alex1hurko@gmail.com
+License: wtfpl
+Platform: UNKNOWN
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: ZigZag
+Requires-Dist: matplotlib
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+
+UNKNOWN
+
+
