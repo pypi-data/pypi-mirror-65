@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: laserpy
+Version: 0.1a0
+Summary: A Language Server Protocol implementation for Python
+Home-page: https://github.com/thisfred/laserpy
+Author: Eric Casteleijn
+Author-email: thisfred@gmail.com
+License: Hippocratic Licence 2.1
+Description: # laserpy
+        Language Server Protocol implementation for Python
+        
+Keywords: lsp,python,tools
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: lint

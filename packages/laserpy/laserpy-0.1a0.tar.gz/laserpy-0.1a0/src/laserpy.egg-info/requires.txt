@@ -1,0 +1,13 @@
+libcst
+
+[dev]
+pre-commit
+twine
+wheel
+
+[lint]
+pre-commit
+
+[test]
+pytest
+pytest-coverage
