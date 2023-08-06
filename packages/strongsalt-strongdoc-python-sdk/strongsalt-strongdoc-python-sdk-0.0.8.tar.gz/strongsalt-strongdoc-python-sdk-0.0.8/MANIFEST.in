@@ -1,0 +1,14 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include the history file
+include HISTORY.rst
+
+# Include certifcate files
+include strongdoc/data/certs/*.pem
+
+# Include documentations
+recursive-include docs *
