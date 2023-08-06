@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: python-sentiment
+Version: 1.0.5
+Summary: A python package to do sentiment analysis of a string
+Home-page: UNKNOWN
+Author: Sahil Ahuja
+Author-email: sahil27ahuja1999@gmail.com
+License: MIT
+Description: ### Installation
+        This module is used for sentiment analysis of a text. The module prints 'pos' for text having positive sentiments while 'neg' for text having negative sentiments. It is built on top of nltk and basic python modules.   
+        
+        Usages: python-sentiment "InputText" 
+        	
+        ```sh
+        $ pip install python-sentiment
+        $ python-sentiment "The movie was awesome"
+        ```
+        ### License
+        MIT
+        ### Author
+        Sahil Ahuja
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown

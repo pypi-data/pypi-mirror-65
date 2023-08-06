@@ -1,0 +1,4 @@
+include README.md LICENSE 
+include sentiment/all_words.pickle
+include sentiment/documents.pickle
+include sentiment/MNB_clf.pickle
