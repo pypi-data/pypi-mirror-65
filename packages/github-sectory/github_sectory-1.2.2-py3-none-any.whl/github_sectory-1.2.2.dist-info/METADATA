@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: github-sectory
+Version: 1.2.2
+Summary: CLI for downloading sub-directory of any Github repository!
+Home-page: https://github.com/amarlearning/Github-Sectory
+Author: Amar Prakash Pandey (@amarlearning)
+Author-email: amar.om1994@gmail.com
+License: MIT
+Keywords: github repository download sub-directory
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: clint
+
+Github Sectory
+==============
+
+|Build Status| |PyPI| |Downloads| |HitCount| |MIT LICENSE| |Say Thanks!|
+
+    CLI for downloading sub-directory of any Github repository using
+    Github Content API!
+
+Demo
+----
+
+.. figure:: https://raw.githubusercontent.com/amarlearning/Github-Sectory/master/extras/sreencast.gif
+   :alt: Demo GitHub Sectory
+
+   Demo GitHub Sectory
+Install
+-------
+
+.. code:: pycon
+
+    $ pip install github-sectory
+
+Usage
+-----
+
+Commands available
+~~~~~~~~~~~~~~~~~~
+
+.. code:: pycon
+
+    $ github-sectory <link_to_repo_directory>
+
+.. code:: pycon
+
+    $ github-sectory <github_username> -r <repository name> -d <directory name> [arguments]
+
+::
+
+    Needed: -r, -d for repository and directory
+
+::
+
+    Optional: -b for branch
+
+::
+
+    Examples:
+    $ github-sectory GoogleChrome -r samples -d push-messaging-and-notifications 
+    $ github-sectory GoogleChrome -r samples -d push-messaging-and-notifications -b gh-pages
+
+**Note:** Default branch will be master
+
+Issues
+------
+
+You can report the bugs at the `issue
+tracker <https://github.com/amarlearning/Github-Sectory/issues>`__
+
+**OR**
+
+You can `tweet me <https://twitter.com/iamarpandey>`__ if you can't get
+it to work. In fact, you should tweet me anyway.
+
+License
+-------
+
+Built with ♥ by Amar Prakash
+Pandey([@amarlearning](http://github.com/amarlearning)) under `MIT
+License <http://amarlearning.mit-license.org/>`__
+
+You can find a copy of the License at
+http://amarlearning.mit-license.org/
+
+.. |Build Status| image:: https://travis-ci.org/amarlearning/Github-Sectory.svg?branch=master
+   :target: https://travis-ci.org/amarlearning/Github-Sectory/
+.. |PyPI| image:: https://img.shields.io/badge/pypi-v1.1.6-blue.svg
+   :target: https://pypi.python.org/pypi/github-sectory
+.. |Downloads| image:: https://pepy.tech/badge/github-sectory
+   :target: https://pepy.tech/project/github-sectory
+.. |HitCount| image:: http://hits.dwyl.io/amarlearning/Github-Sectory.svg
+   :target: http://hits.dwyl.io/amarlearning/Github-Sectory
+.. |MIT LICENSE| image:: https://img.shields.io/pypi/l/pyzipcode-cli.svg
+   :target: http://amarlearning.mit-license.org/
+.. |Say Thanks!| image:: https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg
+   :target: https://saythanks.io/to/amarlearning
+
+
