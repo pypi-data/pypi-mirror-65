@@ -1,0 +1,144 @@
+Metadata-Version: 2.1
+Name: fastquant
+Version: 0.1.2.19
+Summary: Bringing data driven investments to the mainstream
+Home-page: https://github.com/enzoampil/fastquant
+Author: Lorenzo Ampil
+Author-email: lorenzo.ampil@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: backtrader (==1.9.74.123)
+Requires-Dist: beautifulsoup4 (==4.8.2)
+Requires-Dist: black (==19.10b0)
+Requires-Dist: bs4 (==0.0.1)
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: idna (==2.8)
+Requires-Dist: lxml (==4.4.2)
+Requires-Dist: matplotlib (==3.1.2)
+Requires-Dist: numpy (==1.18.0)
+Requires-Dist: oauthlib (==3.1.0)
+Requires-Dist: pandas (==0.25.3)
+Requires-Dist: PySocks (==1.7.1)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: requests-oauthlib (==1.3.0)
+Requires-Dist: six (==1.13.0)
+Requires-Dist: soupsieve (==1.9.5)
+Requires-Dist: tqdm (==4.28.1)
+Requires-Dist: tweepy (==3.8.0)
+Requires-Dist: urllib3 (==1.25.7)
+Requires-Dist: yfinance (==0.1.54)
+Requires-Dist: pre-commit
+
+# fastquant :nerd_face:
+[![Build Status](https://travis-ci.com/enzoampil/fastquant.svg?branch=master)](https://travis-ci.com/enzoampil/fastquant)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+## Bringing backtesting to the mainstream
+
+**fastquant** allows you to easily backtest investment strategies with as few as 3 lines of python code. Its goal is to promote data driven investments by making quantitative analysis in finance accessible to everyone.
+
+## Features
+1. Easily access historical stock data
+2. Backtest trading strategies with only 3 lines of code
+
+<sup>`*` - Both Yahoo Finance and Philippine stock data data are accessible straight from fastquant<sup>
+
+## Installation
+```
+pip install fastquant
+```
+
+## Get stock data
+All symbols from [Yahoo Finance](https://finance.yahoo.com/) and Philippine Stock Exchange ([PSE](https://www.pesobility.com/stock)) are accessible via `get_stock_data`.
+
+```
+from fastquant import get_stock_data
+df = get_stock_data("JFC", "2018-01-01", "2019-01-01")
+print(df.head())
+
+#           dt  close   volume
+#   2019-01-01  293.0   181410
+#   2019-01-02  292.0  1665440
+#   2019-01-03  309.0  1622480
+#   2019-01-06  323.0  1004160
+#   2019-01-07  321.0   623090
+```
+
+*Note: Symbols from Yahoo Finance will return closing prices in USD, while symbols from PSE will return closing prices in PHP*
+
+## Backtest trading strategies
+
+### Simple Moving Average Crossover (15 day MA vs 40 day MA)
+Daily Jollibee prices from 2018-01-01 to 2019-01-01
+```
+from fastquant import backtest
+backtest('smac', df, fast_period=15, slow_period=40)
+
+# Starting Portfolio Value: 100000.00
+# Final Portfolio Value: 102272.90
+```
+![](./docs/assets/smac_sample.png)
+
+## Library of trading strategies
+
+| Strategy | Alias | Parameters |
+| --- | --- | --- |
+| Relative Strength Index (RSI) | rsi | `rsi_period`, `rsi_upper`,  `rsi_lower` |
+| Simple moving average crossover (SMAC) | smac | `fast_period`, `slow_period` |
+| Exponential moving average crossover (EMAC) | macd | `fast_period`, `slow_period` |
+| Moving Average Convergence Divergence (MACD) | emac | `fast_perod`, `slow_upper`, `signal_period`, `sma_period`, `sma_dir_period` |
+| Bollinger Bands | bbands | `period`, `devfactor` |
+
+### Relative Strength Index (RSI) Strategy
+```
+backtest('rsi', df, rsi_period=14, rsi_upper=70, rsi_lower=30)
+
+# Starting Portfolio Value: 100000.00
+# Final Portfolio Value: 132967.87
+```
+![](./docs/assets/rsi.png)
+
+### Simple moving average crossover (SMAC) Strategy
+```
+backtest('smac', df, fast_period=10, slow_period=30)
+
+# Starting Portfolio Value: 100000.00
+# Final Portfolio Value: 95902.74
+```
+![](./docs/assets/smac.png)
+
+### Exponential moving average crossover (EMAC) Strategy
+```
+backtest('emac', df, fast_period=10, slow_period=30)
+
+# Starting Portfolio Value: 100000.00
+# Final Portfolio Value: 90976.00
+```
+![](./docs/assets/emac.png)
+
+### Moving Average Convergence Divergence (MACD) Strategy
+```
+backtest('macd', df, fast_period=12, slow_period=26, signal_period=9, sma_period=30, dir_period=10)
+
+# Starting Portfolio Value: 100000.00
+# Final Portfolio Value: 96229.58
+```
+![](./docs/assets/macd.png)
+
+### Bollinger Bands Strategy
+```
+backtest('bbands', df, period=20, devfactor=2.0)
+
+# Starting Portfolio Value: 100000.00
+# Final Portfolio Value: 97060.30
+```
+![](./docs/assets/bbands.png)
+
