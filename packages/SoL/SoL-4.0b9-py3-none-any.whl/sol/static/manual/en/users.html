@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Users management &#8212; SoL 4 user manual</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Players management" href="players.html" />
+    <link rel="prev" title="Insert, delete and modify" href="stdactions.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="users-management">
+<span id="id1"></span><h1><a class="toc-backref" href="#id4">Users management</a><a class="headerlink" href="#users-management" title="Permalink to this headline">¶</a></h1>
+<p>To interact with the system, that is to be able to insert new tournaments and other entities,
+one must inserts his <em>credentials</em> into the <a class="reference internal" href="authentication.html#authentication"><span class="std std-ref">login panel</span></a>. Such
+credentials may be either granted by the <em>administrator</em>, or by a <a class="reference internal" href="authentication.html#signin"><span class="std std-ref">self registration</span></a>.</p>
+<p>A user may create new <em>entities</em> such as <a class="reference internal" href="clubs.html#clubs-management"><span class="std std-ref">clubs</span></a>, <a class="reference internal" href="championships.html#championships-management"><span class="std std-ref">championships</span></a>, <a class="reference internal" href="players.html#players-management"><span class="std std-ref">players</span></a> and <a class="reference internal" href="tourneys.html#tourneys-management"><span class="std std-ref">tourneys</span></a>, that are automatically <em>assigned</em> to him (in other words, he becomes the
+<em>owner</em>): while the <em>administrator</em> may modify everything in the system, all other users may
+change or delete <em>only</em> the entities belonging to them.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#users-management" id="id4">Users management</a></p>
+<ul>
+<li><p><a class="reference internal" href="#menu-actions" id="id5">Menu actions</a></p></li>
+<li><p><a class="reference internal" href="#insert-and-edit" id="id6">Insert and edit</a></p>
+<ul>
+<li><p><a class="reference internal" href="#email-and-password" id="id7">Email and password</a></p></li>
+<li><p><a class="reference internal" href="#first-name-and-last-name" id="id8">First name and last name</a></p></li>
+<li><p><a class="reference internal" href="#language" id="id9">Language</a></p></li>
+<li><p><a class="reference internal" href="#owners-admin" id="id10">Owners admin</a></p></li>
+<li><p><a class="reference internal" href="#players-manager" id="id11">Players manager</a></p></li>
+<li><p><a class="reference internal" href="#status" id="id12">Status</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="menu-actions">
+<h2><a class="toc-backref" href="#id5">Menu actions</a><a class="headerlink" href="#menu-actions" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the <a class="reference internal" href="stdactions.html#standard-actions"><span class="std std-ref">standard actions</span></a> the menu at the top contains the
+following items:</p>
+<dl class="simple">
+<dt><span class="guilabel">Clubs</span></dt><dd><p>Opens the <a class="reference internal" href="clubs.html#clubs-management"><span class="std std-ref">management of the clubs</span></a> which the selected user is
+responsible of</p>
+</dd>
+<dt><span class="guilabel">Championships</span></dt><dd><p>Opens the <a class="reference internal" href="championships.html#championships-management"><span class="std std-ref">management of the championships</span></a> which the
+selected user is responsible of</p>
+</dd>
+<dt><span class="guilabel">Players</span></dt><dd><p>Opens the <a class="reference internal" href="players.html#players-management"><span class="std std-ref">management of the players</span></a> which the selected user is
+responsible of</p>
+</dd>
+<dt><span class="guilabel">Ratings</span></dt><dd><p>Opens the <a class="reference internal" href="ratings.html#glicko-ratings-management"><span class="std std-ref">management of the ratings</span></a> which the selected
+user is responsible of</p>
+</dd>
+<dt><span class="guilabel">Tourneys</span></dt><dd><p>Opens the <a class="reference internal" href="tourneys.html#tourneys-management"><span class="std std-ref">management of the tourneys</span></a> which the selected user is
+responsible of</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="insert-and-edit">
+<span id="users-insert-and-edit"></span><h2><a class="toc-backref" href="#id6">Insert and edit</a><a class="headerlink" href="#insert-and-edit" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">All fields, with the exception of <span class="guilabel">language</span>, are mandatory.</p>
+<div class="section" id="email-and-password">
+<h3><a class="toc-backref" href="#id7">Email and password</a><a class="headerlink" href="#email-and-password" title="Permalink to this headline">¶</a></h3>
+<p>These are the <em>credentials</em> the user shall insert into the <a class="reference internal" href="authentication.html#authentication"><span class="std std-ref">login panel</span></a>.
+The <span class="guilabel">email</span> must be a valid address and the <span class="guilabel">password</span> may be anything
+longer than five characters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the <a class="reference internal" href="authentication.html#signin"><span class="std std-ref">self registration</span></a> procedure ascertains the validity of the
+email address, when it is inserted or modified manually no check is done that the
+address corresponds to an existing mailbox. It is therefore recommended to pay
+particular attention: a wrong value precludes the possibility of <a class="reference internal" href="authentication.html#reset-password"><span class="std std-ref">resetting</span></a> the password should it be forgotten!</p>
+</div>
+</div>
+<div class="section" id="first-name-and-last-name">
+<h3><a class="toc-backref" href="#id8">First name and last name</a><a class="headerlink" href="#first-name-and-last-name" title="Permalink to this headline">¶</a></h3>
+<p>These fields cannot be left empty.</p>
+</div>
+<div class="section" id="language">
+<h3><a class="toc-backref" href="#id9">Language</a><a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h3>
+<p>If set, this overrides the browser's default when the user logs in.</p>
+</div>
+<div class="section" id="owners-admin">
+<span id="id2"></span><h3><a class="toc-backref" href="#id10">Owners admin</a><a class="headerlink" href="#owners-admin" title="Permalink to this headline">¶</a></h3>
+<p>The <em>administrator</em> can grant a <span class="guilabel">owners admin</span> permission to particular users: when a
+user has this right he can change the ownership of other items (clubs, tournaments...), even of
+those not belonging to him.</p>
+</div>
+<div class="section" id="players-manager">
+<span id="id3"></span><h3><a class="toc-backref" href="#id11">Players manager</a><a class="headerlink" href="#players-manager" title="Permalink to this headline">¶</a></h3>
+<p>The <em>administrator</em> can grant a <span class="guilabel">players manager</span> permission to particular users:
+when a user has this right he can insert new players, or modify and delete existing ones.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Allow anyone to manage the list of players, as was the case with versions of SoL
+prior to 4, has caused numerous problems, primarily the presence of <a class="reference internal" href="players.html#duplicates"><span class="std std-ref">duplicates</span></a>: a bit for laziness, a bit for linguistic difficulties, is clearly more
+hasty to reinsert a player who shows up at a tournament than to check if it is
+already present in the database.</p>
+<p>Resolving these cases is not always easy when you do not know them in person.</p>
+<p>With version 4 it was decided to be able to give the possibility to manage the
+players only to a clearly defined group of users: in principle there will be a set of
+recognized responsible, reasonably one for each country, leaving the insert and edit
+of individual players to those who know them and can to identify them.</p>
+</div>
+</div>
+<div class="section" id="status">
+<span id="users-status"></span><h3><a class="toc-backref" href="#id12">Status</a><a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h3>
+<p>The current status of the user:</p>
+<dl class="simple">
+<dt><cite>Registered</cite></dt><dd><p>the <cite>self registration &lt;signin&gt;</cite> procedure has not been completed yet: users in this state
+<strong>cannot</strong> log in</p>
+</dd>
+<dt><cite>Confirmed</cite></dt><dd><p>this is the normal state for an operational user</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="userinterface.html">User interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="entities.html">Basic entities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="filtering.html">Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stdactions.html">Insert, delete and modify</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Users management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#menu-actions">Menu actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-and-edit">Insert and edit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="players.html">Players management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clubs.html">Clubs management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clubusers.html">Club's users association management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="championships.html">Championships management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tourneys.html">Tourneys management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ratings.html">Glicko ratings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playersrates.html">Players rates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other.html">Other windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="printouts.html">Printouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixes.html">Appendixes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="userinterface.html">User interface</a><ul>
+  <li><a href="entities.html">Basic entities</a><ul>
+      <li>Previous: <a href="stdactions.html" title="previous chapter">Insert, delete and modify</a></li>
+      <li>Next: <a href="players.html" title="next chapter">Players management</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/users.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sol.views -- Pyramid views &#8212; SoL 4 developers documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="sol.printouts -- PDF printouts generators" href="printouts.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sol.views">
+<span id="sol-views-pyramid-views"></span><h1><a class="reference internal" href="#module-sol.views" title="sol.views"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code></a> -- Pyramid views<a class="headerlink" href="#module-sol.views" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sol.views.LoggerAdapter">
+<em class="property">class </em><code class="sig-prename descclassname">sol.views.</code><code class="sig-name descname">LoggerAdapter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span></em>, <em class="sig-param"><span class="n">extra</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.views.LoggerAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add username and remote IP to the logged message</p>
+<dl class="py method">
+<dt id="sol.views.LoggerAdapter.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.views.LoggerAdapter.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the logging message and keyword arguments passed in to
+a logging call to insert contextual information. You can either
+manipulate the message itself, the keyword args or both. Return
+the message and kwargs modified (or not) to suit your needs.</p>
+<p>Normally, you'll only need to override this one method in a
+LoggerAdapter subclass for your specific needs.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.views.get_request_logger">
+<code class="sig-prename descclassname">sol.views.</code><code class="sig-name descname">get_request_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.views.get_request_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specialized <cite>logger</cite> for a Pyramid <cite>request</cite></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.views.json_decode">
+<code class="sig-prename descclassname">sol.views.</code><code class="sig-name descname">json_decode</code><em class="property"> = &lt;method-wrapper '__call__' of rapidjson.Decoder object&gt;</em><a class="headerlink" href="#sol.views.json_decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom JSON decoder.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.views.json_encode">
+<code class="sig-prename descclassname">sol.views.</code><code class="sig-name descname">json_encode</code><em class="property"> = &lt;method-wrapper '__call__' of rapidjson.Encoder object&gt;</em><a class="headerlink" href="#sol.views.json_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom JSON encoder.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.views.unauthorized_for_guest">
+<code class="sig-prename descclassname">sol.views.</code><code class="sig-name descname">unauthorized_for_guest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.views.unauthorized_for_guest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prevent <cite>guest</cite> users to perform the operation.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">SoL modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i18n.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code> -- Internationalization utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printouts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">SoL modules</a><ul>
+      <li>Previous: <a href="printouts.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/views.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
