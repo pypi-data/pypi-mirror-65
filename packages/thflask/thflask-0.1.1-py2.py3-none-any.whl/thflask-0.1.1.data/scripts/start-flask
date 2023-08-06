@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Script that will run uwsgi server, serving the flask application
+
+uwsgi -s /tmp/yourapplication.sock --http-socket :8013 --plugin python3 --manage-script-name --mount /yourapplication=app:app
