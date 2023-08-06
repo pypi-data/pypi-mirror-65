@@ -1,0 +1,16 @@
+
+[dev]
+black>=18.9b0
+flake8
+isort
+pre-commit
+coverage>=4.5.2
+pytest>=4.2.1
+pytest-cov>=2.6.1
+pytest-mock>=1.10.4
+
+[test]
+coverage>=4.5.2
+pytest>=4.2.1
+pytest-cov>=2.6.1
+pytest-mock>=1.10.4
