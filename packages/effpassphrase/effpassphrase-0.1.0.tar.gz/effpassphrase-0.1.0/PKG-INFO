@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: effpassphrase
+Version: 0.1.0
+Summary: Uses the EFF's long word list to generate a high entropy passphrase.
+Home-page: https://github.com/michael-lorenzo/effpassphrase
+Author: Michael Lorenzo
+Author-email: python@michael-lorenzo.com
+License: UNKNOWN
+Description: # effpassphrase
+        Uses the [EFF's](https://www.eff.org/) [long word list](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases) to generate a high entropy passphrase.
+        
+        # Installation
+        
+        ```console
+        pip install effpassphrase
+        ```
+        
+        # Usage
+        
+        ```console
+        $ effpassphrase --help
+        Usage: effpassphrase [OPTIONS]
+        
+        Options:
+          -c, --count INTEGER   Number of words in the passphrase.
+          -s, --separator TEXT  Separator used between words in the passphrase.
+          --help                Show this message and exit.
+        ```
+        
+        ```console
+        $ effpassphrase
+        unfounded zips decorator expectant starch variable
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
