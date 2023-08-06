@@ -1,0 +1,28 @@
+{%-macro IntFormat(schema)-%}
+    {%-if 'format' in schema-%}
+        {%-if schema['format'].startswith('u')%}Unsigned {%endif-%}
+        {%-if schema['format'].endswith('64')%}64-bit {%endif-%}
+        {%-if schema['format'].endswith('32')%}32-bit {%endif-%}
+        {%-if schema['format'].endswith('16')%}16-bit {%endif-%}
+        {%-if schema['format'].endswith('8')%}8-bit {%endif-%}
+    {%-endif-%}
+{%-endmacro-%}
+**{{IntFormat(schema)}}integer**{%if 'title' in schema%} - *{{schema.title}}*{%endif%}
+{%-if 'default' in schema%}
+ * Default value: `{{schema.default}}`
+{%-endif-%}
+{%-if 'minimum' in schema%}
+ * Greater than or equal to {{schema.minimum}}
+{%-endif-%}
+{%if 'maximum' in schema%}
+ * Less than or equal to {{schema.maximum}}
+{%-endif-%}
+{%if 'exclusiveMinimum' in schema%}
+ * Greater than {{schema.exclusiveMinimum}}
+{%-endif-%}
+{%if 'exclusiveMaximum' in schema%}
+ * Less than {{schema.maximum}}
+{%-endif-%}
+{%if 'multipleOf' in schema%}
+ * Multiple of {{schema.multipleOf}}
+{%-endif-%}

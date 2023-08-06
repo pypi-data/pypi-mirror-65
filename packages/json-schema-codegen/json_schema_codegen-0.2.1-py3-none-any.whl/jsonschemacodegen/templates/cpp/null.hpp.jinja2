@@ -1,0 +1,51 @@
+/*! {{Name}} is a wrapper around "null".
+ {%-if schema.description %}
+ * {{schema.description}}
+ {%-endif%}
+ */
+class {{Name}}
+{
+public:
+    /*! Constructor
+     */
+    {{Name}}();
+
+    virtual ~{{Name}}() = default;
+
+    /*! \fn boost::none_t Get() const
+     * \brief returns boost::none which represents "null"
+     * This is pointless because it never returns anything other than boost::none
+     * \returns boost::none
+     */
+    boost::none_t Get() const;
+
+    /*! \fn {{Name}} FromJson(const rapidjson::Value& json)
+     * \brief Deserializes a JSON "null" value into a new instance of {{Name}}.
+     * \param json is the RapidJSON value which must be of "null" type.
+     * \throw If the JSON isn't a null
+     * \returns {{Name}}
+     */
+    static {{Name}} FromJson(const rapidjson::Value& json);
+
+    /*! \fn ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator)
+     * \brief Sets 'value' to null
+     * \param value is the RapidJSON value which will be modified to contain the serialization
+     * \param allocator is the top-level RapidJSON document allocator which may be used for allocations
+     */
+    void ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator) const;
+
+    /*! Sets a string handle associated with this {{Name}} instance.
+     * This gets called by a parent object after creating an instance that is used for an object's property.
+     * \param handle is the string name.
+     */
+    void SetHandle(const std::string& handle);
+
+    /*! Gets the string handle associated with this {{Name}} instance.
+     * This is often the property name used in a JSON-object parent.
+     * It may be empty.
+     * \returns the handle string
+     */
+    std::string GetHandle() const;
+private:
+    std::string _handle;
+};
