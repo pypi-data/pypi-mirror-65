@@ -1,0 +1,13 @@
+[console_scripts]
+noy_pylama = noseOfYeti.plugins.pylama:run_pylama
+run_noseOfYeti_tests = noseOfYeti:run_pytest
+
+[nose.plugins]
+noseOfYeti = noseOfYeti.plugins.nosetests:Plugin
+
+[pyls]
+pyls_noy = noseOfYeti.plugins.pyls
+
+[pytest11]
+nose_of_yeti = noseOfYeti.plugins.pytest
+
