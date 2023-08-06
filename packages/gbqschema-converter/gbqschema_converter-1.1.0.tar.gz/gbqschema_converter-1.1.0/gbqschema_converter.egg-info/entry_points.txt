@@ -1,0 +1,4 @@
+[console_scripts]
+gbq2json = gbqschema_converter.__main__:gbq_to_json
+json2gbq = gbqschema_converter.__main__:json_to_gbq
+
