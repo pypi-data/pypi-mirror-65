@@ -1,0 +1,4 @@
+[console_scripts]
+justag = justag.JusTAG:main
+justag_dir = justag.JusTAG:jtag_directory
+
