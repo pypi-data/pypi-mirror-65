@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: reverse_int
+Version: 0.2
+Summary: A Simpler lib to Reverse integer
+Home-page: https://github.com/Arinze1020/reverse_int.git
+Author: Ugwuanyi Arinze
+Author-email: arinzeugwuanyi@gmail.com
+License: MIT
+Description: # Project description
+        [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+        Python lib to reverse an integer.
+        
+        ### Installation
+        ```sh
+        $ pip install reverse_int
+        ```
+        # Example
+        ```sh
+        import reverse_int
+        print(reverse_int.reverse(1234))
+        4321
+        ```
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
