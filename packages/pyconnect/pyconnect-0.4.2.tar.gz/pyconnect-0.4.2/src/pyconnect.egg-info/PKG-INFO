@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyconnect
+Version: 0.4.2
+Summary: A Python implementation of "Kafka Connect"-like functionality
+Home-page: https://github.com/real-digital/pyconnect
+Author: real.digital
+Author-email: opensource@real-digital.de
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Provides-Extra: dev
+Provides-Extra: test
