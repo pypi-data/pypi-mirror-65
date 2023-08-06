@@ -1,0 +1,95 @@
+CHANGES
+=======
+
+v0.0.48
+-------
+
+* Refactoring Models (#11)
+* Update Datasets Docs
+
+v0.0.47
+-------
+
+* Add SEIR model
+* Format Setup.py
+* CBC News Dataset
+* Update README.md
+
+v0.0.46
+-------
+
+* Add Johns Hopkins Dataset (#8)
+
+v0.0.45
+-------
+
+* RST
+* update description file
+* Skip cleanup CI
+* Update Docs
+* Refactoring Package Setup and CI
+* update setup.py
+* Fix Typos
+* Update README.md (#7)
+* Deterministic test to SIR, Update README to include WCOTA, Add Docstring (#6)
+* Adding SIR Model
+* Update setup.py
+* Update setup.py
+* Update Readme
+* Update Readme: Fix TOC
+* Update Readme
+* Table to Data Readme
+* Update README.md
+* Update README.md
+* Adding Data Readme
+* Update README.md
+* Update setup.py
+* Update Readme
+* Update setup.py
+* Update setup.py
+* Adding WCota Dataset
+* List of Dataset Files
+* Apply Black Formatting
+* FIxing Reset Cache
+* List Files
+* Fix setting cache dir
+* Set objects
+* Log Level Info
+* Fix Cache Path
+* Refactoring Cache
+* Rename Dataset Symbol
+* Ad Hoc to gitignore
+* Refactoring
+* NOBUILD instead of BUILD
+* Fix cache dir path
+* Update Dependencies
+* Restructuring Project
+* Changing tests to use CountryDataLoader
+* Update setup.py
+* Add a Readme
+* Update setup.py
+* Update CI Key
+* Fixing CI
+* Fix CI
+* Fixing CI
+* Adding CI
+* NOBUILD instead of BUILD
+* Fix cache dir path
+* Update Dependencies
+* Restructuring Project
+* New line
+* Adding compile-requirements to bin
+* Adding Docker
+* Adding Requirements
+
+0.0.1
+-----
+
+* Restructuring Project
+* Black formatting
+* Clearly a premature optimization: creating conftest
+* WIP: Dataset
+* First Test!!!
+* WIP: Lib
+* Adding Python .gitignore
+* Create LICENSE

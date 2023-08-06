@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: covirus
+Version: 0.0.48
+Summary: A library for dealing with COVID19 analysis
+Home-page: https://github.com/maricatovictor/covirus
+Author: Victor Maricato
+Author-email: maricatovictor@gmail.com
+License: MIT
+Description: covirus is a Python library to centralize data and models related to COVID19 outbreak. Its goal is to make importing data and running models easier, allowing many researchers and also data enthusiasts to help understand how COVID-19 is spreading worldwide and what to expect.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
