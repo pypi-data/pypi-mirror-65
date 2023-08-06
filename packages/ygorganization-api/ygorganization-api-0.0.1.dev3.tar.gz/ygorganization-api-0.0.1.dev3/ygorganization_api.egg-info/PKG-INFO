@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ygorganization-api
+Version: 0.0.1.dev3
+Summary: Efficient querying of db.ygorganization.com
+Home-page: https://db.ygorganization.com/about/api
+Author: gallantron
+Author-email: treeston.mmoc@gmail.com
+License: UNKNOWN
+Description: # About
+        
+        This is a Python interface to [the YGOrganization database](https://db.ygorganization.com/), which provides up-to-date information on cards in [the Yu-Gi-Oh! Trading Card Game](https://en.wikipedia.org/wiki/Yu-Gi-Oh!_Trading_Card_Game).
+        
+        For request paths and further information, please see [the API documentation](https://db.ygorganization.com/about/api).
+        
+        # Usage
+        
+        `import ygorganization`
+        
+        **_async_** `ygorganization.Query(path)` - Queries path, resolves with JSON object
+        **_async_** `ygorganization.GetCardData(id)` - shorthand for `Query('/data/card/%d'%id)`
+        **_async_** `ygorganization.GetQAData(id)` - shorthand for `Query('/data/qa/%d'%id)`
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
