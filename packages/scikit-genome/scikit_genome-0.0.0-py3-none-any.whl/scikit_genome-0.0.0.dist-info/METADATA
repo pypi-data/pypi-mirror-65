@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: scikit-genome
+Version: 0.0.0
+Summary: A Python package for genomics
+Home-page: https://github.com/scikit-genome/scikit-genome
+Author: Allen Goodman
+Author-email: allen.goodman@icloud.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/scikit-genome/scikit-genome/issues
+Project-URL: Source, https://github.com/scikit-genome/scikit-genome/
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Provides-Extra: build
+Requires-Dist: twine (>=3.1.1) ; extra == 'build'
+Provides-Extra: dev
+Requires-Dist: check-manifest (>=0.41) ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage (>=5.0.4) ; extra == 'test'
+
+# scikit-genome
+
+_scikit-genome_ is a Python package for genomics.
+
+* Essential, efficient algorithms for genomics
+* Interoperable with Python’s scientific ecosystem 
+* Free and open-source
+
+## Frequently asked questions (FAQ)
+
+### How do I pronounce “scikit-genome?”
+
+*sī kit ˈjēˌnōm* is the preferred pronunciation.
+
+### What’s a “scikit?”
+
+scikit-genome is a SciPy toolkit. It’s compatible with both SciPy toolkits like scikit-learn and NumPy-compatible packages like PyTorch and TensorFlow.
+
+### What’s the inclusion criteria for new algorithms?
+
+Maintainers consider only well-established algorithms for inclusion. A minimum of three years since publication, more than 200 citations, and far-reaching usefulness is expected. Methods that provide clear-cut improvements on widely-used algorithms will also be considered.
+
+Methods provided by one of the following maintained, general-purpose packages **won’t** be considered for inclusion:
+
+* matplotlib
+* NumPy
+* Pandas
+* PyTorch
+* scikit-image
+* scikit-learn
+* SciPy
+* statsmodels
+* TensorFlow
+
+### Do you support PyPy?
+
+Yes
+
+
