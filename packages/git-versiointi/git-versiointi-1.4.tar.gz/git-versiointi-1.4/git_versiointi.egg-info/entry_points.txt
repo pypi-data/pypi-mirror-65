@@ -1,0 +1,6 @@
+[distutils.setup_keywords]
+historia = versiointi.egg_info:varmista_json
+
+[egg_info.writers]
+historia.json = versiointi.egg_info:kirjoita_json
+
