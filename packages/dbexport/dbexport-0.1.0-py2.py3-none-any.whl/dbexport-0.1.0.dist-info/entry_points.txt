@@ -1,0 +1,4 @@
+[console_scripts]
+csvexport = dbexport.csv_export:run_export
+jsonexport = dbexport.json_export:run_export
+

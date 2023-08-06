@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: dbexport
+Version: 0.1.0
+Summary: Python projects that takes the input from a postgres database and exports the results on csv and json format
+Home-page: https://github.com/themisAnagno/dataTransformation.git
+Author: Themis Anagnostopoulos
+Author-email: them.anagno@gmail.com
+License: MIT
+Download-URL: https://github.com/themisAnagno/dataTransformation/archive/v0.1.0.zip
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+Requires-Dist: sqlalchemy
+Requires-Dist: psycopg2-binary
+
+
+# Database exporter
+
+## What's this
+Python project that uses sqlalchemy to retrieve data from a postgres database and exports them to csv and json format
+
+## Install
+```
+pip install dbexport
+```
+
+## Run
+
+* To export in csv format run
+```
+csvexport
+```
+* To export in json format run 
+```
+jsonexport
+```
+
+
