@@ -1,0 +1,13 @@
+confluent-kafka
+msgpack
+tenacity
+vcversioner
+swh.core[db,http]>=0.0.60
+swh.model>=0.0.61
+swh.storage>=0.0.181
+
+[testing]
+pytest
+swh.model>=0.0.34
+pytest-kafka
+hypothesis
