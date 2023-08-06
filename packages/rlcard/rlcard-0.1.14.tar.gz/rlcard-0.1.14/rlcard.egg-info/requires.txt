@@ -1,0 +1,10 @@
+numpy>=1.16.3
+matplotlib>=3.0
+termcolor
+
+[tensorflow]
+tensorflow<2.0,>=1.14
+tensorflow_probability==0.7.0
+
+[torch]
+torch>=1.3
