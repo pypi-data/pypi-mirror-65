@@ -1,0 +1,13 @@
+{% block field_factory %}
+{%- if field.fieldtype == 'reference' -%}
+{%- include 'fields/referenceField.j2' -%}
+{%- elif field.fieldtype == 'primitive' -%}
+{%- include 'fields/primitiveField.j2' -%}
+{%- elif field.fieldtype == 'array' -%}
+{%- include 'fields/arrayField.j2' -%}
+{%- elif field.fieldtype == 'union' -%}
+{%- include 'fields/unionField.j2' -%}
+{%- elif field.fieldtype == 'map' -%}
+{%- include 'fields/mapField.j2' -%}
+{% endif -%}
+{% endblock %}
