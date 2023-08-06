@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: mce-spec-inference
+Version: 0.1.0
+Summary: Maximum Causal Entropy Specification Inference.
+Home-page: https://github.com/mvcisback/mce-spec-inference
+License: MIT
+Author: Marcell Vazquez-Chanlatte
+Author-email: mvc@linux.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: attrs (>=19.3,<20.0)
+Requires-Dist: bdd2dfa (>=0.4.0,<0.5.0)
+Requires-Dist: bidict (>=0.18.3,<0.19.0)
+Requires-Dist: dfa[draw] (>=2.0.0,<3.0.0)
+Requires-Dist: funcy (>=1.13,<2.0)
+Requires-Dist: multiprocess (>=0.70.9,<0.71.0)
+Requires-Dist: py-aiger-bdd (>=0.3.1,<0.4.0)
+Requires-Dist: py-aiger-bv (>=2.0.0,<3.0.0)
+Requires-Dist: py-aiger-coins[sat,bdd] (>=1.4.0,<2.0.0)
+Requires-Dist: py-aiger-sat (>=1.1.0,<2.0.0)
+Requires-Dist: scipy (>=1.4.1,<2.0.0)
+Project-URL: Repository, https://github.com/mvcisback/mce-spec-inference
+Description-Content-Type: text/markdown
+
+
