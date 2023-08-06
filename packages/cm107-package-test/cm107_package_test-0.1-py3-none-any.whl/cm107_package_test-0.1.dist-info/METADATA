@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: cm107-package-test
+Version: 0.1
+Summary: packaging test of cm107
+Home-page: https://github.com/cm107/cm107_package_test
+Author: Clayton Mork
+Author-email: mork.clayton3@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python (>=4.1.1.26)
+Requires-Dist: numpy (>=1.17.2)
+Requires-Dist: pylint (>=2.4.2)
+
+# cm107_package_test
+Package test for cm107
+
+
