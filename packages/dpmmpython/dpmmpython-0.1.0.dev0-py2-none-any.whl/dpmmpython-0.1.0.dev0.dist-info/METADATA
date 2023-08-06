@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: dpmmpython
+Version: 0.1.0.dev0
+Summary: Python wrapper for DPMMSubClusters julia package
+Home-page: https://github.com/BGU-CS-VIL/DPMMSubClusters.jl
+Author: Or Dinari
+Author-email: dinari@post.bgu.ac.il
+License: MIT
+Project-URL: Source, https://github.com/BGU-CS-VIL/DPMMPython
+Project-URL: Tracker, https://github.com/BGU-CS-VIL/issues
+Project-URL: Documentation, https://bgu-cs-vil.github.io/DPMMSubClusters.jl/latest/
+Keywords: julia python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: julia
+Requires-Dist: numpy
+Provides-Extra: test
+Requires-Dist: numpy ; extra == 'test'
+Requires-Dist: ipython ; extra == 'test'
+Requires-Dist: pytest (>=4.4) ; extra == 'test'
+Requires-Dist: mock ; extra == 'test'
+
+## DPMMSubClusters
+
+This package is a wrapper for [DPMMSubWrapper.jl](https://github.com/BGU-CS-VIL/DPMMSubClusters.jl) Julia package.<br>
+
+
