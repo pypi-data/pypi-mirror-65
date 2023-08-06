@@ -1,0 +1,52 @@
+.dazzler-auth-login {
+  display: inline-block; }
+  .dazzler-auth-login .login-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.125rem; }
+    .dazzler-auth-login .login-field .login-label {
+      margin-right: 1rem;
+      flex-grow: 1;
+      font-weight: bold; }
+    .dazzler-auth-login .login-field .login-input {
+      flex-grow: 3; }
+  .dazzler-auth-login .login-button {
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    height: auto;
+    border-color: #107bdb;
+    background-color: #5294e2;
+    border-radius: 5px;
+    width: 100%; }
+    .dazzler-auth-login .login-button:hover {
+      background-color: #52a3f1; }
+    .dazzler-auth-login .login-button:focus {
+      outline: none; }
+  .dazzler-auth-login.horizontal .login-button {
+    display: inline-block;
+    width: auto;
+    margin-left: 0.325rem; }
+  .dazzler-auth-login.horizontal .login-field {
+    display: inline-flex; }
+    .dazzler-auth-login.horizontal .login-field:not(:first-child) {
+      margin-left: 0.325rem; }
+  .dazzler-auth-login.bordered {
+    border: 1px solid #c9c9ce;
+    padding: 0.5rem; }
+
+.dazzler-auth-logout .logout-button {
+  cursor: pointer;
+  padding: 0.25rem;
+  margin: 0.1325rem;
+  border: 1px solid #c9c9ce;
+  background-color: #dbdbe0;
+  color: #606060;
+  border-radius: 5px; }
+  .dazzler-auth-logout .logout-button:focus {
+    outline: none; }
+
+
+/*# sourceMappingURL=dazzler_auth_3434b36d356e2577b8a9.js.map*/
