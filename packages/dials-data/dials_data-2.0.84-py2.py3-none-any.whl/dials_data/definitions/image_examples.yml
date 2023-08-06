@@ -1,0 +1,17 @@
+name: Image examples
+author: Richard Gildea, David Waterman (2019)
+license: various
+url: https://github.com/dials/data-files/blob/master/image_examples/README.md
+description: >
+  A collection of image examples from various beamlines, primarily intended
+  for testing of dxtbx format classes.
+
+data:
+  - url: https://github.com/dials/data-files/raw/1916a8649e9f505199949f90822165d368c93872/image_examples/DLS_I03_smargon_0001.cbf.gz
+  - url: https://github.com/dials/data-files/raw/1916a8649e9f505199949f90822165d368c93872/image_examples/dlsnxs2cbf_therm_0001.cbf.gz
+  - url: https://github.com/dials/data-files/raw/1916a8649e9f505199949f90822165d368c93872/image_examples/SACLA-MPCCD-Phase3-21528-5images.h5
+  - url: https://github.com/dials/data-files/raw/1916a8649e9f505199949f90822165d368c93872/image_examples/simtbx_FormatSMVJHSim_001.img
+  - url: https://github.com/dials/data-files/raw/1916a8649e9f505199949f90822165d368c93872/image_examples/TIMEPIX_SU_512-stdgoni_0001.img
+  - url: https://github.com/dials/data-files/raw/1916a8649e9f505199949f90822165d368c93872/image_examples/TIMEPIX_SU_516-stdgoni_0001.img
+  - url: https://github.com/dials/data-files/raw/7260492a487e88dde58f8be044b21cef1c7578ef/image_examples/dectris_eiger_data_000001.h5
+  - url: https://github.com/dials/data-files/raw/7260492a487e88dde58f8be044b21cef1c7578ef/image_examples/dectris_eiger_master.h5
