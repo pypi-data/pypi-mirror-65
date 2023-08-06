@@ -1,0 +1,9 @@
+[pygments.lexers]
+pycon+sql = zzzeeksphinx.sqlformatter:PyConWithSQLLexer
+python+sql = zzzeeksphinx.sqlformatter:PythonWithSQLLexer
+
+[sphinx.html_themes]
+zsbase = zzzeeksphinx.theme
+zsmako = zzzeeksphinx.theme
+zzzeeksphinx = zzzeeksphinx.theme
+

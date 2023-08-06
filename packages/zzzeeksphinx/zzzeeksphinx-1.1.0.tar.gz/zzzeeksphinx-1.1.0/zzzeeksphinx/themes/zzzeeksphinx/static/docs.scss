@@ -1,0 +1,771 @@
+@import url(//fonts.googleapis.com/css?family=Oxygen|Libre+Franklin:400,700);
+
+$primary-font-family: "Libre Franklin", sans-serif;
+$header-font-family: "Libre Franklin", Arial, sans-serif;
+$top-header-font-family: "Libre Franklin", Arial, sans-serif;
+$sidebar-font-family: "Libre Franklin", Verdana, sans-serif;
+
+$primary-background-color: #FDFBFC;
+$topmost-header-color: #EBEBEE;
+$popout-color: #FBFBEE;
+$sidebar-color: #EFEFEF;
+$sidebar-header-background-color: #DDDDDD;
+$sidebar-header-color: #222222;
+$notebox-background-color: #EEFFEF;
+$deprecated-background-color: #FCF0F6;
+$border-style: 1px solid #CCC;
+$highlighted-nav-link-background-color: #DDD;
+
+$sidebar-popout-height: 160px;
+
+$max-container-width: 1600px;
+$fixed-sidebar-width: 224px;
+$docs-body-sidebar-left: 234px;
+
+/* global */
+
+
+.body-background {
+  background-color: $primary-background-color;
+}
+
+body {
+  background-color: $primary-background-color;
+  margin:0 38px;
+  color:#333333;
+
+}
+
+blockquote {
+    margin-right: inherit;
+}
+
+a {
+    font-weight:normal;
+    text-decoration:none;
+}
+
+form {
+    display:inline;
+}
+
+label > input {
+  margin: 10px 0px;
+
+}
+
+/* hyperlinks */
+
+a:link, a:visited, a:active {
+    color: #990000;
+}
+a:hover {
+    color: #FF0000;
+    text-decoration:underline;
+}
+
+/* paragraph links after sections.
+   These aren't visible until hovering
+   over the <h> tag, then have a
+   "reverse video" effect over the actual
+   link
+ */
+
+a.headerlink {
+    font-size: 0.8em;
+    padding: 0 4px 0 4px;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+*:hover > a.headerlink {
+    visibility: visible;
+}
+
+a.headerlink:hover {
+    background-color: #00f;
+    /*background-color: #990000;*/
+    color: white;
+}
+
+
+
+
+/* Container setup */
+
+#docs-container {
+  max-width:$max-container-width;
+  margin: 10px auto;
+  position: relative;
+}
+
+
+/* header/footer elements */
+
+#docs-header {
+  font-family: $primary-font-family;
+
+  font-size:.9em;
+  position: relative;
+
+  background-color: $topmost-header-color;
+  border: $border-style;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-size: 20px;
+    color: #222222;
+    margin-left: 10px;
+  }
+}
+
+#docs-sidebar-popout,
+#docs-bottom-navigation,
+#index-nav {
+  font-family: $sidebar-font-family;
+  background-color: $popout-color;
+  border: $border-style;
+  font-size:.8em;
+}
+
+#docs-bottom-navigation,
+#index-nav {
+  padding:10px;
+}
+
+#docs-version-header {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.docs-navigation-links {
+  font-family: $primary-font-family;
+}
+
+#docs-bottom-navigation {
+    float:right;
+    margin: 1em 0 1em 5px;
+}
+
+#docs-bottom-navigation.withsidebar {
+  margin-left: $docs-body-sidebar-left;
+}
+
+#docs-copyright {
+    font-size:.85em;
+    padding:5px 0px;
+}
+
+#docs-header h1,
+#docs-top-navigation h1,
+#docs-top-navigation h2 {
+  font-family: $top-header-font-family;
+  font-weight:normal;
+}
+
+#docs-top-navigation h2 {
+    margin:16px 4px 7px 5px;
+    font-size:1.6em;
+}
+
+#docs-top-page-control {
+  position: absolute;
+  right: 20px;
+  bottom: 14px;
+  ul {
+    padding:0;
+    margin:0;
+  }
+  li {
+      font-size:.9em;
+      list-style-type:none;
+      padding:1px 8px;
+  }
+}
+
+
+#docs-container .version-num {
+    font-weight: bold;
+}
+
+
+/* content container, sidebar */
+
+#docs-body-container {
+  position: relative;
+}
+
+#docs-body,
+#index-nav
+ {
+  font-family: $primary-font-family;
+  font-size:.85em;
+  line-height:1.5em;
+
+  h2 {
+      line-height:1.3em;
+  }
+}
+
+#docs-body {
+  min-height: 700px;
+}
+
+
+
+
+#index-nav {
+  position: relative;
+  margin-top:10px;
+  padding:10px 10px;
+}
+
+#index-nav form {
+  padding-top:10px;
+  float:right;
+}
+
+#sidebar-paginate {
+  position: absolute;
+  bottom: 4.5em;
+  left: 10px;
+}
+
+#sidebar-topnav {
+}
+
+#sidebar-search {
+  margin: 10px 0px 10px 0px;
+}
+
+
+#docs-sidebar {
+  top: $sidebar-popout-height + 18px;
+  width: $fixed-sidebar-width;
+  bottom: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top:5px;
+  margin-right: 5px;
+  z-index: 3;
+}
+
+#sidebar-banner {
+    margin: 0px;
+    padding: 0px;
+}
+
+#sidebar-prerelease, #sidebar-legacy, #sidebar-current, #sidebar-beta {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 2px 5px 2px 5px;
+  width: 11em;
+  text-align: center;
+}
+
+#sidebar-prerelease, #sidebar-legacy {
+  background: #F11;
+  color: #BBB;
+}
+
+#sidebar-beta {
+  background: #FFFF80;
+  color: #555;
+}
+
+#sidebar-current {
+  background: #4C4;
+  color: #555;
+}
+
+#docs-version-header {
+  #sidebar-prerelease, #sidebar-legacy, #sidebar-current {
+      width: 14em;
+      font-size: 1.0em;
+  }
+}
+
+#docs-sidebar-inner {
+  padding-left:10px;
+  /*width:212px;*/
+
+  font-family: $sidebar-font-family;
+
+  font-size:.85em;
+
+  border: $border-style;
+  background-color: $sidebar-color;
+
+  > ul {
+    font-size:.85em;
+  }
+
+  span.link-container {
+    display: block;
+    margin-left: -100px;
+    padding-left: 100px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  li.current > span.link-container {
+    background-color: $highlighted-nav-link-background-color;
+  }
+
+  h3, h4 {
+    background-color: $sidebar-header-background-color;
+    color: $sidebar-header-color;
+    font-family: $sidebar-font-family;
+    font-size: 1.1em;
+    font-weight: normal;
+    margin: 10px 0 0 -15px;
+    padding: 5px 10px 5px 15px;
+    text-shadow: 1px 1px 0 white;
+
+    a {
+      color: $sidebar-header-color;
+    }
+  }
+
+  h3:first-child {
+    margin-top: 0px;
+  }
+
+  ul {
+    margin: 10px 0px 10px 0px;
+    padding: 0;
+    list-style: none outside none;
+    ul {
+        margin-bottom: 0;
+        margin-top: 0;
+        list-style: square outside none;
+        margin-left: 20px;
+    }
+  }
+
+}
+
+
+#docs-sidebar-popout {
+  height: $sidebar-popout-height;
+  max-height: $sidebar-popout-height;
+  width:212px;
+  padding-left:10px;
+  padding-top:10px;
+  position: relative;
+  line-height: 1.2em;
+  font-size:.75em;
+
+  p, form {
+    margin:5px 0 5px 0px;
+  }
+
+  h3 {
+    margin:0 0 10px 0;
+  }
+
+}
+
+#fixed-sidebar {
+  position: relative;
+  box-sizing: border-box;
+}
+
+#fixed-sidebar.withsidebar {
+  float: left;
+  width:$fixed-sidebar-width;
+
+}
+
+#fixed-sidebar.preautomated {
+    position: fixed;
+    float: none;
+    top:0;
+    bottom: 0;
+}
+
+#fixed-sidebar.preautomated #docs-sidebar,
+#fixed-sidebar.preautomated #docs-sidebar-popout {
+  position:absolute;
+}
+
+#fixed-sidebar.preautomated #docs-sidebar:after {
+  content: " ";
+  display:block;
+  height: 150px;
+}
+
+
+#docs-sidebar.preautomated {
+  position: fixed;
+}
+
+
+#docs-body {
+  background-color:#FFFFFF;
+  padding:1px 10px 10px 10px;
+
+  border: $border-style;
+  margin-top:10px;
+}
+
+#docs-body.withsidebar {
+  margin-left: $docs-body-sidebar-left;
+
+  div.section {
+    /* to limit text width inside the container */
+    /*max-width: 1024px;*/
+  }
+
+}
+
+
+#docs-body h1,
+#docs-body h2,
+#docs-body h3,
+#docs-body h4 {
+  font-family: $header-font-family;
+}
+
+#docs-body #sqlalchemy-documentation h1 {
+  /* hide the <h1> for each content section. */
+  display:none;
+  font-size:2.0em;
+}
+
+
+#docs-body h2 {
+  font-size:1.8em;
+  border-top:1px solid;
+  /*border-bottom:1px solid;*/
+  padding-top:20px;
+}
+
+#sqlalchemy-documentation h2 {
+  border-top:none;
+  padding-top:0;
+}
+#docs-body h3 {
+  font-size:1.4em;
+}
+
+/* SQL popup, code styles */
+
+.highlight {
+  background:none;
+}
+
+#docs-container {
+
+  pre {
+    font-size:1.2em;
+    background-color: #f0f0f0;
+    border: $border-style;
+    box-shadow: 2px 2px 3px #DFDFDF;
+    padding:10px;
+    margin: 5px 0px 5px 0px;
+    overflow:auto;
+    line-height:1.3em;
+  }
+
+  /* the [SQL] links used to display SQL */
+  .sql_link
+  {
+    font-weight:normal;
+    font-family: helvetica, arial, sans-serif;
+    font-size:.9em;
+    text-transform: uppercase;
+    color:#990000;
+    border:1px solid;
+    padding:1px 2px 1px 2px;
+    margin:0px 10px 0px 15px;
+    float:right;
+    line-height:1.2em;
+  }
+
+  a.sql_link, .sql_link
+  {
+      text-decoration: none;
+      padding:1px 2px;
+  }
+
+  a.sql_link:hover {
+      text-decoration: none;
+      color:#fff;
+      border:1px solid #900;
+      background-color: #900;
+  }
+
+  a.changeset-link {
+      font-size: 0.8em;
+      padding: 0 4px 0 4px;
+      text-decoration: none;
+  }
+
+}
+
+.popup_sql, .show_sql
+{
+    background-color: $popout-color;
+    padding:5px 10px;
+    margin:10px -5px;
+    border:1px dashed;
+}
+
+
+/* tables */
+
+.section > table.docutils {
+  border: none;
+  border-collapse: collapse;
+
+  tr {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+
+    td, th {
+      border: 1px solid #e1e4e5;
+      background-color: transparent;
+      vertical-align: middle;
+      font-size: 90%;
+      margin: 0;
+      overflow: visible;
+      padding: 8px 16px;
+    }
+
+
+  }
+
+
+  tr.row-even {
+      td {
+        background-color: #f3f6f6;
+      }
+  }
+
+
+
+}
+
+/* docutils-specific elements */
+
+th.field-name {
+    text-align:right;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+}
+
+td.field-body {
+  padding-top: 1em;
+  ul.first {
+    padding-left: 17px;
+    padding-top: 1em;
+  }
+}
+
+
+.footnote {
+  font-size: .95em;
+}
+
+div.faq {
+  background-color: #EFEFEF;
+}
+
+div.faq ul {
+  list-style: square outside none;
+}
+
+div.note, div.topic, div.admonition  {
+    background-color:$notebox-background-color;
+}
+
+div.warning, p.deprecated, div.deprecated  {
+    background-color:$deprecated-background-color;
+}
+
+div.admonition, div.topic, .deprecated, .versionadded, .versionchanged {
+    border: $border-style;
+    padding:5px 10px 5px 10px;
+    font-size:.9em;
+    margin-top:5px;
+    box-shadow: 2px 2px 3px #DFDFDF;
+}
+
+div.note, div.warning {
+    background-image: url("dragons.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    clear: right;
+    min-height: 100px;
+    padding-left: 120px;
+}
+
+p.admonition-title, p.topic-title {
+}
+
+
+
+div.sidebar {
+    background-color: #FFFFEE;
+    border: 1px solid #DDDDBB;
+    float: right;
+    margin: 10px 0 10px 1em;
+    padding: 7px 7px 0;
+    width: 40%;
+    font-size:.9em;
+}
+
+p.sidebar-title {
+    font-weight: bold;
+}
+
+/* grrr sphinx changing your document structures, removing classes.... */
+
+.versionadded .versionmodified,
+.versionchanged .versionmodified,
+.deprecated .versionmodified,
+.versionadded > p:first-child > span:first-child,
+.versionchanged > p:first-child > span:first-child,
+.deprecated > p:first-child > span:first-child
+{
+    background-color: #ECF0F3;
+    color: #990000;
+    font-style: italic;
+}
+
+
+div.inherited-member {
+    border: $border-style;
+    padding:5px 5px;
+    font-size:.9em;
+    box-shadow: 2px 2px 3px #DFDFDF;
+}
+
+div.warning .admonition-title {
+    color:#FF0000;
+}
+
+div.admonition .admonition-title, div.topic .topic-title {
+    font-weight:bold;
+}
+
+.viewcode-back, .viewcode-link {
+    float:right;
+}
+
+dl.function > dt,
+dl.attribute > dt,
+dl.classmethod > dt,
+dl.method > dt,
+dl.class > dt,
+dl.exception > dt
+{
+    background-color: #EFEFEF;
+    margin:25px -10px 10px 10px;
+    padding: 0px 10px;
+}
+
+
+dl.glossary > dt {
+  font-weight:bold;
+  font-size:1.1em;
+  padding-top:10px;
+}
+
+
+dt:target, span.highlight {
+    background-color:#FBE54E;
+}
+
+.clearboth {
+    clear:both;
+}
+
+/* sphinx 1.3 now using 'code' and not 'tt' for code / docstring elements */
+
+code.descname, tt.descname {
+    background-color:transparent;
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+code.descclassname, tt.descclassname {
+    background-color:transparent;
+}
+
+code, tt {
+    background-color:#ECF0F3;
+    padding:0 1px;
+}
+
+/* syntax highlighting overrides */
+.k, .kn {color:#0908CE;}
+.o {color:#BF0005;}
+.go {color:#804049;}
+
+
+/* special "index page" sections
+   with specific formatting
+*/
+
+div#sqlalchemy-documentation {
+  font-size:.95em;
+}
+div#sqlalchemy-documentation em {
+  font-style:normal;
+}
+div#sqlalchemy-documentation .rubric{
+  font-size:14px;
+  background-color:#EEFFEF;
+  padding:5px;
+  border:1px solid #BFBFBF;
+}
+div#sqlalchemy-documentation a, div#sqlalchemy-documentation li {
+  padding:5px 0px;
+}
+
+div.section li p {
+  margin: 0;
+}
+
+div#getting-started {
+  border-bottom:1px solid;
+}
+
+div#sqlalchemy-documentation div#sqlalchemy-orm {
+  float:left;
+  width:48%;
+}
+
+div#sqlalchemy-documentation div#sqlalchemy-core {
+  float:left;
+  width:48%;
+  margin:0;
+  padding-left:10px;
+  border-left:1px solid;
+}
+
+div#dialect-documentation {
+  border-top:1px solid;
+  /*clear:left;*/
+}
+
+div .versionwarning,
+div .version-warning {
+  font-size:12px;
+  font-color:red;
+  border:1px solid;
+  padding:4px 4px;
+  margin:8px 0px 2px 0px;
+  background:#FFBBBB;
+}
+
