@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ess-streaming-data-types
+Version: 0.4.1
+Summary: Python utilities for handling ESS streamed data
+Home-page: https://github.com/ess-dmsc/python-streaming-data-types
+Author: ScreamingUdder
+License: BSD 2-Clause License
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: flatbuffers
+Requires-Dist: numpy
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+
+Python utilities for handling ESS streamed data
+
+
