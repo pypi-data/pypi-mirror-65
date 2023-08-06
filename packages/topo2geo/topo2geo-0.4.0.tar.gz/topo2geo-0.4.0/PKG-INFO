@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: topo2geo
+Version: 0.4.0
+Summary: CLI for converting TopoJSON files to GeoJSON
+Home-page: https://github.com/kylepollina/topo2geo
+Author: Kyle Pollina
+Author-email: kylepollina@pm.me
+License: UNKNOWN
+Description: 
+        # topo2json
+        
+        CLI for converting TopoJSON files to GeoJSON
+        
+        ### Installation
+        
+        ```
+        pip install topo2geo
+        ```
+        
+        Depends on [shapely](https://pypi.org/project/Shapely/)
+        
+        ### Usage
+        
+        ```
+        [~]$ topo2geo input_topo.json output_geo.json
+        ```
+        
+        ### Credits
+        Originally written by [sgillies](https://github.com/sgillies) and [perrygeo](https://github.com/perrygeo). Converted to Python3 and packaged into a CLI by [kylepollina](https://github.com/kylepollina).
+        
+        Sources:
+        * https://gist.github.com/perrygeo/1e767e42e8bc54ad7262
+        * https://github.com/sgillies/topojson/blob/master/topojson.py
+        
+        -------
+        
+        [License](https://github.com/topojson/topojson/blob/master/LICENSE.md)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
