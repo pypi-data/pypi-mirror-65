@@ -1,0 +1,6 @@
+include README.md
+include LICENSE.txt
+graft bionic
+graft tests
+graft example
+global-exclude __pycache__ *.py[co] *.sw[po]
