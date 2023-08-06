@@ -1,0 +1,131 @@
+Metadata-Version: 2.1
+Name: bionic
+Version: 0.7.0
+Summary: A Python framework for building, running, and sharing data science workflows
+Home-page: https://github.com/square/bionic
+Author: Janek Klawe
+Author-email: janek@squareup.com
+License: Apache License 2.0
+Keywords: bionic
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: attrs
+Requires-Dist: PyYAML
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pyarrow
+Requires-Dist: pyrsistent
+Provides-Extra: dask
+Requires-Dist: dask[dataframe] ; extra == 'dask'
+Provides-Extra: dev
+Requires-Dist: Pillow ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: bumpversion ; extra == 'dev'
+Requires-Dist: dask[dataframe] ; extra == 'dev'
+Requires-Dist: dill ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: google-cloud-storage ; extra == 'dev'
+Requires-Dist: hsluv ; extra == 'dev'
+Requires-Dist: jupyter ; extra == 'dev'
+Requires-Dist: matplotlib (>=3.1) ; extra == 'dev'
+Requires-Dist: nbsphinx ; extra == 'dev'
+Requires-Dist: networkx ; extra == 'dev'
+Requires-Dist: pydot ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: scikit-learn ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-autobuild ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Provides-Extra: dill
+Requires-Dist: dill ; extra == 'dill'
+Provides-Extra: examples
+Requires-Dist: Pillow ; extra == 'examples'
+Requires-Dist: hsluv ; extra == 'examples'
+Requires-Dist: matplotlib (>=3.1) ; extra == 'examples'
+Requires-Dist: networkx ; extra == 'examples'
+Requires-Dist: pydot ; extra == 'examples'
+Requires-Dist: scikit-learn ; extra == 'examples'
+Provides-Extra: full
+Requires-Dist: Pillow ; extra == 'full'
+Requires-Dist: dask[dataframe] ; extra == 'full'
+Requires-Dist: dill ; extra == 'full'
+Requires-Dist: google-cloud-storage ; extra == 'full'
+Requires-Dist: hsluv ; extra == 'full'
+Requires-Dist: matplotlib (>=3.1) ; extra == 'full'
+Requires-Dist: networkx ; extra == 'full'
+Requires-Dist: pydot ; extra == 'full'
+Requires-Dist: scikit-learn ; extra == 'full'
+Provides-Extra: gcp
+Requires-Dist: google-cloud-storage ; extra == 'gcp'
+Provides-Extra: image
+Requires-Dist: Pillow ; extra == 'image'
+Provides-Extra: matplotlib
+Requires-Dist: Pillow ; extra == 'matplotlib'
+Requires-Dist: matplotlib (>=3.1) ; extra == 'matplotlib'
+Provides-Extra: standard
+Requires-Dist: Pillow ; extra == 'standard'
+Requires-Dist: hsluv ; extra == 'standard'
+Requires-Dist: matplotlib (>=3.1) ; extra == 'standard'
+Requires-Dist: networkx ; extra == 'standard'
+Requires-Dist: pydot ; extra == 'standard'
+Provides-Extra: viz
+Requires-Dist: Pillow ; extra == 'viz'
+Requires-Dist: hsluv ; extra == 'viz'
+Requires-Dist: networkx ; extra == 'viz'
+Requires-Dist: pydot ; extra == 'viz'
+
+# Bionic
+
+Bionic is a framework for analyzing and modeling data in Python.  It's designed
+to help you **iterate faster on your research**, and help your colleagues
+**reuse your code more easily**.
+
+Bionic is in alpha and evolving rapidly.  We recommend it for research projects
+where the dataset fits in memory.  We do not recommend it for pipelines running
+in production.
+
+Check out the [full documentation](https://bionic.readthedocs.io/en/stable/),
+or go straight to [Get
+Started](https://bionic.readthedocs.io/en/stable/get-started.html).
+
+## Installation
+
+Bionic can be installed from PyPI:
+
+    pip install bionic[standard]
+
+You'll probably want to install [Graphviz](https://www.graphviz.org/) as well.
+See the [Installation
+docs](https://bionic.readthedocs.io/en/stable/get-started.html#installation)
+for more details on installing and configuring Bionic's dependencies.
+
+## Contributing
+
+See the
+[Contribution](https://bionic.readthedocs.io/en/stable/contributing.html)
+section of our docs.
+
+## License
+
+Copyright 2019 Square, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
