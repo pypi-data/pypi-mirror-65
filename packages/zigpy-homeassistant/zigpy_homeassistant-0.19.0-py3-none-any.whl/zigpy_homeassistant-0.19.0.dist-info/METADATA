@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: zigpy-homeassistant
+Version: 0.19.0
+Summary: Library implementing a ZigBee stack
+Home-page: http://github.com/zigpy/zigpy
+Author: Russell Cloran
+Author-email: rcloran@gmail.com
+License: GPL-3.0
+Platform: UNKNOWN
+Requires-Dist: aiohttp
+Requires-Dist: crccheck
+Requires-Dist: pycryptodome
+Requires-Dist: voluptuous
+
+UNKNOWN
+
+
