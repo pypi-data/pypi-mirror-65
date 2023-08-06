@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: virtru-sdk
+Version: 2.1.0
+Summary: Python Wrapper for Virtru SDK
+Home-page: https://developer.virtru.com/
+Author: Virtru
+Author-email: developers@virtru.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+
+# Virtru TDF3 SDK
+
+## License
+
+The following files are covered under the MIT license:
+
+* __init__.py
+
+The following binaries / minified libraries are subject to use under the "Virtru Data Protection Subscription Agreement" 
+found here: https://www.virtru.com/terms-of-service/ 
+
+* virtru_tdf3_python.pyd
+* virtru_tdf3_python.so
+
+All 3rd party packages used in this software are covered by their respective
+licenses, which are detailed in the LICENSE file.
+
+## Obtaining a Virtru AppId
+
+ A Virtru `AppId` token is required to use the TDF3 SDK. [This is how you obtain it](https://developer.virtru.com/docs/how-to-download-appid-token) 
+
+## The Virtru TDF3 Python Sample
+
+For more information on how to use the TDF3 Python module, see the [online documentation](https://docs.developer.virtru.com/python/latest).
+
+### General
++ [Python](http://www.python.org "Python home page") This module is built with Python3 libraries so it will ONLY work
+with python3.
+
+The module works on Linux, Windows and OSX. 
+
+## Installing the module
+
+### OS X And Linux
++ Run `pip3 install virtru-sdk`. The Virtru SDK module will be installed the to `site-packages`.
+
+
+### Windows
+
+`Make sure the Python installed on your windows machine is 64-bit.`
+
++ Run `pip3 install virtru-sdk`. The Virtru SDK module will be installed the to `site-packages`.
+
+
+
