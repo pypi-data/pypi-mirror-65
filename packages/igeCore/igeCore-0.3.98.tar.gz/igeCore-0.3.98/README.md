@@ -1,0 +1,25 @@
+igeCore
+--------
+
+Indi game engine core module
+-------------------------------------------------------------
+
+Indi game engine is a multi-platform game engine developed by indi games.
+
+Since the code built in python runs on the smartphone as it is, you can easily create a smartphone app.
+
+Since 3D rendering is very fast, you can develop full-scale 3D games.
+
+OpenCV, Dlib, and numpy can also be used, so you can create apps that use machine learning.
+
+I would like to support the deep learning framework in the future.
+
+It is currently a pre-alpha version and only works on Windows(32/64)
+
+Specifications may change without notice.
+
+In the spring of 2020, we will announce a version that can develop smartphone apps.
+
+
+Documents here
+https://pyxiedoc2.000webhostapp.com/
