@@ -1,0 +1,15 @@
+DESCRIPTION.rst
+LICENSE.md
+MANIFEST.in
+README.rst
+setup.py
+bash/iam_identities.py
+bash/regions.py
+bash/rulemanager-completion.bash
+rulemanager/__init__.py
+rulemanager/_version.py
+rulemanager/about.py
+rulemanager/cli.py
+rulemanager/config.py
+rulemanager/help.py
+rulemanager/table.py
