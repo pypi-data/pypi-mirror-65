@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: archicad
+Version: 24.2310b3
+Summary: Python binding for the ARCHICAD JSON command interface
+Home-page: https://graphisoft.atlassian.net/wiki/spaces/AC24/pages/4390913/JSON%2BPython%2BAPI%2Bfor%2BARCHICAD
+Author: GRAPHISOFT SE
+Author-email: archicadapi@graphisoft.com
+License: Apache
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# ARCHICAD Python Interface
+
+## Project Description
+
+This is the official Python binding for the ARCHICAD JSON command interface.
+
+This package provides a convenient way to write simple scripts to support your ARCHICAD workflow, e.g. by automating repetitive tasks.
+
+This command interface is only a preview and is subject to change.
+The set of available commands will increase with each release.
+
+## Requirements
+
+* ARCHICAD 24 beta 3 or later.
+* Python 3.7 or later (Tcl/Tk is recommended)
+
+## Getting started
+
+* Install the package with pip
+* *Optional: Enable the experimental Python palette in ARCHICAD*
+* Run your own scripts either from the command line or directly from ARCHICAD
+
+### Documentations
+
+* [Getting Started](https://graphisoft.atlassian.net/wiki/spaces/AC24/pages/4390913/JSON%2BPython%2BAPI%2Bfor%2BARCHICAD)
+* [Reference Manual](https://archicadapi.graphisoft.com/archicadPythonPackage)
+* [Documentation of ARCHICAD's new JSON interface](https://archicadapi.graphisoft.com/JSONInterfaceDocumentation/#Introduction)
+
+## Release notes
+
+### 24.2310b3
+
+* Beta release. Compatible with the official ARCHICAD beta 3.
+* Doesn't compatible with earlier (perview) versions.
+
+
+### 24.2300b1
+
+Preview release. Compatible with the unofficial ARCHICAD beta builds which contain the Python Palette.
+
+### 24.1600a1
+
+* Initial (preview) release
+* Command signatures may change until the final release
+
+
