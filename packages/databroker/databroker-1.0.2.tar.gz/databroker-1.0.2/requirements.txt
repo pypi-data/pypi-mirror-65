@@ -1,0 +1,27 @@
+boltons
+cachetools
+dask[array,bag]
+doct
+event-model >=1.14.0
+humanize
+intake >=0.5.5
+jinja2
+jsonschema
+mongoquery
+msgpack
+msgpack-numpy  # to be split into extras or a separate package
+numpy
+pandas
+pims
+pymongo  # to be split into extras or a separate package
+pytz
+pyyaml
+requests
+six
+suitcase-mongo  # for back-compat to support insert()
+suitcase-msgpack  # for back-compat to support insert on Broker.named('temp')
+tifffile !=2019.7.26.2
+toolz
+tzlocal
+xarray
+zarr
