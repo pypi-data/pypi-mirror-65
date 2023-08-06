@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: unpywall
+Version: 0.1.6
+Summary: Interfacing the Unpaywall Database with Python
+Home-page: https://github.com/naustica/unpywall
+Author: Nick Haupka
+Author-email: nick.haupka@gmail.com
+License: MIT
+Description: # unpywall - Interfacing the Unpaywall API with Python
+        
+        [![codecov.io](https://codecov.io/gh/naustica/unpywall/branch/master/graph/badge.svg)](https://codecov.io/gh/naustica/unpywall?branch=master)
+        
+        ## Introduction
+        
+        unpywall is a Python client that utilize the [Unpaywall REST API](https://unpaywall.org/products/api) for scholarly analysis with [pandas](https://pandas.pydata.org/).
+        
+        This package is influenced by [roadoi](https://github.com/ropensci/roadoi), a R client that interacts with the Unpaywall API.
+        
+        ## Install
+        
+        Install from [pypi](https://pypi.org/project/unpywall/) using pip:
+        ```python
+        pip install unpywall
+        ```
+        
+        ## Use
+        
+        Use the `get` method to query the Unpaywall API. In order to interface the API, your email must be included. The method returns a pandas DataFrame.
+        
+        ```python
+        from unpywall import Unpywall
+        
+        Unpywall.get(dois=['10.1038/nature12373', '10.1093/nar/gkr1047'],
+                     email='nick.haupka@gmail.com')
+        ```
+        
+        By setting the parameter progress to True, you can monitore the progress of your API call.
+        
+        ```python
+        Unpywall.get(dois=['10.1038/nature12373', '10.1093/nar/gkr1047'],
+                     email='nick.haupka@gmail.com',
+                     progress=True)
+        ```
+        
+        Keep in mind that network errors can occur. Change the errors parameter to `ignore` to avoid a script abort.
+        
+        ```python
+        Unpywall.get(dois=['10.1038/nature12373', '10.1093/nar/gkr1047'],
+                     email='nick.haupka@gmail.com',
+                     errors='ignore')
+        ```
+        
+        ## Develop
+        
+        To install unpywall, along with dev tools, run:
+        
+        ```python
+        pip install -e .[dev]
+        ```
+        
+Keywords: Unpaywall
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Provides-Extra: dev
