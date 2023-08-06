@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+github2pypi/__init__.py
+github2pypi/replace_url.py
+logtable/__init__.py
+logtable/cli.py
+logtable/parser.py
+logtable.egg-info/PKG-INFO
+logtable.egg-info/SOURCES.txt
+logtable.egg-info/dependency_links.txt
+logtable.egg-info/entry_points.txt
+logtable.egg-info/requires.txt
+logtable.egg-info/top_level.txt
