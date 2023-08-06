@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "enalp_cli"
+version = "0.1.0"
+description = "Easy NAtural Language Processig CLI Tool for Tokenization, POS, Sentiment Analysis, Translations and more."
+authors = ["Rosario Moscato <rosario.moscato@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/rosariomoscato"
+repository = "https://github.com/rosariomoscato/enalp_cli"
+keywords = ["word token","sentence token","sentiment analysis","part of speech","named entity recognition","rosario moscato","machine learning"]
+
+classifiers = [
+		"License :: OSI Approved :: MIT License",
+		"Programming Language :: Python :: 3",
+		"Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+click = "^7.1.1"
+textblob = "^0.15.3"
+pyfiglet = "^0.8.post1"
+click_help_colors = "^0.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+enalp_cli = "enalp_cli.enalp_cli:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
