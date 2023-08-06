@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pylidartracker
+Version: 1.0.0
+Summary: UI for processing of data collected with Velodyne lidar
+Home-page: https://github.com/mihsamusev/pylidartracker
+Author: Mihhail Samusev
+Author-email: msam@build.aau.dk
+License: MIT
+Keywords: lidar tracking clustering traffic analysis processing velodyne
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Dist: dpkt
+Requires-Dist: numpy
+Requires-Dist: scikit-image
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: PyQt5
+Requires-Dist: pyopengl
+Requires-Dist: pyqtgraph
+
+Check the GitHub homepage for getting started
+
+
