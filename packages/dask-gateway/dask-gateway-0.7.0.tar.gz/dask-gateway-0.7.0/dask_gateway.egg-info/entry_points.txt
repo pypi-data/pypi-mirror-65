@@ -1,0 +1,4 @@
+[console_scripts]
+dask-gateway-scheduler = dask_gateway.dask_cli:scheduler
+dask-gateway-worker = dask_gateway.dask_cli:worker
+
