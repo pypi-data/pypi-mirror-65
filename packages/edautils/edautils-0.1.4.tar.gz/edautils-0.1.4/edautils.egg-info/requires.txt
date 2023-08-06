@@ -1,0 +1,7 @@
+pandas>=0.25.2
+numpy>=1.17.0
+matplotlib>=3.0.0
+
+[tests]
+pytest>=4.0.0
+pytest-pep8

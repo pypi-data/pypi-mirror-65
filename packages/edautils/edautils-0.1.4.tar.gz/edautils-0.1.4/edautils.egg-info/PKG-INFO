@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: edautils
+Version: 0.1.4
+Summary: Exploratory data analysis (EDA) helper functions
+Home-page: https://github.com/davidfurrer/edautils
+Author: David Furrer
+Author-email: furrer.david1@gmail.com
+License: MIT
+Description: 
+        **edautils** is a Python package providing exploratory data analysis (EDA) helper functions. 
+        edautils is well suited for many different kinds of applications:
+          - Visualizing distributions
+          - Summarizing datasets 
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: tests
