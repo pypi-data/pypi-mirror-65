@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: redshift-upload
+Version: 0.1.1
+Summary: High performance uploading to AWS Redshift using S3.
+Home-page: https://gitlab.com/Weather2020/redshift_upload
+Author: Weather 2020 LLC
+Author-email: max@weather2020.com
+License: UNKNOWN
+Keywords: redshift copy s3 etl
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: boto3
+
+UNKNOWN
+
+
