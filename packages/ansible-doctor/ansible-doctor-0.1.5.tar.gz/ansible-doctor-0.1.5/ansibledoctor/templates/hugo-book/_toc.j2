@@ -1,0 +1,10 @@
+{% set var = role.var | default({}) %}
+{% if var %}
+* [Default Variables](#default-variables)
+{% for key, item in var | dictsort %}
+  * [{{ key }}](#{{ key | replace("_", "-") }})
+{% endfor %}
+{% endif %}
+* [Dependencies](#dependencies)
+
+---
