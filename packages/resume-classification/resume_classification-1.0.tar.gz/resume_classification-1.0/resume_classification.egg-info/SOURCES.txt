@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+resume_classification/__init__.py
+resume_classification/config.py
+resume_classification/utils.py
+resume_classification.egg-info/PKG-INFO
+resume_classification.egg-info/SOURCES.txt
+resume_classification.egg-info/dependency_links.txt
+resume_classification.egg-info/requires.txt
+resume_classification.egg-info/top_level.txt
+resume_classification/prediction/__init__.py
+resume_classification/prediction/predict.py
+resume_classification/training/__init__.py
+resume_classification/training/train.py
