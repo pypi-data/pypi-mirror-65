@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2020-04-09 18:11-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../../../funcion/alertarAtaques.py:29
+msgid "¿Cada cuántos minutos buscar ataques?(min:3, default: 20): "
+msgstr "How often should I search for attacks?(min:3, default: 20): "
+
+#: ../../../funcion/alertarAtaques.py:32
+msgid "Se buscarán ataques cada {} minutos."
+msgstr "I will check for attacks every {} minutes"
+
+#: ../../../funcion/alertarAtaques.py:39
+msgid ""
+"\n"
+"Espero por ataques cada {} minutos\n"
+msgstr ""
+"\n"
+"I check for attacks every {} minutes\n"
+
+#: ../../../funcion/alertarAtaques.py:44
+msgid ""
+"Error en:\n"
+"{}\n"
+"Causa:\n"
+"{}"
+msgstr ""
+"Error in:\n"
+"{}\n"
+"Cause:\n"
+"{}"
+
+#: ../../../funcion/alertarAtaques.py:72
+msgid "Comando inválido: {:d}"
+msgstr "Invalid command: {:d}"
+
+#: ../../../funcion/alertarAtaques.py:100
+msgid ""
+"-- ALERTA --\n"
+msgstr ""
+"-- ALERT --\n"
+
+#: ../../../funcion/alertarAtaques.py:102
+msgid ""
+"de la ciudad {} de {}\n"
+msgstr ""
+"from the city {} of {}\n"
+
+#: ../../../funcion/alertarAtaques.py:103
+msgid ""
+"a {}\n"
+msgstr ""
+"to {}\n"
+
+#: ../../../funcion/alertarAtaques.py:104
+msgid ""
+"{} unidades\n"
+msgstr ""
+"{} units\n"
+
+#: ../../../funcion/alertarAtaques.py:105
+msgid ""
+"{} flotas\n"
+msgstr ""
+"{} fleet\n"
+
+#: ../../../funcion/alertarAtaques.py:106
+msgid ""
+"llegada en: {}\n"
+msgstr ""
+"arrival in: {}\n"
+
+#: ../../../funcion/alertarAtaques.py:107
+msgid ""
+"Si quiere poner la cuenta en modo vacaciones envíe:\n"
+msgstr ""
+"If you want to put the account in vacation mode send:\n"
+
+#: ../../../funcion/alertarAtaques.py:108
+msgid "{:d}:1"
+msgstr "{:d}:1"
+
