@@ -1,0 +1,52 @@
+# Encrypted Socket Server
+
+<i>Secured yet simple socket server-client for interprocess communications.</i>
+
+# Hierarchy
+
+```
+encrypted_socket_server
+|---- SS()
+|   |---- start()
+|   '---- stop()
+'---- SC()
+    '---- request()
+```
+
+# Example
+
+## python
+```python
+# You can start an unencrypted socket server if you know what you are doing
+# SS(host="remote ip", port=12321, encrypted=False)
+# SC(host="remote ip", port=12321, encrypted=False)
+
+from encrypted_socket_server import *
+
+# server
+def test(data: Any) -> str:
+    return f"Data:\t{data}"
+functions = dict(test=test)
+SS(functions=functions).start()
+print("test socket server started.", flush=True)
+# # Nothing is printed, you must start it from an other thread
+
+# client
+for i in range(5):
+    print(SC().request(command="test", data=f"Hello, {i}!"))
+print("test socket client started.", flush=True)
+# Data:   Hello, 0!
+# Data:   Hello, 1!
+# Data:   Hello, 2!
+# Data:   Hello, 3!
+# Data:   Hello, 4!
+# test socket client started.
+```
+
+## shell
+```shell script
+rem encrypted_socket_server.exe {server|client}
+rem echo test server-client example
+encrypted_socket_server.exe server
+encrypted_socket_server.exe client
+```
