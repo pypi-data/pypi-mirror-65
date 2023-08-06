@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: gym-craftingworld
+Version: 0.1.5.1
+Summary: A gym package for the 2d crafting multitask world
+Home-page: https://https://github.com/lauradarcy/gym-craftingworld
+Author: Laura D'Arcy
+Author-email: DArcyL@cardiff.ac.uk
+License: UNKNOWN
+Description: # gym-craftingworld
+        [![Documentation Status](https://readthedocs.org/projects/gym-craftingworld/badge/?version=latest)](https://gym-craftingworld.readthedocs.io/en/latest/?badge=latest)
+        
+        This is an (in-progress) pip-installable gym package for a 2-D crafting environment first described in the [Plan Arithmetic](https://arxiv.org/abs/1910.14033) paper published in Neurips 2019. 
+        
+        To store each episode as a gif, call ```env.allow_gif_storage()```, which will store each episode under a ```/renders/``` subdirectory
+        
+        Mechanics of this environment are not mine, this is an adaptation of the [original repo](https://github.com/cdevin/craftingworld).
+        
+        You can read the documentation [here](https://gym-craftingworld.readthedocs.io/).
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
