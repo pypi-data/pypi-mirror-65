@@ -1,0 +1,3 @@
+[console_scripts]
+influx-rp-generator = rp_generator.__main__:main
+

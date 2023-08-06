@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: influx-rp-generator
+Version: 0.0.11
+Summary: Influx service to automatically generate RPs and switch requests automatically between Grafana and InfluxDB
+Home-page: https://github.com/howlets/influxdb_downsampling
+Author: Mykola Kondratiuk
+Author-email: howlets.io@gmail.com
+License: Apache License 2.0
+Download-URL: https://github.com/howlets/influxdb_downsampling/archive/0.0.11.tar.gz
+Description: UNKNOWN
+Keywords: influxdb,grafana,downsampling,influx proxy
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Programming Language :: Python :: 3.6
