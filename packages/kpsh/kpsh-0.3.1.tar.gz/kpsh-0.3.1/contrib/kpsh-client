@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2019 Michał Góral.
+
+import os
+import sys
+import argparse
+import tempfile
+from getpass import getpass
+import socket
+import struct
+
+def eprint(*a, **kw):
+    kw['file'] = sys.stderr
+    print(*a, **kw)
+
+
+def default_sock_path():
+    tmp = tempfile.gettempdir()
+    fname = 'kpsh-{}.sock'.format(os.getuid())
+    return os.path.join(tmp, fname)
+
+
+def send(sock, msg):
+    data = msg.encode()
+    msglen = struct.pack('!i', len(data))
+    sock.send(msglen)
+    sock.send(data)
+
+
+def recv(sock):
+    msglen = sock.recv(4)
+    size = struct.unpack("!i", msglen)[0]
+    data = sock.recv(size)
+    return data.decode()
+
+
+def prepare_args():
+    ap = argparse.ArgumentParser(
+        description='Client program which sends commands to kpsh-daemon.')
+
+    ap.add_argument('-s', '--socket-path', default=default_sock_path(),
+                    help='Path to the socket to which client will connect.')
+    ap.add_argument('command', nargs=argparse.REMAINDER)
+
+    return ap.parse_args()
+
+def main():
+    args = prepare_args()
+
+    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as sock:
+        try:
+            sock.connect(args.socket_path)
+        except (FileNotFoundError, ConnectionRefusedError):
+            eprint('Unable to connect to socket \'{}\' '
+                '- is daemon running?'.format(args.socket_path))
+            return 1
+
+        send(sock, ' '.join(args.command))
+
+        while True:
+            try:
+                resp = recv(sock)
+            except EOFError:
+                break
+            except ConnectionResetError:
+                eprint('Connection reset by kpsh server - probably other '
+                       'client currently blocks it.')
+                return 1
+
+            if resp == 'OK':
+                break
+
+            resptype, _, msg = resp.partition(' ')
+
+            if resptype == 'M':
+                print(msg)
+            elif resptype == 'E':
+                eprint(msg)
+            elif resptype == 'P':
+                try:
+                    send(sock, input(msg))
+                except EOFError:
+                    return 1
+            elif resptype == 'PS':
+                try:
+                    send(sock, getpass(msg))
+                except (EOFError, KeyboardInterrupt):
+                    return 1
+
+
+sys.exit(main())

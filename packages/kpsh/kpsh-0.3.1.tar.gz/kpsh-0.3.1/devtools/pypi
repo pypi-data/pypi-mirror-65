@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+if [ -z "$1" -o -z "$2" ]; then
+    echo "usage: pypi <user> <password>"
+    exit 1
+fi
+
+cd "$DIR/.."
+
+rm -rf dist
+python3 setup.py sdist bdist_wheel
+
+pipenv check || exit 1
+pipenv run twine check dist/* || exit 1
+
+pipenv run twine upload dist/* -u "$1" -p "$2"

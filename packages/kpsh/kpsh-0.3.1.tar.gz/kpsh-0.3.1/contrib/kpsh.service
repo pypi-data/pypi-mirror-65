@@ -1,0 +1,9 @@
+[Unit]
+Description=KeePass Shell Daemon
+
+[Service]
+ExecStart=%h/.local/bin/kpsh -d
+Restart=always
+
+[Install]
+WantedBy=default.target

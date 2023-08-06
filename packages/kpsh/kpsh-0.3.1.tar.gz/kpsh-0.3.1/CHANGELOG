@@ -1,0 +1,51 @@
+kpsh (0.3.1)
+
+  * Updated libraries version (old versions don't work anymore)
+
+ -- Michał Góral <dev@goral.net.pl> Fri, 10 Apr 2020 01:07:57 +0200
+
+kpsh (0.3)
+
+  * BREAKING: kpsh-menu: now it operates only with kpsh in daemon mode (see
+    below)
+  * KPSH can work as a daemon which can communicate with client processes via a
+    simple socket-based text protocol. It is enabled by running kpsh -d.
+  * Added kpsh-client script to contrib. It implements a command-line client to
+    KPSH daemon mode.
+  * New command: db to query which database is opened.
+  * Watch database for changes and reload if needed
+  * BUGFIX: Passing to xdotool (autotype) strings which start with a hyphen, 
+    which were interpreted by xdotool as switches instead of literal strings
+  * BUGFIX: Fixed a crash when trying to query unopened database via socket
+  * BUGFIX: Fixed not resetting password when database is opened simultaneously.
+
+ -- Michał Góral <dev@goral.net.pl> Fri, 10 Jan 2020 07:53:49 +0100
+
+kpsh (0.2)
+
+  * Commands completion
+  * Better, more fine-grained database locking/unlocking
+  * Add some colors to the prompt.
+  * Increase default xdotool delay.
+  * Make autotype delay configurable
+  * ls: accept glob pattern
+  * Rename menu.py to kpsh-menu
+  * kpsh-menu: configurable kpsh executable
+  * kpsh-menu: added --notify
+  * kpsh-menu: --option-prefix
+  * kpsh-menu: added -o and -l arguments.
+  * kpsh-menu: rewrite to asyncio (with min. Python 3.7 features)
+  * Improved help section of kpsh-menu
+  * BUGFIX: Don't open not existing files
+  * BUGFIX: Fix using first correct password.
+  * BUGFIX: Catch exceptions during database unlocking.
+  * BUGFIX: kpsh-menu: wait for menu to exit before executing a command.
+  * BUGFIX: kpsh-menu: write EOM conditionally
+
+ -- Michał Góral <dev@goral.net.pl> Thu, 19 Sep 2019 21:05:53 +0200
+
+kpsh (0.1)
+
+Initial release
+
+ -- Michał Góral <dev@goral.net.pl> Thu, 19 Sep 2019 21:05:32 +0200
