@@ -1,0 +1,84 @@
+{% extends "base_ext.html" %}
+
+{% load crispy_forms_tags %}
+{% load bootstrap_pagination %}
+{% load lbworkflow_tags %}
+
+{% block nav_sel_node %}id-nav-todo{% endblock %}
+
+{% block right_side %}
+  <section class="content-header">
+    {% include "incs/messages.html" %}
+    <div class="right-btns">
+        <a href="{% url 'wf_start_wf' %}">
+          Submit a new workflow
+        </a>
+    </div>
+    <h1>
+      Todo
+    </h1>
+  </section>
+  <section class="content">
+    <div class="box">
+      {% if search_form %}
+      <div class="box-header">
+        <div class="input-group">
+          {% crispy search_form %}
+        </div>
+      </div>
+      {% endif %}
+      <div class="box-body table-responsive no-padding">
+        <form id="id-list-form" action="{% url 'wf_batch_agree' %}" method="post">
+          {% csrf_token %}
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th>
+                  <input type="checkbox" onclick="$('[name=wi]').prop( 'checked', $(this).prop('checked'));"/>
+                </th>
+                <th>NO.</th>
+                <th>Process name</th>
+                <th>Summary</th>
+                <th>Created on</th>
+                <th>Created by</th>
+                <th>Current operator</th>
+                <th>Node</th>
+              </tr>
+              {% for o in object_list %}{% with pi=o.instance %}
+                <tr>
+                  <td>
+                    <input type="checkbox" name="wi" value="{{ o.pk }}"/>
+                  </td>
+                  <td><a href="{% url 'wf_detail' pi.pk %}">{{ pi.no }}</a></td>
+                  <td>{{ pi.process.name }}</td>
+                  <td>{{ pi.summary }}</td>
+                  <td>{{ pi.created_on|date:"Y-m-d H:i" }}</td>
+                  <td>{{ pi.created_by }}</td>
+                  <td>{{ pi.get_operators_display }}</td>
+                  <td>
+                    <span class="label label-{{ pi|flow_status_css_class }}">
+                      {{ pi.cur_node.name }}
+                    </span>
+                  </td>
+                </tr>
+              {% endwith %}{% endfor %}
+            </tbody>
+          </table>
+        </form>
+      </div>
+      <div class="box-footer clearfix">
+        {% bootstrap_paginate page_obj %}
+        <div style="float:right">
+          <button class="btn btn-sm btn-default"
+                  onclick="$('#id-list-form').attr('action', '{% url 'wf_batch_agree' %}');$('#id-list-form').submit()">
+            Agree
+          </button>
+          <button class="btn btn-sm btn-danger"
+                  onclick="$('#id-list-form').attr('action', '{% url 'wf_batch_reject' %}');$('#id-list-form').submit()">
+            Reject
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

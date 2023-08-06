@@ -1,0 +1,34 @@
+<table class="table table-bordered gray-th wf-act-history">
+  <tbody>
+    <tr>
+      <th>On</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Old node</th>
+      <th>New node</th>
+      <th>Note</th>
+      <th>Notice users</th>
+    </tr>
+    {% for e in wf_history %}
+      <tr>
+        <td>{{ e.created_on|date:"Y-m-d H:i" }}</td>
+        <td>{{ e.user }}</td>
+        <td>{{ e.get_act_name }}</td>
+        <td>{{ e.old_node.name }}</td>
+        <td>{{ e.new_node.name }}</td>
+        <td>
+          {% if e.comment %}
+            {{ e.comment|linebreaksbr }}
+          {% endif %}
+          {% for a in e.attachments.all %}
+            <a href="{% url 'lbattachment_download' %}?pk={{ a.pk }}">{{ a.filename }}</a>
+            <br>
+          {% endfor %}
+        </td>
+        <td>
+          {{ e.get_next_notice_users_display }}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

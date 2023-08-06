@@ -1,0 +1,55 @@
+from lbworkflow.views.generics import CreateView
+from lbworkflow.views.generics import UpdateView
+from lbworkflow.views.generics import WFListView[% if item_list %]
+from lbworkflow.views.forms import BSFormSetMixin[% endif %]
+
+from .forms import [[ class_name ]]Form
+[% if item_list %][% for item in item_list %]
+from .forms import get_[[ item.lowercase_class_name ]]_formset_class
+[% endfor %][% endif %]
+from .models import [[ class_name ]]
+
+
+class [[ class_name ]]CreateView([% if item_list %]BSFormSetMixin, [% endif %]CreateView):
+    form_classes = {
+        'form': [[ class_name ]]Form,
+        [% if item_list %][% for item in item_list %]
+        'fs_[[ item.lowercase_class_name ]]': get_[[ item.lowercase_class_name ]]_formset_class(),
+        [% endfor %][% endif %]
+    }
+
+
+new = [[ class_name ]]CreateView.as_view()
+
+
+class [[ class_name ]]UpdateView([% if item_list %]BSFormSetMixin, [% endif %]UpdateView):
+    form_classes = {
+        'form': [[ class_name ]]Form,
+        [% if item_list %][% for item in item_list %]
+        'fs_[[ item.lowercase_class_name ]]': get_[[ item.lowercase_class_name ]]_formset_class(),
+        [% endfor %][% endif %]
+    }
+
+
+edit = [[ class_name ]]UpdateView.as_view()
+
+
+class [[ class_name ]]ListView(WFListView):
+    wf_code = '[[ wf_code ]]'
+    model = [[ class_name ]]
+    excel_file_name = '[[ wf_code ]]'
+    excel_titles = [
+        'Created on', 'Created by',
+        [% for f in fields %]'[[ f.verbose_name ]]', [% endfor %]
+        'Status',
+    ]
+
+    def get_excel_data(self, o):
+        return [
+            o.created_by.username, o.created_on,
+            [% for f in fields %]o.[[ f.name ]], [% endfor %]
+            o.pinstance.cur_node.name,
+        ]
+
+
+show_list = [[ class_name ]]ListView.as_view()
