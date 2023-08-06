@@ -1,0 +1,11 @@
+# data
+include templateflow/conf/config.json
+include templateflow/conf/templateflow-skel.zip
+include templateflow/conf/templateflow-skel.md5
+
+recursive-exclude .circleci/ *
+recursive-exclude .github/ *
+recursive-exclude docker/ *
+recursive-exclude docs/ *
+recursive-exclude joss/ *
+exclude .codecov.yml .coveragerc .gitignore .gitattributes .pep8speaks.yml .travis.yml .zenodo.json codecov.yml Dockerfile update_changes.sh
