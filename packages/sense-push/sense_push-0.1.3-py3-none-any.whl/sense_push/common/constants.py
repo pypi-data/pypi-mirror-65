@@ -1,0 +1,6 @@
+PUSH_ACTION_INSERT = "insert"
+PUSH_ACTION_UPDATE = "update"
+PUSH_ACTION_DELETE = "delete"
+PUSH_ACTION_DROP = "drop"
+PUSH_ACTION_REBUILD_START = "rebuild_start"
+PUSH_ACTION_REBUILD_END = "rebuild_end"
