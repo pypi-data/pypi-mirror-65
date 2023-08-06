@@ -1,0 +1,6 @@
+numba>=0.45
+numpy>=1.13.3
+pyteomics>=3.5.1
+torch==1.0.0
+faiss-gpu>=1.5.3
+more_itertools==7.1.0
