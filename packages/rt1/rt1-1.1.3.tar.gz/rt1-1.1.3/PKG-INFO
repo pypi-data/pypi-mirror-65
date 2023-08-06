@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: rt1
+Version: 1.1.3
+Summary: RT1 - bistatic single scattering radiative transfer model
+Home-page: https://github.com/TUW-GEO/rt1
+Author: Raphael Quast
+Author-email: raphael.quast@geo.tuwien.ac.at
+Maintainer: Raphael Quast
+Maintainer-email: raphael.quast@geo.tuwien.ac.at
+License: UNKNOWN
+Description: A module to perform forward-simulation and parameter-inversion of incidence-angle dependent backscatter observations based on a first-order radiative-transfer model describing a rough surfacecovered by a homogeneous layer of scatteringmedia.
+Keywords: physics,radiative transfer
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: symengine
