@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "curlipie"
+version = "0.7.2"
+description = "Library to convert cURL command line to HTTPie"
+authors = ["Nguyễn Hồng Quân <ng.hong.quan@gmail.com>"]
+maintainers = [
+    "Nguyễn Hồng Quân <ng.hong.quan@gmail.com>"
+]
+license = "MPL-2.0"
+readme = "README.rst"
+repository = "https://github.com/hongquan/CurliPie.git"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Environment :: Web Environment",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+keywords = ["api", "http", "curl", "httpie", "cli", "conversion"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+typed-argument-parser = "^1.4"
+multidict = "^4.7.4"
+yarl = "^1.4.2"
+orjson = { version = "^2.2.0", markers = "python_version >= '3.7'" }
+first = "^2.0.2"
+python-rapidjson = { version = "^0.9.1", markers = "python_version ~= '3.6'" }
+single-version = "^1.1"
+werkzeug = "^1.0.1"
+http-constants = "^0.4.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+devtools = "^0.5.1"
+pytest-flake8 = "^1.0.4"
+fastapi = "^0.47.1"
+uvicorn = "^0.11.2"
+logbook = "^1.5.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
