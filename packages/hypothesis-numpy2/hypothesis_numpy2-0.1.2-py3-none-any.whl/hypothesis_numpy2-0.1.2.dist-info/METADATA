@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: hypothesis-numpy2
+Version: 0.1.2
+Summary: Provides strategies for generating various `numpy` objects
+Home-page: UNKNOWN
+Author: Bao Wei
+Author-email: baowei.ur521@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: hypothesis (>=5.8)
+Requires-Dist: hypothesis-auto-draw (>=0.1)
+Requires-Dist: numpy (>=1.18)
+
+# hypothesis-numpy2
+Provides strategies for generating various `numpy` objects
+
+
