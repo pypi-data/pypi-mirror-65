@@ -1,0 +1,30 @@
+{
+    "version": "1.0",
+    "dependency": [],
+    "processor": {
+        "version": "1.0",
+        "instance": {
+            "Processor_0": {
+                "class": "",
+                "parameter": {}
+            }
+        },
+        "pipeline": {
+            "pre": [
+                "Processor_0"
+            ],
+            "post": [
+                "Processor_0"
+            ]
+        }
+    },
+    "model": {
+        "version": "1.0",
+        "type": "dummy_model",
+        "custom_object_dependency": []
+    },
+    "metadata": {
+        "version": "1.0",
+        "id": "algorithmId-corpusId-configId-runId"
+    }
+}
