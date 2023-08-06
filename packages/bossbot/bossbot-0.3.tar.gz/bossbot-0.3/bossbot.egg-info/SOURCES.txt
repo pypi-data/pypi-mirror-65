@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+bossbot/__init__.py
+bossbot/bossbot.py
+bossbot/proto_pb2.py
+bossbot/protobuf_json.py
+bossbot.egg-info/PKG-INFO
+bossbot.egg-info/SOURCES.txt
+bossbot.egg-info/dependency_links.txt
+bossbot.egg-info/requires.txt
+bossbot.egg-info/top_level.txt
+examples/__init__.py
+examples/bossBot_test.py
