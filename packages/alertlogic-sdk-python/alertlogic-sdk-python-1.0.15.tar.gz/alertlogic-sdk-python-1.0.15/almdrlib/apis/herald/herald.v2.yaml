@@ -1,0 +1,105 @@
+openapi: 3.0.2
+info:
+  title: Hearld Notifications Service
+  version: '1.0'
+  description: ''
+servers:
+  - url: 'https://api.cloudinsight.alertlogic.com'
+    description: production
+    x-alertlogic-session-endpoint: true
+  - url: 'https://api.cloudinsight.product.dev.alertlogic.com'
+    description: integration
+    x-alertlogic-session-endpoint: true
+paths:
+  '/herald/v2/{account_id}/integrations':
+    get:
+      summary: List Integrations
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IntegrationSpec'
+      operationId: list_integrations
+      description: |
+        List the specified account integration
+      security:
+        - X-AIMS-Auth-Token: []
+    parameters:
+      - schema:
+          type: string
+        name: account_id
+        in: path
+        required: true
+        description: AIMS Account ID
+  '/herald/v2/{account_id}/integrations/{type}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: create_integration
+      security:
+        - X-AIMS-Auth-Token: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebHookSpec'
+    parameters:
+      - schema:
+          type: string
+        name: account_id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: type
+        in: path
+        required: true
+components:
+  schemas:
+    IntegrationSpec:
+      title: IntegrationSpec
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        target_url:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        headers:
+          type: object
+          properties:
+            X-Header:
+              type: string
+    WebHookSpec:
+      title: WebHookSpec
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the integration.
+        target_url:
+          type: string
+          description: 'The target URL for the webhook. [Must be unique and must be https].'
+        headers:
+          type: object
+          description: A list of headers to be send with each request.
+      required:
+        - name
+        - target_url
+  securitySchemes:
+    X-AIMS-Auth-Token:
+      name: X-AIMS-Auth-Token
+      type: apiKey
+      in: header
+
