@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: gobgp_client
+Version: 0.0.3
+Summary: Python gRPC client for GoBGP
+Home-page: https://github.com/k01ek/gobgp_client
+Author: Nikolay Yuzefovich
+Author-email: mgk.kolek@gmail.com
+License: MIT
+Description: # gobgp_client
+        Python gRPC client for GoBGP
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
