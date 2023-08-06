@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pytest-historic
+Version: 0.1.2
+Summary: Custom report to display pytest historical execution records
+Home-page: https://github.com/adiralashiva8/pytest-historic
+Author: Shiva Prasad Adirala
+Author-email: adiralashiva8@gmail.com
+License: MIT
+Keywords: pytest historical execution report
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: pytest
+Requires-Dist: config
+Requires-Dist: flask
+Requires-Dist: flask-mysqldb
+
+Pytest Historic is custom report to display historical execution records using MySQL + Flask
+
+
