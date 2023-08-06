@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+
+import argparse
+from ecpc._version import __version__
+from ecpc import commands
+
+parser = argparse.ArgumentParser(description='ECPC: simple Amazon EC2 instances.')
+parser.add_argument('-V', '--version', action='version', version=__version__)
+subparsers = parser.add_subparsers(dest='subparser_name')
+
+list_parser = subparsers.add_parser('list', description='List available instances', help='list current instances')
+
+create_parser = subparsers.add_parser('create', description='Create and launch a new instance', help='create and launch an instance')
+create_parser.add_argument('instance_name', help='Name for this instance')
+create_parser.add_argument('-r', '--region', help='Region to use')
+create_parser.add_argument('-t', '--instance_type', help='Instance type')
+create_parser.add_argument('-n', '--image_name', help='Image name')
+
+login_parser = subparsers.add_parser('login', description='Log in to an instance', help='login to an instance')
+login_parser.add_argument('uid')
+
+transfer_parser = subparsers.add_parser('transfer', description='Transfer files to/from an instance', help='transfer files to/from an instance')
+transfer_parser.add_argument('source', help='File or directory to transfer')
+transfer_parser.add_argument('target', help='Destination file or directory')
+
+save_parser = subparsers.add_parser('save', description='Save a copy of an instance as an AMI')
+save_parser.add_argument('uid')
+save_parser.add_argument('-n', '--image_name', help='Image name')
+
+terminate_parser = subparsers.add_parser('terminate', description='Terminate an instance', help='terminate an instance')
+terminate_parser.add_argument('uid')
+
+args = parser.parse_args()
+
+if args.subparser_name == 'list':
+    commands.list_instances()
+
+if args.subparser_name == 'create':
+    commands.create_instance(args.region, args.instance_type, tag=args.instance_name, source=args.image_name)
+
+if args.subparser_name == 'terminate':
+    commands.terminate_instance(args.uid)
+
+if args.subparser_name == 'login':
+    commands.login_instance(args.uid)
+
+if args.subparser_name == 'save':
+    commands.create_image(args.uid, name=args.image_name)
+
+if args.subparser_name == 'transfer':
+    commands.transfer(args.source, args.target)
