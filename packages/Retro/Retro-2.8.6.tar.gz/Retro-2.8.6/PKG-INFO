@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: Retro
+Version: 2.8.6
+Summary: Lightweight Declarative Web Toolkit
+Home-page: http://www.github.com/sebastien/retro
+Author: Sebastien Pierre
+Author-email: sebastien.pierre@gmail.com
+License: Revised BSD License
+Download-URL: http://github.com/sebastien/retro/tarball/2.8.6
+Description: Retro is a lightweight declarative web toolkit designed to make it easier to
+        develop web services and Web applications in Python. Retro uses WSGI and
+        provide a set of decorators that make it very easy to turn your existing code
+        into a web application or to write new ones.
+        
+Keywords: web,lightweight,framework,http,declarative
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
