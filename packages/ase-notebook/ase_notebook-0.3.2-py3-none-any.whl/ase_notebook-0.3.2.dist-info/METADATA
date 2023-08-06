@@ -1,0 +1,124 @@
+Metadata-Version: 2.1
+Name: ase-notebook
+Version: 0.3.2
+Summary: Highly configurable 2D (SVG) & 3D (threejs) visualisations for ASE/Pymatgen structures, within the Jupyter Notebook
+Home-page: https://github.com/chrisjsewell/ase-notebook
+Author: Chris Sewell
+Author-email: chrisj_sewell@hotmail.com
+Maintainer: Chris Sewell
+Maintainer-email: chrisj_sewell@hotmail.com
+License: MIT
+Project-URL: Documentation, https://ase-notebook.readthedocs.io/
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: ase (<4,>=3.18)
+Requires-Dist: attrs (<20,>=19)
+Requires-Dist: importlib-resources (<2,>=1)
+Requires-Dist: numpy (<1.19,>=1.16.4)
+Requires-Dist: matplotlib (<4,>=3.1)
+Requires-Dist: svgwrite (<2,>=1.3)
+Provides-Extra: code_style
+Requires-Dist: black (==19.3b0) ; extra == 'code_style'
+Requires-Dist: pre-commit (==1.17.0) ; extra == 'code_style'
+Requires-Dist: flake8 (<3.8.0,>=3.7.0) ; extra == 'code_style'
+Requires-Dist: doc8 (<0.9.0,>=0.8.0) ; extra == 'code_style'
+Requires-Dist: pygments ; extra == 'code_style'
+Provides-Extra: docs
+Requires-Dist: sphinx (<3,>=1.8) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: ipypublish (>=0.10.10) ; extra == 'docs'
+Requires-Dist: ipython ; extra == 'docs'
+Provides-Extra: flake8_plugins
+Requires-Dist: flake8-comprehensions ; extra == 'flake8_plugins'
+Requires-Dist: flake8-docstrings ; extra == 'flake8_plugins'
+Requires-Dist: flake8-builtins ; extra == 'flake8_plugins'
+Requires-Dist: import-order ; extra == 'flake8_plugins'
+Provides-Extra: svg2pdf
+Requires-Dist: svglib (<1,>=0.9) ; extra == 'svg2pdf'
+Requires-Dist: reportlab (<4,>=3.5) ; extra == 'svg2pdf'
+Provides-Extra: svgconcat
+Requires-Dist: svgutils (<0.4,>=0.3) ; extra == 'svgconcat'
+Provides-Extra: testing
+Requires-Dist: coverage ; extra == 'testing'
+Requires-Dist: pytest (<4,>=3.6) ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Provides-Extra: threejs
+Requires-Dist: pythreejs (<3,>=2.1) ; extra == 'threejs'
+Requires-Dist: ipywidgets (<8,>=7.5) ; extra == 'threejs'
+
+# ase-notebook
+
+[![CI Status](https://travis-ci.org/chrisjsewell/ase-notebook.svg?branch=develop)](https://travis-ci.org/chrisjsewell/ase-notebook)
+[![Coverage](https://coveralls.io/repos/github/chrisjsewell/ase-notebook/badge.svg?branch=develop)](https://coveralls.io/github/chrisjsewell/ase-notebook?branch=develop)
+[![CircleCI](https://circleci.com/gh/chrisjsewell/ase-notebook.svg?style=svg)](https://circleci.com/gh/chrisjsewell/ase-notebook)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![RTD](https://readthedocs.org/projects/ase-notebook/badge)](http://ase-notebook.readthedocs.io/)
+[![PyPI](https://img.shields.io/pypi/v/ase-notebook.svg)](https://pypi.org/project/ase-notebook)
+[![Conda](https://anaconda.org/conda-forge/ase-notebook/badges/version.svg)](https://anaconda.org/conda-forge/ase-notebook)
+
+A highly configurable 2D (SVG) &amp; 3D (threejs) visualisation creator for ASE/Pymatgen structures,
+within the Jupyter Notebook.
+
+![Example SVG](/docs/source/images/example_vis.svg)
+
+## Purpose
+
+To create atomic configuration visualisations, principally within a Jupyter Notebook.
+
+## Contributing
+
+Contributions are very welcome.
+
+The following will discover and run all unit test:
+
+```shell
+>> pip install -e .[testing]
+>> pytest -v
+```
+
+### Coding Style Requirements
+
+The code style is tested using [flake8](http://flake8.pycqa.org),
+with the configuration set in `.flake8`,
+and code should be formatted with [black](https://github.com/ambv/black).
+
+Installing with `ase-notebook[code_style]` makes the [pre-commit](https://pre-commit.com/)
+package available, which will ensure these tests are passed by reformatting the code
+and testing for lint errors before submitting a commit.
+It can be setup by:
+
+```shell
+>> cd ase-notebook
+>> pre-commit install
+```
+
+Optionally you can run `black` and `flake8` separately:
+
+```shell
+>> black .
+>> flake8 .
+```
+
+Editors like VS Code also have automatic code reformat utilities, which can adhere to this standard.
+
+## License
+
+See LICENSE file
+
+## Issues
+
+If you encounter any problems, please [file an issue](https://github.com/chrisjsewell/ase-notebook/issues) along with a detailed description.
+
+
