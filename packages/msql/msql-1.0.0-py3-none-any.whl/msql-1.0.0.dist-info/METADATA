@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: msql
+Version: 1.0.0
+Summary: Simple DSL with automatic migrations.
+Home-page: UNKNOWN
+Author: CERT Polska
+Author-email: info@cert.pl
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Provides-Extra: pydantic
+Requires-Dist: mypy-extensions (==0.4.3)
+Requires-Dist: mypy (==0.770)
+Requires-Dist: psycopg2-binary (==2.8.4)
+Requires-Dist: typed-ast (==1.4.1)
+Requires-Dist: typing-extensions (==3.7.4.1)
+Provides-Extra: pydantic
+Requires-Dist: pydantic; extra == 'pydantic'
+
+UNKNOWN
+
+
