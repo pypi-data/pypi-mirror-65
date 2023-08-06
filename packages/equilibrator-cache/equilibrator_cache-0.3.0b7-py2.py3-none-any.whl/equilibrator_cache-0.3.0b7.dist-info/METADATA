@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: equilibrator-cache
+Version: 0.3.0b7
+Summary: Cache application for compounds, reactions, and enzymes
+Home-page: https://gitlab.com/elad.noor/equilibrator-cache
+Author: 
+Requires-Dist: importlib-resources
+Requires-Dist: numpy (>=1.14)
+Requires-Dist: pandas (>=0.25)
+Requires-Dist: python-Levenshtein-wheels (>=0.13.1)
+Requires-Dist: scipy (>=1.4)
+Requires-Dist: sqlalchemy (>=1.3)
+Requires-Dist: quilt (>=2.9)
+Requires-Dist: pint (>=0.10)
+Requires-Dist: periodictable (>=1.5.2)
+Provides-Extra: deployment
+Requires-Dist: click ; extra == 'deployment'
+Requires-Dist: click-log ; extra == 'deployment'
+Requires-Dist: openbabel ; extra == 'deployment'
+Requires-Dist: python-dateutil ; extra == 'deployment'
+Requires-Dist: requests ; extra == 'deployment'
+Requires-Dist: tqdm ; extra == 'deployment'
+Provides-Extra: development
+Requires-Dist: black ; extra == 'development'
+Requires-Dist: isort ; extra == 'development'
+Requires-Dist: tox ; extra == 'development'
+
+Elad Noor
+Moritz E. Beber
+Author-email: 
+noor@imsb.biol.ethz.ch
+morbeb@biosustain.dtu.dk
+License: MIT License
+Download-URL: https://gitlab.com/elad.noor/equilibrator-cache
+Description: UNKNOWN
+Keywords: component contribution,Gibbs energy,biochemical reaction,eQuilibrator,cache
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Provides-Extra: development
+Provides-Extra: deployment
