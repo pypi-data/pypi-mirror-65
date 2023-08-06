@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "app-logger"
+version = "0.1.1"
+description = "A drop in logger configurable through environment variables"
+authors = ["zackary stevens <zackary.n.stevens@gmail.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+python-json-logger = "^0.1.11"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
