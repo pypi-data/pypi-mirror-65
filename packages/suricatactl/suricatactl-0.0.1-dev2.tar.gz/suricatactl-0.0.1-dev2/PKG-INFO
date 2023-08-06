@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: suricatactl
+Version: 0.0.1-dev2
+Summary: Suricata control tools
+Home-page: https://www.suricata-ids.org/
+Author: OISF Developers, Eric Leblond
+Author-email: oisf-devel@lists.openinfosecfoundation.org, eric@regit.org
+License: UNKNOWN
+Description:  
+        
+        This package contains the Python support tools and libraries for
+        Suricata useful for installing independently of Suricata.
+        
+        It is important to note that these tools are bundled and installed by
+        Suricata, so you likely don't need to install this package, unless you
+        need access to the libraries inside a virtualenv, or have a need to
+        install them without installing Suricata.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: System :: Systems Administration
+Requires: argparse
+Requires: simplejson
+Provides: suricatactl
+Provides: suricatasc
