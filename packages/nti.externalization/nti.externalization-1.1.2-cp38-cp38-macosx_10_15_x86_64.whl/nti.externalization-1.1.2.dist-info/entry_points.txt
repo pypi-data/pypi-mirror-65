@@ -1,0 +1,6 @@
+[console_scripts]
+
+
+[zest.releaser.prereleaser.before]
+rm_cflags = nti.externalization._compat:release_remove_cflags
+

@@ -1,0 +1,11 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+		   xmlns:ext="http://nextthought.com/ntp/ext">
+
+	<include package="zope.component" />
+
+	<include package="nti.externalization" file="meta.zcml" />
+	<include package="nti.externalization" />
+    <include package="." file="profileconfigure.zcml" />
+
+	<ext:classObjectFactory factory=".objects.SimplestPossibleObject" />
+</configure>

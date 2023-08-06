@@ -1,0 +1,95 @@
+<!-- -*- mode: nxml -*- -->
+<configure  xmlns="http://namespaces.zope.org/zope"
+            xmlns:i18n="http://namespaces.zope.org/i18n"
+            xmlns:zcml="http://namespaces.zope.org/zcml">
+
+    <include package="zope.component" file="meta.zcml" />
+    <include package="zope.security" file="meta.zcml" />
+    <include package="zope.component" />
+    <include package="zope.security" />
+
+    <!-- Include our ZCML directives so others don't have to. This
+         also helps zope.app.apidoc know what to document.
+    -->
+    <include package="." file="meta.zcml" />
+
+    <subscriber provides=".interfaces.IExternalMappingDecorator"
+                for="zope.dublincore.interfaces.IDCExtended"
+                factory=".dublincore.DCExtendedExternalMappingDecorator" />
+
+    <subscriber provides=".interfaces.IExternalMappingDecorator"
+                for="zope.dublincore.interfaces.IDCDescriptiveProperties"
+                factory=".dublincore.DCDescriptivePropertiesExternalMappingDecorator" />
+
+    <!-- The "*" matches things that implement some (any) interface -->
+    <!-- It translates into passing None to the registry method -->
+    <!-- The empty string matches things that don't implement any interface -->
+
+    <adapter for=""
+             provides=".interfaces.ILocatedExternalMapping"
+             factory=".interfaces.LocatedExternalDict" />
+
+    <adapter for=""
+             provides=".interfaces.ILocatedExternalSequence"
+             factory=".interfaces.LocatedExternalList" />
+
+    <adapter for=".interfaces.IList"
+             provides=".interfaces.ILocatedExternalSequence"
+             factory=".interfaces.LocatedExternalList" />
+
+    <utility factory=".representation.JsonRepresenter" />
+    <utility factory=".representation.YamlRepresenter" />
+
+    <!-- -->
+    <!-- Dates and datetimes -->
+    <!-- -->
+    <!-- Offer to adapt strings to dates -->
+    <!-- TODO: This is a bit ad-hoc. Surely there's a more formal set
+    of transforms somewhere? -->
+    <adapter factory=".datetime.date_from_string" />
+    <adapter factory=".datetime.datetime_from_string" />
+    <adapter factory=".datetime.duration_from_string" />
+    <adapter factory=".datetime.datetime_from_timestamp" for="int" />
+    <adapter factory=".datetime.datetime_from_timestamp" for="float" />
+
+    <!-- Do the reverse as well. -->
+    <adapter factory=".datetime.date_to_string" />
+    <adapter factory=".datetime.datetime_to_string" />
+    <adapter factory=".datetime.duration_to_string" />
+
+    <!-- -->
+    <!-- Numbers (fractions) -->
+    <!-- -->
+    <!-- Anything not represented directly goes out as a string. -->
+    <adapter factory=".numbers.second_chance_number_externalizer" />
+
+    <!-- -->
+    <!-- Object factories -->
+    <!-- -->
+    <adapter for="*"
+             factory=".internalization.default_externalized_object_factory_finder_factory"
+             provides=".interfaces.IExternalizedObjectFactoryFinder" />
+
+    <adapter for=""
+             factory=".internalization.default_externalized_object_factory_finder_factory"
+             provides=".interfaces.IExternalizedObjectFactoryFinder" />
+
+    <adapter for=""
+             factory=".externalization.replacers.DevmodeNonExternalizableObjectReplacementFactory"
+             zcml:condition="have devmode" />
+
+    <adapter for="*"
+             factory=".externalization.replacers.DevmodeNonExternalizableObjectReplacementFactory"
+             zcml:condition="have devmode" />
+
+    <configure zcml:condition="have static-apidoc">
+
+        <include package="zope.app.apidoc" file="meta.zcml" />
+        <include package="zope.app.apidoc.codemodule" file="meta.zcml" />
+
+        <apidoc:rootModule module="nti"
+                           xmlns:apidoc="http://namespaces.zope.org/apidoc"
+                           />
+        <include package="zope.app.apidoc" file="static.zcml"  />
+    </configure>
+</configure>
