@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: huscy.project_ethics
+Version: 0.2.0a1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Alexander Tyapkov, Mathias Goldau, Stefan Bunde
+Author-email: tyapkov@cbs.mpg.de, goldau@cbs.mpg.de, stefanbunde+git@posteo.de
+License: AGPLv3+
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Provides-Extra: development
+Provides-Extra: docs
+Provides-Extra: testing
+Provides-Extra: release
