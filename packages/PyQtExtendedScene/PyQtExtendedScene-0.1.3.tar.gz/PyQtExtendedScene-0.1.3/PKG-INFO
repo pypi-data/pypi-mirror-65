@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: PyQtExtendedScene
+Version: 0.1.3
+Summary: Extended scene library
+Home-page: https://github.com/EPC-MSU/PyQtExtendedScene
+Author: EPC MSU
+Author-email: mihalin@physlab.ru
+License: MIT
+Description: # PyQtExtendedScene
+        Little library for working with scene: drag, zoom, add\remove elements, etc
+        
+        Repository: https://github.com/EPC-MSU/PyQtExtendedScene
+        
+        ## Installation:
+        
+        ```bash
+        pip install PyQtExtendedScene
+        ```
+        
+        ## Working example:
+        
+        ```bash
+        git clone https://github.com/EPC-MSU/PyQtExtendedScene
+        cd PyQtExtendedScene
+        python example.py
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
