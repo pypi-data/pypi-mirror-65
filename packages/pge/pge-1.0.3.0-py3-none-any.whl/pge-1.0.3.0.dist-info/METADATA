@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pge
+Version: 1.0.3.0
+Summary: Graph modeling, EI estimation and analysis
+Home-page: https://gitlab.com/BoBeni/PGEstimate
+Author: Maxim Ryzhov
+Author-email: ryzhov@phystech.edu
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: networkx
+Requires-Dist: pandas
+Requires-Dist: rd-pr
+Requires-Dist: mcg
+
+UNKNOWN
+
+
