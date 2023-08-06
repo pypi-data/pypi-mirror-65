@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: fdbk_ruuvi_reporter
+Version: 0.0.1
+Summary: Ruuvitag data reporter for fdbk
+Home-page: https://github.com/kangasta/fdbk_ruuvi_reporter
+Author: Toni Kangas
+License: UNKNOWN
+Description: # fdbk_ruuvi_reporter
+        
+        ## Testing
+        
+        Check and automatically fix formatting with:
+        
+        ```bash
+        pycodestyle fdbk_ruuvi_reporter
+        autopep8 -aaar --in-place fdbk_ruuvi_reporter
+        ```
+        
+        Run static analysis with:
+        
+        ```bash
+        pylint -E --enable=invalid-name,unused-import,useless-object-inheritance fdbk_ruuvi_reporter
+        ```
+        
+        Run unit tests with command:
+        
+        ```bash
+        python3 -m unittest discover -s tst/
+        ```
+        
+        Get test coverage with commands:
+        
+        ```bash
+        coverage run --branch --source fdbk_ruuvi_reporter/ -m unittest discover -s tst/
+        coverage report -m
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
