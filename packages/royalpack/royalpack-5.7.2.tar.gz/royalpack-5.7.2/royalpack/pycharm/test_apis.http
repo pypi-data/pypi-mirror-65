@@ -1,0 +1,70 @@
+POST http://localhost:44445/api/login/royalnet/v1
+Content-Type: application/json
+
+{
+  "username": "Steffo",
+  "password": "ciao"
+}
+
+###
+
+POST http://localhost:44445/api/token/create/v1
+Content-Type: application/json
+
+{
+  "token": "NFFU4qg6-WxfAWMN-IW6dexEjNcLzNQNZJko2_pbTsE",
+  "duration": 31536000
+}
+
+###
+
+GET http://localhost:44445/api/bio/get/v1
+Content-Type: application/json
+
+{
+  "token": "NFFU4qg6-WxfAWMN-IW6dexEjNcLzNQNZJko2_pbTsE",
+  "id": 1
+}
+
+###
+
+POST http://localhost:44445/api/bio/set/v1
+Content-Type: application/json
+
+{
+  "token": "NFFU4qg6-WxfAWMN-IW6dexEjNcLzNQNZJko2_pbTsE",
+  "contents": "Ciao!"
+}
+
+###
+
+GET http://localhost:44445/api/wiki/list/v1
+
+###
+
+POST http://localhost:44445/api/wiki/edit/v1
+Content-Type: application/json
+
+{
+  "token": "NFFU4qg6-WxfAWMN-IW6dexEjNcLzNQNZJko2_pbTsE",
+  "title": "Prova!",
+  "contents": "Questa è una pagina wiki di prova.",
+  "format": "text",
+  "theme": "default"
+}
+
+###
+
+POST http://localhost:44445/api/wiki/edit/v1
+Content-Type: application/json
+
+{
+  "id": "80d54849-fab1-4458-9d89-2429773118ef",
+  "token": "NFFU4qg6-WxfAWMN-IW6dexEjNcLzNQNZJko2_pbTsE",
+  "title": "Prova2",
+  "contents": "Questa è una pagina wiki di prova2.",
+  "format": "text",
+  "theme": "default"
+}
+
+###
