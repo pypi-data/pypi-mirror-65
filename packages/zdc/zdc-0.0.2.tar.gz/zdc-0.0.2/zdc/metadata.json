@@ -1,0 +1,682 @@
+{
+  "src/lib/components/MyButton.react.js": {
+    "description": "",
+    "displayName": "MyButton",
+    "methods": [
+      {
+        "name": "onClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u6309\u94ae\u5931\u6548\u72b6\u6001"
+      },
+      "ghost": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u5e7d\u7075\u5c5e\u6027\uff0c\u4f7f\u6309\u94ae\u80cc\u666f\u900f\u660e."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\u70b9\u51fb\u8df3\u8f6c\u7684\u5730\u5740\uff0c\u6307\u5b9a\u6b64\u5c5e\u6027 button \u7684\u884c\u4e3a\u548c a \u94fe\u63a5\u4e00\u81f4"
+      },
+      "htmlType": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e button \u539f\u751f\u7684 type \u503c\uff0c\u53ef\u9009\u503c\u8bf7\u53c2\u8003 HTML \u6807\u51c6"
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u6309\u94ae\u7684\u56fe\u6807\u7c7b\u578b"
+      },
+      "loading": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "delay": {
+                  "name": "number",
+                  "required": false
+                }
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u6309\u94ae\u8f7d\u5165\u72b6\u6001"
+      },
+      "shape": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u6309\u94ae\u5f62\u72b6\uff0c\u53ef\u9009\u503c\u4e3a circle\u3001 round \u6216\u8005\u4e0d\u8bbe"
+      },
+      "size": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u6309\u94ae\u5927\u5c0f\uff0c\u53ef\u9009\u503c\u4e3a small large \u6216\u8005\u4e0d\u8bbe"
+      },
+      "target": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\u76f8\u5f53\u4e8e a \u94fe\u63a5\u7684 target \u5c5e\u6027\uff0chref \u5b58\u5728\u65f6\u751f\u6548"
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u6309\u94ae\u7c7b\u578b\uff0c\u53ef\u9009\u503c\u4e3a primary dashed danger link(3.17 \u4e2d\u589e\u52a0) \u6216\u8005\u4e0d\u8bbe"
+      },
+      "onClick": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u70b9\u51fb\u6309\u94ae\u65f6\u7684\u56de\u8c03"
+      },
+      "block": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u5c06\u6309\u94ae\u5bbd\u5ea6\u8c03\u6574\u4e3a\u5176\u7236\u5bbd\u5ea6\u7684\u9009\u9879"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u5c5e\u6027"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "\u70b9\u51fb\u6b21\u6570",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "\u70b9\u51fb\u7684\u65f6\u95f4\u6233\uff0c\u4ece1970\u5e74\u8d77\n\u53ef\u4ee5\u7528\u4e8e\u5728\u591a\u4e2a\u6309\u94ae\u4e2d\uff0c\u5224\u65ad\u70b9\u51fb\u7684\u662f\u54ea\u4e2a",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "src/lib/components/MyTree.react.js": {
+    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "displayName": "MyTree",
+    "methods": [
+      {
+        "name": "onExpand",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "expandedKeys",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "onCheck",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "checkedKeys",
+            "type": null
+          },
+          {
+            "name": "all",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "onSelect",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "selectedKeys",
+            "type": null
+          },
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "filterTreeNode",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onDragEnd",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onDragEnter",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onDragLeave",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onDragStart",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onDragOver",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onDrop",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onLoad",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onRightClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "renderTreeNodes",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "data",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "autoExpandParent": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u662f\u5426\u81ea\u52a8\u5c55\u5f00\u7236\u8282\u70b9 true",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "checkedKeys": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "shape",
+              "value": {
+                "checked": {
+                  "name": "arrayOf",
+                  "value": {
+                    "name": "string"
+                  },
+                  "required": false
+                },
+                "halfChecked": {
+                  "name": "arrayOf",
+                  "value": {
+                    "name": "string"
+                  },
+                  "required": false
+                }
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "\uff08\u53d7\u63a7\uff09\u9009\u4e2d\u590d\u9009\u6846\u7684\u6811\u8282\u70b9\uff08\u6ce8\u610f\uff1a\u7236\u5b50\u8282\u70b9\u6709\u5173\u8054\uff0c\u5982\u679c\u4f20\u5165\u7236\u8282\u70b9 key\uff0c\u5219\u5b50\u8282\u70b9\u81ea\u52a8\u9009\u4e2d\uff1b\n\u76f8\u5e94\u5f53\u5b50\u8282\u70b9 key \u90fd\u4f20\u5165\uff0c\u7236\u8282\u70b9\u4e5f\u81ea\u52a8\u9009\u4e2d\u3002\u5f53\u8bbe\u7f6echeckable\u548ccheckStrictly\uff0c\n\u5b83\u662f\u4e00\u4e2a\u6709checked\u548chalfChecked\u5c5e\u6027\u7684\u5bf9\u8c61\uff0c\u5e76\u4e14\u7236\u5b50\u8282\u70b9\u7684\u9009\u4e2d\u4e0e\u5426\u4e0d\u518d\u5173\u8054"
+      },
+      "checkedChildrenKeys": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "\u9009\u62e9\u7684\u6240\u6709\u5b50\u8282\u70b9"
+      },
+      "allCheckedKeys": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "shape",
+              "value": {
+                "checkedKeys": {
+                  "name": "union",
+                  "value": [
+                    {
+                      "name": "arrayOf",
+                      "value": {
+                        "name": "string"
+                      }
+                    },
+                    {
+                      "name": "shape",
+                      "value": {
+                        "checked": {
+                          "name": "arrayOf",
+                          "value": {
+                            "name": "string"
+                          },
+                          "required": false
+                        },
+                        "halfChecked": {
+                          "name": "arrayOf",
+                          "value": {
+                            "name": "string"
+                          },
+                          "required": false
+                        }
+                      }
+                    }
+                  ],
+                  "required": false
+                },
+                "halfCheckedKeys": {
+                  "name": "arrayOf",
+                  "value": {
+                    "name": "string"
+                  },
+                  "required": false
+                }
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "\u6240\u6709\u9009\u4e2d\u7684\u8282\u70b9\uff08\u5373\u5305\u62ec\u534a\u9009\u4e2d\u7684\u7236\u8282\u70b9\uff09"
+      },
+      "checkStrictly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "checkable \u72b6\u6001\u4e0b\u8282\u70b9\u9009\u62e9\u5b8c\u5168\u53d7\u63a7\uff08\u7236\u5b50\u8282\u70b9\u9009\u4e2d\u72b6\u6001\u4e0d\u518d\u5173\u8054\uff09\tfalse"
+      },
+      "checkable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "checkable or not false"
+      },
+      "defaultCheckedKeys": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "\u9ed8\u8ba4\u9009\u4e2d\u590d\u9009\u6846\u7684\u6811\u8282\u70b9"
+      },
+      "defaultExpandAll": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u9ed8\u8ba4\u5c55\u5f00\u6240\u6709\u6811\u8282\u70b9 false"
+      },
+      "defaultExpandedKeys": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "\u9ed8\u8ba4\u5c55\u5f00\u6307\u5b9a\u7684\u6811\u8282\u70b9"
+      },
+      "defaultExpandParent": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u9ed8\u8ba4\u5c55\u5f00\u7236\u8282\u70b9 true"
+      },
+      "defaultSelectedKeys": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "\u9ed8\u8ba4\u9009\u4e2d\u7684\u6811\u8282\u70b9"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u5c06\u6811\u7981\u7528 false"
+      },
+      "draggable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u8282\u70b9\u53ef\u62d6\u62fd\uff08IE>8\uff09 falseloadData"
+      },
+      "expandedKeys": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "\uff08\u53d7\u63a7\uff09\u5c55\u5f00\u6307\u5b9a\u7684\u6811\u8282\u70b9"
+      },
+      "filterTreeNode": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u6309\u9700\u7b5b\u9009\u6811\u8282\u70b9\uff08\u9ad8\u4eae\uff09\uff0c\u8fd4\u56de true\nfunction(node)"
+      },
+      "loadData": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u5f02\u6b65\u52a0\u8f7d\u6570\u636e function(node)"
+      },
+      "loadedKeys": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "\uff08\u53d7\u63a7\uff09\u5df2\u7ecf\u52a0\u8f7d\u7684\u8282\u70b9\uff0c\u9700\u8981\u914d\u5408 loadData \u4f7f\u7528"
+      },
+      "multiple": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u652f\u6301\u70b9\u9009\u591a\u4e2a\u8282\u70b9\uff08\u8282\u70b9\u672c\u8eab\uff09 false\n\u5f53multiple\u4e3atrue\u65f6\uff0c\u9700\u8981\u63d0\u4f9b\u521d\u59cb\u7684selectedKeys\uff0c\n\u5426\u5219\u4f1a\u51fa\u73b0\u5411undefined\u6dfb\u52a0\u6570\u636e\u800c\u62a5\u9519\u7684\u73b0\u8c61"
+      },
+      "selectable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u662f\u5426\u53ef\u9009\u4e2d true"
+      },
+      "selectedKeys": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "\uff08\u53d7\u63a7\uff09\u8bbe\u7f6e\u9009\u4e2d\u7684\u6811\u8282\u70b9"
+      },
+      "showIcon": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u662f\u5426\u5c55\u793a TreeNode title \u524d\u7684\u56fe\u6807\uff0c\u6ca1\u6709\u9ed8\u8ba4\u6837\u5f0f\uff0c\u5982\u8bbe\u7f6e\u4e3a true\uff0c\u9700\u8981\u81ea\u884c\u5b9a\u4e49\u56fe\u6807\u76f8\u5173\u6837\u5f0f\tboolean\tfalse"
+      },
+      "switcherIcon": {
+        "type": {
+          "name": "element"
+        },
+        "required": false,
+        "description": "\u81ea\u5b9a\u4e49\u6811\u8282\u70b9\u7684\u5c55\u5f00/\u6298\u53e0\u56fe\u6807 React.ReactElement\t-\t3.12.0"
+      },
+      "showLine": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "\u662f\u5426\u5c55\u793a\u8fde\u63a5\u7ebf\tboolean\tfalse"
+      },
+      "onCheck": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u70b9\u51fb\u590d\u9009\u6846\u89e6\u53d1\tfunction(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys})\t-"
+      },
+      "onDragEnd": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "dragend \u89e6\u53d1\u65f6\u8c03\u7528\tfunction({event, node})\t-"
+      },
+      "onDragEnter": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "dragenter \u89e6\u53d1\u65f6\u8c03\u7528\tfunction({event, node, expandedKeys})\t-"
+      },
+      "onDragLeave": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "dragleave \u89e6\u53d1\u65f6\u8c03\u7528\tfunction({event, node})\t-"
+      },
+      "onDragOver": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "dragover \u89e6\u53d1\u65f6\u8c03\u7528\tfunction({event, node})\t-"
+      },
+      "onDragStart": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u5f00\u59cb\u62d6\u62fd\u65f6\u8c03\u7528\tfunction({event, node})\t-"
+      },
+      "onDrop": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "drop \u89e6\u53d1\u65f6\u8c03\u7528\tfunction({event, node, dragNode, dragNodesKeys})\t-"
+      },
+      "onExpand": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u5c55\u5f00/\u6536\u8d77\u8282\u70b9\u65f6\u89e6\u53d1\tfunction(expandedKeys, {expanded: bool, node})\t-"
+      },
+      "onLoad": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u8282\u70b9\u52a0\u8f7d\u5b8c\u6bd5\u65f6\u89e6\u53d1\tfunction(loadedKeys, {event, node})\t-\t3.7.0"
+      },
+      "onRightClick": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u54cd\u5e94\u53f3\u952e\u70b9\u51fb\tfunction({event, node})\t-"
+      },
+      "onSelect": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "\u70b9\u51fb\u6811\u8282\u70b9\u89e6\u53d1\tfunction(selectedKeys, e:{selected: bool, selectedNodes, node, event})\t-"
+      },
+      "treeData": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "treeNodes \u6570\u636e\uff0c\u5982\u679c\u8bbe\u7f6e\u5219\u4e0d\u9700\u8981\u624b\u52a8\u6784\u9020 TreeNode \u8282\u70b9\uff08key \u5728\u6574\u4e2a\u6811\u8303\u56f4\u5185\u552f\u4e00\uff09\t\npython \u63d0\u4f9b\u6570\u636e\u65f6\u7684dict\u683c\u5f0f\uff1a\n{\n   'title':'title',\n   'key':'key',\n   'children':[\n     {\n       'title':'title',\n       'key':'key',\n       'children':[...]\n     }\n   ]\n}"
+      }
+    }
+  },
+  "src/lib/components/Zdc.react.js": {
+    "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
+    "displayName": "Zdc",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "A label that will be printed when this component is rendered."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The value displayed in the input."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      }
+    }
+  }
+}
