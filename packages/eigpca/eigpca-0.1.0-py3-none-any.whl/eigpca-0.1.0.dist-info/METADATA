@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: eigpca
+Version: 0.1.0
+Summary: Principal Component Analysis via eigen-decomposition of the covariance/correlation matrix
+Home-page: https://github.com/sercandogan/eigpca/
+License: MIT
+Keywords: PCA,eigen-decomposition
+Author: Sercan Dogan
+Author-email: sercandogan@yandex.com
+Maintainer: Sercan Dogan
+Maintainer-email: sercandogan@yandex.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: matplotlib (>=3.2.1,<4.0.0)
+Requires-Dist: numpy (>=1.18.2,<2.0.0)
+Project-URL: Repository, https://github.com/sercandogan/eigpca/
+Project-URL: issues, https://github.com/sercandogan/eigpca/issues
+Description-Content-Type: text/markdown
+
+# eigpca
+PCA via eigen-decomposition of the covariance/correlation matrix.
+
+# Install
+```bash
+pip install eigpca
+```
+
+# Example
+```python
+from eigpca import PCA
+from sklearn.datasets import load_iris
+
+X = load_iris().data
+pca = PCA()
+
+pca.fit(X)
+pca.transform(X, n_components=2)
+```
+### Scree Plot
+```python
+pca.plot(y="pov")
+```
+![Scree plot](examples/scree_plot_iris.png)
+
+
