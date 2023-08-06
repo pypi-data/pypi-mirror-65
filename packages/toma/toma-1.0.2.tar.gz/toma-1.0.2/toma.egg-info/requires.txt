@@ -1,0 +1,13 @@
+torch
+psutil
+
+[dev]
+check-manifest
+
+[test]
+coverage
+codecov
+pytest
+pytest-benchmark
+pytest-cov
+pytest-forked
