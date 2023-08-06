@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: aspect-based-sentiment-analysis
+Version: 1.1.0
+Summary: Aspect Based Sentiment Analysis: Transformer & Interpretability (TensorFlow)
+Home-page: https://github.com/ScalaConsultants/Aspect-Based-Sentiment-Analysis
+Author:  Rafal Rolczynski
+Author-email: rafal.rolczynski@gmail.com
+License: Apache-2.0
+Description: 
+        #### Aspect Based Sentiment Analysis
+        
+        * reliable results
+        * investigate the confidence measure
+        
+        
+        * process
+        
+        
+        the model achieves close to the SOTA results.
+        However, they are far from production.
+        We should tuning the model on different levels.
+        
+        
+        
+Platform: UNKNOWN
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
