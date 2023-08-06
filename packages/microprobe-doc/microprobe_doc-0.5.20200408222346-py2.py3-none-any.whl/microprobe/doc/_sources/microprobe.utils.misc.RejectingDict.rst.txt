@@ -1,0 +1,54 @@
+microprobe.utils.misc.RejectingDict
+===================================
+
+.. currentmodule:: microprobe.utils.misc
+
+.. autoclass:: RejectingDict
+   :members:
+   :no-private-members:
+   :no-special-members:
+   :undoc-members:
+   :inherited-members:
+   
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RejectingDict.clear
+      ~RejectingDict.copy
+      ~RejectingDict.fromkeys
+      ~RejectingDict.get
+      ~RejectingDict.has_key
+      ~RejectingDict.items
+      ~RejectingDict.iteritems
+      ~RejectingDict.iterkeys
+      ~RejectingDict.itervalues
+      ~RejectingDict.keys
+      ~RejectingDict.pop
+      ~RejectingDict.popitem
+      ~RejectingDict.setdefault
+      ~RejectingDict.update
+      ~RejectingDict.values
+      ~RejectingDict.viewitems
+      ~RejectingDict.viewkeys
+      ~RejectingDict.viewvalues
+   
+   
+
+   
+   
+   
+
+   
+   .. raw:: html
+      
+      <br>
+      <hr width="75%">  
+      <br>
+
+   
+

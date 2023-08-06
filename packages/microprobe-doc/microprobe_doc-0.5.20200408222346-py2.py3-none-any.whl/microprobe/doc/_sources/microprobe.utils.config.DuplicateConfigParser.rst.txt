@@ -1,0 +1,63 @@
+microprobe.utils.config.DuplicateConfigParser
+=============================================
+
+.. currentmodule:: microprobe.utils.config
+
+.. autoclass:: DuplicateConfigParser
+   :members:
+   :no-private-members:
+   :no-special-members:
+   :undoc-members:
+   :inherited-members:
+   
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DuplicateConfigParser.__init__
+      ~DuplicateConfigParser.add_section
+      ~DuplicateConfigParser.defaults
+      ~DuplicateConfigParser.get
+      ~DuplicateConfigParser.getboolean
+      ~DuplicateConfigParser.getfloat
+      ~DuplicateConfigParser.getint
+      ~DuplicateConfigParser.has_option
+      ~DuplicateConfigParser.has_section
+      ~DuplicateConfigParser.items
+      ~DuplicateConfigParser.options
+      ~DuplicateConfigParser.optionxform
+      ~DuplicateConfigParser.read
+      ~DuplicateConfigParser.readfp
+      ~DuplicateConfigParser.remove_option
+      ~DuplicateConfigParser.remove_section
+      ~DuplicateConfigParser.sections
+      ~DuplicateConfigParser.set
+      ~DuplicateConfigParser.write
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DuplicateConfigParser.OPTCRE
+      ~DuplicateConfigParser.OPTCRE_NV
+      ~DuplicateConfigParser.SECTCRE
+   
+   
+
+   
+   .. raw:: html
+      
+      <br>
+      <hr width="75%">  
+      <br>
+
+   
+

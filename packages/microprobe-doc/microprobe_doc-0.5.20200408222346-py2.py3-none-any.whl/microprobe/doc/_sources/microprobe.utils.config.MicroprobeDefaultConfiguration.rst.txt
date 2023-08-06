@@ -1,0 +1,55 @@
+microprobe.utils.config.MicroprobeDefaultConfiguration
+======================================================
+
+.. currentmodule:: microprobe.utils.config
+
+.. autoclass:: MicroprobeDefaultConfiguration
+   :members:
+   :no-private-members:
+   :no-special-members:
+   :undoc-members:
+   :inherited-members:
+   
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MicroprobeDefaultConfiguration.__init__
+      ~MicroprobeDefaultConfiguration.clear
+      ~MicroprobeDefaultConfiguration.copy
+      ~MicroprobeDefaultConfiguration.fromkeys
+      ~MicroprobeDefaultConfiguration.get
+      ~MicroprobeDefaultConfiguration.has_key
+      ~MicroprobeDefaultConfiguration.items
+      ~MicroprobeDefaultConfiguration.iteritems
+      ~MicroprobeDefaultConfiguration.iterkeys
+      ~MicroprobeDefaultConfiguration.itervalues
+      ~MicroprobeDefaultConfiguration.keys
+      ~MicroprobeDefaultConfiguration.pop
+      ~MicroprobeDefaultConfiguration.popitem
+      ~MicroprobeDefaultConfiguration.setdefault
+      ~MicroprobeDefaultConfiguration.update
+      ~MicroprobeDefaultConfiguration.values
+      ~MicroprobeDefaultConfiguration.viewitems
+      ~MicroprobeDefaultConfiguration.viewkeys
+      ~MicroprobeDefaultConfiguration.viewvalues
+   
+   
+
+   
+   
+   
+
+   
+   .. raw:: html
+      
+      <br>
+      <hr width="75%">  
+      <br>
+
+   
+
