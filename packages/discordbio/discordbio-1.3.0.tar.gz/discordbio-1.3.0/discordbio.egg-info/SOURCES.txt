@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+ReleaseNotes.md
+setup.py
+discordbio/__init__.py
+discordbio/client.py
+discordbio/errors.py
+discordbio.egg-info/PKG-INFO
+discordbio.egg-info/SOURCES.txt
+discordbio.egg-info/dependency_links.txt
+discordbio.egg-info/not-zip-safe
+discordbio.egg-info/requires.txt
+discordbio.egg-info/top_level.txt
+discordbio/models/__init__.py
+discordbio/models/connections.py
+discordbio/models/user_details.py
