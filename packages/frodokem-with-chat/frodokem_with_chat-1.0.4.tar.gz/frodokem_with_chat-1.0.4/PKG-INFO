@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: frodokem_with_chat
+Version: 1.0.4
+Summary: FrodoKEM implementation and presentation application
+Home-page: https://github.com/PrzemyslawSamsel/AgainstQuantum
+Author: 0xCA7
+Author-email: samselprzemyslaw@gmail.com
+License: UNKNOWN
+Description: # Re-implementation of quantum-secure algorithm FrodoKEM in Python 3.x
+        
+        # About
+        
+        This is Python implementation of FrodoKEM (Key Exchange Mechanism), as a result of my bachelor, based on [Microsoft's implementation in C](https://github.com/Microsoft/PQCrypto-LWEKE/), but using OOP (and NumPy for matrix operations). FrodoKEM is a key exchange protocol, which security is based on Learning With Errors problem - simply put it is a problem of solving a system of linear equations with probabilistic soluton, and is based on mathematical objects with regular structure called lattices. Additionally, I created a demonstration application as well in a form of "terminal-based chat" (using ncurses implementation in Python) as well as simple benchmark tool allowing the programmer to test efficiency of this implementation. FrodoKEM was implemented as a separate module, which is imported and used in Application module. In a short, Python implementation is several hundreds times slower than C, however it provides some educational value and hopefully better understanding of how this algorithm work. I did my best to at least save Microsoft's comments on what is going on in particular places of the code, as well as put mine in places which I was sure I did understand. Finally, my implementation is much shorter and gives a simple to use, abstract interface for the programmer to use it. It is also most likely as secure as Microsoft's implementation is. 
+        
+        
+        
+        # Installation 
+        The source code is currently hosted on [GitHub](https://github.com/PrzemyslawSamsel/AgainstQuantum).
+        The latest released version is also available for download via pip: 
+        
+        ```
+          # python3 -m pip install frodokem-with-chat
+        ```
+        
+        or simply
+        
+        ```
+          # pip3 install frodokem-with-chat
+        ```
+        
+        # Example 
+        ```python
+          from FrodoKEM.frodo640.api_frodo640 import FrodoAPI640
+          FrodoAPI = FrodoAPI640()
+          p, r = FrodoAPI.crypto_kem_keypair_frodo640() # Generate keypair (priv, public)
+          c, ss = FrodoAPI.crypto_kem_enc_frodo640()    # Generate ciphertext, shared secret => Party B
+          ss1   = FrodoAPI.crypto_kem_dec_frodo640()    # Generate shared secret based on ciphertext => Party A
+        ```
+        
+        # Documentation 
+        For further details on the usage of these modules, please refer to: [Documentation](https://github.com/PrzemyslawSamsel/AgainstQuantum/)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
