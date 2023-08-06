@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+pytest_alphamoon/__init__.py
+pytest_alphamoon/annotation_check.py
+pytest_alphamoon/import_check.py
+pytest_alphamoon/init_check.py
+pytest_alphamoon/newline_check.py
+pytest_alphamoon/notebook_check.py
+pytest_alphamoon/testdir_check.py
+pytest_alphamoon.egg-info/PKG-INFO
+pytest_alphamoon.egg-info/SOURCES.txt
+pytest_alphamoon.egg-info/dependency_links.txt
+pytest_alphamoon.egg-info/entry_points.txt
+pytest_alphamoon.egg-info/requires.txt
+pytest_alphamoon.egg-info/top_level.txt
