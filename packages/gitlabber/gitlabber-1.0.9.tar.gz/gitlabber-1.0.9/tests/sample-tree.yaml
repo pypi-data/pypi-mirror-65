@@ -1,0 +1,23 @@
+children:
+- children:
+  - children:
+    - name: project1
+      root_path: /subgroup1/subgroup2/project1
+      url: git@gitlab.myorg.com:group1/subgroup1/subgroup2/project1.git
+    - name: project2
+      root_path: /subgroup1/subgroup2/project2
+      url: git@gitlab.myorg.com:group1/subgroup1/subgroup2/project2.git
+    name: subgroup2
+    root_path: /subgroup1/subgroup2
+    url: https://gitlab.myorg.com/groups/group1/subgroup1/subgroup2
+  - name: project3
+    root_path: /subgroup1/project3
+    url: git@gitlab.myorg.com:group1/subgroup1/project3.git
+  - name: project4
+    root_path: /subgroup1/project4
+    url: git@gitlab.myorg.com:group1/subgroup1/project4.git
+  name: subgroup1
+  root_path: /subgroup1
+  url: https://gitlab.myorg.com/groups/group1/subgroup1
+name: ''
+root_path: ''

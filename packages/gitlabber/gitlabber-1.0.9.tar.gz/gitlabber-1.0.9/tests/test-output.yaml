@@ -1,0 +1,15 @@
+children:
+- children:
+  - children:
+    - name: project1
+      root_path: /group1/subgroup1/project1
+      url: http://gitlab.my.com/group1/subgroup1/project1/project1.git
+    name: subgroup1
+    root_path: /group1/subgroup1
+    url: http://gitlab.my.com/group1/subgroup1
+  name: group1
+  root_path: /group1
+  url: http://gitlab.my.com/group1
+name: ''
+root_path: ''
+url: http://dummy
