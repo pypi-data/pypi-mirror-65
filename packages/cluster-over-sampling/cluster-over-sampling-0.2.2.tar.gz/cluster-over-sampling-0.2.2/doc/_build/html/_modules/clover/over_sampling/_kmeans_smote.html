@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clover.over_sampling._kmeans_smote &mdash; cluster-over-sampling 0.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/cluster-over-sampling.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> cluster-over-sampling
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contribute</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release_history.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cluster-over-sampling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>clover.over_sampling._kmeans_smote</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for clover.over_sampling._kmeans_smote</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Includes the implementation of KMeans-SMOTE.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Author: Georgios Douzas &lt;gdouzas@icloud.com&gt;</span>
+<span class="c1"># License: MIT</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">clone</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">MiniBatchKMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_scalar</span>
+<span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="kn">from</span> <span class="nn">imblearn.over_sampling.base</span> <span class="kn">import</span> <span class="n">BaseOverSampler</span>
+<span class="kn">from</span> <span class="nn">imblearn.utils</span> <span class="kn">import</span> <span class="n">Substitution</span>
+<span class="kn">from</span> <span class="nn">imblearn.utils._docstring</span> <span class="kn">import</span> <span class="n">_random_state_docstring</span><span class="p">,</span> <span class="n">_n_jobs_docstring</span>
+
+<span class="kn">from</span> <span class="nn">._cluster</span> <span class="kn">import</span> <span class="n">ClusterOverSampler</span>
+<span class="kn">from</span> <span class="nn">..distribution._density</span> <span class="kn">import</span> <span class="n">DensityDistributor</span>
+
+
+<div class="viewcode-block" id="KMeansSMOTE"><a class="viewcode-back" href="../../../generated/clover.over_sampling.KMeansSMOTE.html#clover.over_sampling.KMeansSMOTE">[docs]</a><span class="nd">@Substitution</span><span class="p">(</span>
+    <span class="n">sampling_strategy</span><span class="o">=</span><span class="n">BaseOverSampler</span><span class="o">.</span><span class="n">_sampling_strategy_docstring</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="n">_n_jobs_docstring</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="n">_random_state_docstring</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">class</span> <span class="nc">KMeansSMOTE</span><span class="p">(</span><span class="n">ClusterOverSampler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Applies KMeans clustering to the input space before applying SMOTE.</span>
+
+<span class="sd">    This is an implementation of the algorithm described in [1]_.</span>
+
+<span class="sd">    Read more in the :ref:`user guide &lt;user_guide&gt;`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    {sampling_strategy}</span>
+
+<span class="sd">    {random_state}</span>
+
+<span class="sd">    k_neighbors : int or object, default=5</span>
+<span class="sd">        Defines the number of nearest neighbors to be used by SMOTE.</span>
+
+<span class="sd">        - If ``int``, this number is used to construct synthetic</span>
+<span class="sd">          samples.</span>
+
+<span class="sd">        - If ``object``, an estimator that inherits from</span>
+<span class="sd">          :class:`sklearn.neighbors.base.KNeighborsMixin` that will be</span>
+<span class="sd">          used to find the number of nearest neighbors.</span>
+
+<span class="sd">    kmeans_estimator : None or object or int or float, default=None</span>
+<span class="sd">        Defines the KMeans clusterer applied to the input space.</span>
+
+<span class="sd">        - If ``None``, :class:`sklearn.cluster.MiniBatchKMeans` is used which</span>
+<span class="sd">          tends to be better with large number of samples.</span>
+
+<span class="sd">        - If KMeans object, then an instance from either</span>
+<span class="sd">          :class:`sklearn.cluster.KMeans` or :class:`sklearn.cluster.MiniBatchKMeans`.</span>
+
+<span class="sd">        - If ``int``, the number of clusters to be used.</span>
+
+<span class="sd">        - If ``float``, the proportion of the number of clusters over the number</span>
+<span class="sd">          of samples to be used.</span>
+
+<span class="sd">    imbalance_ratio_threshold : &#39;auto&#39; or float, default=&#39;auto&#39;</span>
+<span class="sd">        The threshold of a filtered cluster. It can be any non-negative number or</span>
+<span class="sd">        ``&#39;auto&#39;`` to be calculated automatically.</span>
+
+<span class="sd">        - If ``&#39;auto&#39;``, the filtering threshold is calculated from the imbalance</span>
+<span class="sd">          ratio of the target for the binary case or the maximum of the target&#39;s</span>
+<span class="sd">          imbalance ratios for the multiclass case.</span>
+
+<span class="sd">        - If ``float`` then it is manually set to this number.</span>
+
+<span class="sd">        Any cluster that has an imbalance ratio smaller than the filtering threshold is</span>
+<span class="sd">        identified as a filtered cluster and can be potentially used to generate</span>
+<span class="sd">        minority class instances. Higher values increase the number of filtered</span>
+<span class="sd">        clusters.</span>
+
+<span class="sd">    distances_exponent : &#39;auto&#39; or float, default=&#39;auto&#39;</span>
+<span class="sd">        The exponent of the mean distance in the density calculation. It can be</span>
+<span class="sd">        any non-negative number or ``&#39;auto&#39;`` to be calculated automatically.</span>
+
+<span class="sd">        - If ``&#39;auto&#39;`` then it is set equal to the number of</span>
+<span class="sd">          features. Higher values make the calculation of density more sensitive</span>
+<span class="sd">          to the cluster&#39;s size i.e. clusters with large mean euclidean distance</span>
+<span class="sd">          between samples are penalized.</span>
+
+<span class="sd">        - If ``float`` then it is manually set to this number.</span>
+
+<span class="sd">    raise_error : boolean, default=True</span>
+
+<span class="sd">    {n_jobs}</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clusterer_ : object</span>
+<span class="sd">        A fitted :class:`sklearn.cluster.KMeans` or</span>
+<span class="sd">        :class:`sklearn.cluster.MiniBatchKMeans` instance.</span>
+
+<span class="sd">    distributor_ : object</span>
+<span class="sd">        A fitted :class:`clover.distribution.DensityDistributor` instance.</span>
+
+<span class="sd">    labels_ : array, shape (n_samples,)</span>
+<span class="sd">        Cluster labels of each sample.</span>
+
+<span class="sd">    oversampler_ : object</span>
+<span class="sd">        A fitted :class:`imblearn.over_sampling.SMOTE` instance.</span>
+
+<span class="sd">    random_state_ : object</span>
+<span class="sd">        An instance of ``RandomState`` class.</span>
+
+<span class="sd">    sampling_strategy_ : dict</span>
+<span class="sd">        Actual sampling strategy.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Georgios Douzas, Fernando Bacao, Felix Last, &quot;Improving</span>
+<span class="sd">       imbalanced learning through a heuristic oversampling method</span>
+<span class="sd">       based on k-means and SMOTE&quot;</span>
+<span class="sd">       https://www.sciencedirect.com/science/article/pii/S0020025518304997</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from clover.over_sampling import KMeansSMOTE</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.datasets import make_blobs</span>
+<span class="sd">    &gt;&gt;&gt; blobs = [100, 800, 100]</span>
+<span class="sd">    &gt;&gt;&gt; X, y  = make_blobs(blobs, centers=[(-10, 0), (0,0), (10, 0)])</span>
+<span class="sd">    &gt;&gt;&gt; # Add a single 0 sample in the middle blob</span>
+<span class="sd">    &gt;&gt;&gt; X = np.concatenate([X, [[0, 0]]])</span>
+<span class="sd">    &gt;&gt;&gt; y = np.append(y, 0)</span>
+<span class="sd">    &gt;&gt;&gt; # Make this a binary classification problem</span>
+<span class="sd">    &gt;&gt;&gt; y = y == 1</span>
+<span class="sd">    &gt;&gt;&gt; kmeans_smote = KMeansSMOTE(random_state=42)</span>
+<span class="sd">    &gt;&gt;&gt; X_res, y_res = kmeans_smote.fit_resample(X, y)</span>
+<span class="sd">    &gt;&gt;&gt; # Find the number of new samples in the middle blob</span>
+<span class="sd">    &gt;&gt;&gt; n_res_in_middle = ((X_res[:, 0] &gt; -5) &amp; (X_res[:, 0] &lt; 5)).sum()</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;Samples in the middle blob: %s&quot; % n_res_in_middle)</span>
+<span class="sd">    Samples in the middle blob: 801</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;Middle blob unchanged: %s&quot; % (n_res_in_middle == blobs[1] + 1))</span>
+<span class="sd">    Middle blob unchanged: True</span>
+<span class="sd">    &gt;&gt;&gt; print(&quot;More 0 samples: %s&quot; % ((y_res == 0).sum() &gt; (y == 0).sum()))</span>
+<span class="sd">    More 0 samples: True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="KMeansSMOTE.__init__"><a class="viewcode-back" href="../../../generated/clover.over_sampling.KMeansSMOTE.html#clover.over_sampling.KMeansSMOTE.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">kmeans_estimator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">imbalance_ratio_threshold</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">distances_exponent</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">raise_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy</span> <span class="o">=</span> <span class="n">sampling_strategy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_neighbors</span> <span class="o">=</span> <span class="n">k_neighbors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span> <span class="o">=</span> <span class="n">kmeans_estimator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">imbalance_ratio_threshold</span> <span class="o">=</span> <span class="n">imbalance_ratio_threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent</span> <span class="o">=</span> <span class="n">distances_exponent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raise_error</span> <span class="o">=</span> <span class="n">raise_error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span></div>
+
+    <span class="k">def</span> <span class="nf">_initialize_fitting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize fitting process.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Check random state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state_</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+
+        <span class="c1"># Check oversampler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oversampler_</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span>
+            <span class="n">sampling_strategy</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy</span><span class="p">,</span>
+            <span class="n">k_neighbors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">k_neighbors</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state_</span><span class="p">,</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Check clusterer</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clusterer_</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state_</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">check_scalar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">,</span> <span class="s1">&#39;k_means_estimator&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clusterer_</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span>
+                <span class="n">n_clusters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state_</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="n">check_scalar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">,</span> <span class="s1">&#39;k_means_estimator&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">n_clusters</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clusterer_</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span>
+                <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">,</span> <span class="n">KMeans</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">,</span> <span class="n">MiniBatchKMeans</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clusterer_</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kmeans_estimator</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s1">&#39;Parameter `kmeans_estimator` should be &#39;</span>
+                <span class="s1">&#39;either `None` or the number of clusters &#39;</span>
+                <span class="s1">&#39;or a float in the [0.0, 1.0] range equal to&#39;</span>
+                <span class="s1">&#39; the number of clusters over the number of &#39;</span>
+                <span class="s1">&#39;samples or an instance of either `KMeans` &#39;</span>
+                <span class="s1">&#39;or `MiniBatchKMeans` class.&#39;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Check distributor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distributor_</span> <span class="o">=</span> <span class="n">DensityDistributor</span><span class="p">(</span>
+            <span class="n">filtering_threshold</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">imbalance_ratio_threshold</span><span class="p">,</span>
+            <span class="n">distances_exponent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Georgios Douzas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

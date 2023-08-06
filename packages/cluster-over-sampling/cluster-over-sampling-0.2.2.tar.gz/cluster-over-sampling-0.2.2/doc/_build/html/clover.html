@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Clustering-based over-sampling &mdash; cluster-over-sampling 0.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/cluster-over-sampling.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cluster-over-sampling
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="user_guide.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Clustering-based over-sampling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-practical-guide">A practical guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-over-sampling-and-clustering-algorithms">Combining over-sampling and clustering algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-algorithms">Basic algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_history.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cluster-over-sampling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="user_guide.html">User Guide</a> &raquo;</li>
+        
+      <li>Clustering-based over-sampling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/clover.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="clustering-based-over-sampling">
+<span id="clover"></span><h1>Clustering-based over-sampling<a class="headerlink" href="#clustering-based-over-sampling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-practical-guide">
+<h2>A practical guide<a class="headerlink" href="#a-practical-guide" title="Permalink to this headline">¶</a></h2>
+<p>One way to fight the imbalanced learning problem is to generate new samples in
+the classes which are under-represented. Many algorithms have been proposed for
+this task, tend to generate unnecessary noise and ignore the within class
+imbalance problem. The package <cite>cluster-over-sampling</cite> extends the functionality
+of <a class="reference external" href="https://imbalanced-learn.readthedocs.io/en/stable/">imbalanced-learn</a>’s over-samplers by introducing the
+<a class="reference internal" href="generated/clover.over_sampling.ClusterOverSampler.html#clover.over_sampling.ClusterOverSampler" title="clover.over_sampling.ClusterOverSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClusterOverSampler</span></code></a> class. An instance of this
+class is created by defining the <code class="docutils literal notranslate"><span class="pre">oversampler</span></code> parameter as well as the
+<code class="docutils literal notranslate"><span class="pre">clusterer</span></code> and <code class="docutils literal notranslate"><span class="pre">distributor</span></code> parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.over_sampling</span> <span class="kn">import</span> <span class="n">ClusterOverSampler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.distribution</span> <span class="kn">import</span> <span class="n">DensityDistributor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="go">[(0, 10), (1, 10), (2, 80)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clovrs</span> <span class="o">=</span> <span class="n">ClusterOverSampler</span><span class="p">(</span><span class="n">oversampler</span><span class="o">=</span><span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">clusterer</span><span class="o">=</span><span class="n">KMeans</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">9</span><span class="p">),</span> <span class="n">distributor</span><span class="o">=</span><span class="n">DensityDistributor</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">clovrs</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">y_resampled</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="go">[(0, 80), (1, 80), (2, 80)]</span>
+</pre></div>
+</div>
+<p>The augmented data set should be used instead of the original data set
+to train a classifier:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span><span class="p">)</span> <span class="c1"># doctest : +ELLIPSIS</span>
+<span class="go">DecisionTreeClassifier(...)</span>
+</pre></div>
+</div>
+<p>For convenience reasons, <cite>cluster-over-sampling</cite> provides classes that implement the
+algorithms SOMO and KMeans-SMOTE as described in <a class="reference internal" href="#db2017" id="id1">[DB2017]</a> and <a class="reference internal" href="#db2018" id="id2">[DB2018]</a>,
+respectively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.over_sampling</span> <span class="kn">import</span> <span class="n">KMeansSMOTE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kmeans_smote</span> <span class="o">=</span> <span class="n">KMeansSMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">kmeans_smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">y_resampled</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="go">[(0, 80), (1, 80), (2, 80)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="combining-over-sampling-and-clustering-algorithms">
+<h2>Combining over-sampling and clustering algorithms<a class="headerlink" href="#combining-over-sampling-and-clustering-algorithms" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="generated/clover.over_sampling.ClusterOverSampler.html#clover.over_sampling.ClusterOverSampler" title="clover.over_sampling.ClusterOverSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClusterOverSampler</span></code></a> class allows to combine
+<a class="reference external" href="https://imbalanced-learn.readthedocs.io/en/stable/">imbalanced-learn</a>’s oversamplers with <a class="reference external" href="http://scikit-learn.org/stable/">scikit-learn</a>’s clusterers. This achieved
+through the use of the parameters <code class="docutils literal notranslate"><span class="pre">oversampler</span></code> and <code class="docutils literal notranslate"><span class="pre">clusterer</span></code>. For
+example, if we select
+<a class="reference external" href="https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.SMOTE.html">SMOTE</a>
+<a class="reference internal" href="#cbhk2002" id="id3">[CBHK2002]</a> as the over-sampler and
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">KMeans</a>
+as the clustering algorithm than the clustering based over-sampling algorithm
+KMeans-SMOTE as described in <a class="reference internal" href="#db2018" id="id4">[DB2018]</a> is created:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.distribution</span> <span class="kn">import</span> <span class="n">DensityDistributor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">],</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clovrs</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">clusterer</span><span class="o">=</span><span class="n">KMeans</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">distributor</span><span class="o">=</span><span class="n">DensityDistributor</span><span class="p">(),</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">clovrs</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">y_resampled</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="go">[(0, 80), (1, 80), (2, 80)]</span>
+</pre></div>
+</div>
+<p>Similarly, any other combination of an over-sampler and clusterer can be
+selected:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.over_sampling</span> <span class="kn">import</span> <span class="n">RandomOverSampler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AffinityPropagation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clovrs</span> <span class="o">=</span> <span class="n">RandomOverSampler</span><span class="p">(</span><span class="n">clusterer</span><span class="o">=</span><span class="n">AffinityPropagation</span><span class="p">(),</span> <span class="n">distributor</span><span class="o">=</span><span class="n">DensityDistributor</span><span class="p">(),</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">clovrs</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">y_resampled</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="go">[(0, 80), (1, 80), (2, 80)]</span>
+</pre></div>
+</div>
+<p>Additionally, if the clusterer supports a neighboring structure for the
+clusters through a <code class="docutils literal notranslate"><span class="pre">neighbors_</span></code> attribute, then it can be used to generate
+inter-cluster artificial data as suggested in <a class="reference internal" href="#db2017" id="id5">[DB2017]</a>.</p>
+<p>Additionally, the parameter <code class="docutils literal notranslate"><span class="pre">distributor</span></code> is used to define the distribution of the
+generated samples to the clusters. The <a class="reference internal" href="generated/clover.distribution.DensityDistributor.html#clover.distribution.DensityDistributor" title="clover.distribution.DensityDistributor"><code class="xref py py-class docutils literal notranslate"><span class="pre">DensityDistributor</span></code></a> class
+implements a density based distribution:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">distributor</span> <span class="o">=</span> <span class="n">DensityDistributor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clusterer</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">labels_</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intra_distribution</span><span class="p">,</span> <span class="n">inter_distribution</span> <span class="o">=</span> <span class="n">distributor</span><span class="o">.</span><span class="n">fit_distribute</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">neighbors</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">distributor</span><span class="o">.</span><span class="n">filtered_clusters_</span><span class="p">)</span>
+<span class="go">[(3, 0), (3, 1)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">distributor</span><span class="o">.</span><span class="n">clusters_density_</span><span class="p">)</span>
+<span class="go">{(3, 0): 6.0, (3, 1): 6.0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">intra_distribution</span><span class="p">)</span>
+<span class="go">{(3, 0): 1.0, (3, 1): 1.0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">inter_distribution</span><span class="p">)</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+<p>Also any other distributor can be defined by extending the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseDistributor</span></code> class.</p>
+</div>
+<div class="section" id="basic-algorithms">
+<h2>Basic algorithms<a class="headerlink" href="#basic-algorithms" title="Permalink to this headline">¶</a></h2>
+<p>The basic clustering-based over-samplers SOMO <a class="reference internal" href="#db2017" id="id6">[DB2017]</a>, KMeans-SMOTE <a class="reference internal" href="#db2018" id="id7">[DB2018]</a>
+and Geometric SOMO are implemented. The corresponding classes <code class="xref py py-class docutils literal notranslate"><span class="pre">SOMO</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">KMeansSMOTE</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">GeometricSOMO</span></code> include all the appropriate
+parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.over_sampling</span> <span class="kn">import</span> <span class="n">KMeansSMOTE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kmeans_smote</span> <span class="o">=</span> <span class="n">KMeansSMOTE</span><span class="p">(</span><span class="n">kmeans_estimator</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">imbalance_ratio_threshold</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">kmeans_smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">y_resampled</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="go">[(0, 80), (1, 80), (2, 80)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compatibility">
+<h2>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
+<p>The API of <cite>cluster-over-sampling</cite> is fully compatible to <a class="reference external" href="https://imbalanced-learn.readthedocs.io/en/stable/">imbalanced-learn</a>.
+Any over-sampler from cluster-over-sampling that does not use clustering,
+i.e. when <code class="docutils literal notranslate"><span class="pre">clusterer=None</span></code>, is equivalent to the corresponding
+<a class="reference external" href="https://imbalanced-learn.readthedocs.io/en/stable/">imbalanced-learn</a>’s over-sampler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_res_im</span><span class="p">,</span> <span class="n">y_res_im</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.over_sampling</span> <span class="kn">import</span> <span class="n">ClusterOverSampler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_res_cl</span><span class="p">,</span> <span class="n">y_res_cl</span> <span class="o">=</span> <span class="n">ClusterOverSampler</span><span class="p">(</span><span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">clusterer</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">X_res_im</span><span class="p">,</span> <span class="n">X_res_cl</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">y_res_im</span><span class="p">,</span> <span class="n">y_res_cl</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title">References</p>
+<table class="docutils citation" frame="void" id="db2017" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DB2017]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id5">2</a>, <a class="fn-backref" href="#id6">3</a>)</em> Douzas, G., &amp; Bacao, F. (2019). “Self-Organizing Map
+Oversampling for imbalanced data set learning”,
+Expert Systems with Applications, 82, 40-52.
+<a class="reference external" href="https://doi.org/10.1016/j.eswa.2017.03.073">https://doi.org/10.1016/j.eswa.2017.03.073</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="db2018" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DB2018]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id4">2</a>, <a class="fn-backref" href="#id7">3</a>)</em> Douzas, G., &amp; Bacao, F. (2019). “Improving
+imbalanced learning through a heuristic oversampling
+method based on k-means and SMOTE”,
+Information Sciences, 465, 1-20.
+<a class="reference external" href="https://doi.org/10.1016/j.ins.2018.06.056">https://doi.org/10.1016/j.ins.2018.06.056</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="cbhk2002" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[CBHK2002]</a></td><td>N. V. Chawla, K. W. Bowyer, L. O. Hall, W. P. Kegelmeyer, “SMOTE:
+synthetic minority over-sampling technique”, Journal of Artificial
+Intelligence Research, vol. 16, pp. 321-357, 2002.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Georgios Douzas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
