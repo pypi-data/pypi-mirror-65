@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: sr-dice
+Version: 0.1
+Summary: A simple dice simulator for Shadowrun
+Home-page: https://github.com/br-olf/sr-dice
+Author: Brolf
+Author-email: brolf@magheute.net
+License: EUPL-1.2
+Description: # SR-DICE
+        is a simple dice simulator for the pen and paper RPG [Shadowrun](https://en.wikipedia.org/wiki/Shadowrun).
+        
+        ## Usage
+        ```
+        sr-dice [-h] [--hist] [--raw] num_dices
+        
+        positional arguments:
+          num_dices   number of dices to roll
+        
+        optional arguments:
+          -h, --help  show this help message and exit
+          --hist      print a histogram of the dice rolls
+          --raw       print the raw dice rolls
+        ```
+        
+        ### Bugs
+        Please report to brolf <at> magheute (dot) net
+        
+        
+Keywords: dice,pen and paper,RPG,Shadowrun
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
