@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: gridsim
+Version: 0.1
+Summary: Simple grid-based robot simulator
+Home-page: https://github.com/jtebert/gridsim
+Author: Julia Ebert
+Author-email: julia@juliaebert.com
+License: MIT License
+Requires-Dist: pygame
+Requires-Dist: numpy
+
+Copyright (c) 2020 Julia Ebert
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Description: # Gridsim
+        
+        *Simple grid-based robot simulator*
+        
+        **[Documentation](https://gridsim.readthedocs.io/)**
+        
+        I'm planning on using this as a simple test-bed for my algorithms.
+        
+        This package will be a package/library for the simulator itself, not the robot code. This follows a similar structure (with a World, Robot, Logger, and Viewer) as Kilosim.
+        
+        I plan to package this with PyPi so I can easily use it with separate repositories for the algorithms.
+        
+        For reference on package structure, see the [package-boilerplate](https://github.com/jtebert/package-boilerplate).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: Robot Framework
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
