@@ -1,0 +1,11 @@
+aiohttp
+dask>=2.2.0
+distributed>=2.2.0
+
+[kerberos]
+
+[kerberos:platform_system != "Windows"]
+pykerberos
+
+[kerberos:platform_system == "Windows"]
+winkerberos
