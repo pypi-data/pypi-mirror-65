@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: facecast-io
+Version: 0.1.0
+Summary: 
+Author: Serhii Khalymon
+Author-email: sergiykhalimon@gmail.com
+Requires-Python: >=3.8.2,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: httpx (>=0.12.1,<0.13.0)
+Requires-Dist: pyquery (>=1.4.1,<2.0.0)
+Requires-Dist: yarl (>=1.4.2,<2.0.0)
