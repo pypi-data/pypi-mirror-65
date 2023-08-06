@@ -1,0 +1,17 @@
+setup.py
+file_stream/__init__.py
+file_stream/__main__.py
+file_stream/executor.py
+file_stream/filter.py
+file_stream/logic.py
+file_stream/source.py
+file_stream/stastic.py
+file_stream/utils.py
+file_stream/writer.py
+file_stream.egg-info/PKG-INFO
+file_stream.egg-info/SOURCES.txt
+file_stream.egg-info/dependency_links.txt
+file_stream.egg-info/requires.txt
+file_stream.egg-info/top_level.txt
+test/test_qc.py
+test/test_sql.py
