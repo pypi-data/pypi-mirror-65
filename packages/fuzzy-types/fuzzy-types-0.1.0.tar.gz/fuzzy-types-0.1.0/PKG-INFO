@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: fuzzy-types
+Version: 0.1.0
+Summary: fuzzywuzzy-based utilities and data structures
+Home-page: https://github.com/havok2063/fuzzy_types
+Author: Brian Cherinka
+Author-email: havok2063@gmail.com
+License: BSD 3-Clause License
+Project-URL: Repository, https://github.com/havok2063/fuzzy_types
+Project-URL: Documentation, https://fuzzy-types.readthedocs.org
+Description: # fuzzy_types
+        A collection of "fuzzy" python datatypes and utilities, using `fuzzywuzzy` to allow for fuzzy-string matching.
+        
+        ![Python application](https://github.com/havok2063/fuzzy_types/workflows/Python%20application/badge.svg)
+        ![Build Sphinx Docs](https://github.com/havok2063/fuzzy_types/workflows/Build%20Sphinx%20Documentation/badge.svg)
+        [![Documentation Status](https://readthedocs.org/projects/fuzzy-types/badge/?version=latest)](https://fuzzy-types.readthedocs.io/en/latest/?badge=latest)
+        [![Build Status](https://travis-ci.com/havok2063/fuzzy_types.svg?branch=master)](https://travis-ci.com/havok2063/fuzzy_types)
+        [![Coverage Status](https://coveralls.io/repos/github/havok2063/fuzzy_types/badge.svg?branch=master)](https://coveralls.io/github/havok2063/fuzzy_types?branch=master)
+        [![codecov](https://codecov.io/gh/havok2063/fuzzy_utils/branch/master/graph/badge.svg)](https://codecov.io/gh/havok2063/fuzzy_utils)
+        
+        
+Keywords: python,software
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: docs
