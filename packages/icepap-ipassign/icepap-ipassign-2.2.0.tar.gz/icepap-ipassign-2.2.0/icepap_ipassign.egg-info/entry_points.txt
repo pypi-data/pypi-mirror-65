@@ -1,0 +1,4 @@
+[console_scripts]
+ipassign = ipa_gui.main:main
+ipassign-listener = ipa_utils.listener:main
+
