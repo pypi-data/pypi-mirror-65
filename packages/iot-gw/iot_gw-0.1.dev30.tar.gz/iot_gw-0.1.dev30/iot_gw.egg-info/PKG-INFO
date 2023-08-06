@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: iot-gw
+Version: 0.1.dev30
+Summary: IoT gateway
+Home-page: https://github.com/arnlec/iot-gw
+Author: A. LE CANN
+Author-email: arnaud@lecann.com
+License: GPLv3
+Description: # IoT Gateway
+        
+        IoT gateway is a device that connects its client devices to a IoT platforms.
+        
+        ```plantuml
+        @startditaa                                        
+        +--------+        +---------+           +----------+
+        |        |        |         +<----------+   IoT    |
+        | Device +<------>+ Gateway +   Bridge  | Platform | 
+        |        |        |         |---------->|          |
+        +--------+        +---------+ telemetry +----------+
+                                        state
+        @endditaa
+        ```
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3
+Description-Content-Type: text/markdown
