@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+# vim:set softtabstop=4 shiftwidth=4 tabstop=4 expandtab:
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import datetime
+START = datetime.datetime.now()  # noqa
+
+# Import external modules
+import sys
+import os.path
+
+# Add base directory to path so that it can find the prompty package
+sys.path[0:0] = [os.path.join(os.path.dirname(__file__), "..")]  # noqa
+
+import prompty.cli
+prompty.cli.START = START
+
+
+def main():
+    prompty.cli.cli()
+
+
+# Run main if this file is not imported as a module
+if __name__ == "__main__":
+    main()
