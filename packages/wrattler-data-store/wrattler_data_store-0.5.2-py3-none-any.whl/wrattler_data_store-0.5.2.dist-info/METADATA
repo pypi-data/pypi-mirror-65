@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: wrattler-data-store
+Version: 0.5.2
+Summary: Flask app providing datastore for the Wrattler notebook project
+Home-page: https://github.com/wrattler/wrattler
+Author: Nick Barlow, Tomas Petricek, May Yong
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: flask
+Requires-Dist: flask-cors
+Requires-Dist: pip
+Requires-Dist: pyarrow
+Requires-Dist: azure (==4.0.0)
+
+UNKNOWN
+
+
