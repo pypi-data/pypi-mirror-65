@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: apitracker-agent
+Version: 1.1.1
+Summary: UNKNOWN
+Home-page: https://github.com/apitracker/apitracker-agent-python
+Author: API Tracker, Inc
+License: BSD
+Description: apitracker python agent
+        =============================
+        
+        This is API Tracker agent for Python. API Tracker tracks and manages 3rd party API. It let developers quickly add best practices
+        in integrating with 3rd party API, for example: logging, alerting, auto retry, request queuing and more
+        
+        Sign up at https://apitracker.com for a free account
+        
+        Install
+        ---------------------------
+        apitracker-agent is available on PyPI and thus can be installed with pip on most platforms.::
+        
+        $ pip install apitracker-agent
+        
+        Documentation
+        ----------------
+        
+        See the documentation at https://docs.apitracker.com/docs/python-agent
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: License :: OSI Approved :: BSD License
+Provides-Extra: starlette
+Provides-Extra: tests
+Provides-Extra: opentracing
+Provides-Extra: aiohttp
+Provides-Extra: flask
+Provides-Extra: tornado
