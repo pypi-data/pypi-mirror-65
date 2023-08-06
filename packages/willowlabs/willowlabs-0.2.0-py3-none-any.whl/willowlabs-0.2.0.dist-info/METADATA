@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: willowlabs
+Version: 0.2.0
+Summary: A Python package for accessing the Willow Labs APIs
+Home-page: https://github.com/willowlabs/willowlabs-apis-python
+Author: Willow Labs AS
+Author-email: lars@willowlabs.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+Requires-Dist: google-api-python-client (>=1.7.11)
+Requires-Dist: grpcio (>=1.27.0)
+Requires-Dist: grpcio-tools (>=1.27.2)
+Requires-Dist: PyYAML (>=5.3)
+
+# willowlabs-apis-python
+Python client library for Willow Labs APIs
+
+
