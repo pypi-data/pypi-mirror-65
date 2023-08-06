@@ -1,0 +1,7 @@
+graft src
+global-include *.pyx
+recursive-include tests *.py
+include requirements.txt
+include environment.yml
+include LICENSE
+include README.md

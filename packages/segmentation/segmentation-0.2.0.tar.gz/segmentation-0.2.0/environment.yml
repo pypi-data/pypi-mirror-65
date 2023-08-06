@@ -1,0 +1,7 @@
+channels:
+  - defaults
+dependencies:
+  - cython
+  - gcc_linux-64
+  - numpy
+  - scikit-image
