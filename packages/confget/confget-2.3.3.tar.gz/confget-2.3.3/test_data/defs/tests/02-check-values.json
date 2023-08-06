@@ -1,0 +1,258 @@
+{
+  "format": {
+    "version": {
+      "major": 1,
+      "minor": 0
+    }
+  },
+  "setenv": {
+    "QUERY_STRING": "key1=value1&key2=%3Dvalue2%26&amp;key3=%09%09%20val%27ue3",
+    "Q1": "key4&amp;key5=%09%09%20val%27ue5&key6",
+    "Q2": ""
+  },
+  "tests": [
+    {
+      "args": {
+        "check_only": "",
+        "filename": "t1.ini",
+        "section": "a"
+      },
+      "keys": [
+        "key1"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": true
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "filename": "t1.ini",
+        "section": "a"
+      },
+      "keys": [
+        "key2"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": true
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "filename": "t1.ini",
+        "section": "a"
+      },
+      "keys": [
+        "key3"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": true
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "filename": "t1.ini",
+        "section": "a"
+      },
+      "keys": [
+        "key4"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": false
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "filename": "t1.ini",
+        "section": "b sect"
+      },
+      "keys": [
+        "key5"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": false
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "filename": "t1.ini",
+        "section": "b sect"
+      },
+      "keys": [
+        "key4"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": true
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "filename": "t1.ini",
+        "section": "c"
+      },
+      "keys": [
+        "key5"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": true
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": ""
+      },
+      "keys": [
+        "key1"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": true
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": ""
+      },
+      "keys": [
+        "key2"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": true
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": ""
+      },
+      "keys": [
+        "key3"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": true
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "section": "Q1"
+      },
+      "keys": [
+        "key4"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": true
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "section": "Q1"
+      },
+      "keys": [
+        "key6"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": true
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": ""
+      },
+      "keys": [
+        "key6"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": false
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "section": "Q1"
+      },
+      "keys": [
+        "key1"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": false
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "check_only": "",
+        "section": "Q2"
+      },
+      "keys": [
+        "key1"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exit": false
+      },
+      "setenv": true,
+      "stdin": null
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "format": {
+    "version": {
+      "major": 1,
+      "minor": 0
+    }
+  },
+  "setenv": {
+    "QUERY_STRING": "key1=value1&key2=%3Dvalue2%26&amp;key3=%09%09%20val%27ue3",
+    "Q1": "key4&amp;key5=%09%09%20val%27ue5&key6",
+    "Q2": ""
+  },
+  "tests": [
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a"
+      },
+      "keys": [
+        "key1"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "value1"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "show_var_name": ""
+      },
+      "keys": [
+        "key2"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "key2=value2"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a"
+      },
+      "keys": [
+        "key3"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "\t\t val'ue3"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "b sect"
+      },
+      "keys": [
+        "key4"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "v'alu'e4"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "c"
+      },
+      "keys": [
+        "key5"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "\t\t# value5"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a"
+      },
+      "keys": [
+        "key1",
+        "key2"
+      ],
+      "xform": "newline-to-space",
+      "backend": "ini",
+      "output": {
+        "exact": "key1=value1 key2=value2 "
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "hide_var_name": ""
+      },
+      "keys": [
+        "key6",
+        "key2"
+      ],
+      "xform": "newline-to-space",
+      "backend": "ini",
+      "output": {
+        "exact": "value2 value6 "
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "b sect"
+      },
+      "keys": [
+        "key7"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "value7"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "section": "b sect"
+      },
+      "keys": [
+        "key7"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "value7"
+      },
+      "setenv": false,
+      "stdin": "t1.ini"
+    },
+    {
+      "args": {
+        "section": "b sect"
+      },
+      "keys": [
+        "key77"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": ""
+      },
+      "setenv": false,
+      "stdin": "t1.ini"
+    },
+    {
+      "args": {},
+      "keys": [
+        "key1"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": "value1"
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "show_var_name": ""
+      },
+      "keys": [
+        "key2"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": "key2==value2&"
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {},
+      "keys": [
+        "key3"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": "\t\t val'ue3"
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "section": "Q1"
+      },
+      "keys": [
+        "key4"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": ""
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "section": "Q1"
+      },
+      "keys": [
+        "key5"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": "\t\t val'ue5"
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "section": "Q1"
+      },
+      "keys": [
+        "key6"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": ""
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "section": "Q1"
+      },
+      "keys": [
+        "key66"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": ""
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "section": "Q2"
+      },
+      "keys": [
+        "key66"
+      ],
+      "xform": "",
+      "backend": "http_get",
+      "output": {
+        "exact": ""
+      },
+      "setenv": true,
+      "stdin": null
+    }
+  ]
+}

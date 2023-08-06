@@ -1,0 +1,239 @@
+{
+  "format": {
+    "version": {
+      "major": 1,
+      "minor": 0
+    }
+  },
+  "setenv": {},
+  "tests": [
+    {
+      "args": {
+        "filename": "t3.ini"
+      },
+      "keys": [
+        "both"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "default"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini"
+      },
+      "keys": [
+        "defonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "default"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini"
+      },
+      "keys": [
+        "aonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": ""
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": ""
+      },
+      "keys": [
+        "both"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "default"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": ""
+      },
+      "keys": [
+        "defonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "default"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": ""
+      },
+      "keys": [
+        "aonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": ""
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": "a"
+      },
+      "keys": [
+        "both"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "a"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": "a"
+      },
+      "keys": [
+        "defonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": ""
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": "a"
+      },
+      "keys": [
+        "aonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "a"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": "a",
+        "section_override": ""
+      },
+      "keys": [
+        "both"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "a"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": "a",
+        "section_override": ""
+      },
+      "keys": [
+        "defonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "default"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "section": "a",
+        "section_override": ""
+      },
+      "keys": [
+        "aonly"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "a"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "match_var_values": "def*",
+        "section": "a",
+        "section_override": ""
+      },
+      "keys": [
+        "both"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": ""
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t3.ini",
+        "match_var_values": "a*",
+        "section": "a",
+        "section_override": ""
+      },
+      "keys": [
+        "both"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "a"
+      },
+      "setenv": false,
+      "stdin": null
+    }
+  ]
+}

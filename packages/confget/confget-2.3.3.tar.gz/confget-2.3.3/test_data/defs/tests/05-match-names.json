@@ -1,0 +1,81 @@
+{
+  "format": {
+    "version": {
+      "major": 1,
+      "minor": 0
+    }
+  },
+  "setenv": {},
+  "tests": [
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "match_var_names": ""
+      },
+      "keys": [
+        "*"
+      ],
+      "xform": "count-lines",
+      "backend": "ini",
+      "output": {
+        "exact": "4"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "b sect",
+        "match_var_names": "",
+        "show_var_name": ""
+      },
+      "keys": [
+        "*"
+      ],
+      "xform": "count-lines-eq",
+      "backend": "ini",
+      "output": {
+        "exact": "2"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "match_var_names": "",
+        "hide_var_name": ""
+      },
+      "keys": [
+        "*ey2"
+      ],
+      "xform": "count-lines-non-eq",
+      "backend": "ini",
+      "output": {
+        "exact": "1"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "d",
+        "match_var_names": ""
+      },
+      "keys": [
+        "*ey2"
+      ],
+      "xform": "count-lines",
+      "backend": "ini",
+      "output": {
+        "exact": "0"
+      },
+      "setenv": false,
+      "stdin": null
+    }
+  ]
+}

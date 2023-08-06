@@ -1,0 +1,166 @@
+{
+  "format": {
+    "version": {
+      "major": 1,
+      "minor": 0
+    }
+  },
+  "setenv": {},
+  "tests": [
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "match_var_values": "value*"
+      },
+      "keys": [
+        "key1"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "value1"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "match_var_values": "*ue2"
+      },
+      "keys": [
+        "key2"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "value2"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "match_var_values": "*val'ue*"
+      },
+      "keys": [
+        "key3"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "\t\t val'ue3"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "b sect",
+        "match_var_values": "*alu*"
+      },
+      "keys": [
+        "key4"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "v'alu'e4"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "c"
+      },
+      "keys": [
+        "key5"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": "\t\t# value5"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "match_var_values": "*alu*"
+      },
+      "keys": [
+        "key1",
+        "key2"
+      ],
+      "xform": "newline-to-space",
+      "backend": "ini",
+      "output": {
+        "exact": "key1=value1 key2=value2 "
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "match_var_values": "*7"
+      },
+      "keys": [
+        "key6"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exact": ""
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "b sect",
+        "check_only": "",
+        "match_var_values": "*7"
+      },
+      "keys": [
+        "key7"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": true
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "b sect",
+        "check_only": "",
+        "match_var_values": "*7"
+      },
+      "keys": [
+        "key6"
+      ],
+      "xform": "",
+      "backend": "ini",
+      "output": {
+        "exit": false
+      },
+      "setenv": false,
+      "stdin": null
+    }
+  ]
+}

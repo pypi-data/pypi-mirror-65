@@ -1,0 +1,118 @@
+{
+  "format": {
+    "version": {
+      "major": 1,
+      "minor": 0
+    }
+  },
+  "setenv": {
+    "QUERY_STRING": "key1=value1&key2=%3Dvalue2%26&amp;key3=%09%09%20val%27ue3",
+    "Q1": "key4&amp;key5=%09%09%20val%27ue5&key6",
+    "Q2": ""
+  },
+  "tests": [
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "a",
+        "list_all": ""
+      },
+      "keys": [],
+      "xform": "count-lines",
+      "backend": "ini",
+      "output": {
+        "exact": "4"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "b sect",
+        "list_all": "",
+        "show_var_name": ""
+      },
+      "keys": [],
+      "xform": "count-lines-eq",
+      "backend": "ini",
+      "output": {
+        "exact": "2"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "c",
+        "list_all": "",
+        "hide_var_name": ""
+      },
+      "keys": [],
+      "xform": "count-lines-non-eq",
+      "backend": "ini",
+      "output": {
+        "exact": "1"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "filename": "t1.ini",
+        "section": "d",
+        "list_all": ""
+      },
+      "keys": [],
+      "xform": "count-lines",
+      "backend": "ini",
+      "output": {
+        "exact": "0"
+      },
+      "setenv": false,
+      "stdin": null
+    },
+    {
+      "args": {
+        "list_all": ""
+      },
+      "keys": [],
+      "xform": "count-lines",
+      "backend": "http_get",
+      "output": {
+        "exact": "3"
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "list_all": "",
+        "section": "Q1"
+      },
+      "keys": [],
+      "xform": "count-lines",
+      "backend": "http_get",
+      "output": {
+        "exact": "3"
+      },
+      "setenv": true,
+      "stdin": null
+    },
+    {
+      "args": {
+        "list_all": "",
+        "section": "Q2"
+      },
+      "keys": [],
+      "xform": "count-lines",
+      "backend": "http_get",
+      "output": {
+        "exact": "0"
+      },
+      "setenv": true,
+      "stdin": null
+    }
+  ]
+}
