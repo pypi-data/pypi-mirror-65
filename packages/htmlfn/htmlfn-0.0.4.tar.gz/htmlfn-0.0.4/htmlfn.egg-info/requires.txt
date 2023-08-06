@@ -1,0 +1,8 @@
+
+[dev]
+pytest-cov
+wheel
+
+[test]
+pytest
+pytest-runner
