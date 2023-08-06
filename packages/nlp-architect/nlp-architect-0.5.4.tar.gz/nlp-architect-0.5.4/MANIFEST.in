@@ -1,0 +1,4 @@
+global-exclude .DS_Store .editorconfig *.py[cod] __pycache__
+graft nlp_architect/utils/resources
+graft nlp_architect/models/absa/inference/lexicons
+graft nlp_architect/models/absa/train/lexicons
