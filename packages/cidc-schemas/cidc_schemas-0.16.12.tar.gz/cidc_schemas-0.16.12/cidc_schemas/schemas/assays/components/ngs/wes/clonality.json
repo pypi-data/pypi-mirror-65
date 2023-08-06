@@ -1,0 +1,16 @@
+{
+  "$schema": "metaschema/strict_meta_schema.json#",
+  "$id": "WES Clonality Output Files",
+  "title": "Clonality output files",
+  "type": "object",
+  "description": "Clonality output files.",
+  "properties": {
+    "clonality_pyclone": {
+      "$ref": "artifacts/artifact_tsv.json"
+    }
+  },
+  "required": [
+  "clonality_pyclone"
+  ],
+  "additionalProperties": false
+}

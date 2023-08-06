@@ -1,0 +1,16 @@
+{
+  "$schema": "metaschema/strict_meta_schema.json#",
+  "$id": "germline",
+  "title": "WES Germline Output Files",
+  "type": "object",
+  "description": "Germline variant output sample files.",
+  "properties": {
+    "vcf_compare": {
+      "$ref": "artifacts/artifact_text.json"
+    }
+  },
+  "required": [
+  "vcf_compare"
+  ],
+  "additionalProperties": false
+}
