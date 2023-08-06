@@ -1,0 +1,5 @@
+[console_scripts]
+install-terraform = terraform_ci.install_terraform:main
+terraform-cd = terraform_ci.terraform_cd:terraform_cd
+terraform-ci = terraform_ci.ci_runner:terraform_ci
+

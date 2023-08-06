@@ -1,0 +1,23 @@
+Metadata-Version: 1.2
+Name: terraform-ci
+Version: 1.2.1
+Summary: Terraform CI runs terraform in Travis-CI
+Home-page: https://github.com/twindb/terraform-ci
+Author: TwinDB
+Author-email: dev@twindb.com
+License: Apache Software License 2.0
+Description: 
+        Terraform CI runs "terraform plan, "terraform apply"
+        and publishes the plan output to GitHub pull request.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
