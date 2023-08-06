@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: sentiment-analysis-spanish
+Version: 0.0.14
+Summary: Sentiment analysis for sentences in spanish
+Home-page: https://github.com/sentiment-analysis-spanish/sentiment-spanish
+Author: Hugo J. Bello
+Author-email: hjbello.wk@gmail.com
+License: UNKNOWN
+Description: # sentiment-spanish
+        
+        
+        [![PyPI version](https://badge.fury.io/py/sentiment_analysis_spanish.svg)](https://badge.fury.io/py/sentiment_analysis_spanish)
+        
+        
+        
+        
+        Import the package
+        
+        ```
+        from sentiment_analysis_spanish import sentiment_analysis
+        
+        ```
+        
+        run the sentiment analysis:
+        
+        ```
+        sentiment = sentiment_analysis.SentimentAnalysisSpanish()
+        print(sentiment.sentiment("me gusta la tombola es genial"))
+        
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
