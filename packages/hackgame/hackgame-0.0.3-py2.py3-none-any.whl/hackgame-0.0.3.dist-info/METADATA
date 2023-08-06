@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: hackgame
+Version: 0.0.3
+Summary: A Hacking Game for Coders.
+Home-page: https://bitbucket.org/rachel-sharp/hackgame-cli/
+Author: Rachel Sharp
+Author-email: rach@rachsharp.co.uk
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+Requires-Dist: click (==7.1.1)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: inquirer (==2.6.3)
+Requires-Dist: tabulate (==0.8.7)
+Requires-Dist: attrs (==19.3.0)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: ruamel.yaml (==0.16.10)
+Requires-Dist: pyfiglet (==0.7)
+
+
+
+A hacking game
+
