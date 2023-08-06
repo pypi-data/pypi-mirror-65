@@ -1,0 +1,11 @@
+setuptools
+psycopg2
+pytz
+colorama
+officegenerator
+
+[:platform_system == "Windows"]
+PyQtChart
+PyQtWebEngine
+PyQt5
+pywin32

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmProductsElaboratedAdd</class>
+ <widget class="QDialog" name="frmProductsElaboratedAdd">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>577</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Managing elaborated products</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../images/caloriestracker.qrc">
+    <normaloff>:/caloriestracker/books.png</normaloff>:/caloriestracker/books.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QLabel" name="lbl">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 128, 0);</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
+       <item>
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>Name of the product</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="txtName"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Select food type</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cmbFoodtypes">
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToContents</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_17">
+       <item>
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>Final amount</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="myQDoubleSpinBox" name="spnFinalAmount">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+         <property name="suffix">
+          <string> g</string>
+         </property>
+         <property name="decimals">
+          <number>1</number>
+         </property>
+         <property name="minimum">
+          <double>1.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>1000000.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>100.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>1.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="chkObsolete">
+       <property name="text">
+        <string>Is obsolete?</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="mqtwObjects" name="tblProductsIn" native="true"/>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="bb">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <action name="actionProductInNew">
+   <property name="icon">
+    <iconset resource="../images/caloriestracker.qrc">
+     <normaloff>:/caloriestracker/add.png</normaloff>:/caloriestracker/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>New product in elaboration</string>
+   </property>
+   <property name="toolTip">
+    <string>New product in elaboration</string>
+   </property>
+  </action>
+  <action name="actionProductInDelete">
+   <property name="icon">
+    <iconset resource="../images/caloriestracker.qrc">
+     <normaloff>:/caloriestracker/list-remove.png</normaloff>:/caloriestracker/list-remove.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete product in elaboration</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete product in elaboration</string>
+   </property>
+  </action>
+  <action name="actionProductInEdit">
+   <property name="icon">
+    <iconset resource="../images/caloriestracker.qrc">
+     <normaloff>:/caloriestracker/document-edit.png</normaloff>:/caloriestracker/document-edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit product in elaboration</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit product in elaboration</string>
+   </property>
+  </action>
+  <action name="actionProductEdit">
+   <property name="icon">
+    <iconset resource="../images/caloriestracker.qrc">
+     <normaloff>:/caloriestracker/books.png</normaloff>:/caloriestracker/books.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit product</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit product</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>myQDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header location="global">myqdoublespinbox</header>
+  </customwidget>
+  <customwidget>
+   <class>mqtwObjects</class>
+   <extends>QWidget</extends>
+   <header location="global">myqtablewidget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../images/caloriestracker.qrc"/>
+ </resources>
+ <connections/>
+</ui>

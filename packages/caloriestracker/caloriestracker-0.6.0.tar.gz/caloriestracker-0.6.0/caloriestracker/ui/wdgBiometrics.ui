@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>wdgBiometrics</class>
+ <widget class="QWidget" name="wdgBiometrics">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1012</width>
+    <height>669</height>
+   </rect>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_5">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <widget class="QLabel" name="lbl">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Your biometric information</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QGroupBox" name="groupBox">
+           <property name="title">
+            <string>Select an option</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <widget class="QRadioButton" name="rad20days">
+                <property name="text">
+                 <string>Show last 20 days</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QRadioButton" name="radMonth">
+                  <property name="text">
+                   <string>Select a month</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="wdgYearMonth" name="wdgYM" native="true"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="mqtwObjects" name="tblBiometrics" native="true"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblFound">
+           <property name="text">
+            <string>Registers found</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <layout class="QVBoxLayout" name="layTab">
+           <item>
+            <widget class="QTabWidget" name="tabWidget">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tab">
+              <attribute name="title">
+               <string>Weight</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <item>
+                <layout class="QVBoxLayout" name="layWeight"/>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_2">
+              <attribute name="title">
+               <string>Height</string>
+              </attribute>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <layout class="QVBoxLayout" name="layHeight"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Show in chart</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cmbChart">
+             <property name="currentIndex">
+              <number>-1</number>
+             </property>
+             <property name="sizeAdjustPolicy">
+              <enum>QComboBox::AdjustToContents</enum>
+             </property>
+             <item>
+              <property name="text">
+               <string>All registers</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Last year</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Last three years</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <action name="actionBiometricsNew">
+   <property name="icon">
+    <iconset resource="../images/caloriestracker.qrc">
+     <normaloff>:/caloriestracker/add.png</normaloff>:/caloriestracker/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>New biometric information</string>
+   </property>
+   <property name="toolTip">
+    <string>New biometric information</string>
+   </property>
+  </action>
+  <action name="actionBiometricsDelete">
+   <property name="icon">
+    <iconset resource="../images/caloriestracker.qrc">
+     <normaloff>:/caloriestracker/list-remove.png</normaloff>:/caloriestracker/list-remove.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete biometric information</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete biometric information</string>
+   </property>
+  </action>
+  <action name="actionBiometricsEdit">
+   <property name="icon">
+    <iconset resource="../images/caloriestracker.qrc">
+     <normaloff>:/caloriestracker/document-edit.png</normaloff>:/caloriestracker/document-edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit biometric information</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit biometric information</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>wdgYearMonth</class>
+   <extends>QWidget</extends>
+   <header location="global">wdgYearMonth</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>mqtwObjects</class>
+   <extends>QWidget</extends>
+   <header location="global">myqtablewidget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../images/caloriestracker.qrc"/>
+ </resources>
+ <connections/>
+</ui>

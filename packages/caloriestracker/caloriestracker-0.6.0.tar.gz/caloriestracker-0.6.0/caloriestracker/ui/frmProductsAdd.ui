@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmProductsAdd</class>
+ <widget class="QDialog" name="frmProductsAdd">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>880</width>
+    <height>691</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Managing products</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../images/caloriestracker.qrc">
+    <normaloff>:/caloriestracker/books.png</normaloff>:/caloriestracker/books.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_16">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QLabel" name="lbl">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 128, 0);</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
+       <item>
+        <widget class="QLabel" name="label_15">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>1</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Name of the product</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="txtName">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>1</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Select a company</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cmbCompanies">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Select food type</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cmbFoodtypes">
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToContents</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Select product additives</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="cmbManagerSelector" name="cmbsAdditives" native="true"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_15">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Basic components information</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="myQLineEditPlus" name="qlepCalories" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepAmount" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepCarbohydrate" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepSugar" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepFat" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepSaturatedFat" native="true"/>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chkGlutenFree">
+            <property name="text">
+             <string>Gluten free</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Additional information</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="myQLineEditPlus" name="qlepProtein" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepFiber" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepSalt" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepCholesterol" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepSodium" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepPotassium" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepMagnesium" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepPhosphor" native="true"/>
+          </item>
+          <item>
+           <widget class="myQLineEditPlus" name="qlepFerrum" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="chkObsolete">
+       <property name="text">
+        <string>Is it obselete?</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="bb">
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>myQLineEditPlus</class>
+   <extends>QWidget</extends>
+   <header location="global">myqlineedit</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>cmbManagerSelector</class>
+   <extends>QWidget</extends>
+   <header location="global">frmSelector</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../images/caloriestracker.qrc"/>
+ </resources>
+ <connections/>
+</ui>
