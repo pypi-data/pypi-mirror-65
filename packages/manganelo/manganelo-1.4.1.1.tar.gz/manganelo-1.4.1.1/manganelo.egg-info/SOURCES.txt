@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+manganelo/__init__.py
+manganelo.egg-info/PKG-INFO
+manganelo.egg-info/SOURCES.txt
+manganelo.egg-info/dependency_links.txt
+manganelo.egg-info/requires.txt
+manganelo.egg-info/top_level.txt
+manganelo/api/__init__.py
+manganelo/api/downloadchapter.py
+manganelo/api/mangainfo.py
+manganelo/api/searchmanga.py
+manganelo/errors/__init__.py
+manganelo/utils/__init__.py
