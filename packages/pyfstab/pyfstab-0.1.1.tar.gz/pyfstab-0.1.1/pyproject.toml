@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "pyfstab"
+version = "0.1.1"
+description = "Fstab parsing and formatting library"
+license = "MIT"
+authors = ["Niko Järvinen <nbjarvinen@gmail.com>"]
+readme = "README.rst"
+homepage = "https://github.com/b10011/pyfstab"
+repository = "https://github.com/b10011/pyfstab"
+documentation = "https://pyfstab.readthedocs.io/en/latest/"
+keywords = ["fstab", "parser"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: System :: Filesystems",
+  "Topic :: System :: Operating System",
+  "Topic :: Utilities"
+]
+packages = [
+  { include = "pyfstab" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+sphinx = "^3.0.1"
+sphinx_rtd_theme = "^0.4.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
