@@ -1,0 +1,23 @@
+{
+  "id": "frog",
+  "name": "Frog",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 120
+      },
+      "sources": [
+        "In rivers."
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 120
+      }
+    }
+  }
+}

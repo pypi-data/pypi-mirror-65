@@ -1,0 +1,24 @@
+{
+  "id": "pitfall-seed",
+  "name": "Pitfall Seed",
+  "category": "Usables",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 10
+      },
+      "sources": [
+        "Dig spot",
+        "Police Station (lost and found)"
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 140
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "char",
+  "name": "Char",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 3800
+      },
+      "sources": [
+        "In waterfalls."
+      ]
+    },
+    "nh": {
+      "orderable": false,
+      "sources": [
+        "River (Clifftop) (Mar-Jun, Sept-Nov)"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 3800
+      }
+    }
+  }
+}

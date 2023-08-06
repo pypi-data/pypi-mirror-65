@@ -1,0 +1,23 @@
+{
+  "id": "coelacanth",
+  "name": "Coelacanth",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 15000
+      },
+      "sources": [
+        "In the ocean when it is raining."
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 15000
+      }
+    }
+  }
+}

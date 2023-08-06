@@ -1,0 +1,20 @@
+{
+  "id": "water-egg",
+  "name": "Water Egg",
+  "category": "Usables",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sources": [
+        "Bunny Day (fishing",
+        "small shadow)"
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 200
+      }
+    }
+  }
+}

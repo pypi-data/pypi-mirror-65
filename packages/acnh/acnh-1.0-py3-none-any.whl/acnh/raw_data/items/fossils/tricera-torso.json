@@ -1,0 +1,29 @@
+{
+  "id": "tricera-torso",
+  "name": "Tricera Torso",
+  "category": "Fossils",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "interiorThemes": [
+        "Quirky"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 5000
+      },
+      "sources": [
+        "Underground (dig spot)"
+      ]
+    },
+    "nh": {
+      "sources": [
+        "Underground (dig spot)"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 5000
+      }
+    }
+  }
+}

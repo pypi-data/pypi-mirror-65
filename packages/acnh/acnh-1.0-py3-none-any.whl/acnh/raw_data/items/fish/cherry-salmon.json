@@ -1,0 +1,27 @@
+{
+  "id": "cherry-salmon",
+  "name": "Cherry Salmon",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 1000
+      },
+      "sources": [
+        "In rivers."
+      ]
+    },
+    "nh": {
+      "orderable": false,
+      "sources": [
+        "River (Clifftop) (Mar-Jun, Sept-Nov)"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 1000
+      }
+    }
+  }
+}

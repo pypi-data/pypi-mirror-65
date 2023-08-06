@@ -1,0 +1,23 @@
+{
+  "id": "arapaima",
+  "name": "Arapaima",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 10000
+      },
+      "sources": [
+        "In rivers."
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 10000
+      }
+    }
+  }
+}
