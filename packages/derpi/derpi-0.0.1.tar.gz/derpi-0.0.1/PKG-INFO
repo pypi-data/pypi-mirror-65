@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: derpi
+Version: 0.0.1
+Summary: Python API wrapper for the new API of derpibooru.org
+Home-page: https://github.com/derpipy/derpipy
+Author: luckydonald, pingmader
+Author-email: derpi.github+code@luckydonald.de, pingmader@gmail.com
+License: MIT
+Description: Python API wrapper for the new API of derpibooru.org
+Keywords: derpibooru derpibooru.org python api wrapper my_little_pony mlp friendship_is_magic FiM fim earthpony unicorn pegasuspon pony pone ponies pones pons p0n p0ny p0ne p0nies p0nes p0ns
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: iOS
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Android
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Internet
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Typing :: Typed
+Provides-Extra: async
+Provides-Extra: sync
