@@ -1,0 +1,2 @@
+class FGPSession:
+    pass
