@@ -1,0 +1,66 @@
+CHANGES
+=======
+
+1.3.0
+-----
+
+* added name to metadata
+
+1.2.2
+-----
+
+* make pint units optional
+
+1.2.1
+-----
+
+* fixed links
+* fixed versions
+* rename of cloud services
+
+v1.1.0
+------
+
+* some fixes so all tests run to completion. Most tests miss assertions
+* change license to 3-clause BSD
+* replaced git links for https
+* remove py 2.7 from travis
+* inc version
+
+v1.0.1
+------
+
+* fixed tox by disabling some checks - flake8 - isort - check-manifest
+
+v1.0.0
+------
+
+* Bump version: 0.1.0 → 1.0.0
+* Bump version: 0.0.0 → 0.1.0
+* reset version
+* fixed test dependencies
+* fixed links to cloud dev tools
+* fixed tests
+
+v0.2.0
+------
+
+* fixed tests working implementation for csv files
+* removed unsupported python from tests
+* doc tidy
+* more docs
+* renamed repo
+* added usage
+* added tests
+
+v0.1.1
+------
+
+* removed unsupported python versions
+* removed requires.io badge
+* import of existing sources
+
+v0.0.0
+------
+
+* Add initial project skeleton
