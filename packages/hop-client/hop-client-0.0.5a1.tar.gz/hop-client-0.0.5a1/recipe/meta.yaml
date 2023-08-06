@@ -1,0 +1,45 @@
+{% set repo_name = "scimma" %}
+{% set name = "hop-client" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: {{ version }}
+
+source:
+  url: "https://pypi.io/packages/source/h/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: "c0f87a158f6ea3cd302b13fec00b81445a6edf3e4629a8744078ad120f810f69"
+
+build:
+  skip: True    # [not py>=36]
+  noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  entry_points:
+    - hop = hop.__main__:main
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - setuptools_scm
+  run:
+    - python
+    - adc >=0.0.3
+    - xmltodict >=0.9.0
+    - dataclasses    # [py==36]
+
+test:
+  imports:
+    - hop
+    - hop.publish
+    - hop.subscribe
+
+about:
+  home: "https://github.com/scimma/hop-client"
+  license: "BSD"
+  license_family: "BSD"
+  license_file: ""
+  summary: "A pub-sub client library for Multimessenger Astrophysics"
+  doc_url: ""
+  dev_url: ""
