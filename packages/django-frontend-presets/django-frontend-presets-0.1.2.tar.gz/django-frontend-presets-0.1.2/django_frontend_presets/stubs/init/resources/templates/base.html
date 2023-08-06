@@ -1,0 +1,46 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    {% block css %}
+        <link href="{% static 'css/app.css' %}" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+
+<main class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+        <p>Django</p>
+    {% endblock content %}
+</main>
+
+{% block modal %}{% endblock modal %}
+
+{% block javascript %}
+    <script src="{% static 'js/dist/app.js' %}"></script>
+{% endblock javascript %}
+</body>
+</html>
