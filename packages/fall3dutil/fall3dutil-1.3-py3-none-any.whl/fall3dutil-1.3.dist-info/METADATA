@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: fall3dutil
+Version: 1.3
+Summary: Utilities for the FALL3D model
+Home-page: https://github.com/lmingari/fall3dutil
+Author: Leonardo Mingari
+Author-email: lmingari@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: cdsapi
+Requires-Dist: netcdf4
+Requires-Dist: configparser
+Requires-Dist: numpy
+Requires-Dist: requests
+Requires-Dist: datetime
+
+# fall3dutil Package for FALL3D
+
+Set of utilities for downloading and pre-processing 
+the meteorological fields required by the FALL3D model.
+
+
