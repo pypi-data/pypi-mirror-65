@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: hmtest
+Version: 0.1.0
+Summary: The hypermodern Python project
+Home-page: https://github.com/pekkaRo/hmtest
+License: MIT
+Keywords: hypermodern
+Author: Pekka Röyttä
+Author-email: roytta@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: desert (>=2020.1.6,<2021.0.0)
+Requires-Dist: marshmallow (>=3.5.1,<4.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Project-URL: Repository, https://github.com/pekkaRo/hmtest
+Description-Content-Type: text/markdown
+
+[![Tests](https://github.com/pekkaro/hmtest/workflows/Tests/badge.svg)](https://github.com/pekkaro/hmtest/actions?workflow=Tests)
+[![Codecov](https://codecov.io/gh/pekkaro/hmtest/branch/master/graph/badge.svg)](https://codecov.io/gh/pekkaro/hmtest)
+
+# hmtest
+This repository follows this tutorial https://cjolowicz.github.io/posts/hypermodern-python-01-setup/
+
