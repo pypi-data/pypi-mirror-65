@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: django-ckc
+Version: 0.0.1
+Summary: tools, utilities, etc. we use across projects @ ckc
+Home-page: https://github.com/ckcollab/django-ckc
+Author: Eric Carmichael
+Author-email: eric@ckcollab.com
+License: UNKNOWN
+Description: # django-ckc
+        tools, utilities, etc. we use across projects @ ckc
+        
+        
+        # distributing
+        
+        ```bash
+        $ ./setup.py sdist
+        $ twine upload dist/*
+        ```
+        
+Keywords: django
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: tests
