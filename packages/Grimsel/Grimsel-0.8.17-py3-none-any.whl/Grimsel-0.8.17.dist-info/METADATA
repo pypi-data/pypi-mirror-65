@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: Grimsel
+Version: 0.8.17
+Summary: GeneRal Integrated Modeling environment for the Supply of Electricity and Low-temperature heat
+Home-page: https://github.com/mcsoini/grimsel
+Author: Grimsel contributors listed in AUTHORS
+Author-email: mcsoini_dev@posteo.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/x-rst
+Requires-Dist: pyutilib
+Requires-Dist: pandas (>=1.0.1)
+Requires-Dist: Pyomo
+Requires-Dist: wrapt
+Requires-Dist: psycopg2
+Requires-Dist: numpy
+
+pypi grimsel description
+
+
