@@ -1,0 +1,10 @@
+# nagios-check-hddtemp
+# MANIFEST.in
+
+
+include check_hddtemp.py
+include README.rst
+include COPYING
+include AUTHORS
+recursive-exclude tests *.py
+recursive-exclude *.pyi
