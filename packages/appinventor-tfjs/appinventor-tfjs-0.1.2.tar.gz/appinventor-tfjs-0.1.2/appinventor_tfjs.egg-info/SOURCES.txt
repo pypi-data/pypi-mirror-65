@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+appinventor/__init__.py
+appinventor/tfjs/__init__.py
+appinventor/tfjs/__main__.py
+appinventor/tfjs/template/TensorflowTemplate.java
+appinventor/tfjs/template/assets/app.js
+appinventor/tfjs/template/assets/index.html
+appinventor_tfjs.egg-info/PKG-INFO
+appinventor_tfjs.egg-info/SOURCES.txt
+appinventor_tfjs.egg-info/dependency_links.txt
+appinventor_tfjs.egg-info/entry_points.txt
+appinventor_tfjs.egg-info/requires.txt
+appinventor_tfjs.egg-info/top_level.txt
