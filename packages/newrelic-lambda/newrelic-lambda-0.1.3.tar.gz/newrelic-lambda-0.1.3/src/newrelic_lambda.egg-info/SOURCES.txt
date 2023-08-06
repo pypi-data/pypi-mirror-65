@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+src/newrelic_lambda/__init__.py
+src/newrelic_lambda/event-sources.json
+src/newrelic_lambda/lambda_handler.py
+src/newrelic_lambda.egg-info/PKG-INFO
+src/newrelic_lambda.egg-info/SOURCES.txt
+src/newrelic_lambda.egg-info/dependency_links.txt
+src/newrelic_lambda.egg-info/not-zip-safe
+src/newrelic_lambda.egg-info/requires.txt
+src/newrelic_lambda.egg-info/top_level.txt
