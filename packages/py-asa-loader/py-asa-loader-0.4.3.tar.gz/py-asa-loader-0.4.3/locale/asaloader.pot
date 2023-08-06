@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-23 12:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: asaloader\__main__.py:13
+msgid "Available device list:\n"
+msgstr ""
+
+#: asaloader\__main__.py:14
+msgid "    device name   \t num \t note\n"
+msgstr ""
+
+#: asaloader\__main__.py:26
+msgid ""
+"The name or number of the device type to be programmed. Can see available "
+"device type by subcommand print-device-list."
+msgstr ""
+
+#: asaloader\__main__.py:36
+msgid "The serial port which program burn the device."
+msgstr ""
+
+#: asaloader\__main__.py:46
+msgid "Set binary file which program to flash."
+msgstr ""
+
+#: asaloader\__main__.py:56
+msgid ""
+"Set program start memory location in flash. If flash_format is 'ihex', this "
+"parameter is ignored. Default is 0. (future work, not availabe now)"
+msgstr ""
+
+#: asaloader\__main__.py:67
+msgid "Set the flash binary file format, default is 'ihex'. (only ihex now)"
+msgstr ""
+
+#: asaloader\__main__.py:77
+msgid "Set binary file which write to eeprom."
+msgstr ""
+
+#: asaloader\__main__.py:87
+msgid ""
+"Set data start memory location eeprom flash. If eep_format is 'ihex', this "
+"parameter is ignored. Default is 0. (future work, not availabe now)"
+msgstr ""
+
+#: asaloader\__main__.py:98
+msgid "Set the eeprom binary file format, default is 'ihex'. (only ihex now)"
+msgstr ""
+
+#: asaloader\__main__.py:107
+msgid "Enter the application after programing."
+msgstr ""
+
+#: asaloader\__main__.py:118
+msgid "Set delay time from programing complete to enter application, in ms."
+msgstr ""
+
+#: asaloader\__main__.py:130
+msgid ""
+"Error: No flash or eeprom needs to be burned, please use '-f ', '-e ' to "
+"specify the file to be burned."
+msgstr ""
+
+#: asaloader\__main__.py:147
+#, python-brace-format
+msgid "Error: Cannot find eeprom binary file {0}."
+msgstr ""
+
+#: asaloader\__main__.py:150
+#, python-brace-format
+msgid "Error: The eeprom binary file {0} is not ihex formatted."
+msgstr ""
+
+#: asaloader\__main__.py:154
+#, python-brace-format
+msgid "Error: Cannot find serial port {0}."
+msgstr ""
+
+#: asaloader\__main__.py:155
+msgid "The available serial ports are as follows:"
+msgstr ""
+
+#: asaloader\__main__.py:160
+msgid "Error: --flash-mem is not supported in current verison."
+msgstr ""
+
+#: asaloader\__main__.py:164
+msgid "Error: --eeprom-mem is not supported in current verison."
+msgstr ""
+
+#: asaloader\__main__.py:168
+msgid "Error: Parameter --flash-format is illegal."
+msgstr ""
+
+#: asaloader\__main__.py:169 asaloader\__main__.py:175
+msgid "Available parameters:"
+msgstr ""
+
+#: asaloader\__main__.py:170 asaloader\__main__.py:176
+msgid "   ihex:    intel hex formatted"
+msgstr ""
+
+#: asaloader\__main__.py:174
+msgid "Error: Parameter --eeprom-format is illegal."
+msgstr ""
+
+#: asaloader\__main__.py:199
+msgid "Error: Parameter --device is illegal."
+msgstr ""
+
+#: asaloader\__main__.py:205
+msgid "Program to ASA-series board."
+msgstr ""
+
+#: asaloader\__main__.py:208
+msgid "Program code to board."
+msgstr ""
+
+#: asaloader\__main__.py:210
+msgid "List all available devices."
+msgstr ""
+
+#: asaloader\__main__.py:211
+msgid "List all available serial ports."
+msgstr ""
+
+#: asaloader\device.py:10
+msgid "Default, auto detect device type."
+msgstr ""
+
+#: asaloader\do_prog.py:21
+msgid "ERROR: com port has been opened by another application."
+msgstr ""
+
+#: asaloader\do_prog.py:33
+#, python-format
+msgid "Elapsed Time: %(seconds)s s"
+msgstr ""
+
+#: asaloader\loader.py:43
+msgid "timeout error"
+msgstr ""
+
+#: asaloader\loader.py:48
+msgid "packet decode error"
+msgstr ""
+
+#: asaloader\loader.py:297
+msgid "ERROR: Can't communicate with tje device."
+msgstr ""
+
+#: asaloader\loader.py:298
+msgid "       Please check the comport is correct."
+msgstr ""
+
+#: asaloader\loader.py:303
+msgid "Detect device is 'asa_m128_v1' or 'asa_m128_v2'"
+msgstr ""
+
+#: asaloader\loader.py:308
+#, python-brace-format
+msgid "Detect device is {0}"
+msgstr ""
+
+#: asaloader\loader.py:310 asaloader\loader.py:318 asaloader\loader.py:328
+#: asaloader\loader.py:331
+#, python-brace-format
+msgid "Device is not {0}, please check it."
+msgstr ""
+
+#: asaloader\loader.py:316 asaloader\loader.py:326
+#, python-brace-format
+msgid "Confirm device is {0}"
+msgstr ""
