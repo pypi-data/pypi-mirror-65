@@ -1,0 +1,68 @@
+attrs<20,>=18.2
+conformity~=1.26
+currint<3,>=1.6
+msgpack>=0.6.2,~=0.6
+pymetrics~=1.0
+pytz>=2019.1
+redis~=2.10
+six~=1.10
+
+[:python_version < "3.4"]
+enum34
+
+[:python_version < "3.5"]
+typing~=3.7.4
+
+[:python_version < "3.8"]
+typing-extensions~=3.7.4
+
+[:python_version > "3.4" and python_version < "3.7"]
+contextvars==2.4
+aiocontextvars==0.2.2
+
+[docs]
+conformity[docs]>=1.26.4,~=1.26
+django~=1.11
+pyparsing~=2.2
+pytest<5.4,>4.2
+
+[docs:python_version < "3.3"]
+mock>=2.0
+
+[docs:python_version > "3.4"]
+pytest-asyncio
+
+[docs:python_version >= "3.6"]
+sphinx~=2.2
+
+[test_helpers]
+
+[test_helpers:python_version < "3.3"]
+mock>=2.0
+
+[test_plans]
+pyparsing~=2.2
+pytest<5.4,>4.2
+
+[test_plans:python_version < "3.3"]
+mock>=2.0
+
+[test_plans:python_version > "3.4"]
+pytest-asyncio
+
+[testing]
+coverage~=4.5
+factory_boy~=2.11.1
+freezegun~=0.3
+lunatic-python-universal~=2.1
+mockredispy~=2.9
+parameterized~=0.7
+pyparsing~=2.2
+pytest<5.4,>4.2
+
+[testing:python_version < "3.3"]
+mock>=2.0
+
+[testing:python_version > "3.4"]
+mypy~=0.740
+pytest-asyncio
