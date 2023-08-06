@@ -1,0 +1,9 @@
+{% extends 'emails/base.txt' %}
+
+{% block main %}
+New transmitter suggestion for satellite {{ data.satname }} was submitted by user {{ data.contributor }}!
+
+{{ data.saturl }}
+
+Navigate to {{ data.sitedomain }}/admin/base/transmittersuggestion/ to review and approve it.
+{% endblock %}
