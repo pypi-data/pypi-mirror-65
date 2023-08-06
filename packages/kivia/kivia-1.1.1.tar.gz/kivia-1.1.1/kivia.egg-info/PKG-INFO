@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: kivia
+Version: 1.1.1
+Summary: A python cli which solves every problem in cli.
+Home-page: https://github.com/wisdomrider/kivia-cli
+Author: wisdomrider
+Author-email: avishekzone@gmail.com
+License: MIT
+Description: # Kivia
+        
+        A python cli which solves all problems in cli
+        
+        pip3 install kivia
+        
+        ## Usage
+        
+        
+        ### Install to Bash
+        ```
+            kpm bindtobash    
+        ```
+        
+        ### installing a module
+        
+        ``kpm install [modulename]``
+        
+        ### for more help type
+        ``kpm --help``
+        
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
