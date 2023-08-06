@@ -1,0 +1,4 @@
+[console_scripts]
+git-adr=pyadr.git.cli:main
+pyadr=pyadr.cli:main
+
