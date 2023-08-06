@@ -1,0 +1,1 @@
+# SHODAN_API_KEY = "tedoHTagcSRqQm9LhIzUCqIqUvI06dHz"
