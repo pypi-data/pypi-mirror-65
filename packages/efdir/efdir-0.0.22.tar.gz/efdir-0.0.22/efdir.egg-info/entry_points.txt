@@ -1,0 +1,7 @@
+[console_scripts]
+efdir = efdir.bin:main
+efdir_csv2cols = efdir.BIN.csv2cols:main
+efdir_csv2dtb = efdir.BIN.csv2dtb:main
+efdir_csv2jsd = efdir.BIN.csv2jsd:main
+efdir_repl_suffix = efdir.BIN.repl_suffix:main
+
