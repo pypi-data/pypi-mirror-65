@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: firmware-variables
+Version: 0.0.3
+Summary: Windows library for controlling UEFI firmware variables
+Home-page: https://github.com/netaneld122/firmware-variables
+Author: Netanel Dziubov
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Requires-Dist: pywin32
+
+UNKNOWN
+
+
