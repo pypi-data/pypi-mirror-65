@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: kelly
+Version: 1.0
+Summary: A Python module for working with the Kelly Criterion
+Home-page: http://gitlab.com/zachwill/kelly
+Author: Zach Williams
+Author-email: hey@zachwill.com
+License: MIT
+Keywords: kelly,odds,kelly criterion,zachwill
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy (>=1.17)
+Requires-Dist: pandas (>=0.25)
+
+UNKNOWN
+
+
