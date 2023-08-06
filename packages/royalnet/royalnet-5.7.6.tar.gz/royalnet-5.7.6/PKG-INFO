@@ -1,0 +1,102 @@
+Metadata-Version: 2.1
+Name: royalnet
+Version: 5.7.6
+Summary: A multipurpose bot and web framework
+Home-page: https://github.com/Steffo99/royalnet
+Author: Stefano Pigozzi
+Author-email: ste.pigozzi@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: alchemy_easy
+Provides-Extra: alchemy_hard
+Provides-Extra: bard
+Provides-Extra: coloredlogs
+Provides-Extra: constellation
+Provides-Extra: discord
+Provides-Extra: herald
+Provides-Extra: matrix
+Provides-Extra: sentry
+Provides-Extra: telegram
+Requires-Dist: bcrypt (>=3.1.7,<4.0.0); extra == "alchemy_easy" or extra == "alchemy_hard"
+Requires-Dist: coloredlogs (>=10.0,<11.0); extra == "coloredlogs"
+Requires-Dist: dateparser (>=0.7.2,<0.8.0)
+Requires-Dist: discord.py (>=1.3.1,<2.0.0); extra == "discord"
+Requires-Dist: eyed3 (>=0.9,<0.10); extra == "bard"
+Requires-Dist: ffmpeg_python (>=0.2.0,<0.3.0); extra == "bard"
+Requires-Dist: matrix-nio (>=0.6,<0.7); extra == "matrix"
+Requires-Dist: psycopg2 (>=2.8.4,<3.0.0); extra == "alchemy_hard"
+Requires-Dist: psycopg2_binary (>=2.8.4,<3.0.0); extra == "alchemy_easy"
+Requires-Dist: pynacl (>=1.3.0,<2.0.0); extra == "discord"
+Requires-Dist: python-multipart (>=0.0.5,<0.0.6); extra == "constellation"
+Requires-Dist: python_telegram_bot (>=12.2.0,<13.0.0); extra == "telegram"
+Requires-Dist: sentry_sdk (>=0.13.2,<0.14.0); extra == "sentry"
+Requires-Dist: sqlalchemy (>=1.3.10,<2.0.0); extra == "alchemy_easy" or extra == "alchemy_hard"
+Requires-Dist: starlette (>=0.12.13,<0.13.0); extra == "constellation"
+Requires-Dist: toml (>=0.10.0,<0.11.0)
+Requires-Dist: uvicorn (>=0.10.7,<0.11.0); extra == "constellation"
+Requires-Dist: websockets (>=8.1,<9.0); extra == "herald"
+Requires-Dist: youtube_dl; extra == "bard"
+Project-URL: Documentation, https://gh.steffo.eu/royalnet/
+Description-Content-Type: text/markdown
+
+# `royalnet` [![PyPI](https://img.shields.io/pypi/v/royalnet.svg)](https://pypi.org/project/royalnet/)
+
+A multipurpose bot framework and webserver
+
+## About
+
+`royalnet` is a Python framework that allows you to create interconnected modular chat bots accessible through multiple interfaces (such as Telegram or Discord), and also modular websites that can be connected with the bots.
+
+### Supported bot platforms ("serfs")
+
+- [Telegram](https://core.telegram.org/bots)
+- [Discord](https://discordapp.com/developers/docs/)
+- [Matrix](https://matrix.org/) (no E2E support yet)
+
+## Installing
+
+To install `royalnet`, run:
+```
+pip install royalnet
+```
+
+To install a specific module, run:
+```
+pip install royalnet[MODULENAME]
+```
+
+To install all `royalnet` modules, run:
+```
+pip install royalnet[telegram,discord,matrix,alchemy_easy,bard,constellation,sentry,herald,coloredlogs]
+```
+
+## Documentation
+
+`royalnet`'s documentation is available [here](https://gh.steffo.eu/royalnet/html).
+
+## Developing `royalnet`
+
+To develop `royalnet`, you need to have [Poetry](https://poetry.eustace.io/) installed on your PC.
+
+After you've installed Poetry, clone the git repo with the command:
+
+```
+git clone https://github.com/Steffo99/royalnet
+```
+
+Then enter the new directory:
+
+```
+cd royalnet
+```
+
+And finally install all dependencies and the package:
+
+```
+poetry install -E telegram -E discord -E matrix -E alchemy_easy -E bard -E constellation -E sentry -E herald -E coloredlogs
+```
+
