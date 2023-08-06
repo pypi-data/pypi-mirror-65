@@ -1,0 +1,25 @@
+{% load static %}
+
+<h3 class="myuw-card-title">Husky Experience Toolkit</h3>
+
+
+<a href="/husky_experience_message?article=making-most-life-online">
+    <div class="myuw-article-teaser-wrapper">
+        
+            <img class="myuw-card-image-full"
+                 srcset="{% static 'hx_toolkit_output/images/making_the_most_of_life_online_480.jpg' %} 480w,
+                     {% static 'hx_toolkit_output/images/making_the_most_of_life_online_650.jpg' %} 650w,
+                     {% static 'hx_toolkit_output/images/making_the_most_of_life_online_780.jpg' %} 780w,
+                     {% static 'hx_toolkit_output/images/making_the_most_of_life_online_1000.jpg' %} 1000w"
+                 sizes="(max-width: 767px) 480vw,
+                    650px"
+                 src="{% static 'hx_toolkit_output/images/making_the_most_of_life_online_650.jpg' %}"
+                 alt="A student sits in the sunlight working at a laptop.">
+        
+    
+        <div class="myuw-article-teaser">
+            <h4 class="myuw-article-teaser-title"><span class="myuw-highlight">Making the Most of Life Online</span></h4>
+            <p><span class="myuw-highlight">How do you thrive while learning remotely? These resources will help. &nbsp; Read more <i class="fa fa-caret-right" aria-hidden="true"></i></span></p>
+        </div>
+    </div>
+</a>

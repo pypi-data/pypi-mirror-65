@@ -1,0 +1,25 @@
+{% load static %}
+
+<h3 class="myuw-card-title">Husky Experience Toolkit</h3>
+
+
+<a href="/husky_experience_message?article=lead-your-values">
+    <div class="myuw-article-teaser-wrapper">
+        
+            <img class="myuw-card-image-full"
+                 srcset="{% static 'hx_toolkit_output/images/lead_with_your_values_480.jpg' %} 480w,
+                     {% static 'hx_toolkit_output/images/lead_with_your_values_650.jpg' %} 650w,
+                     {% static 'hx_toolkit_output/images/lead_with_your_values_780.jpg' %} 780w,
+                     {% static 'hx_toolkit_output/images/lead_with_your_values_1000.jpg' %} 1000w"
+                 sizes="(max-width: 767px) 480vw,
+                    650px"
+                 src="{% static 'hx_toolkit_output/images/lead_with_your_values_650.jpg' %}"
+                 alt="">
+        
+    
+        <div class="myuw-article-teaser">
+            <h4 class="myuw-article-teaser-title"><span class="myuw-highlight">Lead with Your Values</span></h4>
+            <p><span class="myuw-highlight">Values are the foundation on which we build and balance our lives.  Can you name yours? &nbsp; Read more <i class="fa fa-caret-right" aria-hidden="true"></i></span></p>
+        </div>
+    </div>
+</a>
