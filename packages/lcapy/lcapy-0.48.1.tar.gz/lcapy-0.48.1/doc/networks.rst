@@ -1,0 +1,310 @@
+.. _networks:
+
+========
+Networks
+========
+
+Lcapy supports one-port and two-port networks. 
+
+
+
+One-port networks
+=================
+
+One-port networks are creating by combining one-port components in
+series or parallel, for example, here's an example of resistors in
+series
+
+   >>> from lcapy import R
+   >>> R1 = R(10)
+   >>> R2 = R(5)
+   >>> Rtot = R1 + R2
+   >>> Rtot
+   R(10) + R(5)
+
+Here `R(10)` creates a 10 ohm resistor and this is assigned to the
+variable `R1`.  Similarly, `R(5)` creates a 5 ohm resistor and this is
+assigned to the variable `R2`.  `Rtot` is the name of the network
+formed by connecting `R1` and `R2` in series.  
+
+   >>> Rtot.draw()
+
+.. image:: examples/networks/rseries.png
+   :width: 4cm
+
+
+.. _network_attributes:
+           
+Network attributes
+------------------
+
+Each network oneport has a number of attributes, including:
+
+- `Voc` transform-domain open-circuit voltage
+
+- `Isc` transform-domain short-circuit current
+
+- `I` transform-domain current through network terminals (zero by definition)
+
+- `voc` t-domain open-circuit voltage
+
+- `isc` t-domain short-circuit current
+
+- `isc` t-domain current through network terminals (zero by definition)
+
+- `B` susceptance
+
+- `G` conductance    
+  
+- `R` resistance
+
+- `X` reactance
+  
+- `Y` admittance
+
+- `Z` impedance
+
+- `Ys` s-domain generalized admittance    
+
+- `Zs` s-domain generalized impedance
+
+- `y` t-domain impulse response of admittance
+
+- `z` t-domain impulse response of impedance
+
+- `is_dc` DC network
+
+- `is_ac` AC network
+
+- `is_ivp` initial value problem
+
+- `is_causal` causal response
+
+
+Here's an example:
+
+   >>> from lcapy import R, V
+   >>> n = V(20) + R(10)
+   >>> n.Voc
+   20
+   ──
+    s 
+   >>> n.voc
+   20
+   >>> n.Isc
+   2
+   ─
+   s
+   >>> n.isc
+   2
+   >>> n.Z
+   10
+   >>> n.Y
+   1/10
+
+.. image:: examples/networks/VRseries.png
+   :width: 4cm
+
+
+.. _network_methods:
+           
+Network methods
+---------------
+
+- `circuit()` create a Circuit object from the network.
+
+- `describe()` print a message describing how network is solved.
+
+- `draw()` draw the schematic.
+
+- `netlist()` create an equivalent netlist.
+           
+
+Network simplification
+----------------------
+
+A network can be simplified (if possible) using the `simplify` method.
+For example, here's an example of a parallel combination of resistors.
+Note that the parallel operator is `|` instead of the usual `||`.
+
+   >>> from lcapy import *
+   >>> Rtot = R(10) | R(5)
+   >>> Rtot
+   R(10) | R(5)
+   >>> Rtot.simplify()
+   R(10/3)
+
+The result can be performed symbolically, for example,
+
+   >>> from lcapy import *
+   >>> Rtot = R('R_1') | R('R_2')
+   >>> Rtot
+   R(R_1) | R(R_2)
+   >>> Rtot.simplify()
+   R(R_1*R_2/(R_1 + R_2))
+   >>> Rtot.simplify()
+   R(R₁) | R(R₂)
+
+Here's another example using inductors in series
+
+   >>> from lcapy import *
+   >>> L1 = L(10)
+   >>> L2 = L(5)
+   >>> Ltot = L1 + L2
+   >>> Ltot
+   L(10) + L(5)
+   >>> Ltot.simplify()
+   L(15)
+
+Finally, here's an example of a parallel combination of capacitors
+
+   >>> from lcapy import *
+   >>> Ctot = C(10) | C(5)
+   >>> Ctot
+   C(10) | C(5)
+   >>> Ctot.simplify()
+   C(15)
+
+
+Norton and Thevenin transformations
+-----------------------------------
+
+A Norton or Thevenin equivalent network can be created using the
+`norton` or `thevenin` methods.  For example,
+
+   >>> from lcapy import Vdc, R
+   >>> a = Vdc(1) + R(2)
+   >>> a.norton()
+   G(1/2) | Idc(1/2)
+
+
+Network schematics
+==================
+
+One port networks can be drawn with a horizontal layout.  Here's an example:
+
+   >>> from lcapy import R, C, L
+   >>> ((R(1) + L(2)) | C(3)).draw()
+
+Here's the result:
+
+.. image:: examples/networks/pickup.png
+   :width: 5cm
+
+The s-domain model can be drawn using:
+
+   >>> from lcapy import R, C, L
+   >>> ((R(1) + L(2)) | C(3)).smodel().draw()
+
+This produces:
+
+.. image:: examples/networks/pickup-s.png
+   :width: 5cm
+
+Internally, Lcapy converts the network to a netlist and then draws the
+netlist.  The netlist can be found using the netlist method, for example,
+
+   >>> from lcapy import R, C, L
+   >>> print(((R(1) + L(2)) | C(3)).netlist())
+
+yields::
+
+   W 1 3; right, size=0.5
+   W 3 4; up, size=0.4
+   W 3 5; down, size=0.4
+   W 6 2; right, size=0.5
+   W 6 7; up, size=0.4
+   W 6 8; down, size=0.4
+   R 4 9 1; right
+   W 9 10; right, size=0.5
+   L 10 7 2 0; right
+   C 5 8 3 0; right
+
+Note, the components have anonymous identifiers.
+
+
+To create a schematic with multiple components in parallel, use `Par`.
+For example,
+
+.. literalinclude:: examples/networks/par3.py
+
+
+.. image:: examples/networks/par3.png
+   :width: 3cm
+
+
+
+Network analysis examples
+=========================
+
+
+Series R-C network
+------------------
+
+
+.. literalinclude:: examples/networks/series-RC1-Z.py
+
+
+.. image:: examples/networks/series-RC1-Z.png
+   :width: 15cm
+
+
+.. literalinclude:: examples/networks/series-VRC1-isc.py
+
+.. image:: examples/networks/series-VRC1-isc.png
+   :width: 15cm
+
+
+
+Series R-L network
+------------------
+
+
+.. literalinclude:: examples/networks/series-RL1-Z.py
+
+
+.. image:: examples/networks/series-RL1-Z.png
+   :width: 15cm
+
+
+.. literalinclude:: examples/networks/series-VRL1-isc.py
+
+.. image:: examples/networks/series-VRL1-isc.png
+   :width: 15cm
+
+
+Series R-L-C network
+--------------------
+
+
+.. literalinclude:: examples/networks/series-RLC3-Z.py
+
+
+.. image:: examples/networks/series-RLC3-Z.png
+   :width: 15cm
+
+
+.. literalinclude:: examples/networks/series-VRLC1-isc.py
+
+.. image:: examples/networks/series-VRLC1-isc.png
+   :width: 15cm
+
+
+
+
+Parallel R-L-C network
+----------------------
+
+
+.. literalinclude:: examples/networks/parallel-RLC3-Z.py
+
+
+.. image:: examples/networks/parallel-RLC3-Z.png
+   :width: 15cm
+
+
+.. literalinclude:: examples/networks/parallel-IRLC1-voc.py
+
+.. image:: examples/networks/parallel-IRLC1-voc.png
+   :width: 15cm
+
