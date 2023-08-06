@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: helloworlddvbhat
+Version: 1.0
+Summary: Package markdown hello tst
+Home-page: UNKNOWN
+Author: Bhat D
+Author-email: UNKNOWN
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: blessings (~=1.7)
+Requires-Dist: boto3
+Requires-Dist: snowflake-connector-python
+Provides-Extra: dev
+Requires-Dist: pytest (>=3.7) ; extra == 'dev'
+
+UNKNOWN
+
+
