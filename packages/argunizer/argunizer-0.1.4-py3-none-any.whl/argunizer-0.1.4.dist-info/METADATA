@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: argunizer
+Version: 0.1.4
+Summary: Argunizer is a tool for creating and maintaining temporal hierarchies.
+Home-page: https://gitlab.com/svimes/argunizer
+Author: Lari Huttunen
+Author-email: mitcode@huttu.net
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+
+=========
+Argunizer
+=========
+
+Description
+-----------
+
+Argunizer is a tool for restructuring an unstructured directory hierarchy into a 
+temporal timeline of files in UTC, universal co-ordinated time. By an unstructured 
+directory hierarchy I mean the types of directories, which users normally create 
+on their desktops, which often encode meaning into the directory names.
+
+Logic
+-----
+
+The timeline is contructed out of the last modification
+times of all the files in the source directory. Each of the files is then either:
+
+- symlinked under the destination directory (default)
+- copied from source to destination directory
+- moved from source to destination directory
+
+Layout
+^^^^^^
+
+Files or symlinks are rendered as:
+
+- YYYY/MM/DD/<file>
+
+Note
+----
+
+Optionally, it will also be possible to clean up an empty shell of directories, which
+has resulted from the move semantics.
+
+
