@@ -1,0 +1,47 @@
+#!python
+from argparse import ArgumentParser
+import json
+
+from ayda_tools.interfaces import get_compatible_classes
+from ayda_tools import config
+from ayda_tools.client.connection import ServerConnection
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser(
+        description="Tool to parse a module to find AYDA compatible" " elements"
+    )
+    parser.add_argument(
+        "-i",
+        "--input",
+        help="Input paths to be parsed for modules/datasets",
+        default=["."],
+        nargs="*",
+        required=False,
+    )
+
+    parser.add_argument(
+        "-p",
+        "--push",
+        help="Pushes the results to the ayda server",
+        action="store_true",
+    )
+
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        help="Prints the found elements to command line",
+        action="store_true",
+    )
+    args = parser.parse_args()
+    descriptions = get_compatible_classes(args.input)
+    data = json.dumps(descriptions, indent=4)
+    if args.verbose:
+        print(data)
+    if args.push:
+        print("Pushing results to {}".format(config.server_address))
+        conn = ServerConnection(**config.__dict__)
+        conn.send_server_request("add_experiments_from_client", data)
+        summary = [i["class"] for i in descriptions["models"]]
+        summary.extend([i["class"] for i in descriptions["datasets"]])
+        print("pushed following models/datasets:\n{}".format("\n".join(summary)))

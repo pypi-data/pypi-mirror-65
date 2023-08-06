@@ -1,0 +1,10 @@
+#!python
+import logging
+from ayda_tools.client import run_client
+
+logger = logging.getLogger(__name__)
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    run_client.run()
