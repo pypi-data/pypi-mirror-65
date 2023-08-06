@@ -1,0 +1,25 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3c3992cbc77368ed5b34cadf6afb83d8a201fc5b250c93a519a550bedb215d8c
+language: python
+python:
+  - '3.6'
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+install:
+  - python setup.py install
+  - pip install pytest-pep8
+  - pip install pytest-cov==2.5.0
+script:
+  - py.test aoc --doctest-modules --pep8 aoc -v --cov aoc --cov-report xml
+after_script:
+  - ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $TRAVIS_TEST_RESULT
+deploy:
+  provider: pypi
+  user: mvaal
+  password:
+    secure: E9hnxtN3FW4Pv6WOD/ACs048mwkvgsUxAQrieYqMGf9vd/Q7ImYhlkWxyTK2qeYqFX2pViSaN62L3oaaIp5413fiTRZ7FVXTaNY+yf3IcGnAhCx354uf2zEBZcuk3b1mOe82aq0uzMafYJHNxXD24r94R2W7JOUJztVhNyEqDYfOFDLU10sMMKLjCekJYBjf765HOjkhQ8LRyo7D4X4RdVv4XzU+kTo1BLo+bPCBcRbB+h5oC+oh8p9X0LREyhLJuT+1lTqU/JzuDX4s8m7RZCOjWoekcJ59c0YVhDxFQed0d7oD4MHuHexvy3Do78iQhXK7PIP7KbMeImIcHR2Ix3I3kU/mv8IWG2VzRbk2r85vjMnHuPSh8+XpIIgyVMp1lEXnuGdj/6USzqGJ+GVAw3FxTX29YKHtcmT3Ed6ZmKQO65Ivyr1R/FhyaXeEZJGTj3PYCvVmizLn7HL6g+/axi2SMXxlhD4vqjhkCluLzOWK2E4YhZ3SsXwnGgayet+ju07VPJadiuZoLAyCDe4qr6YH2i6M35SvNzMi2e/EVCuGeND4C7xjMQ+Bk8MkGVvkpL1Dgr2h5IuZKxs7zX1lKfv4hLZ3tY9GhSQpKg0nX8Ky5XEaM9AX934K92fELjGt9QLjhmMjEFv4JYsvhZ4ojqNEfYhM+1INBuu0FKooW+Q=
+  on:
+    tags: true

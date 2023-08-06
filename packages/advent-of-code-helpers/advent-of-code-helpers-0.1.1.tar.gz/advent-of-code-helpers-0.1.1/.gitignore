@@ -1,0 +1,26 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs
+version.py
+**/__pycache__
+
+# IntelliJ
+.idea
+*.iml
+
+# advent-of-code-helpers
+out
+
+.coverage
+coverage.xml
