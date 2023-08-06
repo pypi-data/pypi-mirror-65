@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: jupyterhubutils
+Version: 0.16.9
+Summary: UNKNOWN
+Home-page: https://github.com/sqre-lsst/jupyterhubutils
+Author: Adam Thornton
+Author-email: athornton@lsst.org
+License: MIT
+Keywords: lsst
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: requests (<3.0.0,>=2.0.0)
+Requires-Dist: kubernetes (<11.0.0,>=10.0.0)
+Requires-Dist: semver (<3.0.0,>=2.0.0)
+Requires-Dist: oauthenticator (<1.0.0,>=0.9.0)
+Requires-Dist: jupyter-client (<7.0.0,>=5.0.0)
+Requires-Dist: jupyterhub-jwtauthenticator (<1.0.0,>=0.1.0)
+Requires-Dist: jupyterhub-kubespawner (<1.0.00,>=0.10.0)
+Requires-Dist: jinja2 (<3.0.0,>=2.0.0)
+Requires-Dist: pytz (>=2019.3)
+Requires-Dist: eliot
+Requires-Dist: eliot-tree
+Requires-Dist: argo-workflows (<3.2.0,>=3.0.0)
+Requires-Dist: argo-workflows-sdk
+
+# Utilities for LSST LSP notebook environment (Hub/spawner side)
+
+
