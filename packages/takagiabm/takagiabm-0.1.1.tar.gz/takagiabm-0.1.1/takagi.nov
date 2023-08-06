@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<noval:project xmlns:noval="http://www.novalide.com/noval.xsd" version="13" name="takagi" id="DB151A36-7C83-11EA-B47D-14ABC5601580">
+  <noval:file filePath="./src/..." logicalFolder="src"/>
+  <noval:file filePath="./visualization/..." logicalFolder="visualization"/>
+  <noval:file filePath="./Activation.py"/>
+  <noval:file filePath="./Agent.py"/>
+  <noval:file filePath="./DataCollector.py"/>
+  <noval:file filePath="./dotrefresh.py"/>
+  <noval:file filePath="./examples.py"/>
+  <noval:file filePath="./Grid.py"/>
+  <noval:file filePath="./Model.py"/>
+  <noval:file filePath="./network/..." logicalFolder="network"/>
+  <noval:file filePath="./openglTest/..." logicalFolder="openglTest"/>
+  <noval:file filePath="./plottest.py"/>
+  <noval:file filePath="./remoteplot2.py"/>
+  <noval:file filePath="./test/..." logicalFolder="test"/>
+  <noval:file filePath="./Visualization.py"/>
+  <noval:file filePath="./visualize/..." logicalFolder="visualize"/>
+  <noval:file filePath="./__pycache__/..." logicalFolder="__pycache__"/>
+  <noval:file filePath="./pyqtgraphtest/network/..." logicalFolder="pyqtgraphtest/network"/>
+  <noval:file filePath="./pyqtgraphtest/openglTest/..." logicalFolder="pyqtgraphtest/openglTest"/>
+  <noval:file filePath="./pyqtgraphtest/test/..." logicalFolder="pyqtgraphtest/test"/>
+  <noval:file filePath="./pyqtgraphtest/visualize/..." logicalFolder="pyqtgraphtest/visualize"/>
+  <noval:file filePath="./pyqtgraphtest/__pycache__/..." logicalFolder="pyqtgraphtest/__pycache__"/>
+  <noval:file filePath="./openglTest/common.py" logicalFolder="openglTest"/>
+  <noval:file filePath="./openglTest/dotTest.py" logicalFolder="openglTest"/>
+  <noval:file filePath="./openglTest/module1.py" logicalFolder="openglTest"/>
+  <noval:file filePath="./openglTest/pyqtgraph_opengl.py" logicalFolder="openglTest"/>
+  <noval:file filePath="./openglTest/shader.py" logicalFolder="openglTest"/>
+  <noval:file filePath="./openglTest/test2.py" logicalFolder="openglTest"/>
+  <noval:file filePath="./openglTest/util.py" logicalFolder="openglTest"/>
+  <noval:file filePath="./openglTest/__pycache__/..." logicalFolder="openglTest/__pycache__"/>
+  <noval:file filePath="./network/client.py" logicalFolder="network"/>
+  <noval:file filePath="./network/master.py" logicalFolder="network"/>
+  <noval:file filePath="./network/queuemanager.py" logicalFolder="network"/>
+  <noval:file filePath="./network/__init__.py" logicalFolder="network"/>
+  <noval:file filePath="./network/__pycache__/..." logicalFolder="network/__pycache__"/>
+  <noval:file filePath="./test/looptest.py" logicalFolder="test"/>
+  <noval:file filePath="./test/module1.py" logicalFolder="test"/>
+  <noval:file filePath="./test/pyqtgraph_opengl.py" logicalFolder="test"/>
+  <noval:file filePath="./test/test2.py" logicalFolder="test"/>
+  <noval:file filePath="./test/Untitled/..." logicalFolder="test/Untitled"/>
+  <noval:file filePath="./test/Visualization.py" logicalFolder="test"/>
+  <noval:file filePath="./test/__pycache__/..." logicalFolder="test/__pycache__"/>
+  <noval:file filePath="./visualize/pg2.py" logicalFolder="visualize"/>
+  <noval:file filePath="./visualize/pyqtgraph_opengl.py" logicalFolder="visualize"/>
+  <noval:file filePath="./visualize/__init__.py" logicalFolder="visualize"/>
+  <noval:file filePath="./visualize/__pycache__/..." logicalFolder="visualize/__pycache__"/>
+  <noval:file filePath="./takagiabm/..." logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/activation.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/agent.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/datacollector.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/grid.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/model.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/plottest.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/remoteplot2.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/visualize/..." logicalFolder="takagiabm/visualize"/>
+  <noval:file filePath="./takagiabm/__init__.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/visualize/pg2.py" logicalFolder="takagiabm/visualize"/>
+  <noval:file filePath="./takagiabm/visualize/__init__.py" logicalFolder="takagiabm/visualize"/>
+  <noval:file filePath="./takagiabm/visualize/mainwindow.py" logicalFolder="takagiabm/visualize"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/..." logicalFolder="takagiabm/visualize/takagiwidgets"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/__init__.py" logicalFolder="takagiabm/visualize/takagiwidgets"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/controlbar.py" logicalFolder="takagiabm/visualize/takagiwidgets"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/menubar.py" logicalFolder="takagiabm/visualize/takagiwidgets"/>
+  <noval:file filePath="./pyqtgraphtest/dotrefresh.py" logicalFolder="pyqtgraphtest"/>
+  <noval:file filePath="./pyqtgraphtest/examples.py" logicalFolder="pyqtgraphtest"/>
+  <noval:file filePath="./takagiabm/variable.py" logicalFolder="takagiabm"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/valuewidgets/..." logicalFolder="takagiabm/visualize/takagiwidgets/valuewidgets"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/valuewidgets/__init__.py" logicalFolder="takagiabm/visualize/takagiwidgets/valuewidgets"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/valuewidgets/valuescrollwidget.py" logicalFolder="takagiabm/visualize/takagiwidgets/valuewidgets"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/module1.py" logicalFolder="takagiabm/visualize/takagiwidgets"/>
+  <noval:file filePath="./takagiabm/visualize/takagiwidgets/valuewidgets/valuewidgetfactory.py" logicalFolder="takagiabm/visualize/takagiwidgets/valuewidgets"/>
+  <noval:file filePath="./takagiabm/__pycache__/..." logicalFolder="takagiabm/__pycache__"/>
+  <noval:file filePath="./LantonAnt.py"/>
+  <noval:file filePath="./GameOfLife.py"/>
+  <noval:_runinfo>
+    <noval:DocumentTemplate>noval.python.project.viewer.PythonProjectTemplate</noval:DocumentTemplate>
+  </noval:_runinfo>
+  <noval:interpreter name="python3" version="3.5.3" path="/usr/bin/python3"/>
+</noval:project>
