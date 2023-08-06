@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+RnDPackage/Datasets.py
+RnDPackage/__init__.py
+RnDPackage.egg-info/PKG-INFO
+RnDPackage.egg-info/SOURCES.txt
+RnDPackage.egg-info/dependency_links.txt
+RnDPackage.egg-info/not-zip-safe
+RnDPackage.egg-info/top_level.txt
+RnDPackage/data/covid_19_clean_complete.csv
