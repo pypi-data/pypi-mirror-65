@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+aliyun_python_sdk_imageprocess.egg-info/PKG-INFO
+aliyun_python_sdk_imageprocess.egg-info/SOURCES.txt
+aliyun_python_sdk_imageprocess.egg-info/dependency_links.txt
+aliyun_python_sdk_imageprocess.egg-info/requires.txt
+aliyun_python_sdk_imageprocess.egg-info/top_level.txt
+aliyunsdkimageprocess/__init__.py
+aliyunsdkimageprocess/endpoint.py
+aliyunsdkimageprocess/request/__init__.py
+aliyunsdkimageprocess/request/v20200320/DetectCovid19CadRequest.py
+aliyunsdkimageprocess/request/v20200320/GetAsyncJobResultRequest.py
+aliyunsdkimageprocess/request/v20200320/__init__.py
