@@ -1,0 +1,2 @@
+class DblueMLWatchException(Exception):
+    pass
