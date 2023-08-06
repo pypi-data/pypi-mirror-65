@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: flask-shortcut
+Version: 0.1.0
+Summary: Extension that provides an easy way to add dev-only shortcuts to your routes.
+Home-page: https://github.com/a-recknagel/Flask-Shortcut
+License: MIT
+Author: Arne
+Author-email: arecknag@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: flask (>=1.1.2,<2.0.0)
+Project-URL: Repository, https://github.com/a-recknagel/Flask-Shortcut
+Description-Content-Type: text/x-rst
+
+Flask-Shortcut
+==============
+
+Extension that provides an easy way to add dev-only shortcuts to your routes.
+
