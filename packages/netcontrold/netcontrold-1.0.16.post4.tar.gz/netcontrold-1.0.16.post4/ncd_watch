@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# SIGTERM callback
+sigterm_cb() {
+  ncd_ctl stop
+  exit 0
+}
+
+# install signal handler
+trap "sigterm_cb" TERM
+
+# start netcontrold
+ncd_ctl start
+
+# monitor log
+mkdir -p /var/log/netcontrold
+tail -f /var/log/netcontrold/ncd.log &
+wait
