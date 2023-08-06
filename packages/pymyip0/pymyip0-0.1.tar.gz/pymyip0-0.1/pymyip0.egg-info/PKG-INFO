@@ -1,0 +1,20 @@
+Metadata-Version: 1.0
+Name: pymyip0
+Version: 0.1
+Summary: Module for python 3.x to find out your ip, city, country.
+
+Use:
+import pymyip
+
+print("Your ip " + pymyip.get_ip())
+
+print("Your city " + pymyip.get_city())
+
+print("Your country" + pymyip.get_country())
+
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: illya.vosiychuk@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
