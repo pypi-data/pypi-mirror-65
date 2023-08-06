@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<div>
+    <img class="captcha_dyn_form"
+         id="{{ widget.name }}_img"
+         src="data:image/png;base64,{{ image_b64 }}" />
+    <a onclick="refresh_captcha_{{ widget.unique_id }}();">{% trans "Aggiorna" %}</a>
+</div>
+<br>
+<input type="{{ widget.type }}"
+       name="{{ widget.name }}"
+       value="{{ widget.value | stringformat:'s' }}"
+       {% include "django/forms/widgets/attrs.html" %}>
