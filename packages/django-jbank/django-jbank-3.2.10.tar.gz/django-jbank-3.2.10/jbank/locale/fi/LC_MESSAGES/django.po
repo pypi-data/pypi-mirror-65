@@ -1,0 +1,1018 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-15 00:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: jbank/admin.py:45
+msgid "account entry types"
+msgstr "tilitapahtumien tyypit"
+
+#: jbank/admin.py:66
+msgid "account.entry.matched.filter"
+msgstr "kohdistaminen"
+
+#: jbank/admin.py:71
+msgid "account.entry.not.matched"
+msgstr "kohdistamaton"
+
+#: jbank/admin.py:72
+msgid "account.entry.is.matched"
+msgstr "kohdistettu"
+
+#: jbank/admin.py:73
+msgid "masked as settled"
+msgstr "merkitty kohdistetuksi"
+
+#: jbank/admin.py:93
+msgid "account.name.filter"
+msgstr "tilin nimi"
+
+#: jbank/admin.py:160 jbank/admin.py:570
+msgid "account entries"
+msgstr "tilitapahtumat"
+
+#: jbank/admin.py:169 jbank/admin.py:498 jbank/admin.py:579 jbank/admin.py:1090
+#: jbank/models.py:339 jbank/models.py:358
+msgid "file"
+msgstr "tiedosto"
+
+#: jbank/admin.py:218
+msgid "structured remittance info"
+msgstr "jäsennelty viitetieto"
+
+#: jbank/admin.py:259
+msgid "marked as manually settled"
+msgstr "merkitty manuaalisesti kohdistetuksi"
+
+#: jbank/admin.py:280
+msgid "manually settled flag cleared"
+msgstr "merkintä manuaalisesta kohdistuksesta poistettu"
+
+#: jbank/admin.py:402
+msgid "source file"
+msgstr "lähdetiedosto"
+
+#: jbank/admin.py:412 jbank/models.py:345
+msgid "account statement file"
+msgstr "tiliote-tiedosto"
+
+#: jbank/admin.py:522
+msgid "account entry source file"
+msgstr "lähdetiedosto"
+
+#: jbank/admin.py:614 jbank/admin.py:703 jbank/camt.py:126 jbank/camt.py:129
+#: jbank/helpers.py:112 jbank/helpers.py:115 jbank/helpers.py:195
+#: jbank/helpers.py:198
+msgid "account.not.found"
+msgstr "Tiliä {account_number} ei löydy"
+
+#: jbank/admin.py:618 jbank/admin.py:707
+msgid "Unhandled error"
+msgstr "Käsittelemätön virhe"
+
+#: jbank/admin.py:658 jbank/models.py:148
+msgid "statements"
+msgstr "tiliotteet"
+
+#: jbank/admin.py:746 jbank/models.py:294
+msgid "reference payment batches"
+msgstr "viitemaksuerät"
+
+#: jbank/admin.py:1073
+msgid "application request"
+msgstr "palvelupyyntö"
+
+#: jbank/admin.py:1081
+msgid "application response"
+msgstr "palveluvastaus"
+
+#: jbank/admin.py:1095
+msgid "execution time"
+msgstr "suoritetusaika"
+
+#: jbank/admin.py:1100 jbank/models.py:119 jbank/models.py:533
+msgid "error"
+msgstr "virhe"
+
+#: jbank/admin.py:1109
+#: jbank/templates/admin/jbank/mark_as_manually_settled.html:21
+msgid "Mark as manually settled"
+msgstr "Merkitse tapahtuma manuaalisesti kohdistetuksi"
+
+#: jbank/admin.py:1110
+msgid "Unmark manually settled flag"
+msgstr "Merkitse tapahtuma avoimeksi/kohdistamattomaksi"
+
+#: jbank/apps.py:7
+msgid "Bank Integration"
+msgstr "Pankki-integrointi"
+
+#: jbank/camt.py:31
+msgid "camt.053 field {} missing"
+msgstr "camt.053 kenttä {} puuttuu"
+
+#: jbank/camt.py:46 jbank/camt.py:61 jbank/camt.py:70 jbank/camt.py:88
+msgid "camt.053 field {} type {} missing or invalid"
+msgstr "camt.053 kenttä {} tyyppiä {} puuttuu tai epäkelpo"
+
+#: jbank/camt.py:75 jbank/parsers.py:550 jbank/parsers.py:608
+#, python-brace-format
+msgid ""
+"File {filename} has unrecognized ({suffixes}) suffix for file type "
+"\"{file_type}\""
+msgstr ""
+"Tiedostolla {filename} on tunnistamaton ({suffixes}) pääte tiedostotyypiksi "
+"\"{file_type}\""
+
+#: jbank/camt.py:152 jbank/camt.py:186
+#, python-brace-format
+msgid ""
+"Account currency {account_currency} does not match statement entry currency "
+"{statement_currency}"
+msgstr ""
+"Tilin valuutta {account_currency} ei täsmää tiliotteen valuttaa "
+"{statement_currency}"
+
+#: jbank/camt.py:167 jbank/camt.py:171 jbank/helpers.py:132
+#: jbank/helpers.py:134
+msgid "entry.type.missing"
+msgstr "tapahtuman tyyppi puuttuu"
+
+#: jbank/camt.py:192
+msgid "Statement entry type {} not supported"
+msgstr "Tiliotteen tyyppiä {} ei tunnisteta"
+
+#: jbank/camt.py:228
+msgid "Inconsistent Stmt.Ntry[{}].NtryDtls.TxDtls[{}].AmtDtls"
+msgstr "Epäyhtenäinen Stmt.Ntry[{}].NtryDtls.TxDtls[{}].AmtDtls"
+
+#: jbank/helpers.py:212
+msgid "bank account"
+msgstr "pankkitili"
+
+#: jbank/models.py:33
+msgid "Deposit"
+msgstr "Talletus"
+
+#: jbank/models.py:34
+msgid "Withdrawal"
+msgstr "Nosto"
+
+#: jbank/models.py:35
+msgid "Deposit Correction"
+msgstr "Talletuksen korjaus"
+
+#: jbank/models.py:36
+msgid "Withdrawal Correction"
+msgstr "Noston korjaus"
+
+#: jbank/models.py:40 jbank/models.py:63
+msgid "Money Transfer (In/Out)"
+msgstr "Maksuliikennepalvelu (sisään/ulos)"
+
+#: jbank/models.py:41
+msgid "Recurring Payment (In/Out)"
+msgstr "Toistuvaissuoritus (sisään/ulos)"
+
+#: jbank/models.py:42
+msgid "Bill Payment (Out)"
+msgstr "Laskujen maksupalvelu (ulos)"
+
+#: jbank/models.py:43
+msgid "Payment Terminal Deposit (In)"
+msgstr "Maksupäätepalvelu (sisään)"
+
+#: jbank/models.py:44
+msgid "Bank Draft (In/Out)"
+msgstr "Suoraveloitus (sisään/ulos)"
+
+#: jbank/models.py:45
+msgid "Reference Payments (In)"
+msgstr "Saapuvat viitemaksut (sisään)"
+
+#: jbank/models.py:46
+msgid "Payment Service (Out)"
+msgstr "Maksupalvelu (ulos)"
+
+#: jbank/models.py:47
+msgid "Deposit (In)"
+msgstr "Pano (sisään)"
+
+#: jbank/models.py:48
+msgid "Withdrawal (Out)"
+msgstr "Otto (ulos)"
+
+#: jbank/models.py:49
+msgid "Card Payment (Out)"
+msgstr "Korttimaksu (ulos)"
+
+#: jbank/models.py:50
+msgid "Check (Out)"
+msgstr "Shekki (ulos)"
+
+#: jbank/models.py:51
+msgid "Bank Fees (Out)"
+msgstr "Pankin perimä palkkio (ulos)"
+
+#: jbank/models.py:52
+msgid "Interests Charged (Out)"
+msgstr "Korkoveloitus (ulos)"
+
+#: jbank/models.py:53
+msgid "Interests Credited (In)"
+msgstr "Korkohyvitys (sisään)"
+
+#: jbank/models.py:54
+msgid "Loan (Out)"
+msgstr "Laina (ulos)"
+
+#: jbank/models.py:55 jbank/models.py:64
+msgid "Loan Payment (Out)"
+msgstr "Lainan lyhennys (ulos)"
+
+#: jbank/models.py:56
+msgid "Foreign Transfer (In/Out)"
+msgstr "Ulkomaanmaksu (sisään/ulos)"
+
+#: jbank/models.py:57
+msgid "Zero Balancing (In/Out)"
+msgstr "Zero Balancing (sisään/ulos)"
+
+#: jbank/models.py:58
+msgid "Sweeping (In/Out)"
+msgstr "Sweeping (sisään/ulos)"
+
+#: jbank/models.py:59
+msgid "Topping (In/Out)"
+msgstr "Topping (sisään/ulos)"
+
+#: jbank/models.py:65
+msgid "Cash Management"
+msgstr "Kassanhallinta"
+
+#: jbank/models.py:66
+msgid "Account Management"
+msgstr "Tilinhallinta"
+
+#: jbank/models.py:67 jbank/models.py:70
+msgid "Entended Domain"
+msgstr "Laajennettu toimialue"
+
+#: jbank/models.py:68
+msgid "Securities"
+msgstr "Osakkeet"
+
+#: jbank/models.py:69
+msgid "Foreign Exchange"
+msgstr "Valuutanvaihto"
+
+#: jbank/models.py:71
+msgid "Not Available"
+msgstr "Ei saatavilla"
+
+#: jbank/models.py:76
+msgid "Separate"
+msgstr "Erillinen"
+
+#: jbank/models.py:77
+msgid "Separate/Paper"
+msgstr "Erillinen/paperi"
+
+#: jbank/models.py:85
+msgid "Not Set"
+msgstr "Ei asetettu"
+
+#: jbank/models.py:86 jbank/models.py:101
+msgid "From Customer"
+msgstr "Asiakkaalta"
+
+#: jbank/models.py:87 jbank/models.py:102
+msgid "From Bank Clerk"
+msgstr "Pankin konttorista"
+
+#: jbank/models.py:88 jbank/models.py:103
+msgid "From Bank System"
+msgstr "Pankin järjestelmästä"
+
+#: jbank/models.py:92
+msgid "Regular Entry"
+msgstr "Normaali tapahtuma"
+
+#: jbank/models.py:93
+msgid "Correction Entry"
+msgstr "Korjaustapahtuma"
+
+#: jbank/models.py:114
+msgid "waiting processing"
+msgstr "odottaa käsittelyä"
+
+#: jbank/models.py:115
+msgid "waiting upload"
+msgstr "odottaa lähetystä"
+
+#: jbank/models.py:116
+msgid "uploaded"
+msgstr "lähetetty"
+
+#: jbank/models.py:117
+msgid "paid"
+msgstr "maksettu"
+
+#: jbank/models.py:118
+msgid "canceled"
+msgstr "peruutettu"
+
+#: jbank/models.py:126 jbank/models.py:305 jbank/models.py:377
+msgid "account number"
+msgstr "tilinumero"
+
+#: jbank/models.py:127
+msgid "statement identifier"
+msgstr "tiliotteen tunniste"
+
+#: jbank/models.py:128
+msgid "statement number"
+msgstr "tiliotteen numero"
+
+#: jbank/models.py:129
+msgid "begin date"
+msgstr "alkupäivämäärä"
+
+#: jbank/models.py:130
+msgid "end date"
+msgstr "loppupäivämäärä"
+
+#: jbank/models.py:131 jbank/models.py:165 jbank/models.py:212
+#: jbank/models.py:287 jbank/models.py:306
+msgid "record date"
+msgstr "kirjauspäivä"
+
+#: jbank/models.py:132
+msgid "customer identifier"
+msgstr "asiakkaan tunniste"
+
+#: jbank/models.py:133
+msgid "begin balance date"
+msgstr "alkusaldon päivämäärä"
+
+#: jbank/models.py:134
+msgid "begin balance"
+msgstr "alkusaldo"
+
+#: jbank/models.py:135
+msgid "record count"
+msgstr "tietueiden lukumäärä"
+
+#: jbank/models.py:136 jbank/models.py:231 jbank/models.py:248
+msgid "currency code"
+msgstr "valuuttakoodi"
+
+#: jbank/models.py:137
+msgid "account name"
+msgstr "tilin nimi"
+
+#: jbank/models.py:138
+msgid "account limit"
+msgstr "tilin limiitti"
+
+#: jbank/models.py:139
+msgid "owner name"
+msgstr "omistajan nimi"
+
+#: jbank/models.py:140
+msgid "contact info (1)"
+msgstr "yhteystiedot (1)"
+
+#: jbank/models.py:141
+msgid "contact info (2)"
+msgstr "yhteystiedot (2)"
+
+#: jbank/models.py:142
+msgid "bank specific info (1)"
+msgstr "pankkikohtainen tieto (1)"
+
+#: jbank/models.py:143 jbank/models.py:258
+msgid "IBAN"
+msgstr "IBAN"
+
+#: jbank/models.py:144 jbank/models.py:259 jbank/models.py:378
+msgid "BIC"
+msgstr "BIC"
+
+#: jbank/models.py:147 jbank/models.py:161
+msgid "statement"
+msgstr "tiliote"
+
+#: jbank/models.py:162 jbank/models.py:303
+msgid "line number"
+msgstr "rivinumero"
+
+#: jbank/models.py:163
+msgid "record number"
+msgstr "tietueen numero"
+
+#: jbank/models.py:164 jbank/models.py:234 jbank/models.py:263
+#: jbank/models.py:308
+msgid "archive identifier"
+msgstr "arkistointitunnus"
+
+#: jbank/models.py:166
+msgid "value date"
+msgstr "arvopäivämäärä"
+
+#: jbank/models.py:167 jbank/models.py:241 jbank/models.py:307
+#: jbank/models.py:416
+msgid "paid date"
+msgstr "maksupäivämäärä"
+
+#: jbank/models.py:168
+msgid "entry type"
+msgstr "tapahtuman tyyppi"
+
+#: jbank/models.py:169 jbank/models.py:304
+msgid "record type"
+msgstr "tietueen tyyppi"
+
+#: jbank/models.py:170
+msgid "record domain"
+msgstr "tapahtuman alue"
+
+#: jbank/models.py:171
+msgid "family code"
+msgstr "perhekoodi"
+
+#: jbank/models.py:172
+msgid "sub family code"
+msgstr "alaperhekoodi"
+
+#: jbank/models.py:173
+msgid "record description"
+msgstr "tietueen kuvaus"
+
+#: jbank/models.py:174 jbank/models.py:315
+msgid "receipt code"
+msgstr "kuittikoodi"
+
+#: jbank/models.py:175 jbank/models.py:314
+msgid "delivery method"
+msgstr "toimitustapa"
+
+#: jbank/models.py:176 jbank/models.py:200 jbank/models.py:376
+#: jbank/models.py:582
+msgid "name"
+msgstr "nimi"
+
+#: jbank/models.py:177 jbank/models.py:312
+msgid "name source"
+msgstr "nimen lähde"
+
+#: jbank/models.py:178
+msgid "recipient account number"
+msgstr "vastaanottajan tilinumero"
+
+#: jbank/models.py:179
+msgid "recipient account number changed"
+msgstr "vastaanottajan tilinumero muuttunut"
+
+#: jbank/models.py:180 jbank/models.py:309
+msgid "remittance info"
+msgstr "maksuviite"
+
+#: jbank/models.py:181
+msgid "messages"
+msgstr "viestit"
+
+#: jbank/models.py:182
+msgid "client messages"
+msgstr "asiakkaan viestit"
+
+#: jbank/models.py:183
+msgid "bank messages"
+msgstr "pankin viestit"
+
+#: jbank/models.py:184 jbank/models.py:316
+msgid "manually settled"
+msgstr "merkitty kohdistetuksi"
+
+#: jbank/models.py:187
+msgid "statement record"
+msgstr "tiliotteen tietue"
+
+#: jbank/models.py:188
+msgid "statement records"
+msgstr "tiliotteen tietueet"
+
+#: jbank/models.py:201 jbank/models.py:338 jbank/models.py:357
+#: jbank/models.py:497 jbank/models.py:531 jbank/models.py:595
+msgid "created"
+msgstr "luotu"
+
+#: jbank/models.py:204 jbank/models.py:217
+msgid "currency exchange source"
+msgstr "valuutanvaihtokurssin lähde"
+
+#: jbank/models.py:205
+msgid "currency exchange sources"
+msgstr "valuutanvaihtokurssien lähteet"
+
+#: jbank/models.py:213
+msgid "source currency"
+msgstr "lähdevaluutta"
+
+#: jbank/models.py:214
+msgid "target currency"
+msgstr "kohdevaluutta"
+
+#: jbank/models.py:215
+msgid "unit currency"
+msgstr "yksikkövaluutta"
+
+#: jbank/models.py:216
+msgid "exchange rate"
+msgstr "vaihtokurssi"
+
+#: jbank/models.py:220 jbank/models.py:233
+msgid "currency exchange"
+msgstr "valuutanvaihtokurssi"
+
+#: jbank/models.py:221
+msgid "currency exchanges"
+msgstr "valuutanvaihtokurssit"
+
+#: jbank/models.py:228 jbank/models.py:256
+msgid "record"
+msgstr "tietue"
+
+#: jbank/models.py:229
+msgid "batch message id"
+msgstr "erän tunniste"
+
+#: jbank/models.py:230 jbank/models.py:247
+msgid "amount"
+msgstr "summa"
+
+#: jbank/models.py:232
+msgid "instructed amount"
+msgstr "alkup.summa"
+
+#: jbank/models.py:235
+msgid "end-to-end identifier"
+msgstr "end-to-end tunniste"
+
+#: jbank/models.py:236
+msgid "creditor name"
+msgstr "saajan nimi"
+
+#: jbank/models.py:237
+msgid "creditor account"
+msgstr "saajan tili"
+
+#: jbank/models.py:238
+msgid "debtor name"
+msgstr "maksaja"
+
+#: jbank/models.py:239
+msgid "ultimate debtor name"
+msgstr "alkup.maksaja"
+
+#: jbank/models.py:240
+msgid "unstructured remittance info"
+msgstr "viestikenttä"
+
+#: jbank/models.py:246
+msgid "additional remittance info"
+msgstr "lisätieto"
+
+#: jbank/models.py:249 jbank/models.py:257
+msgid "reference"
+msgstr "viite"
+
+#: jbank/models.py:260
+msgid "recipient name detail"
+msgstr "vastaanottajan nimen tarkenne"
+
+#: jbank/models.py:261
+msgid "payer name detail"
+msgstr "maksajan nimen tarkenne"
+
+#: jbank/models.py:262
+msgid "identifier"
+msgstr "tunniste"
+
+#: jbank/models.py:266 jbank/models.py:267
+msgid "SEPA"
+msgstr "SEPA"
+
+#: jbank/models.py:288
+msgid "institution identifier"
+msgstr "instituution tunniste"
+
+#: jbank/models.py:289
+msgid "service identifier"
+msgstr "palvelun tunniste"
+
+#: jbank/models.py:290 jbank/models.py:311
+msgid "currency identifier"
+msgstr "valuutan tunniste"
+
+#: jbank/models.py:293
+msgid "reference payment batch"
+msgstr "viitemaksuerä"
+
+#: jbank/models.py:302
+msgid "batch"
+msgstr "erä"
+
+#: jbank/models.py:310
+msgid "payer name"
+msgstr "maksajan nimi"
+
+#: jbank/models.py:313
+msgid "correction identifier"
+msgstr "korjauksen tunniste"
+
+#: jbank/models.py:319 jbank/models.py:320
+msgid "reference payment records"
+msgstr "viitemaksutietueet"
+
+#: jbank/models.py:340 jbank/models.py:359
+msgid "original filename"
+msgstr "alkup.tiedosto"
+
+#: jbank/models.py:341 jbank/models.py:360
+msgid "tag"
+msgstr "tägi"
+
+#: jbank/models.py:342 jbank/models.py:361
+msgid "errors"
+msgstr "virheet"
+
+#: jbank/models.py:346
+msgid "account statement files"
+msgstr "tiliote-tiedostot"
+
+#: jbank/models.py:364
+msgid "reference payment batch file"
+msgstr "viitemaksutiedosto"
+
+#: jbank/models.py:365
+msgid "reference payment batch files"
+msgstr "viitemaksutiedostot"
+
+#: jbank/models.py:379
+msgid "organization id"
+msgstr "organisaation tunnus"
+
+#: jbank/models.py:380
+msgid "address"
+msgstr "osoite"
+
+#: jbank/models.py:381
+msgid "country code"
+msgstr "maakoodi"
+
+#: jbank/models.py:382
+msgid "payouts account"
+msgstr "ulosmaksun kirjaustili"
+
+#: jbank/models.py:385
+msgid "payout party"
+msgstr "ulosmaksun osapuoli"
+
+#: jbank/models.py:386
+msgid "payout parties"
+msgstr "ulosmaksun osapuolet"
+
+#: jbank/models.py:406 jbank/models.py:529 jbank/models.py:599
+msgid "WS-EDI connection"
+msgstr "WS-EDI yhteys"
+
+#: jbank/models.py:407
+msgid "payer"
+msgstr "maksaja"
+
+#: jbank/models.py:408
+msgid "recipient"
+msgstr "vastaanottaja"
+
+#: jbank/models.py:409
+msgid "recipient messages"
+msgstr "viesti vastaanottajalle"
+
+#: jbank/models.py:410
+msgid "recipient reference"
+msgstr "vastaanottajan viite"
+
+#: jbank/models.py:411 jbank/models.py:501
+msgid "message id"
+msgstr "viestin tunnus"
+
+#: jbank/models.py:412 jbank/models.py:498
+msgid "file name"
+msgstr "tiedosto"
+
+#: jbank/models.py:413
+msgid "full path"
+msgstr "polku"
+
+#: jbank/models.py:414
+msgid "file reference"
+msgstr "tiedostoviite"
+
+#: jbank/models.py:415
+msgid "due date"
+msgstr "eräpäivä"
+
+#: jbank/models.py:417
+msgid "state"
+msgstr "tila"
+
+#: jbank/models.py:420 jbank/models.py:496
+msgid "payout"
+msgstr "ulosmaksu"
+
+#: jbank/models.py:421
+msgid "payouts"
+msgstr "ulosmaksut"
+
+#: jbank/models.py:429
+msgid "payment.must.have.reference.or.messages"
+msgstr "Ulosmaksulla pitää olla joko viite tai viesti mutta ei molempia."
+
+#: jbank/models.py:443
+msgid "File already uploaded"
+msgstr "Tiedosto jo lähetetty"
+
+#: jbank/models.py:455
+msgid "value > 0 required"
+msgstr "arvo > 0 vaaditaan"
+
+#: jbank/models.py:486
+msgid "payment.group.status"
+msgstr "tilakoodi"
+
+#: jbank/models.py:499
+msgid "response code"
+msgstr "vastauskoodi"
+
+#: jbank/models.py:500
+msgid "response text"
+msgstr "vastausteksti"
+
+#: jbank/models.py:502
+msgid "original message id"
+msgstr "alkup.viestin tunnus"
+
+#: jbank/models.py:503
+msgid "group status"
+msgstr "ryhmäkoodi"
+
+#: jbank/models.py:504
+msgid "status reason"
+msgstr "tilan syy"
+
+#: jbank/models.py:507
+msgid "payout status"
+msgstr "ulosmaksun tila"
+
+#: jbank/models.py:508
+msgid "payout statuses"
+msgstr "ulosmaksun tilat"
+
+#: jbank/models.py:524
+msgid "refund"
+msgstr "palautus"
+
+#: jbank/models.py:525
+msgid "refunds"
+msgstr "palautukset"
+
+#: jbank/models.py:530
+msgid "command"
+msgstr "komento"
+
+#: jbank/models.py:532
+msgid "executed"
+msgstr "suoritettu"
+
+#: jbank/models.py:536
+msgid "WS-EDI SOAP call"
+msgstr "WS-EDI SOAP kutsu"
+
+#: jbank/models.py:537
+msgid "WS-EDI SOAP calls"
+msgstr "WS-EDI SOAP kutsut"
+
+#: jbank/models.py:575
+#, python-brace-format
+msgid ""
+"WS-EDI connection cannot be found by receiver identifier "
+"{receiver_identifier} since there are {matches} matches"
+msgstr ""
+"Pankkiyhteyttä ei voida valita vastaanottajan tunnisteen "
+"{receiver_identifier} perusteella koska täsmääviä yhteyksiä on {matches} kpl"
+
+#: jbank/models.py:583
+msgid "enabled"
+msgstr "päällä"
+
+#: jbank/models.py:584
+msgid "sender identifier"
+msgstr "lähettäjän tunniste"
+
+#: jbank/models.py:585
+msgid "receiver identifier"
+msgstr "vastaanottajan tunniste"
+
+#: jbank/models.py:586
+msgid "target identifier"
+msgstr "kohdekansion tunniste"
+
+#: jbank/models.py:587
+msgid "environment"
+msgstr "ympäristö"
+
+#: jbank/models.py:588
+msgid "SOAP endpoint"
+msgstr "SOAP yhteysosoite"
+
+#: jbank/models.py:589
+msgid "signing certificate file"
+msgstr ""
+
+#: jbank/models.py:590
+msgid "signing key file"
+msgstr ""
+
+#: jbank/models.py:591
+msgid "encryption certificate file"
+msgstr ""
+
+#: jbank/models.py:592
+msgid "encryption key file"
+msgstr ""
+
+#: jbank/models.py:593
+msgid "bank encryption cert file"
+msgstr ""
+
+#: jbank/models.py:594
+msgid "debug commands"
+msgstr "debug komennot"
+
+#: jbank/models.py:600
+msgid "WS-EDI connections"
+msgstr "WS-EDI yhteydet"
+
+#: jbank/parsers.py:304 jbank/parsers.py:311 jbank/parsers.py:314
+#, python-brace-format
+msgid "Line {line}: Invalid field \"{field}\" value \"{value}\""
+msgstr "Rivi {line}: Epäkelpo kenttä \"{field}\" jolla arvo \"{value}\""
+
+#: jbank/parsers.py:336
+#, python-brace-format
+msgid ""
+"Line {line}: Record length ({record_length}) does not match length of parsed "
+"data ({data_length}). Extra data: \"{extra_data}\""
+msgstr ""
+"Rivi {line}: Tietueen pituus ({record_length}) ei täsmää luettuun dataan "
+"({data_length}). Ylimääräinen data: \"{extra_data}\""
+
+#: jbank/parsers.py:382
+#, python-brace-format
+msgid "Line {line}: Invalid record extra info type \"{extra_info_type}\""
+msgstr "Rivi {line}: Epäkelpo tietueen lisätietotyyppi \"{extra_info_type}\""
+
+#: jbank/parsers.py:387
+msgid "Date field missing: {}"
+msgstr "Päivämääräkenttä puuttuu: {}"
+
+#: jbank/parsers.py:389
+msgid "Date format error in field {}: {}"
+msgstr "Päivämääräkenttä epäkelpo {}: {}"
+
+#: jbank/parsers.py:398
+msgid "Time field missing: {}"
+msgstr "Aikakenttä puuttuu: {}"
+
+#: jbank/parsers.py:400
+msgid "Time format error in field {}: {}"
+msgstr "Epäkelpo aikakenttä {}: {}"
+
+#: jbank/parsers.py:412
+msgid "Date format error in field {}"
+msgstr "Päivämäärävirhe kentässä {}"
+
+#: jbank/parsers.py:444
+msgid "Invalid decimal field format: {}"
+msgstr "Epäkelpo desimaaliformaatti: {}"
+
+#: jbank/parsers.py:536 jbank/parsers.py:600
+msgid "Unknown record type on {}({}): {}"
+msgstr "Epäkelpo kentän tyyppi {}({}): {}"
+
+#: jbank/sepa.py:23
+msgid "message"
+msgstr "viesti"
+
+#: jbank/sepa.py:24
+msgid "OCR"
+msgstr ""
+
+#: jbank/sepa.py:25
+msgid "OCR/ISO"
+msgstr ""
+
+#: jbank/sepa.py:56
+msgid "pain001.remittance.info.missing"
+msgstr "viestikenttä puuttuu"
+
+#: jbank/sepa.py:58
+msgid "pain001.remittance.info.type.invalid"
+msgstr "Pain001 tiedoston maksuviitteen tyyppi epäkelpo"
+
+#: jbank/sepa.py:61
+msgid "Invalid payment reference: {}"
+msgstr "Epäkelpo maksun viite: {}"
+
+#: jbank/sepa.py:188
+msgid "Invalid remittance info type: {}"
+msgstr "Maksuviitteen tyyppi epäkelpo: {}"
+
+#: jbank/templates/admin/jbank/mark_as_manually_settled.html:14
+msgid "description"
+msgstr "selite"
+
+#: jbank/templates/admin/jbank/referencepaymentbatch/change_form.html:8
+#: jbank/templates/admin/jbank/statement/change_form.html:8
+msgid "History"
+msgstr "Historia"
+
+#: jbank/templates/admin/jbank/referencepaymentbatch/change_form.html:12
+msgid "Reference Payment Records"
+msgstr "Viitemaksutietueet"
+
+#: jbank/templates/admin/jbank/referencepaymentbatch/change_form.html:14
+#: jbank/templates/admin/jbank/statement/change_form.html:14
+msgid "View on site"
+msgstr "Katso sivustolla"
+
+#: jbank/templates/admin/jbank/statement/change_form.html:12
+msgid "Statement Records"
+msgstr "Tiliotteen tietueet"
+
+#: jbank/wsedi.py:105
+msgid "ws.edi.connection.not.enabled"
+msgstr "WS-EDI yhteys {ws} ei päällä"
+
+#~ msgid ""
+#~ "Both recipient messages and recipient reference cannot be defined "
+#~ "simultaneously"
+#~ msgstr "Maksussa ei voi käyttää viitenumeroa ja viestiä samaan aikaan"
+
+#~ msgid "customer"
+#~ msgstr "asiakas"
+
+#~ msgid "Not \"tiliote\" (.TO) file"
+#~ msgstr "Ei tiliote (.TO) -tiedosto"
+
+#~ msgid "Not \"saapuvat viitemaksut\" (.SVM) file"
+#~ msgstr "Ei saapuvat viitemaksut (.SVM) -tiedosto"
+
+#~ msgid "refund.waiting.payout"
+#~ msgstr "odottaa ulosmaksua"
+
+#~ msgid "refund.paid"
+#~ msgstr "maksettu ulos"
+
+#~ msgid "refund.canceled"
+#~ msgstr "palautus peruuttu"
+
+#~ msgid "refund date"
+#~ msgstr "palautuspäivä"
+
+#~ msgid "{name}: Account number missing"
+#~ msgstr "tilinumero"
+
+#, fuzzy
+#~| msgid "Not Set"
+#~ msgid "Not settled"
+#~ msgstr "Ei asetettu"
+
+#~ msgid "No"
+#~ msgstr "Ei"
