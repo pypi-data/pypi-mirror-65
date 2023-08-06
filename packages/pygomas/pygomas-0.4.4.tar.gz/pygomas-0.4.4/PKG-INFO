@@ -1,0 +1,244 @@
+Metadata-Version: 1.1
+Name: pygomas
+Version: 0.4.4
+Summary: A Python 'capture the flag' Game Oriented Multiagent System.
+Home-page: https://github.com/javipalanca/pygomas
+Author: Sergio Frayle Pérez
+Author-email: sfp932705@gmail.com
+License: GNU General Public License v3
+Description: =======
+        pygomas
+        =======
+        
+        
+        .. image:: https://img.shields.io/pypi/v/pygomas.svg
+                :target: https://pypi.python.org/pypi/pygomas
+        
+        .. image:: https://img.shields.io/travis/javipalanca/pygomas.svg
+                :target: https://travis-ci.org/javipalanca/pygomas
+        
+        .. image:: https://readthedocs.org/projects/pygomas/badge/?version=latest
+                :target: https://pygomas.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        A python capture the flag Game Oriented Multiagent System.
+        
+        
+        * Free software: GNU General Public License v3
+        * Documentation: https://pygomas.readthedocs.io. (to be done)
+        
+        
+        Features
+        --------
+        
+        * BDI agents to play a capture the flag game.
+        * Based on the SPADE Multi-Agent System platform (https://spade-mas.readthedocs.io.)
+        * Support for different game viewers (pygame, Unity, ncurses...)
+        
+        =====
+        Usage
+        =====
+        
+        To run a pygomas game manager::
+        
+            $ pygomas manager --num-players 10 --match-time 120
+        
+        The prepare a JSON file with your agent configuration::
+        
+            {
+                "host": "127.0.0.1",
+                "manager": "cmanager",
+                "service": "cservice",
+                "axis": [
+                    {
+                        "rank": "BDISoldier",
+                        "name": "soldier_axis1",
+                        "password": "secret",
+                        "amount": 5
+                    }
+                ],
+                "allied": [
+                    {
+                        "rank": "BDISoldier",
+                        "name": "soldier_allied1",
+                        "password": "secret",
+                        "amount": 5
+                    }
+                ]
+            }
+        
+        
+        For more complex configuration files run::
+        
+            $ pygomas help run
+        
+        
+        Then run your agents file::
+        
+            $ pygomas run --game game.json
+        
+        
+        To view the game play in real time run::
+        
+            $ pygomas render
+        
+        To dump the game play to a file to be replayed in the future run::
+        
+            $ pygomas dump --log my_log_file.log
+        
+        To replay a game play run::
+        
+            $ pygomas replay --game my_log_file.log
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.4.4 (2020-04-13)
+        ------------------
+        
+        * Upgraded spade and spade-bdi versions.
+        * Fixed shot method with negative values.
+        
+        0.4.3 (2020-03-11)
+        ------------------
+        
+        * Fixed BDI initialization.
+        * Fixed allied uniform color.
+        * New pack sprites.
+        * Default asl now generates packs at target_reached for axis troops
+        
+        0.4.2 (2020-03-09)
+        ------------------
+        
+        * Pygame render improvements.
+        * Sprite size modified.
+        * Help dialog.
+        * Show/hide info (health bars and names).
+        
+        0.4.1 (2020-03-06)
+        ------------------
+        
+        * Hotfix: fixed bug with flag sprite.
+        
+        0.4.0 (2020-03-06)
+        ------------------
+        
+        * Improved create_control_points.
+        * Fixed import bug.
+        * New pygame render. With new sprites and animations.
+        
+        0.3.7 (2020-03-05)
+        ------------------
+        
+        * Added warning when goto tries to go to invalid coordinates.
+        * Fixed dump and replay options.
+        * Changed map_arena.
+        
+        0.3.6 (2020-02-28)
+        ------------------
+        
+        * Added new maps.
+        
+        0.3.5 (2020-02-25)
+        ------------------
+        
+        * Increased agents velocity.
+        * Fixed render messaging initialization.
+        * Fixed look ZeroDivisionError bug.
+        * Improved pygomas render with tiles.
+        * Improved pygomas render supporting invisible bases.
+        
+        0.3.4 (2020-02-24)
+        ------------------
+        
+        * Added add_custom_actions support.
+        * Improved create_control_points custom action.
+        * Updated spade_bdi requirement to 0.2.0.
+        * Fixed maps path in render.
+        
+        0.3.3 (2020-02-24)
+        ------------------
+        
+        * Minor bug fix.
+        * Upgraded reference to github repository.
+        
+        0.3.2 (2020-02-19)
+        ------------------
+        
+        * Added friendly fire.
+        * Added a probability to miss a shot.
+        * Fixed agent stop when there are pending messages to be sent.
+        * Fixed max length bug in text render.
+        * Moved ontology constants to a new file.
+        
+        
+        0.3.1 (2020-02-17)
+        ------------------
+        
+        * Fixed adding new actions in inherited classes.
+        * Improved logger.
+        * Added verbosity parameter.
+        * Improved jps and a* algorithms by avoiding being near walls.
+        
+        
+        0.3.0 (2020-02-10)
+        ------------------
+        
+        * Migrated msg format to msgpack.
+        * Black sttyle applied to code.
+        * Major refactoring of code in renders.
+        
+        0.2.3 (2019-07-10)
+        ------------------
+        
+        * Upgrade default ASLs.
+        * Agent name in JSON file is no longer required.
+        
+        0.2.2 (2019-07-10)
+        ------------------
+        
+        * Change all coordinate actions and beliefs to tuple of coordinates.
+        * Update spade-bdi.
+        
+        0.2.1 (2019-07-08)
+        ------------------
+        
+        * Change the .create_control_points from action to function.
+        * Change all coordinate actions and beliefs to tuple of coordinates.
+        
+        0.2.0 (2019-07-05)
+        ------------------
+        
+        * Added game replay support.
+        * Added action to register generic services.
+        * Added turn action for the troop agents.
+        * Added a new map (map_08)
+        * Minor bug fixes.
+        
+        0.1.0 (2019-06-13)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: pygomas
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
