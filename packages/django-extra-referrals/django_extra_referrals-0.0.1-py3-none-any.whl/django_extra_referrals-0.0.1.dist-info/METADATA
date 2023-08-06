@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: django-extra-referrals
+Version: 0.0.1
+Summary: Django referral with multilevel fee system
+Home-page: https://github.com/sasriawesome/django_extra_referrals
+Maintainer: Rizki Sasri Dwitama
+Maintainer-email: sasri.project@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Requires-Dist: django (>=2.2)
+Requires-Dist: django-numerators (>=0.0.1)
+Requires-Dist: django-polymorphic (>=2.1.2)
+Requires-Dist: django-mptt (>=0.11.0)
+
+# Django Extra Referrals
+Simpel referrals app for Django with simple multilevel fee system
+## Installation
+```
+$ pip install django-extra-referrals
+```
+or
+```
+$ pip install git+https://github.com/sasriawesome/django_extra_referrals.git#egg=django-extra-referrals
+```
+
+## Settings
+
+```
+REFERRAL_MODEL = 'django_referrals.Referral'
+REFERRAL_COOKIE_KEY = 'ref_id'
+REFERRAL_PARAM_KEY = 'ref_id
+REFERRAL_MAX_DAY = 7 * 24 * 60 * 60 # a week
+REFERRAL_SCHEMA = 'FLAT'
+REFERRAL_FLAT_CAMPAIGN_RATE = 4
+REFERRAL_FLAT_UPLINES_RATE = [5, 2, 1]
+
+```
+
