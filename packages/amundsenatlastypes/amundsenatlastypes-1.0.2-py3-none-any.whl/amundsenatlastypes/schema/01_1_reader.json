@@ -1,0 +1,41 @@
+{
+  "entityDefs": [
+    {
+      "superTypes": [
+        "Referenceable"
+      ],
+      "name": "Reader",
+      "description": "The entity reader count. Maps user with the count",
+      "typeVersion": "2.0",
+      "attributeDefs": [
+        {
+          "name": "count",
+          "isOptional": false,
+          "isUnique": false,
+          "isIndexable": true,
+          "typeName": "int",
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0
+        },
+        {
+          "name": "isFollowing",
+          "isOptional": true,
+          "isUnique": false,
+          "isIndexable": true,
+          "typeName": "boolean",
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0
+        },
+        {
+          "name": "entityUri",
+          "isOptional": true,
+          "isUnique": false,
+          "isIndexable": true,
+          "typeName": "string",
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0
+        }
+      ]
+    }
+  ]
+}
