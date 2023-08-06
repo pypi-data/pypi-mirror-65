@@ -1,0 +1,8 @@
+requests>=2.20.0
+six>=1.10.0
+
+[doc]
+Sphinx>=1.5.2
+
+[test]
+mock==2.0.0
