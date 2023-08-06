@@ -1,0 +1,6 @@
+graft test_cases/test_data/
+graft test_cases/test_delete_rows/
+graft test_cases/test_delete_cols/
+graft test_cases/test_insert_rows/
+graft test_cases/test_insert_cols/
+include *.py
