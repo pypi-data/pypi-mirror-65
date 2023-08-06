@@ -1,0 +1,3 @@
+[console_scripts]
+scheduler-api = onyx.scheduler.jobsched_server:main
+
