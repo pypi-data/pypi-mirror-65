@@ -1,0 +1,4 @@
+[nr.databind.core.union.test_entrypoints]
+int = test_union_type:Integer
+string = test_union_type:String
+
