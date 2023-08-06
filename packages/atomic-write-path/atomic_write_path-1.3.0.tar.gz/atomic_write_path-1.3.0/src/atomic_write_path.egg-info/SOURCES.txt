@@ -1,0 +1,14 @@
+MANIFEST.in
+pyproject.toml
+setup.cfg
+setup.py
+versioneer.py
+src/atomic_write_path/__init__.py
+src/atomic_write_path/_version.py
+src/atomic_write_path/atomic_write_path.py
+src/atomic_write_path.egg-info/PKG-INFO
+src/atomic_write_path.egg-info/SOURCES.txt
+src/atomic_write_path.egg-info/dependency_links.txt
+src/atomic_write_path.egg-info/not-zip-safe
+src/atomic_write_path.egg-info/requires.txt
+src/atomic_write_path.egg-info/top_level.txt
