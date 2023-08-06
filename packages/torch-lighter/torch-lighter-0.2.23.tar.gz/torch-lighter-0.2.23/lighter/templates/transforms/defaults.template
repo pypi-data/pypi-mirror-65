@@ -1,0 +1,9 @@
+import torchvision.transforms as transforms
+from lighter.transform import BaseTransform
+
+
+class Transform(BaseTransform):
+    def __init__(self):
+        super(Transform, self).__init__([
+            transforms.ToTensor()
+        ])
