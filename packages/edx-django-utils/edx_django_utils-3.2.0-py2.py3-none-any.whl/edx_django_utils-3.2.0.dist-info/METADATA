@@ -1,0 +1,247 @@
+Metadata-Version: 2.1
+Name: edx-django-utils
+Version: 3.2.0
+Summary: EdX utilities for Django Application development.
+Home-page: https://github.com/edx/edx-django-utils
+Author: edX
+Author-email: oscm@edx.org
+License: AGPL 3.0
+Keywords: Django edx
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: psutil (==1.2.1)
+Requires-Dist: Django (>=1.11)
+Requires-Dist: newrelic
+Requires-Dist: django-waffle
+
+edx-django-utils
+================
+
+|pypi-badge| |travis-badge| |codecov-badge| |doc-badge| |pyversions-badge|
+|license-badge|
+
+EdX utilities for Django Application development.
+
+Note that some utilities may warrant their own repository. A judgement call
+needs to be made as to whether code properly belongs here or not. Please
+review with the Architecture Team if you have any questions.
+
+Overview
+--------
+
+This repository includes shared utilities for:
+
+* `Cache Utilities`_: Includes a RequestCache and a TieredCache.
+
+* `Monitoring Utilities`_: Includes Middleware and utilities for enhancing metrics output.
+  At this time, supports NewRelic monitoring.
+
+.. _Cache Utilities: edx_django_utils/cache/README.rst
+
+.. _Monitoring Utilities: edx_django_utils/monitoring/README.rst
+
+Documentation
+-------------
+
+The full documentation is in the docs directory.
+
+TODO: Publish to https://edx-django-utils.readthedocs.org.
+
+License
+-------
+
+The code in this repository is licensed under the AGPL 3.0 unless
+otherwise noted.
+
+Please see ``LICENSE.txt`` for details.
+
+How To Contribute
+-----------------
+
+Contributions are very welcome.
+
+Please read `How To Contribute <https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst>`_ for details.
+
+Even though they were written with ``edx-platform`` in mind, the guidelines
+should be followed for Open edX code in general.
+
+PR description template should be automatically applied if you are sending PR from github interface; otherwise you
+can find it it at `PULL_REQUEST_TEMPLATE.md <https://github.com/edx/edx-django-utils/blob/master/.github/PULL_REQUEST_TEMPLATE.md>`_
+
+Issue report template should be automatically applied if you are sending it from github UI as well; otherwise you
+can find it at `ISSUE_TEMPLATE.md <https://github.com/edx/edx-django-utils/blob/master/.github/ISSUE_TEMPLATE.md>`_
+
+Reporting Security Issues
+-------------------------
+
+Please do not report security issues in public. Please email security@edx.org.
+
+Getting Help
+------------
+
+Have a question about this repository, or about Open edX in general?  Please
+refer to this `list of resources`_ if you need any assistance.
+
+.. _list of resources: https://open.edx.org/getting-help
+
+
+.. |pypi-badge| image:: https://img.shields.io/pypi/v/edx-django-utils.svg
+    :target: https://pypi.python.org/pypi/edx-django-utils/
+    :alt: PyPI
+
+.. |travis-badge| image:: https://travis-ci.org/edx/edx-django-utils.svg?branch=master
+    :target: https://travis-ci.org/edx/edx-django-utils
+    :alt: Travis
+
+.. |codecov-badge| image:: http://codecov.io/github/edx/edx-django-utils/coverage.svg?branch=master
+    :target: http://codecov.io/github/edx/edx-django-utils?branch=master
+    :alt: Codecov
+
+.. |doc-badge| image:: https://readthedocs.org/projects/edx-django-utils/badge/?version=latest
+    :target: http://edx-django-utils.readthedocs.io/en/latest/
+    :alt: Documentation
+
+.. |pyversions-badge| image:: https://img.shields.io/pypi/pyversions/edx-django-utils.svg
+    :target: https://pypi.python.org/pypi/edx-django-utils/
+    :alt: Supported Python versions
+
+.. |license-badge| image:: https://img.shields.io/github/license/edx/edx-django-utils.svg
+    :target: https://github.com/edx/edx-django-utils/blob/master/LICENSE.txt
+    :alt: License
+
+
+Change Log
+----------
+
+..
+   All enhancements and patches to edx_django_utils will be documented
+   in this file.  It adheres to the structure of http://keepachangelog.com/ ,
+   but in reStructuredText instead of Markdown (for ease of incorporation into
+   Sphinx documentation and the PyPI description).
+
+   This project adheres to Semantic Versioning (http://semver.org/).
+
+.. There should always be an "Unreleased" section for changes pending release.
+
+Unreleased
+~~~~~~~~~~
+*
+
+[3.2.0] - 2020-04-09
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added
+_______
+
+* Added get_cache_key utility.
+
+[2.0.1] - 2019-10-09
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changed
+_______
+
+* Fixed: Updated function tracing to accomodate changes in New Relic's 5.x Agent.
+
+[2.0.0] - 2019-07-07
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changed
+_______
+
+* Converted Middleware (from old style MIDDLEWARE_CLASSES to MIDDLEWARE).
+* Removed support for Django versions < 1.11
+
+[1.0.1] - 2018-09-07
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changed
+_______
+
+* Fixed: RequestCache now properly uses thread.local.
+* Fixed: CachedResponse.__repr__ now handles unicode.
+
+[1.0.0] - 2018-08-28
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added
+_______
+
+* Add ``data`` dict property to better match legacy RequestCache interface.
+
+Changed
+_______
+
+* Change is_hit/is_miss to is_found.
+
+[0.5.1] - 2018-08-17
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changed
+_______
+
+* Fixed bug in TieredCacheMiddleware dependency declaration.
+
+[0.5.0] - 2018-08-16
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changed
+_______
+
+* Restored Python 3 support.
+* Refactor/clean-up, including Middleware dependency checking.
+* Docs updates and other cookiecutter updates.
+
+[0.4.1] - 2018-08-10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changed
+_______
+
+* Split out TieredCacheMiddleware from RequestCacheMiddleware.
+
+[0.4.0] - 2018-08-10
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changed
+_______
+
+* Rename CacheUtilsMiddleware to RequestCacheMiddleware.
+
+[0.3.0] - 2018-08-02
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Removed
+_______
+
+* Temporarily dropped Python 3 support to land this.
+
+[0.2.0] - 2018-08-01
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added
+_____
+
+* Added cache and monitoring utilities.
+
+
+[0.1.0] - 2018-07-23
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Added
+_____
+
+* First release on PyPI.
+
+
