@@ -1,0 +1,34 @@
+Metadata-Version: 1.2
+Name: floss
+Version: 0.0.1
+Summary: a LibCST based linting framework
+Home-page: UNKNOWN
+Author: Jason Fried
+Author-email: me@jasonfried.info
+License: Apache 2.0
+Description: =====
+        floss
+        =====
+        
+        
+        **What is** ``floss``?
+        
+        floss is intended to be a LibCST based linting framework. 
+        
+        License
+        ==========
+        `floss` is Apache 2.0 licensed
+        
+Keywords: linter flake8 pyflakes pylint lint libcst
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Python: >=3.7
