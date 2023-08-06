@@ -1,0 +1,102 @@
+Metadata-Version: 2.1
+Name: dhe
+Version: 0.1.0-beta
+Classifier: Programming Language :: Python
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: wxPython[gui]
+Summary: Downhole heat exchanger simulation
+Author: Gerhard Bräunlich <g.braeunlich@disroot.org>
+Author-Email: Gerhard Bräunlich <g.braeunlich@disroot.org>
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# DHE (Downhole Heat Exchanger)
+
+This project was partially founded by
+[Sustainable System Solutions AG](https://s3-engineering.ch) and is
+based on the publications [^hu-eWs1-sb], [^hu-eWs2-sb].
+
+[^hu-eWs1-sb]: [Berechnungsmodul für Erdwärmesonden](http://www.hetag.ch/download/HU_EWS1_SB.pdf)
+
+[^hu-eWs2-sb]: [Erweiterung des Programms EWSfür Erdwärmesondenfelder](http://www.hetag.ch/download/HU_EWS2_SB.pdf)
+
+
+## Installation
+
+### Build
+
+Dependencies: rust / cargo, maturin
+
+```bash
+cd dhe_o3
+maturin build --release
+cd -
+```
+
+### pip
+
+```bash
+pip install [--user] target/wheels/dhe-0.1.0-*
+```
+
+## Run
+
+To run the GUI:
+
+```bash
+dhe
+```
+
+Run the CLI:
+
+```
+dhe-cli -o <out> <project>
+```
+
+This will generate the file `<out>` (a csv file). See Section Output.
+`<project>` is supposed to be a project file (json format).
+
+## GUI
+
+In the tab "Load", under "csv file", choose a load profile.
+This must be a ";" separated csv file with exactly two columns, without header.
+
+- Column 1: Time [sec]
+- Column 2: Power [W]
+
+The time column has not to be equispaced - the program interpolates.
+
+Example:
+```
+0;500
+604800;500
+1209600;500
+1814400;500
+2419200;500
+3024000;500
+3628800;458
+4233600;458
+4838400;458
+5443200;458
+6048000;375
+6652800;375
+7257600;375
+7862400;375
+8467200;292
+```
+
+## Output
+
+Output is a csv file with hourly values.
+Columns
+
+1. Time [sec],
+2. T_sink: Temperature of brine flowing into the exchanger [°C]
+3. T_source: Temperature of brine flowing out of the exchanger [°C]
+
+... Temperatures of the cylinder of soil around the bore hole (Index 1:
+axial, index 2: radial)
+
+## Bibliography
+
+
