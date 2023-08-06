@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: teardrop
+Version: 0.0.1.dev2
+Summary: A Python algorithms used to perform machine learning.
+Home-page: https://gitlab.com/michkaro/teardrop
+Author: Dec0Ded
+Author-email: teardropemail@gmail.com
+License: LGPL-3.0-ONLY
+Description: # TearDrop
+        
+        TearDrop project contains useful algorithms and models for machine learning. You can find here models
+        for deep learning (Working on optimization), supervised learning and unsupervised learning (soon).
+        For the documentation click [here](https://dec0ded.gitlab.io/teardrop). 
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: > 3.7
+Description-Content-Type: text/markdown
