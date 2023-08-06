@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+finka/__init__.py
+finka.egg-info/PKG-INFO
+finka.egg-info/SOURCES.txt
+finka.egg-info/dependency_links.txt
+finka.egg-info/top_level.txt
+finka/dart/__init__.py
+finka/dart/lib.py
+finka/dart/test_dart.py
