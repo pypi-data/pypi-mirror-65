@@ -1,0 +1,102 @@
+#!python
+
+"""
+Usage:
+    fsm-step YOUR.MODULE [retry_id]
+    fsm-step XXX.py [retry_id]
+
+fsm-step will load custom outer module and call the function *main*
+
+the function main should return
+    `a string represents next_state`
+OR
+    `a tuple represents (next_state, patch_data)`
+"""
+
+import importlib
+import os
+import sys
+import time
+
+from fsm_hub import cli
+
+try:
+    from loguru import logger
+except ImportError:
+    import logging as logger
+
+sentry_sdk = None
+_sentry_dsn = os.environ.get("SENTRY")
+if _sentry_dsn:
+    try:
+        import sentry_sdk
+        sentry_sdk.init(dsn=_sentry_dsn)
+    except ImportError:
+        logger.warning("*sentry-sdk* is not installed")
+
+
+sys.path.append("")
+module_name = sys.argv[1]
+if module_name.endswith(".py"):
+    module_name = module_name[:-3].replace("/", ".")
+
+# you MUST define the function *main*
+that_function = importlib.import_module(module_name).main
+
+
+def call(kwargs: dict):
+    """call logic function, use magic
+    """
+    c = that_function.__code__
+    args = [kwargs.pop(c.co_varnames[i], None) for i in range(c.co_argcount)]
+    if len(c.co_varnames) == c.co_argcount:
+        return that_function(*args)
+    return that_function(*args, **kwargs)
+
+
+def transit(id, result):
+    patch_data = None
+    if isinstance(result, str):
+        next_state = result
+    else:
+        next_state, patch_data = result
+        assert isinstance(patch_data, dict), patch_data
+    logger.debug(next_state)
+    patch_data and logger.debug(patch_data)
+    cli.transit(id, next_state, patch_data)
+
+
+def main():
+    """
+    """
+    if len(sys.argv) > 2:  # this mode is for fix or debug
+        retry_id = int(sys.argv[2])
+        payload = cli.get(retry_id)
+        logger.debug(payload)
+        state = payload["state"]
+        assert state.endswith(module_name) and state != module_name, state
+        result = call(payload["data"] or {})
+        transit(retry_id, result)
+        return
+
+    # loop mode
+    while True:
+        payload = cli.lock(module_name)
+        logger.debug(payload)
+        id = payload["id"]
+        #ts = payload["ts"]
+        kwargs = payload["data"] or {}
+        assert payload["state"] == module_name
+
+        try:
+            result = call(kwargs)
+        except Exception as e:
+            logger.exception(f"{module_name}.main")
+            sentry_sdk and sentry_sdk.capture_exception(e)
+            continue
+
+        transit(id, result)
+
+
+if __name__ == '__main__':
+    main()

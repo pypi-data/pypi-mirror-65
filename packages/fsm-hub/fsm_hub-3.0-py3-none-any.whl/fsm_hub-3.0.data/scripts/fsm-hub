@@ -1,0 +1,21 @@
+#!python
+
+import os
+import sys
+import time
+
+
+def confirm():
+    while True:
+        try:
+            from fsm_hub import core
+            break
+        except Exception as e:
+            print(e, file=sys.stderr, flush=True)
+            time.sleep(1)
+
+
+if __name__ == '__main__':
+    confirm()
+    from uvicorn import run
+    run("fsm_hub.app:app", host="0.0.0.0", port=int(os.environ.get("PORT", 1024)))

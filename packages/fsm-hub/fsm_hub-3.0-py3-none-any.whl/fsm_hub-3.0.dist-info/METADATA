@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: fsm-hub
+Version: 3.0
+Summary: Finite State Machine storage hub
+Home-page: https://github.com/lwzm/fsm-hub
+Author: lwzm
+Author-email: lwzm@qq.com
+License: UNKNOWN
+Keywords: fsm,http,web,store
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pony
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+
+UNKNOWN
+
+
