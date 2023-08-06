@@ -1,0 +1,3 @@
+[console_scripts]
+twtxt-registry = twtxt_registry_client.__main__:cli
+

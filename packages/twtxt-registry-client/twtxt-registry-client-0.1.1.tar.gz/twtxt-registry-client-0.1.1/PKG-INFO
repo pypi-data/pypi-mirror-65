@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: twtxt-registry-client
+Version: 0.1.1
+Summary: API client for twtxt registries
+Home-page: https://gitlab.com/Lucidiot/twtxt-registry-client
+Author: Lucidiot
+License: GNU General Public License 3
+Project-URL: Source Code, https://gitlab.com/Lucidiot/twtxt-registry-client
+Project-URL: GitHub Mirror, https://github.com/Lucidiot/twtxt-registry-client
+Description: twtxt-registry-client
+        =====================
+        
+        A simple API client for servers implementing `twtxt`_'s `registry`_ API.
+        `Browse documentation`_
+        
+        .. _twtxt: https://github.com/buckket/twtxt
+        .. _registry: https://twtxt.readthedocs.io/en/stable/user/registry.html
+        .. _Browse documentation: https://lucidiot.gitlab.io/twtxt-registry-client
+        
+Keywords: twtxt twitter registry twtxt-registry client
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Communications
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+Provides-Extra: dev

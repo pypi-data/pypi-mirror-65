@@ -1,0 +1,12 @@
+click<7,>=6.7
+humanize<1,>=0.5.1
+objtools>=0.1.0
+python-dateutil<3,>=2.6.1
+requests>=2.22
+twtxt>=1.2.2
+
+[dev]
+flake8>=3.7
+Sphinx>=2.2
+doc8>=0.8
+mypy>=0.730
