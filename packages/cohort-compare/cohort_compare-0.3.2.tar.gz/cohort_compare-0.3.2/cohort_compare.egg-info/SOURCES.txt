@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+cohort_compare/__init__.py
+cohort_compare.egg-info/PKG-INFO
+cohort_compare.egg-info/SOURCES.txt
+cohort_compare.egg-info/dependency_links.txt
+cohort_compare.egg-info/not-zip-safe
+cohort_compare.egg-info/requires.txt
+cohort_compare.egg-info/top_level.txt
+cohort_compare/data/County_Data_after_impute_after_scaling.csv
+cohort_compare/data/us-albers-counties.json
