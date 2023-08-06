@@ -1,0 +1,17 @@
+setup.py
+whatlies/__init__.py
+whatlies/common.py
+whatlies/embedding.py
+whatlies/embeddingset.py
+whatlies/language.py
+whatlies.egg-info/PKG-INFO
+whatlies.egg-info/SOURCES.txt
+whatlies.egg-info/dependency_links.txt
+whatlies.egg-info/requires.txt
+whatlies.egg-info/top_level.txt
+whatlies/transformers/__init__.py
+whatlies/transformers/addrandom.py
+whatlies/transformers/common.py
+whatlies/transformers/noise.py
+whatlies/transformers/pca.py
+whatlies/transformers/umap.py
