@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: rnnt
+Version: 0.0.5
+Summary: rnnt is a python package for RNN-Transducer loss in TensorFlow==2.0.
+Home-page: https://github.com/mejanvijay/rnnt
+Author: Janvijay Singh
+Author-email: janvijay.singh.cse14@gmail.com
+License: MIT
+Description: To use this package please check the instructions in README at - https://github.com/mejanvijay/rnnt
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.5
