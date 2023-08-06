@@ -1,0 +1,17 @@
+<script>
+ RB.PageManager.beforeRender(function(page) {
+     var view = page.reviewRequestEditorView.getFieldView('target_groups');
+     var ac = view.autocomplete;
+     ac['resourceName'] = 'extensions/{{ extension.id }}/' + ac.fieldName;
+     view.autocomplete = ac;
+ });
+ RB.PageManager.ready(function(page) {
+     var view = page.reviewRequestEditorView.getFieldView('target_groups');
+     var ac = view.inlineEditorView.$field.data('rbautocomplete');
+     if (!ac) {
+         // RB 4.x
+         ac = view.inlineEditorView.$field.data('uiRbautocomplete');
+     }
+     ac.options.matchContains = true;
+ });
+</script>
