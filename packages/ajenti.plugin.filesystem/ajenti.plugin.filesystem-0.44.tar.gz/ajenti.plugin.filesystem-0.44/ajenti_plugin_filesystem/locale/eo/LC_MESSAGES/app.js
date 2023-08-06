@@ -1,0 +1,1 @@
+{"": "", "Total": "", "Up one level": "", "File name": "Dosiernomo", "Write to the filesystem": "", "All combined": "", "Select this directory": "", "File transfer": "", "Filesystem": "Dosiersistemo", "Cancel": "Nuligi", "Disk space": "", "Save": "Konservi", "Deleting": "", "Read from the filesystem": ""}
