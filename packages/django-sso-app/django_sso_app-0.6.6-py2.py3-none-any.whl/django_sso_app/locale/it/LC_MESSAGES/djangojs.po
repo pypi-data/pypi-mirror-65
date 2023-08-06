@@ -1,0 +1,290 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-10 14:05+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Back"
+msgstr "Indietro"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Continue"
+msgstr "Continua"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "You already unsubscribed from"
+msgstr "Ti sei gia disiscritto da"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Login steps"
+msgstr "Passi di login"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Fetching profile.."
+msgstr "Caricamento profilo.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Insert username or e-mail. If you have not created an account yet, then please <a href='/signup/' tabindex='-1'>SIGN UP</a> first."
+msgstr "Inserire username o e-mail. Se non hai ancora creato un account <a href='/signup/' tabindex='-1'>REGISTRATI</a>."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Checking credentials.."
+msgstr "Controllo credenziali.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Insert password."
+msgstr "Inserisci la password"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Logging in.."
+msgstr "Accesso.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Enabling services.."
+msgstr "Abilitazione servizi.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Fetching services.."
+msgstr "Caricamento servizi.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Accept terms of service"
+msgstr "Accetta i termini del servizio"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Subscribing.."
+msgstr "Iscrizione.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Redirecting.."
+msgstr "Redirezione.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Profile"
+msgstr "Profilo"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Logout"
+msgstr "Uscita"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Account not found, please"
+msgstr "Account non trovato,"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "SIGN UP"
+msgstr "REGISTRATI"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "The e-mail address and/or password you specified are not correct."
+msgstr "L'indirizzo e-mail e/o la password che hai usato non sono corretti."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "The username and/or password you specified are not correct."
+msgstr "Lo username e/o la password che hai usato non sono corretti."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Would you <a href=\"/password/reset/\" alt=\"reset password\" tabindex=\"-1\">RESET YOUR PASSWORD</a>?"
+msgstr "Desideri <a href=\"/password/reset/\" alt=\"reset password\" tabindex=\"-1\">RESETTARE LA PASSWORD</a>?"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "First name"
+msgstr "Nome"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Last name"
+msgstr "Cognome"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Address"
+msgstr "Indirizzo"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Registration steps"
+msgstr "Procedura di login"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "This e-mail will be used for later communications. If you already have an account please <a href='/login/' tabindex=\"-1\">LOGIN</a>."
+msgstr "Questa e-mail verrà usata per comunicazioni future. Se hai gia un account <a href='/login/' tabindex=\"-1\">ACCEDI</a>."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Checking e-mail.."
+msgstr "Controllo e-mail.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Choose username."
+msgstr "Scegli username."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Checking username.."
+msgstr "Controllo username."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Choose a strong password."
+msgstr "Scegli una password sicura."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Confirm password."
+msgstr "Conferma la password"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Checking password.."
+msgstr "Controllo password"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Insert first name."
+msgstr "Inserisci nome."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Insert last name."
+msgstr "Inserisci cognome."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "About you.."
+msgstr "Temi di interesse (facoltativo).."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Set your position."
+msgstr "Inserisci indirizzo."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Click to choose a picture."
+msgstr "Clicca per scegliere un immagine."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Choose service."
+msgstr "Scegli un servizio."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Clink CONTINUE to accept terms of service."
+msgstr "Clicca CONTINUA per accettare i termini del servizio."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Registering.."
+msgstr "Registrazione.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Confirmation e-mail sent. Please check your inbox."
+msgstr "E-mail di conferma inviata. Controlla la casella di posta."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Check e-mail."
+msgstr "Controllare e-mail."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Check username."
+msgstr "Controllare username."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Password must be at least 8 characters long."
+msgstr "La password deve contenere almeno 8 caratteri"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Invalid first name."
+msgstr "Formato nome errato."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Invalid last name."
+msgstr "Formato cognome errato"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Choose position."
+msgstr "Scegli la posizione."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "E-mail already registered, please"
+msgstr "E-mail gia registrata,"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "LOGIN"
+msgstr "ACCESSO"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Username already registered."
+msgstr "Username gia registrato."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Password didn't match."
+msgstr "Le password non corrispondono."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Send password reset."
+msgstr "Invio reset password."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Insert e-mail choosen during <a href='/signup/' tabindex=\"-1\">SIGN UP</a>."
+msgstr "Inserire e-mail scelta durante la <a href='/signup/' tabindex='-1'>REGISTRAZIONE</a>."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Sending e-mail.."
+msgstr "Invio e-mail.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "E-mail sent, check your inbox."
+msgstr "E-mail di conferma inviata. Controlla la casella di posta."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Change password"
+msgstr "Cambia password"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Repeat password."
+msgstr "Ripeti la password"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Updating password.."
+msgstr "Aggiornamento password.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Password updated, <a href='/login/'>LOGIN</a> with new credentials."
+msgstr "Password aggiornata, <a href='/login/'>ACCEDERE</a> con le nuove cerdenziali."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "E-mail"
+msgstr ""
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Name"
+msgstr "Nome"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Description"
+msgstr "Descrizione"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Birthdate"
+msgstr "Data di nascita"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Password"
+msgstr ""
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "User profile update"
+msgstr "Aggiornamento profilo utente"
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Updating.."
+msgstr "Aggiornamento.."
+
+#: .\django_sso_qcumber_frontend\static\frontend\js\app.b2e25d2b.js:1
+msgid "Set position."
+msgstr "Inserisci la posizione."
+
+msgid "Invalid credentials."
+msgstr "Credenziali errate."
