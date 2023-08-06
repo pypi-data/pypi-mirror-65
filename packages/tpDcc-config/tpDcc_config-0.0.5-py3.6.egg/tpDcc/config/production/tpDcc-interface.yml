@@ -1,0 +1,7 @@
+#  Configuration file for tpDcc core interface
+
+current_theme: 'dark'
+
+themes:
+  dark:
+    "$BROWSER_BG_COLOR": "1A1A1A"
