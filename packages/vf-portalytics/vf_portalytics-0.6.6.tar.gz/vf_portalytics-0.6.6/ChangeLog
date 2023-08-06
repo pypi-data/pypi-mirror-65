@@ -1,0 +1,93 @@
+CHANGES
+=======
+
+0.6.6
+-----
+
+* fix predict for unseend data that do not belong to a category
+* change tests to be compatible with the new modules
+* exchanging the previous feature\_subset classes with the ones made in the branch
+* add minor changes to make the notebook problem specific
+* add minor changes to make the notebook problem specific
+* add minor changes to make the notebook problem specific
+* complete feature\_subset\_example2
+* complete feature\_subset\_example2
+* change subset model and create a new example
+* add tests for prediction model preprocessing and for feature\_subset
+
+0.6.5
+-----
+
+* Fix twine command
+
+0.6.4
+-----
+
+* Fix tag build
+
+0.6.3
+-----
+
+* Add PBR supported setup scheme and circleci based release
+* Add tests for prediction model
+* Add pytest dependency specific to python version
+* Add test deps
+* Install module
+* Fix typo
+* Add circleci config
+* path changes to make the notebook reproducible
+* path changes to make the notebook reproducible
+* Update notebook with references to classes and rename MyTransformer
+* add the jupyter notebook
+* Adds a class transformer that takes data, excludes features that are used for grouping and perform every sklearn transformer. Adds a jupyter notebook that tests the transformer by itself and with a combination of the FeatureSubsetModel using pipeline and Cross Validation
+* Added example of feature subset model
+* Fix formatting
+* Add version and release notes
+* Add custom objective function
+* Pin exact versions for Python 2.7
+* Version gate numpy, scipy, pandas, matplotlib, ipython, scikit-learn, xgboost.Remove unused packages: jupyterlab, lightgbm and bottleneck
+* Upgrade to Python 3
+* Handle low-dimensional models
+* library updates
+* only keep features
+* resolve post processing bug
+* explicit train\_mode
+* explicit train\_mode
+* train test sets
+* Silent Mode
+* Silent Mode
+* Version 0.5.0 including one hot encoding
+* Version 0.5.0 including one hot encoding
+* Version 0.5.0 including one hot encoding
+* Library versions
+* Library versions
+* Codacy
+* GBM Requirements
+* Python 3 fixes
+* Fixing python 3 compatibility using 2to3 fixer unicode
+* Fixing python 3 compatibility using 2to3 fixer dict
+* Move to Jupyter Lab & Seaborne + viz scripts
+* Move to Jupyter Lab & Seaborne + viz scripts
+* Improved garbage collection avoidance
+* Updated mask reversal with tilde call
+* Updated requirements
+* Updated requirements
+* Updated requirements
+* Updated requirements
+* Updated requirements
+* Updated requirements
+* Version 0.3.0 -> Cleaned up code
+* Version 0.2.0
+* Extended standard procedures
+* improved output
+* typo
+* Fixed Manifest for real (I hope)
+* Fixed Manifest
+* Fixed Manifest
+* Typo and visualizations
+* visualizations
+* data checks
+* setup functions
+* msgpack
+* basic setup
+* Initial commit
