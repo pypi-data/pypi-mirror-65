@@ -1,0 +1,7 @@
+[console_scripts]
+lindworm.ldmStorageFolder = lindworm.ldmStorageFolder:main
+lindworm.pyGatherMD = lindworm.pyGatherMD:main
+
+[gui_scripts]
+lindworm.ldmStorageFolderFrm = lindworm.ldmStorageFolderFrm:main
+
