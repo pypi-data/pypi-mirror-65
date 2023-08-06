@@ -1,0 +1,2 @@
+"use strict";"function"!=typeof Object.assign&&(Object.assign=function(target){if(null==target)throw new TypeError("Cannot convert undefined or null to object");for(var output=Object(target),index=1;index<arguments.length;index++){var source=arguments[index];if(null!=source)for(var nextKey in source)source.hasOwnProperty(nextKey)&&(output[nextKey]=source[nextKey])}return output});
+//# sourceMappingURL=objectassign.js.map

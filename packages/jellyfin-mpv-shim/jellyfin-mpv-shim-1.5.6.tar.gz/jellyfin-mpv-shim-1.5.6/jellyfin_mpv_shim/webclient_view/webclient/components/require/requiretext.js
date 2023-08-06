@@ -1,0 +1,2 @@
+"use strict";define((function(){var addRedirectPrevention=null!=self.dashboardVersion&&self.Dashboard&&!self.AppInfo.isNativeApp;return{load:function load(url,req,_load,config){-1===url.indexOf("://")&&(url=config.baseUrl+url),config.urlArgs&&(url+=config.urlArgs(url,url)),addRedirectPrevention&&(-1===url.indexOf("?")?url+="?":url+="&",url+="r=0");var xhr=new XMLHttpRequest;xhr.open("GET",url,!0),xhr.onload=function(e){_load(this.response)},xhr.send()},normalize:function normalize(name,_normalize){return _normalize(name)}}}));
+//# sourceMappingURL=requiretext.js.map
