@@ -1,0 +1,10 @@
+attrs~=19.3.0
+docker~=4.1.0
+loguru~=0.4.1
+
+[build_sphinx]
+sphinx~=2.4.4
+sphinx-autodoc-typehints~=1.10.3
+
+[test]
+pytest~=5.2.1

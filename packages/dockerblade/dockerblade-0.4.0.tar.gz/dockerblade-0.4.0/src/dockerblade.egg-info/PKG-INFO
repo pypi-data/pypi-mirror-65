@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: dockerblade
+Version: 0.4.0
+Summary: UNKNOWN
+Home-page: https://github.com/ChrisTimperley/dockerblade
+Author: Christopher Timperley
+Author-email: christimperley@googlemail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: docker,python,files,shell,wrapper
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Provides-Extra: test
+Provides-Extra: build_sphinx
