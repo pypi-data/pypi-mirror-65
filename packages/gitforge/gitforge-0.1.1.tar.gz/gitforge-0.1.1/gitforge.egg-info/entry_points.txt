@@ -1,0 +1,6 @@
+[console_scripts]
+gh = gitforge.github:main
+github = gitforge.github:main
+gitlab = gitforge.gitlab:main
+gl = gitforge.gitlab:main
+
