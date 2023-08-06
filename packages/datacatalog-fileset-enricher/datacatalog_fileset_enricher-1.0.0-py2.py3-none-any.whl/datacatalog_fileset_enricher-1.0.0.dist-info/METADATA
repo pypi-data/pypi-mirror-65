@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: datacatalog-fileset-enricher
+Version: 1.0.0
+Summary: A package for enriching the content of a fileset Entry with Datacatalog Tags
+Home-page: https://github.com/mesmacosta/datacatalog-fileset-enricher
+Author: Marcelo Costa
+Author-email: mesmacosta@gmail.com
+License: UNKNOWN
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: google-cloud-storage
+Requires-Dist: google-cloud-datacatalog
+
+file: README.md
+
+
