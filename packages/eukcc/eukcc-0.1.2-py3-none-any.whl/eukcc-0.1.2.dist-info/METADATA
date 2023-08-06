@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: eukcc
+Version: 0.1.2
+Summary: Check eukaryotic genomes or MAGs for completeness and contamination
+Home-page: UNKNOWN
+Author: Paul Saary
+Author-email: eukcc@paulsaary.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: ete3
+Requires-Dist: pyfaidx
+Requires-Dist: configargparse
+Requires-Dist: pyyaml
+Requires-Dist: pyqt5 (==5.14)
+
+# EukCC
+
+EukCC is a tool to predict genome quality in microbial eukaryotes.
+
+A manuscript is in preparation.
+
+## Install and use
+Documentation of the tool can be found here:  [https://eukcc.readthedocs.io/en/latest/](https://eukcc.readthedocs.io/en/latest/)
+
+
