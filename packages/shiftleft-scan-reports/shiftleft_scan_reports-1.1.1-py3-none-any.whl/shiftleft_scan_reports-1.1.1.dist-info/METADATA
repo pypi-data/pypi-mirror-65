@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: shiftleft-scan-reports
+Version: 1.1.1
+Summary: Library for producing html reports from ShiftLeft Scan or AppThreat scan results
+Home-page: https://github.com/ShiftLeftSecurity/scan-reports
+Author: Team ShiftLeft
+Author-email: hello@shiftleft.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Utilities
+Classifier: Topic :: Security
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Jinja2
+
+# Introduction
+
+This is a library for producing html reports from ShiftLeft Scan or AppThreat scan results
+
+## Installation
+
+```bash
+pip install shiftleft-scan-reports
+```
+
+
