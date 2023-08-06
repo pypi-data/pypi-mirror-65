@@ -1,0 +1,13 @@
+config:
+  multi_class: True
+
+cell_type_categories:
+  interneuron:
+    keywords: ["i", "ins", "interneurons", "in"]
+    predicted_celll_type: True
+
+  pyramidal:
+    keywords: ["pyr", "p", "pyramidal cell"]
+
+##  noise:
+##    keywords: []
