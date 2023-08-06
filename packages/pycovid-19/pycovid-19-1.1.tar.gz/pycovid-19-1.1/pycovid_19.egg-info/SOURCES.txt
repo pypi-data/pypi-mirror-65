@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+covid/__init__.py
+covid/database.py
+covid/examples.py
+covid/exceptions.py
+covid/plotting.py
+covid/tools.py
+covid/data/country_wb_match.csv
+pycovid_19.egg-info/PKG-INFO
+pycovid_19.egg-info/SOURCES.txt
+pycovid_19.egg-info/dependency_links.txt
+pycovid_19.egg-info/not-zip-safe
+pycovid_19.egg-info/requires.txt
+pycovid_19.egg-info/top_level.txt
