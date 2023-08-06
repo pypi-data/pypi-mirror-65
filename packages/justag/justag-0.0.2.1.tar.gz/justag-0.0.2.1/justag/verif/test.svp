@@ -1,0 +1,132 @@
+/* *****************************************************************************
+ * File: test.v
+ * Author: Ofer Shacham
+ * 
+ * Description:
+ * simple test bench for template
+ * 
+ *
+ * Change bar:
+ * -----------
+ * Date          Author   Description
+ * Apr 3,  2010  shacham  initial version
+ * May 19, 2014  jingpu   flow update
+ * 
+ * ****************************************************************************/
+
+////////////////////////////// IMPORTANT MESSAGE: //////////////////////////////
+// Note that programs are written using object oriented programming. They
+// are closer to software than to hardware. There is therefore no real need
+// in a genesis type parameterization.
+////////////////////////////////////////////////////////////////////////////////
+
+   program automatic `mname`(interface ifc);
+   
+   // some variables to control the test
+   int                           seed;
+   int                           dummy;
+   int 				 svf_file;
+   
+   // Instantiate a jtag driver
+   //; my $jtag_drvr_obj = generate_base('JTAGDriver', 'jdrv');
+   `$jtag_drvr_obj->instantiate`;
+
+   /****************************************************************************
+    * Main: Main flow of the test
+    * *************************************************************************/
+   initial begin
+   //   get_command_line_args();
+      $display("%t: TESTBENCH IS ALIVE (SEED = %0d)", $time, seed);  
+      dummy = $urandom(seed);
+      
+      @(posedge ifc.Reset);    
+      svf_file = $fopen("scan.svf", "w");
+      init_test();
+      
+      repeat (10) @(posedge ifc.Clk);
+      run_test();
+      repeat (10) @(posedge ifc.Clk);
+      
+      $fdisplay(svf_file, "!End Test Program");
+      $display("%t: TESTBENCH IS DONE -- \033[0;32mTEST PASS\033[0m", $time);
+      $fclose(svf_file);
+      $finish(0);
+   end
+   logic [31:0] empt;
+   logic [7:0] data_out;
+     integer i;
+   task run_test;
+     begin
+	 jtag_regfile_trans_t jtag_trans;
+	 // Check IDCODE
+	 $fdisplay(svf_file, "! Check IDCODE");
+	 jdrv.ReadID(jtag_trans);
+	 @(posedge ifc.Clk);
+     jtag_write_reg(tc_domain, 16'h100, 1'b1);
+	 @(posedge ifc.Clk);
+     jtag_read_reg(tc_domain, 16'h100, empt);
+    $display("%t: \033[0;36m \033[0m: output=%0x\n", $time, empt); 
+	 @(posedge ifc.Clk);
+     jtag_read_reg(sc_domain, 16'h200, empt);
+	 @(posedge ifc.Clk);
+     jtag_read_reg(sc_domain, 16'h300, empt);
+	 @(posedge ifc.Clk);
+     jtag_read_reg(sc_domain, 16'h400, empt);
+     for (i = 0; i < 16; i++) begin
+	    @(posedge ifc.Clk);
+        jtag_read_reg(sc_domain, 13'h200 + i*4, data_out);
+	    $display("%t: \033[0;36mTrans %2d\033[0m: output=%0x\n",
+                    $time, i, data_out);
+     end
+   end
+   endtask // run_test
+   
+   task init_test();
+   begin
+	 // init the environment
+	 jdrv = new(ifc, svf_file);
+	 jdrv.Zero();
+	 jdrv.Reset();
+     for (i = 0; i < 16; i++) begin
+        ifc.adcout[i] = i;
+     end	 
+   end
+   endtask // init_test
+
+   /****************************************************************************
+    * JTAG transaction wrappers:
+    * *************************************************************************/
+   task jtag_write_reg(input regfile_t clk_domain, input [15:0] addr ,input[31:0] data);
+      jtag_regfile_trans_t jtag_trans;
+      jtag_trans.domain = clk_domain;
+      jtag_trans.addr = addr;  // First register in the DP block
+      jtag_trans.op = write;
+      jtag_trans.data_out = 'h0;
+      jtag_trans.data_in = data;
+      jtag_trans.done = 0;
+      $display("%t: \033[0;34mJTAG Write\033[0m -- ADDR: 0x%4h  Data: 0x%16h", $time, addr, data);
+      $fdisplay(svf_file, "! JTAG Write -- ADDR: 0x%4h  Data: 0x%16h",addr, data);
+      jdrv.Send(jtag_trans);  
+   endtask // jtag_write_reg 
+
+   task jtag_read_reg(input regfile_t clk_domain, input [11:0] addr, output [31:0] data);
+      jtag_regfile_trans_t jtag_trans;
+      jtag_trans.domain = clk_domain;
+      jtag_trans.addr = addr;  // First register in the DP block
+      jtag_trans.op = read;
+      jtag_trans.data_out = 'h0;
+      jtag_trans.data_in = 'hABCD;   //we don't really care data_in, since it is a read op
+      jtag_trans.done = 0;
+      $fdisplay(svf_file, "! JTAG Read -- ADDR: 0x%4h",addr);
+      jdrv.Send(jtag_trans);
+      jtag_trans = jdrv.GetResult();
+      data = jtag_trans.data_out;
+      $display("%t: \033[0;34mJTAG Read\033[0m  -- ADDR: 0x%4h  Data: 0x%16h", $time, addr, data);
+   endtask // jtag_write_reg
+   
+   /****************************************************************************
+    * Other Tasks:
+    * *************************************************************************/
+   
+endprogram : `mname`
+  
