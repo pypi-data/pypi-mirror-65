@@ -1,0 +1,2 @@
+recursive-include celery_dashboard/api/frontend/dist *
+recursive-exclude tests *
