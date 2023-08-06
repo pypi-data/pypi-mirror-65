@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+lxmlHtml/__init__.py
+lxmlHtml/html_element_proxy.py
+lxmlHtml/link.py
+lxmlHtml/styles.py
+lxmlHtml/version.py
+lxmlHtml.egg-info/PKG-INFO
+lxmlHtml.egg-info/SOURCES.txt
+lxmlHtml.egg-info/dependency_links.txt
+lxmlHtml.egg-info/requires.txt
+lxmlHtml.egg-info/top_level.txt
+lxmlHtml.egg-info/zip-safe
+test/test_lxmlHtml.py

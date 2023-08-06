@@ -1,0 +1,8 @@
+include README.md
+include requirements.txt
+global-include *.py
+global-exclude *.pyc
+global-exclude *.log
+global-exclude *.db
+global-exclude *.sqlite
+exclude test
