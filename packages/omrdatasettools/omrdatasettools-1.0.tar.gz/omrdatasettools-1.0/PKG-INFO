@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: omrdatasettools
+Version: 1.0
+Summary: A collection of tools that simplify the downloading and handling of datasets used for Optical Music Recognition (OMR).
+Home-page: https://github.com/apacha/omr-datasets
+Author: Alexander Pacha
+Author-email: alexander.pacha@tuwien.ac.at
+License: MIT
+Download-URL: https://github.com/apacha/OMR-Datasets/archive/1.0.tar.gz
+Description: # Tools for working with Optical Music Recognition datasets
+        
+        [![Build Status](https://travis-ci.org/apacha/OMR-Datasets.svg?branch=master)](https://travis-ci.org/apacha/OMR-Datasets) [![codecov](https://codecov.io/gh/apacha/OMR-Datasets/branch/master/graph/badge.svg)](https://codecov.io/gh/apacha/OMR-Datasets) [![PyPI version](https://badge.fury.io/py/omrdatasettools.svg)](https://badge.fury.io/py/omrdatasettools) [![Documentation Status](https://readthedocs.org/projects/omr-datasets/badge/?version=latest)](http://omr-datasets.readthedocs.io/en/latest/?badge=latest) [![GitHub license](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://raw.githubusercontent.com/apacha/OMR-Datasets/master/LICENSE.txt) 
+        
+        A collection of tools that simplify the downloading and handling of datasets used for Optical Music Recognition (OMR).
+        These tools are available as Python package ``omrdatasettools`` on PyPi.
+        
+        They simplify the most common tasks such as downloading and extracting a dataset, 
+        generating images from textual representations or visualizing those datasets. 
+        
+        Changelog
+        =========
+        
+        1.0
+        ---
+        Dramatically simplified the tools for downloading datasets. 
+        Removed mostly unused code and re-organized project structure and documentation.
+        
+        0.19
+        ----
+        New Image generator that can take MUSCIMA++ v2.0 images and 
+        generate masks for instance segmentation of staffs, as well as
+        masks for semantic segmentation for all objects.
+        
+        0.18
+        ----
+        Changing MUSCIMA++ Downloader to accept a string instead of integer for enabling
+        future versioning of the dataset beyond integers, e.g., "2.1".
+        
+        Previous releases
+        -----------------
+        For information on previous releases, check out the [Github Repository](https://github.com/apacha/OMR-Datasets/releases)
+Keywords: optical music recognition,downloading,extracting,omr,generating,dataset,preprocessing
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
