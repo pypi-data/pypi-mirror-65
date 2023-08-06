@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: cloudbender
+Version: 0.8.0
+Summary: Toolset to render and manage AWS Cloudformation
+Home-page: https://git.zero-downtime.net/ZeroDownTime/CloudBender
+Author: Stefan Reimer
+Author-email: stefan@zero-downtime.net
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Description-Content-Type: text/markdown
+Requires-Dist: boto3
+Requires-Dist: Jinja2
+Requires-Dist: oyaml
+Requires-Dist: click
+Requires-Dist: cfn-lint
+Requires-Dist: pyminifier
+
+[![Build Status](https://drone.zero-downtime.net/api/badges/ZeroDownTime/CloudBender/status.svg)](https://drone.zero-downtime.net/ZeroDownTime/CloudBender)
+
+# CloudBender ![Logo](cloudbender.png)
+
+# About
+
+Toolset to render and manage [AWS CloudFormation](https://aws.amazon.com/cloudformation).
+
+
+# Install
+
+`$ pip install cloudbender`
+
+
+# CLI
+
+```
+Usage: cloudbender [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --version   Show the version and exit.
+  --debug     Turn on debug logging.
+  --dir TEXT  Specify cloudbender project directory.
+  --help      Show this message and exit.
+
+Commands:
+  clean              Deletes all previously rendered files locally
+  create-change-set  Creates a change set for an existing stack
+  delete             Deletes stacks or stack groups
+  provision          Creates or updates stacks or stack groups
+  render             Renders template and its parameters
+  sync               Renders template and provisions it right away
+  validate           Validates already rendered templates using cfn-lint
+```
+
+
