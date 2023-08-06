@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: python3-template
+Version: 0.1.0
+Summary: python3-template project
+License: MIT
+Author: Zach Gallagher
+Author-email: zachagallagher@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: desert (>=2020.1.6,<2021.0.0)
+Requires-Dist: marshmallow (>=3.5.1,<4.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+[![Tests](https://github.com/zgallagher08/python3-template/workflows/Tests/badge.svg)](https://github.com/zgallagher08/python3-template/actions?workflow=Tests)
+[![Codecov](https://codecov.io/gh/zgallagher08/python3-template/branch/master/graph/badge.svg)](https://codecov.io/gh/zgallagher08/python3-template)
+[![PyPI](https://img.shields.io/pypi/v/python3-template.svg)](https://pypi.org/project/python3-template/)
+
+# python3-template
+Implementation of Hypermodern Python repo (https://cjolowicz.github.io/posts/hypermodern-python-01-setup/)
+
