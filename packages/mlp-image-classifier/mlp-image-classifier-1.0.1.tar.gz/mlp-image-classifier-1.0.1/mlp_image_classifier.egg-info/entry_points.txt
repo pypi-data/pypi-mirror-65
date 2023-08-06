@@ -1,0 +1,4 @@
+[console_scripts]
+mlpclassifier-image = lnns.cli.network_image_cli:main
+mlpclassifier-pattern = lnns.cli.network_prn_cli:main
+
