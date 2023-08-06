@@ -1,0 +1,10 @@
+click>=3.0
+
+[dev]
+check-manifest
+
+[test]
+coveralls
+hypothesis
+pytest-cov
+pydocstyle
