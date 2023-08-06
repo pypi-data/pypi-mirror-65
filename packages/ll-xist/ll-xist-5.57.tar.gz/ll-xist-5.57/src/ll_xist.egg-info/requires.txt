@@ -1,0 +1,13 @@
+cssutils==1.0.2
+
+[html]
+lxml>=4.3.4
+
+[oracle]
+cx_Oracle>=7.1
+
+[proctitle]
+setproctitle>=1.1.8
+
+[requests]
+requests>=2.22.0
