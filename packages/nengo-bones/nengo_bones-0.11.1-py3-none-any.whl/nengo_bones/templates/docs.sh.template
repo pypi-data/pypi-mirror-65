@@ -1,0 +1,66 @@
+{% extends "base_script.sh.template" %}
+
+{% set docs_dir = "../" + repo_name.split("/")[1] + "-docs" %}
+
+{% block install %}
+{{ super() }}
+    exe pip install \
+        "sphinx>=1.8.0" \
+        "jupyter>=1.0.0" \
+        "nbsphinx>=0.2.13" \
+        "numpydoc>=0.6.0" \
+        "git+https://github.com/nengo/nengo-sphinx-theme#egg=nengo-sphinx-theme"
+    exe pip install -e ".[docs]"
+{% endblock %}
+
+{% block script %}
+    if [ -d "{{ docs_dir }}" ]; then exe rm -Rf {{ docs_dir }}; fi
+    exe git clone -b gh-pages-release https://github.com/{{ repo_name }}.git {{ docs_dir }}
+    RELEASES=$(find {{ docs_dir }} -maxdepth 1 -type d -name "v[0-9].*" -printf "%f,")
+
+    FAILED_FILE="$TRAVIS_JOB_NUMBER.failed"
+    rm -f "$FAILED_FILE"
+    if [[ "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ]]; then
+        RELEASES="$RELEASES$TRAVIS_TAG"
+        sphinx-build -b html docs {{ docs_dir }}/"$TRAVIS_TAG" -vW --keep-going -A building_version="$TRAVIS_TAG" -A releases="$RELEASES" || touch "$FAILED_FILE"
+    else
+        sphinx-build -b html docs {{ docs_dir }} -vW --keep-going -A building_version=latest -A releases="$RELEASES" || touch "$FAILED_FILE"
+    fi
+
+    if [[ -e "$FAILED_FILE" ]]; then
+        echo -e "\033[1;31mCOMMAND 'sphinx-build' FAILED\033[0m"
+        STATUS=1
+    fi
+
+    exe sphinx-build -b linkcheck -vW -D nbsphinx_execute=never docs docs/_build
+    exe sphinx-build -b doctest -vW -D nbsphinx_execute=never docs docs/_build
+{% endblock %}
+
+{% block after_script %}
+    FAILED_FILE="$TRAVIS_JOB_NUMBER.failed"
+    if [[ -e "$FAILED_FILE" ]]; then
+        echo "Skipping docs upload because build failed"
+        exit 1
+    fi
+
+    if [[ "$TRAVIS_EVENT_TYPE" == "cron" ]]; then
+        echo "Skipping docs upload because this is a cron build"
+        exit 0
+    fi
+
+    cd {{ docs_dir }} || exit
+    git config --global user.email "info@appliedbrainresearch.com"
+    git config --global user.name "Nengo Bones"
+    git add --all
+
+    if [[ "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ]]; then
+        exe git commit -m "Documentation for release $TRAVIS_TAG"
+        exe git push -q "https://$GH_TOKEN@github.com/{{ repo_name }}.git" gh-pages-release
+    elif [[ "$BRANCH_NAME" == "master" ]]; then
+        exe git commit -m "Last update at $(date '+%Y-%m-%d %T')"
+        exe git push -fq "https://$GH_TOKEN@github.com/{{ repo_name }}.git" gh-pages-release:gh-pages
+    elif [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+        exe git commit -m "Documentation for branch $TRAVIS_BRANCH"
+        exe git push -fq "https://$GH_TOKEN@github.com/{{ repo_name }}.git" gh-pages-release:gh-pages-test
+    fi
+{% endblock %}
