@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: nr.sumtype
+Version: 0.0.3
+Summary: Sumtypes in Python.
+Home-page: https://git.niklasrosenstein.com/NiklasRosenstein/nr-python-libs
+Author: Niklas Rosenstein
+Author-email: rosensteinniklas@gmail.com
+License: MIT
+Description: ## nr.sumtype
+        
+        Make use of sumtypes in Python.
+        
+        ```python
+        from nr.sumtype import Constructor, Sumtype
+        
+        class Status(Sumtype):
+          Idle = Constructor()
+          Loading = Constructor(['progress'])
+          Succeeded = Constructor()
+          Error = Constructor(['message'])
+        
+        print(Status.Loading(progress=0.0))
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
