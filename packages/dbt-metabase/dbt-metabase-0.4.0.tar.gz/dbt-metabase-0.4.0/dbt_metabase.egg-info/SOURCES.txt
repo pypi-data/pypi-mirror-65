@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+test-requirements.txt
+dbt_metabase.egg-info/PKG-INFO
+dbt_metabase.egg-info/SOURCES.txt
+dbt_metabase.egg-info/dependency_links.txt
+dbt_metabase.egg-info/requires.txt
+dbt_metabase.egg-info/top_level.txt
+dbtmetabase/__init__.py
+dbtmetabase/dbt.py
+dbtmetabase/metabase.py
+dbtmetabase/bin/dbt-metabase
