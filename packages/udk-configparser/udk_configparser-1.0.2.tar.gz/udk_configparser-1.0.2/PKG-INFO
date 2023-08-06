@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: udk_configparser
+Version: 1.0.2
+Summary: Config parser for UDK .ini files
+Home-page: https://github.com/tuokri/udk_configparser
+Author: tuokri
+Author-email: tuokri@tuta.io
+License: UNKNOWN
+Description: # udk_configparser
+        
+        Like CPython standard configparser but adjusted for UDK config files.
+        
+        ## Example usage
+        
+        ```python
+        from udk_configparser import UDKConfigParser
+        
+        cg = UDKConfigParser()
+        
+        cg.read("Engine.ini")
+        cg["Section"]["Key"] = "NewValue"
+        
+        with open("Engine.ini", "w") as config_file:
+            cg.write(config_file, space_around_delimiters=False)
+        ```
+        
+Keywords: ue3 udk configparser
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
