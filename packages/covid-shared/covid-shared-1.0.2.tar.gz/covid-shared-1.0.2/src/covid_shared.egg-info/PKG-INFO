@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: covid-shared
+Version: 1.0.2
+Summary: Shared utilities for the covid model pipeline.
+Home-page: https://stash.ihme.washington.edu/projects/CVD19/repos/covid-shared/browse
+Author: James Collins
+Author-email: collijk@uw.edu
+License: UNKNOWN
+Description: covid-shared
+        ============
+        
+        .. image:: https://travis-ci.com/ihmeuw/covid-shared.svg?branch=master
+            :target: https://travis-ci.com/ihmeuw/covid-shared
+        
+        Shared utilities for covid data processing.
+        
+Platform: UNKNOWN
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: docs
