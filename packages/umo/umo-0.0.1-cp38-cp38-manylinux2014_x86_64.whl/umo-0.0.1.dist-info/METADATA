@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: umo
+Version: 0.0.1
+Summary: Modeler for mathematical programming solvers
+Home-page: https://github.com/Coloquinte/umo
+Author: Gabriel Gouvine
+Author-email: gabriel.gouvine_umo@m4x.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 2 - Pre-Alpha
+Description-Content-Type: text/markdown
+
+
+Umo is a modeling interface for mathematical programming solvers. 
+
+## Using UMO
+
+You can use UMO with the following solvers:
+* CBC
+* Minisat
+
+## Python example
+
+```python
+import umo
+
+m = umo.Model()
+a = m.bool_var()
+b = m.bool_var()
+
+umo.constraint(a + b <= 1)
+umo.maximize(a + 2*b)
+
+m.solve()
+
+print(a.value)
+print(b.value)
+```
+
+
+
