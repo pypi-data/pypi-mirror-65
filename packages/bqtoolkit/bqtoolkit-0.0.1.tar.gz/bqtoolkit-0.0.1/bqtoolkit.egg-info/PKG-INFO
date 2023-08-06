@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: bqtoolkit
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/schmidtfederico/bqtoolkit
+Author: Federico Schmidt
+Author-email: schmidt.fdr@gmail.com
+License: UNKNOWN
+Description: 
+        # bqtoolkit 
+        
+        [![Build Status](https://travis-ci.com/schmidtfederico/bqtoolkit.svg?branch=master)](https://travis-ci.com/schmidtfederico/bqtoolkit)
+        
+        [![Coverage Status](https://coveralls.io/repos/github/schmidtfederico/bqtoolkit/badge.svg?branch=master)](https://coveralls.io/github/schmidtfederico/bqtoolkit?branch=master)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4
+Description-Content-Type: text/markdown
+Provides-Extra: testing

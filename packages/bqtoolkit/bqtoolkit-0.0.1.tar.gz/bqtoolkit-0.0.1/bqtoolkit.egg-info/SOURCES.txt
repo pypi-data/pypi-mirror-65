@@ -1,0 +1,16 @@
+.coveragerc
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+bqtoolkit/__init__.py
+bqtoolkit/_helpers.py
+bqtoolkit/partition.py
+bqtoolkit/table.py
+bqtoolkit.egg-info/PKG-INFO
+bqtoolkit.egg-info/SOURCES.txt
+bqtoolkit.egg-info/dependency_links.txt
+bqtoolkit.egg-info/requires.txt
+bqtoolkit.egg-info/top_level.txt
