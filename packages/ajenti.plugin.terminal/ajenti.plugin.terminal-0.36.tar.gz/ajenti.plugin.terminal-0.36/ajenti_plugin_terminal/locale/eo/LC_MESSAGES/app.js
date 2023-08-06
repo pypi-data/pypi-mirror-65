@@ -1,0 +1,1 @@
+{"": "", "stdin data": "", "Run arbitrary scripts": "", "Run": "", "Name": "Nomo", "Copy terminal content": "", "Script": "Skripto", "Terminate": "", "Terminal": "Terminalo", "Terminals": "Terminaloj", "Done": "", "Open shell terminals": "", "Run a command...": "", "Open a new terminal": "Malfermi en nova terminalo"}

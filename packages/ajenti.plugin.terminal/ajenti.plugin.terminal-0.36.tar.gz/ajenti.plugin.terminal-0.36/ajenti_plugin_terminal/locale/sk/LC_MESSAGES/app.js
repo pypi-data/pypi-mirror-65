@@ -1,0 +1,1 @@
+{"": "", "stdin data": "", "Run arbitrary scripts": "", "Run": "", "Name": "", "Copy terminal content": "Kop\u00edrova\u0165 obsah termin\u00e1lu", "Script": "", "Terminate": "", "Terminal": "", "Terminals": "", "Done": "Hotovo", "Open shell terminals": "", "Run a command...": "", "Open a new terminal": ""}

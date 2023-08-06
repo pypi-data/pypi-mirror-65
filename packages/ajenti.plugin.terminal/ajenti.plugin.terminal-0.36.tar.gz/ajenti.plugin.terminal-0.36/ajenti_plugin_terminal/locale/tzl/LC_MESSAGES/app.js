@@ -1,0 +1,1 @@
+{"": "", "stdin data": "", "Run arbitrary scripts": "", "Run": "", "Name": "N\u00f3mina", "Copy terminal content": "", "Script": "", "Terminate": "", "Terminal": "", "Terminals": "", "Done": "F\u00e4ts", "Open shell terminals": "", "Run a command...": "", "Open a new terminal": ""}

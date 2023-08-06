@@ -1,0 +1,1 @@
+{"": "", "stdin data": "", "Run arbitrary scripts": "", "Run": "", "Name": "", "Copy terminal content": "", "Script": "", "Terminate": "", "Terminal": "", "Terminals": "", "Done": "", "Open shell terminals": "", "Run a command...": "", "Open a new terminal": ""}
