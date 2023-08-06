@@ -1,0 +1,13 @@
+# dev/deploy
+flit
+pylint
+mypy
+pytest
+pytest-coverage
+pytest-timeout
+pytest-xdist
+# from pyproject.toml
+cloudsync>=v1.3.22a2
+onedrivesdk_fork
+quickxorhash
+codecov
