@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: tsai
+Version: 0.0.1
+Summary: Practical Deep Learning for Time Series / Sequential Data using fastai v2/ Pytorch
+Home-page: https://github.com/timeseriesAI/tsai
+Author: Ignacio Oguiza
+Author-email: oguiza@gmail.com
+License: Apache Software License 2.0
+Description: # tsai
+        > A Practical Deep Learning for Time Series / Sequential Data library built with fastai v2/ Pytorch.
+        
+        
+        Work in progress
+        
+        ## Install
+        
+        `pip install tsai`
+        
+        ## How to use
+        
+        TBD
+        
+Keywords: fastai2 timeseries classification regression deep learning Pytorch
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
