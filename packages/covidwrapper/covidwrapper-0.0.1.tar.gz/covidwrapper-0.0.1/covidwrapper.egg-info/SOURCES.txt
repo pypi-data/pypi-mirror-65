@@ -1,0 +1,15 @@
+README.md
+setup.py
+covidwrapper/__init__.py
+covidwrapper/covid.py
+covidwrapper.egg-info/PKG-INFO
+covidwrapper.egg-info/SOURCES.txt
+covidwrapper.egg-info/dependency_links.txt
+covidwrapper.egg-info/top_level.txt
+tests/__init__.py
+tests/test_all_data.py
+tests/test_cases_by_countries.py
+tests/test_countries.py
+tests/test_live_cases_by_country.py
+tests/test_summary.py
+tests/test_total_cases_by_countries.py
