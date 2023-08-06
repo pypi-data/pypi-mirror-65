@@ -1,0 +1,27 @@
+[package]
+name = "tokenizers-python"
+version = "0.7.0-rc4"
+authors = ["Anthony MOI <m.anthony.moi@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "tokenizers"
+crate-type = ["cdylib"]
+
+[dependencies]
+rayon = "1.2.0"
+
+[dependencies.pyo3]
+git = "https://github.com/PyO3/pyo3"
+rev = "a9357ef8a11048b349b777f83aeae1a856fb4cb1"
+features = ["extension-module"]
+
+[dependencies.tokenizers]
+version = "*"
+path = "./tokenizers-lib"
+
+[target.x86_64-apple-darwin]
+rustflags = [
+  "-C", "link-arg=-undefined",
+  "-C", "link-arg=dynamic_lookup",
+]
