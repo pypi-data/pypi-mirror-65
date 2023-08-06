@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: cs-storage
+Version: 1.9.0
+Summary: A small package that is used by Compute Studio to read and write model results to google cloud storage.
+Home-page: https://github.com/compute-tooling/compute-studio-storage
+Author: Hank Doupe
+Author-email: henrymdoupe@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: marshmallow (>=3.0.0)
+Requires-Dist: gcsfs
+
+# Compute Studio Storage
+
+A light-weight package that is used by [Compute Studio](https://compute.studio) to read and write model results to Google Cloud Storage.
+
+## Setup
+
+```bash
+pip install cs-storage
+export BUCKET=YOUR_BUCKET
+```
+
+## Authenticate
+
+```bash
+gcloud auth login
+gcloud auth application-default login
+```
+
+## Use
+
+```python
+import cs_storage
+
+# run_model returns data that is compliant with the C/S outputs api.
+local_result, task_id = run_model(**kwargs)
+remote_result = cs_storage.write(task_id, local_result)
+round_trip = cs_storage.read(remote_result)
+assert local_result == round_trip
+```
+
+## Test
+
+```bash
+py.test -v
+```
+
+
