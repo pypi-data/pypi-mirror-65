@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pytest-historic-hook
+Version: 0.1.2
+Summary: Custom listener to store execution results into MYSQL DB, which is used for pytest-historic report
+Home-page: https://github.com/adiralashiva8/pytest-historic-hook
+Author: Shiva Adirala
+Author-email: adiralashiva8@gmail.com
+License: MIT license
+Keywords: pytest,py.test,historic
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: pytest
+Requires-Dist: pytest-runner
+Requires-Dist: mysql-connector
+
+UNKNOWN
+
+
