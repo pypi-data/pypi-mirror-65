@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="become_company_cooperator_lafeixa" inherit_id="easy_my_coop_es.become_company_cooperator_es" name="Become company cooperator">
+            <!-- Hide language select -->
+            <xpath expr="//label[@for='lang']/.." position="attributes">
+                <attribute name="hidden">1</attribute>
+            </xpath>
+            <xpath expr="//select[@name='gender']" position="before">
+                <div class="col-md-7 col-sm-8">
+                    <p style="font-size: 0.7rem">Data d’interès per poder realitzar el Balanç Social de la XES.</p>
+                </div>
+            </xpath>
+            <xpath expr="//label[@for='iban']" position="after">
+                <div class="col-md-7 col-sm-8">
+                    <p style="font-size: 0.7rem">Número de Compte Bancari Internacional (Exemple IBAN: ES11 2222 3333 4444 5555 6666). Aquest compte corrent ens servirà per girar-te les quotes mensuals.</p>
+                </div>
+            </xpath>
+            <xpath expr="//label[@for='share_product_id']/.." position="after">
+                <div t-attf-class="form-group">
+                    <label class="col-md-3 col-sm-4 control-label" for="voluntary_contribution">Voluntary contribution</label>
+                    <div class="col-md-7 col-sm-8 bottom-line" style="padding-bottom:20px">
+                        <input type="number" class="form-control" name="voluntary_contribution"/>
+                    </div>
+                </div>
+                <div t-attf-class="form-group #{error and 'unit_composition' in error and 'has-error' or ''}">
+                    <label class="col-md-3 col-sm-4 control-label" for="unit_composition">Unit composition empresa</label>
+                    <div class="col-md-7 col-sm-8 bottom-line" style="padding-bottom:20px">
+                        <input type="number" class="form-control" required="True" name="unit_composition"/>
+                    </div>
+                </div>
+                <div t-attf-class="form-group #{error and 'discovery_channel' in error and 'has-error' or ''}">
+                    <label class="col-md-3 col-sm-4 control-label" for="discovery_channel">Discovery channel</label>
+                    <select name="discovery_channel" class="col-md-7 col-sm-8 form-control"
+                        required="True"
+                        style="width:54%;margin-left:15px">
+                    <option value=""></option>
+                    <t t-foreach="channels or []" t-as="type">
+                        <option t-att-value="type[0]" t-att-selected="type[0] == channel"><t t-esc="type[1]"/></option>
+                    </t>
+                    </select>
+                </div>
+                <div id="newsletter_approved" t-attf-class="form-group" >
+                    <label class="col-md-3 col-sm-4 control-label" for="newsletter_approved">Newsletter approved</label>
+                    <div class="col-md-9 col-sm-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                    name="newsletter_approved"
+                                    t-att-checked="newsletter_approved"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="sepa_approved" t-attf-class="form-group" t-if="display_sepa" >
+                    <label class="col-md-3 col-sm-4 control-label" for="sepa_approved">SEPA approved</label>
+                    <div class="col-md-9 col-sm-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                    name="sepa_approved"
+                                    t-att-checked="sepa_approved"/>
+                                <t t-raw="sepa_text"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

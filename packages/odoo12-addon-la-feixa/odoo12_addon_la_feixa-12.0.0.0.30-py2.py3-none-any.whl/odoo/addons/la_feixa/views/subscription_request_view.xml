@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="subscription_request_form">
+        <field name="name">subscription.request.form</field>
+        <field name="model">subscription.request</field>
+        <field name="inherit_id" ref="easy_my_coop_es.subscription_request_form"/>
+        <field name="arch" type="xml">
+            <field name="subscription_amount" position="after">
+                <field name="voluntary_contribution"/>
+            </field>
+            <xpath expr="//page[@name='capital_release_request']" position="after">
+                <page name="survey_responses" string="Survey responses">
+                    <group>
+                        <field name='unit_composition'/>
+                        <field name='join_commission'/>
+                        <field name='discovery_channel'/>
+                        <field name='newsletter_approved'/>
+                        <field name='sepa_approved'/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
