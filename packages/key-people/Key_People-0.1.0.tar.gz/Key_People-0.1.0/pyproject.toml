@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "Key_People"
+version = "0.1.0"
+description = "This is used to pull any of the key people from a company based off of the ticker. Currently NASDAQ and NYSE supported"
+license = "MIT"
+authors = ["Henry Becket Trotter <beckettrotter@gmail.com>"]
+readme = "README.rst"
+homepage = "https://github.com/BecketTrotter/Key_People"
+repository = "https://github.com/BecketTrotter/Key_People"
+keywords = ['stock', 'ticker', 'ceo', 'executives']
+include = [
+    "LICENSE",
+]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = "^2.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
