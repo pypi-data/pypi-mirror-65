@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+
+# This script will create a binary qemu-wrapper for a franken-chroot.
+# 
+# Call like so: wrapper-build arm-64bit
+#
+# It will then create a wrapper called /tmp/qemu-arm-64bit-wrapper ready to copy into the chroot.
+
+import sys
+from fchroot.qemu import qemu_arch_settings, compile_wrapper
+from fchroot.exception import QEMUException
+
+if __name__ == "__main__":
+	if len(sys.argv) < 2 or sys.argv[1] not in qemu_arch_settings.keys():
+		print("Please specify one of: %s." % ", ".join(qemu_arch_settings.keys()))
+		sys.exit(1)
+
+	try:
+		compile_wrapper(sys.argv[1])
+	except QEMUException as e:
+		sys.stderr.write(str(e))
+		sys.exit(1)
+
+# vim: ts=4 sw=4 noet
