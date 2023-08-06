@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: multimodal-keras-wrapper
+Version: 3.0.7
+Summary: Wrapper for Keras with support to easy multimodal data and models loading and handling.
+Home-page: https://github.com/MarcBS/multimodal_keras_wrapper
+Author: Marc Bolaños - Alvaro Peris
+Author-email: marc.bolanos@ub.edu
+License: MIT
+Download-URL: https://github.com/MarcBS/multimodal_keras_wrapper/archive/master.zip
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Provides-Extra: cython 
+Provides-Extra: tests
