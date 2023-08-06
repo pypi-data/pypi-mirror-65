@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Table of Contents</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <h1><b>TABLE OF CONTENTS</b></h1>
+    <br/>
+{% for h in headings %}
+    <h3><b><a href="{{ h.file_name }}">{{ h.title }}</a></b></h3>
+    <ul>
+    {% for sh in h.sub_headings %}
+        <li><a href="{{ sh.file_name }}">{{ sh.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+</body>
+</html>

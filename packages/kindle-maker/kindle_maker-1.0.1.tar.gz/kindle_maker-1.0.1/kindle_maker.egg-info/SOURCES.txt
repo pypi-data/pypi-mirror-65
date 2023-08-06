@@ -1,0 +1,17 @@
+README.md
+setup.py
+kindle_maker/__init__.py
+kindle_maker/ebooklib.py
+kindle_maker/kindlegen.py
+kindle_maker.egg-info/PKG-INFO
+kindle_maker.egg-info/SOURCES.txt
+kindle_maker.egg-info/dependency_links.txt
+kindle_maker.egg-info/entry_points.txt
+kindle_maker.egg-info/requires.txt
+kindle_maker.egg-info/top_level.txt
+kindle_maker/bin/linux/kindlegen
+kindle_maker/bin/mac/kindlegen
+kindle_maker/templates/cover.jpg
+kindle_maker/templates/opf.xml
+kindle_maker/templates/toc.html
+kindle_maker/templates/toc.xml
