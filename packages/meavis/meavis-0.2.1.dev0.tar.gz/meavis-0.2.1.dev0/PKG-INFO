@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: meavis
+Version: 0.2.1.dev0
+Summary: Measurement & Visualisation python framework.
+Home-page: https://gitlab.com/hofheinz-group/meavis
+Author: Hofheinz group
+Author-email: florian.blanchet@supoptique.org
+License: Apache Software License
+Project-URL: Documentation, https://meavis.readthedocs.io
+Project-URL: Bug Tracker, https://gitlab.com/hofheinz-group/meavis/issues
+Description: ## Welcome to MeaVis
+        
+        Measurement & Visualisation python framework
+        
+        See more details at [ReadTheDocs.io](https://meavis.readthedocs.io/en/latest/)
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: <4,>=3.5
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: pyqt5
+Provides-Extra: pyside2

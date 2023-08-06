@@ -1,0 +1,13 @@
+[flake8]
+exclude = 
+    build,
+    docs,
+    env,
+    *__pycache__,
+    *.egg-info,
+    .eggs,
+    .pyenv,
+    .tox,
+    .vscode
+
+max-line-length = 80

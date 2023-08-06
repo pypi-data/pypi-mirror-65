@@ -1,0 +1,38 @@
+instruments:
+  loop_instrument:
+    name: DummyConstructor
+    module: dummy_mock
+    usages:
+      loop_use_name0:
+        name: DummyInitialiser
+        module: dummy_mock
+        parameters:
+          parameter0:
+            name: DummyParameter
+            module: dummy_mock
+        measurements:
+          measurement0:
+            name: DummyMeasurement
+            module: dummy_mock
+            kwargs:
+              wait_secs: 0.1
+          measurement1:
+            name: DummyMeasurement
+            module: dummy_mock
+            kwargs:
+              wait_secs: 0.1
+instances:
+  loop_instance0:
+    instrument: loop_instrument
+    usage: loop_use_name0
+    kwargs:
+      addr: localhost0
+    attributes:
+      channel: 0
+  loop_instance1:
+    instrument: loop_instrument
+    usage: loop_use_name0
+    kwargs:
+      addr: localhost1
+    attributes:
+      channel: 0

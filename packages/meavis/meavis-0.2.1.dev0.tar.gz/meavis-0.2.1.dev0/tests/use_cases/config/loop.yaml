@@ -1,0 +1,12 @@
+parameters:
+  - parameter0
+  - parameter1
+measurements:
+  - measurement0
+  - parameters:
+      - parameter2
+      - parameter3
+    measurements:
+      - measurement1
+      - measurement2
+name: first_loop

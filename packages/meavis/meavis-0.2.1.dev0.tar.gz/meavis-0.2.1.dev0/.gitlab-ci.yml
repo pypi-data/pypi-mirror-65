@@ -1,0 +1,177 @@
+---
+stages:
+  - build
+  - lint
+  - test
+  - coverage
+  - deploy
+
+default:
+  before_script:
+    - ls ./
+    - rm -rf log/*
+    - chmod +x ./build-dep.sh
+    - ./build-dep.sh
+    - chmod +x ./install_requirements.sh
+    - ./install_requirements.sh
+    - source env/bin/activate
+    - export PYENV_ROOT=$(readlink -f ./)/.pyenv
+    - export PATH=$PATH:$PYENV_ROOT/bin
+    - tox -vv -e isort,black
+
+cache:
+  paths:
+    - .cache/pip
+    - .pyenv
+    - .tox
+    - build
+    - env
+  key: ${CI_JOB_NAME}
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_TAG == null
+    
+hdf5:
+  stage: build
+  script: tox -vv -e hdf5_18,hdf5_110
+  artifacts:
+    paths:
+      - .pyenv
+      - build/HDF_Group
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+
+flake8:
+  stage: lint
+  script: tox -vv -e flake8
+
+pydocstyle:
+  stage: lint
+  script: tox -vv -e pydocstyle
+
+sphinx:
+  stage: lint
+  script: tox -vv -e doc8,sphinx
+  artifacts:
+    paths:
+      - docs/build
+
+python3.5_min:
+  stage: test
+  script: tox -vv -e py35_18_PySide2_min,py35_18_PyQt5_min,py35_110_PySide2_min,py35_110_PyQt5_min
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.6_min:
+  stage: test
+  script: tox -vv -e py36_18_PySide2_min,py36_18_PyQt5_min,py36_110_PySide2_min,py36_110_PyQt5_min
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.7_min:
+  stage: test
+  script: tox -vv -e py37_18_PySide2_min,py37_18_PyQt5_min,py37_110_PySide2_min,py37_110_PyQt5_min
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.8_min:
+  stage: test
+  script: tox -vv -e py38_18_PySide2_min,py38_18_PyQt5_min,py38_110_PySide2_min,py38_110_PyQt5_min
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.9_min:
+  stage: test
+  script: tox -vv -e py39_18_PySide2_min,py39_18_PyQt5_min,py39_110_PySide2_min,py39_110_PyQt5_min
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.5_latest:
+  stage: test
+  script: tox -vv -e py35_18_PySide2_latest,py35_18_PyQt5_latest,py35_110_PySide2_latest,py35_110_PyQt5_latest
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.6_latest:
+  stage: test
+  script: tox -vv -e py36_18_PySide2_latest,py36_18_PyQt5_latest,py36_110_PySide2_latest,py36_110_PyQt5_latest
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.7_latest:
+  stage: test
+  script: tox -vv -e py37_18_PySide2_latest,py37_18_PyQt5_latest,py37_110_PySide2_latest,py37_110_PyQt5_latest
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.8_latest:
+  stage: test
+  script: tox -vv -e py38_18_PySide2_latest,py38_18_PyQt5_latest,py38_110_PySide2_latest,py38_110_PyQt5_latest
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+python3.9_latest:
+  stage: test
+  script: tox -vv -e py39_18_PySide2_latest,py39_18_PyQt5_latest,py39_110_PySide2_latest,py39_110_PyQt5_latest
+  artifacts:
+    paths:
+      - .coverage.*
+      - log
+    reports:
+      junit: log/*_py*.xml
+
+coverage:
+  stage: coverage
+  script: tox -vv -e coverage
+  coverage: '/^TOTAL.*\s+([\d.]+\%)$/'
+  artifacts:
+    paths:
+      - coverage_html
+      - coverage.json
+
+deploy:
+  stage: deploy
+  script: tox -vv -e deploy
+  artifacts:
+    paths:
+      - dist
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+...

@@ -1,0 +1,16 @@
+[run]
+branch = True
+source = meavis
+omit =
+    meavis/_detail/debug.py
+    .tox/*/lib/python*/site-packages/meavis/_detail/debug.py
+
+[paths]
+source =
+    meavis
+    .tox/*/lib/python*/site-packages/meavis
+
+[report]
+fail_under = 90
+precision = 2
+show_missing = True
