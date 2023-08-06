@@ -1,0 +1,4 @@
+[console_scripts]
+hash_pwd = saltedpwd.functions:hash_pwd
+verify_pwd = saltedpwd.functions:verify_pwd
+
