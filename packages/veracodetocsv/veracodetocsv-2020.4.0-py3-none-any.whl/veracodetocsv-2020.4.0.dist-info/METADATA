@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: veracodetocsv
+Version: 2020.4.0
+Summary: Outputs one CSV file per scan per application profile visible in a Veracode platform account
+Home-page: https://github.com/ctcampbell/veracode-to-csv
+Author: ctcampbell
+Author-email: chris@ctcampbell.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: requests (<3.0,>=2.20.0)
+Requires-Dist: pytz (>=2018.4)
+Requires-Dist: python-dateutil (>=2.7.3)
+Requires-Dist: veracode-api-signing (>=19.9.0)
+
+UNKNOWN
+
+
