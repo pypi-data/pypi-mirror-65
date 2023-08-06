@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+
+import aws_jupyter
+from aws_jupyter.check_cluster import main_check_cluster
+from aws_jupyter.create_cluster import main_create_cluster
+from aws_jupyter.credentials import main_check_access
+from aws_jupyter.diagnose import main_diagnose
+from aws_jupyter.run_cluster import main_run_cluster, run_cluster
+from aws_jupyter.retrieve_files import main_retrieve_files
+from aws_jupyter.send_files import main_send_files
+from aws_jupyter.set_config import main_set_config
+from aws_jupyter.ssh_headnode import main_ssh_headnode
+from aws_jupyter.terminate_cluster import main_terminate_cluster
+import argparse
+import os
+import sys
+
+
+class AwsJupyter:
+    def __init__(self):
+        parser = argparse.ArgumentParser(
+            description="Launch Jupyter on AWS",
+            usage="aws-jupyter <task> [<args>]\nRun with -h to see supported tasks",
+        )
+        parser.add_argument(
+            "task",
+            help="Task to perform, should be one of 'config', 'access', 'create', 'check', \
+                'terminate', 'run', 'ssh', 'retrieve', 'send-dir', 'diagnose'")
+        config = parser.parse_args(sys.argv[1:2])
+        raw_task = config.task
+        task = raw_task.replace('-', '_')
+        if not hasattr(self, task):
+            print(config)
+            print("Error: Cannot reconize the task type '{}'.".format(raw_task))
+            parser.print_help()
+            exit(1)
+        # use dispatch pattern to invoke method with same name
+        getattr(self, task)()
+
+    def config(self):
+        if not main_set_config():
+            sys.exit(1)
+
+    def create(self):
+        if not main_check_access() or not main_create_cluster():
+            sys.exit(1)
+
+    def check(self):
+        if not main_check_cluster():
+            sys.exit(1)
+
+    def diagnose(self):
+        main_diagnose()
+
+    def terminate(self):
+        main_terminate_cluster()
+
+    def run(self):
+        main_run_cluster()
+
+    def send_dir(self):
+        main_send_files()
+
+    def ssh(self):
+        main_ssh_headnode()
+
+    def retrieve(self):
+        main_retrieve_files()
+
+    def access(self):
+        main_check_access()
+
+if __name__ == '__main__':
+    AwsJupyter()
