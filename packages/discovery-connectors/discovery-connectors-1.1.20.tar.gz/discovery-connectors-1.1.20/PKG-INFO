@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: discovery-connectors
+Version: 1.1.20
+Summary: an concrete implementation of the Discovery Foundation Project to hold a libary of connectors
+Home-page: http://github.com/gigas64/discovery-connectors
+Author: Gigas64
+Author-email: gigas64@opengrass.net
+License: BSD
+Description: Discovery Connectors
+        ####################
+        
+        The purpose of this project is to provide a set of connectors that support the Discovery Transitioning Utils initiative
+        
+        The connectors provides a set of concrete implemetation of the abstract classes ``AbstractSourceHandler``,
+        ``AbstractPersistHandler`` and ``AbstractConnectorContract``
+        
+        
+Keywords: Discovery connetors
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Provides-Extra: postgress
+Provides-Extra: pyhive
+Provides-Extra: pymongo
+Provides-Extra: boto3
+Provides-Extra: pandas
+Provides-Extra: pyyaml
+Provides-Extra: managed_content
