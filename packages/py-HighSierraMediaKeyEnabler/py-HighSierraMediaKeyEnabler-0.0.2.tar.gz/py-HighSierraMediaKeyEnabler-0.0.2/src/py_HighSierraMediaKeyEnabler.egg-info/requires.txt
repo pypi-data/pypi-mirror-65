@@ -1,0 +1,8 @@
+setuptools
+pyobjc
+
+[test]
+zope.testrunner
+
+[test:python_version == "2.7"]
+mock

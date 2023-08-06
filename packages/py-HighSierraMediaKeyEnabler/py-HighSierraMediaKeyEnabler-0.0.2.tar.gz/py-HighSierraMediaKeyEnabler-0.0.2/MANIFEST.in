@@ -1,0 +1,9 @@
+include README.rst
+include LICENSE
+include CHANGES.rst
+include .coveragerc
+include tox.ini
+include .travis.yml
+include *.txt
+include .isort.cfg
+include .pylintrc
