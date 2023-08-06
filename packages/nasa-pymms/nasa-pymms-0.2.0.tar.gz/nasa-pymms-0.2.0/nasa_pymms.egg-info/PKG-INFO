@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: nasa-pymms
+Version: 0.2.0
+Summary: Access data from the MMS mission via its API.
+Home-page: https://github.com/argallmr/pymms
+Author: Matthew R. Argall
+Author-email: argallmr@gmail.com
+License: MIT
+Description: ## Installation
+        
+        For development purposes, install the package using
+        ```bash
+        $ python3 setup.py develop --user
+        ```
+        This installation will reflect any changes made in the pymms development directory without the need to reinstall the package every single time.
+        
+Keywords: physics space-physics MMS
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
