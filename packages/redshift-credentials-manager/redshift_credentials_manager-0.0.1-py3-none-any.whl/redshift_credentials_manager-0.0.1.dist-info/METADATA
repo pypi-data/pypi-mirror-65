@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: redshift-credentials-manager
+Version: 0.0.1
+Summary: Facilitates connecting to Redshift clusters via IAM credentials
+Home-page: https://gitlab.com/Weather2020/redshift_credentials_manager
+Author: Weather 2020 LLC
+Author-email: max@weather2020.com
+License: UNKNOWN
+Keywords: redshift iam credentials
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: boto3
+
+UNKNOWN
+
+
