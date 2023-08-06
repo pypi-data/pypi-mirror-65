@@ -1,0 +1,6 @@
+#!python
+from mlvtools.ipynb_to_python import IPynbToPython
+
+if __name__ == '__main__':
+    IPynbToPython().run_cmd()
+
