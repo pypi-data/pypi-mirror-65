@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: hello-test-rinki
+Version: 1.0.0
+Summary: Read the latest Real Python tutorials
+Home-page: https://github.com/realpython/reader
+Author: Real Python
+Author-email: office@realpython.com
+License: MIT
+Description: The Real Python Feed Reader is a basic web feed reader that can download the latest Real Python tutorials from the Real Python feed.
+        
+        For more information see the tutorial How to Publish an Open-Source Python Package to PyPI on Real Python.
+        
+        This is just a hello world package
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
