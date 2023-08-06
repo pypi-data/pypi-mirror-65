@@ -1,0 +1,5 @@
+[console_scripts]
+gen_data = wfdispatcher.helpers.standalone:standalone
+workflow-api-client = wfdispatcher.client.standalone:standalone
+workflow-rest = wfdispatcher.server.standalone:standalone
+
