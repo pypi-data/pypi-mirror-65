@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "lgblkb-tools"
+version = "1.1.15"
+description = "Tools to make life easier"
+authors = ["lgblkb <dbakhtiyarov@nu.edu.kz>"]
+
+[tool.poetry.dependencies]
+python = "^3.6.9"
+numpy = "^1.18.1"
+matplotlib = "^3.1.3"
+more-itertools = "^8.2.0"
+requests = "^2.23.0"
+geojson = "^2.5.0"
+shapely = "^1.7.0"
+python-log-indenter = "^0.9"
+wrapt = "^1.12.0"
+colorlog = "^4.1.0"
+python-telegram-bot = "^12.4.2"
+pyproj = "^2.5.0"
+geopandas = "^0.7.0"
+opencv-python = "^4.2.0"
+scipy = "^1.4.1"
+geoalchemy2 = "^0.6.3"
+sqlalchemy = "^1.3.13"
+dynaconf = "^2.2.2"
+pyyaml = "^5.3"
+python-box = "<=4.0.0"
+bumpversion = "^0.5.3"
+gitchangelog = "^3.0.4"
+invoke = "^1.4.1"
+pandas = "<1.0.0"
+checksumdir = "^1.1.7"
+
+
+[tool.poetry.extras]
+gdal=["gdal==2.4.2"]
+vectorize=["gdal==2.4.2","geopandas=^0.7.0","opencv-python=^4.2.0","scipy=^1.4.1",]
+db=["geoalchemy2=^0.6.3","sqlalchemy=^1.3.13"]
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.3.5"
+gitchangelog = "^3.0.4"
+#python-semantic-release = "^4.6.0"
+
+[tool.poetry.scripts]
+export_reqs="lgblkb_tools.dev_script:export_reqs"
+bump="lgblkb_tools.dev_script:version_patch"
+publish="lgblkb_tools.dev_script:publish"
+
+[tool.semantic_release]
+#version_variable = "pyproject.toml:{tool.poetry}.version"
+version_variable = "lgblkb_tools/__init__.py:__version__"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
