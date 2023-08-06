@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+PloidPy/__init__.py
+PloidPy/binom_model.py
+PloidPy/nbinom.py
+PloidPy/ploidy_model.py
+PloidPy/plot_read_data.py
+PloidPy/process_bam.c
+PloidPy/process_bam.pyx
+PloidPy.egg-info/PKG-INFO
+PloidPy.egg-info/SOURCES.txt
+PloidPy.egg-info/dependency_links.txt
+PloidPy.egg-info/requires.txt
+PloidPy.egg-info/top_level.txt
+scripts/PloidPy
