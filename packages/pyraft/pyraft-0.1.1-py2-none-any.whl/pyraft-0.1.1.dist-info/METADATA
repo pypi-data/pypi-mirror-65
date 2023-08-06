@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: pyraft
+Version: 0.1.1
+Summary: python raft implementation with resp interface
+Home-page: https://github.com/lynix94/pyraft
+Author: Lee, Ki-Yeul
+Author-email: lynix94@gmail.com
+License: MIT
+Keywords: python,raft,replication,pyraft
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: redis (==3.4.1)
+Requires-Dist: setuptools (==41.2.0)
+
+UNKNOWN
+
+
