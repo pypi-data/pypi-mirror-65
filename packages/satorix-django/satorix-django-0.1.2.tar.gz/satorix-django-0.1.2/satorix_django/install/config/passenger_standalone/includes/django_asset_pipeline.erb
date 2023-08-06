@@ -1,0 +1,8 @@
+# Django asset pipeline.
+location /static {
+    alias <%= app[:static_files_dir] %>;
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+    add_header ETag "";
+}

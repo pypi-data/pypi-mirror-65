@@ -1,0 +1,41 @@
+# Authentication
+
+<%-
+  # The password_files hash defines which password files will be written out.
+  # The generated password files should be ignored from version control.
+  # Each desired password file should be specified as a key, with the value being a source for the file contents.
+  # The contents should include hashed username/password combinations, separated by whitespace.
+  # These can be generated using the htpasswd application, or an online tool like http://www.htaccesstools.com/htpasswd-generator/
+  # For more info, see: https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/
+  password_files = {
+    'htpasswd' => ENV['SATORIX_AUTHENTICATION_HTPASSWDS']
+  }
+
+  def password_file_location(filename)
+    passenger_standalone_includes_location = File.expand_path(__dir__)
+    File.join( passenger_standalone_includes_location, filename )
+  end
+
+  password_files.each do |filename, raw_contents|
+    contents = raw_contents.to_s.split.join("\n")
+    File.open(password_file_location(filename), 'w') {|f| f.write(contents) } unless contents.empty?
+  end
+
+  allowed_without_auth = ENV['SATORIX_AUTHENTICATION_ALLOWED_IPS'].to_s.split
+  allowed_without_auth = ['all'] if allowed_without_auth.empty?
+-%>
+
+# Allow listed networks to access without auth, otherwise require password if defined
+location / {
+  satisfy any;
+<% allowed_without_auth.each do |target| -%>
+  allow <%= target %>;
+<% end -%>
+<% if File.file?(password_file_location('htpasswd')) -%>
+  auth_basic "Please Log In";
+  auth_basic_user_file <%= password_file_location('htpasswd') %>;
+<% end -%>
+  deny all;
+}
+
+# End Authentication
