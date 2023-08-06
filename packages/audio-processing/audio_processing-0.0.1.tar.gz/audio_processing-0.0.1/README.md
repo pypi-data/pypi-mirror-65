@@ -1,0 +1,1 @@
+Package providing basic functionality for handling Waveform objects in a audio processing pipeline.
