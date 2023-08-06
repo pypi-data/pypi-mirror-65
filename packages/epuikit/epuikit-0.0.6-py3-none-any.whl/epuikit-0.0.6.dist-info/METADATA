@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: epuikit
+Version: 0.0.6
+Summary: UIKit for Raspberry on E-Paper
+Home-page: https://github.com/jinsihou19/E-Paper-UI-Kit
+Author: jinsihou
+Author-email: 540097546@qq.com
+License: UNKNOWN
+Keywords: raspberry epaper uikit
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: interval
+
+# E-Paper-UI-Kit
+
+UIKit for Raspberry on E-Paper
+
+## Usage
+```
+# -*- coding:utf-8 -*-
+from EPUIKit import QuadrantsLayout, VirtualPaper
+from EPUIKit.utils import font
+from EPUIKit.widget import Label
+
+layout = QuadrantsLayout(border=1)
+layout.add(Label('LEFT_BOTTOM', font=font(32)), QuadrantsLayout.LEFT_TOP)
+layout.add(Label('LEFT_BOTTOM', font=font(32)), QuadrantsLayout.LEFT_BOTTOM)
+layout.add(Label('RIGHT_TOP', font=font(32)), QuadrantsLayout.RIGHT_TOP)
+layout.add(Label('RIGHT_BOTTOM', font=font(32)), QuadrantsLayout.RIGHT_BOTTOM)
+paper = VirtualPaper(layout, 144, 500)
+paper.show()
+```
+
+## Supported devices
+
+* waveshare 1.54inch e-Paper HAT V2
+* waveshare 2.13inch e-Paper HAT V2
+
+## License
+
+MIT
+
+
