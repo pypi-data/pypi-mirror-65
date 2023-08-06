@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: emulica
+Version: 1.0.1
+Summary: Emulation of logistic systems
+Home-page: https://github.com/remipannequin/emulica-core
+Author: Remi Pannequin
+Author-email: remi.pannequin@univ-lorraine.fr
+License: GPL-3
+Description: Emulica is a software library to build simulation models of production and logistic systems, with 
+        an accent on control system design. 
+        
+        To sum the approach up, it offers modules that
+        emulate the behaviour of physical elements, but remove any kind of control from these
+        elements, so that the control designer is able to face a realistic chalenge. An emulation
+        model can mimic a real system, and the control system can indifferently be connected
+        to the real or emulated system.
+        
+        Tutorial and documentation can be found at
+        https://emulica.readthedocs.io/en/develop/
+        
+        
+        The dependencies have been reduced as much as possible; but there are still a number
+        of requirements to meet:
+         - simpy (of course)
+         - matplotlib with to get plotting
+         - twisted to run the emulation model as a server
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
