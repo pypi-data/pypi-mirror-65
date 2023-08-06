@@ -1,0 +1,150 @@
+CHANGES
+=======
+
+0.7.3
+-----
+
+* add more doc
+* add cli: --dump-info
+* update wheel code
+* add \_utils for get\_adb\_exe()
+
+0.7.2
+-----
+
+* fix download\_adb error on windows
+* support download adb.exe for windows
+
+0.7.1
+-----
+
+* ignore error in read\_util\_close
+
+0.7.0
+-----
+
+* add first\_install\_time add last\_update\_time into package\_info
+* add is\_screen\_on
+* add support uninstall app before install
+* add --launch support
+
+0.6.4
+-----
+
+* fix signature parse of package\_info, add flags to package\_info output
+
+0.6.3
+-----
+
+* add missing test file
+* fix app\_stop, close #15
+* fix bad code which raise unwanted ConnectionError
+* add track\_devices api
+* fix travis
+* support uninstall apk when install failed
+* use device\_list instread of devices
+
+0.6.2
+-----
+
+* fix datetime.datetime.fromtimestamp raise OSError bug
+* format and merge
+
+0.6.1
+-----
+
+* update screenrecord method
+* fix protocol error, when pull non-exists file
+* fix protocol error, when pull non-exists file
+
+0.6.0
+-----
+
+* add screenrecord method
+
+0.5.2
+-----
+
+* add pull in cli, fix d.sync.pull error
+
+0.5.1
+-----
+
+* fix list-packages error
+* add function to force-stop app
+
+0.5.0
+-----
+
+* change typing to send\_keys
+* add typing with escape special chars
+* add support to screenshot with minicap
+
+0.4.4
+-----
+
+* support env-var ANDROID\_SERIAL, pidcat change adb to adbutils
+* add home before install
+* update doc
+* add quick and dirty install-confirm
+* fix --qrcode
+
+0.4.3
+-----
+
+* add --qrcode xxxx.file
+
+0.4.2
+-----
+
+* fix unknown host service, close #11
+
+0.4.1
+-----
+
+* add pidcat
+* add open\_browser and --package in cli
+
+0.4.0
+-----
+
+* add stream in shell function
+* Fix getting window size and raw window size to properly respect overridden screen sizes
+
+0.3.4
+-----
+
+* fix fix requirements
+* add missing requirement, start adb server if not started
+
+0.3.3
+-----
+
+* set min support python 3.5
+* update forward\_port to support localabstract, cli add screenshot
+
+0.3.2
+-----
+
+* fix bug
+
+0.3.1
+-----
+
+* add current\_app, fix bugs
+
+0.3.0
+-----
+
+* fix many many bugs, add dump\_hierarchy
+
+0.2.7
+-----
+
+* add cli minicap install support, close #6
+* split part code to mixin.py
+
+0.2.6
+-----
+
+* support adb connect, close #3
