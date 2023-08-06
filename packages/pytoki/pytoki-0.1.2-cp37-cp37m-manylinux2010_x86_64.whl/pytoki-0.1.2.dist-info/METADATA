@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: pytoki
+Version: 0.1.2
+Summary: toki Python bindings
+Home-page: UNKNOWN
+Author: Tomasz Grzegorzek
+Author-email: tomasz.grzegorzek@alphamoon.ai
+Maintainer: Tomasz Grzegorzek
+Maintainer-email: dev@alphamoon.ai
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Description-Content-Type: text/markdown
+Requires-Dist: pybind11 (>=2.2)
+Requires-Dist: setuptools (>=0.7.0)
+
+# About
+
+Toki library was originally developed by Tomasz Śniatowski and Adam Radziszewski at Wroclaw University of Science and Technology. The main purpose of the library was to provide fast [SRX](https://en.wikipedia.org/wiki/Segmentation_Rules_eXchange)-based tokenizer. The following python library is a set of python bindings to C++ toki that has been further developed at [Alphamoon](https://alphamoon.ai/). 
+
+Original toki has been released under GNU LGPL 3.0. The sources may be obtained from the git repositories:
+```
+git clone http://nlp.pwr.wroc.pl/corpus2.git # contains pwrutils library that is needed for building toki
+git clone http://nlp.pwr.wroc.pl/toki.git
+```
+To build the codes you will need CMake 2.8 or later. Besides, you will need:
+
+* ICU 4.2
+* Boost 1.41 or later (tested with 1.41 and 1.42)
+* Loki (libloki-dev)
+* libxml++2.6 (for SRX support)
+* libpwrutils from corpus2 repository (its build process is based on CMake, see the project site)
+
+1. To create a working tokeniser, instantiate ```Toki::LayerTokenizer```. There are several constructors available; the simplest one assumes using the default configuration (for Polish). To access a named configuration, use ```Toki::get_named_config```(config_name) and pass the acquired object to ```Toki::LayerTokenizer``` constructor.
+2. To create a working tokeniser with sentence-splitter, first instantiate a ```Toki::LayerTokenizer``` object and then wrap a ```Toki::SentenceSplitter``` around it. The sentencer object contains a convenient has_more-get_next_sentence interface. The default config loads sentence-splitting rules so is suitable for this purpose.
+NOTE: when using a custom config, check whether it contains working sentence-splitting rules. If it doesn't, ```Toki::SentenceSplitter``` will buffer all the input and finally produce an enormous sentence containing all the tokens.
+
+# Examples
+
+For now, Python interface is simple and allows only for sentence splitting and tokenizing within the sequence with polish as a default language.
+
+Sentence splitting: 
+```python
+import toki
+tokenizer = toki.Toki()
+tokenizer.get_all_sentences("To jest zdanie. To jest np. inne zdanie.")
+```
+Sentence tokenizing: 
+```python
+import toki
+tokenizer = toki.Toki()
+tokenizer.get_all_sentences_tokenized("To jest zdanie. To jest np. inne zdanie.")
+```
+
+More languages will be supported in upcoming releases.
+
+It is recommended to build package from source if possible to make use of AVX and other CPU instruction. Package originally has been built with `core2` optimization so any CPU older than that or which does not have `MMX`, `SSE`, `SSE2`, `SSE3` and `SSSE3` must build package from source.
+
