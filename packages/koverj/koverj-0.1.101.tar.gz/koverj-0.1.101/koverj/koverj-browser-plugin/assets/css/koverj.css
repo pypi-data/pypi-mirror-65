@@ -1,0 +1,80 @@
+[data-notify-text]:hover {
+  cursor: pointer;
+}
+
+.koverj-sidebar.right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background: floralwhite;
+  z-index: 100;
+}
+
+.sidebars > .koverj-sidebar {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 15px;
+  padding: 0 15px;
+  right: 0px;
+  position: fixed;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.kj-tests-list {
+  font-size: 15px;
+  text-align: left;
+  color: black;
+  padding-top: 15px;
+  margin-left: 15px;
+  list-style-type: initial;
+  padding: 0;
+}
+
+.kj-close-sidebars {
+  position: absolute;
+  top: 15px;
+  width: 21px;
+  height: 11px;
+  left: 15px;
+  opacity: 0.3;
+  z-index: 9999;
+}
+
+.kj-close-sidebars:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.kj-close-sidebars:before,
+.kj-close-sidebars:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 25px;
+  width: 2px;
+  background-color: #333;
+}
+.kj-close-sidebars:before {
+  transform: rotate(45deg);
+}
+.kj-close-sidebars:after {
+  transform: rotate(-45deg);
+}
+
+.kj-sidebar-header {
+  color: black;
+}
+
+.notifyjs-koverj-pin-base a {
+  color: blue;
+}
+
+.kj-tests-list a {
+  color: black;
+  word-break: break-all;
+  pointer-events: none;
+}
