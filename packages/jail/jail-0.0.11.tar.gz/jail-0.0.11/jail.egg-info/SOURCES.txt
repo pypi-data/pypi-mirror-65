@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+jail/__init__.py
+jail/__version__.py
+jail/libc.py
+jail/types.py
+jail.egg-info/PKG-INFO
+jail.egg-info/SOURCES.txt
+jail.egg-info/dependency_links.txt
+jail.egg-info/requires.txt
+jail.egg-info/top_level.txt
