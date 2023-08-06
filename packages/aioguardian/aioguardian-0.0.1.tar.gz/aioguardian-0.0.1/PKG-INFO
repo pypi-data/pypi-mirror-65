@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: aioguardian
+Version: 0.0.1
+Summary: A Python3 library for Elexa Guardian water valves and sensors
+Home-page: https://github.com/bachya/aioguardian
+License: MIT
+Author: Aaron Bach
+Author-email: bachya1208@gmail.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: aiohttp (>=3.6.2,<4.0.0)
+Project-URL: Repository, https://github.com/bachya/aioguardian
+Description-Content-Type: text/markdown
+
+# 🚰 aioguardian: A Python3 library for Elexa Guardian devices
+
