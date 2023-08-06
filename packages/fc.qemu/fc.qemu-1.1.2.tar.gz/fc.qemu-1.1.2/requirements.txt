@@ -1,0 +1,6 @@
+-e .
+pytest>=2.6
+pytest-cov
+pytest-cache
+mock>=1.0
+pytest-timeout
