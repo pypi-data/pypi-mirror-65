@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: Reef-Vision
+Version: 0.0.24
+Summary: FRC Reef Vision API
+Home-page: UNKNOWN
+Author: Danny Dasilva
+Author-email: dannydasilva.solutions@gmail.com
+License: Apache 2
+Description: # Reef_Vision
+        FRC Reef Vision package
+        
+        https://pypi.org/project/Orange_Vision/
+        
+        ### How to use
+        
+        `sudo pip3 install Reef_Vision`
+         
+        > sudo is for running scripts
+        
+        
+        *The scripts below are part of the pip package so you can just run them in terminal no need to git clone or anything just pip install*
+        
+        
+        
+        
+        
+        
+        ### run server
+        
+        `reef_detect_server`
+        
+        
+        
+        ### run with inference
+        
+        `reef_detect_server --enable_ai`
+        
+        
+        ### enable .local
+        
+        `wifi_down.sh`
+        
+        ### disable .local
+        
+        `wifi_up.sh`
+        
+        ### autoboot
+        `autoboot.sh`
+        
+        
+        ### stop autoboot and kill server
+        `stopautoboot.sh`
+Platform: UNKNOWN
+Requires-Python: >=3.5.3
+Description-Content-Type: text/markdown

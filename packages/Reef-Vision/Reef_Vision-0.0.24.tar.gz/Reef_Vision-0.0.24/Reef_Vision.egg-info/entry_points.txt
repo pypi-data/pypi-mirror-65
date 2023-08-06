@@ -1,0 +1,6 @@
+[console_scripts]
+reef_classify = Reef_Vision.classify:main
+reef_classify_server = Reef_Vision.classify_server:main
+reef_detect = Reef_Vision.detect:main
+reef_detect_server = Reef_Vision.detect_server:main
+
