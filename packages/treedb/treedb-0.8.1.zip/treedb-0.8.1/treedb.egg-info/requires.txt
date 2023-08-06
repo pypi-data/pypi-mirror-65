@@ -1,0 +1,8 @@
+csv23~=0.2
+sqlalchemy>=1.0.14
+
+[dev]
+flake8
+pep8-naming
+wheel
+twine
