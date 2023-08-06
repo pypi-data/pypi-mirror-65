@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: geniepy
+Version: 0.4
+Summary: Gene-Disease relationship trend detection
+Home-page: https://github.com/derekkinzo/genie
+Author: The Harvard LAMP Team
+Maintainer: Derek Kinzo
+Maintainer-email: dhk891@g.harvard.edu
+License: mit
+Project-URL: Documentation, https://geniepy.readthedocs.io/en/latest/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.7,!=2.*
+Description-Content-Type: text/x-rst; charset=UTF-8
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: jsonlines
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+=======
+GeniePy
+=======
+
+
+Gene-Disease relationship trend detection application
+
+
+Description
+===========
+
+A longer description of your project goes here...
+
+
+Installation
+============
+
+**Install with pip**
+
+::
+
+    pip install geniepy
+
+
+
+**Install from source code**
+
+::
+
+    git clone https://github.com/derekkinzo/genie.git
+
+    cd genie/geniepy
+
+    python setup.py install
+
+**Generate Python Package**
+
+::
+
+    python setup.py sdist bdist_wheel
+
+    twine upload dist/*
+
+**Python Package Development**
+
+::
+
+    python setup.py develop
+
+    python setup.py test
+
+    python setup.py docs
+
