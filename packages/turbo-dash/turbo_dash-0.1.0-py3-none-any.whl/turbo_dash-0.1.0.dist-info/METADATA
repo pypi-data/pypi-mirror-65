@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: turbo-dash
+Version: 0.1.0
+Summary: automated Dash framework with templates
+Home-page: https://github.com/turbo3136/turbo_dash
+Author: turbo3136
+Author-email: turbo3136@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: dash (>=1.8.0)
+Requires-Dist: dash-core-components (>=1.7.0)
+Requires-Dist: dash-html-components (>=1.0.2)
+Requires-Dist: plotly (>=4.0.0)
+
+# turbo_dash
+automated Dash framework with templates
+
+
