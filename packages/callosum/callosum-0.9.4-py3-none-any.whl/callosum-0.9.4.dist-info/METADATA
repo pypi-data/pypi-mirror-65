@@ -1,0 +1,179 @@
+Metadata-Version: 2.1
+Name: callosum
+Version: 0.9.4
+Summary: Callosum RPC Library
+Home-page: https://github.com/lablup/callosum
+Author: Lablup Inc.
+Author-email: joongi@lablup.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: AsyncIO
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Communications
+Classifier: Topic :: Internet
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: aiojobs (>=0.2.2)
+Requires-Dist: aiotools (>=0.8.5)
+Requires-Dist: async-timeout (>=3.0.1)
+Requires-Dist: attrs (>=19.3.0)
+Requires-Dist: python-dateutil (>=2.8.1)
+Requires-Dist: msgpack (>=1.0.0)
+Requires-Dist: temporenc (>=0.1)
+Provides-Extra: build
+Requires-Dist: wheel (>=0.33.6) ; extra == 'build'
+Requires-Dist: twine (>=3.1.0) ; extra == 'build'
+Requires-Dist: towncrier (>=19.2.0) ; extra == 'build'
+Provides-Extra: dev
+Requires-Dist: pytest-sugar ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'docs'
+Provides-Extra: lint
+Requires-Dist: flake8 (>=3.7.9) ; extra == 'lint'
+Provides-Extra: redis
+Requires-Dist: aioredis (>=1.3.0) ; extra == 'redis'
+Provides-Extra: snappy
+Requires-Dist: python-snappy (>=0.5.4) ; extra == 'snappy'
+Provides-Extra: test
+Requires-Dist: Click (>=7.0) ; extra == 'test'
+Requires-Dist: pytest (>=5.3) ; extra == 'test'
+Requires-Dist: pytest-asyncio (>=0.10) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+Requires-Dist: codecov ; extra == 'test'
+Provides-Extra: thrift
+Requires-Dist: thriftpy2 (>=0.4.9) ; extra == 'thrift'
+Provides-Extra: typecheck
+Requires-Dist: mypy (>=0.760) ; extra == 'typecheck'
+Provides-Extra: zeromq
+Requires-Dist: pyzmq (>=19.0.0) ; extra == 'zeromq'
+
+Callosum
+========
+
+An RPC Transport Library
+
+It provides an asynchronous multi-channel order-preserving message and data
+streaming transport for *upper* RPC layers (e.g., Apache Thrift) by wrapping
+*lower* transport implementations (e.g., ZeroMQ).
+
+It aims to follow the latest coding style and conventions in Python asyncio.
+
+*Corpus callosum* is a bundle of neuron fibers that connects two cerebral
+hemispheres of a human brain.
+
+Prerequisite
+------------
+
+Python 3.8 or higher.
+
+Features
+--------
+
+* RPC
+  - Native timeout and cancellation support
+  - Explicit server-to-client error propagation including stringified tracebacks
+  - Order preserving based on user-defined keys while keeping executions asynchronous
+  - Concurrency limits based on [aiojobs](https://github.com/aio-libs/aiojobs)
+* Streaming
+  - Broadcast & shared pipelines
+* Optional client authentication and encrypted communication
+  - Currently supported for only ZeroMQ with its CURVE library
+* Optional message compression using [snappy](https://pypi.org/project/python-snappy/)
+* Replacible and combinable lower/upper layers (ZeroMQ/Redis + JSON/msgpack/Thrift)
+
+Planned features
+----------------
+
+* Managed streaming (with acks)
+* Tunneling to bundle other channels and generic network traffic in a single connection
+* Bidirectional RPC
+* Chunked transfer of large messages
+
+Installation
+------------
+
+To install the core:
+
+```console
+$ pip install -U pip setuptools
+$ pip install callosum
+```
+
+You may add extra dependencies like:
+
+```console
+$ pip install 'callosum[zeromq,redis,thrift,snappy]'
+```
+
+Examples
+--------
+
+Please check out [the examples directory.](https://github.com/lablup/callosum/tree/master/examples)
+
+Development
+-----------
+
+Use the editable installation of Python setuptools.
+
+```console
+$ pip install -U pip setuptools
+$ pip install -U -e '.[dev,build,test,zeromq,redis,thrift,snappy]'
+```
+
+
+Changes
+=======
+
+v0.9.4 (2020-04-10)
+-------------------
+
+#### Fixes
+* Fix a race condition due to overlapping RPC message sequence IDs by separating server/client message sequence IDs [(#12)](https://github.com/lablup/callosum/issues/12)
+
+#### Miscellaneous
+* Adopt towncrier for changelog management [(#11)](https://github.com/lablup/callosum/issues/11)
+
+v0.9.3 (2020-03-20)
+-------------------
+
+* FIX: Mitigate bogus KeyError when cleaning up task futures in RPC servers that has caused event
+  loop spinning.
+
+v0.9.2 (2020-02-28)
+-------------------
+
+* MAINTENANCE: Update dependencies and only specify the minimum versions since
+  Callosum is a library.
+
+v0.9.1 (2020-01-05)
+-------------------
+
+* FIX: wrong typing of `RPCMessage.body` field
+
+* IMPROVE: Add `debug_rpc` option to `rpc.Peer` for logging exceptions in RPC
+  scheduler and user-defined handlers explicitly.
+
+* Update dependencies and remove unused ones.
+
+v0.9.0 (2019-12-06)
+-------------------
+
+* First public release with a working RPC based on ZeroMQ DEALER/ROUTER sockets.
+
+2018-05-02
+----------
+
+* Started the project.
+
+
