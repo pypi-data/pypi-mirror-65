@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: parquet_performance
+Version: 0.0.2
+Summary: Performance of parquet files using pandas
+Home-page: https://github.com/gavinln/parquet_performance/tree/master/
+Author: Gavin Noronha
+Author-email: gavinln@hotmail.com
+License: Apache Software License 2.0
+Description: # parquet_performance
+        > Measure the performance of parquet files using pandas
+        
+        
+        This file will become your README and also the index of your documentation.
+        
+        ## Install
+        
+        `pip install parquet_performance`
+        
+        ## How to use
+        
+        Fill me in please! Don't forget code examples:
+        
+        ```python
+        1+1
+        ```
+        
+        
+        
+        
+            2
+        
+        
+        
+Keywords: parquet pandas performance
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
