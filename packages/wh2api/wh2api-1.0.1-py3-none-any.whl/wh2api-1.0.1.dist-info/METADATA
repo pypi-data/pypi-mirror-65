@@ -1,0 +1,335 @@
+Metadata-Version: 2.1
+Name: wh2api
+Version: 1.0.1
+Summary: wormhole API for Python
+Home-page: http://wormholepipeline.com
+Author: C2monster
+Author-email: contact@c2monster.com
+License: UNKNOWN
+Keywords: wormhole,sdk,wh_api
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+# Wormhole API for python
+
+### 업데이트 내용
+## 1.0.1
+1.  하위 python 2.7에서 대응이 가능하도록 모듈의 import방식변경
+    - 기존에 모듈 import끼리 충돌 현상 발생으로 변경
+2.  Wh클래스 이름 login으로 변경
+    - wh2api.wh.Login(url,id,pw)형태로 변경 
+3. project.read에서 조회 버그 수정
+
+## 사용방법 (v1.0.1)
+
+## 1. install
+웜홀 api는 python3이상에서 원활하게 작동 됩니다. 
+pip의 최신버전으로 업데이트 후 설치 하시기 바랍니다. 
+```python
+pip install --upgrade pip
+```
+pip패키지 install(필수)
+```python
+pip install wh2api #웜홀 API
+pip install requests
+pip install json
+```
+
+## 3. 패키지 import
+
+```python
+from wh2api import wh
+import wh2api
+```
+## 4. 모듈 첫사용시
+
+```python
+wh.login('http://host','id','pw') #로그인 성공시 whtoken을 "Login.whtoken"라는 클래스 변수로 가지고 있음
+```
+
+## 5. project
+- project.list
+```python
+wh2api.project.list(finished="")
+    # finished = '1' 끝난 프로젝트도 조회
+    # 웜홀에 있는 모든 프로젝트를 조회
+```
+
+-  project.read
+```python
+wh2api.project.read(project_idx)
+    #Porject의 상세 내용 조회
+    #버전업 및 퍼블리시 저장 경로 조회
+    #진행 상황 조회
+```
+
+
+## 6. episode
+-  episode.list
+```python
+wh2api.episode.list(project_idx)
+    #프로젝트 내부 에피소드 리스트 조회
+```
+
+
+- episode.create
+```python
+wh2api.episode.create(project_idx,episode_name,description="")
+    #에피소드 생성
+```
+
+## 7. sequence
+- list
+```python
+wh2api.sequence.list(project_idx,episode_idx)
+    #에피소드 내부 시퀀스 리스트 조회
+```
+- create
+wh.sequence.create(project_idx,episode_idx,sequence_name,description="")
+    #시퀀스 생성
+
+## 8. shot
+- list
+```python
+wh2api.shot.list(project_idx,episode_idx,sequence_idx)
+    #시퀀스 내부 샷 리스트 조회
+```
+
+- read
+```python
+wh2api.shot.read(project_idx,shot_idx)
+    #특정 샷의 세부내용 조회
+```
+
+- create
+```python
+wh2api.shot.create(project_idx,episode_idx,sequence_idx,shot_name,description="",status_idx="1")
+    #샷 생성
+    #status_idx 비어있을때 기본값 1번
+```
+
+- thumbnail_up
+```python
+wh2api.shot.thumbnail_up(project_idx,shot_idx,thumbnail_path)
+    #특정샷의 썸네일 업로드
+    #Thubmnail_path 입력시 윈도우는 'r'을 붙혀서 업로드 해야 오류 없음
+    #ex) r'H:\c2mosnter\test.jpg'
+    #지원 포맷 *.jpg, *.png
+```
+
+- overview
+```python
+wh2api.shot.overview(project_idx,episode_idx="")
+    #overview페이지 조회
+    #episode가 비어있는경우 프로젝트 전체조회
+```
+
+- relation
+```python
+wh2api.shot.relation(project_idx,episode_idx)
+    #샷에 연관된 에셋의 목록 조회
+    #웜홀의 Relation페이지 연동
+```
+
+## 9. shot_Task
+- list
+```python
+wh2api.shot_task.list(project_idx,shot_idx)
+    #샷 내부의 Task조회
+```
+
+- create
+```python
+wh2api.shot_task.create(project_idx,shot_idx,tasktype_name)
+    #샷내부에 Task 생성
+    #중복 될경우 에러 발생
+```
+
+- status_change
+```python
+wh2api.shot_task.status_change(project_idx,task_idx,status_idx)
+    #특정 Task의 Task Staus를 변경
+```
+
+- start
+```python
+wh2api.shot_task.start(project_idx,task_idx)
+    #Task Start(MyTask>Todo)
+```
+
+- stop
+```python
+wh2api.shot_task.stop(project_idx,task_idx)
+    #Task Stop(MyTask>Todo)
+```
+
+## 10. category
+- list
+```python
+wh2api.category.list(project_idx)
+    #프로젝트 내부에 Asset의 Category조회
+```
+
+- create
+```python
+wh2api.category.create(project_idx,category_name,description="")
+    #Category생성
+```
+
+## 11. Asset
+- list
+```python
+wh2api.asset.list(project_idx,category_idx)
+    #특정 Category의 Asset 조회
+```
+
+- create
+```python
+wh2api.asset.create(project_idx,category_idx,asset_name,description="",status_idx="1")
+    #Asset생성
+```
+
+- thumbnail_up
+```python
+wh2api.asset.thumbnail_up(project_idx,asset_idx,thumbnail_path)
+    #특정 Asset의 썸네일 업로드
+    #Thubmnail_path 입력시 윈도우는 'r'을 붙혀서 업로드 해야 오류 없음
+    #ex) r'H:\c2mosnter\test.jpg'
+    #지원 포맷 *.jpg, *.png
+```
+
+- overview
+```python
+wh2api.asset.overview(project_idx,category_idx="")
+    #Asset Overview조회
+```
+
+## 12. asset_Task
+- list
+```python
+wh2api.asset_task.list(project_idx,asset_idx)
+    #에셋 내부의 Task조회
+```
+
+- create
+```python
+wh2api.asset_task.create(project_idx,asset_idx,tasktype_name)
+    #에셋내부에 Task 생성
+    #중복 될경우 에러 발생
+```
+
+- status_change
+```python
+wh2api.asset_task.status_change(project_idx,task_idx,status_idx)
+    #특정 Task의 Task Staus를 변경
+```
+
+- start
+```python
+wh2api.asset_task.start(project_idx,task_idx)
+    #Task Start(MyTask>Todo)
+```
+
+- stop
+```python
+wh2api.asset_task.stop(project_idx,task_idx)
+    #Task Stop(MyTask>Todo)
+```
+
+## 13. version
+- key
+```python
+wh2api.version.key(task_idx, which='shot or asset')
+    #특정 Task의 Key를 얻어내는 함수
+    #Version_key생성
+```
+
+- key_read
+```python
+wh2api.version.key_read(version_key)
+    #Version_key 정보 조회
+```
+
+- create
+```python
+wh2api.version.create(task_idx,which,version_name,task_status_idx,version_status_idx,reviewer_user_idx,hour_spent,version_path)
+    # 윈도우의경우 version Path입력시 'r'을 입력
+    #ex) version_path = r'c:\\c2monster\test.mov'
+    # 지원 *.mp4
+    # 서버에서 컨버팅 하는 과정이 없기때문에 업로드하는 버전의 용량이 클 경우 플레이가 안될 수 있음
+
+```
+
+## 14. user
+- list
+```python
+wh2api.user.list()
+    #웜홀에 가입되있는 유저 조회
+```
+## 15. team
+- list
+```python
+wh2api.team.list()
+    #Team의 목록 조회
+```
+
+- user_list
+```python
+wh2api.team.user_list(team_idx)
+    #선택한 Team안에 있는 User조회
+```
+## 16. mytask
+- todo
+```python
+wh2api.mytask.todo(observed_user_idx="")
+    #observed_user_idx가 공백인경우 본인
+    #observed_user_idx에 User_idx를 추가할 경우 해당 인원의 MyTask조회
+```
+
+- inprogress
+```python
+wh2api.mytask.inprogress(last="")
+    #last입력시 마지막 버전만 조회
+```
+
+- done
+```python
+wh2api.mytask.done()
+    #끝난Task조회
+```
+
+- cc
+```python
+wh2api.mytask.cc(last="")
+    #last입력시 마지막 버전만 조회
+
+```
+
+## 17. org
+- read
+```python
+wh2api.org.read(org_id='std')
+    #std가 기본값임
+    #System information 정보 조회 가능
+```
+
+
+
+
+---
+## c2monster 
+c2monster는 영화 드라마 제작을 위한 소프트웨어를 개발하는 회사 입니다.
+### wormhole
+
+http://wormholepipeline.com
+
+
+E-mail : wfjo852@c2monster.com , contact@c2monster.com
+
