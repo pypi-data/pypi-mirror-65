@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: sytd
+Version: 1.0.1
+Summary: Simple YouTube Downloader
+Home-page: https://github.com/tomg404/Simple-YouTube-Downloader
+Author: Tom Gaimann
+Author-email: tom.gaimann@outlook.com
+License: UNKNOWN
+Keywords: youtube,download,client,easy
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: eel
+Requires-Dist: youtube-dl
+
+# Simple YouTube Downloader
+
+Simple YouTube Downloader (sytd) is a small Python library for quickly downloading YouTube videos.
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install `sytd`.
+
+```bash
+pip install sytd
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
