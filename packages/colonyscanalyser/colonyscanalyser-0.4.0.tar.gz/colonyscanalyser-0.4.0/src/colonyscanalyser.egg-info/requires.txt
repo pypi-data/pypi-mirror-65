@@ -1,0 +1,15 @@
+numpy>=1.18
+matplotlib
+scikit-image>=0.16
+webcolors
+
+[dev]
+flake8
+check-manifest
+pytest
+pytest-cov
+
+[test]
+flake8
+pytest
+pytest-cov
