@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: repr-utils
+Version: 0.1.2
+Summary: Contains common ellements that when displayed will adhere to the correct format (e.g markdown, latex, html, text) in tools like jupyter notebooks
+Home-page: https://github.com/Luttik/repr_utils
+License: MIT
+Author: luttik
+Author-email: dtluttik@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: jinja2 (>=2.11.1,<3.0.0)
+Requires-Dist: tabulate (>=0.8.7,<0.9.0)
+Project-URL: Repository, https://github.com/Luttik/repr_utils
+Description-Content-Type: text/x-rst
+
+.. image:: https://github.com/luttik/repr_utils/workflows/CI/badge.svg
+  :alt: actions batch
+  :target: https://github.com/Luttik/repr_utils/actions?query=workflow%3ACI+branch%3Amaster
+.. image:: https://badge.fury.io/py/repr-utils.svg
+  :target: https://pypi.org/project/repr-utils/
+
+REPR-UTIL
+---------
+A toolkit to quickly display elements in tools like `jupyter`_ by building upon `ipython rich display`_.
+
+Contains simple objects that will automatically be converted to the right format based on the context.
+
+Installation
+============
+Run :code:`pip install repr-issues`
+
+Examples
+========
+Look at `the examples notebook`_
+
+Supports:
+=========
+- Raw Text
+- HTML
+- Markdown
+- Latex
+
+Current objects:
+================
+- Header
+- Table
+
+Relevant links:
+===============
+- `pypi`_
+- `github`_
+
+Contributions are appreciated.
+
+.. _`the examples notebook`: examples.ipynb
+.. _`pypi`: https://pypi.org/project/repr-utils/
+.. _`github`: https://github.com/Luttik/repr_utils/
+.. _`ipython rich display`: https://ipython.readthedocs.io/
+.. _`jupyter`: https://jupyter.org/
+
