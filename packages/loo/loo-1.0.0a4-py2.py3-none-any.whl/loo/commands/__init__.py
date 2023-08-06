@@ -1,0 +1,1 @@
+from loo.commands.generate import generate
