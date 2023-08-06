@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: banditml
+Version: 0.2.1
+Summary: Portable Bandit ML code for training & serving consistency.
+Home-page: https://github.com/banditml/banditml
+Author: Edoardo Conti, Lionel Vital, Joseph Gilley
+Author-email: edoardo.conti@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (==1.0.1)
+Requires-Dist: torch (==1.4.0)
+Requires-Dist: scikit-learn (==0.22.2.post1)
+
+# Bandit ML pip library
+
+Used to make core Bandit ML code transferable across Python projects (i.e. training
+and serving Bandit ML models).
+
+
