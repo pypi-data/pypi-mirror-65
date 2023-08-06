@@ -1,0 +1,3 @@
+[asreview.entry_points]
+stat = asreviewcontrib.statistics.entrypoint:StatEntryPoint
+
