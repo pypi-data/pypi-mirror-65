@@ -1,0 +1,9 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include JSON files (generated values)
+include stix_shifter_modules/proxy/configuration/proxy_config.json 
+include stix_shifter_modules/proxy/configuration/proxy_lang.json 
