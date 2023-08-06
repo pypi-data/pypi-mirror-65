@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+fetchmovie/__init__.py
+fetchmovie/app.py
+fetchmovie.egg-info/PKG-INFO
+fetchmovie.egg-info/SOURCES.txt
+fetchmovie.egg-info/dependency_links.txt
+fetchmovie.egg-info/entry_points.txt
+fetchmovie.egg-info/requires.txt
+fetchmovie.egg-info/top_level.txt
+fetchmovie/sites/__init__.py
+fetchmovie/sites/_chrome.py
+fetchmovie/sites/bbt.py
