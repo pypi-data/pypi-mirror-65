@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo for MicroTokenizer</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue-axios.min.js"></script>
+    <!--<script src="js/require.js"></script>-->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105150423-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-105150423-4');
+    </script>
+</head>
+<body>
+<div class="container" id="app">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">MicroTokenizer</h1>
+            <p class="lead">功能强大的中文分词软件包</p>
+            <a class="btn btn-primary btn-sm" href="https://github.com/howl-anderson/MicroTokenizer" role="button"
+               target="_blank">点击访问项目地址（@Github）</a>
+        </div>
+    </div>
+
+    <h2>选择远程服务器</h2>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">分词服务器：</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" v-model="server">
+    </div>
+
+    <!-- 单一分词器 START -->
+    <h2>默认分词</h2>
+    <p class="text-justify">支持多种经典和 State-Of-The-Art 的分词方法</p>
+    <div class="input-group mb-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">输入想分词的句子</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                   aria-describedby="basic-addon1" v-model="message" name="message">
+        </div>
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <div class="form-check" v-for="(value, key) in tokenizer_list">
+                    <input class="form-check-input" type="radio" name="tokenizer_class" v-bind:value="key"
+                           v-model="tokenizer_class">
+                    <label class="form-check-label">
+                        {{ value }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <button class="btn btn-primary" id="button-addon2" onclick="send_tokenize_request()">查看分词结果</button>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mb-3" v-if="debug">
+        <hr>
+        <span class="border border-dark px-2 mx-1">{{ message }}</span>
+        <span class="border border-dark px-2 mx-1">{{ tokenizer_list }}</span>
+        <span class="border border-dark px-2 mx-1">{{ tokenizer_class }}</span>
+        <span class="border border-dark px-2 mx-1">{{ token_list }}</span>
+    </div>
+    <div class="input-group mb-3" id="tokenizer_result">
+        <span class="border border-dark px-2 mx-1" v-for="token in token_list">{{ token }}</span>
+    </div>
+    <hr>
+    <!-- 单一分词器 END -->
+    <!-- 基于字典的分词器 START -->
+    <h2>支持自定义字典</h2>
+    <p class="text-justify">支持预先或者动态添加自定义字典的能力</p>
+    <div class="input-group mb-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">输入想分词的句子</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                   aria-describedby="basic-addon1" v-model="custom_dict_message" name="message">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="use_custom_dict">
+            <label class="form-check-label" for="exampleCheck1">使用自定义字典</label>
+        </div>
+        <div class="input-group mb-3" v-if="use_custom_dict">
+            <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon2">自定义字典</span>
+            </div>
+            <textarea class="form-control" placeholder="Username" aria-label="Username"
+                      aria-describedby="basic-addon2" v-model="custom_dict" name="message"></textarea>
+            </div>
+            <small id="passwordHelpBlock" class="form-text text-muted">
+                每个词语（可选权重（使用空格和词语隔开），见文本框第二行）放置在一行，使用 <code>Shift+Enter</code> 可以在文本框内换行
+            </small>
+        </div>
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <div class="form-check" v-for="(value, key) in dict_based_tokenizer">
+                    <input class="form-check-input" type="radio" name="dict_based_tokenizer_class" v-bind:value="key"
+                           v-model="dict_based_tokenizer_class">
+                    <label class="form-check-label">
+                        {{ value }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <button class="btn btn-primary" id="button-addon2" onclick="send_tokenize_request_with_custom_dict()">
+                    查看分词结果
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mb-3" v-if="debug">
+        <hr>
+        <span class="border border-dark px-2 mx-1">{{ message }}</span>
+        <span class="border border-dark px-2 mx-1">{{ tokenizer_list }}</span>
+        <span class="border border-dark px-2 mx-1">{{ tokenizer_class }}</span>
+        <span class="border border-dark px-2 mx-1">{{ token_list }}</span>
+    </div>
+    <div class="input-group mb-3" id="tokenizer_result">
+        <span class="border border-dark px-2 mx-1" v-for="token in dict_based_token_list">{{ token }}</span>
+    </div>
+    <hr>
+    <!-- 基于字典的分词器 END -->
+    <!-- 基于融合的分词器 START -->
+    <h2>支持多分词器融合</h2>
+    <p class="text-justify">支持同时享有：基于字典分类器的自定义词典的能力和 <code>HMM</code> 或 <code>CRF</code> 算法的新词发现能力</p>
+    <div class="input-group mb-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">输入想分词的句子</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                   aria-describedby="basic-addon1" v-model="fusion_message" name="message">
+        </div>
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <select class="custom-select form-control" multiple aria-describedby="passwordHelpBlock" size="6"
+                        v-model="fusion_tokenizer_class">
+                    <option v-for="(value, key) in tokenizer_list" v-bind:value="key">{{ value }}</option>
+                </select>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    选择两个以上（含两个）的算法进行融合：按住 <kbd>Ctrl</kbd> 或者 <kbd>Command</kbd> 可以多选
+                </small>
+            </div>
+
+        </div>
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <button class="btn btn-primary" id="button-addon2" onclick="send_tokenize_request_with_fusion()">
+                    查看分词结果
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mb-3" v-if="debug">
+        <hr>
+        <span class="border border-dark px-2 mx-1">{{ message }}</span>
+        <span class="border border-dark px-2 mx-1">{{ tokenizer_list }}</span>
+        <span class="border border-dark px-2 mx-1">{{ tokenizer_class }}</span>
+        <span class="border border-dark px-2 mx-1">{{ token_list }}</span>
+    </div>
+    <div class="input-group mb-3" id="tokenizer_result">
+        <span class="border border-dark px-2 mx-1" v-for="token in fusion_based_token_list">{{ token }}</span>
+    </div>
+    <hr>
+    <!-- 基于融合的分词器 END -->
+</div>
+<script src="tokenizer.js"></script>
+</body>
+</html>
