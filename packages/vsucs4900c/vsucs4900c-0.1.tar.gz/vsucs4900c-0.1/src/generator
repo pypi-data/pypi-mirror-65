@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+"""A Python program generating a list of prime numbers and output them into a csv file
+
+"""
+
+from primepackage import get_n_prime, write_primes, read_primes
+
+def main():
+    """Generate 100 prime numbers and output it into output.csv file
+
+    """
+    try:
+        primes = get_n_prime(100)
+    except ValueError as err:
+        print('is_prime '+ err)
+
+    try:
+        write_primes(primes, 'output.csv')
+    except IOError as err:
+        print(err)
+
+    try:
+        prime_list = read_primes('output.csv')
+    except IOError as err:
+        print(err)
+
+    print(prime_list)
+
+if __name__ == '__main__':
+    main()
