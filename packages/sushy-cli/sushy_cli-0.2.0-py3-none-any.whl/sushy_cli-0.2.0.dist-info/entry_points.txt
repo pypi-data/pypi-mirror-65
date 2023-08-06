@@ -1,0 +1,22 @@
+[console_scripts]
+sushycli = sushycli.cmd.sushycli:main
+
+[sushycli]
+chassis_inventory_show = sushycli.chassis_inventory:ChassisInventoryShow
+chassis_list = sushycli.chassis_list:ChassisList
+manager_inventory_show = sushycli.manager_inventory:ManagerInventoryShow
+manager_list = sushycli.manager_list:ManagerList
+manager_vmedia_eject = sushycli.manager_vmedia:ManagerVmediaEject
+manager_vmedia_insert = sushycli.manager_vmedia:ManagerVmediaInsert
+manager_vmedia_list = sushycli.manager_vmedia:ManagerVmediaList
+system_bios_reset = sushycli.system_bios:SystemBiosReset
+system_bios_set = sushycli.system_bios:SystemBiosSet
+system_bios_show = sushycli.system_bios:SystemBiosShow
+system_boot_set = sushycli.system_boot:SystemBootSet
+system_boot_show = sushycli.system_boot:SystemBootShow
+system_inventory_show = sushycli.system_inventory:SystemInventoryShow
+system_list = sushycli.system_list:SystemList
+system_power = sushycli.system_power:SystemPowerSet
+system_power_show = sushycli.system_power:SystemPowerShow
+version_show = sushycli.version:VersionShow
+
