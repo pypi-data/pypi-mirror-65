@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: dosk
+Version: 0.4.4
+Summary: DevOps Task Runner
+Home-page: https://github.com/stelligent/dosk
+Author: Richard Wolf
+Author-email: richard.wolf@stelligent.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: ruamel.yaml
+Requires-Dist: argparse
+Requires-Dist: asyncio
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+
+UNKNOWN
+
+
