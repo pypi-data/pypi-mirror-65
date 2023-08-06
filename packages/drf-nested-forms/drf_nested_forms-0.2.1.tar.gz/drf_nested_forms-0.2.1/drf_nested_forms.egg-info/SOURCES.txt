@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+drf_nested_forms/__init__.py
+drf_nested_forms/exceptions.py
+drf_nested_forms/mixins.py
+drf_nested_forms/parsers.py
+drf_nested_forms/settings.py
+drf_nested_forms/utils.py
+drf_nested_forms.egg-info/PKG-INFO
+drf_nested_forms.egg-info/SOURCES.txt
+drf_nested_forms.egg-info/dependency_links.txt
+drf_nested_forms.egg-info/not-zip-safe
+drf_nested_forms.egg-info/top_level.txt
