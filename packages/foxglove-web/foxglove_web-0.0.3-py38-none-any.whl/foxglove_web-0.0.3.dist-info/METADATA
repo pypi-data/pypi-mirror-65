@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: foxglove-web
+Version: 0.0.3
+Summary: Tools for Starlette
+Home-page: https://github.com/samuelcolvin/foxglove
+Author: Samuel Colvin
+Author-email: s@muelcolvin.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: MacOS X
+Classifier: Topic :: Internet
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: arq (>=0.18)
+Requires-Dist: asyncpg (>=0.20.1)
+Requires-Dist: starlette (>=0.13.2)
+Requires-Dist: buildpg (>=0.2.1)
+Requires-Dist: httpx (>=0.11.1)
+Requires-Dist: pydantic (>=1.4)
+Requires-Dist: sentry-sdk (>=0.14)
+Requires-Dist: typer (>=0.1.0)
+Requires-Dist: uvicorn (>=0.11.3)
+Provides-Extra: extra
+Requires-Dist: ipython (>=7.7.0) ; extra == 'extra'
+Requires-Dist: watchgod (>=0.6) ; extra == 'extra'
+
+# foxglove
+
+Coming soon...
+
+
