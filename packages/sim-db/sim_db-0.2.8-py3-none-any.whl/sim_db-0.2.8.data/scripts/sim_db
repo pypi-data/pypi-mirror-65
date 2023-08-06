@@ -1,0 +1,14 @@
+#!python
+# -*- coding: utf-8 -*-
+#
+# sim_db Command Line Tool
+#
+# Copyright (C) 2018-2019 Håkon Austlid Taskén <hakon.tasken@gmail.com>
+# Licenced under the MIT License.
+
+import os.path
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import sim_db.src_command_line_tool.command_line_tool as command_line_tool
+
+command_line_tool.command_line_tool("sim_db", sys.argv[1:])

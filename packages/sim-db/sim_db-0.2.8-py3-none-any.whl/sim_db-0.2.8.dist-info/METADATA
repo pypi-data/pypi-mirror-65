@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: sim-db
+Version: 0.2.8
+Summary: A database for simulation parameters.
+Home-page: http://sim-db.readthedocs.io
+Author: Hakon Austlid Tasken
+Author-email: hakon.tasken@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+
+A command line tool and set of functions for conveniently running a large number of simulations with different parameter values, while keeping track of these all simulation parameters and results along with metadata in a database for you.
+
+

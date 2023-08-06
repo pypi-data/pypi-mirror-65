@@ -1,0 +1,4 @@
+[console_scripts]
+sdb = sim_db.__main__:sdb
+sim_db = sim_db.__main__:sim_db
+
