@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pycacd
+Version: 0.4.1
+Summary: Function library to track changes in SQL server and MySQL databases.
+Home-page: https://github.com/trevino-676/pyCaDc
+Author: Luis Manuel Torres Trevino
+Author-email: lmtorres123@icloud.com
+License: UNKNOWN
+Description: # pycadc
+        The pycadc library is made to monitor the changes of a sql server database by activating the CDC (Changes Data Capture).
+        
+        ## Todo List
+        - [x] Implement RabbitMQ to send the information through a message queue
+        - [x] Publish the library in pip
+        - [ ] Complete all information in the *README.md* file
+        - [ ] Create a message body for mysql tracker
+        - [ ] Complete the unit test
+        
+        ⌨️ with ♥️ by **Luis Manuel Torres Trevino**
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
