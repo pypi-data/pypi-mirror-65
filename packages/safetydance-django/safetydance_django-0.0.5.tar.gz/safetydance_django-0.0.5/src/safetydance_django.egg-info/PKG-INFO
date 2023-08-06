@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: safetydance-django
+Version: 0.0.5
+Summary: A collection of safetydance_test steps for BDD testing of Django REST Framework applications.
+Home-page: https://github.com/quansight/safetydance_django/
+Author: David Charboneau
+Author-email: david@adadabase.com
+License: mit
+Description: ==================
+        safetydance_django
+        ==================
+        
+        
+        Add a short description here!
+        
+        
+        Description
+        ===========
+        
+        A longer description of your project goes here...
+        
+        
+        Note
+        ====
+        
+        This project has been set up using PyScaffold 3.2.3. For details and usage
+        information on PyScaffold see https://pyscaffold.org/.
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Testing :: BDD
+Classifier: Topic :: Software Development :: Testing :: Unit
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: testing

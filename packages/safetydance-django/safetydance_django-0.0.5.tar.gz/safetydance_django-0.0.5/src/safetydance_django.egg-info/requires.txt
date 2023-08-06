@@ -1,0 +1,11 @@
+django
+djangorestframework
+pytest
+pytest-django
+safetydance
+type_extensions
+safetydance_test
+
+[testing]
+pytest
+pytest-cov
