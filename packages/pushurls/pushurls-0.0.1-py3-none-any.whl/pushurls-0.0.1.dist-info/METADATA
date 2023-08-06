@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pushurls
+Version: 0.0.1
+Summary: a tool to push the fail urls in mongodb to redis
+Home-page: https://github.com/ga1008/pushfailurls
+Author: Guardian
+Author-email: zhling2012@live.com
+Maintainer: Guardian
+Maintainer-email: zhling2012@live.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm
+Requires-Dist: pymongo
+
+UNKNOWN
+
+
