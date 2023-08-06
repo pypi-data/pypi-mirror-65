@@ -1,0 +1,25 @@
+requests
+six>=1.11
+
+[:python_version <= "2.7"]
+futures
+
+[all]
+swat
+
+[all:platform_system != "Windows"]
+kerberos
+
+[all:platform_system == "Windows"]
+winkerberos
+
+[kerberos]
+
+[kerberos:platform_system != "Windows"]
+kerberos
+
+[kerberos:platform_system == "Windows"]
+winkerberos
+
+[swat]
+swat
