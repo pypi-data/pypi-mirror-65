@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: thundergbm
+Version: 0.3.15
+Summary: A Fast GBM Library on GPUs and CPUs
+Home-page: https://github.com/zeyiwen/thundergbm
+Author: Xtra Computing Group
+Maintainer: thundergbm contributors
+Maintainer-email: wenzy@comp.nus.edu.sg
+License: Apache-2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/plain
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+
+The mission of ThunderGBM is to help users easily and efficiently apply GBDTs and Random Forests to solve problems. ThunderGBM exploits GPUs and multi-core CPUs to achieve high efficiency
+
+
