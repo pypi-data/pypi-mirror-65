@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: Biblelator
+Version: 0.0.1
+Summary: Biblelator — experimental USFM Bible Editor
+Home-page: http://freely-given.org/Software/Biblelator/
+Author: Robert Hunt
+Author-email: Freely.Given.org+Biblelator@gmail.com
+License: GPLv3
+Project-URL: Source Code, https://github.com/openscriptures/Biblelator/
+Description: 
+        A USFM Bible editor using the BibleOrgSys library and
+        Python's tKinter windowing library for simple and easy installation.
+        
+        NOTE: This packaging is still being tested following massive restructuring,
+        and is not necessarily fully functional until it is marked as v0.1.0 or higher.
+        We also have hopes to improve documentation before v0.2.0.
+        
+        After that point, we also hope to release Docker and Snap versions.
+        
+        This software has been developed in small chunks of spare time since 2013
+        (so it's not necessarily well-thought out, and definitely not polished).
+        However, it was used as my main Bible editor instead of Paratext
+        for a couple of years.
+        
+        This package will not reach v1.0.0 until after the BibleOrgSys reaches it.
+        
+        The API will not become fixed/stable until the v1.0.0 release.
+        
+        No attempt at all has been made at memory or speed optimisations
+        and this is not planned until after the release of v1.0.0.
+        
+        Biblelator is developed and tested on Linux (Ubuntu) but also runs on Windows (although not so well tested).
+        
+        See https://ubsicap.github.io/usfm/ for more information about USFM.
+        
+Keywords: Bible editor USFM
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Religion
+Classifier: Topic :: Religion
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
