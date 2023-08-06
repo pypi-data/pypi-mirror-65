@@ -1,0 +1,16 @@
+include *.txt
+include babel.cfg
+include LICENSE
+recursive-include aether_sphinx *.conf
+recursive-include aether_sphinx *.css
+recursive-include aether_sphinx *.eot
+recursive-include aether_sphinx *.html
+recursive-include aether_sphinx *.js
+recursive-include aether_sphinx *.svg
+recursive-include aether_sphinx *.ttf
+recursive-include aether_sphinx *.woff
+recursive-include aether_sphinx *.woff2
+recursive-include aether_sphinx/locale *.pot *.po *.mo
+recursive-include tests *.py
+recursive-include tests *.rst
+prune build
