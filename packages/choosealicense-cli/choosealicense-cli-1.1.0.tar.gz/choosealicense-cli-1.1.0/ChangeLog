@@ -1,0 +1,29 @@
+## 2020.04.10 v1.1.0
+- fix error when git config has unicode, #6
+- add support github token via env var, #9
+
+## 2019.06.06 v1.0.0 [BREAK CHANGE]
+- update to latest github api
+- drop python 3.3 support and add 3.6 support
+
+## 2016.03.19 v0.3.0
+
+- show version info: -v -> -V
+- python 3.5 support
+- wheel support
+- refactor some code
+- add code coverage, style check when running the tests
+
+## 2015.04.15 v0.2.0
+
+- better exception handle
+- add support for python 3
+- add test
+
+## 2015.04.09 v0.1.0
+
+- feature supported:
+    - can list all the license
+    - can show the info of the license
+    - show the context for the license template
+    - generate a license
