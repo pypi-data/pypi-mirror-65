@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pipemaker
+Version: 0.0.11
+Summary: pipemaker
+Home-page: https://gitlab.com/simonm3/pipemaker.git
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Flask
+Requires-Dist: PyDrive
+Requires-Dist: PyYAML
+Requires-Dist: dill
+Requires-Dist: fs
+Requires-Dist: graphviz
+Requires-Dist: ipython
+Requires-Dist: numpy
+Requires-Dist: pika
+Requires-Dist: pyftpdlib
+Requires-Dist: pytest
+Requires-Dist: requests
+Requires-Dist: fs-s3fs
+
+UNKNOWN
+
+
