@@ -1,0 +1,5 @@
+[console_scripts]
+mbed-tools = mbed_tools.cli:cli
+mbed_tools = mbed_tools.cli:cli
+mbedtools = mbed_tools.cli:cli
+
