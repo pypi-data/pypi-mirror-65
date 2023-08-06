@@ -1,0 +1,9 @@
+# Defines tpDcc General Tools toolset
+
+    type: general
+    name: General
+    color: [207, 77, 255]
+    hue_shift: 0
+    toolsets:
+      - tpDcc-tools-renamer
+      - tpDcc-tools-nameit
