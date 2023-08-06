@@ -1,0 +1,288 @@
+CHANGES
+=======
+
+6.0.2
+-----
+
+* remove py27 in tox.ini from paunch
+* Do not set cpuset-cpus if cconfig['cpuset\_cpus'] == 'all'
+* Don't set cpuset\_cpus if empty
+* move centos-7 jobs to centos-8 where possible
+* Update zuul layout to reflect recent changes in TripleO
+* Cleanup containers in the same loop as they are created
+* Fallback to a rm -f action for podman
+* Allow to not cleanup containers that aren't in config
+
+6.0.1
+-----
+
+* Execute healthchecks as root
+* Do not force remove containers
+* load\_config: allow the config to be overriden
+* Add SyslogIdenfier to healthcheck systemd unit
+* builder: include environment when running an exec
+* Exit 1 if a container fails and return the error
+* Do not always needlessly pull the images via podman
+* Return an error if tripleo-ansible deployed containers
+* Fix action Apply ignoring managed-by arg
+* Add missing ExecReload in container service unit file
+
+6.0.0
+-----
+
+* Fix backward compatibility for old config startup files
+* Switch to Ussuri jobs
+* Update master for stable/train
+
+5.3.0
+-----
+
+* list\_or\_dict\_arg: fix the else condition
+* builder: allow to pass a dict to 'environment'
+* Properly mock cpu\_affinity on all unit tests
+* Add --cpuset-cpus support for both Docker and Podman
+* Cleanup useless warnings for podman
+* Improve volume validation
+* Add unique names support for cont\_exec\_args method
+* Fix discovering container names
+
+5.2.0
+-----
+
+* Fix idempotency on RHEL8
+* Revert "Handle defined containers that are stopped."
+* Check if container is running before doing an exec
+* Revert "Handle defined containers that are stopped."
+* [Configuration] Switch to stestr
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Fix systemd service start rate limiting
+* Fix mismatching fixed vs unique container names
+* Bump the openstackdocstheme extension to 1.20
+* Handle defined containers that are stopped
+* Optimize container CLI for getting unique names
+* Check if volume paths exist before executing Docker
+* Generate addition drop-in dependencies for podman containers
+* Add Python 3 Train unit tests
+* Bump openstackdocstheme to 1.20.0
+
+5.1.0
+-----
+
+* Reduce the usage of "podman inspect" command
+* runner: implement container\_exist
+* runner: refactor image\_exist
+* Quote the health check command argument during a debug with print-cmd
+* Use k8s-file log driver with podman
+* Add upper constraints for testing
+* Revert "docker/compose: quote health-cmd"
+* Remove scenario008 jobs
+* Replace git.openstack.org URLs with opendev.org URLs
+
+5.0.0
+-----
+
+* Ensure we don't have any trailing "requires" for paunch units
+* Corrected how health check unit and link are removed
+* Introduce the systemctl module to provide simple systemctl commands wrap
+* Add missing link between healthcheck unit and main service
+* Fix doc build
+* Add 'hostname' and 'extra\_hosts' to docker
+* Add 'hostname' and 'extra\_hosts' to podman
+* update git.openstack.org to opendev
+* OpenDev Migration Patch
+* Update master for stable/stein
+* [Configuration] Add missing py37 and corrected default envlist
+* Introduce paunch apply --healthcheck-disabled
+* docker/compose: quote health-cmd
+* Update master for stable/stein
+
+4.4.0
+-----
+
+* Use pidfile for services
+* Allow to use t-h-t "healthcheck" config entry for podman
+* systemd: reduce verbosity when removing a container
+* systemd: switch KillMode to 'none'
+* Add missing extension to the log file
+* Delay check CI jobs until the pep8/unit passes.
+
+4.3.0
+-----
+
+* Deprecate docker runtime
+* Switch to Podman by default
+* Keep the old paunch behaviour
+* systemd: fix a typo in comments
+* Inject log-driver for podman containers
+* Allow to pass some of systemd.exec flags
+* Revert "Always attempt a graceful container stop/remove"
+* Increase and randomize healthcheck interval to avoid cpu congestion
+* Always attempt a graceful container stop/remove
+* Implement podman rename via re-apply of containers
+* Raise exception on systemd failures
+* Prevent podman healthcheck failures during deploy
+* podman: container names when running paunch list
+* podman: only check image availability when inspecting image
+* Log warnings and other paunch info to stderr
+* Fix comparing dictionaries for changes detection
+
+4.2.0
+-----
+
+* Fix comparing dictionaries for changes detection
+* [Core] Change openstack-dev to openstack-discuss
+* runner: test if image exists before running inspect
+* Make systemd.service\_delete handle healthchecks
+* systemd/healthcheck: fix service names for requires/requisite
+* Add systemd healthchecks to podman
+* systemd: do not hardcode /etc/systemd/system in method
+* service\_create: invert order for systemctl
+* Prefix SystemD service by "tripleo\_"
+* Add files in .gitignore
+* Add missing default-runtime support bits
+* Correct error output
+* Default log location failes for non-root users
+* Allow to set limit memory on containers
+* Allow paunch to be called as a python module
+* Remove log message when container doesn't exist
+* Remove tripleo-ci-centos-7-containerized-undercloud-upgrades from gate
+* Log to a file by default, unless debugging
+* W/a Label filter is broken for podman vs docker
+* Change naming of key arguments in runner
+* podman: stop the docker container during upgrade
+* Fix labels to take multiple values
+
+4.1.0
+-----
+
+* Fix logging to stdout and file in classes/commands
+* Set standard mode for systemd generated unit files
+* zuul: run tripleo-ci-centos-7-containerized-undercloud-upgrades
+
+4.0.0
+-----
+
+* Stop hardcoding 'docker' and make it more generic
+* podman: create/delete systemd unit files when restart policy is used
+* Implement cap\_add, cap\_drop
+* First support for Podman (runner + builder)
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Introduce --default-runtime parameter
+* Refactor the runner to support more than docker
+* Refactor compose1.py to welcome new builders
+* Adjust tenacity mock
+* Update reno for stable/rocky
+
+3.2.0
+-----
+
+* fix tox python3 overrides
+* Add openstack-python35-jobs
+* python3: remove usage of 'long'
+* Switch docs to openstackdocstheme
+
+3.1.0
+-----
+
+* Add release note link in README
+* Implement group\_add
+* Implement stop\_signal, stop\_grace\_period
+* Refactor docker run arg building
+
+3.0.0
+-----
+
+* Add ulimit option for run action
+* Allow to limit cgroup cpu shares
+* Allow configuring security options
+* Update reno for stable/queens
+* Use tenacity to retry image pulls
+
+2.3.0
+-----
+
+* Update reno for stable/queens
+* Zuul: Remove project name
+* Remove RH1 OVB jobs from configuration
+
+2.2.0
+-----
+
+* Explicitly pull images before docker run
+
+2.1.0
+-----
+
+* zuul: change OVB job layout
+* Migrate paunch to zuul v3 jobs
+* Add option to configure uts namespace
+* Add log\_tag option to container definition
+
+2.0.0
+-----
+
+* Update reno for stable/pike
+
+1.5.0
+-----
+
+* paunch apply should exit nonzero for failures
+* Log stdout/stderr during error
+* Add debug tool to paunch
+* Update and replace http with https for doc links
+
+1.4.0
+-----
+
+* Add health check support to paunch
+* Support py3.5
+
+1.2.0
+-----
+
+* Trivial change to trigger a build
+* Add --ipc support
+
+1.1.0
+-----
+
+* Implement idempotency behaviour
+* Split out container\_names to its own method
+* Store the config data in a label
+* Fix multiple rename case
+* Remove unimplemented 'show' command
+* Implement the list command
+* Implement delete command
+* Fix testenv
+
+1.0.0
+-----
+
+* Predictable unit test label order
+* Start of documenting the configuration format
+* Fix --volumes-from argument
+* Document command-line usage
+* First trivial example
+* Fix cleanup with multiple arguments
+* Fix positional args to cleanup command
+* update doc links
+* Add missing config\_id argument
+* docstrings for implemented library API
+* Fix delete\_missing\_configs
+* Allow docker command path to be set via paunch functions
+* do --env-file before --env
+* Fix up the still unimplemented commands
+* Implement env\_file
+* Add managed\_by argument to all API functions
+* Start to write docs
+* Unit test for builder
+* Unit tests for runner
+* Unit test for main library interface
+* Make runner an object
+* Implement apply, cleanup commands
+* Builder object, transform config data to docker arguments
+* Runner functions which call docker
+* Create stub commands
+* Initial Cookiecutter Commit
