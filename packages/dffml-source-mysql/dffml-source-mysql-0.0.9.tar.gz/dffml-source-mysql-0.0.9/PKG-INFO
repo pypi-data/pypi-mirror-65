@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: dffml-source-mysql
+Version: 0.0.9
+Summary: DFFML Source for MySQL Protocol
+Home-page: https://github.com/intel/dffml/blob/master/source/dffml-source-mysql/README.md
+Author: Sudharsana K J L
+Author-email: kjlsudharsana@gmail.com
+Maintainer: John Andersen
+Maintainer-email: johnandersenpdx@gmail.com
+License: MIT
+Description: # DFFML Source for MySQL Protocol
+        
+        ## About
+        
+        Provides access to MySQL Protocol compatible databases
+        
+        ## Usage
+        
+        See [documentation](https://intel.github.io/dffml/plugins/dffml_source.html#dffml-source-mysql)
+        
+        ## License
+        
+        DFFML Source for MySQL Protocol is distributed under the terms of the
+        [MIT License](LICENSE).
+        
+Keywords: dffml
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
