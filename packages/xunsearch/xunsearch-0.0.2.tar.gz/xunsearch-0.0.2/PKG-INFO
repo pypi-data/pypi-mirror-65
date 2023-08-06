@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: xunsearch
+Version: 0.0.2
+Summary: Python version of xunsearchd client (Python API)
+Home-page: https://github.com/qaulau/xunsearch-sdk-python
+Author: qaulau
+Author-email: qaulau@hotmail.com
+License: UNKNOWN
+Description: # xunsearch-sdk-python
+        
+        迅搜( xunsearch ) Python SDK封装
+        
+        
+        使用示例，Python SDK 对官方 PHP SDK 实现了所有接口的封装翻译，所以使用可以参考[官方PHP SDK使用说明](http://www.xunsearch.com/doc/php/guide/class.overview)
+        
+        以下为 Python 引用的简单示例
+        ```
+        import xunsearch
+        
+        xs = xunsearch.XS('/path/to/demo.ini')
+        ```
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Description-Content-Type: text/markdown
