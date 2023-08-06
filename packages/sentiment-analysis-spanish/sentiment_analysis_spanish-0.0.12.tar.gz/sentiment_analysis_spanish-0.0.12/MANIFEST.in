@@ -1,0 +1,6 @@
+recursive-include saved_models *
+recursive-include sentiment_analysis_spanish *
+
+recursive-include *.pickle
+recursive-include *.h5
+recursive-include *.json
