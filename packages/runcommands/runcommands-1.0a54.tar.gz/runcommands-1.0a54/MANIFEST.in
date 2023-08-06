@@ -1,0 +1,5 @@
+include CHANGELOG.md
+include commands.py
+include commands.yaml
+include runcommands/completion/bash/*.rc
+include runcommands/completion/fish/*.fish
