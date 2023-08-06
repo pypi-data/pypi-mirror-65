@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: wormhole-ui
+Version: 0.2.0
+Summary: UI for Magic Wormhole - get things from one computer to another safely
+Home-page: https://github.com/sneakypete81/wormhole-ui
+License: GPL-3.0
+Author: sneakypete81
+Author-email: sneakypete81@gmail.com
+Requires-Python: >=3.6,<3.8
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Dist: PySide2 (==5.13.1)
+Requires-Dist: humanize (==0.5.1)
+Requires-Dist: magic_wormhole (>=0.11.2,<0.13.0)
+Requires-Dist: qt5reactor (>=0.6,<0.7)
+Project-URL: Repository, https://github.com/sneakypete81/wormhole-ui
+Description-Content-Type: text/markdown
+
+# Magic Wormhole UI
+
+A GUI for the [Magic Wormhole](https://github.com/warner/magic-wormhole/). Get things from one computer to another safely.
+
+![Screenshot](docs/media/screenshot.png)
+
+[![PyPI](https://img.shields.io/pypi/v/wormhole-ui.svg)](https://pypi.python.org/pypi/wormhole-ui)
+[![Build Status](https://travis-ci.com/sneakypete81/wormhole-ui.svg?branch=master)](https://travis-ci.com/sneakypete81/wormhole-ui)
+
+## Installation
+
+### Windows
+Download the [Windows installer](https://github.com/sneakypete81/wormhole-ui/releases/latest/download/Magic.Wormhole.Installer.exe).
+
+### MacOS
+Download the [MacOS installer](https://github.com/sneakypete81/wormhole-ui/releases/latest/download/Magic.Wormhole.Installer.dmg).
+
+### Linux
+Installer coming soon...
+
+### From Source
+The recommended method to run from the Python source is with [pipx](https://pipxproject.github.io/pipx/):
+```sh
+  pipx install wormhole-ui
+  wormhole-ui
+```
+(or use pip if you prefer)
+
+## Development
+
+Requires [Poetry](https://poetry.eustace.io/).
+
+```sh
+  git clone https://github.com/sneakypete81/wormhole-ui.git
+  cd wormhole-ui
+  poetry install
+```
+
+Then you can use the following:
+
+```sh
+  poetry run wormhole-ui  # Run the app
+  poetry run pytest       # Run unit tests
+  poetry run flake8       # Run the linter
+  poetry run black .      # Run the code autoformatter
+  poetry run tox          # Run all checks across all supported Python versions
+```
+
