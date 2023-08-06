@@ -1,0 +1,22 @@
+django-filter==2.1.0
+
+django-celery-results
+
+# CORS
+# ------------------------------------------------------------------------------
+django-cors-headers==3.2.1
+
+ipython
+
+# OpenApi
+drf-yasg<1.18
+
+pyjwt<1.8
+
+# server
+# ------------------------------------------------------------------------------
+cherrypy==18.2.0
+
+django-meta
+
+django-countries
