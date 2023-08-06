@@ -1,0 +1,16 @@
+image: python:3.7
+
+stages:
+  - test
+
+before_script:
+  - python --version
+  - pip install flake8 yamllint
+
+linters:
+  stage: test
+  script:
+    - flake8 *.py
+    - flake8 */*.py
+    - flake8 */*/*.py
+    - yamllint */*/*.yaml
