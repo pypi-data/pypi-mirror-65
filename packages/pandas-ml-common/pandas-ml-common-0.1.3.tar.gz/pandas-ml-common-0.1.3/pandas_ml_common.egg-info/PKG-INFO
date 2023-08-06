@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pandas-ml-common
+Version: 0.1.3
+Summary: Augment pandas DataFrame with methods for machine learning
+Home-page: https://github.com/KIC/pandas-ml-quant
+Author: KIC
+Author-email: 
+License: MIT
+Description: ## The pandas ml common module
+        
+        This module holds all common extensions and utilities for the pandas ml quant stack.
+        
+        * easy joining of data frames with multi indexes
+        * access to nested numpy arrays in data frame columns (`df._.values`)
+        * dynamic method call providing suitable *args and **kwargs (dependency injection)
+        * convenient plotting short cuts like stacked bar chart
+        * serialisation utils
+        * re-scalings
+Keywords: pandas,ml,util,quant
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
