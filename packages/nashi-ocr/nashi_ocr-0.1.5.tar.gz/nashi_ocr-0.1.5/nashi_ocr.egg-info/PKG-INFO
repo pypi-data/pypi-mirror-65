@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: nashi-ocr
+Version: 0.1.5
+Summary: An OCR client complementing webapp for the transcription of scanned pages
+Home-page: https://github.com/andbue/nashi
+Author: Andreas Büttner
+Author-email: andreas.buettner@uni-wuerzburg.de
+License: GPL_v3.0
+Description: # nashi (nasḫī) OCR client using [Calamari](https://github.com/Calamari-OCR/calamari)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3
+Description-Content-Type: text/markdown
