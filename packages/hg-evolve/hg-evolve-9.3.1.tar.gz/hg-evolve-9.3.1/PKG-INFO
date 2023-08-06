@@ -1,0 +1,246 @@
+Metadata-Version: 1.0
+Name: hg-evolve
+Version: 9.3.1
+Summary: Flexible evolution of Mercurial history.
+Home-page: https://www.mercurial-scm.org/doc/evolution/
+Author: Pierre-Yves David
+Author-email: pierre-yves.david@ens-lyon.org
+License: GPLv2+
+Description: =============================
+        Mutable History For Mercurial
+        =============================
+        
+        Evolve Extension
+        =================
+        
+        This package supplies the ``evolve`` extension for Mercurial,
+        
+        **The full implementation of the changeset evolution concept is still in
+        progress.**  Please subscribe to the `evolve-testers mailing list
+        <https://www.mercurial-scm.org/mailman/listinfo/evolve-testers>`_ to stay up to
+        date with changes.
+        
+        This extension:
+        
+        * enables the "changeset evolution" feature of Mercurial core,
+        
+        * provides a set of commands to mutate your history,
+        
+        * issues several warning messages when troubles from some mutable appears in
+          your repository,
+        
+        * provides an ``hg evolve`` command to deal with such "troubles",
+        
+        * improves performance of obsolescence marker exchanges and discovery during
+          push and pull.
+        
+        Documentation
+        -------------
+        
+        We recommend reading the documentation first. An online version is
+        available here:
+        
+            https://www.mercurial-scm.org/doc/evolution/
+        
+        How to Install
+        ==============
+        
+        Using Pip
+        ---------
+        
+        You can install the latest evolution version usin pip::
+        
+            $ pip install --user hg-evolve
+        
+        Then just enable it in you hgrc::
+        
+            $ hg config --edit # adds the two line below:
+            [extensions]
+            evolve =
+        
+        From Source
+        -----------
+        
+        To install a local version from source::
+        
+            $ hg clone https://www.mercurial-scm.org/repo/evolve/
+            $ cd evolve
+            $ pip install --user .
+        
+        Then just enable it in you hgrc::
+        
+            $ hg config --edit # adds the two line below:
+            [extensions]
+            evolve =
+        
+        Documentation lives in ``doc/``.
+        
+        Server Only Setup
+        =================
+        
+        It is possible to enable a smaller subset of the extensions aimed at server
+        serving repository. It skips the additions of the new commands and local UI
+        messages that might add performance overheads. To use the server only
+        extension, install the package and use::
+        
+            $ hg config --edit # adds the two line below:
+            [extensions]
+            evolve.serveronly =
+        
+        Extension Purpose
+        =================
+        
+        The goal of this extension is to provide an appropriate place for code and
+        concept related to changeset evolution to mature. In this extension we allow
+        for hackier code, unlocking quick experimentation and faster iterations.
+        
+        In addition, the evolve extensions support a wider set of Mercurial version,
+        allowing us to reach a larger user base for feedback. The Evolve extension is
+        not tight to the Mercurial release cycle and can release new feature and bug
+        fix at a higher rate if necessary.
+        
+        Once a concept is ready enough, its implementation is moved into Mercurial
+        core. The maturation period helped us to get a clearer picture of what was
+        needed. During the upstreaming process, we can use this clearer picture to
+        clean up the code and upgrade it to an appropriate quality for Mercurial core.
+        
+        Python 3 support
+        ================
+        
+        Mercurial announced beta support for Python 3 starting with its 5.0 release.
+        Since 9.1.0, ``evolve`` has beta support for Python 3.6+.
+        
+        Support will stay in beta while Mercurial's support for Python 3 remains in
+        beta and until it is a bit more battle-tested.
+        
+        How to Contribute
+        =================
+        
+        Discussion happens on the #hg-evolve IRC on freenode_.
+        
+        .. _freenode: https://freenode.net/
+        
+        Bugs are to be reported on the mercurial's bug tracker (component: `evolution`_):
+        
+        .. _evolution: https://bz.mercurial-scm.org/buglist.cgi?component=evolution&query_format=advanced&resolution=---
+        
+        The recommended way is to create Merge Request on
+        https://foss.heptapod.net/mercurial/evolve. To do so, create an account and
+        request access. You'll then be able to create topic based merge request.
+        
+        Alternatively, you can use the patchbomb extension to send email to `mercurial
+        devel <https://www.mercurial-scm.org/mailman/listinfo/mercurial-devel>`_.
+        Please make sure to use the evolve-ext flag when doing so. You can use a
+        command like this::
+        
+            $ hg email --to mercurial-devel@mercurial-scm.org --flag evolve-ext --rev '<your patches>'
+        
+        
+        For guidelines on the patch description, see the `official Mercurial guideline`_.
+        
+        .. _`official Mercurial guideline`: https://mercurial-scm.org/wiki/ContributingChanges#Patch_descriptions
+        
+        Please don't forget to update and run the tests when you fix a bug or
+        add a feature. To run the tests, you need a working copy of Mercurial,
+        say in $HGSRC::
+        
+            $ cd tests
+            $ python $HGSRC/tests/run-tests.py
+        
+        Branch policy
+        -------------
+        
+        The evolve test are highly impacted by changes in core. To deal with this, we use named branches.
+        
+        There are two main branches: "stable" and "default". Tests on these branch are
+        supposed to pass with the corresponding "default" and "stable" branch from core
+        Mercurial. The documentation is built from the tip of stable.
+        
+        In addition, we have compatibility branches to check tests on older version of
+        Mercurial. They are the "mercurial-x.y" branches. They are used to apply
+        expected test change only, no code change should happen there.
+        
+        test output change from a changeset in core should adds the following line to their description:
+        
+        CORE-TEST-OUTPUT-UPDATE: <CORE-NODE-ID>
+        
+        
+        Format-source config
+        ====================
+        
+        Format source helps smooth out the pain of merging after auto-formatting.
+        Follow the instructions for install here:
+        
+        .. _`format-source`: https://bitbucket.org/octobus/format-source
+        
+        Then update both your global and repo config files::
+        
+            $ hg config -l # add the lines below
+            [extensions]
+            formatsource =
+        
+            [format-source]
+            byteify-strings = python3 ~/workspace/octobus/mercurial-devel/contrib/byteify-strings.py --dictiter --treat-as-kwargs kwargs opts commitopts TROUBLES --allow-attr-methods
+            byteify-strings:mode.input = file
+            byteify-strings:mode.output = pipe
+        
+        Release Checklist
+        =================
+        
+        * make sure the tests are happy on all supported versions,
+        
+          You can use the `contrib/merge-test-compat.sh` to merge with the test
+          compatibility branches.
+        
+        * make sure there is no code difference between the compat branches and stable
+          (no diff within `hgext3rd/`),
+        
+        * update the `testedwith` variable for all extensions (remove '.dev'):
+        
+          - hgext3rd/evolve/metadata.py
+          - hgext3rd/topic/__init__.py
+          - hgext3rd/pullbundle.py
+        
+        * make sure the changelog is up to date,
+        
+        * add a date to the changelog entry for the target version,
+        
+        * update the `__version__` field of all relevant extensions:
+        
+          - hgext3rd/evolve/metadata.py
+          - hgext3rd/topic/__init__.py
+          - hgext3rd/pullbundle.py (if touched)
+        
+        * create a new Debian entry:
+        
+          - debchange --newversion x.y.z-1 "new upstream release"
+          - debchange --release
+        
+        * sanity check install and sdist targets of setup.py:
+        
+          - python setup.py install --home=$(mktemp -d)
+          - python setup.py sdist
+        
+        * tag the commit,
+        
+        * push and publish the tag,
+        
+        * upload the tarball to PyPI,
+        
+        * make an announcement on evolve-testers@mercurial-scm.org (possibly on
+          mercurial@mercurial-scm.org too),
+        
+        * bump versions of all extensions and add '.dev' (see existing commits as an
+          example):
+        
+          - hgext3rd/evolve/metadata.py
+          - hgext3rd/topic/__init__.py
+          - hgext3rd/pullbundle.py
+        
+          The version we use on the stable branch during development should be
+          `x.y.z+1.dev`. The version of the default branch should be `x.y+1.0.dev`.
+        
+        * merge stable into default.
+        
+Keywords: hg mercurial
+Platform: UNKNOWN
