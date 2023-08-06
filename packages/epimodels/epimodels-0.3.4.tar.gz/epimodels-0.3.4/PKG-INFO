@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: epimodels
+Version: 0.3.4
+Summary: Library of mathematical epidemic models for use in simulation studies and inference
+Home-page: https://github.com/fccoelho/epimodels
+Author: Flávio Codeço Coelho
+Author-email: fccoelho@gmail.com
+License: mit
+Description: 
+        # Epimodels
+        
+        
+        
+        This library a simple interface to simulate mathematical epidemic models.
+         
+        
+        
+        ## Getting started
+        
+        
+        Simple SIR simulation
+        
+        ```python
+        from epimodels.continuous.models import SIR
+        model = SIR()
+        model([1000, 1, 0], [0, 50], 1001, {'beta': 2, 'gamma': .1})
+        model.plot_traces()
+        ```
+        
+        
+        ### Related libraries
+        
+        For stochastic epidemic models check [this](https://github.com/fccoelho/EpiStochModels).
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Provides-Extra: testing
