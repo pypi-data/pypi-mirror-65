@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: pyboin
+Version: 0.1.0
+Summary: UNKNOWN
+Home-page: https://github.com/AjxLab/pyboin
+Author: Tatsuya Abe
+Author-email: abe12@mccc.jp
+License: MIT
+Keywords: crawling crawler scraping
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: jaconv
+
+pyboin
+======
+
+[![](https://github.com/AjxLab/pyboin/workflows/build/badge.svg)](https://github.com/AjxLab/pyboin/actions)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
+
+pyboin is Pure-Python Japanese character interconverter for Hiragana and Vowel.
+```
+「こんにちは」 -> 「おんいいあ」
+```
+
+
+## Requirement
+* Python3
+
+
+## Installation
+```sh
+$ pip install pyboin
+```
+
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at [https://github.com/AjxLab/pyboin](https://github.com/AjxLab/pyboin).
+
+
+## Author
+* Tatsuya Abe
+* '''abe12<at>mccc.jp'''
+
+
