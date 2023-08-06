@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: jb4jupyter
+Version: 0.1
+Summary: jupyter beautifier by @jb4earth
+Home-page: http://gitlab.com/jb4earth/jb4jupyter
+Author: @jb4earth
+Author-email: jb4earth@gmail.com
+License: GPL
+Description: # jb4jupyter
+        
+        Out of this world beautiful plots with dark mode for earth!
+        
+        Dark mode saves power. Saving power keeps more fossil fuels in the ground.  More fossil fuels in the ground means we are saving earth.
+        
+        ## usage
+        
+        
+        ## notes for devs:
+        *.gitignore** will only effect files that haven't been 'added' already.
+        
+        To make new .gitignore entries affect all files 
+        
+         1. Make changes to .gitignore
+         2. `git commit -a -m "Pre .gitignore changes"`
+         3. `git rm -r --cached .`
+         4. `git add .`
+         5. `git commit -a -m "Post .gitignore changes"`
+         6. `git status`
+         should output "nothing to commit (working directory clean)"
+        `# this is the readme!
+        
+        package your wheel: `python setup.py sdist bdist_wheel`
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
