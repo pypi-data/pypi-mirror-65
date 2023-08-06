@@ -1,0 +1,9 @@
+include src/*
+include hints/*
+include tests/*
+include doc/*
+include CHANGES
+include INSTALL
+include LICENSE
+include TODO
+exclude myconfig.h
