@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: ctypes-windows-sdk
+Version: 0.0.5
+Summary: Ctypes port of Windows SDK
+Home-page: https://github.com/Dobatymo/ctypes-windows-sdk
+Author: Dobatymo
+License: UNKNOWN
+Description: # ctypes-windows-sdk
+        
+        A totally incomplete and random port of the C Windows SDK for Python ctypes. No dependencies besides the Python standard library.
+        
+        ## Install
+        
+        ```
+        pip install ctypes-windows-sdk
+        ```
+        
+        ## Example
+        
+        ```python
+        
+        from cwinsdk.windows import GetTickCount64
+        tickcount = GetTickCount64()
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
+Classifier: Topic :: System :: Operating System
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
