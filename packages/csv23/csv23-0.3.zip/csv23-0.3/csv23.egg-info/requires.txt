@@ -1,0 +1,20 @@
+
+[:python_version < "3"]
+mock
+
+[dev]
+tox>=3.0
+flake8
+pep8-naming
+wheel
+twine
+
+[docs]
+sphinx>=1.7
+sphinx-rtd-theme
+
+[test]
+mock>=2
+pytest!=3.10.0,>=4.6
+pytest-mock>=1.8
+pytest-cov
