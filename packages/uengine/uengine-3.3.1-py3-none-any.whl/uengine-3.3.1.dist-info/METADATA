@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: uengine
+Version: 3.3.1
+Summary: a micro webframework based on flask and pymongo
+Home-page: https://github.com/viert/uengine
+Author: Pavel Vorobyov
+Author-email: aquavitale@yandex.ru
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: jinja2
+Requires-Dist: flask
+Requires-Dist: pymongo
+Requires-Dist: cachelib
+Requires-Dist: lazy-object-proxy
+Requires-Dist: ipython
+Requires-Dist: pylint
+Requires-Dist: mongomock
+Requires-Dist: requests
+
+UNKNOWN
+
+
