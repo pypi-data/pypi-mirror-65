@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: avsim2D
+Version: 0.1.3.1
+Summary: A simple 2D autonomous vehicule simulator with CAN drive-by-wire
+Home-page: https://gitlab.com/m0rph03nix/autonomous_vehicule_simulator
+Author: Raphael LEBER
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pygame (>=1.9.6)
+Requires-Dist: pylint (>=2.4.4)
+Requires-Dist: python-can (>=3.2.1a0)
+Requires-Dist: PyTMX (>=3.21.7)
+Requires-Dist: PyYAML (>=5.3)
+
+# Autonomous Vehicule Simulator 2D
+
+
+## Purpose
+
+This package is a 2D simulator for autonomous vehicule. The simulator is based on pygame.  
+The main purpose is to train students on CAN-Bus and to introduce them self-driving vehicule problematics. The vehicule is piloted by CAN drive-by-wire.
+Important to know : Self-driving features are not developped as they are supposed to be done by students. This package is done for educationnal purposes.
+
+## Drive-by-wire features
+
+### Actuators
+- Powertrain
+  - Accelerate
+  - Brake
+  - Turn
+- Lightings :
+  - Blink left
+  - Blink right
+  - Low beam
+  - High Beam
+
+### Sensors
+- Dashboard
+  - Speed
+  - Motor Speed
+  - Gear selection
+- SDV sensor
+  - Front camera with semantic segmentation with following masks :
+    - road
+    - stop
+    - yield
+    - crossing
+    - car_park
+
+
+## Author and collaborators
+
+  The author, Raphaël LEBER, is a robotic teacher at CPE Lyon (a French engineering school).  
+
+A few students from CPE Lyon collaborated on some features : 
+  - Baptiste Brejon
+  - Marion Deshayes
+  - Yann Ville
+  - Aubin Jousselin
+  - Benjamin Damarius
+
