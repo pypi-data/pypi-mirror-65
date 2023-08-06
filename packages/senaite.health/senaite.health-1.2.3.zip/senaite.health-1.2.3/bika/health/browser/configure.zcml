@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="senaite.health">
+
+  <include package=".aetiologicagent"/>
+  <include package=".analysisrequest"/>
+  <include package=".analysisrequests"/>
+  <include package=".batch"/>
+  <include package=".client"/>
+  <include package=".disease"/>
+  <include package=".doctor"/>
+  <include package=".doctors"/>
+  <include package=".drug"/>
+  <include package=".drugprohibition"/>
+  <include package=".identifiertype"/>
+  <include package=".immunization"/>
+  <include package=".insurancecompany"/>
+  <include package=".patient"/>
+  <include package=".patients"/>
+  <include package=".symptoms"/>
+  <include package=".treatment"/>
+  <include package=".vaccinationcenter"/>
+  <include package=".vaccinationcentercontact"/>
+
+
+  <!-- Batches view with additional filters and columns -->
+  <subscriber
+    for="bika.lims.browser.batchfolder.BatchFolderContentsView
+         bika.lims.interfaces.IBatchFolder"
+    provides="senaite.core.listing.interfaces.IListingViewAdapter"
+    factory="bika.health.browser.batchfolder.BatchListingViewAdapter" />
+
+</configure>

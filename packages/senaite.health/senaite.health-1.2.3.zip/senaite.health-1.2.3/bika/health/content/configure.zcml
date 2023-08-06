@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="senaite.health">
+
+    <include package="archetypes.schemaextender" />
+
+    <adapter factory=".analysisrequest.AnalysisRequestSchemaExtender" />
+    <adapter factory=".analysisrequest.AnalysisRequestSchemaModifier" />
+
+    <adapter factory=".batch.BatchSchemaExtender" />
+    <adapter factory=".batch.BatchSchemaModifier" />
+
+    <adapter factory=".analysis.AnalysisSchemaExtender" />
+    <adapter factory=".bikasetup.BikaSetupSchemaExtender" />
+    <adapter factory=".client.ClientSchemaExtender" />
+
+</configure>

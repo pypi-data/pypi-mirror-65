@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="senaite.health">
+
+  <!-- Zope 3 browser resources -->
+
+  <browser:resourceDirectory
+      name="bika.health.images"
+      directory="images"
+      layer="bika.health.interfaces.IBikaHealth"
+      />
+
+  <browser:resourceDirectory
+      name="bika.health.js"
+      directory="js"
+      layer="bika.health.interfaces.IBikaHealth"
+      />
+
+</configure>

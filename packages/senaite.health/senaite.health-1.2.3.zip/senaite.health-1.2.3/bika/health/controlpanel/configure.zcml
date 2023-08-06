@@ -1,0 +1,119 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="senaite.health">
+
+    <browser:page
+      for="bika.health.interfaces.IDrugs"
+      name="folder_view"
+      class=".bika_drugs.DrugsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IDrugProhibitions"
+      name="folder_view"
+      class=".bika_drugprohibitions.DrugProhibitionsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IDiseases"
+      name="folder_view"
+      class=".bika_diseases.DiseasesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IAetiologicAgents"
+      name="folder_view"
+      class=".bika_aetiologicagents.AetiologicAgentsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.ITreatments"
+      name="folder_view"
+      class=".bika_treatments.TreatmentsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.ISymptoms"
+      name="folder_view"
+      class=".bika_symptoms.SymptomsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.ICaseStatuses"
+      name="folder_view"
+      class=".bika_casestatuses.CaseStatusesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.ICaseOutcomes"
+      name="folder_view"
+      class=".bika_caseoutcomes.CaseOutcomesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.ICaseSyndromicClassifications"
+      name="folder_view"
+      class=".bika_casesyndromicclassifications.CaseSyndromicClassificationsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IImmunizations"
+      name="folder_view"
+      class=".bika_immunizations.ImmunizationsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IVaccinationCenters"
+      name="folder_view"
+      class=".bika_vaccinationcenters.VaccinationCentersView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IIdentifierTypes"
+      name="folder_view"
+      class=".bika_identifiertypes.IdentifierTypesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+      <browser:page
+      for="bika.health.interfaces.IInsuranceCompanies"
+      name="folder_view"
+      class=".bika_insurancecompanies.InsuranceCompaniesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IEthnicities"
+      name="folder_view"
+      class=".bika_ethnicities.EthnicitiesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+</configure>

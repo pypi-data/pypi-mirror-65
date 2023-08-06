@@ -1,0 +1,24 @@
+[main]
+host = https://www.transifex.com
+
+[senaite-health.core]
+file_filter = <lang>/LC_MESSAGES/senaite.core.po
+host = https://www.transifex.com
+source_file = senaite.core.pot
+source_lang = en
+type = PO
+
+[senaite-health.health]
+file_filter = <lang>/LC_MESSAGES/senaite.health.po
+host = https://www.transifex.com
+source_file = senaite.health.pot
+source_lang = en
+type = PO
+
+[senaite-health.plone]
+file_filter = <lang>/LC_MESSAGES/plone.po
+host = https://www.transifex.com
+source_file = plone.pot
+source_lang = en
+type = PO
+

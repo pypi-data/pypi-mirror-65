@@ -1,0 +1,113 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="senaite.health">
+
+  <!-- Batches view. Use core's default, but with subscriber -->
+  <browser:page
+    for="bika.health.interfaces.IPatient"
+    name="batches"
+    class="bika.lims.browser.batchfolder.BatchFolderContentsView"
+    permission="zope2.View"
+    layer="bika.health.interfaces.IBikaHealth"
+  />
+
+  <!-- Batches filtered by patient -->
+  <subscriber
+    for="bika.lims.browser.batchfolder.BatchFolderContentsView
+         bika.health.interfaces.IPatient"
+    provides="senaite.core.listing.interfaces.IListingViewAdapter"
+    factory="bika.health.browser.patient.batches.PatientBatchListingViewAdapter"
+  />
+
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="analysisrequests"
+      class=".analysisrequests.AnalysisRequestsView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="historicresults"
+      class=".historicresults.HistoricResultsView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="*"
+      name="historicjson"
+      class=".historicresults.historicResultsJSON"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="*"
+      name="getpatientinfo"
+      class=".getpatientinfo.ajaxGetPatientInfo"
+      permission="zope.Public"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="allergies"
+      class=".allergies.AllergiesView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="chronicconditions"
+      class=".chronicconditions.ChronicConditionsView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="treatmenthistory"
+      class=".treatmenthistory.TreatmentHistoryView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="immunizationhistory"
+      class=".immunizationhistory.ImmunizationHistoryView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="travelhistory"
+      class=".travelhistory.TravelHistoryView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <browser:page
+      for="bika.health.interfaces.IPatient"
+      name="multifile"
+      class=".files.PatientMultifileView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+  <!-- Redirect to Client AR Add view when "AR Add" clicked inside Patient -->
+  <browser:page
+    for="bika.health.interfaces.IPatient"
+    name="ar_add"
+    class=".analysisrequests.AnalysisRequestAddRedirectView"
+    permission="senaite.core.permissions.AddAnalysisRequest"
+    layer="bika.lims.interfaces.IBikaLIMS"
+  />
+
+</configure>

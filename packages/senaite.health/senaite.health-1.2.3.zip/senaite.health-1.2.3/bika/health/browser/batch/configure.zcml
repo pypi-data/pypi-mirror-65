@@ -1,0 +1,29 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Additional views in Batch context -->
+    <browser:page
+      for="bika.lims.interfaces.IBatch"
+      name="getBatchInfo"
+      class=".getbatchinfo.ajaxGetBatchInfo"
+      permission="zope.Public"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+    <!-- Override senaite.core's default views -->
+    <browser:page
+      for="bika.lims.interfaces.IBatch"
+      name="analysisrequests"
+      class="bika.health.browser.batch.analysisrequests.BatchAnalysisRequestsView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+    <browser:page
+      for="bika.lims.interfaces.IBatch"
+      name="publish"
+      class="bika.health.browser.batch.publish.BatchPublishView"
+      permission="senaite.core.permissions.TransitionPublishResults"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+</configure>

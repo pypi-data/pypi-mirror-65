@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="senaite.health">
+
+    <browser:page
+      for="bika.health.interfaces.IPatients"
+      name="folder_view"
+      class=".folder_view.PatientsView"
+      permission="zope2.View"
+      layer="bika.health.interfaces.IBikaHealth"
+    />
+
+</configure>
