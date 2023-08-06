@@ -1,0 +1,3 @@
+#!python
+from guiqwt.tests import sift
+sift.run()
