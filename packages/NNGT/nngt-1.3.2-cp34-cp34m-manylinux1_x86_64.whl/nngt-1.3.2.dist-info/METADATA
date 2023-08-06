@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: nngt
+Version: 1.3.2
+Summary: Package to study structure and activity in neuronal networks
+Home-page: https://github.com/Silmathoron/NNGT
+Author: Tanguy Fardet
+Author-email: tanguy.fardet@univ-paris-diderot.fr
+License: GPL3
+Keywords: neuronal network graph structure simulation NEST topology growth
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=2.7, <4
+Provides-Extra: ig
+Provides-Extra: PDF
+Provides-Extra: nx
+Provides-Extra: matplotlib
+Provides-Extra: PySide
+Provides-Extra: reST
+Requires-Dist: numpy
+Requires-Dist: scipy (>=0.11)
+Provides-Extra: PDF
+Requires-Dist: ReportLab (>=1.2); extra == 'PDF'
+Requires-Dist: RXP; extra == 'PDF'
+Provides-Extra: PySide
+Requires-Dist: PySide; extra == 'PySide'
+Provides-Extra: ig
+Requires-Dist: python-igraph; extra == 'ig'
+Provides-Extra: matplotlib
+Requires-Dist: matplotlib; extra == 'matplotlib'
+Provides-Extra: nx
+Requires-Dist: networkx (>=2.0); extra == 'nx'
+Provides-Extra: reST
+Requires-Dist: docutils (>=0.3); extra == 'reST'
+
+
+NNGT provides a unified interface to use three of the main Python graph
+libraries (graph-tool, igraph, and networkx) in order to generate and study
+neuronal networks. It allows the user to easily send this graph to the NEST
+simulator, the analyze the resulting activity while taking structure into
+account.
+
+
