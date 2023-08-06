@@ -1,0 +1,4 @@
+[console_scripts]
+mgpro = mgpro.client:main
+proj_convert = mgpro.proj:exec
+
