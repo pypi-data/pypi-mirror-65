@@ -1,0 +1,12 @@
+pyyaml
+lucidity
+tpDcc-libs-python
+tpDcc-core
+tpDcc-libs-qt
+tpDcc-libs-nameit
+
+[dev]
+wheel
+
+[test]
+pytest
