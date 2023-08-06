@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: bit-boolean-flags
+Version: 1.0
+Summary: Bit boolean flag wrapper, allows you to store flags inside a single number.
+Home-page: https://github.com/redocnib/BitBooleanFlags
+Author: Kiran AK
+Author-email: kiran.txt@gmail.com
+License: MIT
+Download-URL: https://github.com/redocnib/BitBooleanFlags/archive/v1.0.tar.gz
+Description: 
+        Bit boolean flag wrapper, allows you to store flags inside a single number. 
+        Each flag uses powers of two, and the number of flags you can store depends on the capacity of the numeric data type.
+        You can do combined and or operations on the flag as per your requirement, refer examples.
+        
+Keywords: bit flags,boolean bit flags
+Platform: Cross platform
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
