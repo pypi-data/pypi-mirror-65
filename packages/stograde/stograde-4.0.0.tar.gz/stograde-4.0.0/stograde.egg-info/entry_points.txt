@@ -1,0 +1,4 @@
+[console_scripts]
+referee = stograde.referee.__main__:main
+stograde = stograde.toolkit.__main__:main
+
