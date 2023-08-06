@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: xenaPython
+Version: 1.0.13
+Summary: XENA python API
+Home-page: https://github.com/ucscXena/xenaPython
+Author: @jingchunzhu, @acthp
+Author-email: craft@soe.ucsc.com
+License: Apache 2.0
+Keywords: xena,ucsc,xenaAPI,xenaPython
+Platform: UNKNOWN
+Provides-Extra: convert
+Requires-Dist: scanpy ; extra == 'convert'
+Requires-Dist: loom ; extra == 'convert'
+Requires-Dist: cellbrowser ; extra == 'convert'
+
+UNKNOWN
+
+
