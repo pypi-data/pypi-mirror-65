@@ -1,0 +1,4 @@
+{% spaceless %}
+    {% load currency_filters %}
+    {{ record.requested_credit_limit | currency | default:'—' }}
+{% endspaceless %}

@@ -1,0 +1,7 @@
+{% spaceless %}
+    {% if record.joint_applicant %}
+        {{ record.joint_applicant.last_name }}, {{ record.joint_applicant.first_name }}
+    {% else %}
+        —
+    {% endif %}
+{% endspaceless %}
