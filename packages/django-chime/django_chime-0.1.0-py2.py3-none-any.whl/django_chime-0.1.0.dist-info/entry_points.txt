@@ -1,0 +1,4 @@
+[console_scripts]
+django_chime = django_chime.cli:entry_point
+penn_chime = penn_chime.cli:entry_point
+
