@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: epimodels
+Version: 0.3.1
+Summary: Library of mathematical epidemic models for use in simulation studies and inference
+Home-page: https://pyscaffold.org/
+Author: Flávio Codeço Coelho
+Author-email: fccoelho@gmail.com
+License: mit
+Description: 
+        # Epimodels
+        
+        
+        
+        Add a short description here!
+        
+        
+        ## Description
+        
+        
+        A longer description of your project goes here...
+        
+        
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6
+Provides-Extra: testing
