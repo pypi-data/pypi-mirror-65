@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: multimodal-keras-wrapper
+Version: 3.0.10
+Summary: Wrapper for Keras with support to easy multimodal data and models loading and handling.
+Home-page: https://github.com/MarcBS/multimodal_keras_wrapper
+Author: Marc Bolaños - Alvaro Peris
+Author-email: marc.bolanos@ub.edu
+License: MIT
+Download-URL: https://github.com/MarcBS/multimodal_keras_wrapper/archive/master.zip
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: keras
+Requires-Dist: numpy
+Requires-Dist: six
+Requires-Dist: toolz
+Requires-Dist: cloudpickle
+Requires-Dist: matplotlib
+Requires-Dist: sacremoses
+Requires-Dist: sacrebleu
+Requires-Dist: scipy
+Requires-Dist: future
+Requires-Dist: cython
+Requires-Dist: keras-applications
+Requires-Dist: keras-preprocessing
+Requires-Dist: sklearn
+Requires-Dist: tables
+Provides-Extra: cython
+Requires-Dist: cython ; extra == 'cython'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-pep8 ; extra == 'tests'
+Requires-Dist: pytest-xdist ; extra == 'tests'
+Requires-Dist: flaky ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: requests ; extra == 'tests'
+Requires-Dist: markdown ; extra == 'tests'
+
+UNKNOWN
+
+
