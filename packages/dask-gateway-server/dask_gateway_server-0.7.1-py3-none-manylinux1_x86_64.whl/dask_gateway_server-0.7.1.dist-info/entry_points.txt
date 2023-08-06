@@ -1,0 +1,4 @@
+[console_scripts]
+dask-gateway-jobqueue-launcher = dask_gateway_server.backends.jobqueue.launcher:main
+dask-gateway-server = dask_gateway_server.app:main
+
