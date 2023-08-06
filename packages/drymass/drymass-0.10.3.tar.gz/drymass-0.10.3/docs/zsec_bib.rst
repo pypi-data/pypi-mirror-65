@@ -1,0 +1,6 @@
+=============
+Bilbliography
+=============
+
+.. bibliography:: drymass.bib
+
