@@ -1,0 +1,12 @@
+# Ignore distribution archives
+build
+dist
+*.egg-info
+*.eggs
+
+# Ignore cache
+*.pyc
+**/__pycache__
+
+# Ignore tox workspace
+.tox
