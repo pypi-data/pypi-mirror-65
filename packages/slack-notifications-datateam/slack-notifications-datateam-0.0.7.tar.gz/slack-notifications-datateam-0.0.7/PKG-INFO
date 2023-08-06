@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: slack-notifications-datateam
+Version: 0.0.7
+Summary: Small package to send slack notifications
+Home-page: https://github.com/pypa/sampleproject
+Author: Lizbeth Mancilla
+Author-email: lizbeth.mancilla@payclip.com
+License: UNKNOWN
+Description: # Slack notifitacions
+        Slack callback function to send alerts to any channel. It can be use for various errors on critical pieces of data pipelines. 
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
