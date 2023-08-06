@@ -1,0 +1,93 @@
+{
+  "timeout": 60,
+  "timeout_wait": 300,
+  "gas_price": 60000000,
+  "networks": {
+    "mocTestnetAlpha": {
+      "uri": ["https://public-node.testnet.rsk.co"],
+      "chain_id": 31,
+      "accounts": [
+        {
+          "address": "0xAb242e50E95C2f539242763A4eD5Db1aEE5ce461",
+          "private_key": ""
+        }
+      ],
+      "addresses": {
+        "governor": "0x9258531274B945eB628656F4b30e8216938A619C",
+        "oracle": "0x78c892Dc5b7139d0Ec1eF513C9E28eDfAA44f2d4",
+        "upgradeDelegator": "0x00a47D7d7B9bD22e0A862908EC493bDE893f627B",
+        "MoCInrate": "0xe1DD7DB674d8F218CF7bA0BD8C5Ea17C06b4478d",
+        "MoCState": "0xe91d665b9A20BF72fF67E96d26F91E3de2beaF94",
+        "MoCExchange": "0x2706e5611FCb5ef52FCe3FA09c4F85A89ad43302",
+        "MoCHelperLib": "0xaF495D7f05e84b589122dA410eAda0188E1b12A5",
+        "MoCBProxManager": "0x2cF92DA59D690fBd2506a9A3a2439625F00f2dc8",
+        "MoCSettlement": "0xa0dA80B5E5bdf96F9e99630Fa333821fB741A308",
+        "BProToken": "",
+        "DoCToken": ""
+      }
+
+    },
+    "mocTestnet": {
+      "uri": ["https://public-node.testnet.rsk.co"],
+      "chain_id": 31,
+      "accounts": [
+        {
+          "address": "0xE2929d888015EB568AFfa06aaB946923a7236Ad9",
+          "private_key": ""
+        }
+      ],
+      "addresses": {
+        "governor": "0x4eAC4518e81B3A5198aADAb998D2610B46aAA609",
+        "oracle": "0x78c892Dc5b7139d0Ec1eF513C9E28eDfAA44f2d4",
+        "upgradeDelegator": "0xCDAbFbF334A5F6BCe900D2f73470D1e6722365d8",
+        "MoC": "0x2820f6d4D199B8D8838A4B26F9917754B86a0c1F",
+        "MoCInrate": "0x76790f846FAAf44cf1B2D717d0A6c5f6f5152B60",
+        "MoCState": "0x0adb40132cB0ffcEf6ED81c26A1881e214100555",
+        "MoCExchange": "0xc03Ac60eBbc01A1f4e9b5bb989F359e5D8348919",
+        "MoCHelperLib": "0xB842F6E4795F0DCE9e05729981B4B1D908dE552c",
+        "MoCBProxManager": "0x634b6c45Eb7b1D8Fe0961BB4586bf585aE718A96",
+        "MoCSettlement": "0x367D283c53f8F10e47424e2AeB102F45eCC49FEa",
+        "FeedFactory": "0x68DEC3A1e277311b362f2c15313F48075e01379b",
+        "PriceFeed_0": "0xa33EAbE3e2CFbEBB2c16c98994E5EE041A28411a",
+        "PriceFeed_1": "0x033c1D78Fbc34178A7Ee7fa64Fa6f31fEE8f79C2",
+        "PriceFeed_2": "0x5d111d1b49Aa39d0172712266B0DE2F1eB9957F4",
+        "PriceFeed_3": "0x02baf7348859aAC6CfEEc53498A077790244bBe6",
+        "BProToken": "0x4dA7997A819bb46B6758B9102234c289dD2Ad3bf",
+        "DoCToken": "0xCB46c0ddc60D18eFEB0E586C17Af6ea36452Dae0"
+      }
+
+    },
+    "mocMainnet2": {
+      "uri": ["https://public-node.rsk.co"],
+      "chain_id": 30,
+      "accounts": [
+        {
+          "address": "0xEA14c08764c9e5F212c916E11a5c47Eaf92571e4",
+          "private_key": ""
+        }
+      ],
+      "addresses": {
+        "governor": "0xC61F0392d5170214b5D93C0BC4c4354163aBC1f7",
+        "oracle": "0x7B19bb8e6c5188eC483b784d6fB5d807a77b21bF",
+        "upgradeDelegator": "0x5cE577f6Ec969CE9a282838D350206C52A6F338C",
+        "MoC": "0xf773B590aF754D597770937Fa8ea7AbDf2668370",
+        "MoCInrate": "0xc0f9B54c41E3d0587Ce0F7540738d8d649b0A3F3",
+        "MoCState": "0xb9C42EFc8ec54490a37cA91c423F7285Fa01e257",
+        "MoCExchange": "0x6aCb83bB0281FB847b43cf7dd5e2766BFDF49038",
+        "MoCHelperLib": "0x4E1894debD18b470706A20aC8FE0cc2D9e904218",
+        "MoCBProxManager": "0xC4fBFa2270Be87FEe5BC38f7a1Bb6A9415103b6c",
+        "MoCSettlement": "0x609dF03D8a85eAffE376189CA7834D4C35e32F22",
+        "FeedFactory": "0xf0abcc4Cb0B46D9858704eb0C72d9735986B09cF",
+        "PriceFeed_0": "0x42157b5e6B0dD6BeFaDe2d1B1dE7937C9fEA02F4",
+        "PriceFeed_1": "0xbDbE9cA38cDD2f32ccE11114549E41712BeDe771",
+        "PriceFeed_2": "0xfE05Ee3d651670F807Db7dD56e1E0FCBa29B234a",
+        "PriceFeed_3": "0xE94007E81412eDfdB87680F768e331E8c691f0e1",
+        "BProToken": "0x440CD83C160De5C96Ddb20246815eA44C7aBBCa8",
+        "DoCToken": ""
+      }
+    }
+
+
+  }
+
+}
