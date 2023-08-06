@@ -1,0 +1,1591 @@
+"""
+
+    Greynir: Natural language processing for Icelandic
+
+    Error-correcting tokenization layer
+
+    Copyright (C) 2020 Miðeind ehf.
+
+       This program is free software: you can redistribute it and/or modify
+       it under the terms of the GNU General Public License as published by
+       the Free Software Foundation, either version 3 of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful,
+       but WITHOUT ANY WARRANTY; without even the implied warranty of
+       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+       GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/.
+
+
+    This module adds layers to the bintokenizer.py module in ReynirPackage.
+    These layers add token-level error corrections and recommendation flags
+    to the token stream.
+
+"""
+
+from collections import defaultdict
+
+from tokenizer import Abbreviations
+from reynir import TOK
+from reynir.bintokenizer import DefaultPipeline, MatchingStream, BIN_Meaning
+
+from .settings import (
+    AllowedMultiples,
+    WrongCompounds,
+    SplitCompounds,
+    UniqueErrors,
+    MultiwordErrors,
+    CapitalizationErrors,
+    TabooWords,
+    CDErrorForms,
+    CIDErrorForms,
+    Morphemes,
+    Settings,
+)
+from .spelling import Corrector
+
+
+# Words that contain any letter from the following set are assumed
+# to be foreign and their spelling is not corrected, but suggestions are made
+NON_ICELANDIC_LETTERS_SET = frozenset("cwqøâãäçĉčêëîïñôõûüÿßĳ")
+
+# Month names, incorrectly capitalized
+MONTH_NAMES_CAPITALIZED = (
+    "Janúar",
+    "Febrúar",
+    "Mars",
+    "Apríl",
+    "Maí",
+    "Júní",
+    "Júlí",
+    "Ágúst",
+    "September",
+    "Október",
+    "Nóvember",
+    "Desember",
+)
+
+# Word categories and their names
+POS = {
+    "lo": "lýsingarorð",
+    "ao": "atviksorð",
+    "kk": "nafnorð",
+    "hk": "nafnorð",
+    "kvk": "nafnorð",
+    "so": "sagnorð",
+}
+
+# Dict of { (at sentence start, single letter token) : allowed correction }
+SINGLE_LETTER_CORRECTIONS = {
+    (False, "a"): "á",
+    (False, "i"): "í",
+    (True, "A"): "Á",
+    (True, "I"): "Í",
+}
+
+# Correction of abbreviations
+# !!! TODO: Move this to a config file
+WRONG_ABBREVS = {
+    "amk.": "a.m.k.",
+    "Amk.": "A.m.k.",
+    "a.m.k": "a.m.k.",
+    "A.m.k": "A.m.k.",
+    "etv.": "e.t.v.",
+    "Etv.": "E.t.v.",
+    "eþh.": "e.þ.h.",
+    "ofl." : "o.fl.",
+    "mtt.": "m.t.t.",
+    "Mtt.": "M.t.t.",
+    "n.k.": "nk.",
+    "omfl.": "o.m.fl.",
+    "osfrv.": "o.s.frv.",
+    "oþh.": "o.þ.h.",
+    "t.d": "t.d.",
+    "T.d": "T.d.",
+    "uþb.": "u.þ.b.",
+    "Uþb.": "U.þ.b.",
+    "þ.á.m.": "þ. á m.",
+    "Þ.á.m.": "Þ. á m.",
+    "þeas.": "þ.e.a.s.",
+    "Þeas.": "Þ.e.a.s.",
+    "þmt.": "þ.m.t.",
+    "ca": "ca.",
+}
+
+
+def emulate_case(s, template):
+    """ Return the string s but emulating the case of the template
+        (lower/upper/capitalized) """
+    if template.isupper():
+        return s.upper()
+    elif template and template[0].isupper():
+        return s.capitalize()
+    return s
+
+
+class CorrectToken:
+
+    """ This class sneakily replaces the tokenizer.Tok tuple in the tokenization
+        pipeline. When applying a CorrectionPipeline (instead of a DefaultPipeline,
+        as defined in binparser.py in ReynirPackage), tokens get translated to
+        instances of this class in the correct() phase. This works due to Python's
+        duck typing, because a CorrectToken class instance is able to walk and quack
+        - i.e. behave - like a tokenizer.Tok tuple. It adds an _err attribute to hold
+        information about spelling and grammar errors, and some higher level functions
+        to aid in error reporting and correction. """
+
+    # Use __slots__ as a performance enhancement, since we want instances
+    # to be as lightweight as possible - and we don't expect this class
+    # to be subclassed or custom attributes to be added
+    __slots__ = ("kind", "txt", "val", "_err")
+
+    def __init__(self, kind, txt, val):
+        self.kind = kind
+        self.txt = txt
+        self.val = val
+        self._err = None
+
+    def __getitem__(self, index):
+        """ Support tuple-style indexing, as raw tokens do """
+        return (self.kind, self.txt, self.val)[index]
+
+    @classmethod
+    def from_token(cls, token):
+        """ Wrap a raw token in a CorrectToken """
+        return cls(token.kind, token.txt, token.val)
+
+    @classmethod
+    def word(cls, txt, val=None):
+        """ Create a wrapped word token """
+        return cls(TOK.WORD, txt, val)
+
+    def __repr__(self):
+        return "<CorrectToken(kind: {0}, txt: '{1}', val: {2})>".format(
+            TOK.descr[self.kind], self.txt, self.val
+        )
+
+    __str__ = __repr__
+
+    def set_error(self, err):
+        """ Associate an Error class instance with this token """
+        self._err = err
+
+    def copy_error(self, other, coalesce=False):
+        """ Copy the error field from another CorrectToken instance """
+        if isinstance(other, list):
+            # We have a list of CorrectToken instances to copy from:
+            # find the first error in the list, if any, and copy it
+            for t in other:
+                if self.copy_error(t, coalesce=True):
+                    break
+        elif isinstance(other, CorrectToken):
+            self._err = other._err
+            if coalesce and other.error_span > 1:
+                # The original token had an associated error
+                # spanning more than one token; now we're creating
+                # a single token out of the span
+                # ('fimm hundruð' -> number token), so we reset
+                # the span to one token
+                self._err.set_span(1)
+        return self._err is not None
+
+    @property
+    def error(self):
+        """ Return the error object associated with this token, if any """
+        # Note that self._err may be a bool
+        return self._err
+
+    @property
+    def error_description(self):
+        """ Return the description of an error associated with this token, if any """
+        return getattr(self._err, "description", "")
+
+    @property
+    def error_code(self):
+        """ Return the code of an error associated with this token, if any """
+        return getattr(self._err, "code", "")
+
+    @property
+    def error_suggestion(self):
+        """ Return the text of a suggested replacement of this token, if any """
+        return getattr(self._err, "suggestion", None)
+
+    @property
+    def error_span(self):
+        """ Return the number of tokens affected by this error """
+        return getattr(self._err, "span", 1)
+
+
+class Error:
+
+    """ Base class for spelling and grammar errors, warnings and recommendations.
+        An Error has a code and can provide a description of itself. """
+
+    def __init__(self, code, is_warning=False):
+        # Note that if is_warning is True, "/w" is appended to
+        # the error code. This causes the Greynir UI to display
+        # a warning annotation instead of an error annotation.
+        self._code = code + ("/w" if is_warning else "")
+
+    @property
+    def code(self):
+        return self._code
+
+    @property
+    def description(self):
+        """ Should be overridden """
+        raise NotImplementedError
+
+    def __str__(self):
+        return "{0}: {1}".format(self.code, self.description)
+
+    def to_dict(self):
+        return {"code": self.code, "descr": self.description}
+
+
+class PunctuationError(Error):
+
+    """ A PunctuationError is an error where punctuation is wrong """
+
+    # N001: Wrong quotation marks
+    # N002: Three periods should be an ellipsis
+    # N003: Informal combination of punctuation (??!!)
+
+    def __init__(self, code, txt, span=1):
+        # Punctuation error codes start with "N"
+        super().__init__("N" + code)
+        self._txt = txt
+        self._span = span
+
+    @property
+    def description(self):
+        return self._txt
+
+    @property
+    def set_span(self, span):
+        self._span = span
+
+
+class CompoundError(Error):
+
+    """ A CompoundError is an error where words are duplicated, split or not
+        split correctly. """
+
+    # C001: Duplicated word removed. Should be corrected.
+    # C002: Wrongly compounded words split up. Should be corrected.
+    # C003: Wrongly split compounds united. Should be corrected.
+    # C004: Duplicated word marked as a possible error.
+    #       Should be pointed out but not deleted.
+    # C005: Possible split compound, depends on meaning/PoS chosen by parser.
+    # C006: A part of a word compound word is wrong.
+
+    def __init__(self, code, txt, span=1):
+        # Compound error codes start with "C"
+        # We consider C004 to be a warning, not an error
+        is_warning = code == "004"
+        super().__init__("C" + code, is_warning=is_warning)
+        self._txt = txt
+        self._span = span
+
+    @property
+    def description(self):
+        return self._txt
+
+    @property
+    def span(self):
+        return self._span
+
+    def set_span(self, span):
+        """ Reset the span to the given number """
+        self._span = span
+
+
+class UnknownWordError(Error):
+
+    """ An UnknownWordError is an error where the given word form does not
+        exist in BÍN or additional vocabularies, and cannot be explained as
+        a compound word. """
+
+    # U001: Unknown word. Nothing more is known. Cannot be corrected, only pointed out.
+
+    def __init__(self, code, txt):
+        # Unknown word error codes start with "U"
+        super().__init__("U" + code)
+        self._txt = txt
+
+    @property
+    def description(self):
+        return self._txt
+
+
+class CapitalizationError(Error):
+
+    """ A CapitalizationError is an error where a word is capitalized
+        incorrectly, i.e. should be lower case but occurs in upper case
+        except at the beginning of a sentence, or should be upper case
+        but occurs in lower case. """
+
+    # Z001: Word should begin with lowercase letter
+    # Z002: Word should begin with uppercase letter
+    # Z003: Month name should begin with lowercase letter
+
+    def __init__(self, code, txt):
+        # Capitalization error codes start with "Z"
+        super().__init__("Z" + code)
+        self._txt = txt
+
+    @property
+    def description(self):
+        return self._txt
+
+
+class AbbreviationError(Error):
+
+    """ An AbbreviationError is an error where an abbreviation
+        is not spelled out, punctuated or spaced correctly. """
+
+    # A001: Abbreviation corrected
+
+    def __init__(self, code, txt):
+        # Abbreviation error codes start with "A"
+        super().__init__("A" + code)
+        self._txt = txt
+
+    @property
+    def description(self):
+        return self._txt
+
+
+class TabooWarning(Error):
+
+    """ A TabooWarning marks a word that is vulgar or not appropriate
+        in formal text. """
+
+    # T001: Taboo word usage warning, with suggested replacement
+
+    def __init__(self, code, txt):
+        # Taboo word warnings start with "T"
+        super().__init__("T" + code, is_warning=True)
+        self._txt = txt
+
+    @property
+    def description(self):
+        return self._txt
+
+
+class SpellingError(Error):
+
+    """ A SpellingError is an erroneous word that was replaced
+        by a much more likely word that exists in the dictionary. """
+
+    # S001: Common errors picked up by unique_errors. Should be corrected
+    # S002: Errors handled by spelling.py. Corrections should possibly
+    #       only be suggested.
+    # S003: Erroneously formed word forms picked up by ErrorForms.
+    #       Should be corrected.
+    # S004: Rare word, a more common one has been substituted.
+
+    def __init__(self, code, txt):
+        # Spelling error codes start with "S"
+        super().__init__("S" + code)
+        self._txt = txt
+
+    @property
+    def description(self):
+        return self._txt
+
+
+class SpellingSuggestion(Error):
+
+    """ A SpellingSuggestion is an annotation suggesting that
+        a word might be misspelled. """
+
+    # W001: Replacement suggested
+
+    def __init__(self, code, txt, suggest):
+        # Spelling suggestion codes start with "W"
+        super().__init__("W" + code, is_warning=True)
+        self._txt = txt
+        self._suggest = suggest
+
+    @property
+    def description(self):
+        return self._txt
+
+    @property
+    def suggestion(self):
+        return self._suggest
+
+    def to_dict(self):
+        d = super().to_dict()
+        d["suggest"] = self.suggestion
+        return d
+
+
+class PhraseError(Error):
+
+    """ A PhraseError is a wrong multiword phrase, where a word is out
+        of place in its context. """
+
+    # P_xxx: Phrase error codes
+
+    def __init__(self, code, txt, span, is_warning=False):
+        # Phrase error codes start with "P", and are followed by
+        # a string indicating the type of error, i.e. YI for y/i, etc.
+        super().__init__("P_" + code, is_warning=is_warning)
+        self._txt = txt
+        self._span = span
+
+    @property
+    def description(self):
+        return self._txt
+
+    @property
+    def span(self):
+        return self._span
+
+    def set_span(self, span):
+        """ Reset the span to the given number """
+        self._span = span
+
+
+def parse_errors(token_stream, db, only_ci):
+
+    """ This tokenization phase is done before BÍN annotation
+        and before static phrases are identified. It finds duplicated words,
+        and words that have been incorrectly split or should be split. """
+
+    def get():
+        """ Get the next token in the underlying stream and wrap it
+            in a CorrectToken instance """
+        return CorrectToken.from_token(next(token_stream))
+
+    # pylint: disable=unused-variable
+    def is_split_compound(token, next_token):
+        """ Check whether the combination of the given token and the next
+            token forms a split compound. Note that the latter part of
+            a split compound is specified as a stem (lemma), so we need
+            to check whether the next_token word form has a corresponding
+            lemma. Also, a single first part may have more than one (i.e.,
+            a set of) subsequent latter part stems.
+        """
+        txt = token.txt
+        next_txt = next_token.txt
+        if txt is None or next_txt is None or next_txt.istitle():
+            # If the latter part is in title case, we don't see it
+            # as a part of split compound
+            return False
+        if next_txt.isupper() and not txt.isupper():
+            # Don't allow a combination of an all-upper-case
+            # latter part with anything but an all-upper-case former part
+            return False
+        if txt.isupper() and not next_txt.isupper():
+            # ...and vice versa
+            return False
+        next_stems = SplitCompounds.DICT.get(txt.lower())
+        if not next_stems:
+            return False
+        _, meanings = db.lookup_word(next_txt.lower(), at_sentence_start=False)
+        if not meanings:
+            return False
+        # If any meaning of the following word has a stem (lemma)
+        # that fits the second part of the split compound, we
+        # have a match
+        return any(m.stofn.replace("-", "") in next_stems for m in meanings)
+
+    token = None
+    at_sentence_start = False
+
+    try:
+
+        # Maintain a one-token lookahead
+        token = get()
+
+        while True:
+
+            next_token = get()
+
+            if token.kind == TOK.S_BEGIN:
+                yield token
+                token = next_token
+                at_sentence_start = True
+                continue
+
+            # Make the lookahead checks we're interested in
+
+            # Check wrong abbreviations
+            if (
+                not only_ci
+                and token.kind == TOK.WORD
+                and token.val
+                and token.txt in WRONG_ABBREVS
+            ):
+                original = token.txt
+                corrected = WRONG_ABBREVS[original]
+                token = CorrectToken.word(corrected, token.val)
+                token.set_error(
+                    AbbreviationError(
+                        "001",
+                        "Skammstöfunin '{0}' var leiðrétt í '{1}'"
+                        .format(original, corrected)
+                    )
+                )
+                yield token
+                token = next_token
+                at_sentence_start = False
+                continue
+
+            # Check abbreviations with missing dots
+            if not token.val and token.txt in Abbreviations.WRONGDOTS:
+                # Multiple periods in original, some subset missing here
+                # We suggest the first alternative meaning here, out of
+                # potentially multiple such meanings
+                original = token.txt
+                corrected = Abbreviations.WRONGDOTS[original][0]
+                if (
+                    corrected.endswith(".")
+                    and not original.endswith(".")
+                    and next_token.txt == "."
+                ):
+                    # If this is an abbreviation missing a period, and the
+                    # correction is about adding a period to it, don't do
+                    # it if the next token is a period
+                    pass
+                else:
+                    _, token_m = db.lookup_word(original, at_sentence_start)
+                    if not token_m:
+                        # No meaning in BÍN: allow ourselves to correct it
+                        # as an abbreviation
+                        am = Abbreviations.get_meaning(corrected)
+                        m = list(map(BIN_Meaning._make, am))
+                        token = CorrectToken.word(corrected, m)
+                        token.set_error(
+                            AbbreviationError(
+                                "002",
+                                "Skammstöfunin '{0}' var leiðrétt í '{1}'"
+                                .format(original, corrected)
+                            )
+                        )
+                        yield token
+                        token = next_token
+                        at_sentence_start = False
+                        continue
+
+            # Word duplication (note that word case must also match)
+            # TODO STILLING - hér er bara samhengisháð leiðrétting
+            if (
+                not only_ci
+                and token.txt
+                and next_token.txt
+                and token.txt == next_token.txt
+                and token.kind == TOK.WORD
+            ):
+                # TODO STILLING - hér er bara uppástunga, skiptir ekki máli fyrir ósh. málrýni
+                if token.txt.lower() in AllowedMultiples.SET:
+                    next_token.set_error(
+                        CompoundError(
+                            "004",
+                            "'{0}' er að öllum líkindum ofaukið".format(next_token.txt),
+                        )
+                    )
+                    yield token
+                else:
+                    # Step to next token
+                    next_token = CorrectToken.word(token.txt)
+                    next_token.set_error(
+                        CompoundError(
+                            "001",
+                            "Endurtekið orð ('{0}') var fellt burt".format(token.txt),
+                        )
+                    )
+                token = next_token
+                at_sentence_start = False
+                continue
+
+            # Word duplication with different cases
+            # Only provide a suggestion
+            # No need to check AllowedMultiples
+            # TODO STILLING - hér er samhengisháð leiðrétting
+            if (
+                not only_ci
+                and token.txt
+                and next_token.txt
+                and token.txt.lower() == next_token.txt.lower()
+                and token.kind == TOK.WORD
+            ):
+                # Set possible error on next token
+                next_token.set_error(
+                    CompoundError(
+                        "004",
+                        "'{0}' er að öllum líkindum ofaukið".format(next_token.txt),
+                    )
+                )
+                yield token
+                token = next_token
+                at_sentence_start = False
+                continue
+
+            # Splitting wrongly compounded words
+            # TODO STILLING - hér er ósamhengisháð leiðrétting!
+            if token.txt and token.txt.lower() in WrongCompounds.DICT:
+                correct_phrase = list(WrongCompounds.DICT[token.txt.lower()])
+                # Make the split phrase emulate the case of
+                # the original token
+                if token.txt.isupper():
+                    # All upper case
+                    for ix, p in enumerate(correct_phrase):
+                        correct_phrase[ix] = p.upper()
+                else:
+                    # First word might be capitalized
+                    correct_phrase[0] = emulate_case(correct_phrase[0], token.txt)
+                for ix, phrase_part in enumerate(correct_phrase):
+                    new_token = CorrectToken.word(phrase_part)
+                    if ix == 0:
+                        new_token.set_error(
+                            CompoundError(
+                                "002",
+                                "Orðinu '{0}' var skipt upp".format(token.txt),
+                                span=len(correct_phrase),
+                            )
+                        )
+                    yield new_token
+                token = next_token
+                at_sentence_start = False
+                continue
+
+            # TODO STILLING - hér er samhengisháð leiðrétting
+            # TODO STILLING - ath. þó að e-ð af orðhlutunum í Morphemes.BOUND_DICT geta ekki staðið sjálfstæð
+            # TODO STILLING - þá þarf að merkja þá orðhluta sem villu ef ósh. leiðrétting er valin.
+            # Unite wrongly split compounds, or at least suggest uniting them
+            if token.txt and (
+                token.txt.lower() in SplitCompounds.DICT
+                or token.txt.lower() in Morphemes.BOUND_DICT
+            ):
+                if only_ci:
+                    if token.txt.lower() in SplitCompounds.DICT:
+                        # Don't want to correct
+                        yield token
+                        token = next_token
+                        at_sentence_start = False
+                        continue
+                    if token.txt.lower() in Morphemes.BOUND_DICT:
+                        # Only want to mark as an error, can't fix in CI-mode.
+                        token.set_error(
+                            SpellingError(
+                                "007",
+                                "Orðhlutinn '{0}' á ekki að standa stakur".format(
+                                    token.txt
+                                ),
+                            )
+                        )
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+                if not next_token.txt or next_token.txt.istitle():
+                    # If the latter part is in title case, we don't see it
+                    # as a part of a split compound
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+                if next_token.txt.isupper() and not token.txt.isupper():
+                    # Don't allow a combination of an all-upper-case
+                    # latter part with anything but an all-upper-case former part
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+                if token.txt.isupper() and not next_token.txt.isupper():
+                    # ...and vice versa
+                    yield token
+                    token = next_token
+                    continue
+                next_stems = SplitCompounds.DICT.get(token.txt.lower())
+                if not next_stems:
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+                _, meanings = db.lookup_word(
+                    next_token.txt.lower(), at_sentence_start=False
+                )
+                if not meanings:
+                    # The latter part is not in BÍN
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+                if any(m.stofn.replace("-", "") in next_stems for m in meanings):
+                    first_txt = token.txt
+                    token = CorrectToken.word(token.txt + next_token.txt)
+                    token.set_error(
+                        CompoundError(
+                            "003",
+                            "Orðin '{0} {1}' voru sameinuð í eitt".format(
+                                first_txt, next_token.txt
+                            ),
+                        )
+                    )
+                    yield token
+                    token = get()
+                    at_sentence_start = False
+                    continue
+                next_pos = Morphemes.BOUND_DICT.get(token.txt.lower())
+                if not next_pos:
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+                poses = set(m.ordfl for m in meanings if m.ordfl in next_pos)
+                notposes = set(m.ordfl for m in meanings if m.ordfl not in next_pos)
+                if not poses:
+                    # Stop searching
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+                if not notposes:
+                    # No other PoS available, most likely a compound error
+                    first_txt = token.txt
+                    token = CorrectToken.word(token.txt + next_token.txt)
+                    token.set_error(
+                        CompoundError(
+                            "003",
+                            "Orðin '{0} {1}' voru sameinuð í eitt".format(
+                                first_txt, next_token.txt
+                            ),
+                        )
+                    )
+                    yield token
+                    token = get()
+                    at_sentence_start = False
+                    continue
+                # TODO STILLING - Hér er bara uppástunga, skiptir ekki máli f. ósh. málrýni.
+                # Erum búin að koma í veg fyrir að komast hingað ofar
+                if poses:
+                    transposes = list(set(POS[c] for c in poses))
+                    if len(transposes) == 1:
+                        tp = transposes[0]
+                    else:
+                        tp = ", ".join(transposes[:-1]) + " eða " + transposes[-1]
+                    token.set_error(
+                        CompoundError(
+                            "005",
+                            "Ef '{0}' er {1} á að sameina það '{2}'".format(
+                                token.txt, tp, next_token.txt
+                            ),
+                        )
+                    )
+                    yield token
+                    token = next_token
+                    at_sentence_start = False
+                    continue
+
+            if token.kind == TOK.PUNCTUATION and token.txt != token.val[1]:
+                if token.val[1] in "„“":
+                    # TODO Could add normalize_quotation_marks as a parameter,
+                    # should normalize automatically if chosen
+                    token.set_error(
+                        PunctuationError(
+                            "001",
+                            "Gæsalappirnar {0} ættu að vera {1}".format(
+                                token.txt, token.val[1]
+                            ),
+                        )
+                    )
+                elif token.val[1] == "…":
+                    if token.txt == "..":
+                        # Assume user meant to write a single period
+                        # Doesn't happen with current tokenizer behaviour
+                        token.set_error(
+                            PunctuationError("002", "Gæti átt að vera einn punktur (.)")
+                        )
+                    elif len(token.txt) > 3:
+                        # Informal, should be standardized to an ellipsis
+                        token.set_error(
+                            PunctuationError(
+                                "002", "Óformlegt; gæti átt að vera þrípunktur (…)"
+                            )
+                        )
+                    else:
+                        # Three periods found, used as an ellipsis
+                        # Not pointed out, allowed as-is
+                        # TODO could add normalize_ellipsis as a parameter here
+                        pass
+                elif token.val[1] == "?!":
+                    # Changed automatically, pointed out as informal
+                    token.set_error(
+                        PunctuationError(
+                            "003",
+                            "'{0}' er óformlegt, breytt í '{1}'".format(
+                                token.txt, token.val[1]
+                            ),
+                        )
+                    )
+
+            # Yield the current token and advance to the lookahead
+            yield token
+            if token.kind != TOK.PUNCTUATION and token.kind != TOK.ORDINAL:
+                at_sentence_start = False
+            token = next_token
+
+    except StopIteration:
+        # Final token (previous lookahead)
+        if token:
+            yield token
+
+
+class MultiwordErrorStream(MatchingStream):
+
+    """ Class that filters a token stream looking for multi-word
+        matches with the MultiwordErrors phrase dictionary,
+        and inserting replacement phrases when matches are found """
+
+    def __init__(self, db, token_ctor):
+        super().__init__(MultiwordErrors.DICT)
+        self._token_ctor = token_ctor
+        self._db = db
+
+    def length(self, ix):
+        """ Return the length (word count) of the original phrase
+            that is being replaced """
+        return MultiwordErrors.get_phrase_length(ix)
+
+    def match(self, tq, ix):
+        """ This is a complete match of an error phrase;
+            yield the replacement phrase """
+        replacement = MultiwordErrors.get_replacement(ix)
+        db = self._db
+        token_ctor = self._token_ctor
+        for i, replacement_word in enumerate(replacement):
+            # !!! TODO: at_sentence_start
+            w, m = db.lookup_word(replacement_word, False, False)
+            if i == 0:
+                # Fix capitalization of the first word
+                # !!! TODO: handle all-uppercase
+                if tq[0].txt.istitle():
+                    w = w.title()
+            ct = token_ctor.Word(w, m)
+            if i == 0:
+                ct.set_error(
+                    PhraseError(
+                        MultiwordErrors.get_code(ix),
+                        "Orðasambandið '{0}' var leiðrétt í '{1}'".format(
+                            " ".join(t.txt for t in tq), " ".join(replacement)
+                        ),
+                        span=len(replacement),
+                    )
+                )
+            else:
+                # Set the error field of multiword phrase
+                # continuation tokens to True, thus avoiding
+                # further meddling with them
+                ct.set_error(True)
+            yield ct
+
+
+def handle_multiword_errors(token_stream, db, token_ctor):
+
+    """ Parse a stream of tokens looking for multiword phrases
+        containing errors.
+        The algorithm implements N-token lookahead where N is the
+        length of the longest phrase.
+    """
+
+    mwes = MultiwordErrorStream(db, token_ctor)
+    yield from mwes.process(token_stream)
+
+
+# Compound word stuff
+
+# Illegal prefixes that will be split off from the rest of the word
+# Attn.: Make sure these errors are available as a prefix
+NOT_FORMERS = frozenset(("allra", "alhliða", "fjölnota", "margnota", "ótal"))
+
+# Tradition says these word parts should rather be used
+# Using them results in a context-dependent error
+# Attn.: Make sure these errors are available as a prefix
+WRONG_FORMERS = {
+    "akstur": "aksturs",
+    "athugana": "athugunar",
+    "ferminga": "fermingar",
+    "fjárfestinga": "fjárfestingar",
+    "forvarna": "forvarnar",
+    "heyrna": "heyrnar",
+    "kvartana": "kvörtunar",
+    "loftlags": "loftslags",
+    "næringa": "næringar",
+    "pantana": "pöntunar",
+    "ráðninga": "ráðningar",
+    "skráninga": "skráningar",
+    "Vestfjarðar": "Vestfjarða",
+    "ábendinga": "ábendingar",
+}
+
+# Using these word parts results in a context-independent error
+# Attn.: Make sure these errors are available as a prefix
+WRONG_FORMERS_CI = {
+    "akríl": "akrýl",
+    "dísel": "dísil",
+    "eyrnar": "eyrna",
+    "feykna": "feikna",
+    "fjarskiptar": "fjarskipta",
+    "fyrna": "firna",
+    "griðar": "griða",  # griðarstaður
+    "kvenn": "kven",
+    "Lundúnar": "Lundúna",
+    "öldungar": "öldunga",
+}
+
+
+def fix_compound_words(token_stream, db, token_ctor, only_ci):
+    """ Fix incorrectly compounded words """
+
+    at_sentence_start = False
+
+    for token in token_stream:
+
+        if token.kind == TOK.S_BEGIN:
+            yield token
+            at_sentence_start = True
+            continue
+
+        if token.kind == TOK.PUNCTUATION or token.kind == TOK.ORDINAL:
+            yield token
+            # Don't modify at_sentence_start in this case
+            continue
+
+        if token.kind != TOK.WORD or not token.val or "-" not in token.val[0].stofn:
+            # Not a compound word
+            yield token
+            at_sentence_start = False
+            continue
+
+        # Compound word
+        cw = token.val[0].stofn.split("-")
+        # Special case for the prefix "ótal" which the compounder
+        # splits into ó-tal
+        if len(cw) >= 3 and cw[0] == "ó" and cw[1] == "tal":
+            cw = ["ótal"] + cw[2:]
+
+        # TODO STILLING - hér er ósamhengisháð leiðrétting!
+        if cw[0] in NOT_FORMERS:
+            # Prefix is invalid as such; should be split
+            # into two words
+            prefix = emulate_case(cw[0], token.txt)
+            w, m = db.lookup_word(prefix, at_sentence_start)
+            t1 = token_ctor.Word(w, m, token=token)
+            t1.set_error(
+                CompoundError(
+                    "002", "Orðinu '{0}' var skipt upp".format(token.txt), span=2
+                )
+            )
+            yield t1
+            at_sentence_start = False
+            suffix = token.txt[len(cw[0]) :]
+            w, m = db.lookup_word(suffix, at_sentence_start)
+            token = token_ctor.Word(w, m, token=token)
+
+        # TODO STILLING - hér er ósamhengisháð leiðrétting!
+        elif cw[0] in Morphemes.FREE_DICT:
+            # Check which PoS, attachment depends on that
+            at_sentence_start = False
+            suffix = token.txt[len(cw[0]) :]
+            freepos = Morphemes.FREE_DICT.get(cw[0])
+            w2, meanings2 = db.lookup_word(suffix, at_sentence_start)
+            poses = set(m.ordfl for m in meanings2 if m.ordfl in freepos)
+            if not poses:
+                yield token
+                continue
+            notposes = set(m.ordfl for m in meanings2 if m.ordfl not in freepos)
+            if not notposes:
+                # No other PoS available, we found an error
+                w1, meanings1 = db.lookup_word(
+                    emulate_case(cw[0], token.txt), at_sentence_start
+                )
+                prefix = emulate_case(cw[0], token.txt)
+                t1 = token_ctor.Word(w1, meanings1, token=token)
+                t1.set_error(
+                    CompoundError(
+                        "002", "Orðinu '{0}' var skipt upp".format(token.txt), span=2
+                    )
+                )
+                yield t1
+                token = token_ctor.Word(w2, meanings2, token=token)
+            else:
+                # TODO STILLING - hér er bara uppástunga.
+                # Other possibilities but want to mark as a possible error
+                # Often just weird forms in BÍN left
+                if not only_ci:
+                    transposes = list(set(POS[c] for c in poses))
+                    if len(transposes) == 1:
+                        tp = transposes[0]
+                    else:
+                        tp = ", ".join(transposes[:-1]) + " eða " + transposes[-1]
+                    token.set_error(
+                        CompoundError(
+                            "005",
+                            "Ef '{0}' er {1} á að skipta orðinu upp".format(
+                                token.txt, tp
+                            ),
+                            span=2,
+                        )
+                    )
+
+        # TODO STILLING - hér er ósamhengisháð leiðrétting, en það er spurning hvort allt hér teljist endilega villa.
+        # TODO STILLING - viljum ekki endilega leiðrétta "byggingaregla", þó að venjan leyfi hitt frekar.
+        # TODO STILLING - Þarf að fara í gegnum WRONG_FORMERS, mætti skipta upp í
+        # TODO STILLING - ALWAYS_WRONG_FORMERS og MOSTLY_WRONG_FORMERS eða eitthvað þannig?
+        # TODO STILLING - fyrra alltaf leiðrétt, en seinna bara ábending?
+
+        # TODO STILLING - Athuga hvort hér ætti að hafa ólík villuskilaboð fyrir WRONG_FORMERS og WRONG_FORMERS_CI?
+        elif cw[0] in WRONG_FORMERS_CI:
+            correct_former = WRONG_FORMERS_CI[cw[0]]
+            corrected = correct_former + token.txt[len(cw[0]) :]
+            corrected = emulate_case(corrected, token.txt)
+            w, m = db.lookup_word(corrected, at_sentence_start)
+            t1 = token_ctor.Word(w, m, token=token)
+            t1.set_error(
+                CompoundError(
+                    "006",
+                    "Samsetta orðinu '{0}' var breytt í '{1}'".format(
+                        token.txt, corrected
+                    ),
+                )
+            )
+            token = t1
+
+        elif not only_ci and cw[0] in WRONG_FORMERS:
+            # Splice a correct front onto the word
+            # ('feyknaglaður' -> 'feiknaglaður')
+            correct_former = WRONG_FORMERS[cw[0]]
+            corrected = correct_former + token.txt[len(cw[0]) :]
+            corrected = emulate_case(corrected, token.txt)
+            w, m = db.lookup_word(corrected, at_sentence_start)
+            t1 = token_ctor.Word(w, m, token=token)
+            t1.set_error(
+                CompoundError(
+                    "006",
+                    "Samsetta orðinu '{0}' var breytt í '{1}'".format(
+                        token.txt, corrected
+                    ),
+                )
+            )
+            token = t1
+        # TODO Bæta inn leiðréttingu út frá seinni orðhlutum?
+        yield token
+        at_sentence_start = False
+
+
+def lookup_unknown_words(
+    corrector, token_ctor, token_stream, only_ci, apply_suggestions
+):
+    """ Try to identify unknown words in the token stream, for instance
+        as spelling errors (character juxtaposition, deletion, insertion...) """
+
+    at_sentence_start = False
+    context = tuple()
+    db = corrector.db
+
+    def is_immune(token):
+        """ Return True if the token should definitely not be
+            corrected """
+        if token.val and len(token.val) == 1 and token.val[0].beyging == "-":
+            # This is probably an abbreviation, having a single meaning
+            # and no declension information
+            return True
+        if token.txt.isupper():
+            # Should not correct all uppercase words
+            return True
+        return False
+
+    def replace_word(code, token, corrected, corrected_display):
+        """ Return a token for a corrected version of token_txt,
+            marked with a SpellingError if corrected_display is
+            a string containing the corrected word to be displayed """
+        w, m = db.lookup_word(corrected, at_sentence_start)
+        ct = token_ctor.Word(w, m, token=token if corrected_display else None)
+        if corrected_display:
+            if "." in corrected_display:
+                text = "Skammstöfunin '{0}' var leiðrétt í '{1}'".format(
+                    token.txt, corrected_display
+                )
+            else:
+                text = "Orðið '{0}' var leiðrétt í '{1}'".format(
+                    token.txt, corrected_display
+                )
+            ct.set_error(SpellingError("{0:03}".format(code), text))
+        else:
+            # In a multi-word sequence, mark the replacement
+            # tokens with a boolean value so that further
+            # replacements will not be made
+            ct.set_error(True)
+        return ct
+
+    def correct_word(code, token, corrected, w, m):
+        """ Return a token for a corrected version of token_txt,
+            marked with a SpellingError if corrected_display is
+            a string containing the corrected word to be displayed """
+        ct = token_ctor.Word(w, m, token=token)
+        if "." in corrected:
+            text = "Skammstöfunin '{0}' var leiðrétt í '{1}'".format(
+                token.txt, corrected
+            )
+        else:
+            text = "Orðið '{0}' var leiðrétt í '{1}'".format(token.txt, corrected)
+        ct.set_error(SpellingError("{0:03}".format(code), text))
+        return ct
+
+    def suggest_word(code, token, corrected):
+        """ Mark the current token with an annotation but don't correct
+            it, as we are not confident enough of the correction """
+        text = "Orðið '{0}' gæti átt að vera '{1}'".format(token.txt, corrected)
+        token.set_error(SpellingSuggestion("{0:03}".format(code), text, corrected))
+        return token
+
+    def only_suggest(token, m):
+        """ Return True if we don't have high confidence in the proposed
+            correction, so it will be suggested instead of applied """
+        if 2 <= len(token.txt) <= 4 and token.txt.isupper():
+            # This is a 2 to 4-letter all-uppercase word:
+            # it may be an unknown abbreviation, which we should not force-correct
+            return True
+        if set(token.txt.lower()) & NON_ICELANDIC_LETTERS_SET:
+            # If the original word contains non-Icelandic letters, it is
+            # probably a foreign word and in that case we only make a suggestion
+            return True
+        if not (token.val):
+            # The original word is not in BÍN, so we can
+            # confidently apply the correction
+            return False
+        if "-" not in token.val[0].stofn:
+            # The original word is in BÍN and not a compound word:
+            # only suggest a correction
+            return True
+        # The word is a compound word: only suggest the correction if it is compound
+        # too (or if no meaning is found for it in BÍN, which is an unlikely case)
+        return not (m) or "-" in m[0].stofn
+
+    for token in token_stream:
+
+        if token.kind == TOK.S_BEGIN:
+            yield token
+            # A new sentence is starting
+            at_sentence_start = True
+            context = tuple()
+            continue
+
+        if token.txt:
+            # Maintain a context trigram, ending with the current token
+            context = (context + tuple(token.txt.split()))[-3:]
+
+        if token.kind == TOK.PUNCTUATION or token.kind == TOK.ORDINAL:
+            yield token
+            # Don't modify at_sentence_start in this case
+            continue
+
+        if token.kind != TOK.WORD or " " in token.txt:
+            # No need to look at non-word tokens,
+            # and we don't process multi-word composites
+            yield token
+            # We're now within a sentence
+            at_sentence_start = False
+            continue
+
+        # The token is a word
+
+        # Check unique errors - some of those may have
+        # BÍN annotations via the compounder
+        # Examples: 'kvenær' -> 'hvenær', 'starfssemi' -> 'starfsemi'
+        # !!! TODO: Handle upper/lowercase
+        # TODO STILLING - hér er ósamhengisháð leiðrétting!
+        if token.txt in UniqueErrors.DICT:
+            # Note: corrected is a tuple
+            corrected = UniqueErrors.DICT[token.txt]
+            assert isinstance(corrected, tuple)
+            corrected_display = " ".join(corrected)
+            for ix, corrected_word in enumerate(corrected):
+                if ix == 0:
+                    yield replace_word(1, token, corrected_word, corrected_display)
+                    at_sentence_start = False
+                else:
+                    # In a multi-word sequence, we only mark the first
+                    # token with a SpellingError
+                    yield replace_word(1, token, corrected_word, None)
+            continue
+
+        if token.error_code:
+            # This token already has an associated error and eventual correction:
+            # let it be
+            yield token
+            # We're now within a sentence
+            at_sentence_start = False
+            continue
+
+        # Check wrong word forms, i.e. those that do not exist in BÍN
+        # !!! TODO: Some error forms are present in BÍN but in a different
+        # !!! TODO: case (for instance, 'á' as a nominative of 'ær').
+        # !!! TODO: We are not handling those here.
+        # !!! TODO: Handle upper/lowercase
+        # TODO STILLING - hér er ósamhengisháð leiðrétting!
+        if not token.val and CIDErrorForms.contains(token.txt):
+            corrected = CIDErrorForms.get_correct_form(token.txt)
+            yield replace_word(2, token, corrected, corrected)
+            at_sentence_start = False
+            continue
+
+        if is_immune(token) or token.error:
+            # Nothing more to do
+            pass
+
+        # Check rare (or nonexistent) words and see if we have a potential correction
+        # TODO STILLING - hér er samhengisháð leiðrétting af því að við notum þrenndir!
+        # TODO STILLING - og líka því skoðum líka sjaldgæf orð.
+        elif not token.val or corrector.is_rare(token.txt):
+            # Yes, this is a rare word that needs further attention
+            if only_ci:
+                # Don't want to correct
+                token.set_error(
+                    UnknownWordError("001", "Óþekkt orð: '{0}'".format(token.txt))
+                )
+                yield token
+                at_sentence_start = False
+                continue
+            if Settings.DEBUG:
+                print("Checking rare word '{0}'".format(token.txt))
+            # We use context[-3:-1] since the current token is the last item
+            # in the context tuple, and we want the bigram preceding it.
+            # TODO Consider limiting to words under 15 characters
+            corrected = corrector.correct(
+                token.txt, context=context[-3:-1], at_sentence_start=at_sentence_start
+            )
+            if corrected != token.txt:
+                # We have a candidate correction: take a closer look at it
+                w, m = db.lookup_word(corrected, at_sentence_start=at_sentence_start)
+                if token.txt[0].lower() == "ó" and corrected == token.txt[1:]:
+                    # The correction simply removed "ó" from the start of the
+                    # word: probably not a good idea
+                    pass
+                elif len(token.txt) == 1 and corrected != SINGLE_LETTER_CORRECTIONS.get(
+                    (at_sentence_start, token.txt)
+                ):
+                    # Only allow single-letter corrections of a->á and i->í
+                    pass
+                # TODO STILLING - þetta er bara uppástunga
+                elif not apply_suggestions and only_suggest(token, m):
+                    # We have a candidate correction but the original word does
+                    # exist in BÍN, so we're not super confident: yield a suggestion
+                    if Settings.DEBUG:
+                        print(
+                            "Suggested '{1}' instead of '{0}'".format(
+                                token.txt, corrected
+                            )
+                        )
+                    yield suggest_word(1, token, corrected)
+                    at_sentence_start = False
+                    continue
+                else:
+                    # We have a better candidate and are confident that
+                    # it should replace the original word: yield it
+                    if Settings.DEBUG:
+                        print("Corrected '{0}' to '{1}'".format(token.txt, corrected))
+                    yield correct_word(4, token, corrected, w, m)
+                    at_sentence_start = False
+                    continue
+
+        # Check for completely unknown and uncorrectable words
+        # TODO STILLING - hér er ósamhengisháð leiðrétting!
+        if not token.val:
+            # No annotation and not able to correct:
+            # mark the token as an unknown word
+            token.set_error(
+                UnknownWordError("001", "Óþekkt orð: '{0}'".format(token.txt))
+            )
+
+        if token.error is True:
+            # Erase the boolean error continuation marker:
+            # we no longer need it
+            token.set_error(None)
+
+        yield token
+        at_sentence_start = False
+
+
+def fix_capitalization(token_stream, db, token_ctor, only_ci):
+    """ Annotate tokens with errors if they are capitalized incorrectly """
+
+    stems = CapitalizationErrors.SET_REV
+    # TODO STILLING - hér er blanda. Orð sem eiga alltaf að vera hástafa en birtast lágstafa eru ósh.,
+    # TODO STILLING - orð sem eiga alltaf að vera lágstafa nema í byrjun setningar eru sh. leiðrétting.
+
+    # This variable must be defined before is_wrong() because
+    # the function closes over it
+    at_sentence_start = False
+
+    def is_wrong(token):
+        """ Return True if the word is wrongly capitalized """
+        word = token.txt
+        if " " in word:
+            # Multi-word token: can't be listed in [capitalization_errors]
+            return False
+        lower = True
+        if word.istitle():
+            if at_sentence_start:
+                # An uppercase word at the beginning of a sentence can't be wrong
+                return False
+            # Danskur -> danskur
+            rev_word = word.lower()
+            lower = False
+        elif word.islower():
+            if at_sentence_start:
+                # A lower case word at the beginning of a sentence is definitely wrong
+                return True
+            # íslendingur -> Íslendingur
+            # finni -> Finni
+            rev_word = word.title()
+        else:
+            # All upper case or other strange capitalization:
+            # don't bother
+            return False
+        meanings = db.meanings(rev_word) or []
+        # If this is a lowercase word without BÍN meanings ('ástralía') but
+        # an uppercase version is in BÍN, consider that an error
+        if lower and meanings:
+            # We find uppercase meanings in BÍN: do a further check
+            if all("-" in m.stofn for m in token.val):
+                # If the word has no non-composite meanings in lower case,
+                # this is probably an error
+                return True
+        # If we don't find any of the stems of the "corrected"
+        # meanings in the corrected error set (SET_REV),
+        # the word was correctly capitalized
+        if all(m.stofn not in stems for m in meanings):
+            return False
+        # Potentially wrong, but check for a corner
+        # case: the original word may exist in its
+        # original case in a non-noun/adjective category,
+        # such as "finni" and "finna" as a verb
+        if lower and any(m.ordfl not in {"kk", "kvk", "hk"} for m in token.val):
+            # Not definitely wrong
+            return False
+        # Definitely wrong
+        return True
+
+    for token in token_stream:
+        if token.kind == TOK.S_BEGIN:
+            yield token
+            at_sentence_start = True
+            continue
+        # !!! TODO: Consider whether to overwrite previous error,
+        # !!! if token.error is not None
+        if token.kind in {TOK.WORD, TOK.PERSON, TOK.ENTITY}:
+            if is_wrong(token):
+                if token.txt.islower():
+                    # Token is lowercase but should be capitalized
+                    original_txt = token.txt
+                    w, m = db.lookup_word(token.txt.title(), at_sentence_start)
+                    token = token_ctor.Word(w, m, token=token)
+                    token.set_error(
+                        CapitalizationError(
+                            "002", "Orð á að byrja á hástaf: '{0}'".format(original_txt)
+                        )
+                    )
+                else:
+                    # Token is capitalized but should be lower case
+                    original_txt = token.txt
+                    w, m = db.lookup_word(token.txt.lower(), at_sentence_start)
+                    token = token_ctor.Word(w, m, token=token)
+                    token.set_error(
+                        CapitalizationError(
+                            "001",
+                            "Orð á að byrja á lágstaf: '{0}'".format(original_txt),
+                        )
+                    )
+        elif token.kind in {TOK.DATEREL, TOK.DATEABS}:
+            if any(m in token.txt for m in MONTH_NAMES_CAPITALIZED):
+                # There is a capitalized month name within the token: suspicious
+                if token.txt.upper() == token.txt:
+                    # ALL-CAPS: don't worry about it
+                    pass
+                elif at_sentence_start and token.txt.startswith(
+                    MONTH_NAMES_CAPITALIZED
+                ):
+                    # At the sentence start, it's OK to have a capitalized month name
+                    pass
+                else:
+                    # Wrong capitalization of month name: replace it
+                    if at_sentence_start:
+                        lower = token.txt.capitalize()
+                    else:
+                        lower = token.txt.lower()
+                    original_txt = token.txt
+                    if token.kind == TOK.DATEREL:
+                        token = token_ctor.Daterel(
+                            lower, token.val[0], token.val[1], token.val[2]
+                        )
+                    else:
+                        assert token.kind == TOK.DATEABS
+                        token = token_ctor.Dateabs(
+                            lower, token.val[0], token.val[1], token.val[2]
+                        )
+                    token.set_error(
+                        CapitalizationError(
+                            "003",
+                            "Í dagsetningunni '{0}' á mánaðarnafnið "
+                            "að byrja á lágstaf".format(original_txt),
+                        )
+                    )
+        yield token
+        if token.kind != TOK.PUNCTUATION and token.kind != TOK.ORDINAL:
+            # !!! TODO: This may need to be made more intelligent
+            at_sentence_start = False
+
+
+def check_taboo_words(token_stream):
+    """ Annotate taboo words with warnings """
+
+    for token in token_stream:
+        # TODO STILLING - hér er ósamhengisháð leiðrétting EN er bara uppástunga.
+        # Check taboo words
+        if token.kind == TOK.WORD and token.val:
+            # !!! TODO: This could be made more efficient if all
+            # !!! TODO: taboo word forms could be generated ahead of time
+            # !!! TODO: and checked via a set lookup
+            for m in token.val:
+                stofn = m.stofn.replace("-", "")
+                if stofn in TabooWords.DICT:
+                    # Taboo word
+                    suggested_word = TabooWords.DICT[stofn].split("_")[0]
+                    token.set_error(
+                        TabooWarning(
+                            "001",
+                            "Óheppilegt eða óviðurkvæmilegt orð, "
+                            "skárra væri t.d. '{0}'".format(suggested_word),
+                        )
+                    )
+                    break
+
+        yield token
+
+
+class Correct_TOK(TOK):
+
+    """ A derived class to override token construction methods
+        as required to generate CorrectToken instances instead of
+        tokenizer.TOK instances """
+
+    @staticmethod
+    def Word(w, m=None, token=None):
+        ct = CorrectToken.word(w, m)
+        if token is not None:
+            # This token is being constructed in reference to a previously
+            # generated token, or a list of tokens, which might have had
+            # an associated error: make sure that it is preserved
+            ct.copy_error(token)
+        return ct
+
+    @staticmethod
+    def Number(w, n, cases=None, genders=None, token=None):
+        ct = CorrectToken(TOK.NUMBER, w, (n, cases, genders))
+        if token is not None:
+            # This token is being constructed in reference to a previously
+            # generated token, or a list of tokens, which might have had
+            # an associated error: make sure that it is preserved
+            ct.copy_error(token, coalesce=True)
+        return ct
+
+    @staticmethod
+    def Person(w, m=None, token=None):
+        ct = CorrectToken(TOK.PERSON, w, m)
+        if token is not None:
+            # This token is being constructed in reference to a previously
+            # generated token, or a list of tokens, which might have had
+            # an associated error: make sure that it is preserved
+            ct.copy_error(token)
+        return ct
+
+    @staticmethod
+    def Entity(w, token=None):
+        ct = CorrectToken(TOK.ENTITY, w, None)
+        if token is not None:
+            # This token is being constructed in reference to a previously
+            # generated token, or a list of tokens, which might have had
+            # an associated error: make sure that it is preserved
+            ct.copy_error(token)
+        return ct
+
+    @staticmethod
+    def Dateabs(w, y, m, d, token=None):
+        ct = CorrectToken(TOK.DATEABS, w, (y, m, d))
+        if token is not None:
+            # This token is being constructed in reference to a previously
+            # generated token, or a list of tokens, which might have had
+            # an associated error: make sure that it is preserved
+            ct.copy_error(token)
+        return ct
+
+    @staticmethod
+    def Daterel(w, y, m, d, token=None):
+        ct = CorrectToken(TOK.DATEREL, w, (y, m, d))
+        if token is not None:
+            # This token is being constructed in reference to a previously
+            # generated token, or a list of tokens, which might have had
+            # an associated error: make sure that it is preserved
+            ct.copy_error(token)
+        return ct
+
+
+class CorrectionPipeline(DefaultPipeline):
+
+    """ Override the default tokenization pipeline defined in bintokenizer.py
+        in ReynirPackage, adding a correction phase """
+
+    def __init__(self, text, **options):
+        super().__init__(text, **options)
+        self._corrector = None
+        # If only_ci is True, we only correct context-independent errors
+        self._only_ci = options.pop("only_ci", False)
+        # If apply_suggestions is True, we are aggressive in modifying
+        # tokens with suggested corrections, i.e. not just suggesting them
+        self._apply_suggestions = options.pop("apply_suggestions", False)
+
+    # Use the Correct_TOK class to construct tokens, instead of
+    # TOK (tokenizer.py) or _Bin_TOK (bintokenizer.py)
+    _token_ctor = Correct_TOK
+
+    def correct_tokens(self, stream):
+        """ Add a correction pass just before BÍN annotation """
+        return parse_errors(stream, self._db, self._only_ci)
+
+    def check_spelling(self, stream):
+        """ Attempt to resolve unknown words """
+        # Create a Corrector on the first invocation
+        if self._corrector is None:
+            self._corrector = Corrector(self._db)
+        only_ci = self._only_ci
+        # Fix compound words
+        stream = fix_compound_words(stream, self._db, self._token_ctor, only_ci)
+        # Fix multiword error phrases
+        if not only_ci:
+            stream = handle_multiword_errors(stream, self._db, self._token_ctor)
+        # Fix capitalization
+        stream = fix_capitalization(stream, self._db, self._token_ctor, only_ci)
+        # Fix single-word errors
+        stream = lookup_unknown_words(
+            self._corrector, self._token_ctor, stream, only_ci, self._apply_suggestions
+        )
+        # Check taboo words
+        if not only_ci:
+            stream = check_taboo_words(stream)
+        return stream
+
+
+def tokenize(text, **options):
+    """ Tokenize text using the correction pipeline, overriding a part
+        of the default tokenization pipeline """
+    pipeline = CorrectionPipeline(text, **options)
+    return pipeline.tokenize()
