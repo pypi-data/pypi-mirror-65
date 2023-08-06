@@ -1,0 +1,5 @@
+include *.md
+include LICENSE
+include .pep8
+
+global-exclude *.py[cod] __pycache__/*
