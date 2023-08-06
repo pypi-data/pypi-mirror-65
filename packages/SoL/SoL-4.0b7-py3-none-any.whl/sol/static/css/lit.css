@@ -1,0 +1,151 @@
+/* -*- coding: utf-8 -*-
+ * :Project:   SoL
+ * :Created:   sab 13 dic 2008 16:43:25 CET
+ * :Author:    Lele Gaifax <lele@metapensiero.it>
+ * :License:   GNU General Public License version 3 or later
+ * :Copyright: © 2008, 2009, 2010, 2013, 2014, 2018, 2020 Lele Gaifax
+ */
+
+.centered, table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align: center;
+}
+
+table caption {
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+table.side-by-side td {
+    vertical-align: top;
+}
+
+.top-header {
+    font: italic 10x arial,tahoma,helvetica,sans-serif;
+}
+
+.rank-header, .player-header, .event-header, .total-header,
+.competitor1-header, .competitor2-header, .competitors-header,
+.score1-header, .score2-header, .scores-header, .tourney-header,
+.date-header, .championship-header, .tourneys-header, .average-header {
+    font: italic 9px arial,tahoma,helvetica,sans-serif;
+}
+
+.player, .competitor1, .competitor2, .score1, .score2, .tourney, .date,
+.championship, .tourneys, .average {
+    padding: 0.2em;
+}
+
+.rank, .event, .skipped-event, .total, .tourneys, .average {
+    text-align: right;
+    align: right;
+    padding: 0.2em 0.5em;
+}
+
+.skipped-event {
+    text-decoration: line-through;
+    color: lightgray;
+}
+
+.score1 {
+    text-align: right;
+    width: 3em;
+}
+
+.score2 {
+    text-align: left;
+    width: 3em;
+}
+
+.competitor1 {
+    text-align: right;
+}
+
+.competitor2 {
+    text-align: left;
+}
+
+.sortedby {
+    font-weight: bold;
+}
+
+.winner {
+    color: darkblue;
+    font-weight: bold;
+}
+
+.phantom {
+    color: green;
+}
+
+.winner, .winner a:link, .winner a:visited {
+    color: darkblue;
+    font-weight: bold;
+}
+
+.logo {
+    border: 0;
+}
+
+#emblem {
+    border: 0;
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.portrait {
+    display: block;
+    border: 0;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.footer {
+    font: normal 9px arial,tahoma,helvetica,sans-serif;
+}
+
+#producer {
+    float: left;
+}
+
+#generated {
+    float: right;
+}
+
+#sol_logo {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+#club_emblem {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+h5, ol {
+    margin-top: 5px;
+    margin-bottom: 1px;
+}
+
+
+/* Override Semantic UI defaults */
+
+table.ui.small.definition.table {
+    width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align: center;
+}
+
+table.ui.compact.table {
+    width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    align: center;
+}
