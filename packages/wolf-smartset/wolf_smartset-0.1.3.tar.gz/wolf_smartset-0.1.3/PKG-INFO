@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: wolf_smartset
+Version: 0.1.3
+Summary: A package to comunicate with Wolf Smart Set Cloud
+Home-page: https://github.com/adamkrol93/wolf-smartset
+Author: Adam Krol
+Author-email: adam.krol93@gmail.com
+License: UNKNOWN
+Description: ## Library to handle Wolf SmartSet communication.
+        
+        ### Features:
+        - Built-in authentication
+        - Session creation
+        - Fetch all devices you have
+        - Fetch all parameters description
+        - Fetch value for specific parameter
+        
+        ### Parameter descriptions
+        Parameters verified only for FGB-28 system.
+        Other should work.
+        Keep in mind that core implementation of fetching parameters is removing duplications by value_id and name.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
