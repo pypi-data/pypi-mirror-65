@@ -1,0 +1,1 @@
+{"version":3,"sources":["lazyedgehack.css"],"names":[],"mappings":"AAAA,MAEI,cAAgB,CAChB,eAAiB","file":"lazyedgehack.css","sourcesContent":[".lazy {\n    /* In edge, intersection observer will not fire on 0px sized elements */\n    min-width: 0.1em;\n    min-height: 0.1em;\n}\n"]}

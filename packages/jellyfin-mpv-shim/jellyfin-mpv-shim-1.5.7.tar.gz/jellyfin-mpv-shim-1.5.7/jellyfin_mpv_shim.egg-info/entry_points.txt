@@ -1,0 +1,4 @@
+[console_scripts]
+jellyfin-mpv-desktop = jellyfin_mpv_shim.mpv_shim:main_desktop
+jellyfin-mpv-shim = jellyfin_mpv_shim.mpv_shim:main
+

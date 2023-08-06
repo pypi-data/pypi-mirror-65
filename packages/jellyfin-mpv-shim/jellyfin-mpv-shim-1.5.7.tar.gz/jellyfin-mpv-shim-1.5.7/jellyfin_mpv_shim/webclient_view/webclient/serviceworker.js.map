@@ -1,0 +1,1 @@
+{"version":3,"sources":["serviceworker.js"],"names":["importScripts"],"mappings":"AAAA,aACAA,cAAc","file":"serviceworker.js","sourcesContent":["/* eslint-env serviceworker */\nimportScripts(\"components/serviceworker/notifications.js\");\n"]}

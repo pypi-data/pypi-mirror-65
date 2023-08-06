@@ -1,0 +1,2 @@
+"use strict";define(["css!./toast"],(function(){function animateRemove(elem){setTimeout((function(){elem.classList.remove("toastVisible"),function remove(elem){setTimeout((function(){elem.parentNode.removeChild(elem)}),300)}(elem)}),3300)}return function(options){"string"==typeof options&&(options={text:options});var elem=document.createElement("div");elem.classList.add("toast"),elem.innerHTML=options.text,document.body.appendChild(elem),setTimeout((function(){elem.classList.add("toastVisible"),animateRemove(elem)}),300)}}));
+//# sourceMappingURL=toast.js.map
