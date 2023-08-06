@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "fallback-property"
+version = "0.2.0"
+description = "A decorator which prefers a precalculated attribute over calling the decorated method."
+authors = [
+    "Jonas und der Wolf GmbH <opensource@jonasundderwolf.de>",
+    "Alexander Frenzel <alex@relatedworks.de>",
+]
+
+license = "BSD-3-Clause"
+readme = "README.rst"
+
+documentation = "https://github.com/jonasundderwolf/fallback-property/blob/master/README.rst"
+homepage = "https://github.com/jonasunnderwolf/fallback-property"
+repository = "https://github.com/jonasundderwolf/fallback-property"
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 1.11",
+  "Framework :: Django :: 2.2",
+  "Framework :: Django :: 3.0",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.7"
+flake8-isort = "^2.9"
+flake8-mypy = "^17.8"
+ipython = "^6.4"
+pdbpp = "^0.9.2"
+pytest = "^5.4"
+pytest-coverage = "^0.0.0"
+pytest-django = "^3.9"
+pytest-flake8 = "^1.0"
+pytest-mock = "^3.0"
+tox = "^3.1"
+
+[tool.black]
+line-length = 90
+skip-string-normalization = true
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
