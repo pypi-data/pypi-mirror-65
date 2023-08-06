@@ -1,0 +1,118 @@
+{% extends 'shared/main.html' %}
+{% load static %}
+{% load behko_template_utils %}
+
+{% block body %}
+    <div class="kt-container--fluid m-5">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'shared/form-errors.html' %}
+                {% include 'shared/messages.html' %}
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                {{ create_form_title }}
+                            </h3>
+                        </div>
+                    </div>
+                    <form method="post" class="kt-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="kt-portlet__body">
+                            <div class="row">
+                                {% for key,value in form.fields.items %}
+                                    <div class="{{ value|get_attr:'cols'|default:'col-lg-4 col-sm-12' }}">
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-12">{{ value.label }}</label>
+                                            <div class="col-lg-12">
+                                                {{ form|get_item:key }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="kt-portlet__foot">
+                            <div class="kt-form__actions">
+                                <div class="row">
+                                    <div class="col-lg-12 ml-lg-auto">
+                                        <button type="submit" class="btn btn-brand">ثبت</button>
+                                        <button type="reset" class="btn btn-secondary">لغو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                {{ datatable_title }}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body">
+                        <table class="table table-hover" id="the-datatable">
+                            <thead>
+                            {% for datatable_col in datatable_column_names %}
+                                <th>{{ datatable_col }}</th>
+                            {% endfor %}
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block extra_script_before_script %}
+{% endblock %}
+{% block script %}
+    <link rel="stylesheet" href="{% static 'assets/js/pages/crud/forms/widgets/persian-datepicker.css' %}">
+    <script src="{% static 'assets/js/pages/crud/forms/widgets/persian-date.js' %}"></script>
+    <script src="{% static 'assets/js/pages/crud/forms/widgets/persian-datepicker.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/custom/datatables/datatables.bundle.js' %}" type="text/javascript"></script>
+    <script src="{% static 'my_datatable/datatable.js' %}" type="text/javascript"></script>
+    <script>
+        var news_table = datatable_simple_show({
+            {% if datatable_name %}
+                url: "{% url datatable_name %}",
+            {% else %}
+                url: "{% url namespace|add:':datatable' %}",
+            {% endif %}
+            real_cols: {{datatable_column_names|length|sub:1}},
+            hide_id: true,
+            responsive: true,
+            datable_id: '#the-datatable',
+            {% if datatable_name %}
+                del_url: "{% url delete_name pk=0 %}",
+            {% else %}
+                del_url: "{% url namespace|add:':delete'  pk=0 %}",
+            {% endif %}
+            {% if datatable_name %}
+                up_url: "{% url update_name pk=0 %}",
+            {% else %}
+                up_url: "{% url namespace|add:':update'  pk=0 %}",
+            {% endif %}
+            extra_del_params: {
+                ajax: true,
+            },
+        });
+        $('[type="reset"]').click(function(){
+            var form = $(this).closest('form');
+            form.find('input').val(null).trigger('change');
+            form.find('select').val(null).trigger('change');
+        });
+    </script>
+{% endblock %}
+{% block extra_script_after_script %}
+{% endblock %}
