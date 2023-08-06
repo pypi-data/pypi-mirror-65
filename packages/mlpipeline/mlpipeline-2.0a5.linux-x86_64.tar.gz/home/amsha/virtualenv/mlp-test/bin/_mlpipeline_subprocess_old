@@ -1,0 +1,12 @@
+#!/home/amsha/virtualenv/mlp-test/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'mlpipeline==2.0a5','console_scripts','_mlpipeline_subprocess_old'
+__requires__ = 'mlpipeline==2.0a5'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('mlpipeline==2.0a5', 'console_scripts', '_mlpipeline_subprocess_old')()
+    )
