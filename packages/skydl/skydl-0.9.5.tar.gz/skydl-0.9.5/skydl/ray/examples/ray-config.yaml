@@ -1,0 +1,33 @@
+# ref: https://github.com/ray-project/ray/blob/master/python/ray/autoscaler/local/example-full.yaml
+cluster_name: default
+min_workers: 0
+max_workers: 10
+initial_workers: 0
+autoscaling_mode: default
+docker:
+    image: ""
+    container_name: ""
+target_utilization_fraction: 0.8
+idle_timeout_minutes: 5
+provider:
+    type: local
+    head_ip: 192.168.91.85
+    worker_ips: [192.168.91.86]
+auth:
+    ssh_user: www
+    ssh_private_key: ~/.ssh/id_rsa
+head_node: {}
+worker_nodes: {}
+file_mounts: {}
+head_setup_commands: []
+worker_setup_commands: []
+initialization_commands: []
+setup_commands:
+    - pip install -U ray
+    - pip install -U requests
+head_start_ray_commands:
+    - ray stop
+    - ulimit -c unlimited && ray start --head --redis-port=6379 --redis-shard-ports=6380 --node-manager-port=12345 --object-manager-port=12346 --include-webui --autoscaling-config=~/ray_bootstrap_config.yaml
+worker_start_ray_commands:
+    - ray stop
+    - ray start --redis-address=192.168.91.85:6379 --node-manager-port=12345 --object-manager-port=12346

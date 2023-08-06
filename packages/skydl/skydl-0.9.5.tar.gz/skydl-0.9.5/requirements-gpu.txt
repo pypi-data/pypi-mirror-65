@@ -1,0 +1,7 @@
+# pip install -r requirements-cpu.txt -i https://pypi.douban.com/simple
+# import common
+-r requirements-common.txt
+-r requirements.txt
+# third-part dependency:
+# e.g. $ pip install -U tensorflow-gpu==2.1.0 -i https://pypi.douban.com/simple
+tensorflow-gpu==2.1.0
