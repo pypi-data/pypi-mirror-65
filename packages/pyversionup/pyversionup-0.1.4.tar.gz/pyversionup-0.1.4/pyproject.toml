@@ -1,0 +1,36 @@
+[build-system]
+requires = [ "poetry>=0.12",]
+build-backend = "poetry.masonry.api"
+
+[tool.versionup]
+files = [ "versionup.py",]
+commit = true
+
+[tool.poetry]
+name = "pyversionup"
+version = "0.1.4"
+description = ""
+authors = [ "Yohei Tamura <tamuhey@gmail.com>",]
+license = "MIT"
+[[tool.poetry.packages]]
+include = "versionup.py"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+toml = "*"
+typing-extensions = "^3.7.4"
+fire = "^0.2.1"
+[[tool.poetry.dependencies.dataclasses]]
+version = "*"
+python = "<3.7"
+
+[tool.poetry.scripts]
+versionup = "versionup:cli"
+
+[tool.poetry.dev-dependencies]
+twine = "^1.5.0"
+pytest = "^5.3.2"
+
+[tool.poetry.dev-dependencies.black]
+version = "*"
+allow-prereleases = true
