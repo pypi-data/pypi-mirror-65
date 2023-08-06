@@ -1,0 +1,16 @@
+cffi>=1.0.0
+
+[doc]
+numpydoc
+sphinx
+sphinx_rtd_theme
+sphinxcontrib-seqdiag
+
+[ipython]
+ipykernel
+jupyter_console
+
+[test]
+flake8
+pep8-naming
+pytest-cov
