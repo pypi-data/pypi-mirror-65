@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: pycmdlinehistory
+Version: 1.1.3
+Summary: Save command line history and provide a command line completer for python.
+Home-page: https://gitlab.com/berhoel/python/pyCmdlineHistory.git
+License: CC-BY-SA-4.0
+Author: Sunjoong LEE
+Author-email: sunjoong@gmail.com
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: System :: Shells
+Classifier: Topic :: Utilities
+Requires-Dist: pathlib2 (>=2.3.5,<3.0.0); python_version >= "2.7" and python_version < "3.0"
+Project-URL: Repository, https://gitlab.com/berhoel/python/pyCmdlineHistory.git
+Description-Content-Type: text/markdown
+
+# pyCmdlineHistory #
+
+Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0
+International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+Save command line history and provide a command line completer for python.
+
+Original code is from [ActiveState Code » Recipes][as-496822]
+2006.06.29 by [Sunjoong LEE](<sunjoong@gmail.com>). ActiveState
+content is published under [CC BY-SA 3.0][cc-by-sa3].
+
+## Usage ##
+
+Insert the line,
+```python
+import sys
+import subprocess
+
+try:
+    import berhoel.cmd_line_history
+except ImportError:
+    # checking if python is running under virtualenv of venv
+    is_venv = (
+        # This handles PEP 405 compliant virtual environments.
+        (sys.prefix != getattr(sys, "base_prefix", sys.prefix))
+        or
+        # This handles virtual environments created with pypa's virtualenv.
+        hasattr(sys, "real_prefix")
+    )
+
+    subprocess.check_call(
+        [sys.executable, "-m", "pip", "install"]
+        + ([] if is_venv else ["--user"])
+        + ["pyCmdlineHistory",]
+    )
+```
+to "~/.pystartup" file, and set an environment variable to point to it:
+```shell
+export PYTHONSTARTUP=${HOME}/.pystartup
+```
+in bash.
+
+This will locally install the module for each python you are calling.
+
+## References ##
+
+  - Guido van Rossum. Python Tutorial. Python Sfotware Foundation, 2005. 86
+  - Jian Ding Chen. Indentable rlcompleter. Python Cookbook Recipe 496812
+  - Guido van Rossum. rlcompleter.py. Python Sfotware Foundation, 2005
+
+2006.06.29 Sunjoong LEE <sunjoong@gmail.com>
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa3]: http://creativecommons.org/licenses/by-sa/3.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+[as-496822]: http://code.activestate.com/recipes/496822-completer-with-history-viewer-support-and-more-fea/
+
