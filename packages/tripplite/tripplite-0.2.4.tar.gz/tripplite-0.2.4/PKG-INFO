@@ -1,0 +1,137 @@
+Metadata-Version: 2.1
+Name: tripplite
+Version: 0.2.4
+Summary: Python driver for TrippLite UPS battery backups.
+Home-page: http://github.com/numat/tripplite/
+Author: Patrick Fuller
+Author-email: pat@numat-tech.com
+License: GPLv2
+Description: tripplite
+        =========
+        
+        Python USB interface and command-line tool for TrippLite UPS battery backups.
+        
+        ![](https://www.markertek.com/productImage/450X450/SMART1500LCD.JPG)
+        
+        Background
+        ==========
+        
+        TrippLite offers [UI software](https://www.tripplite.com/products/power-alert)
+        for monitoring its batteries. However, most of its batteries don't have
+        network access, and the existing TrippLite software requires a local install.
+        
+        I wanted to monitor the UPS from a remote headless Linux server, so I wrote
+        this tool.
+        
+        Supported Hardware
+        ==================
+        
+        This has been exclusively tested on the TrippLite SMART1500LCD UPS. It will
+        likely work on similar firmware but there is a known communication issue with
+        some other TrippLite models (see [numat/tripplite#3](https://github.com/numat/tripplite/issues/3)).
+        
+        Use `lsusb` to check. `09ae:2012` should work, while `09ae:3016` may not.
+        
+        Installation
+        ============
+        
+        ```
+        apt install gcc libusb-1.0-0-dev libudev-dev
+        pip install tripplite
+        ```
+        
+        Connect a USB cable from the UPS to your headless server, and you should be
+        ready to run. If you don't want to run as root, see *Note on Permissions*
+        below.
+        
+        Command Line
+        ============
+        
+        ```
+        $ tripplite
+        {
+            "config": {
+                "frequency": 60,  # Hz
+                "power": 1500,  # VA
+                "voltage": 120  # V
+            },
+            "health": 100,  # %
+            "input": {
+                "frequency": 59.7,  # Hz
+                "voltage": 117.2  # V
+            },
+            "output": {
+                "power": 324,  # W
+                "voltage": 117.2  # V
+            },
+            "status": {
+                "ac present": true,
+                "below remaining capacity": true,
+                "charging": false,
+                "discharging": false,
+                "fully charged": true,
+                "fully discharged": false,
+                "needs replacement": false,
+                "shutdown imminent": false
+            },
+            "time to empty": 1004  # s
+        }
+        ```
+        
+        To use in shell scripts, parse the json output with something like
+        [jq](https://stedolan.github.io/jq/). For example,
+        `tripplite | jq '.status."ac present"'` will return whether or not the unit
+        detects AC power.
+        
+        Python
+        ======
+        
+        If you'd like to link this to more complex behavior (e.g. data logging,
+        text alerts), consider using a Python script.
+        
+        ```python
+        from tripplite import Battery
+        with Battery() as battery:
+            print(battery.get())
+        ```
+        
+        The `state` variable will contain an object with the same format as above. Use
+        `state['status']['ac present']` and `state['status']['shutdown imminent']` for
+        alerts, and consider logging voltage, frequency, and power.
+        
+        If you are logging multiple batteries, you will need to handle each connection
+        separately.
+        
+        ```python
+        from tripplite import Battery, battery_paths
+        for path in battery_paths:
+            with Battery(path) as battery:
+                print(battery.get())
+        ```
+        
+        These paths are unfortunately non-deterministic and will change on each
+        iteration.
+        
+        Note on Permissions
+        ===================
+        
+        To read the TrippLite, you need access to the USB port. You have options:
+        
+         * Run everything as root
+         * Add your user to the `dialout` group to access *all* serial ports
+         * Create a group restricted to accessing TrippLite USB devices through `udev`
+        
+        For the last option, the rule looks like:
+        
+        ```
+        echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="09ae", GROUP="tripplite"' > /etc/udev/rules.d/tripplite.rules
+        udevadm control --reload-rules
+        ```
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Description-Content-Type: text/markdown
