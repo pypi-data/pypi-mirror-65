@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: jgt-common
+Version: 1.0.7
+Summary: A library for helper functions across Jolly Good Toolbelt designed for larger consumption
+Home-page: https://jolly-good-toolbelt.github.io/jgt_common/
+License: MIT
+Author: Doug Philips
+Author-email: dgou@mac.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests
+Requires-Dist: wrapt
+Project-URL: Documentation, https://jolly-good-toolbelt.github.io/jgt_common/
+Project-URL: Repository, https://github.com/jolly-good-toolbelt/jgt_common
+Description-Content-Type: text/x-rst
+
+JGT Common Tools
+================
+
+A collection of tools that are shared
+across multiple projects within Jolly Good Toolbelt
+but useful to anyone.
+

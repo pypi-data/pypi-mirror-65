@@ -1,0 +1,8 @@
+[console_scripts]
+uuid-replacer=jgt_common.uuid_replacer:main
+
+[tag_to_url]
+JIRA=jgt_common.tag_to_url:JIRA
+SNOW=jgt_common.tag_to_url:SNOW
+VersionOne=jgt_common.tag_to_url:VersionOne
+
