@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: min-renovasjon
+Version: 0.1.2
+Summary: A Python3 API for Min Renovasjon
+Home-page: https://github.com/knutfh/min_renovasjon_py
+License: Apache-2.0
+Author: Knut Flage Henriksen
+Author-email: post@flaksen.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Project-URL: Repository, https://github.com/knutfh/min_renovasjon_py
+Description-Content-Type: text/markdown
+
+### IN DEVELOPMENT
+
+# Min Renovasjon Python API
+Python 3 API for [Min Renovasjon][https://www.norkart.no/product/min-renovasjon/].
+
+# Example
+```python
+from min_renovasjon import MinRenovasjon
+
+search_string = "Jonas Lies gate 22, 200 Lillestrøm"
+ren = MinRenovasjon(search_string)
+```
+Norwegian street names often contains the word veg/vei (it means road in English).
+This package handles this automatically, so a lookup for 
+`Hageveien` or `Hagevegen` should give the same result.
+
+```python
+# Fractions
+ren.fractions()
+
+# Next waste collections
+ren.waste_collections()
+```
+
+###
+
+[https://www.norkart.no/product/min-renovasjon/]: https://www.norkart.no/product/min-renovasjon/
