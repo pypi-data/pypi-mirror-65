@@ -1,0 +1,16 @@
+gitpython
+pexpect>=4.7.0
+python-dateutil
+terminaltables
+
+[:os_name != "nt"]
+file_magic
+pyxattr
+
+[dev]
+pytest-cov
+wheel
+
+[test]
+pytest
+pytest-runner
