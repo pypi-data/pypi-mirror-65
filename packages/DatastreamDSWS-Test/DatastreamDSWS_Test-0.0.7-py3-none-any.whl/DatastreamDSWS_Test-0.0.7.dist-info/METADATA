@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: DatastreamDSWS-Test
+Version: 0.0.7
+Summary: Python API Package for Refinitiv Datastream Webservices (DSWS) - TEST Version
+Home-page: https://github.com/DatastreamDSWS/Datastream
+Author: Vidya Dinesh
+Author-email: datastream@refinitiv.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: pandas
+Requires-Dist: urllib3
+Requires-Dist: datetime
+
+Python API package for Refinitiv Datastream Webservices (DSWS) - TEST -Version
+
+
