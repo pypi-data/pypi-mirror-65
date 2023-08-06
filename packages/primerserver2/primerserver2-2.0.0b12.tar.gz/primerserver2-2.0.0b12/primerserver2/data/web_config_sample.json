@@ -1,0 +1,16 @@
+{
+    "cpu": 2,
+    "templates_directory": "",
+    "templates": {
+        "example.fa": {
+            "IDs": "seq1, seq2",
+            "description": "Example Database",
+            "group": "example"
+        },
+        "example2.fa": {
+            "IDs": "seq1, seq2",
+            "description": "Example Database 2",
+            "group": "example"
+        }
+    }
+}
