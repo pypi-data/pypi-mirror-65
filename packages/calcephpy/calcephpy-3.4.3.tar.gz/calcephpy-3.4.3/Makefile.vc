@@ -1,0 +1,107 @@
+#/*-----------------------------------------------------------------*/
+#/*! 
+#  \file Makefile.vc
+#  \brief Makefile for nmake (windows)
+#  \author  M. Gastineau 
+#           Astronomie et Systemes Dynamiques, IMCCE, CNRS, Observatoire de Paris. 
+#
+#   Copyright, 2008-2019, CNRS
+#   email of the author : Mickael.Gastineau@obspm.fr
+#  
+#*/
+#/*-----------------------------------------------------------------*/
+#
+#/*-----------------------------------------------------------------*/
+#/* License  of this file :
+#  This file is "triple-licensed", you have to choose one  of the three licenses 
+#  below to apply on this file.
+#  
+#     CeCILL-C
+#     	The CeCILL-C license is close to the GNU LGPL.
+#     	( http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html )
+#   
+#    or CeCILL-B
+#        The CeCILL-B license is close to the BSD.
+#        (http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.txt)
+#  
+#    or CeCILL v2.1
+#        The CeCILL license is compatible with the GNU GPL.
+#        ( http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.html )
+#  
+# 
+# This library is governed by the CeCILL-C, CeCILL-B or the CeCILL license under 
+# French law and abiding by the rules of distribution of free software.  
+# You can  use, modify and/ or redistribute the software under the terms 
+# of the CeCILL-C,CeCILL-B or CeCILL license as circulated by CEA, CNRS and INRIA  
+# at the following URL "http://www.cecill.info". 
+#
+# As a counterpart to the access to the source code and  rights to copy,
+# modify and redistribute granted by the license, users are provided only
+# with a limited warranty  and the software's author,  the holder of the
+# economic rights,  and the successive licensors  have only  limited
+# liability. 
+#
+# In this respect, the user's attention is drawn to the risks associated
+# with loading,  using,  modifying and/or developing or reproducing the
+# software by the user in light of its specific status of free software,
+# that may mean  that it is complicated to manipulate,  and  that  also
+# therefore means  that it is reserved for developers  and  experienced
+# professionals having in-depth computer knowledge. Users are therefore
+# encouraged to load and test the software's suitability as regards their
+# requirements in conditions enabling the security of their systems and/or 
+# data to be ensured and,  more generally, to use and operate it in the 
+# same conditions as regards security. 
+#
+# The fact that you are presently reading this means that you have had
+# knowledge of the CeCILL-C,CeCILL-B or CeCILL license and that you accept its terms.
+# */
+# /*-----------------------------------------------------------------*/
+
+CC = cl.exe
+CFLAGS = /O2 /GR- /MD /nologo /EHs
+FC = gfortran.exe
+FFLAGS = -c
+FLINKFLAGS = 
+
+
+#
+# build target: "nmake /f Makefile.vc" to compile 
+#               objects and executables.
+#
+all :
+	cd src && nmake /f Makefile.vc  CCFLAGS="$(CFLAGS)" CCC="$(CC)" FFC="$(FC)" FFFLAGS="$(FFLAGS)" FFLINKFLAGS="$(FLINKFLAGS)"
+	cd examples && nmake /f Makefile.vc  CCFLAGS="$(CFLAGS)"  CCC="$(CC)" FFC="$(FC)" FFFLAGS="$(FFLAGS)" FFLINKFLAGS="$(FLINKFLAGS)"
+	cd tests && nmake /f Makefile.vc  CCFLAGS="$(CFLAGS)"  CCC="$(CC)" FFC="$(FC)" FFFLAGS="$(FFLAGS)" FFLINKFLAGS="$(FLINKFLAGS)"
+
+#
+# Clean target: "nmake /f Makefile.vc clean" to remove unwanted 
+#               objects and executables.
+#
+clean:
+	cd src && nmake /f Makefile.vc clean
+	cd examples && nmake /f Makefile.vc clean
+	cd tests && nmake /f Makefile.vc clean
+	-cd pythonapi/src && del /Q calcephpy.c
+	
+	
+#
+# check target: "nmake /f Makefile.vc check" to perform tests.
+#
+check: all
+	cd tests && nmake /f Makefile.vc  check
+
+
+#
+# install target: "nmake /f Makefile.vc install DESTDIR=xxx" to perform the installation.
+#
+install: all
+	-mkdir $(DESTDIR)
+	-mkdir $(DESTDIR)\include
+	-mkdir $(DESTDIR)\lib
+	-mkdir $(DESTDIR)\doc
+	-mkdir $(DESTDIR)\libexec
+	-mkdir $(DESTDIR)\libexec\calceph
+	-mkdir $(DESTDIR)\libexec\calceph\mex
+	cd src && nmake /f Makefile.vc DESTDIR="$(DESTDIR)" install
+	cd doc && nmake /f Makefile.vc DESTDIR="$(DESTDIR)" install
+	cd mexapi\src && nmake /f Makefile.vc DESTDIR="$(DESTDIR)" install
