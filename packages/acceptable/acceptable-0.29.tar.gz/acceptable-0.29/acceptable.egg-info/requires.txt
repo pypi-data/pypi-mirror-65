@@ -1,0 +1,10 @@
+future
+jinja2
+jsonschema
+pyyaml
+
+[django]
+django<2.1,>=1.11
+
+[flask]
+Flask<2.0

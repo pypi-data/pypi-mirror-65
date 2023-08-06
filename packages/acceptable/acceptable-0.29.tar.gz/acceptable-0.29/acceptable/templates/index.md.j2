@@ -1,0 +1,18 @@
+---
+title: {{service_name}} Documentation
+---
+
+This is the documentation for version {{ version }} of {{service_name}}.
+
+{% if changelog %}
+## Changelog
+
+{% for version, api_logs in changelog.items() | sort(reverse=True) %}
+ * Version {{ version }}:
+    {% for (group, api_name), log in api_logs.items() | sort %}
+    * [{{ api_name }}]({{group}}.html#{{api_name}}): {{ log }}
+    {% endfor %}
+
+{% endfor %}
+
+{% endif %}
