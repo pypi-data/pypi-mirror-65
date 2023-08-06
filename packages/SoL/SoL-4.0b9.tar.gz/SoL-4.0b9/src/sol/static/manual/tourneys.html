@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sol.models.tourney -- Tournaments &#8212; SoL 4 developers documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sol.models.user -- User" href="users.html" />
+    <link rel="prev" title="sol.models.rating -- Ratings" href="ratings.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sol.models.tourney">
+<span id="sol-models-tourney-tournaments"></span><h1><a class="reference internal" href="#module-sol.models.tourney" title="sol.models.tourney"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.tourney</span></code></a> -- Tournaments<a class="headerlink" href="#module-sol.models.tourney" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sol.models.tourney.Rank">
+<em class="property">class </em><code class="sig-prename descclassname">sol.models.tourney.</code><code class="sig-name descname">Rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">bucholz</span></em>, <em class="sig-param"><span class="n">netscore</span></em>, <em class="sig-param"><span class="n">totscore</span></em>, <em class="sig-param"><span class="n">rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Rank" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="sol.models.tourney.Rank.bucholz">
+<em class="property">property </em><code class="sig-name descname">bucholz</code><a class="headerlink" href="#sol.models.tourney.Rank.bucholz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Rank.netscore">
+<em class="property">property </em><code class="sig-name descname">netscore</code><a class="headerlink" href="#sol.models.tourney.Rank.netscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Rank.points">
+<em class="property">property </em><code class="sig-name descname">points</code><a class="headerlink" href="#sol.models.tourney.Rank.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Rank.rate">
+<em class="property">property </em><code class="sig-name descname">rate</code><a class="headerlink" href="#sol.models.tourney.Rank.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Rank.totscore">
+<em class="property">property </em><code class="sig-name descname">totscore</code><a class="headerlink" href="#sol.models.tourney.Rank.totscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sol.models.tourney.RankingStats">
+<em class="property">class </em><code class="sig-prename descclassname">sol.models.tourney.</code><code class="sig-name descname">RankingStats</code><a class="headerlink" href="#sol.models.tourney.RankingStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>An interim object used keep the ongoing values needed to compute the ranking of a single
+competitor.</p>
+<dl class="py attribute">
+<dt id="sol.models.tourney.RankingStats.bucholz">
+<code class="sig-name descname">bucholz</code><a class="headerlink" href="#sol.models.tourney.RankingStats.bucholz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bucholz.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.RankingStats.drawn">
+<code class="sig-name descname">drawn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.RankingStats.drawn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update stats after a tie.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.RankingStats.lost">
+<code class="sig-name descname">lost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">netscore</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.RankingStats.lost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update stats after a lost match.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.RankingStats.netscore">
+<code class="sig-name descname">netscore</code><a class="headerlink" href="#sol.models.tourney.RankingStats.netscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Net score.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.RankingStats.played_matches">
+<code class="sig-name descname">played_matches</code><a class="headerlink" href="#sol.models.tourney.RankingStats.played_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of played matches.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.RankingStats.points">
+<code class="sig-name descname">points</code><a class="headerlink" href="#sol.models.tourney.RankingStats.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overall points.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.RankingStats.rank">
+<code class="sig-name descname">rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.RankingStats.rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the final <a class="reference internal" href="#sol.models.tourney.Rank" title="sol.models.tourney.Rank"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rank</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.RankingStats.real_points">
+<code class="sig-name descname">real_points</code><a class="headerlink" href="#sol.models.tourney.RankingStats.real_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Points made against real competitors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.RankingStats.totscore">
+<code class="sig-name descname">totscore</code><a class="headerlink" href="#sol.models.tourney.RankingStats.totscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total score.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.RankingStats.virtual_points">
+<code class="sig-name descname">virtual_points</code><a class="headerlink" href="#sol.models.tourney.RankingStats.virtual_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimated further points, after retirement.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.RankingStats.won">
+<code class="sig-name descname">won</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">netscore</span></em>, <em class="sig-param"><span class="n">against_phantom</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.RankingStats.won" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update stats after a winned match.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sol.models.tourney.Tourney">
+<em class="property">class </em><code class="sig-prename descclassname">sol.models.tourney.</code><code class="sig-name descname">Tourney</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney" title="Permalink to this definition">¶</a></dt>
+<dd><p>A single tournament.</p>
+<dl class="py class">
+<dt id="sol.models.tourney.Tourney.AbstractVisitor">
+<em class="property">class </em><code class="sig-name descname">AbstractVisitor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tourney</span></em>, <em class="sig-param"><span class="n">pivot</span></em>, <em class="sig-param"><span class="n">competitors</span></em>, <em class="sig-param"><span class="n">done</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.AbstractVisitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract visitor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tourney</strong> -- a <a class="reference internal" href="#sol.models.tourney.Tourney" title="sol.models.tourney.Tourney"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tourney</span></code></a> instance</p></li>
+<li><p><strong>pivot</strong> -- a <a class="reference internal" href="competitors.html#sol.models.competitor.Competitor" title="sol.models.competitor.Competitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Competitor</span></code></a> instance</p></li>
+<li><p><strong>competitors</strong> -- a list of possible opponents</p></li>
+<li><p><strong>done</strong> -- the set of already played pairings</p></li>
+</ul>
+</dd>
+</dl>
+<p>This is an <a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#iterator-types">iterator class</a>, used by the method <a class="reference internal" href="#sol.models.tourney.Tourney._combine" title="sol.models.tourney.Tourney._combine"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Tourney._combine()</span></code></a>: it
+yields all possible competitors to <cite>pivot</cite> in some order, without repeating already
+played matches present in <cite>done</cite>, a set containing previous matches (both <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code>
+and <code class="docutils literal notranslate"><span class="pre">(b,</span> <span class="pre">a)</span></code>).</p>
+<p>The iteration honors the tourney's <cite>delaycompatriotpairing</cite>: when <code class="docutils literal notranslate"><span class="pre">True</span></code>, players
+with the same nationality of the <cite>pivot</cite> and with the same points will be considered
+later.</p>
+<p>Concrete subclasses must reimplement the method <code class="docutils literal notranslate"><span class="pre">computeVisitOrder()</span></code>, that
+determines the actual <em>order</em>.</p>
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.AbstractVisitor.computeVisitOrder">
+<code class="sig-name descname">computeVisitOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.AbstractVisitor.computeVisitOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sequence of <em>positions</em>, the indexes into the list <cite>self.competitors</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sol.models.tourney.Tourney.DazedVisitor">
+<em class="property">class </em><code class="sig-name descname">DazedVisitor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tourney</span></em>, <em class="sig-param"><span class="n">pivot</span></em>, <em class="sig-param"><span class="n">competitors</span></em>, <em class="sig-param"><span class="n">done</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.DazedVisitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visit the <cite>competitors</cite>, giving precedence to the competitors with the same points.</p>
+<p>This starts looking at the competitors with the same points as the <cite>pivot</cite>, and then
+goes on with the others: this is to postpone as much as possible the match between the
+strongest competitors.</p>
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.DazedVisitor.computeVisitOrder">
+<code class="sig-name descname">computeVisitOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.DazedVisitor.computeVisitOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>First count how many competitors have the same points as the <cite>pivot</cite>, then if
+possible iterate over the second half of them, then over the first half, and
+finally over the remaining ones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.DazedVisitor.countSamePointsAsPivot">
+<code class="sig-name descname">countSamePointsAsPivot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.DazedVisitor.countSamePointsAsPivot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the count of competitors with the same points as the <cite>pivot</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sol.models.tourney.Tourney.SerialVisitor">
+<em class="property">class </em><code class="sig-name descname">SerialVisitor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tourney</span></em>, <em class="sig-param"><span class="n">pivot</span></em>, <em class="sig-param"><span class="n">competitors</span></em>, <em class="sig-param"><span class="n">done</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.SerialVisitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visit the <cite>competitors</cite> in order.</p>
+<p>Given that the list of competitors is sorted by their rank, this effectively tries to
+combine players with the same strength.</p>
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.SerialVisitor.computeVisitOrder">
+<code class="sig-name descname">computeVisitOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.SerialVisitor.computeVisitOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simply return <code class="docutils literal notranslate"><span class="pre">range(len(self.competitors))</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sol.models.tourney.Tourney.StaggeredVisitor">
+<em class="property">class </em><code class="sig-name descname">StaggeredVisitor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tourney</span></em>, <em class="sig-param"><span class="n">pivot</span></em>, <em class="sig-param"><span class="n">competitors</span></em>, <em class="sig-param"><span class="n">done</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.StaggeredVisitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visit the <cite>competitors</cite>, giving precedence to the competitors with the same points.</p>
+<p>This is similar to <a class="reference internal" href="#sol.models.tourney.Tourney.DazedVisitor" title="sol.models.tourney.Tourney.DazedVisitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">DazedVisitor</span></code></a> except that when there are 50 or more
+competitors with the same points, instead of splitting them in two halves of the same
+size it uses an arbitrary offset of 25 (i.e. the 1st competitor is paired with the
+26th, the 2nd with the 27th, and so on): this should placate the gripes about unfair
+pairings between strongest and weakest competitors at the first turn.</p>
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.StaggeredVisitor.computeVisitOrder">
+<code class="sig-name descname">computeVisitOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.StaggeredVisitor.computeVisitOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>First count how many competitors have the same points as the <cite>pivot</cite>, then if
+possible iterate over the second half of them, then over the first half, and
+finally over the remaining ones.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._areFinalTurnsEnoughForPrizing">
+<code class="sig-name descname">_areFinalTurnsEnoughForPrizing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._areFinalTurnsEnoughForPrizing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether final rounds are enough to complete the tourney with prize-giving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._assignAsisPrizes">
+<code class="sig-name descname">_assignAsisPrizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._assignAsisPrizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign decreasing integer numbers as final prizes, down to 1 to the last competitor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._assignBoards">
+<code class="sig-name descname">_assignBoards</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matches</span></em>, <em class="sig-param"><span class="n">comp_boards</span></em>, <em class="sig-param"><span class="n">available_boards</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._assignBoards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a table to each match, possibly one not already used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._assignCentesimalPrizes">
+<code class="sig-name descname">_assignCentesimalPrizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._assignCentesimalPrizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns 100 to the winner, 1 to the last, linear interpolation to the others.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._assignFixed40Prizes">
+<code class="sig-name descname">_assignFixed40Prizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._assignFixed40Prizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign fixed prizes to the first 40 competitors.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._assignFixedPrizes">
+<code class="sig-name descname">_assignFixedPrizes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prizes</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._assignFixedPrizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign fixed prizes to the first 16 competitors.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._assignMillesimalPrizes">
+<code class="sig-name descname">_assignMillesimalPrizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._assignMillesimalPrizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign 1000 points to the winner stepping down in fixed amount.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._combine">
+<code class="sig-name descname">_combine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">competitors</span></em>, <em class="sig-param"><span class="n">done</span></em>, <em class="sig-param"><span class="n">_level</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._combine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the next round, based on current ranking.</p>
+<p>This recursively tries to build the next round, pairing together competitors that did
+not already played against each other.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._computeFinalWins">
+<code class="sig-name descname">_computeFinalWins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._computeFinalWins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the number of matches won by each competitor in the finals</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._makeFirstTurn">
+<code class="sig-name descname">_makeFirstTurn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._makeFirstTurn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the first round of a tourney, pairing competitors in a random way.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._makeNextAAATurn">
+<code class="sig-name descname">_makeNextAAATurn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">competitors</span></em>, <em class="sig-param"><span class="n">done</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._makeNextAAATurn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mechanically generate next turn out of all possible matches.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney._makeNextTurn">
+<code class="sig-name descname">_makeNextTurn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney._makeNextTurn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the next round of the game.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.allPlayers">
+<code class="sig-name descname">allPlayers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.allPlayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator that return all involved players.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.assignPrizes">
+<code class="sig-name descname">assignPrizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.assignPrizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Consolidate final points.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.caption">
+<code class="sig-name descname">caption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">html</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">localized</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.caption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a possibly HTML-decorated caption of the entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>html</strong> -- either <code class="docutils literal notranslate"><span class="pre">None</span></code> (the default) or a boolean value</p></li>
+<li><p><strong>localized</strong> -- a boolean value, <code class="docutils literal notranslate"><span class="pre">True</span></code> by default</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<p>If <cite>html</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code> then the result may be an
+HTML representation of the entity, otherwise it is plain text.</p>
+<p>If <cite>localized</cite> is <code class="docutils literal notranslate"><span class="pre">False</span></code> then the localization is turned off.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.check_insert">
+<em class="property">classmethod </em><code class="sig-name descname">check_insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">fields</span></em>, <em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.check_insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check description validity</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.check_update">
+<code class="sig-name descname">check_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.check_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check description validity</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.competitors">
+<code class="sig-name descname">competitors</code><a class="headerlink" href="#sol.models.tourney.Tourney.competitors" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of <a class="reference internal" href="competitors.html#sol.models.competitor.Competitor" title="sol.models.competitor.Competitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">competitors</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.computeRanking">
+<code class="sig-name descname">computeRanking</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">turn</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.computeRanking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recompute competitors ranking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>turn</strong> -- if given, compute the ranking up to that turn</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of tuples, each containing one of the competitors and a <a class="reference internal" href="#sol.models.tourney.Rank" title="sol.models.tourney.Rank"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rank</span></code></a>
+instance, sorted on the second item in descending order</p>
+</dd>
+</dl>
+<p>Compute each competitor rank by examining the matches of this tourney, summing up each
+other's current ranking position as the bucholz.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.countdownstarted">
+<code class="sig-name descname">countdownstarted</code><a class="headerlink" href="#sol.models.tourney.Tourney.countdownstarted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp of the start of the clock countdown, milliseconds since Unix epoch.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.couplings">
+<code class="sig-name descname">couplings</code><a class="headerlink" href="#sol.models.tourney.Tourney.couplings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kind of pairing method used to build next round. It may be <cite>all</cite>, <cite>serial</cite>, <cite>dazed</cite> or
+<cite>staggered</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.currentturn">
+<code class="sig-name descname">currentturn</code><a class="headerlink" href="#sol.models.tourney.Tourney.currentturn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current round.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.date">
+<code class="sig-name descname">date</code><a class="headerlink" href="#sol.models.tourney.Tourney.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event date.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.delaycompatriotpairing">
+<code class="sig-name descname">delaycompatriotpairing</code><a class="headerlink" href="#sol.models.tourney.Tourney.delaycompatriotpairing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the pairing of players belonging to the same country shall be postponed or
+not.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.delaytoppairing">
+<code class="sig-name descname">delaytoppairing</code><a class="headerlink" href="#sol.models.tourney.Tourney.delaytoppairing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of rounds for which pairing of top players should be postponed, if possible.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#sol.models.tourney.Tourney.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event description.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.duration">
+<code class="sig-name descname">duration</code><a class="headerlink" href="#sol.models.tourney.Tourney.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duration in minutes of each round, used by the clock.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.finalkind">
+<code class="sig-name descname">finalkind</code><a class="headerlink" href="#sol.models.tourney.Tourney.finalkind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kind of finals. It may be <cite>simple</cite> or <cite>bestof3</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.finals">
+<code class="sig-name descname">finals</code><a class="headerlink" href="#sol.models.tourney.Tourney.finals" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of finals that will be played.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.finalturns">
+<code class="sig-name descname">finalturns</code><a class="headerlink" href="#sol.models.tourney.Tourney.finalturns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the tourney is in final rounds state.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.idchampionship">
+<code class="sig-name descname">idchampionship</code><a class="headerlink" href="#sol.models.tourney.Tourney.idchampionship" title="Permalink to this definition">¶</a></dt>
+<dd><p>Related <a class="reference internal" href="championships.html#sol.models.championship.Championship" title="sol.models.championship.Championship"><code class="xref py py-class docutils literal notranslate"><span class="pre">championship</span></code></a>'s ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.idhostingclub">
+<code class="sig-name descname">idhostingclub</code><a class="headerlink" href="#sol.models.tourney.Tourney.idhostingclub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hosting <a class="reference internal" href="clubs.html#sol.models.club.Club" title="sol.models.club.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">club</span></code></a>'s ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.idowner">
+<code class="sig-name descname">idowner</code><a class="headerlink" href="#sol.models.tourney.Tourney.idowner" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">user</span></code></a> that is responsible for this record.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.idrating">
+<code class="sig-name descname">idrating</code><a class="headerlink" href="#sol.models.tourney.Tourney.idrating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Possible <a class="reference internal" href="ratings.html#sol.models.rating.Rating" title="sol.models.rating.Rating"><code class="xref py py-class docutils literal notranslate"><span class="pre">rating</span></code></a> ID this tourney uses and updates.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.idtourney">
+<code class="sig-name descname">idtourney</code><a class="headerlink" href="#sol.models.tourney.Tourney.idtourney" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary key.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.location">
+<code class="sig-name descname">location</code><a class="headerlink" href="#sol.models.tourney.Tourney.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.makeFinalTurn">
+<code class="sig-name descname">makeFinalTurn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.makeFinalTurn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the final matches.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.makeNextTurn">
+<code class="sig-name descname">makeNextTurn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.makeNextTurn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup the next round.</p>
+<p>If there are no matches, build up the first round using a random coupler. Otherwise,
+using current ranking, create the next round pairing any given competitor with a
+not-yet-met other one that follows him in the ranking.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.matches">
+<code class="sig-name descname">matches</code><a class="headerlink" href="#sol.models.tourney.Tourney.matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of <a class="reference internal" href="matches.html#sol.models.match.Match" title="sol.models.match.Match"><code class="xref py py-class docutils literal notranslate"><span class="pre">matches</span></code></a>, sorted by round and board.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.owner">
+<code class="sig-name descname">owner</code><a class="headerlink" href="#sol.models.tourney.Tourney.owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">owner</span></code></a> of this record, <cite>admin</cite> when <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.phantomscore">
+<code class="sig-name descname">phantomscore</code><a class="headerlink" href="#sol.models.tourney.Tourney.phantomscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>The score assigned to a player in matches against the Phantom.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.prealarm">
+<code class="sig-name descname">prealarm</code><a class="headerlink" href="#sol.models.tourney.Tourney.prealarm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prealarm before the end of the round.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.prized">
+<code class="sig-name descname">prized</code><a class="headerlink" href="#sol.models.tourney.Tourney.prized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the tourney is closed, and final prizes updated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.rankedturn">
+<code class="sig-name descname">rankedturn</code><a class="headerlink" href="#sol.models.tourney.Tourney.rankedturn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The highest round considered in the ranking.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.ranking">
+<em class="property">property </em><code class="sig-name descname">ranking</code><a class="headerlink" href="#sol.models.tourney.Tourney.ranking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Competitors sorted by their rank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sequence</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sorted list of <a class="reference internal" href="competitors.html#sol.models.competitor.Competitor" title="sol.models.competitor.Competitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">competitors</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.replay">
+<code class="sig-name descname">replay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">newidowner</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.replay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone this tourney, creating new one at given date.</p>
+<p>Of the original, only the competitors are copied. This is particularly useful for
+doubles (or team), so that the players get copied in the same order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.resetPrizes">
+<code class="sig-name descname">resetPrizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.resetPrizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset assigned final points.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.retirements">
+<code class="sig-name descname">retirements</code><a class="headerlink" href="#sol.models.tourney.Tourney.retirements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Policy used to adjust the bucholz of competitors who played against withdrawn players.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">serializer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce a single tourney to a simple dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serializer</strong> -- a <a class="reference internal" href="bio.html#sol.models.bio.Serializer" title="sol.models.bio.Serializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializer</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a plain dictionary containing a flatified view of this tourney</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.tourney.Tourney.socialurl">
+<code class="sig-name descname">socialurl</code><a class="headerlink" href="#sol.models.tourney.Tourney.socialurl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Social site URL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.tourney.Tourney.updateRanking">
+<code class="sig-name descname">updateRanking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.tourney.Tourney.updateRanking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recompute and update competitors ranking.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">SoL modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i18n.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code> -- Internationalization utilities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printouts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">SoL modules</a><ul>
+  <li><a href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a><ul>
+  <li><a href="entities.html">Entities</a><ul>
+      <li>Previous: <a href="ratings.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.rating</span></code> -- Ratings</a></li>
+      <li>Next: <a href="users.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.user</span></code> -- User</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tourneys.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
