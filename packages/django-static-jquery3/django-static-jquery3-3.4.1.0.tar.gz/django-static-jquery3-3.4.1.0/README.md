@@ -1,0 +1,50 @@
+# django-static-jquery3
+
+
+Django application contain jquery static files
+
+
+## Install
+
+```shell
+    pip install django-static-jquery3
+```
+
+## Usage
+
+**pro/settings.py**
+
+```python
+    INSTALLED_APPS = [
+        ...
+        "django_static_jquery3",
+        ...
+    ]
+```
+
+**app/template/app/index.html**
+
+```html
+{% load static %}
+
+<script src="{% static "jquery3/jquery.js" %}"></script>
+```
+
+## About releases
+
+1. The first three number is the same with fontawesome project's version.
+1. The fourth number is our release number, it's optional.
+
+## Releases
+
+### v3.4.1.0 2020/04/10
+
+- Upgrade jquery to 3.4.1.
+
+### v3.3.1.1 2018/03/27
+
+- Upgrade jquery to 3.3.1.
+
+## v3.2.1 2017/12/23
+
+- First release with jquery 3.2.1.
