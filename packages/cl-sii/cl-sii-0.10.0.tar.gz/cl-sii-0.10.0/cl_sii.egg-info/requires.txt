@@ -1,0 +1,14 @@
+cryptography<3,>=2.8
+defusedxml<1,>=0.6.0
+jsonschema>=3.1.1
+lxml<5,>=4.5.0
+marshmallow<3,>=2.19.2
+pyOpenSSL<19,>=18.0.0
+pytz>=2019.3
+signxml>=2.6.0
+
+[django]
+Django<3,>=2.2.10
+
+[djangorestframework]
+djangorestframework<3.11,>=3.10.3
