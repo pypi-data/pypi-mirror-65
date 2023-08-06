@@ -1,0 +1,9 @@
+httpretty
+pytest
+pytest-cov
+pytest-sugar
+moto
+freezegun
+pytest-benchmark>=3.2.2
+pytest-flake8~=1.0.4
+pytest-parallel
