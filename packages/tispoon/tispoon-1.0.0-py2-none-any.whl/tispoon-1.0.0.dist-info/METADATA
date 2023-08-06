@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: tispoon
+Version: 1.0.0
+Summary: Tistory blogging library using open API
+Home-page: https://github.com/Xvezda/tispoon
+Author: Xvezda
+Author-email: xvezda@naver.com
+License: UNKNOWN
+Keywords: blog blogging openapi korean tistory library
+Platform: UNKNOWN
+Classifier: Natural Language :: Korean
+Classifier: Topic :: Education :: Testing
+Classifier: Topic :: Other/Nonlisted Topic
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: markdown2
+Requires-Dist: six
+
+# Tispoon
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+[티스토리 오픈 API](https://www.tistory.com/guide/api/manage/register)를 활용한 파이썬 라이브러리 입니다.
+
+# Copyright
+
+[MIT License](LICENSE)
+
+# Reference
+
+Tispoon은 [티스토리](https://tistory.com/)와 관련이 없는 서드파티 라이브러리 입니다.
+
+티스토리와 티스토리 Open API는 [Kakao Corp.](http://www.kakaocorp.com/) 의 상표 또는 등록상표 입니다.
+
+- [티스토리 오픈 API 가이드](https://tistory.github.io/document-tistory-apis/)
+
+
+
