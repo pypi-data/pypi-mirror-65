@@ -1,0 +1,5 @@
+commonconf>=1.0
+urllib3
+python-dateutil
+prometheus-client<1.0,>=0.7
+mock
