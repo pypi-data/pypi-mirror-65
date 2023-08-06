@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: rasam
+Version: 0.1.0
+Summary: Rasa Improvements
+License: MIT
+Keywords: URL extractor for Rasa,Regex entity extractor for Rasa
+Author: Ronie Martinez
+Author-email: ronmarti18@gmail.com
+Requires-Python: >=3.6,<3.8
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: rasa (>=1.9.5,<2.0.0)
+Requires-Dist: urlextract (>=0.14.0,<0.15.0)
+Description-Content-Type: text/markdown
+
+# rasam
+Rasa Improvements
+
+## Usage
+
+### Installation
+
+```shell script
+pip install rasam
+```
+
+### Rasa `config.yml`
+
+```yaml
+pipeline:
+  - name: rasam.RegexEntityExtractor
+  - name: rasam.URLEntityExtractor
+```
+
+## Author
+[Ronie Martinez](ronmarti18@gmail.com)
+
