@@ -1,0 +1,17 @@
+README.md
+setup.py
+tap_dayforce/__init__.py
+tap_dayforce/streams.py
+tap_dayforce/utils.py
+tap_dayforce/version.py
+tap_dayforce/whitelisting.py
+tap_dayforce.egg-info/PKG-INFO
+tap_dayforce.egg-info/SOURCES.txt
+tap_dayforce.egg-info/dependency_links.txt
+tap_dayforce.egg-info/entry_points.txt
+tap_dayforce.egg-info/requires.txt
+tap_dayforce.egg-info/top_level.txt
+tap_dayforce/schemas/employee_punches.json
+tap_dayforce/schemas/employee_raw_punches.json
+tap_dayforce/schemas/employees.json
+tap_dayforce/schemas/pay_summary_report.json
