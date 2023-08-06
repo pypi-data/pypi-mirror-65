@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: awsume
+Version: 4.4.0a5
+Summary: Awsume - A cli that makes using AWS IAM credentials easy
+Home-page: https://github.com/trek10inc/awsume
+Author: Trek10, Inc
+Author-email: package-management@trek10.com
+License: MIT
+Description: # AWSume: AWS Assume Made Awesome
+        
+        Check out the documentation at [awsu.me](https://awsu.me)!
+        
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Provides-Extra: saml
+Provides-Extra: fuzzy
