@@ -1,0 +1,10 @@
+.vscode/settings.json
+dist/*.whl
+dist/*.gz
+libhreels/__pycache__/__init__.cpython-36.pyc
+libhreels/__pycache__/calcHREELS.cpython-36.pyc
+libhreels/__pycache__/HREELS.cpython-36.pyc
+libhreels/__pycache__/ViewHREELS.cpython-36.pyc
+.gitignore
+dist/libhreels-0.9.10-py3-none-any.whl
+dist/libhreels-0.9.10.tar.gz
