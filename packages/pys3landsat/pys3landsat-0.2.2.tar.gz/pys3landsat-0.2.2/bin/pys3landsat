@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+__author__ = 'Emmanuel Arias <eamanu@yaerobi.com>'
+
+import argparse
+
+from pyamazonlandsat.service import Service
+
+
+def main(arg):
+    service = Service(arg.name, arg.output)
+    print('The %s product will be downloaded on %s folder' % (arg.name, arg.output))
+    print('Downloading...')
+    service.get_product()
+    print('Download finished successfully')
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Download Landsat 8 images from Amazon S3')
+    parser.add_argument('-n', '--name', type=str, help='Name of the product to download.')
+    parser.add_argument('-o', '--output', type=str, help='Output path to the product.')
+
+    args = parser.parse_args()
+    main(args)
