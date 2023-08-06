@@ -1,0 +1,140 @@
+Metadata-Version: 2.1
+Name: lindworm
+Version: 0.0.2
+Summary: glue Siemens products together, PCS7, COMOS PAA, SIMIT
+Home-page: https://gitlab.com/wobweger/lindworm
+Author: Walter Obweger
+Author-email: walter.obweger@gmail.com
+License: MIT
+Project-URL: Documentation, https://gitlab.com/wobweger/lindworm
+Description: # lindworm
+        
+        lindworm is a pure python package.
+        
+        python gather for markdown to simple pandoc
+        
+        [markdown][mdSyntax] is a great way to document your thoughts and code. 
+        If small md fragments are supposed to be combined into a single document using
+        [pandoc][pandoc_home], certain problems may show up:
+        
+        + keeping right order
+        + images in sub folders
+        + references
+        + links to files in md are suddenly dead in doc
+        
+        ## background
+        
+        FIXME
+        
+        ### markdown
+        
+        [markdown][mdSyntax] or simple md is available in a lot of state-of-the-art platform, a few format instruction allow you to structure
+        information into readable look, with any overhead.
+        it's text rendered into html.
+        
+        benefits:
+        
+        + easy to learn
+        + easy to remember
+        + lightweight
+        + safe, no macros or anything that might invite an attack
+        
+        ### pandoc
+        
+        [pandoc][pandoc_home] is a flexible document converter. 
+        see [manual][pandoc_man]  
+        It can read and write:
+        
+        + markdown
+        + html
+        + odt
+        + docx
+        + tex
+        + pdf
+        + epub
+        + and more
+        
+        more on github
+        
+        + [src][pandoc_github]
+        + [wiki][pandoc_wiki]
+        + [tricks][pandoc_tricks]
+        
+        ## goal
+        
+        a python script shall read one md file, analyse it and walk through each md file link. 
+        all found md files shall be compacted into a new single one.  
+        all images links shall be copied into a single media folder.  
+        suggested tree structure shall be flattened out.  
+        links to other file types, determined by extension, shall be modified to repo links.
+        
+        ## requirements
+        
+        + python 3 implementation
+        + CLI, command line interface
+        + configuration xml
+        + project language English
+        + coding language English, sort of
+        
+        ## install
+        
+        ```shell
+        pip install lindworm
+        ```
+        
+        ```shell
+        python setup.py install
+        ```
+        
+        ## Dependencies
+        
+        Python 3 is required
+        use of anaconda recommended.
+        
+        packages used:
+        
+        + [pandas][pandas]
+        + [pysimplegui][pysimplegui]
+        
+        ## lindworm.gather.md
+        
+        analyse markdown file and generate one result markdown file
+        
+        ```shell
+        lindworm.gather.md
+        ```
+        
+        ## contribute
+        
+        every contribution is very much appreciated.  
+        join, discuss, use and share.
+        
+        
+        [mdSyntax]: https://sourceforge.net/p/scintilla/wiki/markdown_syntax/
+        
+        [pandas]: https://pandas.pydata.org/
+        
+        [pysimplegui]: https://pypi.org/project/PySimpleGUI/
+        
+        [pandoc_home]: https://pandoc.org/index.html
+        [pandoc_man]: https://pandoc.org/MANUAL.html
+        [pandoc_github]: https://github.com/jgm/pandoc
+        [pandoc_wiki]: https://github.com/jgm/pandoc/wiki
+        [pandoc_tricks]: https://github.com/jgm/pandoc/wiki/Pandoc-Tricks
+        
+Keywords: tools
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
