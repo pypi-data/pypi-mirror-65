@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: auto-ts
+Version: 0.0.18
+Summary: Automatically Build Multiple Time Series models fast - now with Facebook Prophet!
+Home-page: https://github.com/AutoViML/Auto_TS
+Author: Ram Seshadri
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: ipython
+Requires-Dist: jupyter
+Requires-Dist: pyflux
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scikit-learn
+Requires-Dist: fbprophet
+Requires-Dist: statsmodels
+
+# Auto_TimeSeries
+Automatically build multiple Time Series models with a single line of code
+
+
