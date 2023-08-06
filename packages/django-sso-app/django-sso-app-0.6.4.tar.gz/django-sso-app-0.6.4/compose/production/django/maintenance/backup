@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+
+### Create a database backup.
+###
+### Usage:
+###     $ docker-compose -f <environment>.yml (exec |run --rm) postgres backup
+
+APP_NAME='django_sso_app'
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+working_dir="$(dirname ${0})"
+source "${working_dir}/_sourced/constants.sh"
+source "${working_dir}/_sourced/messages.sh"
+
+CUR_DATE=$(date +'%Y_%m_%dT%H_%M_%S')
+
+message_welcome "Backing up '${APP_NAME}'..."
+
+
+python manage.py dumpdata --indent=4 --natural-foreign \
+    -e auth.permission -e contenttypes -e sessions -e admin \
+    -e django_sso_app.passepartout > dump_all.json
+
+
+# copying dump_all.json
+cp -v dump_all.json ${BACKUP_DIR_PATH}/
+
+backup_filename="${BACKUP_FILE_PREFIX}_${CUR_DATE}.${APP_NAME}.gz"
+tar cvjf "${BACKUP_DIR_PATH}/${backup_filename}" ./dump_all.json
+
+
+message_success "'${APP_NAME}' backup '${backup_filename}' has been created and placed in '${BACKUP_DIR_PATH}'."
