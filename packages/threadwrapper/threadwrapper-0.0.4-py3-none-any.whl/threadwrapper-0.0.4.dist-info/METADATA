@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: threadwrapper
+Version: 0.0.4
+Summary: Gather results from multiple threads seamlessly.
+Home-page: https://github.com/foxe6-temp/threadwrapper
+Author: f̣ộx̣ệ6
+Author-email: foxe6@protonmail.com
+License: AGPL-3.0
+Keywords: thread wrapper class
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: debugging (>=0.0.1)
+Requires-Dist: omnitools (>=0.0.1)
+
+# Thread Wrapper
+
+<i>Gather results from multiple threads seamlessly.</i>
+
+# Hierarchy
+
+```
+threadwrapper
+'---- ThreadWrapper()
+    |---- add()
+    '---- wait()
+```
+
+# Example
+
+## python
+```python
+
+```
+
+## shell
+```shell script
+
+```
+
