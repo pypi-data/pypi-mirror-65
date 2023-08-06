@@ -1,0 +1,11 @@
+numpy>=1.16
+pandas
+seaborn
+cvxpy>=1.0
+solar-data-tools
+
+[dev]
+check-manifest
+
+[test]
+coverage
