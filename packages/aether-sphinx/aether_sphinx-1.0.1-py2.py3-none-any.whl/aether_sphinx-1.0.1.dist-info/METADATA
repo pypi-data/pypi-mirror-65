@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: aether-sphinx
+Version: 1.0.1
+Summary: Aether theme for Sphinx
+Home-page: https://invent.kde.org/websites/aether-sphinx
+Author: Carson Black, Carl Schwan, Dave Snider, Read the Docs, Inc., KDE & contributors
+Author-email: uhhadd@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Framework :: Sphinx
+Classifier: Framework :: Sphinx :: Theme
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Requires-Dist: sphinx
+Provides-Extra: dev
+Requires-Dist: transifex-client ; extra == 'dev'
+Requires-Dist: sphinxcontrib-httpdomain ; extra == 'dev'
+
+Aether Sphinx Theme
+===================
+
+The Aether theme for sphinx documentation.
+
