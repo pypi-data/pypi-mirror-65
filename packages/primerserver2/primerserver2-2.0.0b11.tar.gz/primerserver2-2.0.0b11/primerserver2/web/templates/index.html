@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title> PrimerServer </title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">   <!-- For IE -->
+        <meta name="renderer" content="webkit">   <!-- For some Chinese web browser -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- For mobile device -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" >
+        <!-- Bootstrap-Select plugin CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.min.css') }}" >
+        
+        <!-- font-awesome CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        
+        <!-- JQuery Validation CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/validationEngine.jquery.css') }}" />
+        
+        <!-- Fork me on github -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/gh-fork-ribbon.min.css') }}" />
+        
+        <!-- Back to Top -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/back-to-top.css') }}" />
+        
+        <!-- Own CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container" role="main">
+            <h1>
+                PrimerServer
+                <span class="badge">v{{ver}}</span>
+                <small>PCR Primers Batch Design &amp; Specificity Check</small>
+            </h1>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#full" role="tab" data-toggle="tab">
+                        <span class="glyphicon glyphicon-edit"></span> Full (Design &amp; Check)
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#design" role="tab" data-toggle="tab">
+                        <span class="glyphicon glyphicon-search"></span> Design Only
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#check" role="tab" data-toggle="tab">
+                        <span class="glyphicon glyphicon-search"></span> Check Only
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#visulize" role="tab" data-toggle="tab">
+                        <span class="glyphicon glyphicon-eye-open"></span> Visualize
+                    </a>
+                </li>
+            </ul>
+
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" id="form-primer">
+                <input type="hidden" name="app-type" value="full" class="save-input" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <fieldset>
+                            <legend><span id="textarea-title">Input: Design primers and check specificity</span>
+                                <small><span class="glyphicon glyphicon-question-sign help-icon" data-toggle="modal"
+                                data-target="#input-help"></span></small> 
+                            </legend>
+                            <select class="form-control selectpicker show-tick show-menu-arrow save-input validate[required]" 
+                            name="templates" data-size="10" data-live-search="true" title="Select your templates (Databases)"
+                            multiple data-selected-text-format="count > 1" data-max-options="2">
+                            </select>
+                            <input type="hidden" name="selected_dbs" value="" class="save-input" />
+                            <textarea class="form-control monospace-style validate[required, maxSize[100000]]" rows="20"
+                            style="background-color: #bfffdf"
+                            placeholder="Refer the help icon to see input format" 
+                            name="query"></textarea>
+                        </fieldset>
+                        <input type="submit" value="Submit" class="btn btn-primary" /> 
+                        <input type="reset"  value="Reset" class="btn btn-default" />
+                        <div class="alert alert-warning" role="alert">
+                            <h4><span class="glyphicon glyphicon-info-sign"></span> The CLI version has more functions</h4>
+                            <p>We recommend to run the <a href="https://github.com/billzt/PrimerServer2">CLI</a> version to generate the JSON output, 
+                                and visualize the results in the <strong>[<span class="glyphicon glyphicon-eye-open"></span> Visualize]</strong> tab above
+                                this website.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <fieldset>
+                            <legend>Selected Templates</legend>
+                            <ul class="list-group" id="show-selected-templates"></ul>
+                        </fieldset>
+                        <fieldset id="parameter-design">
+                            <legend>Parameter: Design</legend>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Region Type</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control selectpicker show-tick show-menu-arrow save-input validate[required]" 
+                                    name="region_type" >
+                                        <option value="SEQUENCE_TARGET" selected>Target Region</option>
+                                        <option value="SEQUENCE_INCLUDED_REGION">Include Region</option>
+                                        <option value="FORCE_END">Force 3' End</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Product Size (bp)</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Min</span>
+                                        <input type="text" name="product_size_min" value="100"
+                                        class="form-control save-input validate[required, custom[integer], min[30], max[50000]]" />
+                                        <span class="input-group-addon">Max</span>
+                                        <input type="text" name="product_size_max" value="1000"
+                                        class="form-control save-input validate[required, custom[integer], min[30], max[50000]]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">No. Primers To Detect</label>
+                                <div class="col-sm-2">
+                                    <input type="text" name="primer_num_return" value="30" 
+                                    class="form-control save-input validate[required, custom[integer], min[1], max[1000]]" />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset id="parameter-check">
+                            <legend>Parameter: Check Specificity</legend>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Checking Amplicon Size (bp)</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Min</span>
+                                        <input type="text" name="checking_size_min" value="50"
+                                        class="form-control save-input validate[required, custom[integer], min[30], max[50000]]" />
+                                        <span class="input-group-addon">Max</span>
+                                        <input type="text" name="checking_size_max" value="2000"
+                                        class="form-control save-input validate[required, custom[integer], min[30], max[50000]]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Min. Tm Difference:</label>
+                                <div class="col-sm-5">
+                                    <div class="input-group">
+                                        <input type="text" name="Tm_diff" value="20" 
+                                        class="form-control save-input validate[required, custom[integer], min[10], max[100]]" />
+                                        <span class="input-group-addon">(&deg;C) lower</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Filter with 3' End Validation:</label>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <label><input type="radio" class="save-input" name="use_3_end" id="use_3_end_1" value=1 />Yes</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" class="save-input" name="use_3_end" id="use_3_end_0" value=0 checked />No</label>
+                                    </div>
+                                </div>
+                                <label class="col-sm-4 control-label">Get Amplicon Seq:</label>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <label><input type="radio" class="save-input" name="report_amplicon_seqs" 
+                                            id="report_amplicon_seqs_1" value=1 />Yes</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" class="save-input" name="report_amplicon_seqs" 
+                                            id="report_amplicon_seqs_0" value=0 checked />No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Parameter: General</legend>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Max. Primers Return Number:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" name="retain" value="10" 
+                                    class="form-control save-input validate[required, custom[integer], min[1], max[1000]]" />
+                                </div>
+                                <label class="col-sm-4 control-label">Check Dimers(For multiplex PCR):</label>
+                                <div class="col-sm-2">
+                                    <div class="radio">
+                                        <label><input type="radio" name="multiplex" id="multiplex_1" value=1 />Yes</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" name="multiplex" id="multiplex_0" value=0 checked />No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+
+            <!-- visulization -->
+            <div class="row">
+                <div id="block-visulization" class="col-md-6 hidden">
+                    <h2>Visualize Primer Results</h2>
+                    <input type="file" id="file-visulization" accept="application/json" class="hidden">
+                    <button type="file" id="btn-visulization" class="btn btn-primary btn-lg btn-block">
+                        Upload JSON file <span class="glyphicon glyphicon-upload"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- results -->
+            <div class="row">
+                <div id="result" class="hidden">
+                    <h2 class="page-header">
+                        Results
+                        <small>
+                            <div class="btn-group" role="group">
+                                <button type="button" id="btn-download-tsv" class="btn btn-primary">Download Table 
+                                <span class="glyphicon glyphicon-download"></span></button>
+                                <button type="button" id="btn-download-json" class="btn btn-warning">Download JSON 
+                                <span class="glyphicon glyphicon-download"></span></button>
+                            </div>
+                        </small>
+                    </h2>
+                    <div class="panel-group" id="primers-result" role="tablist"></div>
+                    <div class="table-responsive hidden"  id="dimers-result">
+                        <h3>Dimers</h3>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Site 1</th>
+                                    <th>Primer 1</th>
+                                    <th>Seq 1</th>
+                                    <th>Site 2</th>
+                                    <th>Primer 2</th>
+                                    <th>Seq 2</th>
+                                    <th>Tm (&deg;C)</th>
+                                    <th>Structure</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="test"></div>
+            </div>
+        </div>
+
+        <!-- Template for the result HTML: site, for JS use only -->
+        <div class="hidden" id="primers-result-template-site">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <div class="row row-site-info">
+                        <h4 class="panel-title col-md-1">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#primers-result" 
+                                href="#site-0"> <!-- site-0 shoud be changed -->
+                                Site 0 <span class="caret"></span>
+                            </a>
+                        </h4>
+                        <div class="col-md-3">
+                            <small class="site-detail">
+                                Template seq0; Target Pos: 200; Target Length: 10 <!-- shoud be changed -->
+                            </small>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="badge site-primer-num">9</span> Primer(s) <!-- shoud be changed -->
+                        </div>
+                        <!-- Add this if this site contains a unique primer
+                        <div class="col-md-1">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <!-- id shoud be changed; Add class "in" for the first group -->
+                <div id="site-0" class="panel-collapse collapse panel-site" role="tabpanel">   
+                    <div class="panel-body">
+                        <div class="PrimerFigure"></div>  <!-- draw pictures -->
+                        <ul class="list-group list-group-primers"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Template for the result HTML: primer, for JS use only -->
+        <div class="hidden" id="primers-result-template-primer">
+            <li class="list-group-item list-group-item-primer"> <!-- Add class "list-group-item-success" if it is a unique primer -->
+                <h4 class="list-group-item-heading" id="Site0-Primer0">Primer 0</h4> <!-- Site0-Primer0 shoud be changed -->
+                <div class="list-group-item-text">
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Sequence (5' -&gt; 3')</th>
+                                    <th>Length</th>
+                                    <th>Position</th>
+                                    <th>Tm(&deg;C)</th>
+                                    <th>GC(%)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="primer-seq-detail"></tbody>
+                        </table>
+                        <table class="table table-bordered amplicons_table">
+                            <tr class="database-list">
+                                <th class="col-sm-2" rowspan="3">Possible Amplicons</th>
+                            </tr>
+                            <tr class="amplicons_number"></tr>
+                            <tr class="amplicons_region"></tr>
+                        </table>
+                    </div>
+                </div>
+            </li> 
+        </div>
+
+        <!-- Template for the result HTML: error, for JS use only -->
+        <div class="hidden" id="primers-result-template-error">
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+
+        <!-- Modal for help information -->
+        <div class="modal fade" id="input-help" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Input Help</h4>
+                </div>
+                <div class="modal-body">
+                    <p>See <a href="https://github.com/billzt/PrimerServer2" target="_blank">Github</a> for detailed help</p>
+                    <h4 class="page-header">Design Primers &amp; Check</h4>
+                    <p>Format: One site per line, space delimited <code>TemplateID TargetPos TargetLength</code></p>
+                    <p>Example (Using Example Database):</p>
+                    <pre>
+seq1 200 10
+seq1 400 10</pre>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Acceptable Template IDs</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Click here to download a text file showing currently acceptable template IDs and their lengths:</p>
+                            <div class="list-group pre-scrollable" id="help-modal-ID-list"></div>
+                        </div>
+                    </div>
+                    
+                    
+                    <h4 class="page-header">Check Primers Only</h4>
+                    <p>Format: One primer group per line, space delimited: <code>PrimerID Seq1 Seq2 ...</code></p>
+                    <p>Example: (Using Example Database):</p>
+                    <pre>
+P1 CTTCTGCAATGCCAAGTCCAG   GTGGTGAAGGGTCGGTTGAA
+P2 ACCAAACCCCAGAGTCAATTAA  TCTATCTATTGCACTGCCTGTTG</pre>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Running -->
+        <div class="modal fade" id="running-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Running: Generating Primers... <span class="fa fa-spinner fa-spin"></span></h4>
+                </div>
+                <div class="modal-body">
+                  <h4><span class="fa fa-spinner fa-spin fa-4x"></span></h4>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar"></div>
+                  </div>
+                  <div class="alert alert-warning" role="alert">
+                      If you did not get any result in &ge; 5 minites, then you might reduce the amount of your input sites.
+                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" id="stop">Stop</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Modal for Amplicon Details -->
+        <div class="modal fade" id="amplicon-details-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Amplicon Details</h4>
+                </div>
+                <div class="modal-body">
+                    <pre></pre>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <script>
+            // script root
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+
+        <!-- jQuery -->
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <!-- Bootstrap JS -->
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <!-- Bootstrap Select JS -->
+        <script src="{{ url_for('static', filename='js/bootstrap-select.min.js') }}"></script>
+        <!-- jQuery Validation -->
+        <script src="{{ url_for('static', filename='js/jquery.validationEngine.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.validationEngine-en.js') }}"></script>
+        <!-- jQuery Saves Form State -->
+        <script src="{{ url_for('static', filename='js/jquery.phoenix.min.js') }}"></script>
+        <!-- D3 -->
+        <script src="{{ url_for('static', filename='js/d3.v4.min.js') }}"></script>
+        <!-- SVG zoom -->
+        <script src="{{ url_for('static', filename='js/svg-pan-zoom.min.js') }}"></script>
+        <!-- File Download -->
+        <script src="{{ url_for('static', filename='js/FileSaver.min.js') }}"></script>
+        <!-- Virtual electrophoresis -->
+        <script src="{{ url_for('static', filename='js/d3-electrophoresis.js') }}"></script>
+        <!-- Back to Top -->
+        <script src="{{ url_for('static', filename='js/back-to-top.js') }}"></script>
+        <!-- Own generate HTML result JS -->
+        <script src="{{ url_for('static', filename='js/generate_html_result.js') }}"></script>
+        <!-- Own draw figure JS -->
+        <script src="{{ url_for('static', filename='js/draw_figure.js') }}"></script>
+        <!-- Own JS -->
+        <script src="{{ url_for('static', filename='js/primer.js') }}"></script>
+        
+        <a class="github-fork-ribbon" href="https://github.com/billzt/PrimerServer2" title="Fork me on GitHub" \
+        target="_blank">Fork me on GitHub</a>
+
+        <!-- This fake div hidden preloads our web font! -->
+        <div class="div-fake-hidden">
+            <i class="fa fa-spinner fa-spin fa-4x"></i>
+            <span class="glyphicon glyphicon-ok check-mark"></span>
+        </div>
+    </body>
+</html>
