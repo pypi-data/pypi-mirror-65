@@ -1,0 +1,6 @@
+#!%PYTHON_HOME%\python.exe
+# coding: utf-8
+# version: python38
+
+from yutils.queries.csv_to_db.consts.consts import NVARCHAR_HEBREW_ENCODINGS, DATETIME_FORMATS, \
+    DB_DATETIME_FORMAT_PYTHON, DB_DATETIME_FORMAT_SQL, TIMESTAMP_FORMATS, DB_TIMESTAMP_FORMAT_PYTHON, DB_TIMESTAMP_FORMAT_SQL
