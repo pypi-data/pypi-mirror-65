@@ -1,0 +1,3 @@
+[anyconfig_backends]
+fortios = anyconfig_fortios_backend:Parser
+
