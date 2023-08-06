@@ -1,0 +1,15 @@
+MANIFEST.in
+README
+setup.cfg
+setup.py
+versioneer.py
+djali/__init__.py
+djali/_version.py
+djali/base.py
+djali/couchdb.py
+djali/dynamodb.py
+djali.egg-info/PKG-INFO
+djali.egg-info/SOURCES.txt
+djali.egg-info/dependency_links.txt
+djali.egg-info/requires.txt
+djali.egg-info/top_level.txt

@@ -1,0 +1,5 @@
+six>=1.13.0
+cloudant>=2.12.0
+
+[dynamodb]
+boto3>=1.12.38
