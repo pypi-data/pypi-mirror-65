@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: aes-sid
+Version: 0.0.0
+Summary: AES-based Synthetic IDs
+Home-page: https://github.com/iqlusioninc/aes-sid/blob/develop/README.md
+Author: Tony Arcieri
+Author-email: tony@iqlusion.io
+License: Apache Software License
+Description: Authenticated deterministic encryption for 64-bit integers based on the AES-SIV MRAE construction
+Keywords: encryption,signing
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
