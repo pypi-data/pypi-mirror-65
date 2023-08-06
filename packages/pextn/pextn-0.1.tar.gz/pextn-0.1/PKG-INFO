@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: pextn
+Version: 0.1
+Summary: A simple, lazy utility to display information about a file extension.
+Home-page: https://nogithub.com/j/pextn
+Author: Julin S
+Author-email: julins@cannottellyou.yet
+License: UNKNOWN
+Project-URL: Changelog, https://github.com/user/project/CHANGELOG.rst
+Project-URL: Issue Tracker, https://github.com/user/project/issues
+Description: # pextn
+        
+        A simple, lazy utility to display information about a file extension.
+        
+        Can be used as command or a module.
+        
+        ##Command line usage
+        
+            python3 -m pextn rst
+        
+        would give
+        
+            rst: reStructuredText
+        
+            Used by: Docutils
+        
+        ##Usage as module
+        
+            from pextn import pextn
+            info = pextn("py")
+            print(info)
+        
+        would give
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
