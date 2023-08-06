@@ -1,0 +1,82 @@
+[tool]
+[tool.poetry]
+name = "copier"
+# This version is a placeholder autoupdated by poetry-dynamic-versioning
+version = "3.0.6"
+description = "A library for rendering project templates."
+license = "MIT"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8"
+]
+authors = ["Ben Felder <ben@felder.io>"]
+homepage = "https://github.com/pykong/copier"
+repository = "https://github.com/pykong/copier"
+readme = "README.md"
+
+[tool.poetry.scripts]
+copier = "copier.cli:CopierApp.run"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/pykong/copier/issues"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+colorama = "==0.*,>=0.4.0"
+jinja2 = "==2.*,>=2.10.0"
+pathspec = "^0.7.0"
+plumbum = "==1.*,>=1.6.0"
+pydantic = ">=1.0b1"
+regex = "^2020.2.20"
+pyyaml = "^5.3"
+pyyaml-include = "^1.2"
+# packaging is needed when installing from PyPI
+packaging = "^20.1"
+pytest-xdist = "^1.31.0"
+
+[tool.poetry.dev-dependencies]
+black = {version = "^19.10b0", allow-prereleases = true}
+flake8 = "^3.7"
+flake8-blind-except = "*"
+flake8-bugbear = "*"
+flake8-comprehensions = "*"
+flake8-debugger = "*"
+ipdb = "*"
+mypy = "*"
+packaging = "*"
+pre-commit = "*"
+pytest = "^5.3"
+pytest-cov = "*"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+style = "semver"
+vcs = "git"
+
+[tool.black]
+line-length = 88
+target-version = ['py36']
+
+[tool.isort]
+combine_as_imports = true
+default_section = "THIRDPARTY"
+force_grid_wrap = 0
+include_trailing_comma = true
+known_first_party = ["copier"]
+line_length = 88
+multi_line_output = 3  # black interop
+use_parentheses = true
+
+[flake8]
+max-complexity = 20
+max-line-length = 88
+ignore = ",W503,E203,D100,D101,D102,D103,D104,D105,D107,"
+
+[build-system]
+requires = ["poetry>=1.0.3"]
+build-backend = "poetry.masonry.api"
