@@ -1,0 +1,81 @@
+[build-system]
+requires = [ "poetry>=1.0.0" ]
+build-backend = "poetry.masonry.api"
+
+
+[tool.poetry]
+name = "google-music-utils"
+description = "A set of utility functionality for google-music and related projects."
+version = "2.3.0"
+
+license = "MIT"
+
+authors = ["thebigmunch <mail@thebigmunch.me>"]
+
+readme = "README.md"
+
+repository = "https://github.com/thebigmunch/google-music-utils"
+homepage = "https://github.com/thebigmunch/google-music-utils"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+audio-metadata = ">=0.9"
+more-itertools = ">=4.0,<9.0"
+multidict = "^4.0"
+wrapt = "^1.0"
+
+coverage = { version = ">=5.0,<6.0", optional = true, extras = [ "toml" ] }
+flake8 = { version = "^3.5", optional = true }
+flake8-builtins = { version = "^1.0", optional = true }
+flake8-comprehensions = { version = ">=2.0,<=4.0", optional = true }
+flake8-import-order = { version = "^0.18", optional = true }
+flake8-import-order-tbm = { version = "^1.0", optional = true }
+importlib-metadata = { version = "^1.5", python = "<3.8", optional = true }
+nox = { version = "^2019", optional = true }
+pytest = { version = ">=4.0,<6.0", optional = true }
+sphinx = { version = "^2.0", optional = true }
+sphinx-material = { version = "0.*", optional = true }
+
+[tool.poetry.extras]
+dev = [
+	"coverage",
+	"flake8",
+	"flake8-builtins",
+	"flake8-comprehensions",
+	"flake8-import-order",
+	"flake8-import-order-tbm",
+	"nox",
+	"pytest",
+	"sphinx",
+	"sphinx-material",
+]
+doc = [
+	"sphinx",
+	"sphinx-material",
+]
+lint = [
+	"flake8",
+	"flake8-builtins",
+	"flake8-comprehensions",
+	"flake8-import-order",
+	"flake8-import-order-tbm",
+]
+test = [
+	"coverage",
+	"nox",
+	"pytest",
+]
+
+
+[tool.coverage.run]
+branch = true
+source = [ "google_music_utils" ]
+omit = [
+	"**/__about__.py",
+	"**/__init__.py",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
