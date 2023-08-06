@@ -1,0 +1,11 @@
+__version__ = "0.2.5"
+__git_commiter_name__ = "Itay Galea"
+__git_commiter_email__ = "igalea@infinidat.com"
+__git_branch__ = 'develop'
+__git_remote_tracking_branch__ = 'origin/develop'
+__git_remote_url__ = 'git@github.com:Infinidat/infi.django_http_hooks.git'
+__git_head_hash__ = '66e10577b8fd14440107755ae4af56255452a8a0'
+__git_head_subject__ = 'Finished Release v0.2.5'
+__git_head_message__ = ''
+__git_dirty_diff__ = ''
+__git_commit_date__ = '2019-11-04 18:12:31'
