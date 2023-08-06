@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: monoff
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/mmiguel6288code/monoff
+Author: Matthew Miguel
+Author-email: mmiguel6288code@gmail.com
+Maintainer: Matthew Miguel
+Maintainer-email: mmiguel6288code@gmail.com
+License: MIT
+Keywords: monitors,power,dpms,monitor,off,turn off,power down
+Platform: UNKNOWN
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+
+# monoff
+When run via "python -m monoff", will turn off all monitors. 
+Typing on the keyboard or moving the mouse should bring the monitors back.
+If your monitors auto-detect digital inputs, they should switch to another source if one is available.
+May be used to switch all monitors in one command in this manner as opposed to individually selecting sources on each monitor.
+
+Should work for Windows, Linux, and Mac. Not tested for Mac.
+
+## Notes for different platforms
+
+### Windows:
+	Requires pywin32 (not installed automatically)
+	Uses pywin32 to broadcast an SC_MONITORPOWER
+	[https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand](Microsoft Documentation)
+
+### Linux:
+	Uses "xset dpms force off"
+
+### Mac (not tested):
+	Uses "pmset displaysleepnow"
+
+
