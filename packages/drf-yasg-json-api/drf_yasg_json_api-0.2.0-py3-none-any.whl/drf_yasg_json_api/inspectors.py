@@ -1,0 +1,415 @@
+import logging
+
+from collections import OrderedDict
+
+from django.db import models
+from django.utils.functional import cached_property
+from drf_yasg import inspectors
+from drf_yasg import openapi
+from drf_yasg.inspectors.field import get_basic_type_info
+from drf_yasg.inspectors.field import get_model_field
+from drf_yasg.inspectors.field import get_parent_serializer
+from drf_yasg.utils import filter_none
+from rest_framework import relations
+from rest_framework import serializers
+from rest_framework.serializers import BaseSerializer
+from rest_framework.settings import api_settings
+from rest_framework_json_api import serializers as dja_serializers
+from rest_framework_json_api import utils as json_api_utils
+from rest_framework_json_api.utils import format_value
+from rest_framework_json_api.utils import get_resource_name
+from rest_framework_json_api.utils import get_resource_type_from_model
+from rest_framework_json_api.utils import get_resource_type_from_serializer
+
+from .utils import get_field_by_source
+from .utils import get_related_model
+from .utils import get_serializer_model_primary_key
+from .utils import is_json_api
+from .utils import is_json_api_request
+from .utils import is_json_api_response
+
+logger = logging.getLogger(__name__)
+
+
+class JSONAPIDeclarationError(ValueError):
+    pass
+
+
+class InlineSerializerInspector(inspectors.InlineSerializerInspector):
+    strip_read_fields_from_request = False
+    strip_write_fields_from_response = False
+
+    def get_schema(self, serializer):
+        return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions, is_request=False)
+
+    def get_request_schema(self, serializer):
+        return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions, is_request=True)
+
+    def get_included_schema(self, serializer):
+        return self.probe_field_inspectors(serializer, openapi.Schema, self.use_definitions, included=True)
+
+    def field_to_swagger_object(self, field, swagger_object_type, use_references, included=False, is_request=None,
+                                **kwargs):
+        if not self.is_json_api_root_serializer(field, is_request):
+            return super().field_to_swagger_object(field, swagger_object_type, use_references, **kwargs)
+
+        if is_request is None and included:
+            is_request = False
+
+        if included:
+            resource_name = get_resource_type_from_serializer(field)
+        else:
+            resource_name = get_resource_name(context={'view': self.view})
+
+        SwaggerType, ChildSwaggerType = self._get_partial_types(field, swagger_object_type, use_references, **kwargs)
+        return self.build_serializer_schema(field, resource_name, SwaggerType, ChildSwaggerType, use_references,
+                                            is_request)
+
+    def build_serializer_schema(self, serializer, resource_name, SwaggerType, ChildSwaggerType, use_references,
+                                is_request=None):
+        fields = json_api_utils.get_serializer_fields(serializer)
+        is_post = self.method.lower() == 'post'
+
+        id_field = self.extract_id_field(fields, serializer)
+        if id_field is None and not (is_request and is_post):
+            logging.warning('{view}.{serializer} does not contain id field as every resource should'.format(
+                view=self.view.__class__.__name__, serializer=serializer.__class__.__name__
+            ))
+
+        attributes, req_attrs = self.extract_attributes(id_field, fields, ChildSwaggerType, use_references, is_request)
+        relationships, req_rels = self.extract_relationships(fields, ChildSwaggerType, use_references, is_request)
+        links = self.extract_links(fields, ChildSwaggerType, use_references) if not is_request else None
+
+        schema_fields = filter_none(OrderedDict(
+            type=self.build_type_schema(resource_name),
+            id=self.probe_field_inspectors(id_field, ChildSwaggerType, use_references)
+            if id_field and not (self.strip_read_fields_from_request and is_request and is_post) else None,
+            attributes=openapi.Schema(type=openapi.TYPE_OBJECT, properties=attributes, required=req_attrs)
+            if attributes else None,
+            relationships=openapi.Schema(type=openapi.TYPE_OBJECT, properties=relationships, required=req_rels)
+            if relationships else None,
+            links=openapi.Schema(type=openapi.TYPE_OBJECT, properties=links)
+            if links else None
+        ))
+
+        required_properties = None
+        if self.is_request_or_unknown(is_request):
+            required_properties = filter_none([
+                'type',
+                'id' if 'id' in schema_fields else None,
+                'attributes' if req_attrs else None,
+                'relationships' if req_rels else None,
+            ])
+
+        return SwaggerType(
+            type=openapi.TYPE_OBJECT,
+            properties=schema_fields,
+            required=required_properties
+        )
+
+    def build_type_schema(self, resource_name, read_only=None):
+        return openapi.Schema(**filter_none(OrderedDict(
+            type=openapi.TYPE_STRING, pattern=resource_name, read_only=read_only or None
+        )))
+
+    def extract_id_field(self, fields, serializer: serializers.Serializer):
+        # Included in fields and explicitly named "id"
+        if 'id' in fields:
+            serializer_id = fields['id']
+            model_pk = get_serializer_model_primary_key(serializer)
+            if model_pk and model_pk.name != 'id' and get_field_by_source(fields.values(), model_pk.name):
+                raise JSONAPIDeclarationError('if serializer includes primary key it cannot define other field as id')
+            return serializer_id
+
+        if not isinstance(serializer, serializers.ModelSerializer):
+            return None
+
+        # Included in fields, but not as "id", find by model primary key
+        model_pk = get_serializer_model_primary_key(serializer)
+        serializer_id = get_field_by_source(fields.values(), model_pk.name)
+        if serializer_id:
+            return serializer_id
+
+        # Not included in fields, create "temporary" field based on model primary key
+        id_field_class, id_field_kwargs = serializer.build_standard_field('id', model_pk)
+        serializer_id: serializers.Field = id_field_class(**id_field_kwargs,
+                                                          source=model_pk.name if model_pk.name != 'id' else None)
+        # NOTE: emulating binding, this is one-way binding
+        # This field is safe to use and pass anywhere, but it won't be visible from serializer
+        serializer_id.bind('id', serializer)
+        return serializer_id
+
+    def extract_attributes(self, id_field, fields, ChildSwaggerType, use_references, is_request=None):
+        attrs = {}
+        required_attrs = []
+        for field_name, field in fields.items():
+            if self.should_strip_from_schema(field, is_request):
+                continue
+            # ID is always provided in the root of JSON API so remove it from attributes
+            if id_field and field_name == id_field.field_name:
+                continue
+            # Skip fields with relations
+            if isinstance(field, (relations.RelatedField, relations.ManyRelatedField, BaseSerializer)):
+                continue
+
+            attrs[field_name] = self.probe_field_inspectors(field, ChildSwaggerType, use_references)
+            if self.is_request_or_unknown(is_request) and field.required and not field.read_only:
+                required_attrs.append(field_name)
+        return attrs, (required_attrs or None)
+
+    def extract_relationships(self, fields, ChildSwaggerType, use_references, is_request=None):
+        relationships = OrderedDict()
+        required_relationships = []
+        for field_name, field in fields.items():
+            if self.should_strip_from_schema(field, is_request):
+                continue
+            # Self url field
+            if field_name == api_settings.URL_FIELD_NAME:
+                continue
+            # Skip fields without relations
+            if not isinstance(field, (relations.RelatedField, relations.ManyRelatedField, serializers.Serializer)):
+                continue
+
+            # Produce swagger output
+            relation_data_schema = openapi.Schema(**filter_none(OrderedDict(
+                type=openapi.TYPE_OBJECT,
+                properties=OrderedDict(
+                    id=self.probe_field_inspectors(field, ChildSwaggerType, use_references),
+                    type=self.build_type_schema(
+                        self.get_resource_name_from_related_id_field(field_name, field),
+                        read_only=field.read_only
+                    ),
+                ),
+                required=['id', 'type'] if (self.is_request_or_unknown(is_request)) and not field.read_only else None,
+            )))
+
+            if isinstance(field, serializers.ManyRelatedField):
+                relation_data_schema = openapi.Schema(type=openapi.TYPE_ARRAY, items=relation_data_schema)
+
+            relation_links_schema = self.get_links_from_id_field(field_name, field)
+            if relation_links_schema:
+                relation_links_schema = openapi.Schema(type=openapi.TYPE_OBJECT, properties=relation_links_schema)
+
+            is_relation_required = self.is_request_or_unknown(is_request) and field.required and not field.read_only
+
+            relationships[field_name] = openapi.Schema(**filter_none(OrderedDict(
+                type=openapi.TYPE_OBJECT,
+                properties=filter_none({
+                    'data': relation_data_schema,
+                    'links': relation_links_schema if self.not_request_or_unknown(is_request) else None
+                }),
+                required=['data'] if is_relation_required else None,
+                read_only=field.read_only or None,
+                x_read_only=field.read_only or None,
+            )))
+            if is_relation_required:
+                required_relationships.append(field_name)
+
+        return relationships, (required_relationships or None)
+
+    def get_resource_name_from_related_id_field(self, field_name, id_field):
+        id_field = getattr(id_field, 'child_relation', None) or id_field
+
+        parent_serializer = get_parent_serializer(id_field)
+        if isinstance(id_field, dja_serializers.ResourceRelatedField):
+            return id_field.get_resource_type_from_included_serializer()
+
+        elif isinstance(id_field, serializers.Serializer):
+            return json_api_utils.get_resource_type_from_serializer(id_field)
+
+        # Other kinds of fields
+        if hasattr(id_field, 'model'):
+            model = id_field.model
+        elif hasattr(id_field, 'get_queryset') and id_field.get_queryset():
+            model = id_field.get_queryset().model
+        # If the RelatedField hasn't got a queryset, take model from the serializer and find proper model field
+        else:
+            serializer_meta = getattr(parent_serializer, 'Meta', None)
+            this_model = getattr(serializer_meta, 'model', None)
+
+            source = getattr(id_field, 'source', '') or id_field.field_name
+            if not source and isinstance(id_field.parent, serializers.ManyRelatedField):
+                source = getattr(id_field.parent, 'source', '') or id_field.parent.field_name
+
+            model = get_related_model(this_model, source)
+
+        # Resource name from model
+        if model:
+            return get_resource_type_from_model(model)
+
+        raise ValueError(f"Unable to extract resource name for {parent_serializer}.{field_name} serializer field")
+
+    def get_links_from_id_field(self, field_name, id_field):
+        links = OrderedDict()
+        if isinstance(id_field, dja_serializers.ResourceRelatedField):
+            if id_field.related_link_lookup_field is not None:
+                links['related'] = openapi.Schema(type=openapi.TYPE_STRING, pattern=openapi.FORMAT_URI, read_only=True)
+            if id_field.self_link_view_name is not None:
+                links['self'] = openapi.Schema(type=openapi.TYPE_STRING, pattern=openapi.FORMAT_URI, read_only=True)
+        return links or None
+
+    def extract_links(self, fields, ChildSwaggerType, use_references):
+        self_field_name = api_settings.URL_FIELD_NAME
+
+        return filter_none(OrderedDict(
+            self=openapi.Schema(type=openapi.TYPE_STRING, format=openapi.FORMAT_URI)
+            if self_field_name in fields and isinstance(fields[self_field_name], serializers.RelatedField) else None
+        ))
+
+    def is_json_api_root_serializer(self, field, is_request=False):
+        return field and field.parent is None and isinstance(field, serializers.Serializer) and (
+            (not is_request and is_json_api_response(self.view.renderer_classes))
+            or ((is_request or is_request is None) and is_json_api_request(self.view.parser_classes))
+        )
+
+    def should_strip_from_schema(self, field, is_request):
+        return (self.strip_read_fields_from_request and is_request and field.read_only) or \
+               (self.strip_write_fields_from_response and is_request is False and field.write_only)
+
+    def not_request_or_unknown(self, is_request):
+        # evaluate None to True as well
+        return not is_request
+
+    def is_request_or_unknown(self, is_request):
+        # evaluate None to True as well
+        return is_request is None or is_request
+
+
+class InlineSerializerSmartInspector(InlineSerializerInspector):
+    strip_read_fields_from_request = True
+    strip_write_fields_from_response = True
+
+
+class IDIntegerFieldInspector(inspectors.FieldInspector):
+    """
+    Force string type on Integer ID, it can happen when:
+     - Primary Key of model is Integer
+     - Serializer's field named "id" is Integer
+    """
+
+    def field_to_swagger_object(self, field, swagger_object_type, **kwargs):
+        if isinstance(field, serializers.ManyRelatedField) or not is_json_api(self.view):
+            return inspectors.NotHandled
+
+        parent_serializer = get_parent_serializer(field)
+        serializer_meta = getattr(parent_serializer, 'Meta', None)
+        model = getattr(serializer_meta, 'model', None)
+        if model is not None:
+            field_name = getattr(field, 'source', None) or field.field_name
+            model_field = get_model_field(model, field_name)
+            if (
+                model_field is not None and
+                model_field.primary_key and
+                isinstance(model_field, (models.IntegerField, models.AutoField))
+            ):
+                SwaggerType, ChildSwaggerType = self._get_partial_types(field, swagger_object_type, **kwargs)
+                return SwaggerType(
+                    type=openapi.TYPE_STRING,
+                    format=openapi.FORMAT_INT64
+                    if isinstance(model_field, models.BigIntegerField) else openapi.FORMAT_INT32
+                )
+        elif field.field_name == 'id' and isinstance(field, serializers.IntegerField):
+            type_info = get_basic_type_info(field)
+            SwaggerType, ChildSwaggerType = self._get_partial_types(field, swagger_object_type, **kwargs)
+            return SwaggerType(**type_info, type=openapi.TYPE_STRING)
+
+        return inspectors.NotHandled
+
+
+class ManyRelatedFieldInspector(inspectors.SimpleFieldInspector):
+    """
+    Minimum: unwrap ManyRelatedField child relation and pass further for probing.
+    Maximum: unwrap and force string type of Integer RelatedID
+    """
+
+    def field_to_swagger_object(self, field, swagger_object_type, **kwargs):
+        if not isinstance(field, serializers.ManyRelatedField) or not is_json_api(self.view):
+            return inspectors.NotHandled
+
+        id_field = field.child_relation
+
+        parent_serializer = get_parent_serializer(field)
+        serializer_meta = getattr(parent_serializer, 'Meta', None)
+        model = getattr(serializer_meta, 'model', None)
+        if model is not None:
+            source = getattr(field, 'source', None) or field.field_name
+            field_model = get_related_model(model, source)
+            if field_model is not None:
+                model_field = get_model_field(field_model, 'pk')
+                if isinstance(model_field, (models.IntegerField, models.AutoField)):
+                    SwaggerType, ChildSwaggerType = self._get_partial_types(id_field, swagger_object_type, **kwargs)
+                    return SwaggerType(
+                        type=openapi.TYPE_STRING,
+                        format=openapi.FORMAT_INT64
+                        if isinstance(model_field, models.BigIntegerField) else openapi.FORMAT_INT32
+                    )
+
+        return self.probe_field_inspectors(id_field, swagger_object_type, **kwargs)
+
+
+class NamesFormatFilter(inspectors.FieldInspector):
+
+    def format_string(self, s):
+        return format_value(s)
+
+    def format_schema(self, schema):
+        """Recursively format property names for the given schema according to``JSON_API_FORMAT_KEYS`` setting.
+        The target schema object must be modified in-place.
+
+        :param openapi.Schema schema: the :class:`.Schema` object
+        """
+        if getattr(schema, 'properties', {}):
+            schema.properties = OrderedDict(
+                (self.format_string(key), self.format_schema(openapi.resolve_ref(val, self.components)) or val)
+                for key, val in schema.properties.items()
+            )
+
+            if getattr(schema, 'required', []):
+                schema.required = [self.format_string(p) for p in schema.required]
+
+    def process_result(self, result, method_name, obj, **kwargs):
+        if isinstance(result, openapi.Schema.OR_REF) and is_json_api(self.view):
+            schema = openapi.resolve_ref(result, self.components)
+            self.format_schema(schema)
+
+        return result
+
+
+class XPropertiesFilter(inspectors.FieldInspector):
+
+    def add_write_only(self, result, obj):
+        if obj.write_only:
+            result.x_write_only = True
+
+    def fix_read_only(self, result, obj):
+        # drf_yasg is very cautious about setting read_only, only leaf nodes are allowed to be read only,
+        # but in some cases it goes too far and some leaf nodes cases are omitted too.
+        # This workaround fixes obvious cases – types that are always leaf nodes
+        if result.type in (openapi.TYPE_STRING, openapi.TYPE_INTEGER, openapi.TYPE_BOOLEAN) and obj.read_only:
+            result.read_only = True
+        # For non-leaf nodes make read only visible by adding x prefix to avoid conflict with OpenApi 2 validation
+        elif obj.read_only:
+            result.x_read_only = True
+
+    def process_result(self, result, method_name, obj, **kwargs):
+        if result is not None:
+            self.add_write_only(result, obj)
+            self.fix_read_only(result, obj)
+        return result
+
+
+class DjangoFilterInspector(inspectors.CoreAPICompatInspector):
+    @cached_property
+    def django_filters(self):
+        from rest_framework_json_api import django_filters
+        return django_filters
+
+    def get_filter_parameters(self, filter_backend):
+        if not isinstance(filter_backend, self.django_filters.DjangoFilterBackend):
+            return inspectors.NotHandled
+        return super().get_filter_parameters(filter_backend)
+
+    def coreapi_field_to_parameter(self, field):
+        parameter = super().coreapi_field_to_parameter(field)
+        parameter.name = f'filter[{parameter.name}]'
+        return parameter
