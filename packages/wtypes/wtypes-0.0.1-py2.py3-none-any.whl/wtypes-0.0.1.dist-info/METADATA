@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: wtypes
+Version: 0.0.1
+Summary: extended python types for the web and json
+Home-page: https://github.com/deathbeds/wtypes
+License: BSD-3-Clause
+Keywords: 
+Author: deathbeds
+Author-email: tony.fast@gmail.com
+Description-Content-Type: text/markdown
+Requires-Dist: jsonschema
+Requires-Dist: munch
+Requires-Dist: anyconfig
+
+A trait-like type system for python using jsonschema. Inspired by a `traitlets`.
+
+`wtypes` is an extended type system for python that uses `jsonschema` to provide extra type checking.
+
+* [Documentation](https://wtypes.readthedocs.io/)
+* [Pypi]()
+* [Tests](https://github.com/deathbeds/wtypes/actions)
