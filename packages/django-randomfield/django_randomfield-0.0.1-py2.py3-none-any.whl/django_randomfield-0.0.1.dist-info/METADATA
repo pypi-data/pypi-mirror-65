@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: django-randomfield
+Version: 0.0.1
+Summary: Integer and string field for random values
+Home-page: https://github.com/KeoH/django-randomfield
+Author: Francisco Manzano Magaña
+Author-email: keoh77@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: Spanish
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest (>=5.4.1) ; extra == 'dev'
+Requires-Dist: Django (>=2.2.10) ; extra == 'dev'
+
+# Django IBAN Field
+[![Build Status](https://travis-ci.org/KeoH/django-randomfield.svg?branch=master)](https://travis-ci.org/KeoH/django-randomfield)
+[![Coverage Status](https://coveralls.io/repos/github/KeoH/django-randomfield/badge.svg?branch=master)](https://coveralls.io/github/KeoH/django-randomfield?branch=master)
+
+IBANField is an extension for django CharField with special validation for IBAN accounts.
+
+## Install
+
+You can install django-randomfield with pip as usual o pipenv
+
+```bash
+    $> pip install django-randomfield
+```
+
+```bash
+    $> pipenv install django-randomfield
+```
+
+## Usage
+
+Use IBANField on your models, like any other django models fields.
+
+```python
+    from django_randomfield.fields import CharRandomField
+
+    class MyModel(models.Model):
+
+        account = CharRandomField()
+```
+
+
