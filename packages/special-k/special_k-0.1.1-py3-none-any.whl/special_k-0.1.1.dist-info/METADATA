@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: special-k
+Version: 0.1.1
+Summary: Safe serialization of ML models.
+License: Apache-2.0
+Author: Mikey Shulman
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: torch
+Requires-Dist: click (>=6.3,<7.0)
+Requires-Dist: dill (>=0.2,<0.4)
+Requires-Dist: funcy (>=1.10,<2.0)
+Requires-Dist: gpg (==1.10.0)
+Requires-Dist: h5py (>=2.7.1,<3.0.0)
+Requires-Dist: joblib (>=0.11,<=0.15)
+Requires-Dist: msgpack (>=0.5.6,<0.6.0)
+Requires-Dist: numpy (>=1.10.0,<2.0.0)
+Requires-Dist: pandas (>=0.25.3,<0.26.0)
+Requires-Dist: torch (>=1.4,<2.0); extra == "torch"
+Requires-Dist: voluptuous (>=0.11.5,<0.12.0)
