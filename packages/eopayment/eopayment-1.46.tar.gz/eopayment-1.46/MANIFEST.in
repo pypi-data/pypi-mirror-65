@@ -1,0 +1,11 @@
+recursive-include debian *
+recursive-include tests *.py
+include COPYING
+include VERSION
+include README.txt
+include eopayment/request
+include eopayment/response
+include eopayment/resource/PaiementSecuriseService.wsdl
+include eopayment/resource/PaiementSecuriseService1.xsd
+include eopayment/resource/PaiementSecuriseService2.xsd
+include eopayment/resource/PaiementSecuriseService3.xsd
