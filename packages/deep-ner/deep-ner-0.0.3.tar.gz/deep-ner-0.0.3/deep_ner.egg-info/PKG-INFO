@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: deep-ner
+Version: 0.0.3
+Summary: Deep-NER: named entity recognizer based on ELMo or BERT as embeddings and CRF as final classifier
+Home-page: https://github.com/bond005/deep_ner
+Author: Ivan Bondarenko
+Author-email: bond005@yandex.ru
+License: Apache License Version 2.0
+Description: 
+        Deep-NER
+        ============
+        
+        Named entity recognizer based on ELMo or BERT as feature extractor and
+        CRF as final classifier.
+        
+        The goal of this project is creation of a simple Python package with
+        the sklearn-like interface for solution of different named entity 
+        recognition tasks in case number of labeled texts is very small (not 
+        greater than several thousands). Special neural network language models 
+        named as ELMo (Embeddings from Language Models) and BERT (Bidirectional
+        Encoder Representations from Transformers) ensure this possibility,
+        because these language model were pre-trained on large text corpora and
+        so they can select deep semantic features from text.
+        
+Keywords: elmo,bert,ner,crf,nlp,tensorflow,scikit-learn
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
