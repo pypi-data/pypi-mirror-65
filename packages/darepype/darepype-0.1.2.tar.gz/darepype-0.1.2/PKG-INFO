@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: darepype
+Version: 0.1.2
+Summary: DAta REduction PYPEline framework
+Home-page: https://github.com/berthoud/darepype
+Author: HAWC Team
+Author-email: marcberthoud@uchicago.edu
+License: GNU GPL v3+
+Description: # DarePype
+        DarePype (Data Reduction Pipeline in Python) is a python framework for developing data reduction pipelines.
+        
+        Read the documentation at [darepype.readthedocs.io](https://darepype.readthedocs.io).
+        
+        The core package for the framework is well developped and is used for the [HAWC instrument](https://www.sofia.usra.edu/science/instruments/hawc) pipeline and the [SEO telescope](https://stoneedgeobservatory.com/) pipeline at [github/yerkesobservatory/pipeline](https://github.com/yerkesobservatory/pipeline).
+        
+        ## Badges
+        [![Build Status](https://travis-ci.org/berthoud/darepype.svg?branch=master)](https://travis-ci.org/berthoud/darepype)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
