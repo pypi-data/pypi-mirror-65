@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: determined-cli
+Version: 0.12.0
+Summary: Determined Deep Learning Training Platform
+Home-page: https://determined.ai/
+Author: Determined AI
+Author-email: hello@determined.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.5
+Requires-Dist: argcomplete (==1.9.4)
+Requires-Dist: gitpython (==2.1.11)
+Requires-Dist: packaging (==19.0)
+Requires-Dist: python-dateutil (==2.8.0)
+Requires-Dist: requests (>=2.20.0)
+Requires-Dist: ruamel.yaml (>=0.15.78)
+Requires-Dist: tabulate (>=0.8.3)
+Requires-Dist: termcolor (==1.1.0)
+Requires-Dist: determined-common (==0.12.0)
+
+See https://docs.determined.ai/ for more information.
+
+
