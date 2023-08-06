@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: pyfreya
+Version: 0.2.1
+Summary: Cohort Analysis Tool
+Home-page: https://gitlab.com/Yggdrasil27/pyfreya
+Author: Morten Andreasen
+Author-email: yggdrasil.the.binder@gmail.com
+License: MIT license
+Keywords: pyfreya
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+
+=======
+PyFreya
+=======
+
+
+.. image:: https://img.shields.io/pypi/v/pyfreya.svg
+        :target: https://pypi.python.org/pypi/pyfreya
+
+.. image:: https://img.shields.io/travis/morten/pyfreya.svg
+        :target: https://travis-ci.org/morten/pyfreya
+
+.. image:: https://readthedocs.org/projects/pyfreya/badge/?version=latest
+        :target: https://pyfreya.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+Cohort Analysis Tool
+
+
+* Free software: MIT license
+* Documentation: https://pyfreya.readthedocs.io.
+
+
+Features
+--------
+
+* Simulate retention
+* Estimate daily active users
+* Add revenue profiles
+* Handles and propagates uncertainties
+
+
+
+=======
+History
+=======
+
+0.2.1 (2020-04-13)
+------------------
+
+* First release on PyPI.
+
+
