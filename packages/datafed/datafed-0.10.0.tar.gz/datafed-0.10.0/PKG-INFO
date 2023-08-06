@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: datafed
+Version: 0.10.0
+Summary: DataFed CLI and API
+Home-page: https://github.com/ORNL/DataFed
+Author: Dale Stansberry
+Author-email: stansberrydv@ornl.gov
+License: UNKNOWN
+Description: 
+        DataFed is a federated scientific data management system developed by Oak Ridge National Laboratories to facilitate FAIR data practices within supported experimental, compute, and analytics environments. The DataFed Python package provides both a command-line-interface (CLI) and a programming API for interacting with DataFed services.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
