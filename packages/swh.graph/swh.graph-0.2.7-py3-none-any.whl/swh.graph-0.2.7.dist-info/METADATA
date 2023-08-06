@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: swh.graph
+Version: 0.2.7
+Summary: Software Heritage graph service
+Home-page: https://forge.softwareheritage.org/diffusion/DGRPH
+Author: Software Heritage developers
+Author-email: swh-devel@inria.fr
+License: UNKNOWN
+Project-URL: Bug Reports, https://forge.softwareheritage.org/maniphest
+Project-URL: Funding, https://www.softwareheritage.org/donate
+Project-URL: Source, https://forge.softwareheritage.org/source/swh-graph
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Description-Content-Type: text/x-rst
+Requires-Dist: aiohttp
+Requires-Dist: click
+Requires-Dist: vcversioner
+Requires-Dist: py4j
+Requires-Dist: psutil
+Requires-Dist: swh.core[http] (>=0.0.79)
+Requires-Dist: swh.model
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+
+Software Heritage - graph service
+=================================
+
+Tooling and services, collectively known as ``swh-graph``, providing fast
+access to the graph representation of the `Software Heritage
+<https://www.softwareheritage.org/>`_
+`archive <https://archive.softwareheritage.org/>`_.  The service is in-memory,
+based on a compressed representation of the Software Heritage Merkle DAG.
+
+
+Bibliography
+------------
+
+In addition to accompanying technical documentation, ``swh-graph`` is also
+described in the following scientific paper. If you publish results based on
+``swh-graph``, please acknowledge it by citing the paper as follows:
+
+.. note::
+
+  Paolo Boldi, Antoine Pietri, Sebastiano Vigna, Stefano Zacchiroli.
+  `Ultra-Large-Scale Repository Analysis via Graph Compression
+  <https://upsilon.cc/~zack/research/publications/saner-2020-swh-graph.pdf>`_. In
+  proceedings of `SANER 2020 <https://saner2020.csd.uwo.ca/>`_: The 27th IEEE
+  International Conference on Software Analysis, Evolution and
+  Reengineering. IEEE 2020.
+
+  Links: `preprint
+  <https://upsilon.cc/~zack/research/publications/saner-2020-swh-graph.pdf>`_,
+  `bibtex
+  <https://upsilon.cc/~zack/research/publications/saner-2020-swh-graph.bib>`_.
+
+
