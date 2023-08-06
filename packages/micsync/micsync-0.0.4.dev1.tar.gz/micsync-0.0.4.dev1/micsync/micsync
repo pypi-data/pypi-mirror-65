@@ -1,0 +1,20 @@
+#!/usr/bin/python
+
+#  This script is supposed to be installed in /usr/bin
+
+import sys
+from micsync import Micsync
+
+
+class MicsyncFriend(Micsync):
+    def __init__(self, mode_name, options, paths):
+        super().__init__(mode_name, options, paths)
+
+    def init_with_arguments(self, arguments):
+        return super()._init_with_arguments(arguments)
+
+if __name__ == "__main__":
+    program = MicsyncFriend(None, None, None)
+    if program.init_with_arguments(sys.argv):
+        program.sync()
+
