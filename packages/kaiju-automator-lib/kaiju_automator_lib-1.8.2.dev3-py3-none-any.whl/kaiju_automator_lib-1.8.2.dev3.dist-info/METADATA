@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: kaiju-automator-lib
+Version: 1.8.2.dev3
+Summary: kaiju-automator-lib
+Home-page: UNKNOWN
+Author: Netflix TSC
+Author-email: davidb@netflix.com
+License: UNKNOWN
+Keywords: kaiju_automator_lib
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: kaiju-mqtt-py
+Provides-Extra: test
+Requires-Dist: tox ; extra == 'test'
+
+# kaiju-automator-lib
+
+This library is used as the python interface between client software and kaiju-mqtt-py, to make requests of the automator module on the RAE.
+
+This library is used for a few purposes:
+
+* Get a test plan for a device
+* Run a test plan for a device
+* Cancel a test plan currently running on a device
+
+## Request data format
+
+Most requests to the automator module require a device identifier. This is one or more of: an ESN, an IP, or an ADB serial number. Examples:
+
+```json
+{"device_ip": "192.168.144.10"}
+{"device_esn": "RKU..."}
+{"device_serial": "..."}
+```
+
+There is a newer format that moves this into a "target" object with shorter syntax:
+```json
+{"target": {"ip": "192.168.144.10"} }
+{"target": {"esn": "RKU..."} }
+{"target": {"serial": "..."} }
+```
+
+These identifiers are typically merged into larger request objects, such as test plan run or test plan cancel requests.
+
+## Test plan response data format
+
+The test plan data format is described generally in client.py. A more general discussion of what decisions can be made from the contents of this object needs to be written.
+
+## Test plan run request data format
+
+The test plan run request data format is also described generally in client.py. It requires only minor modifications to the response from a test plan request. 
+
+## Test result data format
+
+Test plan results are reported as a map describing the results of a test plan run. These formats should be more generally documented in a language-agnostic location, as they apply to all clients of the automator.
+
