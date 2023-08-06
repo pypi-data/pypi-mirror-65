@@ -1,0 +1,17 @@
+README.md
+cpaDataServices.egg-info/PKG-INFO
+cpaDataServices.egg-info/SOURCES.txt
+cpaDataServices.egg-info/dependency_links.txt
+cpaDataServices.egg-info/requires.txt
+cpaDataServices.egg-info/top_level.txt
+services/__init__.py
+services/setup.py
+services/lib/__init__.py
+services/lib/service.py
+services/lib/test_validators.py
+services/lib/tests.py
+services/lib/repository/__init__.py
+services/lib/repository/generics.py
+services/lib/repository/models.py
+services/lib/repository/tools.py
+services/lib/repository/types.py
