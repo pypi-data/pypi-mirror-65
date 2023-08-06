@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: helloworld_xiaoyanli
+Version: 0.0.1
+Summary: say hello!
+Home-page: https://github.com/xiaoyanLi629
+Author: Xiaoyan Li
+Author-email: xiaoyanli629@gmail.com
+License: UNKNOWN
+Description: # Hello World
+        
+        This is an example project demonstrating how to publish a python module to PyPI.
+        
+        ```python
+        from helloworld import say_hello
+        
+        # Generate "Hello, World!"
+        say_hello()
+        
+        # Generate "Hello, Everybody!"
+        say_hello("Everybody")
+        ```
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
