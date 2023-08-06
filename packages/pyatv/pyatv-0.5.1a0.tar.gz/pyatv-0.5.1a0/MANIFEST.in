@@ -1,0 +1,13 @@
+include CHANGES.md
+include README.md
+include LICENSE.md
+include CONTRIBUTORS.md
+graft pyatv
+graft tests
+graft docs
+graft examples
+global-exclude *~ __pycache__
+recursive-exclude * *.py[co] .*
+prune docs/vendor
+prune docs/_site
+prune docs/.sass-cache
