@@ -1,0 +1,1 @@
+from MAL.MALsearch import MALdata
