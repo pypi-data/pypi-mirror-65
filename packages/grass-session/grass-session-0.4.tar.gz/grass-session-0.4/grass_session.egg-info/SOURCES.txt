@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+grass_session/__init__.py
+grass_session/session.py
+grass_session.egg-info/PKG-INFO
+grass_session.egg-info/SOURCES.txt
+grass_session.egg-info/dependency_links.txt
+grass_session.egg-info/top_level.txt
+tests/__init__.py
+tests/grassbin_test.py
+tests/platformname_test.py
+tests/session_test.py
+tests/test_no_with.py
+tests/test_with.py
+tests/tst_tif.py
