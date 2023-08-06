@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: nanoevent
+Version: 1.1.0
+Summary: Nanoevent is a terrifically small and simple event bus implementation
+Home-page: https://github.com/berry-langerak/nanoevent
+Author: Berry Langerak
+Author-email: berry.langerak@gmail.com
+License: UNKNOWN
+Description: # Nanoevent
+        
+        Nanoevent is a terrifically small and simple event dispatching library for
+        Python 3.6+. It's key features:
+        
+        * Easy enough to start using in *minutes*.
+        * Pretty feature complete.
+        * Designed to be super simple to use.
+        
+        ## Installation
+        
+        `pip install nanoevent`
+        
+        ## User guide
+        
+        ```python
+        import nanoevent
+        
+        d = nanoevent.Dispatcher()
+        
+        def handler(value):
+            print(value)
+        
+        d.attach('event:name', handler)
+        
+        # The following results in "Hi, this is a test" being printed.
+        d.emit('event:name', 'Hi, this is a test')
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: test
