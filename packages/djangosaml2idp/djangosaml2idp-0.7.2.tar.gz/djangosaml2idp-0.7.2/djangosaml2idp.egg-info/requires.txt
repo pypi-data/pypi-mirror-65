@@ -1,0 +1,13 @@
+django>=2.2
+pysaml2>=5.0.0
+pytz
+arrow
+
+[testing]
+pytest
+pytest-runner
+pytest-django
+pytest-cov
+pytest-pythonpath
+pytest-mock
+requests-mock
