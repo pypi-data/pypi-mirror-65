@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: nltools
+Version: 0.3.18
+Summary: A Python package to analyze neuroimaging data
+Home-page: http://neurolearn.readthedocs.org/en/latest/
+Author: Cosan Lab
+Author-email: luke.j.chang@dartmouth.edu
+License: LICENSE.txt
+Keywords: neuroimaging,preprocessing,analysis,machine-learning
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: nibabel (>=3.0.1)
+Requires-Dist: scikit-learn (>=0.21.0)
+Requires-Dist: nilearn (>=0.6.0)
+Requires-Dist: pandas (>=0.20)
+Requires-Dist: numpy (>=1.9)
+Requires-Dist: seaborn (>=0.7.0)
+Requires-Dist: matplotlib (>=2.2.0)
+Requires-Dist: scipy
+Requires-Dist: six
+Requires-Dist: pynv
+Requires-Dist: joblib (==0.11)
+Requires-Dist: deepdish (>=0.3.6)
+Provides-Extra: interactive_plots
+Requires-Dist: ipywidgets (>=5.2.2) ; extra == 'interactive_plots'
+
+nltools is a collection of python tools to perform preprocessing, univariate GLMs, and predictive multivariate modeling of neuroimaging data. It is the analysis engine powering www.neuro-learn.org.
+
+
