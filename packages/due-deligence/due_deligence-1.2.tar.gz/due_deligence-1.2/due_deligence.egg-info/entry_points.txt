@@ -1,0 +1,5 @@
+
+      # -*- Entry points: -*-
+      [console_scripts]
+      duedeli = due_deligence.cli:main
+    
