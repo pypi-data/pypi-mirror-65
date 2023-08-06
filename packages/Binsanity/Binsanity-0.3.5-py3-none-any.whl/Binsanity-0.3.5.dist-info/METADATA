@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: Binsanity
+Version: 0.3.5
+Summary: Method to cluster contigs based a biphasic method with coverage and composition
+Home-page: https://github.com/edgraham/BinSanity
+Author: Elaina Graham
+Author-email: egraham147@gmail.com
+License: GPL3
+Platform: UNKNOWN
+Requires-Dist: biopython
+Requires-Dist: pandas (>=0.13.0)
+Requires-Dist: scipy (>=0.13.0)
+Requires-Dist: checkm-genome
+
+UNKNOWN
+
+
