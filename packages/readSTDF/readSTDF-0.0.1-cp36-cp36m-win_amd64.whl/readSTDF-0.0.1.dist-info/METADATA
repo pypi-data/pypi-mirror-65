@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: readSTDF
+Version: 0.0.1
+Summary: Read and parse STDF records.
+Home-page: https://pypi.org/project/Read-STDF/
+Author: qian_bi
+Author-email: 2295823382@qq.com
+License: MIT
+Platform: python 3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Read and parse STDF records
+
+## Install
+
+`pip install readSTDF`
+
+## Example
+
+```python
+from readSTDF import readSTDF
+
+l = readSTDF('test.std', 'FAR')
+print(l)  # [{'CPU_TYPE': 1, 'STDF_VER': 4}]
+```
+
+
