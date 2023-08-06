@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pybatchclassyfire
+Version: 0.1.2
+Summary: A python client for the ClassyFire API
+Home-page: https://gitlab.unige.ch/Pierre-Marie.Allard/pybatchclassyfire.git
+Author: Pierre-Marie Allard
+Author-email: pierre-marie.allard@unige.ch
+License: MIT
+Description: UNKNOWN
+Keywords: Cheminformatics ClassyFire ontology
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Provides-Extra: sdf_query
