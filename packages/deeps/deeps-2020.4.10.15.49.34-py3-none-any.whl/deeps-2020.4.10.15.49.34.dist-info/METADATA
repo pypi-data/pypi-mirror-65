@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: deeps
+Version: 2020.4.10.15.49.34
+Summary: description
+Home-page: https://github.com/Jie-Yuan/deeps
+Author: JieYuan
+Author-email: 313303303@qq.com
+Maintainer: JieYuan
+Maintainer-email: 313303303@qq.com
+License: MIT
+Keywords: tool wheel,yuanjie,utils
+Platform: all
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm
+Requires-Dist: wrapt
+Requires-Dist: loguru
+
+<h1 align = "center">:rocket: Deep Dream :facepunch:</h1>
+
+[![Downloads](http://pepy.tech/badge/DeepDream)](http://pepy.tech/project/DeepDream)
+[![Downloads](https://pepy.tech/badge/DeepDream/month)](https://pepy.tech/project/DeepDream/month)
+[![Downloads](https://pepy.tech/badge/DeepDream/week)](https://pepy.tech/project/DeepDream/week)
+[![PyPI release](https://img.shields.io/pypi/v/DeepDream.svg)](https://pypi.python.org/pypi/DeepDream)
+[![PyPI version](https://img.shields.io/pypi/pyversions/DeepDream.svg)](https://pypi.python.org/pypi/DeepDream)
+---
+
