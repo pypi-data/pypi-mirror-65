@@ -1,0 +1,1 @@
+django.jQuery.fn.select2.defaults.set('language','pl');;

@@ -1,0 +1,1 @@
+if(typeof dal_jquery_backup!=='undefined'){jQuery=dal_jquery_backup;$=dal_jquery_backup;};
