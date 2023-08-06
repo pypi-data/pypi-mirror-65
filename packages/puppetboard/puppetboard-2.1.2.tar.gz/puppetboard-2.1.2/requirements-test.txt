@@ -1,0 +1,14 @@
+-r requirements.txt
+pep8
+coverage
+mock
+pytest
+pytest-pep8
+pytest-cov
+pytest-mock
+pytest-mypy
+cov-core
+beautifulsoup4
+bandit
+coveralls
+mypy
