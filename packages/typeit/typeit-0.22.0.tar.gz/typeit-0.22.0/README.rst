@@ -1,0 +1,79 @@
+.. _badges:
+
+.. image:: https://travis-ci.org/avanov/typeit.svg?branch=develop
+    :target: https://travis-ci.org/avanov/typeit
+
+.. image:: https://coveralls.io/repos/github/avanov/typeit/badge.svg?branch=develop
+    :target: https://coveralls.io/github/avanov/typeit?branch=develop
+
+.. image:: https://requires.io/github/avanov/typeit/requirements.svg?branch=master
+    :target: https://requires.io/github/avanov/typeit/requirements/?branch=master
+    :alt: Requirements Status
+
+.. image:: https://readthedocs.org/projects/typeit/badge/?version=latest
+    :target: http://typeit.readthedocs.org/en/latest/
+    :alt: Documentation Status
+
+.. image:: http://img.shields.io/pypi/v/typeit.svg
+    :target: https://pypi.python.org/pypi/typeit
+    :alt: Latest PyPI Release
+
+
+Typeit
+------
+
+`typeit` brings typed data into your project.
+
+Start using it by automatically generating types for your JSON payloads:
+
+.. code-block:: bash
+
+    $ echo '{"first-name": "Hello", "initial": null, "last_name": "World"}' | typeit gen
+
+
+The snipped above produces output similar to this:
+
+.. code-block:: python
+
+    from typing import Any, NamedTuple, Optional, Sequence
+    from typeit import TypeConstructor
+
+
+    class Main(NamedTuple):
+        first_name: str
+        initial: Optional[Any]
+        last_name: str
+
+
+    overrides = {
+        Main.first_name: 'first-name',
+    }
+
+
+    mk_main, serialize_main = TypeConstructor & overrides ^ Main
+
+Use these functions to construct and serialize your payloads:
+
+.. code-block:: python
+
+    payload = {"first-name": "Hello", "initial": None, "last_name": "World"}
+
+    data = mk_main(payload)
+    assert isinstance(data, Main)
+    assert serialize_main(data) == payload
+
+
+Documentation
+-------------
+
+Documentation is hosted on ReadTheDocs: https://typeit.readthedocs.io/en/develop/
+
+
+Test framework
+--------------
+
+Run existing test suite with
+
+.. code::
+
+   $ pytest
