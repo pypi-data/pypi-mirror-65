@@ -1,0 +1,77 @@
+Metadata-Version: 1.1
+Name: sila2lib
+Version: 0.2.3
+Summary: sila2lib - a SiLA 2 python3 library 
+Home-page: https://gitlab.com/SiLA2/sila_python
+Author: Mark Doerr, Timm Severin (timm.severin@tum.de), Robert Giessmann (robert.giessmann@tu-berlin.de), Florian Meinicke, Maximilian Schulz (max@unitelabs.ch)
+Author-email: mark.doerr@uni-greifswald.de
+License: MIT
+Description: SiLA2 Library - a Python3 library to develop SiLA 2 Server/Clients
+        ==================================================================
+        
+        -  SiLA2 gRPC server
+        -  SiLA2 gRPC base class
+        -  SiLA2 Feature Definition Language (FDL) parsing
+        -  ErrorHandling
+        -  SiLAService Feature
+        -  simulation-/real mode switching by SimulationController Feature
+        -  zeroconfig Device Detection (not completely implemented yet)
+        
+        Installation
+        ------------
+        
+        The easiest installation can be done via pip :
+        
+        ::
+        
+            pip install --user sila2lib  # --user option installs sila2lib for current user only
+        
+        alternatively one could use the setup.py script, like:
+        
+        .. code:: bash
+        
+            cd [sila_library folder containing setup.py]
+            pip3 install --user -r requirements_base.txt
+            python3 setup.py install
+        
+        Installation on Raspberry Pi
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
+        ::
+        
+            pip install sila2lib
+        
+        Testing the library with unittests
+        ----------------------------------
+        
+        .. code:: bash
+        
+            cd [sila_library folder containing setup.py]
+            python3 setup.py test
+        
+        sila2lib package Content
+        ------------------------
+        
+        std\_features
+        ~~~~~~~~~~~~~
+        
+        SiLA standard features
+        
+        
+        tests
+        ~~~~~
+        
+        unittests
+        
+Keywords: SiLA 2,lab automation,laboratory,instruments,experiments,evaluation,visualisation,serial interface,robots
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
