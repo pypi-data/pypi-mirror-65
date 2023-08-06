@@ -1,0 +1,26 @@
+{
+  "id": "dinosaur-track",
+  "name": "Dinosaur Track",
+  "category": "Fossils",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 1000
+      },
+      "sources": [
+        "Underground (dig spot)"
+      ]
+    },
+    "nh": {
+      "sources": [
+        "Underground (dig spot)"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 1000
+      }
+    }
+  }
+}

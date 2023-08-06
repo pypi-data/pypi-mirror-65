@@ -1,0 +1,27 @@
+{
+  "id": "bluegill",
+  "name": "Bluegill",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 120
+      },
+      "sources": [
+        "In rivers."
+      ]
+    },
+    "nh": {
+      "orderable": false,
+      "sources": [
+        "River (year round)"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 180
+      }
+    }
+  }
+}

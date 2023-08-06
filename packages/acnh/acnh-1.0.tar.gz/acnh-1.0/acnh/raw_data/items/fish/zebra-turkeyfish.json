@@ -1,0 +1,23 @@
+{
+  "id": "zebra-turkeyfish",
+  "name": "Zebra Turkeyfish",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 400
+      },
+      "sources": [
+        "In the sea."
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 500
+      }
+    }
+  }
+}

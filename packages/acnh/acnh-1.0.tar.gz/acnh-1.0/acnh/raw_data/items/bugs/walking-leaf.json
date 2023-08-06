@@ -1,0 +1,29 @@
+{
+  "id": "walking-leaf",
+  "name": "Walking Leaf",
+  "category": "Bugs",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 600
+      },
+      "sources": [
+        "On trees."
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 600
+      },
+      "buyPrices": [
+        {
+          "currency": "bells",
+          "value": 2400
+        }
+      ]
+    }
+  }
+}

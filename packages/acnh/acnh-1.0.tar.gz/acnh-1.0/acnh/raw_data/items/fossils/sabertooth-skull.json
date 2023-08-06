@@ -1,0 +1,29 @@
+{
+  "id": "sabertooth-skull",
+  "name": "Sabertooth Skull",
+  "category": "Fossils",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "interiorThemes": [
+        "Quirky"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 2500
+      },
+      "sources": [
+        "Underground (dig spot)"
+      ]
+    },
+    "nh": {
+      "sources": [
+        "Underground (dig spot)"
+      ],
+      "sellPrice": {
+        "currency": "bells",
+        "value": 2500
+      }
+    }
+  }
+}

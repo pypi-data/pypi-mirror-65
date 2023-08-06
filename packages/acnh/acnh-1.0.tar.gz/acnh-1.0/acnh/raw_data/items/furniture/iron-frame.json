@@ -1,0 +1,36 @@
+{
+  "id": "iron-frame",
+  "name": "Iron Frame",
+  "category": "Furniture",
+  "games": {
+    "nl": {
+      "orderable": true,
+      "set": "Construction",
+      "sellPrice": {
+        "currency": "bells",
+        "value": 300
+      },
+      "sources": [
+        "Nookling stores"
+      ],
+      "buyPrices": [
+        {
+          "currency": "bells",
+          "value": 1200
+        }
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 15000
+      },
+      "buyPrices": [
+        {
+          "currency": "bells",
+          "value": 60000
+        }
+      ]
+    }
+  }
+}

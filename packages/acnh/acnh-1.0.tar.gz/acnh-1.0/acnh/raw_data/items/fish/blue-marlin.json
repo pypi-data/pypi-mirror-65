@@ -1,0 +1,23 @@
+{
+  "id": "blue-marlin",
+  "name": "Blue Marlin",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 10000
+      },
+      "sources": [
+        "In the sea."
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 10000
+      }
+    }
+  }
+}

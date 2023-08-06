@@ -1,0 +1,23 @@
+{
+  "id": "gar",
+  "name": "Gar",
+  "category": "Fish",
+  "games": {
+    "nl": {
+      "orderable": false,
+      "sellPrice": {
+        "currency": "bells",
+        "value": 6000
+      },
+      "sources": [
+        "Location:In lakes."
+      ]
+    },
+    "nh": {
+      "sellPrice": {
+        "currency": "bells",
+        "value": 6000
+      }
+    }
+  }
+}
