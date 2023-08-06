@@ -1,0 +1,37 @@
+Bootstrap 4 templates.
+
+Also includes https://getbootstrap.com/docs/4.0/examples/floating-labels/
+
+## Versioning and Packages
+
+- versioning is done in versioning in `aldryn_forms_bs4_templates/__init__.py`
+- for each version a tag is added to the gitlab repository in the form of `^(\d+\.)?(\d+\.)?(\*|\d+)$`, example: 0.0.10
+
+- There is a PyPI version which relies on the gitlab tags (the download_url relies on correct gitlab tags being set): https://pypi.org/project/djangocms-aldryn-forms-bootstrap4-templates/
+- There is a DjangoCMS / Divio Marketplace add-on which also relies on the gitlab tags: https://marketplace.django-cms.org/en/addons/browse/djangocms-aldryn-forms-bootstrap4-templates/
+
+In order to release a new version of the Divio add-on:
+
+- Increment version number in `djangocms-aldryn-forms-bootstrap4-templates/aldryn_forms_bs4_templates/__init__.py`
+- divio addon validate
+- divio addon upload
+- Then git add, commit and tag with the version number
+
+Then, in order to release a new pypi version:
+
+- python3 setup.py sdist bdist_wheel
+- twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+- twine upload dist/*
+
+## Dependencies
+
+- frontend requirements, make sure to include these or change the static resources and templates to your own frontend stack
+   - jQuery
+   - bootstrap4
+
+## Setup
+
+- install the add-on on divio.com or via pypi: `pip install djangocms-aldryn-forms-bootstrap4-templates`
+- add `aldryn_forms_bs4_templates` before the `aldryn_forms`apps in `INSTALLED_APPS` in your `settings.py`
+
+
