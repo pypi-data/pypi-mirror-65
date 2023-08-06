@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: zdm-client-py
+Version: 0.0.7
+Summary: ZDM Client Python Library
+Home-page: https://github.com/zerynth/zdm-client-py.git
+Author: Zerynth Team
+Author-email: d.neri@zerynth.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: paho-mqtt
+Requires-Dist: click
+
+# Zerynth ZDM Client Python Library
+
+A python library that emulates a device for the  ZDM (Zerynth Device Maanager).
+The library permits: to connect to the ZDM, to send data and to receive jobs.
+
+## Installation
+
+The latest stable version [is available on PyPI](https://pypi.org/project/zdm-client-py/). Either add `zdm-client-py` to your `requirements.txt` file or install with pip:
+```
+pip install zdm-client-py
+```
+
+## Usage
+Login to the ZDM platform (by using the [ZDM Cloud](https://zdm.zerynth.com) or the [ZDM Cli](https://docs.zerynth.com/latest/)).
+Add a new device and generate a new password for the device.
+
+Copy the obtained **Device Id** and **Password** in the example below.
+
+In the example, the Client connects to the ZDM with the username e password.
+Then it sends an infinite stream of messages onto three different tags ("bathroom", "bedroom", "living room") with a random temperature.
+
+```python
+import random
+import time
+import zdm
+
+device_id = '!!! PUT YOU DEVICE_ID HERE !!!'
+password = '!!! PUT YOU PASSWORD HER !!!'
+
+device = zdm.ZDMClient(device_id=device_id)
+device.set_password(password)
+device.connect()
+
+time.sleep(5)
+
+tags = ["tag1", "tag2", "tag3"]
+
+while True:
+    temp = random.randint(10, 30)  # random temperature
+    tag = random.choice(tags)      # random choice of the tag
+    payload = {"temp": temp}
+    device.publish_data(tag, payload)
+    time.sleep(1)
+```
+
+You can find other examples in the `data/examples` folder.
+
+=======
+History
+=======
+
+
+0.0.6 (2020-03-30)
+----------------------------
+
+* Fix error in _handle_dn_msg decode msg to str with python3.5
+
+
+0.0.5 (2020-03-29)
+----------------------------
+
+* Fix error manifest with empty jobs.
+
+
+0.0.4 (2020-03-29)
+----------------------------
+New functionality:
+
+* Verbose parameter to ZdmClient class
+
+
+0.0.3 (2020-03-27)
+----------------------------
+Release with support Python >3
+
+* Create ZDmClient
+* Publish messages to ZDM
+* Received Jobs from ZDM
+
+
