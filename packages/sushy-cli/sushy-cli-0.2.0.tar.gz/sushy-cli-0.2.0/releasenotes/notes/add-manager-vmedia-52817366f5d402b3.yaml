@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Adds ``manager vmedia`` family of commands. These commands allow to list
+    available virtual media devices as exposed by the BMC, as well as
+    mount/umount images served over HTTP.

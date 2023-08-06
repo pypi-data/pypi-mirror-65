@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Adds ``system bios`` family of commands. These commands allow to list
+    BIOS attribues, as exposed by the BMC, and change them.

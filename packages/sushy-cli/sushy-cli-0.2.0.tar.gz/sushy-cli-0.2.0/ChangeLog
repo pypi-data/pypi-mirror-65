@@ -1,0 +1,35 @@
+CHANGES
+=======
+
+0.2.0
+-----
+
+* Add \`--show-traffic\` feature to aid Redfish diagnostics
+* Cleanup py27 support
+* Use unittest.mock instead of third party mock
+* Switch to the new canonical constraints URL on master
+* Bump hacking to 3.0.0
+* Add system BIOS management command
+* Add \`manager vmedia\` commands
+* Remove unecessary .zuul.yaml
+* Add non-default Redfish service mount location
+* Add \`--insecure\` and \`--tls-certificates\` options
+
+0.1.0
+-----
+
+* Fix gitreview host
+* Update commands to generate docs, renos and pdf
+* Add system boot device/mode commands
+* Add systems, managers and chassis listing commands
+* Add system/manager/chassis inventory show command
+* Improve docstrings and README
+* Rebase cliff commands onto common \`Command\` and \`Lister\` bases
+* Ignore .stestr dir
+* Add power management command
+* Add CI hooks and reno
+* Rearrange project layout
+* Update tox.ini file
+* Add .gitreview file
+* Waking up Zuul
+* new project template

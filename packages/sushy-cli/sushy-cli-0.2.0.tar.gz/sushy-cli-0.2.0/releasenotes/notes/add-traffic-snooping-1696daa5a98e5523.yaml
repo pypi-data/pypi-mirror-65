@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Adds ``--show-traffic`` command-line option that makes ``sushycli``
+    pretty-printing full HTTP exchange with Redfish agent. This feature
+    can be handy for Redfish issues troubleshooting.
