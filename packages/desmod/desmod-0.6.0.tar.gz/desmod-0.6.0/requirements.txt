@@ -1,0 +1,12 @@
+black >= 19.10b0; implementation_name == "cpython"
+colorama
+flake8
+isort
+mypy >= 0.770; implementation_name == "cpython"
+progressbar2
+pytest
+pytest-cov
+setuptools_scm
+Sphinx
+sphinx-rtd-theme
+tox
