@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: bqpipe
+Version: 0.5.2
+Summary: Wrapper around BigQuery & Snowflake libraries to simplify writing to/reading from Pandas DataFrames.
+Home-page: https://github.com/4mile/BQPipe
+Author: Johnathan Brooks
+Author-email: jb@4mile.io
+License: Type license() to see the full license text
+Project-URL: Bug Reports, https://github.com/4mile/BQPipe/issues
+Project-URL: Source, https://github.com/4mile/BQPipe
+Keywords: bigquery snowflake google cloud etl data engineering dataframe pandas
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Database
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/x-rst
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: google-cloud-bigquery
+Requires-Dist: cryptography
+Requires-Dist: pyarrow
+Requires-Dist: snowflake-connector-python[pandas]
+Requires-Dist: snowflake-sqlalchemy
+
+=============================
+bqpipe: Warehouse & DataFrame
+=============================
+
+A lightweight Python wrapper around the Google Cloud BigQuery and
+Snowflake data platform APIs to simplify read and write
+between Pandas DataFrames and BigQuery/Snowflake.
+
+Features
+--------
+- Create new tables with specified schema
+- Append DataFrames to existing tables
+- Simply read from tables or arbitrary SELECT statements
+- Get BigQuery metadata (datasets, tables, table schemas, etc.)
+
+
+Dependencies
+------------
+BQPipe supports Python 3.7+.
+
+Installation requires `NumPy
+<http://www.numpy.org/>`_,
+`Pandas
+<https://pandas.pydata.org/>`_,
+`Google-Cloud-BigQuery
+<https://pypi.org/project/google-cloud-bigquery/>`_,
+`Snowflake-Connector-Python
+<https://pypi.org/project/snowflake-connector-python/>`_,
+`Snowflake-SQLAlchemy
+<https://pypi.org/project/snowflake-sqlalchemy/>`_,
+and `Cryptography
+<https://pypi.org/project/cryptography/>`_.
+
+Installation
+------------
+The latest stable release (and older versions) can be
+installed from PyPI:
+
+.. code-block:: console
+
+    pip install bqpipe
+
+You may instead want to use the development version from Github:
+
+.. code-block:: console
+
+    pip install git+https://github.com/4mile/bqpipe.git#egg=bqpipe
+
+Testing
+-------
+Coming Soon
+
+Development
+-----------
+BQPipe development takes place on `GitHub`_.
+
+.. _Github: https://github.com/4mile/bqpipe
+
+Please submit any reproducible bugs you encounter to
+the `Issue Tracker`_.
+
+.. _Issue Tracker: https://github.com/4mile/bqpipe/issues)
+
