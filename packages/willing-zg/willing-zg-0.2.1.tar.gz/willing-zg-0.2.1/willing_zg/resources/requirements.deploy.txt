@@ -1,0 +1,4 @@
+-r backend/requirements.txt
+zygoat>=0.5.2
+awsebcli>=3.17.1
+awscli>=1.18.39

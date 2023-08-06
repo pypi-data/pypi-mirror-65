@@ -1,0 +1,15 @@
+{
+  "base": {
+    "aws_region": "us-east-1",
+    "django_settings": "backend.settings",
+    "profile_name": "default",
+    "runtime": "python3.7",
+    "vpc_config": {
+      "SubnetIds": ["subnet-0bd3002fa3d21142f", "subnet-06f38c8eef613bc98"],
+      "SecurityGroupIds": [""]
+    }
+  },
+  "staging": {
+    "extends": "base"
+  }
+}
