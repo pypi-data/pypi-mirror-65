@@ -1,0 +1,10 @@
+[console_scripts]
+ActOnChanged = ActOnChanged:main
+find_missing_file = find_missing_file:main
+gitbranch = branch:main
+gitcheck = check:main
+gitemail = gitemail:main
+gitfetch = fetch:main
+gitmodified = modified:main
+gitpull = pull:main
+
