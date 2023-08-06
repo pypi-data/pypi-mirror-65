@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "delatore"
+version = "0.4.4"
+description = "Bot for CSM jobs notifications in telegram and alerta"
+authors = ["OTC customer service monitoring team"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/opentelekomcloud-infra/delatore"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+ocomone = "^0.4.3"
+apubsub = "^0.2.1"
+aiogram = "^2.5.3"
+aiohttp = "^3.6.2"
+aiohttp-socks = "^0.3.4"
+aiodns = "^2.0.0"
+influxdb = "^5.2.3"
+pyyaml-typed = "^0.1.0"
+jsonschema = {extras = ["format"], version = "^3.2.0"}
+rfc3339-validator = "^0.1.2"
+alerta = "^7.4.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.3"
+pytest-cov = "^2.8.1"
+codecov = "^2.0.15"
+pylint = "^2.4"
+pylint-quotes = "^0.2.1"
+pytest-asyncio = "^0.10.0"
+ansi2html = "^1.5.2"
+pytest-html = "^2.0.1"
+pylint-exit = {version = "^1.1.0", platform = "linux"}
+jsonschema = "^3.2.0"
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
