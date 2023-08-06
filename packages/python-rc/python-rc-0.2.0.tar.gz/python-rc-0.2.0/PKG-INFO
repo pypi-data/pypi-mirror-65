@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: python-rc
+Version: 0.2.0
+Summary: Python remote control library for programmatically control remote machines
+Home-page: https://github.com/ailisp/python-rc
+Author: Bo Yao
+Author-email: icerove@gmail.com
+License: UNKNOWN
+Description: # python-rc
+        [![PyPI version](https://badge.fury.io/py/python-rc.svg)](https://pypi.org/project/python-rc/)
+        
+        Python remote control library for programmatically control remote machines
+        
+        ## Usage
+        TODO. See `rc/test/` for example usages for now
+        
+        ## Test
+        To run gcloud part test, `gcloud` cli needs to be installed and logged in.
+        ```
+        pipenv sync -d
+        pipenv run pytest -s
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Clustering
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: System :: Systems Administration
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
