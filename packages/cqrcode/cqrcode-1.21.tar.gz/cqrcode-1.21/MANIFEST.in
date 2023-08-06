@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include requirements.txt
+recursive-include cqrcode/app *
+recursive-include cqrcode/app/make_qrcode *
+recursive-include cqrcode/app/scan_qrcode *
+recursive-include cqrcode/static *
+recursive-include cqrcode/view *
