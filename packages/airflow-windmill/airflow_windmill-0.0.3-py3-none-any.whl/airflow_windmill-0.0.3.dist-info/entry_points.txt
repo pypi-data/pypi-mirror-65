@@ -1,0 +1,4 @@
+[console_scripts]
+windmill=windmill:cli.cli.Cli.run_cli
+windmill-dev=windmill:cli.cli.DevCli.run_cli
+
