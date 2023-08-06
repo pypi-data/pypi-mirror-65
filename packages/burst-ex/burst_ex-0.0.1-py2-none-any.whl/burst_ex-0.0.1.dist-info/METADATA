@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: burst-ex
+Version: 0.0.1
+Summary: twisted with master, proxy and worker
+Home-page: https://github.com/dantezhu/burst
+Author: dantezhu
+Author-email: zny2008@gmail.com
+License: MIT
+Platform: any
+Requires-Dist: setproctitle
+Requires-Dist: twisted
+Requires-Dist: events
+Requires-Dist: netkit
+Requires-Dist: click
+
+UNKNOWN
+
+
