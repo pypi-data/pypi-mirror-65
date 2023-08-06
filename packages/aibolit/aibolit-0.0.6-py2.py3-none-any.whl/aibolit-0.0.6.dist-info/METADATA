@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: aibolit
+Version: 0.0.6
+Summary: Aibolit: Static Analyzer with Machine Learning in Mind
+Home-page: https://github.com/yegor256/aibolit
+Author: Yegor Bugayenko
+Author-email: yegor256@gmail.com
+License: MIT
+Download-URL: https://github.com/yegor256/aibolit
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Requires-Dist: beautifulsoup4 (==4.8.2)
+Requires-Dist: codecov (==2.0.15)
+Requires-Dist: coverage (==5.0.3)
+Requires-Dist: flake8 (==3.7.9)
+Requires-Dist: javalang (==0.12.0)
+Requires-Dist: mypy (==0.770)
+Requires-Dist: numpy (==1.18.1)
+Requires-Dist: pandas (==1.0.0)
+Requires-Dist: scikit-learn (==0.22.1)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: sphinx (==2.3.1)
+Requires-Dist: torch (==1.4.0)
+Requires-Dist: typing-extensions; python_version < "3.8"
+
+Defect Detection with Machine Learning in Mind
+
+
