@@ -1,0 +1,93 @@
+project_name: Nengo Sphinx Theme
+pkg_name: nengo_sphinx_theme
+repo_name: nengo/nengo-sphinx-theme
+
+description: Sphinx theme for Nengo project documentation pages
+copyright_start: 2019
+
+travis_yml:
+  python: 3.6
+  jobs:
+    - script: static
+    - script: docs
+  pypi_user: tbekolay
+  deploy_dists:
+    - sdist
+    - bdist_wheel
+  slack_notifications: "Z7RbxwewCMpVGFmJTESN3qsW3Oe3p5ZUgHtAZAvfYWnQCA0aEBAZF1tJyKfXw4z\
+    tl0JCSm0raPkKAGk6tNrQoRb0VzEltH2n9nyfuVedsQrC2PRa6Mq270Soct6DHqQuKbLyuoJZlAAqzmfD8\
+    2gdddkEkO2jL72f8b/ypXlWfgT4/+rFPdxDzVuj+/HMEpnM+7//8/v8XQfoWwfqYrxJ/eo95T/RxOhQR3G\
+    fGogfQkY2uFbs9ajdQDQ9xsqo/+qCCg5YoPGMDpacXu4uMBZ5OydguuJOYANBDQQhPWrPI2YncA38oCl5z\
+    ZuTQZnAGDYTOiOhcofPQY0paFZ7lRCfJu+kLiJWxQy1wOaUyPsRG/tO4ZgIx2jfVPeKzyGebVCQPmUjytQ\
+    l8Ed1w/FMi3eK5+xQQPMC3hCXVAYIrAIl8nK0k/N5ASg5mDMXmG4a2NRCJVZasrb4oMGuLMhprht2c8DdX\
+    3zw7kganRPIu7kpreUE908Yj2gHqCxWlI3AhfuU/ZiW7S1oMztjt+abaEJN/yPgyQqFbk6C9ml5l2LOg21\
+    ACU1BFlpimHb8UhXKL6pK+NaIAmlpifwhpJifAUe5Ij1+8v3BfWkVG73j19h3hA1m2XSIO6RXpOkUZpGSa\
+    TmMnx2kr+W2msM6VtAvL2dSS82ueTlrvy1F6AY3JNnXUgU="
+
+ci_scripts:
+  - template: static
+  - template: docs
+  - template: deploy
+
+contributing_rst: {}
+
+contributors_rst: {}
+
+license_rst: {}
+
+manifest_in:
+  global-include:
+    - "*.conf"
+    - "*.html"
+
+setup_py:
+  entry_points:
+    sphinx.html_themes:
+      - nengo_sphinx_theme=nengo_sphinx_theme
+  include_package_data: True
+  install_req:
+    - sphinx>=1.8
+    - backoff>=1.10.0
+  docs_req:
+    - jupyter
+    - matplotlib
+    - nbsphinx
+    - nengo
+    - numpydoc
+  classifiers:
+    - "Development Status :: 4 - Beta"
+    - "Framework :: Nengo"
+    - "Intended Audience :: Developers"
+    - "License :: Free for non-commercial use"
+    - "Operating System :: Microsoft :: Windows"
+    - "Operating System :: POSIX :: Linux"
+    - "Programming Language :: Python"
+    - "Programming Language :: Python :: 3.5"
+    - "Programming Language :: Python :: 3.6"
+    - "Programming Language :: Python :: 3.7"
+    - "Topic :: Software Development"
+
+setup_cfg:
+  pylint:
+    disable:
+      - missing-docstring
+
+docs_conf_py:
+  exclude_patterns:
+    - examples/test-example.ipynb
+  extensions:
+    - nengo_sphinx_theme.ext.resolvedefaults
+    - nengo_sphinx_theme.ext.autoautosummary
+  analytics_id: UA-41658423-2
+  html_redirects:
+    redirect/to/nested-page.html: deeply/nested/testing/page.html
+  autoautosummary_change_modules:
+    nengo_sphinx_theme.ext.renamed_autoautosummary:
+      - nengo_sphinx_theme.ext.autoautosummary.TestClass
+      - nengo_sphinx_theme.ext.autoautosummary.a_test_function
+  sphinx_options:
+    autodoc_typehints: "'none'"
+
+pre_commit_config_yaml: {}
+
+pyproject_toml: {}

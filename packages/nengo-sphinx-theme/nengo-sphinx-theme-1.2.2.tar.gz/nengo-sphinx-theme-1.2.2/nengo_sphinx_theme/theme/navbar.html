@@ -1,0 +1,117 @@
+{% set projects = [
+  ("Nengo Core", "https://www.nengo.ai/nengo/"),
+  ("Nengo GUI", "https://github.com/nengo/nengo-gui/"),
+  ("Nengo DL", "https://www.nengo.ai/nengo-dl/"),
+  ("divider", None),
+  ("Nengo SPA", "https://www.nengo.ai/nengo-spa/"),
+  ("Nengo Extras", "https://www.nengo.ai/nengo-extras/"),
+  ("Nengolib", "https://arvoelke.github.io/nengolib-docs/"),
+  ("divider", None),
+  ("Nengo FPGA", "https://www.nengo.ai/nengo-fpga/"),
+  ("Nengo Loihi", "https://www.nengo.ai/nengo-loihi/"),
+  ("Nengo OpenCL", "https://github.com/nengo/nengo-ocl"),
+  ("Nengo SpiNNaker", "https://github.com/project-rig/nengo_spinnaker"),
+  ("Nengo MPI", "https://github.com/nengo/nengo-mpi"),
+] %}
+
+<header class="fixed-top header-top shadow-sm">
+  <nav class="navbar navbar-expand-md navbar-light bg-white">
+    <a class="navbar-brand" href="{{ theme_nengo_ai }}">
+      <img
+        src="https://www.nengo.ai/design/_images/general-full-light.svg"
+        alt="Nengo"
+        class="logo"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar-collapse"
+      aria-controls="navbar-collapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ theme_nengo_ai }}">What is Nengo?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ theme_nengo_ai }}examples/">Examples</a>
+        </li>
+        <li class="nav-item dropdown active">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbar-dropdown-docs"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="#"
+            >Documentation</a
+          >
+          <div
+            class="dropdown-menu shadow-lg border-0"
+            aria-labelledby="navbar-dropdown-docs"
+          >
+            {% for name, url in projects %} {%- if name == "divider" %}
+            <div class="dropdown-divider"></div>
+            {%- else %}
+            <a class="dropdown-item" href="{{ url }}">{{ name }}</a>
+            {%- endif %} {%- endfor %}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}documentation/"
+              >All documentation</a
+            >
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbar-dropdown-community"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="#"
+            >Community</a
+          >
+          <div
+            class="dropdown-menu shadow-lg border-0"
+            aria-labelledby="navbar-dropdown-community"
+          >
+            <a class="dropdown-item" href="https://forum.nengo.ai">Forum</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}people/"
+              >People</a
+            >
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}summer-school/"
+              >Summer school</a
+            >
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}contributing/"
+              >Contributing</a
+            >
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}publications/"
+              >Publications</a
+            >
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}videos/"
+              >Videos</a
+            >
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}conduct/"
+              >Code of conduct</a
+            >
+            <a class="dropdown-item" href="{{ theme_nengo_ai }}caa/">CAA</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-success btn-sm text-white"
+            href="{{ theme_nengo_ai }}getting-started/"
+            >Getting started</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
