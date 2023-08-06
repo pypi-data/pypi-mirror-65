@@ -1,0 +1,183 @@
+Metadata-Version: 2.1
+Name: redturtle.exporter.base
+Version: 1.1.0
+Summary: Json exporter base for Plone
+Home-page: https://pypi.python.org/pypi/redturtle.exporter.base
+Author: RedTurtle Technology
+Author-email: sviluppoplone@redturtle.it
+License: GPL version 2
+Description: .. This README is meant for consumption by humans and pypi. Pypi can render rst files so please do not use Sphinx features.
+           If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+           This text does not appear on pypi or github. It is a comment.
+        
+        =======================
+        Redturtle Exporter base
+        =======================
+        
+        .. image:: https://github.com/RedTurtle/redturtle.exporter.base/workflows/Tests/badge.svg
+        
+        Tool that exports Plone contents for a major migration.
+        
+        This should be used with **redturtle.importer.base/volto** packages.
+        
+        Features
+        --------
+        
+        - Easily to include in your old site (just add to the buildout)
+        - No dependencies to other tools
+        - Easily to extend (see below)
+        
+        Custom exporters
+        ----------------
+        
+        This base product exports standard content-types (also Archetype-based).
+        
+        If your site has some additional content-types to be exported and need to structure output in a more specific way,
+        you can create a more specific package (for example redturtle.importer.project_name) where you can add specific exporters like this::
+        
+            <browser:page
+              for="my.project.interfaces.IMyCustomType"
+              name="get_item"
+              class=".jsonify.MyCustomTypeGetItem"
+              permission="zope2.ViewManagementScreens"
+              />
+        
+        where **GetItem** class is::
+        
+            from redturtle.exporter.base.browser.jsonify import GetItem as BaseGetter
+            class MyCustomTypeGetItem(GetItem):
+        
+                def __call__(self):
+        
+                    context_dict = super(MyCustomTypeGetItem, self).__call__()
+                    ... do something with context_dict ...
+        
+                    return get_json_object(self, context_dict)
+        
+        
+        Export users and groups
+        -----------------------
+        
+        There are two additional views that can be called (only Site Managers has access to these views) to export the list of users and groups:
+        
+        - /export_users
+        - /export_groups
+        
+        These views returns a json with all the informations.
+        
+        Installation
+        ------------
+        
+        Install redturtle.exporter.base by adding it to your buildout::
+        
+            [buildout]
+        
+            ...
+        
+            eggs =
+                redturtle.exporter.base
+        
+        
+        and then running ``bin/buildout``
+        
+        
+        Contribute
+        ----------
+        
+        - Issue Tracker: https://github.com/collective/redturtle.exporter.base/issues
+        - Source Code: https://github.com/collective/redturtle.exporter.base
+        
+        
+        Credits
+        -------
+        
+        This product has been developed with some help from
+        
+        .. image:: https://kitconcept.com/logo.svg
+           :alt: kitconcept
+           :width: 300
+           :height: 80
+           :target: https://kitconcept.com/
+        
+        License
+        -------
+        
+        The project is licensed under the GPLv2.
+        
+        
+        Contributors
+        ============
+        
+        - RedTurtle Technology, sviluppoplone@redturtle.it
+        
+        
+        Changelog
+        =========
+        
+        1.1.0 (2020-04-07)
+        ------------------
+        
+        - Add export users and groups views.
+          [cekk]
+        
+        
+        1.0.2 (2020-02-18)
+        ------------------
+        
+        - Several improvements in export contents.
+          [cekk]
+        
+        1.0.1 (2020-02-07)
+        ------------------
+        
+        - Add install profile for create example contents for import tests.
+          [cekk]
+        
+        1.0.0 (2020-02-05)
+        ------------------
+        
+        - Heavy refactoring to be more DX compatible
+          [eikichi][cekk]
+        
+        - Add tests
+          [cekk]
+        
+        
+        0.1.2 (2019-09-18)
+        ------------------
+        
+        - Fixed dependency in function call.
+          [daniele]
+        - Added option for return object in order
+        - Fixed mapping for collection object
+          [eikichi18]
+        - using id when title is missing for Link objects
+          [daniele]
+        
+        
+        0.1.1 (2019-01-16)
+        ------------------
+        
+        - Removed redturtle.portlets.inspector dependency.
+          [daniele]
+        
+        0.1.0 (2018-11-23)
+        ------------------
+        
+        - Added parer extra field info
+          [daniele]
+        
+        - Initial release.
+          [cekk]
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 4.3
+Classifier: Framework :: Plone :: 5.1
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Provides-Extra: test
