@@ -1,0 +1,15 @@
+README.md
+setup.py
+disk_objectstore/__init__.py
+disk_objectstore/container.py
+disk_objectstore/exceptions.py
+disk_objectstore/models.py
+disk_objectstore/utils.py
+disk_objectstore.egg-info/PKG-INFO
+disk_objectstore.egg-info/SOURCES.txt
+disk_objectstore.egg-info/dependency_links.txt
+disk_objectstore.egg-info/requires.txt
+disk_objectstore.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_container.py
