@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="cooperator_thanks">
+        <field name="name">Cooperator Thanks</field>
+        <field name="inherit_id" ref="easy_my_coop_website.cooperator_thanks"/>
+        <field name="arch" type="xml">
+            <xpath expr='//div[@id="wrap"]/div[2]' position="replace">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>
+                                Et confirmem que hem rebut la teva sol·licitud d’alta de sòcia de La Feixa.
+                            </p>
+                            <p>
+                                Un cop haguem confirmat les dades, rebràs un correu electrònic indicant-te com fer efectiva l’alta de sòcia.
+                            </p>
+                            <p>
+                                La Feixa, el primer supermercat cooperatiu i participatiu de Mataró, és una realitat que construïm entre totes: gestió, presa de decisions, manteniment, consum. Pas a pas, transformem el consum per transformar la societat.
+                            </p>
+                            <p>
+                                Benvinguda a La Feixa!
+                            </p>
+                            <p>
+                                Transformem el consum!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
