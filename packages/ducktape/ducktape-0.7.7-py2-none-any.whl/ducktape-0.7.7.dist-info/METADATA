@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ducktape
+Version: 0.7.7
+Summary: Distributed system test tools
+Home-page: http://github.com/confluentinc/ducktape
+Author: Confluent
+Author-email: UNKNOWN
+License: apache2.0
+Platform: any
+Requires-Dist: jinja2 (==2.9.6)
+Requires-Dist: MarkupSafe (<2.0.0)
+Requires-Dist: boto3 (==1.9.0)
+Requires-Dist: pywinrm (==0.2.2)
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: paramiko (~=2.3.2)
+Requires-Dist: pysistence (==0.4.1)
+Requires-Dist: pyzmq (==17.0.0b2)
+Requires-Dist: pycryptodome (==3.7.0)
+
+UNKNOWN
+
+
