@@ -1,0 +1,54 @@
+CHANGES
+=======
+
+1.1.0
+-----
+
+* Update requirements for openstacksdk release
+* Cleanup py27 support
+* Update hacking for Python3
+* v2 API Support(using openstack-sdk)
+
+1.0.0
+-----
+
+* [ussuri][goal] Drop python 2.7 support and testing
+* Update home-page
+* Bump the openstackdocstheme extension to 1.20
+
+0.4.0
+-----
+
+* Add Python 3 Train unit tests
+* Avoid raising StopIteration in a generator function
+* Update api-ref location
+* OpenDev Migration Patch
+* fix service name in client
+* deprecated V1 api for acclerators
+
+0.3.0
+-----
+
+* Remove extra args that keystoneauth1 cannot recongnize
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Update reno for stable/rocky
+* Update python-cyborgclient doc
+* Remove PyPI downloads
+* Add filter to list
+
+0.2.0
+-----
+
+* Fix url\_path
+* add Deployable API in cyborgclient
+* Bug fix: pass auth parameters to Client in order to get the authentication
+* fix tox python3 overrides
+
+0.1.0
+-----
+
+* base framework for cyborg client
+* Initialize cyborgclient repository
+* Added .gitreview
