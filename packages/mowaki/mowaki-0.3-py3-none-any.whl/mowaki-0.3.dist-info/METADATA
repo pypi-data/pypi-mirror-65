@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: mowaki
+Version: 0.3
+Summary: MoWAKi - Python utilities
+Home-page: https://github.com/rshk/mowaki-py
+Author: Samuele Santi
+Author-email: samuele.santi@reinventsoftware.io
+License: BSD License
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Provides-Extra: auth
+Requires-Dist: pyjwt ; extra == 'auth'
+Provides-Extra: aws
+Requires-Dist: boto3 ; extra == 'aws'
+Provides-Extra: dev
+Requires-Dist: pytest (>=5.4) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+
+MoWAKi - Python utilities
+#########################
+
+This package provides several common utilities for MoWAKi_ apps.
+
+.. _MoWAKi: https://www.mowaki.org
+
+
+Storage
+=======
+
+Provides a common abstraction for file storage.
+
+Currently supports storing data in:
+
+- memory (mostly for testing)
+- local filesystem (mostly for local development)
+- s3 buckets
+
+
+Config
+======
+
+Convenience functions for loading configuration from environment variables:
+
+
+.. code-block:: python
+
+    import os
+    from mowaki.config import Config
+
+
+    class AppConfig(Config):
+        SECRET_KEY: str
+        DATABASE_URL: str
+        ENABLE_FEATURE_1: bool = False
+
+
+    cfg = AppConfig(os.environ)
+
+    # Access loaded configuration
+    cfg.SECRET_KEY
+
+
+
+
