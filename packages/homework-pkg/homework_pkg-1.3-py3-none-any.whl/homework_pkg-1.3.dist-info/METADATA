@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: homework-pkg
+Version: 1.3
+Summary: A homework package
+Home-page: https://github.com/kate-simonova/homework-pkg
+Author: Ekaterina Simonova
+Author-email: ekaterina.simonovacz@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+A homework package contains a file transformation_test.py.
+
+Module `transformations` contains tools for manipulating affine
+transformations of real plane.
+
+Assumption:
+
+Python version above 3.0
+Numpy package
+
+Install package with a command:
+
+pip install homework-pkg
+
+
+
