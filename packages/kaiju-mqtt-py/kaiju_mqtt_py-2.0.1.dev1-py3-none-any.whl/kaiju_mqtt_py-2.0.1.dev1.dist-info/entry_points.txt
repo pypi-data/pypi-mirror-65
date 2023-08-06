@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        kaiju_request=kaiju_mqtt_py.__main__:make_request
+    
