@@ -1,0 +1,5 @@
+[console_scripts]
+to2019 = greek_normalisation.convert_files:to_2019
+toNFC = greek_normalisation.convert_files:to_nfc
+toNFD = greek_normalisation.convert_files:to_nfd
+
