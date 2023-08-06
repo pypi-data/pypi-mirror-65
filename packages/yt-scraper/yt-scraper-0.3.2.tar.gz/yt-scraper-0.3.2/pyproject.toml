@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "yt-scraper"
+version = "0.3.2"
+description = "Command line utility querying the YouTube API v3."
+readme = "README.md"
+authors = ["Michael Brauweiler <michael.brauweiler@posteo.de>"]
+license = "Unlicense"
+keywords = ['youtube', 'scraping', 'API']
+packages = [
+    { include = "ytscraper" },
+]
+exclude = ["tests/"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^7.1.1"
+google-api-python-client = "^1.8.0"
+appdirs = "^1.4.3"
+ratelimit = "^2.2.1"
+wrapt = "^1.12.1"
+toml = "^0.10.0"
+
+[tool.poetry.dev-dependencies]
+bump2version = "^1.0.0"
+pylint = "^2.4.4"
+jedi = "^0.16.0"
+yapf = "^0.29.0"
+
+[tool.poetry.scripts]
+poetry = 'yt-scraper.api:entry_point'
+
