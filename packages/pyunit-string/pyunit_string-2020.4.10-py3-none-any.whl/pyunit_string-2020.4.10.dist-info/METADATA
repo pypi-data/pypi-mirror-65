@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pyunit-string
+Version: 2020.4.10
+Summary: 对python字符串str中的一些方法在抽象、在加强一些。让字符串操作使用起来更加方面
+Home-page: https://github.com/PyUnit/pyunit_string
+Author: Jtyoui
+Author-email: jtyoui@qq.com
+License: MIT Licence
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# **pyUnit-String** [![](https://gitee.com/tyoui/logo/raw/master/logo/photolog.png)][1]
+
+## 字符串操作使用起来更加方面
+[![](https://img.shields.io/badge/Python-3.7-green.svg)](https://pypi.org/project/pyunit-string/)
+
+
+### 安装
+    pip install pyunit-string
+
+## 介绍
+    这是一个关于对python标准库中的string进行封装，并且精简一些算法，关于详细使用参考 test.py 文件
+
+***
+[1]: https://blog.jtyoui.com
+
