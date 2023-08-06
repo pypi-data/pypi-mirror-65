@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the default prompt for prompty
+%
+% vim: set filetype=tex:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\info1{
+    \user
+}
+\default{
+    @
+}
+\bright{
+    \hostname
+}
+\space
+\info2{
+    \workingdir
+}
+\ifexpr{\isrealpath}{}{\space\warning{(!)}}
+\ifexpr{\isrepo}{
+    \space
+    \ifexpr{\isrepodirty}{\startcolour{error}} {
+        \ifexpr{\behind}{\startcolour{warning}}{
+            \ifexpr{\ahead}{\startcolour{warning}}{
+                \startcolour{info1}
+            }
+        }
+    }
+        ( \repobranch )
+    \stopcolour
+
+    \space
+    \dim3{\opensquare}
+        \ifexpr{\gt{\last_fetched_min}{60}}{\startcolour{warning}} {\startcolour{dim3}}
+            \unichar{0x29D7}\space\last_fetched_min
+        \stopcolour
+        \space
+
+        \ifexpr{\behind}{\startcolour{warning}} {\startcolour{dim3}}
+            \unichar{0x25be}\behind
+        \stopcolour
+        \space
+
+        \dim3{# \commit}
+        \space
+
+        \ifexpr{\ahead}{\startcolour{warning}} {\startcolour{dim3}}
+            \unichar{0x25b4}\ahead
+        \stopcolour
+        \space
+
+        \ifexpr{\staged}{\startcolour{warning}} {\startcolour{dim3}}
+            \unichar{0x2714}\space\staged
+        \stopcolour
+        \space
+
+        \ifexpr{\changed}{\startcolour{warning}} {\startcolour{dim3}}
+            \unichar{0x270e}\space\changed
+        \stopcolour
+        \space
+
+        \ifexpr{\untracked}{\startcolour{warning}} {\startcolour{dim3}}
+            ?\untracked
+        \stopcolour
+    \dim3{\closesquare}
+}{}
+\newline
+\smiley
+\space
