@@ -1,0 +1,9 @@
+keras-retinanet
+numpy
+scipy
+scikit-image
+
+[tests]
+pytest
+pytest-pep8
+pytest-cov
