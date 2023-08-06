@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: deoga_distributions
+Version: 0.4
+Summary: Mathematical distributions
+Home-page: UNKNOWN
+License: UNKNOWN
+Description: MATHEMATICAL DISTRIBUTION ANALYSER
+        --------------------------------------
+        Analyse distributions inlcuding their mean, standard deviation and plots. The below distributions can be analysed in this package:
+        * Binomial distribution
+        * Gassian distribution
+        * General distribution
+        
+        
+        Installation
+        ----------------------
+        Run the following code in your terminal
+        `pip install deoga_distribtions`
+        
+        
+        Understanding the package
+        ---------------------------
+        `Generaldistribution.py` - Initiates distribution class and contains the formulas(`mu`,`sigma`) for general distributions and reads file data using the `read_data_file` method.
+        `Gaussiandistribution.py`  - Inherits distribution class and contains the following methods
+        *`calculate_mean` - Calculate the mean of a Gaussian distribution
+        *`calculate_stdev` - Calculate the standard deviation of a Gaussian distribution
+        *`plot_histogram` - Plot the Gaussian distribution
+        *`pdf` - Calculate the probablility density function of the Gaussian distribution
+        *`plot_histogram_pdf` - Plot a histogram of the probability density function of the gaussian distribution
+        *`__add__` - Add two Gaussians together
+        *`__repr__` - Print characteristics of Gaussian distribution
+        
+        `Binomialdistribution.py`  - Inherits distribution class and contains the following methods
+        *`calculate_mean` - Calculate the mean of a Binomial distribution
+        *`calculate_stdev` - Calculate the standard deviation of a Binomial distribution
+        *`replace_stats_with_data` - replace hardcoded statistics with binomial data
+        *`plot_bar` - Plot bar graph of the Binomial distribution
+        *`pdf` - Calculate the probablility density function of the Binomial distribution
+        *`plot_bar_pdf` - Plot a bar of the probability density function of the Binomail distribution
+        *`__add__` - Add two Binomials together
+        *`__repr__` - Print characteristics of Binomial distribution
+        
+        
+        Usage
+        -----------------------
+        
+        Run scripts in a python compiler
+        
+        Quick Tests
+        -----------------------
+        Some tests to check if package is working is to run the following in a python code executer
+        `from deoga_distributions import Gaussian, Binomial`
+        `Gaussian(10, 7)`
+        `Binomial(0.4, 16)`
+        
+        You should get a returned string describing the distribution characteristics with no errors.
+        
+        
+        Extending this
+        -------------------------
+        
+        If you want to extend this work, here are a few places to start:
+        
+        * Add new models to the distribution
+        * Add new plots to the models
+        * Add new statisticals analytical methods to the distributions
+        
+        
+        ## Credits
+        
+        Lead Developer - Deoga Kofi
+        
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
