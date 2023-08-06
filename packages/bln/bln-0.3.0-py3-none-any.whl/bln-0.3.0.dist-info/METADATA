@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: bln
+Version: 0.3.0
+Summary: Big Local News Python SDK
+Home-page: https://github.com/biglocalnews/sdk/py
+Author: Daniel Jenson
+Author-email: daniel.a.jenson@gmail.com
+License: GNU GPLv3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: xlrd
+
+# Big Local News Python SDK
+
+This package provides a Big Local News Python API client.
+
+## Tutorial
+1. Install the `jupyterlab` and `bln` python packages:
+```{bash}
+pip install jupyterlab
+pip install bln
+```
+2. Start jupyter lab:
+```{bash}
+jupyter notebook
+```
+3. Open the tutorial and follow along!
+
+
