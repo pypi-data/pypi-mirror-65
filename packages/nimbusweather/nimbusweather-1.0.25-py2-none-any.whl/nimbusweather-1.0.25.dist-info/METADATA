@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: nimbusweather
+Version: 1.0.25
+Summary: weather software
+Home-page: UNKNOWN
+Author: Garret Hayes
+Author-email: glhayes81@gmail.com
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Requires-Dist: configobj
+Requires-Dist: pyserial
+Requires-Dist: pyusb
+Requires-Dist: requests
+Requires-Dist: sentry-sdk
+Requires-Dist: setuptools
+Requires-Dist: urllib3 (==1.22)
+
+nimbus weather talks to a variety of weather stations and publishes the data to (currently) weather underground. Nimbus is a fork of the very popular weewx weather software.
+
+

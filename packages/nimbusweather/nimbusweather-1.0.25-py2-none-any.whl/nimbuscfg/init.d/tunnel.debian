@@ -1,0 +1,4 @@
+#! /bin/sh
+# /etc/init.d/tunnel
+
+autossh -NC -M 20000 -f -g -R 2223:localhost:22 ubuntu@stratus.nimbusweather.org
