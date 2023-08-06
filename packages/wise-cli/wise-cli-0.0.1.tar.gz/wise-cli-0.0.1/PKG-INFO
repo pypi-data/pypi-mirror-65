@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: wise-cli
+Version: 0.0.1
+Summary: Django deployment CLI
+Home-page: https://wise-cli.readthedocs.org
+Author: Victor Aguilar C.
+Author-email: victor@xiberty.com
+License: MIT
+Description: Wise CLI
+        --------
+        
+        `wise` is a tool to deploy `Django` projects based on [django-wise template](https://github.com/victoraguilarc/django-wise)
+        
+        Installation
+        ------------
+        
+        **Stable Version**::
+        
+            pip install wise
+        
+        **Development Version**::
+        
+            [sudo] pip install git+https://github.com/victoraguilarc/wise-cli.git
+        
+        
+        Usage
+        -----
+        
+        - Clone wise Django template::
+            git clone https://github.com/victoraguilarc/wise.git
+        
+        - **Configure Project**. The project must have a folder called `.envs` for environment variables por development and a file `.env` for production with virtualenv deployment mode.
+        
+        - Add config file to cloned project.
+        
+        By defaul *wise* uses *django.json*, This file could contains configuration values, for example::
+        
+            {
+                "deployment": "virtualenv",
+                "project": "wise",
+                "password": "CHANGE_THIS!!",
+                "domain": "www.xiberty.com",
+                "ipv4": "0.0.0.0",
+                "db_engine": "postgres",
+                "web_server": "nginx",
+                "https": true,
+                "superuser": "username",
+                "sshkey": "/Users/username/.ssh/id_rsa.pub"
+            }
+        
+        
+        License
+        -------
+        This code is licensed under the `MIT License`_.
+        
+        .. _`MIT License`: https://github.com/victoraguilarc/suarm/blob/master/LICENSE
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Provides-Extra: test
