@@ -1,0 +1,817 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.emmc.info/emmc-csa/demo"
+         xmlns="http://www.emmc.info/emmc-csa/demo#">
+
+<owl:Ontology rdf:about="http://www.emmc.info/emmc-csa/demo">
+  <owl:imports rdf:resource="http://emmo.info/emmo/emmo-inferred"/>
+  <owl:imports rdf:resource="https://emmo-repo.github.io/versions/1.0.0-alpha2/emmo-inferred.owl"/>
+  <owl:versionIRI rdf:resource="http://www.emmc.info/emmc-csa/demo/0.9"/>
+</owl:Ontology>
+
+<owl:ObjectProperty rdf:about="#DEMO_415d41b8-7cae-4939-aaa4-25f893e54501">
+  <rdfs:subPropertyOf rdf:resource="http://emmo.info/emmo/top/semiotics#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b"/>
+  <owl:inverseOf rdf:resource="#DEMO_e82ee547-a8fc-4081-b185-d911834e7b6d"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Associates a type (string, number...) to a property.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasType</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#DEMO_e82ee547-a8fc-4081-b185-d911834e7b6d">
+  <rdfs:subPropertyOf rdf:resource="http://emmo.info/emmo/top/semiotics#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b"/>
+  <owl:inverseOf rdf:resource="#DEMO_415d41b8-7cae-4939-aaa4-25f893e54501"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Associates a property to a type (string, number...).</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isTypeOf</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#DEMO_03c2d363-42d5-4f21-b936-347329ab126b">
+  <rdfs:subPropertyOf rdf:resource="http://emmo.info/emmo/top/semiotics#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b"/>
+  <owl:inverseOf rdf:resource="#DEMO_81f9935e-13da-4473-8303-c71718685798"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Associates a type (string, number...) to a property.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasType</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#DEMO_81f9935e-13da-4473-8303-c71718685798">
+  <rdfs:subPropertyOf rdf:resource="http://emmo.info/emmo/top/semiotics#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b"/>
+  <owl:inverseOf rdf:resource="#DEMO_03c2d363-42d5-4f21-b936-347329ab126b"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Associates a property to a type (string, number...).</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isTypeOf</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#DEMO_c60a9575-a43d-439e-b589-6d1109193117">
+  <rdfs:subPropertyOf rdf:resource="http://emmo.info/emmo/middle/semiotics#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b"/>
+  <owl:inverseOf rdf:resource="#DEMO_87113b8f-a0b9-4bce-9f08-54570f12fe31"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Associates a type (string, number...) to a property.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasType</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#DEMO_87113b8f-a0b9-4bce-9f08-54570f12fe31">
+  <rdfs:subPropertyOf rdf:resource="http://emmo.info/emmo/middle/semiotics#EMMO_eb3518bf_f799_4f9e_8c3e_ce59af11453b"/>
+  <owl:inverseOf rdf:resource="#DEMO_c60a9575-a43d-439e-b589-6d1109193117"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Associates a property to a type (string, number...).</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isTypeOf</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#DEMO_398c7556-4289-48a6-9155-eb2752de6f92">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_23b579e1_8088_45b5_9975_064014026c42"/>
+      <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">T0 L2 M0 I0 Θ0 N0 J0</owl:hasValue>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SquareLengthDimension</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_13d79edb-e0e2-43bc-ae5f-b06d75961276">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/siunits#EMMO_1273eb34_de48_43a9_925f_104110469dd2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+      <owl:allValuesFrom rdf:resource="#DEMO_398c7556-4289-48a6-9155-eb2752de6f92"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SquareMetre</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_ae5a2580-19bb-4b50-b1e1-389041f11474">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+      <owl:allValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+          <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc"/>
+        </owl:Restriction>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_415d41b8-7cae-4939-aaa4-25f893e54501"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spatial position of an physical entity.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Position</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_22732995-7e74-4143-8759-cbf2e369dc42">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+      <owl:allValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+          <owl:allValuesFrom rdf:resource="#DEMO_398c7556-4289-48a6-9155-eb2752de6f92"/>
+        </owl:Restriction>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_415d41b8-7cae-4939-aaa4-25f893e54501"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Extent of a surface.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Area</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_0fc173d8-10cf-4d62-bd52-fa8b774d84a5">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_415d41b8-7cae-4939-aaa4-25f893e54501"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">36</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The stiffness tensor $c_{ijkl}$ is a property of a continuous
+elastic material that relates stresses to strains (Hooks's
+law) according to
+
+    $\sigma_{ij} = c_{ijkl} \epsilon_{kl}$
+
+Due to symmetry and using the Voight notation, the stiffness
+tensor can be represented as a symmetric 6x6 matrix
+
+    / c_1111  c_1122  c_1133  c_1123  c_1131  c_1112 \
+    | c_2211  c_2222  c_2233  c_2223  c_2231  c_2212 |
+    | c_3311  c_3322  c_3333  c_3323  c_3331  c_3312 |
+    | c_2311  c_2322  c_2333  c_2323  c_2331  c_2312 |
+    | c_3111  c_3122  c_3133  c_3123  c_3131  c_3112 |
+    \ c_1211  c_1222  c_1233  c_1223  c_1231  c_1212 /</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StiffnessTensor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_9240d5ed-04b6-4f46-b8b2-d256048bf4d9">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_415d41b8-7cae-4939-aaa4-25f893e54501"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A vector that participitates defining the unit cell.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LatticeVector</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_11c45213-bf84-4a28-b0cd-62fd69fd01f4">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_20fff605_465f_4034_8696_e53e90ec83f4"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_9240d5ed-04b6-4f46-b8b2-d256048bf4d9"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_0fc173d8-10cf-4d62-bd52-fa8b774d84a5"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A volume defined by the 3 unit cell vectors.  It contains the atoms
+constituting the unit cell of a crystal.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CrystalUnitCell</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_a2d36a81-3e24-4d83-ac1b-6421bed7c5c8">
+  <rdfs:subClassOf rdf:resource="#DEMO_11c45213-bf84-4a28-b0cd-62fd69fd01f4"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:someValuesFrom rdf:resource="#DEMO_22732995-7e74-4143-8759-cbf2e369dc42"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InterfaceModel</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_41f31e84-5643-418a-b54b-32488be9e2ef">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:allValuesFrom rdf:resource="#DEMO_11c45213-bf84-4a28-b0cd-62fd69fd01f4"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A periodic crystal structure.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Crystal</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_e4167d1e-d3e2-476a-8dbf-086ce4a9c2da">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_22732995-7e74-4143-8759-cbf2e369dc42"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A boundary is a 4D region of spacetime shared by two material
+entities.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boundary</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_3e461c3d-ba9c-4449-a9ff-4aeea58e7c15">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_0fc173d8-10cf-4d62-bd52-fa8b774d84a5"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A phase is a continuum in which properties are homogeneous and can
+have different state of matter.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phase</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_32b0060a-5fea-4a7e-8b67-39e4d5d9ce7b">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#DEMO_3e461c3d-ba9c-4449-a9ff-4aeea58e7c15"/>
+            <rdf:Description rdf:about="#DEMO_e4167d1e-d3e2-476a-8dbf-086ce4a9c2da"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Representative volume element.  The minimum volume that is
+representative for the system in question.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RVE</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_c62ac42d-b0b0-4d02-b540-7b9b16fff556">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/physicalistic#EMMO_4207e895_8b83_4318_996a_72cfb32acd94"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="#DEMO_e4167d1e-d3e2-476a-8dbf-086ce4a9c2da"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A welded component consisting of two materials welded together
+using a third welding material.  Hence it has spatial direct
+parts 3 materials and two boundaries.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WeldedComponent</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_cf049413-1ca0-4841-8a09-684d7f84bdcd">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_23b579e1_8088_45b5_9975_064014026c42"/>
+      <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">T0 L2 M0 I0 Θ0 N0 J0</owl:hasValue>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SquareLengthDimension</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_dcfbaf2f-7ac5-4698-b86a-59e8ff73ecea">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/siunits#EMMO_1273eb34_de48_43a9_925f_104110469dd2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+      <owl:allValuesFrom rdf:resource="#DEMO_cf049413-1ca0-4841-8a09-684d7f84bdcd"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SquareMetre</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_987ad719-04ea-4e5e-a59a-dd74d23d9492">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+      <owl:allValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+          <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc"/>
+        </owl:Restriction>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_03c2d363-42d5-4f21-b936-347329ab126b"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spatial position of an physical entity.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Position</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_04d9f6e1-803d-4348-b75c-5d652d36ce9c">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+      <owl:allValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+          <owl:allValuesFrom rdf:resource="#DEMO_cf049413-1ca0-4841-8a09-684d7f84bdcd"/>
+        </owl:Restriction>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_03c2d363-42d5-4f21-b936-347329ab126b"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Extent of a surface.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Area</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_90700d0f-bfde-4745-aff5-d8fee5e1e364">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_03c2d363-42d5-4f21-b936-347329ab126b"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">36</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The stiffness tensor $c_{ijkl}$ is a property of a continuous
+elastic material that relates stresses to strains (Hooks's
+law) according to
+
+    $\sigma_{ij} = c_{ijkl} \epsilon_{kl}$
+
+Due to symmetry and using the Voight notation, the stiffness
+tensor can be represented as a symmetric 6x6 matrix
+
+    / c_1111  c_1122  c_1133  c_1123  c_1131  c_1112 \
+    | c_2211  c_2222  c_2233  c_2223  c_2231  c_2212 |
+    | c_3311  c_3322  c_3333  c_3323  c_3331  c_3312 |
+    | c_2311  c_2322  c_2333  c_2323  c_2331  c_2312 |
+    | c_3111  c_3122  c_3133  c_3123  c_3131  c_3112 |
+    \ c_1211  c_1222  c_1233  c_1223  c_1231  c_1212 /</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StiffnessTensor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_742beec2-6059-46f9-a20b-0c96e2388923">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_03c2d363-42d5-4f21-b936-347329ab126b"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A vector that participitates defining the unit cell.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LatticeVector</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_45d353ee-7e9d-46ca-a24c-5fbf5efc71eb">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_20fff605_465f_4034_8696_e53e90ec83f4"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_742beec2-6059-46f9-a20b-0c96e2388923"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_90700d0f-bfde-4745-aff5-d8fee5e1e364"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A volume defined by the 3 unit cell vectors.  It contains the atoms
+constituting the unit cell of a crystal.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CrystalUnitCell</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_6a87ffec-3d74-4f23-9712-347fa9d5e531">
+  <rdfs:subClassOf rdf:resource="#DEMO_45d353ee-7e9d-46ca-a24c-5fbf5efc71eb"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:someValuesFrom rdf:resource="#DEMO_04d9f6e1-803d-4348-b75c-5d652d36ce9c"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InterfaceModel</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_fa59e7ba-151b-46df-bcad-f8d22cd6a67d">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:allValuesFrom rdf:resource="#DEMO_45d353ee-7e9d-46ca-a24c-5fbf5efc71eb"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A periodic crystal structure.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Crystal</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_1d022e79-777d-4f46-8d2a-04500ad2eb3b">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_04d9f6e1-803d-4348-b75c-5d652d36ce9c"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A boundary is a 4D region of spacetime shared by two material
+entities.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boundary</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_214dc2af-b8b5-4407-955b-cb8f86107f8c">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_90700d0f-bfde-4745-aff5-d8fee5e1e364"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A phase is a continuum in which properties are homogeneous and can
+have different state of matter.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phase</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_6477db1e-eaf0-4ff3-a5a9-8b69a665715b">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#DEMO_214dc2af-b8b5-4407-955b-cb8f86107f8c"/>
+            <rdf:Description rdf:about="#DEMO_1d022e79-777d-4f46-8d2a-04500ad2eb3b"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Representative volume element.  The minimum volume that is
+representative for the system in question.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RVE</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_e4828857-5744-4416-a194-6e6b284c3c93">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/physicalistic#EMMO_4207e895_8b83_4318_996a_72cfb32acd94"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="#DEMO_1d022e79-777d-4f46-8d2a-04500ad2eb3b"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A welded component consisting of two materials welded together
+using a third welding material.  Hence it has spatial direct
+parts 3 materials and two boundaries.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WeldedComponent</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_824a9cca-d554-4e46-aa89-adba10151066">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_9895a1b4_f0a5_4167_ac5e_97db40b8bfcc"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_23b579e1_8088_45b5_9975_064014026c42"/>
+      <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">T0 L2 M0 I0 Θ0 N0 J0</owl:hasValue>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SquareLengthDimension</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_0012d376-f45b-4b01-ba21-5e09158947f9">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/siunits#EMMO_1273eb34_de48_43a9_925f_104110469dd2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+      <owl:allValuesFrom rdf:resource="#DEMO_824a9cca-d554-4e46-aa89-adba10151066"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SquareMetre</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_8da669fb-46f3-4f6c-a183-3774e0fc55df">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+      <owl:allValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+          <owl:allValuesFrom rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_b3600e73_3e05_479d_9714_c041c3acf5cc"/>
+        </owl:Restriction>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_c60a9575-a43d-439e-b589-6d1109193117"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spatial position of an physical entity.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Position</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_8cf93b01-16e3-4aae-8332-56c499e05fa3">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_2946d40b_24a1_47fa_8176_e3f79bb45064"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296"/>
+      <owl:allValuesFrom>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569"/>
+          <owl:allValuesFrom rdf:resource="#DEMO_824a9cca-d554-4e46-aa89-adba10151066"/>
+        </owl:Restriction>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_c60a9575-a43d-439e-b589-6d1109193117"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Extent of a surface.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Area</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_2c1730f2-ac08-403d-bc03-354cb07ee3b4">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_c60a9575-a43d-439e-b589-6d1109193117"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">36</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The stiffness tensor $c_{ijkl}$ is a property of a continuous
+elastic material that relates stresses to strains (Hooks's
+law) according to
+
+    $\sigma_{ij} = c_{ijkl} \epsilon_{kl}$
+
+Due to symmetry and using the Voight notation, the stiffness
+tensor can be represented as a symmetric 6x6 matrix
+
+    / c_1111  c_1122  c_1133  c_1123  c_1131  c_1112 \
+    | c_2211  c_2222  c_2233  c_2223  c_2231  c_2212 |
+    | c_3311  c_3322  c_3333  c_3323  c_3331  c_3312 |
+    | c_2311  c_2322  c_2333  c_2323  c_2331  c_2312 |
+    | c_3111  c_3122  c_3133  c_3123  c_3131  c_3112 |
+    \ c_1211  c_1222  c_1233  c_1223  c_1231  c_1212 /</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">StiffnessTensor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_c5ee9fed-2fbf-4176-b72a-c358ec839587">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_c60a9575-a43d-439e-b589-6d1109193117"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A vector that participitates defining the unit cell.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LatticeVector</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_019ec51f-c70f-4053-b747-1a6d71d464cb">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_20fff605_465f_4034_8696_e53e90ec83f4"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:someValuesFrom rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8303a247_f9d9_4616_bdcd_f5cbd7b298e3"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_c5ee9fed-2fbf-4176-b72a-c358ec839587"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_2c1730f2-ac08-403d-bc03-354cb07ee3b4"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A volume defined by the 3 unit cell vectors.  It contains the atoms
+constituting the unit cell of a crystal.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CrystalUnitCell</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_2fb7012c-e8af-49a7-a192-deb3c9d59fba">
+  <rdfs:subClassOf rdf:resource="#DEMO_019ec51f-c70f-4053-b747-1a6d71d464cb"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:someValuesFrom rdf:resource="#DEMO_8cf93b01-16e3-4aae-8332-56c499e05fa3"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InterfaceModel</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_dff78629-dd98-460d-83a8-d8104dba2152">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_a2b006f2_bbfd_4dba_bcaa_3fca20cd6be1"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:allValuesFrom rdf:resource="#DEMO_019ec51f-c70f-4053-b747-1a6d71d464cb"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A periodic crystal structure.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Crystal</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_0f3fb295-447e-4973-bd38-aa5501936760">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_8cf93b01-16e3-4aae-8332-56c499e05fa3"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A boundary is a 4D region of spacetime shared by two material
+entities.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boundary</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_0d048593-7fe9-4869-9f4f-7df4d5aaefab">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_2c1730f2-ac08-403d-bc03-354cb07ee3b4"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A phase is a continuum in which properties are homogeneous and can
+have different state of matter.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phase</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_17826d7e-df97-44c2-a399-ff6503ba6cc7">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_8b0923ab_b500_477b_9ce9_8b3a3e4dc4f2"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:allValuesFrom>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#DEMO_0d048593-7fe9-4869-9f4f-7df4d5aaefab"/>
+            <rdf:Description rdf:about="#DEMO_0f3fb295-447e-4973-bd38-aa5501936760"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:allValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Representative volume element.  The minimum volume that is
+representative for the system in question.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RVE</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DEMO_f5bf64ac-41ae-4123-b2fb-4098cd6732bb">
+  <rdfs:subClassOf rdf:resource="http://emmo.info/emmo/middle/manufacturing#EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/physicalistic#EMMO_4207e895_8b83_4318_996a_72cfb32acd94"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/reductionistic#EMMO_b2282816_b7a3_44c6_b2cb_3feff1ceb7fe"/>
+      <owl:onClass rdf:resource="#DEMO_0f3fb295-447e-4973-bd38-aa5501936760"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A welded component consisting of two materials welded together
+using a third welding material.  Hence it has spatial direct
+parts 3 materials and two boundaries.</rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WeldedComponent</rdfs:label>
+</owl:Class>
+
+<rdf:Description rdf:about="http://emmo.info/emmo/middle/isq#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_415d41b8-7cae-4939-aaa4-25f893e54501"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_03c2d363-42d5-4f21-b936-347329ab126b"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#DEMO_c60a9575-a43d-439e-b589-6d1109193117"/>
+      <owl:onClass rdf:resource="http://emmo.info/emmo/middle/math#EMMO_18d180e4_5e3e_42f7_820c_e08951223486"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://emmo.info/emmo/middle/materials#EMMO_eb77076b_a104_42ac_a065_798b2d2809ad">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_ae5a2580-19bb-4b50-b1e1-389041f11474"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_987ad719-04ea-4e5e-a59a-dd74d23d9492"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+      <owl:onClass rdf:resource="#DEMO_8da669fb-46f3-4f6c-a183-3774e0fc55df"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</rdf:Description>
+
+
+</rdf:RDF>
