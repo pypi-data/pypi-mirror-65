@@ -1,0 +1,8 @@
+kconfiglib
+lark-parser
+python-dateutil
+requests
+sympy
+
+[:(python_version<'3.7')]
+importlib_resources

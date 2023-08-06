@@ -1,0 +1,210 @@
+CHANGES
+=======
+
+v0.9.1
+------
+
+* Added asciinema examples, version 0.9.1
+* Added asciinema preview for option detection
+* Added --differences option to detect --check
+
+v0.9.0
+------
+
+* Version 0.9.0
+* Addedd --version option
+* Fix links
+* Addeed zip safe to setup, removed data files. Setup works
+* Fixed wrong block in contributed configuration
+* Removed usage of \_\_file\_\_ to access resources and use importlib.resources instead
+* Split utilities into own file
+* Fixed readme link
+* Changes to setup.cfg
+* Use better satisfy example
+* Clarified directive scope; Fixed README to docs links
+* Implemented environment variables in expressions and set statements
+* More clarifications
+* More clarification changes
+* Better docs structure
+* Some clarifications
+* Finished setup command
+* Unified contrib directory
+* Added new requirements
+* Prepare for setuptools
+* remove local.conf from default
+* Added default configuration example and laptop example
+* Added default config
+* --help is now the default command; Finish usage section and quick-start-guide
+* License hardening.conf as CC0. Add a feature entry for it
+* Add links to sections from introduction
+* Quick start guide is now empty and will only have quick start things in it
+* Finally the rename dammit
+* WIP: Delete usage.rst
+* Prepare swapping of quick-start-guide.rst and usage.rst
+* Prepare swapping quick-start-guide.rst and usage.rst
+* Added first part of quick-start-guide
+* Renamed deps -> satisfy, added revdeps command
+* Update docs index and README
+* Allow disabling of modules\_prefix
+* Moved data into data folder; added setup command; Added internal fallback configuration
+* Renamed initramfs.{command,command\_output} to build\_command and build\_output
+* Move note location
+* Minor documentation fixed, fix theme override in rtd builds
+* Finished directive documentation
+* Made purging more robust, also made .old numbers increasing even when there are gaps
+* Change default umask to 077 in anticipation of out of tree builds; Documented initramfs and build directives
+* Documented directives for the module block
+* Split directives to own file. Begin transferring directive descriptions
+* Finished block on expressions
+*  WIP: Rewrite expression and condition section
+* Rename modules.rst -> concepts.rst
+* Restructure module section into "Concepts"; Merge all syntax docs
+* Break comment lines
+* clarify pinning example
+* Replace code block console with bash
+* Fixed rtd rendering code blocks and math
+* Split conditions into own section; Prevent rtd navigation collape
+* Add social banner svgs
+* Added configuration syntax documentation; Begin writing module documentation
+* Stripped descriptive --help text to refer to the documentation. Begin writing quick-start-guide
+* commands.rst -> usage.rst
+* Rewritten introduction
+* Assignment failures are errors. Use try to allow them
+* Use warning admonition
+* Begin writing introduction
+* Added readthedocs banner
+* Set master\_doc for sphinx
+* Added readthedocs configuration
+* Change homepage
+* Fixed superflous format argument
+* Finally added a description to the help
+* Added skeleton for sphinx docs
+* WIP: Readme cleanup
+* Remove x flag from svgs
+* Add icon svg and minify banner svg
+* WIP: Readme badges
+* Added autokernel banner svg
+* WIP: Restructuring README
+* Only include .conf files with include\_module\_dir, and warn on include\_module
+* Added a documented configuration file
+* Unified variable expansion in config strings
+* Added conflict detection in merge; expression symbol evaluation shorthand is now SYM != n instead of SYM == y to allow modules to count as yes
+* Moved config.lark inside module directory
+* Remove efi block from config, this is now intended to be done via hooks.post
+* Added pre and post hooks for build and install
+* Implemented modules\_prefix installation dir, moving old ones and puring inclusive
+* Minor changes in config check messages
+* Tested and fixed sorting when purging old files
+* Added functionality to keep old installed files, rename them while installing, and in general added files to install
+* Build process working
+* Added install functionality dummies (only the cp is missing)
+* Implemented dracut example
+* Remove need for genkernel and allow an arbitrary initramfs generation program to be used
+* Implemented building the kernel and the initramfs, with additional cmdline and initramfs packing
+* Removed old filed
+* Moved installation configuration settings to install block, and replace old packing options with better ones
+* More ideas for configuration of the installation and building process
+* Invalidate non-assigned symbols before saving to process changed conditions in symbol default values. Also add console module for with hidpi font to example config
+* Fixed kernel version scopes for LSM and STATIC\_USERMODEHELPER\_PATH
+* Wrapped comments in hardening.conf
+* Finished hardening module for now
+* Comment more options in security.conf
+* Begin commenting security options
+* Implemented try set, which skips assignments when value is already pinned, and doesn't warn if the value couldn't be set
+* Also allow single quotes '' for strings in the config
+* Renamed security to hardening
+* Download newest lkddb if needed
+* Added location tracking to UniqueProperty
+* Removed all usages of ConfigParsingException and replaced them by die\_\*
+* Add hints to see offending location on conflicting changes; Extract symbol tracking as module; Clean security.conf
+* Finished new condition evaluator with expression shortcutting (useful to avoid undefined symbol evaluations) and a lot of better warnings and error messages
+* WIP: Remove sympy from condition expression parser and create own parsing tree to allow early-out and provide better error messages
+* More error/warn messages with hint; Assert statements can now utilitze full expression syntax and add a message; Began writing a proper security module
+* Better pretty-print for detect --check
+* Finished check subcommand with ability to supress columns
+* Check can now work on two different kernel versions; Added special $ARCH variable; Removed global kernel\_version and replaced it by proper state per kernel
+* Fixed bad sympy includes; Added check comparison to also include new and removed symbols (WIP)
+* Pretty-print another error condition; Fix calculation in semver
+* Add option to disable logging; Add error messages with definition hints where possible
+* Fixed semver parser to allow suffixes; Make use of $KERNEL\_VERSION feature
+* Fixed pylint warnings, added pylint check script
+* Fixed pylint errors
+* Made this one module and added a bin wrapper; Also fixed imports
+* Implemented special variables for comparisons (mainly $KERNEL\_VERSION) (WIP: still need to fix some imports)
+* Properly implemented symbol change tracking. Implicit changes will trigger conflicts, but are not recorded as "changed by the user"
+* Begin creating proper example config
+* Conditions implementation finished
+* WIP: Implemented parsing of if blocks and infixes (set OPT if COND;), and added conditions to module statements. Module statements are now executed in order, which is necessary for if blocks. Symbols evaluated by conditions will get fixed, so reassigning them is an error. Missing: creating sympy expressions from the expression tree
+* Added expression parser to lark
+* Allow {KERNEL\_DIR} variable in merge statement
+* Added detected\_ prefix to detected modules
+* Show oriinal module definition on redefinition
+* Implement skipping of module creations, when dependencies cannot be satisfied
+* Figured out when to make assignments assertions. If a symbol has no promt it cannot be user assigned
+* Added fast and comprehensive symbol change detection via monkeypatching; Added security kernel options lists for testing
+* Finished deps and search command
+* Added search functionality
+* Added ability to generate modules for single options
+* Fixed missing option assignments when all deps were satisified
+* Begin writing option search and single option module generation. Begin investigating bug: Not all necessary dependencies are set... see new warnings
+* Workaround lark parser issue by reordering context tokens
+* Added initramfs enabling/disabling; Prepared config options to pack certain things into the kernel (initramfs, cmdline)
+* Disabled assert statement while it isn't needed
+* Added header to generated configs
+* Renamed command 'full' to 'all'
+* Check mountpoint permissions
+* Added quote stripping for most config strings; fixed relative --kernel-dir paths
+* Added ARCH detection, added auto mounting
+* New build option which builds both kernel and initramfs
+* Config parsing transition finished
+* Inform about extra semicolons in verbose mode
+* Implemented parsing of all configuration contexts
+* Finished module block parsing
+* Parsing helpers working, begin implementing statements and blocks
+* Added general parsing helpers, only specifics are missing now
+* Begin rewriting config parser to use lark
+* lark grammar finished
+* Begin writing an EBNF grammar for the config format
+* Implemented config generation and checking
+* Fix typo
+* Updated README a little bit
+* Removed unused argument to detect
+* Cleaned up unused old code, implemented writing configuration in kconf or module format
+* Implemented detect --check
+* WIP: Conversion to sympy dependency parsing
+* WIP: Added check command
+* WIÜ: Wrote a basic argparser with subcommands for most functionalities
+* Config parsing, local module creation and preliminary kernel config generation working
+* Prepare to generate module configuration files from detected nodes
+* WIP: Basic config parser implemented
+* Brainstorm config format
+* Removed pci class mask parsing because of strange partial wildcards
+* Added ambiguity\_threshold to determine if multiple matches are allowed
+* Score matches and only use best match
+* Add module parser and matcher
+* Add todo
+* Pretty print detected options
+* Add option detector test
+* Added mandatory token definition to provide better matching and filter any wildcard-only tokens
+* First partly working version which outputs config options
+* Implemented all relevant lkddb parsers
+* Implemented more entry types
+* Lkddb switched to subsystem nodes
+* Finished conversion to new node data system
+* WIP: Replace data in node\_detector with subsystem node data
+* Prepare to unify subsystem information
+* Added generic lkddb parser
+* Added input: parser
+* Use find properly
+* Rewritten modalias parser to allow for more generic sysfs parsing
+* Added lkddb class (for later)
+* Added fstype detector, i2c and pnp device detectors
+* Check that every group has a match
+* Implemented many more device types for modalias based devices
+* Added acpi parser
+* Generalized sysfs modalias loading
+* Created meta class for modalias based devices
+* Added pci device detection
+* Added readme
+* Added WIP of proof-of-concept implementation
+* Added LICENSE file
