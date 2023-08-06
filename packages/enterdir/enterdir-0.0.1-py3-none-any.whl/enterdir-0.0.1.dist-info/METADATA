@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: enterdir
+Version: 0.0.1
+Summary: Simple context manager for entering and exiting a directory
+Home-page: https://gitlab.com/pip_projects/enterdir
+Author: Eduard Konanau
+Author-email: aduard.kononov@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+
+# Usage
+```python
+import os
+from enterdir import EnterDir
+
+def print_cwd():
+    print(os.getcwd())
+
+print_cwd()
+with EnterDir('path/to/dir') as d:
+    print_cwd()
+print_cwd()
+```
+
