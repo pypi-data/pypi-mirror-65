@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: opqua
+Version: 0.1.2
+Summary: An epidemiological modeling framework for population genetics and evolution.
+Home-page: https://github.com/pablocarderam/opqua
+Author: Pablo Cardenas
+Author-email: pablocarderam@gmail.com
+License: MIT
+Download-URL: https://github.com/pablocarderam/opqua/releases/download/v0.1.2/opqua-0.1.2.tar.gz
+Keywords: epidemiology,evolution,biology
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: joblib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+
+Opqua is an epidemiological modeling framework for population genetics and evolution. Opqua stochastically simulates  pathogens with specific, evolving genotypes spread through  populations of hosts that can have specific immune profiles. Opqua is a useful tool to test out scenarios, explore hypotheses, and make predictions about the relationship between pathogen evolution and epidemiology.
+
+
