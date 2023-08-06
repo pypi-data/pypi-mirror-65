@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: arcade-generator
+Version: 0.0.6
+Summary: A static site generator
+License: MIT
+Author: Yabir Benchakhtir
+Author-email: yabirg@protonmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: jinja2
+Requires-Dist: livereload (>=2.6.1,<3.0.0)
+Requires-Dist: markdown (>=3.2.1,<4.0.0)
+Requires-Dist: pyyaml (>=5.3.1,<6.0.0)
