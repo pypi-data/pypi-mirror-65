@@ -1,0 +1,12 @@
+*.egg
+*.egg-info
+.eggs
+*.pyc
+.pytest_cache
+artifacts
+coverage.xml
+htmlcov
+venv
+build
+dist
+src/nvshim/__init__.py
