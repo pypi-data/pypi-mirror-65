@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: treep
+Version: 1.46
+Summary: managing git projects structured in tree in python
+Home-page: https://git-amd.tuebingen.mpg.de/amd-clmc/treep
+Author: Vincent Berenz
+Author-email: vberenz@tuebingen.mpg.de
+License: GPL
+Keywords: project git tree
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: argcomplete
+Requires-Dist: colorama
+Requires-Dist: future
+Requires-Dist: gitpython
+Requires-Dist: lightargs
+Requires-Dist: pyyaml
+
+see https://git-amd.tuebingen.mpg.de/amd-clmc/treep
+
+
