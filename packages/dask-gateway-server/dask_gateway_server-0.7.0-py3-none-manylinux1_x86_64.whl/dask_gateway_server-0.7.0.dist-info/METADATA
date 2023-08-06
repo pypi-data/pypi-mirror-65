@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: dask-gateway-server
+Version: 0.7.0
+Summary: A multi-tenant server for securely deploying and managing multiple Dask clusters.
+Home-page: https://gateway.dask.org/
+Maintainer: Jim Crist-Harif
+Maintainer-email: jcristharif@gmail.com
+License: BSD
+Project-URL: Documentation, https://gateway.dask.org/
+Project-URL: Source, https://github.com/dask/dask-gateway/
+Project-URL: Issue Tracker, https://github.com/dask/dask-gateway/issues
+Keywords: dask hadoop kubernetes HPC distributed cluster
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: System :: Systems Administration
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
+Requires-Dist: aiohttp
+Requires-Dist: colorlog
+Requires-Dist: cryptography
+Requires-Dist: traitlets
+Provides-Extra: jobqueue
+Requires-Dist: sqlalchemy ; extra == 'jobqueue'
+Provides-Extra: kerberos
+Requires-Dist: pykerberos ; extra == 'kerberos'
+Provides-Extra: kubernetes
+Requires-Dist: kubernetes-asyncio ; extra == 'kubernetes'
+Provides-Extra: local
+Requires-Dist: sqlalchemy ; extra == 'local'
+Provides-Extra: yarn
+Requires-Dist: sqlalchemy ; extra == 'yarn'
+Requires-Dist: skein (>=0.7.3) ; extra == 'yarn'
+
+dask-gateway-server
+===================
+
+A multi-tenant server for securely deploying and managing Dask clusters. See
+`the documentation <https://gateway.dask.org/>`__ for more information.
+
+
