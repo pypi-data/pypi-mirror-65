@@ -1,0 +1,192 @@
+#!/usr/bin/env python
+
+"""
+This python script computes a strain field from a displacement field defined on a regular grid (e.g., from spam-ldic) using SPAM functions
+Copyright (C) 2020 SPAM Contributors
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
+from __future__ import print_function
+import tifffile
+import numpy
+
+import argparse
+import spam.helpers
+import spam.DIC
+import spam.deformation
+import spam.mesh
+
+# Define argument parser object
+parser = argparse.ArgumentParser(description="spam-regularStrain "+spam.helpers.optionsParser.GLPv3descriptionHeader +\
+                                             "This script computes different components of strain, given a regularly-spaced displacement"+\
+                                             " field like that coming from spam-ldic. Both infinitesimal and finite strain frameworks"+\
+                                             " are implemented, and TSV, VTK and TIF output are possible",
+                                 formatter_class=argparse.RawTextHelpFormatter)
+# Parse arguments with external helper function
+args = spam.helpers.optionsParser.regularStrainsCalcParser(parser)
+
+print("+----------------------------+")
+print("| Regular Strain Calculation |")
+print("+----------------------------+")
+
+print("\nCurrent Settings:")
+argsDict = vars(args)
+for key in sorted(argsDict):
+    print("\t{}: {}".format(key, argsDict[key]))
+
+print("\nspam-regularStrain: Loading data...")
+f = spam.helpers.readCorrelationTSV(args.inFile.name, readDisplacements=True, readConvergence=args.MASK)
+
+# Get the dimensions and coordinates of the field
+dims        = f["fieldDims"]
+fieldCoords = f["fieldCoords"]
+
+# Calculate node spacing for each direction
+spaceX = fieldCoords[1,2] - fieldCoords[0,2]
+spaceY = fieldCoords[dims[2],1] - fieldCoords[0,1]
+
+# Catch 2D case
+if dims[0] == 1:
+    twoD = True
+    spaceZ = 0
+    print("spam-regularStrain: detected 2D field")
+    if not args.Q8:
+        print("\tIMPORTANT: overriding the strain calculation mode to Q8")
+        args.Q8 = True
+else:
+    twoD = False
+    spaceZ = fieldCoords[dims[2]*dims[1],0] - fieldCoords[0,0]
+
+
+# Check if a mask of points (based on return status of the correlation) is asked
+if args.MASK:
+    mask = numpy.zeros(fieldCoords[:,0].shape).reshape(dims)
+    ignoreBackGround = True
+else:
+    ignoreBackGround = False
+
+
+# Check if the correction of the input field is asked
+if args.CORRECT_FIELD or args.CORRECT_MEDIAN_FILTER:
+    print("\nspam-regularStrain: Correcting/filtering field...")
+    fieldValues = spam.deformation.correctPhiField(fileName           = args.inFile.name,
+                                                   correctBadPoints   = args.CORRECT_FIELD,
+                                                   ignoreBackGround   = ignoreBackGround,
+                                                   deltaPhiNormMin    = args.CORRECT_DELTA_PHI_NORM,
+                                                   pixelSearchCCmin   = args.CORRECT_PIXEL_SEARCH_CC,
+                                                   nNeighbours        = args.CORRECT_NEIGHBOURS,
+                                                   filterPoints       = args.CORRECT_MEDIAN_FILTER,
+                                                   filterPointsRadius = args.CORRECT_MEDIAN_FILTER_RADIUS)
+    # Extract the corrected displacement field and reshape it
+    disp = fieldValues[:,:3,-1].reshape(dims[0], dims[1], dims[2], 3)
+else:
+    # Directly extract the displacement field without correction/filtering
+    disp = f["PhiField"][:,:3,-1].reshape(dims[0], dims[1], dims[2], 3)
+    # Mask background if asked
+    if ignoreBackGround:
+        mask[numpy.where(f["returnStatus"].reshape(dims)<-4)] = numpy.nan
+        disp[:,:,:,0] += mask
+        disp[:,:,:,1] += mask
+        disp[:,:,:,2] += mask
+
+
+print("\nspam-regularStrain: Computing F=I+du/dx")
+if not args.Q8:
+    Ffield = spam.deformation.FfieldRegularGeers(disp, nodeSpacing=[spaceZ, spaceY, spaceX],
+                                                 mask=args.MASK,
+                                                 neighbourRadius=args.STRAIN_NEIGHBOUR_RADIUS)
+else:
+    Ffield = spam.deformation.FfieldRegularQ8(   disp, nodeSpacing=[spaceZ, spaceY, spaceX])
+
+# Now compute what's been asked for...
+print("\nspam-regularStrain: Decomposing F into ", args.COMPONENTS)
+decomposedFfield = spam.deformation.decomposeFfield(Ffield, args.COMPONENTS, twoD=twoD)
+
+
+# Define base fileName
+if not args.Q8:
+    fileNameBase = args.OUT_DIR+"/"+args.PREFIX+"-strain-Geers"
+    mode = "Geers"
+else:
+    fileNameBase = args.OUT_DIR+"/"+args.PREFIX+"-strain-Q8"
+    mode = "Q8"
+
+# Save strain fields
+print("\nspam-regularStrain: Saving strain fields...")
+if args.TSV:
+
+    # Positions for Geers are the measurement points
+    if not args.Q8:
+        if twoD:
+            outputPositions = fieldCoords.copy().reshape(1, dims[1], dims[2], 3)
+        else:
+            outputPositions = fieldCoords.copy().reshape(dims[0], dims[1], dims[2], 3)
+
+    # Positions for the centres of the Q8 elements are between the measurement points
+    #   (so there is one number fewer compared to measurement points
+    #   so we strip off last node points -- not Z ones in twoD for Q8 mode
+    else:
+        if twoD:
+            outputPositions = fieldCoords.copy().reshape(1, dims[1], dims[2], 3)[:, 0:-1, 0:-1, :]
+        else:
+            outputPositions = fieldCoords.copy().reshape(dims[0], dims[1], dims[2], 3)[0:-1, 0:-1, 0:-1, :]
+        # Add a half-node spacing to the output field
+        outputPositions[:, :, :, 0] += spaceZ / 2.0
+        outputPositions[:, :, :, 1] += spaceY / 2.0
+        outputPositions[:, :, :, 2] += spaceX / 2.0
+
+    # Here we want to pass an Nx3 matrix of poitions:
+    spam.helpers.writeStrainTSV(fileNameBase+".tsv", outputPositions.reshape(-1,3), decomposedFfield, firstColumn="StrainPointNumber")
+
+
+if args.TIFF:
+    for component in args.COMPONENTS:
+        if component == 'vol' or component == 'dev' or component == 'volss' or component == 'devss':
+                    tifffile.imsave(args.OUT_DIR+"/"+args.PREFIX+"-{}-{}.tif".format(component, mode), decomposedFfield[component].astype('<f4'))
+
+        if component == 'r' or component == 'z':
+            for n, di in enumerate(['z', 'y', 'x']):
+                    tifffile.imsave(args.OUT_DIR+"/"+args.PREFIX+"-{}{}-{}.tif".format(component, di, mode), decomposedFfield[component][:,:,:,n].astype('<f4'))
+
+        if component == 'e':
+            for n, di in enumerate(['z', 'y', 'x']):
+                for m, dj in enumerate(['z', 'y', 'x']):
+                    if m>=n:
+                        tifffile.imsave(args.OUT_DIR+"/"+args.PREFIX+"-{}{}{}-{}.tif".format(component, di, dj, mode), decomposedFfield[component][:,:,:,n,m].astype('<f4'))
+
+        if component == 'U':
+            for n, di in enumerate(['z', 'y', 'x']):
+                for m, dj in enumerate(['z', 'y', 'x']):
+                    tifffile.imsave(args.OUT_DIR+"/"+args.PREFIX+"-{}{}{}-{}.tif".format(component, di, dj, mode), decomposedFfield[component][:,:,:,n,m].astype('<f4'))
+
+if args.VTK:
+    cellData = {}
+    if not twoD: aspectRatio = [spaceZ, spaceY, spaceX]
+    else:        aspectRatio = [   1,   spaceY, spaceX]
+
+    # For geers strains are at the measurement points
+    #   Ad per the displacements coming out of spam-ldic this will plot nicely if 2xHWS = NS
+    if not args.Q8:
+        origin=fieldCoords[0]-numpy.array(aspectRatio)/2.0
+    # Q8's centre is between measurement points, but corners fall on displacement points, obviously
+    else:
+        origin=fieldCoords[0]
+
+    for component in args.COMPONENTS:
+        tmp = decomposedFfield[component]
+        if args.VTKmaskNAN:
+            tmp[numpy.isnan(tmp)] = 0.0
+        cellData[component] = tmp
+    spam.helpers.writeStructuredVTK(origin=origin, aspectRatio=aspectRatio, cellData=cellData, fileName=fileNameBase+".vtk")
