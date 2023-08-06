@@ -1,0 +1,1473 @@
+# -*- coding: utf-8; mode: yaml -*-
+# :Project:   SoL -- Test data
+# :Created:   ven 06 lug 2018 09:51:30 CEST
+# :Author:    Lele Gaifax <lele@metapensiero.it>
+# :License:   GNU General Public License version 3 or later
+# :Copyright: © 2018, 2019, 2020 Lele Gaifax
+#
+
+- entity: sol.models.User
+  key:
+    - email
+  rows:
+    - &user_lele
+      firstname: 'Lele'
+      lastname: 'Gaifax'
+      language: 'it'
+      password: 'lelegaifax'
+      email: 'lele@metapensiero.it'
+      state: 'C'
+      playersmanager: true
+    - firstname: 'Suspended'
+      lastname: 'User'
+      password: 'something'
+      language: 'en_US'
+      email: 'suspended@example.com'
+      state: 'S'
+
+- entity: sol.models.Club
+  key:
+    - description
+  rows:
+    - &club_scr
+      description: 'Scarambol Club Rovereto'
+      couplings: 'dazed'
+      nationality: 'ITA'
+      email: 'test@example.it'
+      users:
+        - *user_lele
+
+    - &club_fic
+      description: 'Federazione Italiana Carrom'
+      couplings: 'dazed'
+      isfederation: True
+
+    - &club_ccm
+      description: 'Carrom Club Milano'
+      couplings: 'serial'
+
+    - &club_ecc
+      description: 'EuroCarromConf'
+      nationality: 'eur'
+
+    - &club_owned
+      description: 'Owned Club'
+      owner: *user_lele
+
+- entity: sol.models.Player
+  key:
+    - firstname
+    - lastname
+  rows:
+    - &player_lele
+      firstname: 'Emanuele'
+      lastname: 'Gaifas'
+      language: 'it'
+      nickname: 'Lele'
+      email: 'test@example.it'
+      citizenship: True
+      nationality: 'ITA'
+      birthdate: 1968-03-18
+      agreedprivacy: 'A'
+
+    - &player_picol
+      firstname: 'Juri'
+      lastname: 'Picol'
+      email: 'picol@esempio.it'
+
+    - &player_blond
+      firstname: 'Roberto'
+      lastname: 'Blond'
+
+    - &player_bob
+      firstname: 'Bob'
+      lastname: 'Rock'
+
+    - &player_varechina
+      firstname: 'Sandro'
+      lastname: 'Varechina'
+
+    - &player_fata
+      firstname: 'Fata'
+      lastname: 'Turchina'
+      language: 'zu'
+      nationality: 'ZWE'
+      citizenship: False
+      email: 'fata@miracle.oz'
+      sex: 'F'
+      owner: *user_lele
+
+    - &player_pk
+      firstname: 'Paolo'
+      lastname: 'Pk'
+      nationality: 'ZWE'
+      sex: 'M'
+
+    - &player_merge1
+      firstname: 'Merge'
+      lastname: 'One'
+      sex: 'M'
+      email: 'juri@esempio.it'
+      nationality: 'eur'
+
+    - &player_merge2
+      firstname: 'Merge'
+      lastname: 'Two'
+
+    - &player_merge3
+      firstname: 'Wrong'
+      lastname: 'Tzè'
+
+    - &player_fabiot
+      firstname: 'Fabio'
+      lastname: 'T'
+
+    - &player_lucab
+      firstname: 'Luca'
+      lastname: 'B'
+
+    - &player_paolor
+      firstname: 'Paolo'
+      lastname: 'R'
+
+    - &player_danieled
+      firstname: 'Daniele'
+      lastname: 'Da Fatti'
+
+    - &player_elisam
+      firstname: 'Elisa'
+      lastname: 'M'
+      sex: 'F'
+      club: *club_fic
+      federation: *club_fic
+
+    - &player_carlitob
+      firstname: 'Carlito'
+      lastname: 'B'
+
+    - &player_lorenzoh
+      firstname: 'Lorenzo'
+      lastname: 'H'
+
+    - &player_martinam
+      firstname: 'Martina'
+      lastname: 'W'
+      sex: 'F'
+      nationality: 'LKA'
+
+    - &player_peterb
+      firstname: 'Peter'
+      lastname: 'B'
+
+    - &player_josefm
+      firstname: 'Josef'
+      lastname: 'M'
+
+    - &player_barbarat
+      firstname: 'Barbara'
+      lastname: 'T'
+
+    - firstname: 'Turchina'
+      lastname: 'Fata'
+      sex: 'F'
+
+- entity: sol.models.Player
+  key:
+    - firstname
+    - lastname
+    - nickname
+  rows:
+    - firstname: 'Mr'
+      lastname: 'Double'
+      nickname: 'Sr'
+
+    - firstname: 'Mr'
+      lastname: 'Double'
+      nickname: 'Jr'
+
+- entity: sol.models.MergedPlayer
+  key:
+    - firstname
+    - lastname
+  rows:
+    - firstname: 'Fatta'
+      lastname: 'Turchina'
+      player: *player_fata
+      guid: 'abacababacababacababacababacabab'
+
+- entity: sol.models.Championship
+  key:
+    - description
+  rows:
+    - &championship_prev
+      description: 'Previous championship'
+      club: *club_scr
+      closed: True
+      owner: *user_lele
+
+- entity: sol.models.Championship
+  key:
+    - description
+  rows:
+    - &championship_current
+      description: 'Current championship'
+      club: *club_scr
+      closed: True
+      owner: *user_lele
+      previous: *championship_prev
+
+    - &championship_next
+      description: 'Next championship'
+      club: *club_ccm
+      closed: False
+
+    - &championship_scr2010
+      description: 'SCR 2010 (test)'
+      club: *club_scr
+      closed: False
+
+    - &championship_skipworstprize
+      description: 'Skip worst prize'
+      club: *club_scr
+      skipworstprizes: 1
+      closed: False
+
+    - &championship_simpletourneys
+      description: 'Simple tourneys, no prizes'
+      club: *club_scr
+      prizes: 'none'
+      couplings: 'dazed'
+
+    - &championship_double
+      description: 'Double events'
+      club: *club_scr
+      playersperteam: 2
+      closed: False
+
+    - &championship_owned
+      description: 'Owned championship'
+      club: *club_owned
+
+    - &championship_asis
+      description: 'Plain tourneys, simple prizes'
+      club: *club_scr
+      prizes: 'asis'
+      couplings: 'dazed'
+
+    - &championship_closed
+      description: 'Closed championship'
+      club: *club_fic
+      prizes: 'centesimal'
+      closed: True
+
+    - &championship_corona
+      description: 'Corona Carrom'
+      club: *club_ecc
+      trainingboards: 2
+
+- entity: sol.models.Championship
+  key:
+    - description
+  rows:
+      description: 'Next championship'
+      previous: *championship_current
+
+- entity: sol.models.Rating
+  key:
+    - description
+  rows:
+    - &rating_european
+      description: 'European rating'
+      level: '1'
+
+    - &rating_national
+      description: 'National rating'
+      level: '2'
+      inherit: True
+
+    - &rating_standalone
+      description: 'Standalone rating'
+      level: '2'
+      inherit: False
+      owner: *user_lele
+      club: *club_scr
+
+    - &rating_exponential
+      description: 'Exponential outcomes'
+      level: '2'
+      outcomes: 'expds'
+
+- entity: sol.models.Club
+  key:
+    - description
+  rows:
+    - description: 'Scarambol Club Rovereto'
+      rating: *rating_standalone
+
+- entity: sol.models.Rate
+  key:
+    - rating
+    - player
+    - date
+  rows:
+    - rating: *rating_national
+      player: *player_lele
+      date: 2018-07-05
+      rate: 1000
+      deviation: 350
+      volatility: '0.006'
+
+    - rating: *rating_national
+      player: *player_lele
+      date: 2018-07-06
+      rate: 1500
+      deviation: 200
+      volatility: '0.06'
+
+    - rating: *rating_national
+      player: *player_lele
+      date: 2018-07-07
+      rate: 1505
+      deviation: 200
+      volatility: '0.06'
+
+    - rating: *rating_national
+      player: *player_bob
+      date: 2018-07-06
+      rate: 1400
+      deviation: 30
+      volatility: '0.06'
+
+    - rating: *rating_national
+      player: *player_pk
+      date: 2018-07-06
+      rate: 1550
+      deviation: 100
+      volatility: '0.06'
+
+    - rating: *rating_national
+      player: *player_picol
+      date: 2018-07-06
+      rate: 1700
+      deviation: 300
+      volatility: '0.06'
+
+    - rating: *rating_national
+      player: *player_merge1
+      date: 2018-06-26
+      rate: 1700
+      deviation: 300
+      volatility: '0.06'
+
+    - rating: *rating_european
+      player: *player_danieled
+      date: 2018-07-04
+      rate: 1600
+      deviation: 300
+      volatility: '0.06'
+
+    - rating: *rating_european
+      player: *player_paolor
+      date: 2018-07-04
+      rate: 1700
+      deviation: 300
+      volatility: '0.06'
+
+    - rating: *rating_european
+      player: *player_lucab
+      date: 2018-07-04
+      rate: 1800
+      deviation: 300
+      volatility: '0.06'
+
+    - rating: *rating_european
+      player: *player_fabiot
+      date: 2018-07-04
+      rate: 1900
+      deviation: 300
+      volatility: '0.06'
+
+    - rating: *rating_national
+      player: *player_varechina
+      date: 2018-07-05
+      rate: 1200
+      deviation: 250
+      volatility: '0.06'
+
+    - rating: *rating_european
+      player: *player_varechina
+      date: 2018-07-06
+      rate: 1300
+      deviation: 250
+      volatility: '0.06'
+
+    - rating: *rating_standalone
+      player: *player_varechina
+      date: 2018-07-05
+      rate: 1200
+      deviation: 250
+      volatility: '0.06'
+
+- entity: sol.models.Tourney
+  key:
+    - championship
+    - date
+  rows:
+    - &tourney_first
+      championship: *championship_current
+      date: 2018-07-06
+      description: 'First test tournament'
+      currentturn: 3
+      owner: *user_lele
+      finals: 0
+
+    - &tourney_second
+      championship: *championship_current
+      date: 2018-07-07
+      description: 'Second test tournament'
+      location: 'Nowhere land'
+
+    - &tourney_third
+      championship: *championship_next
+      date: 2018-07-06
+      description: 'Another tourney'
+      currentturn: 1
+
+    - &tourney_odd
+      championship: *championship_next
+      date: 2018-07-08
+      description: 'Odd tourney'
+      phantomscore: 15
+
+    - &tourney_dazedodd
+      championship: *championship_current
+      date: 2018-07-11
+      description: 'Dazed odd tourney'
+      couplings: 'dazed'
+
+    - &tourney_merge1
+      championship: *championship_current
+      date: 2018-07-08
+      description: 'Merging test tournament'
+
+    - &tourney_merge2
+      championship: *championship_current
+      date: 2018-07-09
+      description: 'Merging test tournament'
+
+    - &tourney_apr24
+      championship: *championship_scr2010
+      date: 2010-04-24
+      description: '5 torneo'
+      rankedturn: 0
+      currentturn: 5
+      finals: 2
+      finalkind: 'bestof3'
+
+    - &tourney_rated
+      championship: *championship_current
+      date: 2018-07-10
+      description: 'Rated test tournament'
+      rating: *rating_national
+      currentturn: 3
+      finals: 1
+      finalkind: 'bestof3'
+
+    - &tourney_rated_no_turns
+      championship: *championship_current
+      date: 2018-07-05
+      description: 'Rated empty tournament'
+      rating: *rating_european
+
+    - &tourney_rated_no_turns_odd
+      championship: *championship_current
+      date: 2018-07-26
+      description: 'Rated empty tournament odd number of players'
+      rating: *rating_national
+      couplings: 'dazed'
+
+    - &tourney_rated_exponential
+      championship: *championship_current
+      date: 2001-01-02
+      description: 'Rated with exponential outcomes'
+      rating: *rating_exponential
+      rankedturn: 0
+      currentturn: 1
+
+    - &tourney_skipworstprize
+      championship: *championship_skipworstprize
+      date: 2018-07-05
+      description: 'Skip worst prize tourney'
+      rankedturn: 0
+      currentturn: 1
+
+    - &tourney_simple
+      championship: *championship_simpletourneys
+      date: 2001-01-01
+      description: 'VerySimpleTourney'
+
+    - &tourney_double
+      championship: *championship_double
+      date: 2018-07-06
+      description: 'Double event'
+
+    - &tourney_rated_double
+      championship: *championship_double
+      date: 2018-07-05
+      description: 'Rated double tournament'
+      rating: *rating_national
+
+    - &tourney_owned
+      championship: *championship_owned
+      date: 2018-07-06
+      description: 'Owned tournament'
+
+    - &tourney_asis
+      championship: *championship_asis
+      date: 2018-07-06
+      description: 'AsIs tournament'
+
+    - &tourney_trend_retirements
+      championship: *championship_current
+      date: 2018-07-12
+      description: 'Trend retirements test tournament'
+      retirements: 'trend'
+      currentturn: 1
+      rankedturn: 0
+
+    - &tourney_hosted
+      championship: *championship_current
+      date: 2018-07-19
+      description: 'Hosted tourney'
+      hosting_club: *club_ccm
+
+    - &tourney_closed
+      championship: *championship_closed
+      date: 2018-07-27
+      description: 'Closed tournament'
+
+    - &tourney_corona
+      championship: *championship_corona
+      date: 2020-04-09
+      description: 'Corona Carrom'
+      currentturn: 1
+      rankedturn: 0
+
+- entity: sol.models.Competitor
+  key:
+    - tourney
+    - player1
+  rows:
+    # First tourney
+
+    - &competitor_first_lele
+      tourney: *tourney_first
+      player1: *player_lele
+      player2: *player_fata
+
+    - &competitor_first_picol
+      tourney: *tourney_first
+      player1: *player_picol
+
+    - &competitor_first_blond
+      tourney: *tourney_first
+      player1: *player_blond
+
+    - &competitor_first_bob
+      tourney: *tourney_first
+      player1: *player_bob
+
+    - &competitor_first_varechina
+      tourney: *tourney_first
+      player1: *player_varechina
+
+    - &competitor_first_pk
+      tourney: *tourney_first
+      player1: *player_pk
+
+    # Second tourney
+
+    - &competitor_second_lele
+      tourney: *tourney_second
+      player1: *player_lele
+
+    - &competitor_second_varechina
+      tourney: *tourney_second
+      player1: *player_varechina
+
+    - &competitor_second_bob
+      tourney: *tourney_second
+      player1: *player_bob
+
+    - &competitor_second_fata
+      tourney: *tourney_second
+      player1: *player_fata
+
+    # Third tourney
+
+    - &competitor_third_lele
+      tourney: *tourney_third
+      player1: *player_lele
+
+    - &competitor_third_varechina
+      tourney: *tourney_third
+      player1: *player_varechina
+
+    - &competitor_third_bob
+      tourney: *tourney_third
+      player1: *player_bob
+
+    - &competitor_third_fata
+      tourney: *tourney_third
+      player1: *player_fata
+
+    # Odd tourney
+
+    - &competitor_odd_lele
+      tourney: *tourney_odd
+      player1: *player_lele
+
+    - &competitor_odd_fata
+      tourney: *tourney_odd
+      player1: *player_fata
+
+    - &competitor_odd_bob
+      tourney: *tourney_odd
+      player1: *player_bob
+
+    - &competitor_odd_pk
+      tourney: *tourney_odd
+      player1: *player_pk
+
+    - &competitor_odd_blond
+      tourney: *tourney_odd
+      player1: *player_blond
+
+    - &competitor_odd_picol
+      tourney: *tourney_odd
+      player1: *player_picol
+
+    - &competitor_odd_fabiot
+      tourney: *tourney_odd
+      player1: *player_fabiot
+
+    - &competitor_odd_lucab
+      tourney: *tourney_odd
+      player1: *player_lucab
+
+    - &competitor_odd_paolor
+      tourney: *tourney_odd
+      player1: *player_paolor
+
+    - &competitor_odd_danieled
+      tourney: *tourney_odd
+      player1: *player_danieled
+
+    - &competitor_odd_elisam
+      tourney: *tourney_odd
+      player1: *player_elisam
+
+    - &competitor_odd_carlitob
+      tourney: *tourney_odd
+      player1: *player_carlitob
+
+    - &competitor_odd_lorenzoh
+      tourney: *tourney_odd
+      player1: *player_lorenzoh
+
+    - &competitor_odd_martinam
+      tourney: *tourney_odd
+      player1: *player_martinam
+
+    - &competitor_odd_peterb
+      tourney: *tourney_odd
+      player1: *player_peterb
+
+    - &competitor_odd_josefm
+      tourney: *tourney_odd
+      player1: *player_josefm
+
+    - &competitor_odd_barbarat
+      tourney: *tourney_odd
+      player1: *player_barbarat
+
+    # Dazedodd tourney
+
+    - &competitor_dazedodd_lele
+      tourney: *tourney_dazedodd
+      player1: *player_lele
+
+    - &competitor_dazedodd_pk
+      tourney: *tourney_dazedodd
+      player1: *player_pk
+
+    - &competitor_dazedodd_bob
+      tourney: *tourney_dazedodd
+      player1: *player_bob
+
+    - &competitor_dazedodd_varechina
+      tourney: *tourney_dazedodd
+      player1: *player_varechina
+
+    - &competitor_dazedodd_blond
+      tourney: *tourney_dazedodd
+      player1: *player_blond
+
+    # Merge1 tourney
+
+    - &competitor_merge1_merge1
+      tourney: *tourney_merge1
+      player1: *player_merge1
+
+    - &competitor_merge1_fata
+      tourney: *tourney_merge1
+      player1: *player_fata
+
+    - &competitor_merge1_bob
+      tourney: *tourney_merge1
+      player1: *player_bob
+
+    # Merge2 tourney
+
+    - &competitor_merge2_lele
+      tourney: *tourney_merge2
+      player1: *player_lele
+
+    - &competitor_merge2_merge2
+      tourney: *tourney_merge2
+      player1: *player_merge2
+
+    - &competitor_merge2_bob
+      tourney: *tourney_merge2
+      player1: *player_bob
+
+    # Apr24 tourney
+
+    - &competitor_apr24_bob
+      tourney: *tourney_apr24
+      player1: *player_bob
+
+    - &competitor_apr24_lele
+      tourney: *tourney_apr24
+      player1: *player_lele
+
+    - &competitor_apr24_danieled
+      tourney: *tourney_apr24
+      player1: *player_danieled
+
+    - &competitor_apr24_pk
+      tourney: *tourney_apr24
+      player1: *player_pk
+
+    - &competitor_apr24_lucab
+      tourney: *tourney_apr24
+      player1: *player_lucab
+
+    - &competitor_apr24_fabiot
+      tourney: *tourney_apr24
+      player1: *player_fabiot
+
+    - &competitor_apr24_paolor
+      tourney: *tourney_apr24
+      player1: *player_paolor
+
+    # Rated tourney
+
+    - &competitor_rated_lele
+      tourney: *tourney_rated
+      player1: *player_lele
+
+    - &competitor_rated_picol
+      tourney: *tourney_rated
+      player1: *player_picol
+
+    - &competitor_rated_pk
+      tourney: *tourney_rated
+      player1: *player_pk
+
+    - &competitor_rated_bob
+      tourney: *tourney_rated
+      player1: *player_bob
+
+    # Rated tourney no rounds
+
+    - &competitor_rated_no_turns_danieled
+      tourney: *tourney_rated_no_turns
+      player1: *player_danieled
+
+    - &competitor_rated_no_turns_paolor
+      tourney: *tourney_rated_no_turns
+      player1: *player_paolor
+
+    - &competitor_rated_no_turns_lucab
+      tourney: *tourney_rated_no_turns
+      player1: *player_lucab
+
+    - &competitor_rated_no_turns_fabiot
+      tourney: *tourney_rated_no_turns
+      player1: *player_fabiot
+
+    # Rated tourney, no rounds, odd number of players
+
+    - &competitor_rated_no_turns_odd_danieled
+      tourney: *tourney_rated_no_turns_odd
+      player1: *player_danieled
+
+    - &competitor_rated_no_turns_odd_paolor
+      tourney: *tourney_rated_no_turns_odd
+      player1: *player_paolor
+
+    - &competitor_rated_no_turns_odd_lucab
+      tourney: *tourney_rated_no_turns_odd
+      player1: *player_lucab
+
+    - &competitor_rated_no_turns_odd_fabiot
+      tourney: *tourney_rated_no_turns_odd
+      player1: *player_fabiot
+
+    - &competitor_rated_no_turns_odd_varechina
+      tourney: *tourney_rated_no_turns_odd
+      player1: *player_varechina
+
+    - &competitor_rated_no_turns_odd_bob
+      tourney: *tourney_rated_no_turns_odd
+      player1: *player_bob
+
+    - &competitor_rated_no_turns_odd_lele
+      tourney: *tourney_rated_no_turns_odd
+      player1: *player_lele
+
+    # Rated exponential
+
+    - &competitor_rated_exponential_bob
+      tourney: *tourney_rated_exponential
+      player1: *player_bob
+
+    - &competitor_rated_exponential_lele
+      tourney: *tourney_rated_exponential
+      player1: *player_lele
+
+    # Skip worst prize first tourney
+
+    - &competitor_skipworstprize_lele
+      tourney: *tourney_skipworstprize
+      player1: *player_lele
+
+    - &competitor_skipworstprize_picol
+      tourney: *tourney_skipworstprize
+      player1: *player_picol
+
+    # Double event tourney
+
+    - &competitor_double_lele
+      tourney: *tourney_double
+      player1: *player_lele
+      player2: *player_fata
+
+    - &competitor_double_paolor
+      tourney: *tourney_double
+      player1: *player_paolor
+      player2: *player_lucab
+
+    # Rated double tournament
+
+    - &competitor_rated_double_lele
+      tourney: *tourney_rated_double
+      player1: *player_lele
+      player2: *player_fata
+
+    - &competitor_rated_double_paolor
+      tourney: *tourney_rated_double
+      player1: *player_paolor
+      player2: *player_lucab
+
+    - &competitor_rated_double_pk
+      tourney: *tourney_rated_double
+      player1: *player_pk
+      player2: *player_picol
+
+    - &competitor_rated_double_bob
+      tourney: *tourney_rated_double
+      player1: *player_bob
+      player2: *player_danieled
+
+    # Skip worst prize first tourney
+
+    - &competitor_asis_lele
+      tourney: *tourney_asis
+      player1: *player_lele
+
+    - &competitor_asis_picol
+      tourney: *tourney_asis
+      player1: *player_picol
+
+    - &competitor_asis_elisam
+      tourney: *tourney_asis
+      player1: *player_elisam
+
+    # Trend retirements test tourney
+
+    - &competitor_trend_retirements_bob
+      tourney: *tourney_trend_retirements
+      player1: *player_bob
+
+    - &competitor_trend_retirements_lele
+      tourney: *tourney_trend_retirements
+      player1: *player_lele
+
+    - &competitor_trend_retirements_danieled
+      tourney: *tourney_trend_retirements
+      player1: *player_danieled
+
+    - &competitor_trend_retirements_pk
+      tourney: *tourney_trend_retirements
+      player1: *player_pk
+
+    - &competitor_trend_retirements_blond
+      tourney: *tourney_trend_retirements
+      player1: *player_blond
+
+    - &competitor_trend_retirements_picol
+      tourney: *tourney_trend_retirements
+      player1: *player_picol
+
+    - &competitor_trend_retirements_varechina
+      tourney: *tourney_trend_retirements
+      player1: *player_varechina
+
+    - &competitor_trend_retirements_fabiot
+      tourney: *tourney_trend_retirements
+      player1: *player_fabiot
+
+    - &competitor_trend_retirements_elisam
+      tourney: *tourney_trend_retirements
+      player1: *player_elisam
+
+    - &competitor_trend_retirements_lorenzoh
+      tourney: *tourney_trend_retirements
+      player1: *player_lorenzoh
+
+    # Hosted tourney
+
+    - &competitor_hosted_tourney_bob
+      tourney: *tourney_hosted
+      player1: *player_bob
+
+    - &competitor_hosted_tourney_lele
+      tourney: *tourney_hosted
+      player1: *player_lele
+
+    - &competitor_hosted_tourney_danieled
+      tourney: *tourney_hosted
+      player1: *player_danieled
+
+    - &competitor_hosted_tourney_pk
+      tourney: *tourney_hosted
+      player1: *player_pk
+
+    - &competitor_hosted_tourney_blond
+      tourney: *tourney_hosted
+      player1: *player_blond
+
+    - &competitor_hosted_tourney_picol
+      tourney: *tourney_hosted
+      player1: *player_picol
+
+    - &competitor_hosted_tourney_varechina
+      tourney: *tourney_hosted
+      player1: *player_varechina
+
+    - &competitor_hosted_tourney_fabiot
+      tourney: *tourney_hosted
+      player1: *player_fabiot
+
+    - &competitor_hosted_tourney_elisam
+      tourney: *tourney_hosted
+      player1: *player_elisam
+
+    - &competitor_hosted_tourney_lorenzoh
+      tourney: *tourney_hosted
+      player1: *player_lorenzoh
+
+    # Closed tourney
+
+    - tourney: *tourney_closed
+      player1: *player_lele
+
+    - tourney: *tourney_closed
+      player1: *player_picol
+
+    - tourney: *tourney_closed
+      player1: *player_blond
+
+    - tourney: *tourney_closed
+      player1: *player_bob
+
+    - tourney: *tourney_closed
+      player1: *player_varechina
+
+    - tourney: *tourney_closed
+      player1: *player_fata
+
+    - tourney: *tourney_closed
+      player1: *player_pk
+
+    - tourney: *tourney_closed
+      player1: *player_fabiot
+
+    - tourney: *tourney_closed
+      player1: *player_lucab
+
+    - tourney: *tourney_closed
+      player1: *player_paolor
+
+    - tourney: *tourney_closed
+      player1: *player_danieled
+
+    - tourney: *tourney_closed
+      player1: *player_elisam
+
+    - tourney: *tourney_closed
+      player1: *player_carlitob
+
+    - tourney: *tourney_closed
+      player1: *player_lorenzoh
+
+    - tourney: *tourney_closed
+      player1: *player_martinam
+
+    - tourney: *tourney_closed
+      player1: *player_peterb
+
+    - tourney: *tourney_closed
+      player1: *player_josefm
+
+    - tourney: *tourney_closed
+      player1: *player_barbarat
+
+    # Corona Carrom
+
+    - &competitor_corona_tourney_elisam
+      tourney: *tourney_corona
+      player1: *player_elisam
+
+    - &competitor_corona_tourney_carlitob
+      tourney: *tourney_corona
+      player1: *player_carlitob
+
+    - &competitor_corona_tourney_danieled
+      tourney: *tourney_corona
+      player1: *player_danieled
+
+    - &competitor_corona_tourney_fabiot
+      tourney: *tourney_corona
+      player1: *player_fabiot
+
+- entity: sol.models.Match
+  key:
+    - tourney
+    - turn
+    - board
+  rows:
+    # First tourney
+
+    - tourney: *tourney_first
+      turn: 1
+      board: 1
+      competitor1: *competitor_first_lele
+      competitor2: *competitor_first_picol
+      score1: 25
+      score2: 10
+
+    - tourney: *tourney_first
+      turn: 1
+      board: 2
+      competitor1: *competitor_first_blond
+      competitor2: *competitor_first_bob
+      score1: 20
+      score2: 0
+
+    - tourney: *tourney_first
+      turn: 1
+      board: 3
+      competitor1: *competitor_first_varechina
+      competitor2: *competitor_first_pk
+      score1: 20
+      score2: 25
+
+    - tourney: *tourney_first
+      turn: 2
+      board: 1
+      competitor1: *competitor_first_blond
+      competitor2: *competitor_first_picol
+      score1: 12
+      score2: 10
+
+    - tourney: *tourney_first
+      turn: 2
+      board: 2
+      competitor1: *competitor_first_lele
+      competitor2: *competitor_first_varechina
+      score1: 2
+      score2: 8
+
+    - tourney: *tourney_first
+      turn: 2
+      board: 3
+      competitor1: *competitor_first_bob
+      competitor2: *competitor_first_pk
+      score1: 8
+      score2: 8
+
+    - tourney: *tourney_first
+      turn: 3
+      board: 1
+      competitor1: *competitor_first_pk
+      competitor2: *competitor_first_picol
+      score1: 0
+      score2: 10
+
+    - tourney: *tourney_first
+      turn: 3
+      board: 2
+      competitor1: *competitor_first_lele
+      competitor2: *competitor_first_blond
+      score1: 2
+      score2: 2
+
+    - tourney: *tourney_first
+      turn: 3
+      board: 3
+      competitor1: *competitor_first_varechina
+      competitor2: *competitor_first_bob
+      score1: 2
+      score2: 2
+
+    # Third tourney
+
+    - tourney: *tourney_third
+      turn: 1
+      board: 1
+      competitor1: *competitor_third_lele
+      competitor2: *competitor_third_varechina
+      score1: 10
+      score2: 5
+
+    - tourney: *tourney_third
+      turn: 1
+      board: 2
+      competitor1: *competitor_third_bob
+      competitor2: *competitor_third_fata
+      score1: 15
+      score2: 0
+
+    # Apr24 tourney
+
+    - tourney: *tourney_apr24
+      turn: 1
+      board: 1
+      competitor1: *competitor_apr24_bob
+      competitor2: *competitor_apr24_lele
+      score1: 8
+      score2: 12
+
+    - tourney: *tourney_apr24
+      turn: 1
+      board: 2
+      competitor1: *competitor_apr24_lucab
+      competitor2: *competitor_apr24_danieled
+      score1: 0
+      score2: 25
+
+    - tourney: *tourney_apr24
+      turn: 1
+      board: 3
+      competitor1: *competitor_apr24_paolor
+      competitor2: *competitor_apr24_pk
+      score1: 4
+      score2: 19
+
+    - tourney: *tourney_apr24
+      turn: 1
+      board: 4
+      competitor1: *competitor_apr24_fabiot
+      score1: 25
+      score2: 0
+
+    - tourney: *tourney_apr24
+      turn: 2
+      board: 1
+      competitor1: *competitor_apr24_fabiot
+      competitor2: *competitor_apr24_danieled
+      score1: 10
+      score2: 7
+
+    - tourney: *tourney_apr24
+      turn: 2
+      board: 2
+      competitor1: *competitor_apr24_pk
+      competitor2: *competitor_apr24_lele
+      score1: 7
+      score2: 11
+
+    - tourney: *tourney_apr24
+      turn: 2
+      board: 3
+      competitor1: *competitor_apr24_bob
+      competitor2: *competitor_apr24_paolor
+      score1: 21
+      score2: 7
+
+    - tourney: *tourney_apr24
+      turn: 2
+      board: 4
+      competitor1: *competitor_apr24_lucab
+      score1: 25
+      score2: 0
+
+    - tourney: *tourney_apr24
+      turn: 3
+      board: 1
+      competitor1: *competitor_apr24_bob
+      competitor2: *competitor_apr24_lucab
+      score1: 8
+      score2: 2
+
+    - tourney: *tourney_apr24
+      turn: 3
+      board: 2
+      competitor1: *competitor_apr24_lele
+      competitor2: *competitor_apr24_fabiot
+      score1: 5
+      score2: 19
+
+    - tourney: *tourney_apr24
+      turn: 3
+      board: 3
+      competitor1: *competitor_apr24_danieled
+      competitor2: *competitor_apr24_pk
+      score1: 6
+      score2: 13
+
+    - tourney: *tourney_apr24
+      turn: 3
+      board: 4
+      competitor1: *competitor_apr24_paolor
+      score1: 25
+      score2: 0
+
+    - tourney: *tourney_apr24
+      turn: 4
+      board: 1
+      competitor1: *competitor_apr24_lele
+      competitor2: *competitor_apr24_paolor
+      score1: 25
+      score2: 2
+
+    - tourney: *tourney_apr24
+      turn: 4
+      board: 2
+      competitor1: *competitor_apr24_fabiot
+      competitor2: *competitor_apr24_bob
+      score1: 6
+      score2: 11
+
+    - tourney: *tourney_apr24
+      turn: 4
+      board: 3
+      competitor1: *competitor_apr24_pk
+      competitor2: *competitor_apr24_lucab
+      score1: 25
+      score2: 0
+
+    - tourney: *tourney_apr24
+      turn: 4
+      board: 4
+      competitor1: *competitor_apr24_danieled
+      score1: 25
+      score2: 0
+
+    - tourney: *tourney_apr24
+      turn: 5
+      board: 1
+      competitor1: *competitor_apr24_fabiot
+      competitor2: *competitor_apr24_paolor
+      score1: 25
+      score2: 2
+
+    - tourney: *tourney_apr24
+      turn: 5
+      board: 2
+      competitor1: *competitor_apr24_bob
+      competitor2: *competitor_apr24_danieled
+      score1: 25
+      score2: 8
+
+    - tourney: *tourney_apr24
+      turn: 5
+      board: 3
+      competitor1: *competitor_apr24_lele
+      competitor2: *competitor_apr24_lucab
+      score1: 25
+      score2: 7
+
+    - tourney: *tourney_apr24
+      turn: 5
+      board: 4
+      competitor1: *competitor_apr24_pk
+      score1: 25
+      score2: 0
+
+    # Rated tourney
+
+    - tourney: *tourney_rated
+      turn: 1
+      board: 1
+      competitor1: *competitor_rated_lele
+      competitor2: *competitor_rated_bob
+      score1: 15
+      score2: 10
+
+    - tourney: *tourney_rated
+      turn: 2
+      board: 1
+      competitor1: *competitor_rated_lele
+      competitor2: *competitor_rated_pk
+      score1: 10
+      score2: 15
+
+    - tourney: *tourney_rated
+      turn: 3
+      board: 1
+      competitor1: *competitor_rated_lele
+      competitor2: *competitor_rated_picol
+      score1: 10
+      score2: 25
+
+    # Rated exponential tourney
+
+    - tourney: *tourney_rated_exponential
+      turn: 1
+      board: 1
+      competitor1: *competitor_rated_exponential_lele
+      competitor2: *competitor_rated_exponential_bob
+      score1: 10
+      score2: 25
+
+    # Skip worst prize first tourney
+
+    - tourney: *tourney_skipworstprize
+      turn: 1
+      board: 1
+      competitor1: *competitor_skipworstprize_lele
+      competitor2: *competitor_skipworstprize_picol
+      score1: 10
+      score2: 20
+
+    # AsIs tourney
+
+    - tourney: *tourney_asis
+      turn: 1
+      board: 1
+      competitor1: *competitor_asis_lele
+      competitor2: *competitor_asis_picol
+      score1: 10
+      score2: 20
+
+    # Trend retirements tourney
+
+    - tourney: *tourney_trend_retirements
+      turn: 1
+      board: 1
+      competitor1: *competitor_trend_retirements_bob
+      competitor2: *competitor_trend_retirements_lele
+      score1: 1
+      score2: 25
+
+    - tourney: *tourney_trend_retirements
+      turn: 1
+      board: 2
+      competitor1: *competitor_trend_retirements_danieled
+      competitor2: *competitor_trend_retirements_pk
+      score1: 2
+      score2: 24
+
+    - tourney: *tourney_trend_retirements
+      turn: 1
+      board: 3
+      competitor1: *competitor_trend_retirements_blond
+      competitor2: *competitor_trend_retirements_picol
+      score1: 3
+      score2: 23
+
+    - tourney: *tourney_trend_retirements
+      turn: 1
+      board: 4
+      competitor1: *competitor_trend_retirements_varechina
+      competitor2: *competitor_trend_retirements_fabiot
+      score1: 4
+      score2: 22
+
+    - tourney: *tourney_trend_retirements
+      turn: 1
+      board: 5
+      competitor1: *competitor_trend_retirements_elisam
+      competitor2: *competitor_trend_retirements_lorenzoh
+      score1: 5
+      score2: 21
+
+    # Hosted tourney
+
+    - tourney: *tourney_hosted
+      turn: 1
+      board: 1
+      competitor1: *competitor_hosted_tourney_bob
+      competitor2: *competitor_hosted_tourney_lele
+      score1: 1
+      score2: 25
+
+    - tourney: *tourney_hosted
+      turn: 1
+      board: 2
+      competitor1: *competitor_hosted_tourney_danieled
+      competitor2: *competitor_hosted_tourney_pk
+      score1: 2
+      score2: 24
+
+    - tourney: *tourney_hosted
+      turn: 1
+      board: 3
+      competitor1: *competitor_hosted_tourney_blond
+      competitor2: *competitor_hosted_tourney_picol
+      score1: 3
+      score2: 23
+
+    - tourney: *tourney_hosted
+      turn: 1
+      board: 4
+      competitor1: *competitor_hosted_tourney_varechina
+      competitor2: *competitor_hosted_tourney_fabiot
+      score1: 4
+      score2: 22
+
+    - tourney: *tourney_hosted
+      turn: 1
+      board: 5
+      competitor1: *competitor_hosted_tourney_elisam
+      competitor2: *competitor_hosted_tourney_lorenzoh
+      score1: 5
+      score2: 21
+
+    # Corona Carrom
+
+    - tourney: *tourney_corona
+      turn: 1
+      board: 1
+      competitor1: *competitor_corona_tourney_elisam
+      competitor2: *competitor_corona_tourney_carlitob
+
+    - tourney: *tourney_corona
+      turn: 1
+      board: 2
+      competitor1: *competitor_corona_tourney_danieled
+      competitor2: *competitor_corona_tourney_fabiot
