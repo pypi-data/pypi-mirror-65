@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: pyqudt
+Version: 1.1.0
+Summary: Python library for working with the QUDT (Quantity, Unit, Dimension and Type) ontology.
+Home-page: https://github.com/eigendude/pyqudt
+Author: Garrett Brown
+Author-email: themagnificentmrb@gmail.com
+License: BSD-3-Clause
+Description: # Introduction
+        
+        pyqudt is a Python library for working with QUDT units and convertions between them. It is based on jQUDT, a similar Java library.
+        
+        QUDT is "Quantities, Units, Dimensions and Data Types in OWL and XML".
+        
+            http://www.qudt.org
+        
+        QUDT is a CC-SA-BY project by NASA Ames Research Center and TopQuadrant, Inc.
+        
+        License of this Python library: 3-clause BSD ("New BSD License")
+        
+        # Installation
+        
+        ```
+        pip3 install pyqudt
+        ```
+        
+        # Status
+        
+        The package is relatively complete and test cases cover most code. Version 1.0.0 has been released.
+        
+        # Quick demo
+        
+        Keep in mind, these conversions are purely derived from data in the QUDT ontology.
+        
+        Source:
+        
+        ```python
+        from qudt.quantity import Quantity
+        from qudt.units.concentration import ConcentrationUnit
+        from qudt.units.temperature import TemperatureUnit
+        
+        obs = Quantity(0.1, ConcentrationUnit.MICROMOLAR)
+        print(f'{obs} = {obs.convert_to(ConcentrationUnit.NANOMOLAR)}')
+        
+        temp = Quantity(20, TemperatureUnit.CELSIUS)
+        print(f'{temp} = {temp.convert_to(TemperatureUnit.KELVIN)}')
+        ```
+        
+        Output
+        
+        ````
+        0.1 μM = 100.00000000000001 nM
+        20 degC = 293.15 K
+        ````
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Description-Content-Type: text/markdown
