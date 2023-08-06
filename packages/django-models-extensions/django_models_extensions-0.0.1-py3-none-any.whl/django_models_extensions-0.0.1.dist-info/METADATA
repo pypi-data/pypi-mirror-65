@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: django-models-extensions
+Version: 0.0.1
+Summary: Models Extensions for Django.
+Home-page: UNKNOWN
+Author: lampofearth
+Author-email: lampofearth@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://github.com/lampofearth/django-models-extensions/wiki
+Project-URL: Source, https://github.com/lampofearth/django-models-extensions/
+Project-URL: Tracker, https://github.com/lampofearth/django-models-extensions/issues/
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: django (>=2.0.0)
+
+
+django-models-extensions: Django Models Extensions
+==================================================
+
+
+Installing
+-------------------
+
+You can install or upgrade django-models-extensions with:
+
+.. code:: shell
+
+    $ pip install django-models-extensions --upgrade
+
+Or you can install from source with:
+
+.. code:: shell
+
+    $ git clone https://github.com/lampofearth/django-models-extensions --recursive
+    $ cd django-models-extensions
+    $ python setup.py install
+
+
+Examples
+-------------------
+
+``django-models-extensions`` examples lives at `github.com/lampofearth/django-models-extensions/wiki <https://github.com/lampofearth/django-models-extensions/wiki>`_.
+
+License
+-------------------
+
+You may copy, distribute and modify the software provided that modifications
+are described and licensed for free under `LGPL-3 <https://www.gnu.org/licenses/lgpl-3.0.html>`_.
+Derivatives works (including modifications or anything statically linked to the library)
+can only be redistributed under LGPL-3, but applications that us
+
