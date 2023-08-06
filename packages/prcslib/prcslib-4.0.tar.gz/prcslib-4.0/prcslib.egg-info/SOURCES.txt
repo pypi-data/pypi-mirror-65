@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+prcslib/__init__.py
+prcslib/sexpdata.py
+prcslib.egg-info/PKG-INFO
+prcslib.egg-info/SOURCES.txt
+prcslib.egg-info/dependency_links.txt
+prcslib.egg-info/top_level.txt
+prcslib.egg-info/zip-safe
+test/prepare.py
+test/test_project.py
+test/test_version.py
+test/testproject.prcs.b64
