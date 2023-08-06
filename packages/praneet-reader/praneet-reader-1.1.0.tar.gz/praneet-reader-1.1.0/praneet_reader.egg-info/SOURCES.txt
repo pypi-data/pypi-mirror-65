@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+praneet_reader.egg-info/PKG-INFO
+praneet_reader.egg-info/SOURCES.txt
+praneet_reader.egg-info/dependency_links.txt
+praneet_reader.egg-info/entry_points.txt
+praneet_reader.egg-info/requires.txt
+praneet_reader.egg-info/top_level.txt
+reader/__init__.py
+reader/__main__.py
+reader/config.txt
+reader/feed.py
+reader/viewer.py
