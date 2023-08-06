@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: geomexp
+Version: 0.2
+Summary: 2-d gemometric illusion experiments
+Home-page: https://github.com/mm-crj/geomexp
+Author: Mainak Mandal
+Author-email: mm.crjx@gmail.com
+License: GNU LGPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 2.7
+Requires-Python: <= 2.8
+Requires-Dist: numpy (>=1.16.6)
+Requires-Dist: psychopy (>=1.85.2)
+Requires-Dist: pandas (>=0.24.2)
+Requires-Dist: pygments (>=2.4.2wxPython>=4.0.4)
+Requires-Dist: pyyaml (>=5.1.2)
+Requires-Dist: psutil (>=5.6.3)
+Requires-Dist: msgpack (>=1.0.0)
+Requires-Dist: gevent (>=1.3.0)
+Requires-Dist: python-xlib (>=0.26)
+
+UNKNOWN
+
+
