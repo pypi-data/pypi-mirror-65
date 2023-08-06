@@ -1,0 +1,8 @@
+[pytest11]
+annotation_check = pytest_alphamoon.annotation_check
+import_check = pytest_alphamoon.import_check
+init_check = pytest_alphamoon.init_check
+newline_check = pytest_alphamoon.newline_check
+notebook_check = pytest_alphamoon.notebook_check
+testdir_check = pytest_alphamoon.testdir_check
+
