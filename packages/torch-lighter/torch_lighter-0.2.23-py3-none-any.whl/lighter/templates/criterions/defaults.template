@@ -1,0 +1,8 @@
+import torch.nn.functional as F
+from lighter.criterion import BaseCriterion
+
+
+class Criterion(BaseCriterion):
+    def forward(self, inputs, target):
+        # TODO: use criterion to determine loss
+        raise NotImplementedError()
