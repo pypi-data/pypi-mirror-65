@@ -1,0 +1,4 @@
+[console_scripts]
+mitoviz = mitoviz.cli.mitoviz_plot:main
+mitoviz-base = mitoviz.cli.mitoviz_base:main
+
