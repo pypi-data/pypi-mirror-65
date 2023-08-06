@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="eltstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <div class="row">
+                                <div class="col ml-auto">
+                                    <!--                                <div class="alert alert-secondary" role="alert">-->
+                                    <!--&lt;!&ndash;                                    <input type="text" class="form-control" placeholder="Search">&ndash;&gt;-->
+
+                                    <!--                                </div>-->
+                                </div> </div>
+                            <!--                            <li class="nav-item active">-->
+                            <!--                                <a class="nav-link" href="#">Page</a>-->
+                            <!--                            </li>-->
+                            <!--                            <li class="nav-item">-->
+                            <!--                                <a class="nav-link" href="#">Page</a>-->
+                            <!--                            </li>-->
+                            <!--                            <li class="nav-item">-->
+                            <!--                                <a class="nav-link" href="#">Page</a>-->
+                            <!--                            </li>-->
+                            <!--                            <li class="nav-item">-->
+                            <!--                                <a class="nav-link" href="#">Page</a>-->
+                            <!--                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <h1>{{h1}}</h1> <br>
+            <h6>{{ published }}</h6>
+
+            <div>
+                {% for p_name, package_name in project_package_set.items() %}
+                <br>
+                <a id = "{{ p_name }}"> <span class="d-block p-2 bg-primary text-white"> Project name: {{ p_name }}</span> </a>
+
+                <table id="tabela" class="table table-bordered w-auto">
+                    <thead>
+                    {% for col_n in project_package_columns %}
+
+                    <th class="table" scope="col">{{ col_n }}</th>
+                    {% endfor %}
+                    </thead>
+                    <tbody>
+                    {% for package_data_list in package_name %}
+                    {% for package_data in package_data_list %}
+                    <tr>
+                        <!--        <td > {{ package_data[0] }} </td>-->
+                        <td > {{ package_data[1] }} </td>
+                        <td > <a href="#{{ package_data[2] }}">{{ package_data[2] }} </a></td>
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endfor %}
+            </div>
+            <br>
+
+
+            <h2>List of Projects per connection</h2>
+            <br>
+            <div>
+                {% for c_name, proj_list_outer in conns_projects.items() %}
+                <br>
+                <a><span class="d-block p-2 bg-primary text-white"> Connection name: {{ c_name }}</span></a>
+
+                <table id="tabela1" class="table table-bordered w-auto ">
+                    <thead>
+                    <th class="table" scope="col">project name</th>
+
+                    </thead>
+                    <tbody>
+                    {% for proj_list_in in proj_list_outer %}
+                    {% for proj_list in proj_list_in %}
+                    <tr>
+                        <td > <a href="#{{ proj_list }}">{{ proj_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% endfor %}
+            </div>
+
+
+            <br>
+            <h2 id="enviro">List of Enviroments per Project</h2>
+            <br>
+            <div>
+                {% for proj_name, env_list in enviroment_project.items() %}
+                <a href="#{{ proj_name }}"> <span class="d-block p-2 bg-primary text-white"> Project name: {{ proj_name }}</span> </a>
+
+                <table id="tabela2" class="table table-bordered w-auto ">
+                    <thead>
+                    <th class="table" scope="col">enviroment name</th>
+                    </thead>
+                    <tbody>
+
+                    {% for env in env_list %}
+
+                    <tr>
+                        <td >{{ env }} </td>
+                    </tr>
+
+                    {% endfor %}
+
+
+                    </tbody>
+
+                </table>
+                {% endfor %}
+
+            </div>
+            <!--</div>-->
+            <!--<div class="container">-->
+            <br>
+            <h2>Enviroments details</h2>
+            <br>
+            <div>
+                {% for env_name, envir_details in enviroments.items() %}
+                <br>
+                <br>
+                {% for build_t in envs_build %}
+                {% if (build_t[0] == env_name) %}
+                <a id = "Enviroment name:{{ env_name }}"> <span class="d-block p-2 bg-primary text-white">Enviroment name: {{ env_name }} - Template group: {{ build_t[1] }} </span> </a>
+                {% endif %}
+                                    {% endfor %}
+                <table id="tabela3" class="table table-bordered w-auto ">
+                    <thead>
+                    {% for col in environ_package_columns %}
+                    <th class="table" scope="col">{{ col }}</th>
+                    {% endfor %}
+                    </thead>
+                    {% for env_list_in in envir_details %}
+                    {% for env_list in env_list_in %}
+                    <tbody>
+                    <tr>
+                        <td > {{ env_list[0]  }} </td>
+                        <td > {{ env_list[2]  }} </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+                {% endfor %}
+                                {% for env_name_, proj_list in proj_per_env.items() %}
+                {% if (env_name == env_name_) %}
+
+                                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Enviroment</span>
+                    <th class="table" scope="col">project name</th>
+                    </thead>
+                    <tbody>
+                    {% for pack_list_ in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ pack_list }}">{{ pack_list_ }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                                {% endif %}
+
+                {% endfor %}
+                                    {% endfor %}
+
+            </div>
+            <br>
+
+
+
+
+
+
+            <h2>Connection details</h2>
+            <div>
+                {% for con_details in connection_details %}
+                <br>
+                <a id ="Connection name:{{ con_details[0] }}"> <span class="d-block p-2 bg-primary text-white">Connection name: {{ con_details[0] }}</span> </a>
+                <table id="tabela5" class="table table-bordered w-auto ">
+                    <thead>
+                    <th class="table" scope="col">server_name</th>
+                    <th class="table" scope="col">database_name</th>
+                    <th class="table" scope="col">provider</th>
+                    <th class="table" scope="col">connection_expression</th></thead>
+                    <tbody>
+                    <tr><td > {{ con_details[1] }} </td><td > {{ con_details[2] }} </td><td > {{ con_details[3] }} </td><td > {{ con_details[4]  }} </td></tr></tbody></table>
+                {% for pr_name, pack_list_outer in conns_packages.items() %}
+                {% if (con_details[0] == pr_name) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Packages containing connection</span>
+                    <th class="table" scope="col">package name</th>
+                    </thead>
+                    <tbody>
+                    {% for proj_list_in in pack_list_outer %}
+                    {% for pack_list in proj_list_in %}
+                    <tr>
+                        <td > <a href="#{{ pack_list }}">{{ pack_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+                {% endif %}
+                {% endfor %}
+                            {% endfor %}
+
+
+            </div>
+        <!-- Page Content  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img id="logo_pic" src="./eltSnap_whiteTransparent.png">
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Project Renderer</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Projects</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                            {% for row in project_set %}
+
+                        <li>
+                            <a href="#{{ row }}">{{ row }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#packageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Packages</a>
+                    <ul class="collapse list-unstyled" id="packageSubmenu">
+
+                              {% for p_name, package_name in project_package_set.items() %}
+                                        {% for package_data_list in package_name %}
+                {% for package_data in package_data_list %}
+
+                        <li>
+                            <a href="#{{ package_data[2] }}">{{ package_data[2] }}</a>
+                        </li>
+                                {% endfor %}
+                                {% endfor %}
+                                {% endfor %}
+
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+                                    <li class="active">
+                    <a href="#connectionSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Connections</a>
+                    <ul class="collapse list-unstyled" id="connectionSubmenu">
+                            {% for row in connections %}
+
+                        <li>
+                            <a href="#Connection name:{{ row }}">{{ row }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                                    <li class="active">
+                    <a href="#enviromentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Enviroments</a>
+                    <ul class="collapse list-unstyled" id="enviromentSubmenu">
+                              {% for env in env_side %}
+                        <li>
+                            <a href="#Enviroment name:{{ env }}">{{ env }}</a>
+                        </li>
+                                {% endfor %}
+
+                </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+
+
+
+
+            <ul class="list-unstyled CTAs">
+<!--                <button href="#logo_pic" id="bottom_button">Return to the Top  </button>-->
+<!--                <li>-->
+<!--                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>-->
+<!--                </li>-->
+            </ul>
+                </li>
+            </ul>
+        </nav>
+
+
+<br>
+<h2>Package DataFlow details</h2>
+<br>
+{% for Df in DF_table %}
+<br>
+
+<a id = "{{ Df[8] }}"> <span class="d-block p-2 bg-primary text-white"> <b>Package Name: {{ Df[8]}} </b></span> </a>
+<br>
+
+    <a href="#Connection name:{{ Df[0] }}" ><p><b> Source connection name: </b>  <b>{{ Df[0] }} </b></p></a>
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text">Query Space</span>
+</div>
+<textarea class="form-control" aria-label="With textarea" rows="6">{{ Df[1] }}</textarea>
+</div>
+    <p><b> Is expression: </b>  <b>{{ Df[2] }} </b></p>
+    <p><b>Destination connection name:</b>  <a href="#Connection name:{{ Df[3] }}"><b>{{ Df[3] }} </b></a></p>
+    <p><b>Destination schema name:</b>  <b>{{ Df[4] }} </b></p>
+    <p><b>Destination table name:</b>  <b>{{ Df[5] }} </b></p>
+    <p><b>Truncate Destination ? :</b>  <b>{{ Df[6] }} </b></p>
+    <p><b>Use Identity Insert on Destination :</b>  <b>{{ Df[7] }} </b></p>
+    <p><b>Use Bulk Copy :</b>  <b>{{ Df[9] }} </b></p>
+    <p><b>Batch Size :</b>  <b>{{ Df[10] }} </b></p>
+
+
+                            {% for pack_name, proj_list in proj_per_package_DF.items() %}
+                {% if (pack_name == Df[8]) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Package</span>
+                    <th class="table" scope="col">project name</th>
+                    </thead>
+                    <tbody>
+                    {% for p_list in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ p_list  }}">{{ p_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+                {% endif %}
+                {% endfor %}
+
+            {% endfor %}
+
+
+    <br>
+<h2>Package ForEach DataFlow details</h2>
+    <br>
+{% for FDf in ForEachDF %}
+    <br>
+
+    <a id = "{{ FDf[9] }}"> <span class="d-block p-2 bg-primary text-white"> <b>Package Name: {{ FDf[9]}} </b></span> </a>
+    <br>
+
+    <p><b> Foreach connection name: </b> <a href="Connection name:#{{ FDf[0] }}">{{ FDf[0] }}</a></p>
+
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Foreach Query Expression</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" rows="6">{{ FDf[1] }}</textarea>
+</div>
+
+    <p><b> Source connection name: </b> <a href="#Connection name:{{ FDf[2] }}">{{ FDf[2] }} </a></p>
+
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Source Query Expression</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" rows="6">{{ FDf[3] }}</textarea>
+</div>
+    <br>
+    <p><b>Destination connection name:</b> <a href="#Connection name:{{ FDf[4] }}">{{ FDf[4] }}</a></p>
+    <p><b>Destination schema name:</b> {{ FDf[5] }}</p>
+    <p><b>Destination table name:</b> {{ FDf[6] }}</p>
+    <p><b>Use Bulk Copy ? :</b> {{ FDf[10] }}</p>
+    <p><b> Batch Size :</b> {{ FDf[11] }}</p>
+    <p><b> Truncate Destination ? :</b> {{ FDf[7] }}</p>
+    <p><b> Use Identity Insert on Destination ? :</b> {{ FDf[8] }}</p>
+
+                                        {% for pack_name, proj_list in proj_per_package_FEDF.items() %}
+                {% if (pack_name == FDf[9]) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Package</span>
+                    <th class="table" scope="col">project name</th>
+                    </thead>
+                    <tbody>
+                    {% for p_list in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ p_list  }}">{{ p_list }} </a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+                {% endif %}
+                {% endfor %}
+
+              {% endfor %}
+
+
+
+    <br>
+<h2>Package Execute SQL details</h2>
+    <br>
+{% for EXSql in ExecSql %}
+    <br>
+
+    <a id = "{{ EXSql[4] }}"> <span class="d-block p-2 bg-primary text-white"> <b>Package Name: {{ EXSql[4]}} </b></span> </a>
+    <br>
+
+                <p><b> Source connection name: <a href="#Connection name:{{ EXSql[0] }}">{{ EXSql[0] }} </a></b> </p>
+    <p><b> Is query an expression: {{ EXSql[2] }} </b> </p>
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Execute SQL Expression</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" rows="6">{{ EXSql[1] }}</textarea>
+</div>
+    <p><b> Return row count: {{ EXSql[3] }} </b> </p>
+
+            {% for pack_name, proj_list in proj_per_package_EXSQL.items() %}
+                {% if (pack_name == EXSql[4]) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Package</span>
+                    <th class="table" scope="col">project name</th>
+                    </thead>
+                    <tbody>
+                    {% for p_list in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ p_list  }}">{{ p_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+                {% endif %}
+                {% endfor %}
+
+              {% endfor %}
+
+
+
+    <br>
+<h2>Package Execute Process details</h2>
+    <br>
+{% for EXPr in ExecProc %}
+    <br>
+
+    <a id = "{{ EXPr[4] }}"> <span class="d-block p-2 bg-primary text-white"> <b>Package Name: {{ EXPr[4]}} </b></span> </a>
+    <br>
+
+    <p><b> Process executable name:  {{ EXPr[0] }}  </b></p>
+    <p><b> Working directory name: {{ EXPr[2] }} </b> </p>
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Execute Process argument expression</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" rows="6">{{ EXPr[1] }}</textarea>
+</div>
+    <p><b> Store Runtime Values in ELT_Framework Database:  {{ EXPr[3] }}  </b></p>
+
+                        {% for pack_name, proj_list in proj_per_package_EXPro.items() %}
+                {% if (pack_name == EXPr[4]) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Package</span>
+                    <th class="table" scope="col">project name</th>
+                    </thead>
+                    <tbody>
+                    {% for p_list in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ p_list  }}">{{ p_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+                {% endif %}
+                {% endfor %}
+
+
+              {% endfor %}
+
+
+
+    <br>
+<h2>Package For Each SQL details</h2>
+    <br>
+{% for FESQL in ForEachSQL %}
+    <br>
+
+    <a id = "{{ FESQL[5] }}"> <span class="d-block p-2 bg-primary text-white"> <b>Package Name: {{ FESQL[5]}} </b></span> </a>
+    <br>
+
+                <p><b> Foreach connection name: <a href="#Connection name:{{ FESQL[0] }}">{{ FESQL[0] }} </a> </b></p>
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Foreach query expression</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" rows="6">{{ FESQL[1] }}</textarea>
+</div>
+
+                <p><b> Query connection name: <a href="#Connection name:{{ FESQL[2] }}">{{ FESQL[2] }} </a></b></p>
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text"> Query expression</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" rows="6">{{ FESQL[3] }}</textarea>
+</div>
+
+    <p><b> Return Row Count ? {{ FESQL[4] }} </b></p>
+
+
+                        {% for pack_name, proj_list in proj_per_package_FEEXSQL.items() %}
+                {% if (pack_name == FESQL[5]) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Package</span>
+                    <th class="table" scope="col">package name</th>
+                    </thead>
+                    <tbody>
+                    {% for p_list in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ p_list  }}">{{ p_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+                {% endif %}
+                {% endfor %}
+
+
+              {% endfor %}
+
+
+    <br>
+<h2>Package JSON table transfer details</h2>
+    <br>
+{% for JTT in JSONtt %}
+    <br>
+
+    <a id = "{{ JTT[5] }}"> <span class="d-block p-2 bg-primary text-white"> <b>Package Name: {{ JTT[5]}} </b></span> </a>
+    <br>
+
+                <p><b> Source connection name: </b> <a href="#Connection name:{{ JTT[0] }}"> {{ JTT[0] }} </a></p>
+    <p><b> Table selction option: </b> {{ JTT[1] }}</p>
+    <p><b> Flat File Connection: </b> {{ JTT[3] }}</p>
+                <p><b> Destination name: </b> <a href="#Connection name:{{ JTT[4] }}">{{ JTT[4] }}</a></p>
+      <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Table list</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" rows="6">{{ JTT[2] }}</textarea>
+</div>
+
+                                    {% for pack_name, proj_list in proj_per_package_JJTS.items() %}
+                {% if (pack_name == JTT[5]) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Package</span>
+                    <th class="table" scope="col">project name</th>
+                    </thead>
+                    <tbody>
+                    {% for p_list in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ p_list  }}">{{ p_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+                {% endif %}
+                {% endfor %}
+
+
+
+              {% endfor %}
+
+
+
+
+    <br>
+<h2>Package Semi Structured load details</h2>
+    <br>
+{% for SS in SemiS %}
+    <br>
+
+    <a id = "{{ SS[4] }}"> <span class="d-block p-2 bg-primary text-white"> <b>Package Name: {{ SS[4]}} </b></span> </a>
+    <br>
+
+                <p><b> Source connection name: <a href="#Connection name:{{ SS[1] }}">{{ SS[0] }}</a> </b></p>
+                <p><b> Destination connection name: <a href="#Connection name:{{ SS[1] }}">{{ SS[1] }} </a></b> </p>
+    <p><b> Destination schema: {{ SS[2] }} </b> </p>
+    <p><b> Destination table init option: {{ SS[3] }} </b> </p>
+
+
+                                                {% for pack_name, proj_list in proj_per_package_SSDT.items() %}
+                {% if (pack_name == SS[4]) %}
+                <table id="tabela4" class="table table-bordered w-auto ">
+                    <thead>
+                    <span id="d-block-inner" class="d-block p-2 bg-primary text-white">Projects containing the Package</span>
+                    <th class="table" scope="col">project name</th>
+                    </thead>
+                    <tbody>
+                    {% for p_list in proj_list %}
+                    <tr>
+                        <td > <a href="#{{ p_list  }}">{{ p_list }} </a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+                {% endif %}
+                {% endfor %}
+
+
+              {% endfor %}
+
+
+
+  </div>
+    </div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+
+</body>
+
+<style>
+
+</style>
+</html>
