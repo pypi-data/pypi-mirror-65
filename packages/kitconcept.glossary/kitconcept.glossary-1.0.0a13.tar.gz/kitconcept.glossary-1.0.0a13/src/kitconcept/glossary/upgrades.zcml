@@ -1,0 +1,30 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <!-- 1 to 2 -->
+  <genericsetup:upgradeDepends
+    source="1"
+    destination="2"
+    profile="kitconcept.glossary:default"
+    title="Remove exclude from navigation behavior"
+    import_steps="typeinfo"
+    />
+
+  <!-- 2 to 3 -->
+  <genericsetup:upgradeDepends
+    source="2"
+    destination="3"
+    profile="kitconcept.glossary:default"
+    title="Remove Glossary type description"
+    import_steps="typeinfo"
+    />
+
+  <genericsetup:upgradeDepends
+    source="2"
+    destination="3"
+    profile="kitconcept.glossary:default"
+    title="Update IGlosarySettings"
+    import_steps="plone.app.registry"
+    />
+
+</configure>
