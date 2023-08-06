@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: yt-scraper
+Version: 0.2.2
+Summary: Command line utility querying the YouTube API v3.
+Home-page: https://github.com/rattletat/yt-scraper
+Author: Michael Brauweiler
+Author-email: rattletat@posteo.net
+License: GPLv3
+Project-URL: Source, https://github.com/rattletat/yt-scraper
+Project-URL: Tracker, https://github.com/rattletat/yt-scraper/issues
+Keywords: youtube scraping API
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs (==1.4.3)
+Requires-Dist: cachetools (==4.0.0)
+Requires-Dist: certifi (==2020.4.5.1)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: click (==7.1.1)
+Requires-Dist: google-api-core (==1.16.0)
+Requires-Dist: google-api-python-client (==1.8.0)
+Requires-Dist: google-auth (==1.13.1)
+Requires-Dist: google-auth-httplib2 (==0.0.3)
+Requires-Dist: googleapis-common-protos (==1.51.0)
+Requires-Dist: httplib2 (==0.17.1)
+Requires-Dist: idna (==2.9)
+Requires-Dist: protobuf (==3.11.3)
+Requires-Dist: pyasn1 (==0.4.8)
+Requires-Dist: pyasn1-modules (==0.2.8)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: pyyaml (==5.3.1)
+Requires-Dist: ratelimit (==2.2.1)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: rsa (==4.0)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: uritemplate (==3.0.1)
+Requires-Dist: urllib3 (==1.25.8)
+
+fetch-yt.py
+
+`-q --query STRING` 
+Text that is used for the search on YouTube. Needed
+
+`-o --output`
+Specifies the output file.
+**Default:** ``data/result.sql``
+
+`-n --number INTEGER (ARRAY)`
+Number of videos fetched per level. 
+If an array is provided, the i-th element equals 
+the number of videos fetched on the i-th level.
+**Default**: 10
+
+`-l --levels INTEGER`
+Number of recursion steps per video.
+**Default**: 1
+
+`-v --verbose`
+Print more information to output.
+
+
+## Known Issues
+
+- The `number` parameter is restricted to maximal 50. This can be fixed in the
+future by iterating through result pages.
+
+
