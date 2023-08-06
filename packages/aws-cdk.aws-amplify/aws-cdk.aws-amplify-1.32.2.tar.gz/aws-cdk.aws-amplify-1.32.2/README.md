@@ -1,0 +1,154 @@
+## AWS Amplify Construct Library
+
+<!--BEGIN STABILITY BANNER-->---
+
+
+![Stability: Experimental](https://img.shields.io/badge/stability-Experimental-important.svg?style=for-the-badge)
+
+> **This is a *developer preview* (public beta) module.**
+>
+> All classes with the `Cfn` prefix in this module ([CFN Resources](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib))
+> are auto-generated from CloudFormation. They are stable and safe to use.
+>
+> However, all other classes, i.e., higher level constructs, are under active development and subject to non-backward
+> compatible changes or removal in any future version. These are not subject to the [Semantic Versioning](https://semver.org/) model.
+> This means that while you may use them, you may need to update your source code when upgrading to a newer version of this package.
+
+---
+<!--END STABILITY BANNER-->
+
+The AWS Amplify Console provides a Git-based workflow for deploying and hosting fullstack serverless web applications. A fullstack serverless app consists of a backend built with cloud resources such as GraphQL or REST APIs, file and data storage, and a frontend built with single page application frameworks such as React, Angular, Vue, or Gatsby.
+
+### Setting up an app with branches, custom rules and a domain
+
+To set up an Amplify Console app, define an `App`:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+import aws_cdk.aws_codebuild as codebuild
+import aws_cdk.aws_amplify as amplify
+import aws_cdk.core as cdk
+
+amplify_app = amplify.App(self, "MyApp",
+    source_code_provider=amplify.GitHubSourceCodeProvider(
+        owner="<user>",
+        repository="<repo>",
+        oauth_token=cdk.SecretValue.secrets_manager("my-github-token")
+    ),
+    build_spec=codebuild.BuildSpec.from_object({# Alternatively add a `amplify.yml` to the repo
+        "version": "1.0",
+        "frontend": {
+            "phases": {
+                "pre_build": {
+                    "commands": ["yarn"
+                    ]
+                },
+                "build": {
+                    "commands": ["yarn build"
+                    ]
+                }
+            },
+            "artifacts": {
+                "base_directory": "public",
+                "files": "**/*"
+            }
+        }})
+)
+```
+
+To connect your `App` to CodeCommit, use the `CodeCommitSourceCodeProvider`:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+repository = codecommit.Repository(self, "Repo",
+    repository_name="my-repo"
+)
+
+amplify_app = amplify.App(self, "App",
+    source_code_provider=amplify.CodeCommitSourceCodeProvider(repository=repository)
+)
+```
+
+The IAM role associated with the `App` will automatically be granted the permission
+to pull the CodeCommit repository.
+
+Add branches:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+master = amplify_app.add_branch("master")# `id` will be used as repo branch name
+dev = amplify_app.add_branch("dev")
+dev.add_environment("STAGE", "dev")
+```
+
+Auto build and pull request preview are enabled by default.
+
+Add custom rules for redirection:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+amplify_app.add_custom_rule(
+    source="/docs/specific-filename.html",
+    target="/documents/different-filename.html",
+    status=amplify.RedirectStatus.TEMPORARY_REDIRECT
+)
+```
+
+Add a domain and map sub domains to branches:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+domain = amplify_app.add_domain("example.com")
+domain.map_sub_domain(master, "www")
+domain.map_sub_domain(dev)
+```
+
+### Restricting access
+
+Password protect the app with basic auth by specifying the `basicAuth` prop.
+
+Use `BasicAuth.fromCredentials` when referencing an existing secret:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+amplify_app = amplify.App(self, "MyApp",
+    repository="https://github.com/<user>/<repo>",
+    oauth_token=cdk.SecretValue.secrets_manager("my-github-token"),
+    basic_auth=amplify.BasicAuth.from_credentials("username", cdk.SecretValue.secrets_manager("my-github-token"))
+)
+```
+
+Use `BasicAuth.fromGeneratedPassword` to generate a password in Secrets Manager:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+amplify_app = amplify.App(self, "MyApp",
+    repository="https://github.com/<user>/<repo>",
+    oauth_token=cdk.SecretValue.secrets_manager("my-github-token"),
+    basic_auth=amplify.BasicAuth.from_generated_password("username")
+)
+```
+
+Basic auth can be added to specific branches:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+app.add_branch("feature/next",
+    basic_auth=amplify.BasicAuth.from_generated_password("username")
+)
+```
+
+### Automatically creating branches
+
+Use the `autoBranchCreation` prop to automatically create new branches:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+amplify_app = amplify.App(self, "MyApp",
+    repository="https://github.com/<user>/<repo>",
+    oauth_token=cdk.SecretValue.secrets_manager("my-github-token"),
+    auto_branch_creation={
+        "patterns": ["feature/*", "test/*"]
+    }
+)
+```
