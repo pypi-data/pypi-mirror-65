@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: ronto
+Version: 0.1.2
+Summary: Wrapper around building stuff using repotool and Yocto
+Home-page: https://github.com/almedso/ronto
+Author: Volker Kempert
+Author-email: volker.kempert@almedso.de
+Maintainer: Volker Kempert
+Maintainer-email: volker.kempert@almedso.de
+License: MIT license
+Project-URL: Documentation, https://ronto.readthedocs.io
+Project-URL: Bug Reports, https://github.com/almedso/ronto/issues
+Project-URL: Source, https://github.com/almedso/ronto/
+Keywords: ronto
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: PyYAML (==5.3.1)
+Requires-Dist: docker (==4.2.0)
+
+ronto
+#####
+
+*ronto* is a cli tool for building stuff using repotool, Yocto and Docker.
+
+The *ronto* command is intended to simplify Yocto build environments and
+processes.
+It can be used by developers who just want to build a single
+recipe.
+It can also be used for headless CI builds or release builds covering a set of
+machines and images.
+All build activities can be transparently performed within a docker container
+or on bare metal.
+
+*ronto* is the proposed prefix for 10^-27 of something.
+It is like Yocto which is the prefix for 10^-24 of something.
+
+
+Documentation
+=============
+
+Documentation is available at read the docs:
+
+`Ronto Documentation <https://ronto.readthedocs.io>`_.
+
+Quickstart
+==========
+
+ronto is available on PyPI and can be installed with `pip <https://pip.pypa.io>`_.
+
+.. code-block:: console
+
+    $ pip3 install ronto
+
+After installing ronto the ronto command is available to you.
+
+The build specification is maintained in a *Rontofile.yml*.
+
+Start and explore with
+
+.. code-block:: python
+
+    # bootstrap a new build Rontofile
+    ronto bootstrap
+
+    # fine grained step by step build
+    ronto init
+    ronto build
+    ronto publish
+
+    # or more compact round-trip
+    ronto all
+
+
+
+.. _change-log-label:
+
+Change Log
+==========
+
+Version History
+---------------
+
+0.0.1
+    * Project created.
+0.1.0
+    * Rontofile version 1 (not checked)
+    * init, build and arbitrary docker sub-commands
+
+
