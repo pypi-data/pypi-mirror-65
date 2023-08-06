@@ -1,0 +1,15 @@
+obm<1.0.0
+Django<4,>=2.2
+requests<3,>=2
+djangorestframework<4,>=3
+
+[dev]
+sphinx<3,>=2.4
+sphinx-rtd-theme
+python-dotenv
+pytest
+pytest-django
+pylint
+pylint-django
+mypy
+rope
