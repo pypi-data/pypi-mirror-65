@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: fungen
+Version: 0.0.6
+Summary: FUNctional GENomics
+Home-page: https://gitee.com/zhouyulab/fungen/
+Author: Yu Zhou
+Author-email: yu.zhou@whu.edu.cn
+License: mit
+Project-URL: Documentation, https://gitee.com/zhouyulab/fungen/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+# fungen
+
+FUNctional GENomics package
+
+## Description
+
+A simple package illustrating genomic analysis
+
+
