@@ -1,0 +1,91 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "digitization_bag.json",
+	"type": "object",
+	"title": "Ursa Major Digitization Bag Schema",
+	"allOf": [{
+		"$id": "#/digitization_bag",
+		"type": "object",
+		"title": "Bag",
+		"required": [
+			"identifier",
+			"origin",
+			"rights_statements"],
+		"properties": {
+			"identifier": {
+				"type": "string"
+			},
+			"origin": {
+				"type": "string",
+				"enum": ["digitization"]
+			},
+			"rights_statements": {
+				"type": "array",
+				"items": {
+					"properties": {
+						"rights_basis": {
+							"type": "string"
+						},
+						"determination_date": {
+							"type": ["string", "null"]
+						},
+						"jurisdiction": {
+							"type": ["string", "null"]
+						},
+						"start_date": {
+							"type": "string"
+						},
+						"end_date": {
+							"type": "string"
+						},
+						"note": {
+							"type": "string"
+						},
+						"status": {
+							"type": ["string", "null"]
+						},
+						"terms": {
+							"type": ["string", "null"]
+						},
+						"citation": {
+							"type": ["string", "null"]
+						},
+						"other_rights_basis": {
+							"type": ["string", "null"]
+						},
+						"rights_granted": {
+							"type": "array",
+							"items": {
+								"properties": {
+									"act": {
+										"enum": [
+											"publish",
+											"disseminate",
+											"replicate",
+											"migrate",
+											"modify",
+											"use",
+											"delete"]
+									},
+									"start_date": {
+										"type": ["string", "null"],
+										"format": "date"
+									},
+									"end_date": {
+										"type": "string"
+									},
+									"note": {
+										"type": "string"
+									},
+									"restriction": {
+										"enum": ["allow", "disallow", "conditional"]
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}]
+}
