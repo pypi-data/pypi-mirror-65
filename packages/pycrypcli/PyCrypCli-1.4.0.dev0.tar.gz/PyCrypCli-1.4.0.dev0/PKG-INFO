@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: PyCrypCli
+Version: 1.4.0.dev0
+Summary: Python Cryptic Game Client
+Home-page: https://github.com/Defelo/PyCrypCli
+Author: Defelo
+Author-email: elodef42@gmail.com
+License: UNKNOWN
+Description: # PyCrypCli
+        Python [Cryptic Game](https://github.com/cryptic-game/cryptic) Client
+        
+        ## Install via [pip](https://pypi.org/project/PyCrypCli/)
+        ```
+        $ sudo pip3 install pycrypcli
+        $ pycrypcli [<server>]
+        ```
+        
+        ## Or clone from [GitHub](https://github.com/Defelo/PyCrypCli)
+        ```
+        $ git clone https://github.com/Defelo/PyCrypCli.git
+        $ cd PyCrypCli/
+        $ git checkout experimental  # optional
+        $ sudo pip3 install -r requirements.txt
+        $ python3.7 pycrypcli.py [<server>]
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
