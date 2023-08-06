@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: equator
+Version: 0.0.1
+Summary: Set of tools for comparing complex objects
+Home-page: https://github.com/ivanovmg/equator
+Author: Maxim Ivanov
+Author-email: ivanovmg@gmail.com
+Maintainer: Maxim Ivanov
+Maintainer-email: ivanovmg@gmail.com
+License: BSD license
+Keywords: equator
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+
+equator
+#######
+
+Set of tools for comparing complex objects
+
+
+Quickstart
+==========
+
+equator is available on PyPI and can be installed with `pip <https://pip.pypa.io>`_.
+
+.. code-block:: console
+
+    $ pip install equator
+
+After installing equator you can use it like any other Python module.
+
+Here is a simple example:
+
+.. code-block:: python
+
+   from equator import equals
+
+   item1 = [
+       {
+           1: [
+               {1: [1, 2]},
+               [1, 2.0001],
+           ],
+       },
+       [3, [4, [5]]],
+   ] 
+
+   item2 = [
+       {
+           1: [
+               {1.0001: [1, 2.0001]},
+               [1.0001, 1.9999],
+           ],
+       },
+       [2.9999, [4, [5.002]]],
+   ]
+
+   result = equals.approx(item1, item2, rel_tol=1e-2)
+   assert result
+
+The function ``approx`` allows one
+to compare approximately objects of various types.
+
+The motivation to create this function was that ``pytest.approx``
+does not allow comparison of the complex objects.
+In contrast, this function allows one iterate through ``__dict__``
+of arbitrary objects and make use of ``math.isclose``
+when encountering numeric types.
+
+TODO
+====
+
+Currently one may expect issues with sets and ``Decimal``.
+
+
+.. _change-log-label:
+
+Change Log
+==========
+
+Version History
+---------------
+
+0.0.1
+    * Project created.
+
+
