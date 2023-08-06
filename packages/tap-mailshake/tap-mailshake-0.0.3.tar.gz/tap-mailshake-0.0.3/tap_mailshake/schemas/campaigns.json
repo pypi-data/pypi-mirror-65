@@ -1,0 +1,115 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "object": {
+      "type": ["null", "string"]
+    },
+    "id": {
+      "type": ["null", "integer"]
+    },
+    "actionDate": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "title": {
+      "type": ["null", "string"]
+    },
+    "created": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ended_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "isPaused": {
+      "type": ["null", "boolean"]
+    },
+    "messages": {
+      "type": ["null", "array"],
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "object": {
+            "type": ["null", "string"]
+          },
+          "id": {
+            "type": ["null", "integer"]
+          },
+          "campaignId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": {
+            "type": ["null", "string"]
+          },
+          "subject": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "replyToID": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "isPaused": {
+            "type": ["null", "boolean"]
+          }
+        }
+      }
+    },
+    "sender": {
+      "type": ["null", "object"],
+      "additionalProperties": false,
+      "properties": {
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fromName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": ["null", "string"],
+          "format": "date-time"
+        }
+      }
+    },
+    "url": {
+      "type": ["null", "string"],
+      "format": "uri"
+    }
+  }
+}
