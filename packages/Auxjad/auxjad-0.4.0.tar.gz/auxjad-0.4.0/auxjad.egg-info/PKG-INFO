@@ -1,0 +1,46 @@
+Metadata-Version: 1.2
+Name: auxjad
+Version: 0.4.0
+Summary: Auxiliary functions and classes for Abjad 3.1.
+Home-page: https://github.com/gilbertohasnofb/auxjad
+Author: Gilberto Agostinho
+Author-email: gilbertohasnofb@gmail.com
+License: MIT
+Description: auxjad
+        ======
+        
+        |PyPI| |Build| |Python versions| |License|  |Bug report|
+        
+        Auxiliary functions and classes for Abjad 3.1. All classes and functions have a
+        `__doc__` attribute with usage instructions.
+        
+        Documentation is available at https://gilbertohasnofb.github.io/auxjad-docs/.
+        A pdf version of the documentation is also available in the `docs` directory.
+        
+        Bugs can be reported to https://github.com/gilbertohasnofb/auxjad/issues.
+        
+        This library is published under the MIT License.
+        
+        .. |PyPI| image:: https://img.shields.io/pypi/v/auxjad.svg
+           :target: https://pypi.python.org/pypi/auxjad
+        .. |Build| image:: https://travis-ci.org/gilbertohasnofb/auxjad.svg?branch=master
+           :target: https://travis-ci.org/gilbertohasnofb/auxjad
+        .. |Python versions| image:: https://img.shields.io/pypi/pyversions/auxjad.svg
+        .. |License| image:: https://img.shields.io/github/license/gilbertohasnofb/auxjad.svg
+           :target: https://github.com/gilbertohasnofb/auxjad/blob/master/LICENSE
+        .. |Bug report| image:: https://img.shields.io/badge/bug-report-red.svg
+           :target: https://github.com/gilbertohasnofb/auxjad/issues
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
