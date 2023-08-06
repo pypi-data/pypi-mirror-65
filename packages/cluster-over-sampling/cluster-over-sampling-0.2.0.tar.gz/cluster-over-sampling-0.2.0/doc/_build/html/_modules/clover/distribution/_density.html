@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clover.distribution._density &mdash; cluster-over-sampling 0.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/cluster-over-sampling.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> cluster-over-sampling
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contribute</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release_history.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cluster-over-sampling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>clover.distribution._density</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for clover.distribution._density</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Implementation of the DensityDistributor class.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Author: Georgios Douzas &lt;gdouzas@icloud.com&gt;</span>
+<span class="c1"># License: MIT</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_scalar</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseDistributor</span>
+
+
+<div class="viewcode-block" id="DensityDistributor"><a class="viewcode-back" href="../../../generated/clover.distribution.DensityDistributor.html#clover.distribution.DensityDistributor">[docs]</a><span class="k">class</span> <span class="nc">DensityDistributor</span><span class="p">(</span><span class="n">BaseDistributor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class to perform density based distribution.</span>
+
+<span class="sd">    Samples are distributed based on the density of clusters.</span>
+
+<span class="sd">    Read more in the :ref:`user guide &lt;user_guide&gt;`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filtering_threshold : float or &#39;auto&#39;, default=&#39;auto&#39;</span>
+<span class="sd">        The threshold of a filtered cluster. It can be any non-negative number or</span>
+<span class="sd">        ``&#39;auto&#39;`` to be calculated automatically.</span>
+
+<span class="sd">        - If ``&#39;auto&#39;``, the filtering threshold is calculated from the imbalance</span>
+<span class="sd">          ratio of the target for the binary case or the maximum of the target&#39;s</span>
+<span class="sd">          imbalance ratios for the multiclass case.</span>
+
+<span class="sd">        - If ``float`` then it is manually set to this number.</span>
+
+<span class="sd">        Any cluster that has an imbalance ratio smaller than the filtering threshold is</span>
+<span class="sd">        identified as a filtered cluster and can be potentially used to generate</span>
+<span class="sd">        minority class instances. Higher values increase the number of filtered</span>
+<span class="sd">        clusters.</span>
+
+<span class="sd">    distances_exponent : float or &#39;auto&#39;, default=&#39;auto&#39;</span>
+<span class="sd">        The exponent of the mean distance in the density calculation. It can be</span>
+<span class="sd">        any non-negative number or ``&#39;auto&#39;`` to be calculated automatically.</span>
+
+<span class="sd">        - If ``&#39;auto&#39;`` then it is set equal to the number of</span>
+<span class="sd">          features. Higher values make the calculation of density more sensitive</span>
+<span class="sd">          to the cluster&#39;s size i.e. clusters with large mean euclidean distance</span>
+<span class="sd">          between samples are penalized.</span>
+
+<span class="sd">        - If ``float`` then it is manually set to this number.</span>
+
+<span class="sd">    sparsity_based : bool, default=True</span>
+<span class="sd">        Whether sparse clusters receive more generated samples.</span>
+
+<span class="sd">        - When ``True`` clusters receive generated samples that are inversely</span>
+<span class="sd">          proportional to their density.</span>
+
+<span class="sd">        - When ``False`` clusters receive</span>
+<span class="sd">          generated samples that are proportional to their density.</span>
+
+<span class="sd">    distribution_ratio : float, default=1.0</span>
+<span class="sd">        The ratio of intra-cluster to inter-cluster generated samples. It is a</span>
+<span class="sd">        number in the :math:`[0.0, 1.0]` range. The default value is ``1.0``, a</span>
+<span class="sd">        case corresponding to only intra-cluster generation. As the number</span>
+<span class="sd">        decreases, less intra-cluster samples are generated. Inter-cluster</span>
+<span class="sd">        generation, i.e. when ``distribution_ratio`` is less than ``1.0``,</span>
+<span class="sd">        requires a neighborhood structure for the clusters, i.e. a</span>
+<span class="sd">        ``neighbors_`` attribute should be created after fitting and it will</span>
+<span class="sd">        raise an error when it is not found.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    clusters_density_ : dict</span>
+<span class="sd">        Each dict key is a multi-label tuple of shape ``(cluster_label,</span>
+<span class="sd">        class_label)``, while the values correspond to the density.</span>
+
+<span class="sd">    distances_exponent_ : float</span>
+<span class="sd">        Actual exponent of the mean distance used in the calculations.</span>
+
+<span class="sd">    distribution_ratio_ : float</span>
+<span class="sd">        A copy of the parameter in the constructor.</span>
+
+<span class="sd">    filtered_clusters_ : list</span>
+<span class="sd">        Each element is a tuple of ``(cluster_label, class_label)`` pairs.</span>
+
+<span class="sd">    filtering_threshold_ : float</span>
+<span class="sd">        Actual filtering threshold used in the calculations.</span>
+
+<span class="sd">    inter_distribution_ : dict</span>
+<span class="sd">        Each dict key is a multi-label tuple of</span>
+<span class="sd">        shape ``((cluster_label1, cluster_label2), class_label)``.</span>
+
+<span class="sd">    intra_distribution_ : dict</span>
+<span class="sd">        Each dict key is a multi-label tuple of shape ``(cluster_label,</span>
+<span class="sd">        class_label)``.</span>
+
+<span class="sd">    labels_ : array, shape (n_samples,)</span>
+<span class="sd">        Labels of each sample.</span>
+
+<span class="sd">    majority_class_label_ : int</span>
+<span class="sd">        The majority class label.</span>
+
+<span class="sd">    n_samples_ : int</span>
+<span class="sd">        The number of samples.</span>
+
+<span class="sd">    neighbors_ : array, (n_neighboring_pairs, 2)</span>
+<span class="sd">        An array that contains all neighboring pairs. Each row is</span>
+<span class="sd">        a unique neighboring pair.</span>
+
+<span class="sd">    sparsity_based_ : bool</span>
+<span class="sd">        A copy of the parameter in the constructor.</span>
+
+<span class="sd">    unique_class_labels_ :  array, shape (n_classes, )</span>
+<span class="sd">        An array of unique class labels.</span>
+
+<span class="sd">    unique_cluster_labels_ : array, shape (n_clusters, )</span>
+<span class="sd">        An array of unique cluster labels.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from clover.distribution import DensityDistributor</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.datasets import load_iris</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.cluster import KMeans</span>
+<span class="sd">    &gt;&gt;&gt; X, y = load_iris(return_X_y=True)</span>
+<span class="sd">    &gt;&gt;&gt; labels = KMeans(random_state=0).fit_predict(X, y)</span>
+<span class="sd">    &gt;&gt;&gt; density_distributor = DensityDistributor().fit(X, y, labels)</span>
+<span class="sd">    &gt;&gt;&gt; density_distributor.filtered_clusters_</span>
+<span class="sd">    [(7, 1), (4, 1), (3, 1), (1, 1), (6, 2), (1, 2), (2, 2), (4, 2)]</span>
+<span class="sd">    &gt;&gt;&gt; density_distributor.intra_distribution_</span>
+<span class="sd">    {(7, 1): 0.066096796165... (4, 2): 0.0911085147...}</span>
+<span class="sd">    &gt;&gt;&gt; density_distributor.inter_distribution_</span>
+<span class="sd">    {}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DensityDistributor.__init__"><a class="viewcode-back" href="../../../generated/clover.distribution.DensityDistributor.html#clover.distribution.DensityDistributor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">filtering_threshold</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">distances_exponent</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">sparsity_based</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">distribution_ratio</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filtering_threshold</span> <span class="o">=</span> <span class="n">filtering_threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent</span> <span class="o">=</span> <span class="n">distances_exponent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sparsity_based</span> <span class="o">=</span> <span class="n">sparsity_based</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distribution_ratio</span> <span class="o">=</span> <span class="n">distribution_ratio</span></div>
+
+    <span class="k">def</span> <span class="nf">_check_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">neighbors</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check distributor parameters.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Filtering threshold</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtering_threshold</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="n">counts_vals</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filtering_threshold_</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">counts_vals</span><span class="p">)</span> <span class="o">/</span> <span class="nb">min</span><span class="p">(</span><span class="n">counts_vals</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">check_scalar</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">filtering_threshold</span><span class="p">,</span> <span class="s1">&#39;filtering_threshold&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="mi">0</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filtering_threshold_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtering_threshold</span>
+
+        <span class="c1"># Distances exponent</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">check_scalar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent</span><span class="p">,</span> <span class="s1">&#39;distances_exponent&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent</span>
+
+        <span class="c1"># Sparsity based</span>
+        <span class="n">check_scalar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sparsity_based</span><span class="p">,</span> <span class="s1">&#39;sparsity_based&#39;</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sparsity_based_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sparsity_based</span>
+
+        <span class="c1"># distribution ratio</span>
+        <span class="n">check_scalar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution_ratio</span><span class="p">,</span> <span class="s1">&#39;distribution_ratio&#39;</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution_ratio</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="ow">and</span> <span class="n">neighbors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;Parameter `distribution_ratio` should be equal to 1.0, &#39;</span>
+                <span class="s1">&#39;when `neighbors` parameter is `None`.&#39;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distribution_ratio_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution_ratio</span>
+
+    <span class="k">def</span> <span class="nf">_identify_filtered_clusters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Identify the filtered clusters.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Generate multi-label</span>
+        <span class="n">multi_labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+        <span class="c1"># Count multi-label</span>
+        <span class="n">multi_labels_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">multi_labels</span><span class="p">)</span>
+
+        <span class="c1"># Extract unique cluster and class labels</span>
+        <span class="n">unique_multi_labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">multi_label</span>
+            <span class="k">for</span> <span class="n">multi_label</span> <span class="ow">in</span> <span class="n">multi_labels_counts</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">multi_label</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">majority_class_label_</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Identify filtered clusters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filtered_clusters_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">multi_label</span> <span class="ow">in</span> <span class="n">unique_multi_labels</span><span class="p">:</span>
+            <span class="n">n_minority_samples</span> <span class="o">=</span> <span class="n">multi_labels_counts</span><span class="p">[</span><span class="n">multi_label</span><span class="p">]</span>
+            <span class="n">n_majority_samples</span> <span class="o">=</span> <span class="n">multi_labels_counts</span><span class="p">[</span>
+                <span class="p">(</span><span class="n">multi_label</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">majority_class_label_</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="n">n_majority_samples</span> <span class="o">&lt;=</span> <span class="n">n_minority_samples</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtering_threshold_</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">filtered_clusters_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">multi_label</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_calculate_clusters_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate the density of the filtered clusters.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+        <span class="c1"># Calculate density</span>
+        <span class="k">for</span> <span class="n">cluster_label</span><span class="p">,</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_clusters_</span><span class="p">:</span>
+
+            <span class="c1"># Calculate number of majority and minority samples in each cluster</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">==</span> <span class="n">cluster_label</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">class_label</span><span class="p">)</span>
+            <span class="n">n_minority_samples</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+            <span class="c1"># Identify filtered clusters</span>
+            <span class="n">n_minority_pairs</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">n_minority_samples</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_minority_samples</span>
+                <span class="k">if</span> <span class="n">n_minority_samples</span> <span class="o">&gt;</span> <span class="mi">1</span>
+                <span class="k">else</span> <span class="mi">1</span>
+            <span class="p">)</span>
+            <span class="n">mean_distances</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">n_minority_pairs</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span><span class="p">[(</span><span class="n">cluster_label</span><span class="p">,</span> <span class="n">class_label</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">n_minority_samples</span> <span class="o">/</span> <span class="p">(</span><span class="n">mean_distances</span> <span class="o">**</span> <span class="bp">self</span><span class="o">.</span><span class="n">distances_exponent_</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">mean_distances</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Convert infinite densities to finite</span>
+        <span class="n">class_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">class_label</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+        <span class="p">)</span>
+        <span class="n">max_densities</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="n">class_labels</span><span class="p">:</span>
+            <span class="n">densities</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">density</span>
+                <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">density</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">label</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">class_label</span>
+            <span class="p">]</span>
+            <span class="n">finite_densities</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">densities</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+            <span class="n">max_densities</span><span class="p">[</span><span class="n">class_label</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="nb">max</span><span class="p">(</span><span class="n">finite_densities</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">finite_densities</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">label</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_densities</span><span class="p">[</span><span class="n">label</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">density</span><span class="p">)</span> <span class="k">else</span> <span class="n">density</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">density</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">_intra_distribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">neighbors</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Distribute the generated samples in each cluster based on their density.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Calculate weights based on density</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">multi_label</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">density</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sparsity_based_</span> <span class="k">else</span> <span class="n">density</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">multi_label</span><span class="p">,</span> <span class="n">density</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Calculate normalization factors</span>
+        <span class="n">class_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">class_label</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_clusters_</span><span class="p">])</span>
+        <span class="n">normalization_factors</span> <span class="o">=</span> <span class="p">{</span><span class="n">class_label</span><span class="p">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="n">class_labels</span><span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">class_label</span><span class="p">),</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">weights</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">normalization_factors</span><span class="p">[</span><span class="n">class_label</span><span class="p">]</span> <span class="o">+=</span> <span class="n">weight</span>
+
+        <span class="c1"># Intra distribution</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intra_distribution_</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">multi_label</span><span class="p">:</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">distribution_ratio_</span>
+                <span class="o">*</span> <span class="n">weight</span>
+                <span class="o">/</span> <span class="n">normalization_factors</span><span class="p">[</span><span class="n">multi_label</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">multi_label</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">weights</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">_inter_distribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">neighbors</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Distribute the generated samples between clusters based on their density.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Identify filtered neighboring clusters</span>
+        <span class="n">filtered_neighbors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">class_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">class_label</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_clusters_</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">pair</span><span class="p">,</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">neighbors_</span><span class="p">,</span> <span class="n">class_labels</span><span class="p">):</span>
+            <span class="n">multi_label0</span> <span class="o">=</span> <span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">class_label</span><span class="p">)</span>
+            <span class="n">multi_label1</span> <span class="o">=</span> <span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">class_label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">multi_label0</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_clusters_</span>
+                <span class="ow">and</span> <span class="n">multi_label1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_clusters_</span>
+            <span class="p">):</span>
+                <span class="n">filtered_neighbors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">multi_label0</span><span class="p">,</span> <span class="n">multi_label1</span><span class="p">))</span>
+
+        <span class="c1"># Calculate inter-cluster density</span>
+        <span class="n">inter_clusters_density</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">multi_labels</span><span class="p">:</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span><span class="p">[</span><span class="n">multi_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusters_density_</span><span class="p">[</span><span class="n">multi_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">multi_labels</span> <span class="ow">in</span> <span class="n">filtered_neighbors</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Calculate weights based on density</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">multi_labels</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">density</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sparsity_based_</span> <span class="k">else</span> <span class="n">density</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">multi_labels</span><span class="p">,</span> <span class="n">density</span> <span class="ow">in</span> <span class="n">inter_clusters_density</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Calculate normalization factors</span>
+        <span class="n">normalization_factors</span> <span class="o">=</span> <span class="p">{</span><span class="n">class_label</span><span class="p">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">class_label</span> <span class="ow">in</span> <span class="n">class_labels</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">multi_labels</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">weights</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">normalization_factors</span><span class="p">[</span><span class="n">multi_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">weight</span>
+
+        <span class="c1"># Intra distribution</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inter_distribution_</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">multi_labels</span><span class="p">:</span> <span class="p">(</span>
+                <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution_ratio_</span><span class="p">)</span>
+                <span class="o">*</span> <span class="n">weight</span>
+                <span class="o">/</span> <span class="n">normalization_factors</span><span class="p">[</span><span class="n">multi_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">multi_labels</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">weights</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">neighbors</span><span class="p">):</span>
+
+        <span class="c1"># Check distributor parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_parameters</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">neighbors</span><span class="p">)</span>
+
+        <span class="c1"># Identify filtered clusters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_identify_filtered_clusters</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># Calculate density of filtered clusters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_clusters_density</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">DensityDistributor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">neighbors</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Georgios Douzas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
