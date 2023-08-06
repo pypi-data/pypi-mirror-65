@@ -1,0 +1,11 @@
+requests
+
+[rdf]
+neurdflib>=5.0.1
+pyontutils>=0.1.13
+
+[test]
+pytest
+pytest-runner
+neurdflib>=5.0.1
+pyontutils>=0.1.13
