@@ -1,0 +1,50 @@
+%YAML 1.2
+---
+
+Op_phase:
+  base: OperatorTemplate
+  equations:
+    - "d/dt * theta = omega + noise_in*sqrt(step_size) + K*net_in"
+    - "theta_wrapped = theta % (2*PI)"
+  variables:
+    theta:
+      default: output
+    theta_wrapped:
+      default: variable
+    omega:
+      default: 10.0
+    K:
+      default: 1.0
+    noise_in:
+      default: input
+    net_in:
+      default: input
+
+Op_coupling:
+  base: OperatorTemplate
+  equations:
+    - "target_var = sin(source_var-target_var)"
+  variables:
+    source_var:
+      default: input
+    target_var:
+      default: output
+
+Sin_edge:
+  base: EdgeTemplate
+  operators:
+    - Op_coupling
+
+KM_node:
+  base: NodeTemplate
+  operators:
+    - Op_phase
+
+2KM:
+  base: CircuitTemplate
+  nodes:
+    O1: KM_node
+    O2: KM_node
+  edges:
+    - [O1/Op_phase/theta, O2/Op_phase/net_in, Sin_edge, {weight: 1.0}]
+    - [O2/Op_phase/theta, O1/Op_phase/net_in, Sin_edge, {weight: 1.0}]

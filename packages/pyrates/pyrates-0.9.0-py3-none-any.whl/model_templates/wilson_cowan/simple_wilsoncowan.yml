@@ -1,0 +1,213 @@
+%YAML 1.2
+---
+
+Op_rate:
+  base: OperatorTemplate
+  equations:
+    - "d/dt * r = (alpha*sigmoid(s*(I_syn+I_ext-I_th)) - r)/tau"
+  variables:
+    r:
+      default: output
+    tau:
+      default: 1.0
+    s:
+      default: 2.0
+    alpha:
+      default: 10.0
+    I_th:
+      default: 3.0
+    I_ext:
+      default: input
+    I_syn:
+      default: input
+
+Op_stp:
+  base: OperatorTemplate
+  equations:
+    - "d/dt * p = (1.0-p)/tau_p + rs*rt*k_p"
+    - "r_scaled = rs*p"
+  variables:
+    r_scaled:
+      default: output
+    rs:
+      default: input
+    rt:
+      default: input
+    p:
+      default: variable
+    tau_p:
+      default: 100.0
+    k_p:
+      default: 0.1
+
+WC_stp_ee:
+  base: OperatorTemplate
+  equations:
+    - "d/dt * x = (1.0-x)/tau_r - k_r*u*x*rs"
+    - "d/dt * u = (1.0-u)/tau_f + k_f*U*(1.0/U-u)*rs"
+    - "d/dt * p = (1.0-p)/tau_p + k_p*rs*rt"
+    - "r_scaled = rs*x*u*p"
+  variables:
+    rs:
+      default: input
+    rt:
+      default: input
+    x:
+      default: variable(1.0)
+    u:
+      default: variable(1.0)
+    p:
+      default: variable(1.0)
+    r_scaled:
+      default: output
+    tau_r:
+      default: 50.0
+    tau_f:
+      default: 1.0
+    tau_p:
+      default: 100.0
+    k_r:
+      default: 0.2
+    k_f:
+      default: 0.0
+    k_p:
+      default: 0.1
+    U:
+      default: 1.0
+
+
+WC_stp_ie:
+  base: WC_stp_ee
+  variables:
+    u:
+      default: variable(0.05)
+    tau_r:
+      default: 1.0
+    tau_f:
+      default: 200.0
+    k_r:
+      default: 0.0
+    k_f:
+      default: 0.05
+    U:
+      default: 0.05
+
+
+WC_e_op:
+  base: OperatorTemplate
+  equations:
+    - "re = max(tanh(s*(ve-theta)), 0)"
+    - "d/dt * ve = (re_in - ri_in + w_in*I + B - ve) / tau"
+    - "d/dt * meg = (re_in+ri_in)/(2.0*N) - meg"
+  variables:
+    re:
+      default: output
+    ve:
+      default: variable
+    re_in:
+      default: input
+    ri_in:
+      default: input
+    s:
+      default: 0.6667
+    theta:
+      default: 0.0
+    tau:
+      default: 20.0
+    I:
+      default: input
+    I_d:
+      default: input
+    B:
+      default: 0.0
+    w_in:
+      default: 1.0
+    meg:
+      default: variable
+    N:
+      default: 15.0
+
+WC_i_op:
+  base: OperatorTemplate
+  equations:
+    - "ri = max(tanh(s*(vi-theta)), 0)"
+    - "d/dt * vi = (re_in - ri_in - vi) / tau"
+  variables:
+    ri:
+      default: output
+    vi:
+      default: variable
+    re_in:
+      default: input
+    ri_in:
+      default: input
+    s:
+      default: 0.6667
+    theta:
+      default: 0.0
+    tau:
+      default: 40.0
+
+# nodes
+WC_e:
+  base: NodeTemplate
+  operators:
+    - WC_e_op
+
+WC_i:
+  base: NodeTemplate
+  operators:
+    - WC_i_op
+
+Pop_rate:
+  base: NodeTemplate
+  operators:
+    - Op_rate
+
+# edges
+
+WC_ie:
+  base: EdgeTemplate
+  operators:
+    - WC_stp_ie
+
+WC_ee:
+  base: EdgeTemplate
+  operators:
+    - WC_stp_ee
+
+Rate_stp:
+  base: EdgeTemplate
+  operators:
+    - Op_stp
+
+# circuits
+WC:
+  base: CircuitTemplate
+  nodes:
+    E: Pop_rate
+    I: Pop_rate
+  edges:
+    - [E/Op_rate/r, I/Op_rate/I_syn, null, {weight: 1.0}]
+    - [I/Op_rate/r, E/Op_rate/I_syn, null, {weight: -1.0}]
+    - [E/Op_rate/r, E/Op_rate/I_syn, null, {weight: 1.0}]
+    - [I/Op_rate/r, I/Op_rate/I_syn, null, {weight: -1.0}]
+
+WC_stp_net:
+  base: CircuitTemplate
+  nodes:
+    E: WC_e
+    I: WC_i
+  edges:
+    - [E: {WC_e_op/re: r, WC_e_op/I: Inp, WC_e_op/I_d: Inp_d}, E/WC_e_op/re_in, WC_ee, {weight: 1.0}]
+    - [E: {WC_e_op/re: r, WC_e_op/I: Inp, WC_e_op/I_d: Inp_d}, I/WC_i_op/re_in, WC_ie, {weight: 0.5}]
+    - [I/WC_i_op/ri, E/WC_e_op/ri_in, null, {weight: 0.5}]
+    - [E/WC_e_op/I, E/WC_e_op/I_d, null, {weight: 1.0, delay: 0.005}]
+
+RC:
+  base: CircuitTemplate
+  nodes:
+    P1: Pop_rate
+    P2: Pop_rate
+  edges:
+    - [P1: {Op_rate/r: rs}, P2/Op_rate/I_syn, WC_ee, {weight: 2.0, rt: P2/Op_rate/r}]
