@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: aerocalc3
+Version: 0.10
+Summary: Aeronautical Engineering Calculations
+Home-page: https://geoffreynyaga.com/aerocalc3/
+Author: Geoffrey Nyaga
+Author-email: geoffrey@geoffreynyaga.com
+License: BSD
+Download-URL: https://github.com/geoffreynyaga/aerocalc/archive/v_01.tar.gz
+Description: 
+                                AeroCalc is a pure python package that performs various aeronautical
+                                engineering calculations.  Currently it provides airspeed conversions,
+                                standard atmosphere calculations, static source error correction calculations
+                                and unit conversions.
+                            
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Programming Language :: Python :: 3
