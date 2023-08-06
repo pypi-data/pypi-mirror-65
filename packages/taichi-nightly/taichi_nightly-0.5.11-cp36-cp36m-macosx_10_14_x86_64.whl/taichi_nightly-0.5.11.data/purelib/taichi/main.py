@@ -1,0 +1,289 @@
+import sys
+import os
+import shutil
+import time
+import random
+import argparse
+from taichi.tools.video import make_video, interpolate_frames, mp4_to_gif, scale_video, crop_video, accelerate_video
+
+
+def test_python(args):
+    print("\nRunning python tests...\n")
+    test_files = args.files
+    verbose = args.verbose
+    import taichi as ti
+    import pytest
+    if ti.is_release():
+        root_dir = ti.package_root()
+        test_dir = os.path.join(root_dir, 'tests')
+    else:
+        root_dir = ti.get_repo_directory()
+        test_dir = os.path.join(root_dir, 'tests', 'python')
+    pytest_args = []
+    if len(test_files):
+        # run individual tests
+        for f in test_files:
+            # auto-complete file names
+            if not f.startswith('test_'):
+                f = 'test_' + f
+            if not f.endswith('.py'):
+                f = f + '.py'
+            pytest_args.append(os.path.join(test_dir, f))
+    else:
+        # run all the tests
+        pytest_args = [test_dir]
+    if verbose:
+        pytest_args += ['-s', '-v']
+    if int(pytest.main([os.path.join(root_dir, 'misc/empty_pytest.py'),
+                        '-n1'])) == 0:  # test if pytest has xdist or not
+        try:
+            from multiprocessing import cpu_count
+            threads = min(8, cpu_count())  # To prevent running out of memory
+        except:
+            threads = 2
+        arg_threads = None
+        if args.threads is not None:
+            arg_threads = int(args.threads)
+        env_threads = os.environ.get('TI_TEST_THREADS', '')
+        if arg_threads is not None:
+            threads = arg_threads
+        elif env_threads:
+            threads = int(env_threads)
+        print(f'Starting {threads} testing thread(s)...')
+        if threads > 1:
+            pytest_args += ['-n', str(threads)]
+    return int(pytest.main(pytest_args))
+
+
+def test_cpp(args):
+    import taichi as ti
+    test_files = args.files
+    # Cpp tests use the legacy non LLVM backend
+    ti.reset()
+    print("Running C++ tests...")
+    task = ti.Task('test')
+    return int(task.run(*test_files))
+
+
+def make_argument_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-v',
+                        '--verbose',
+                        action='store_true',
+                        help='Run with verbose outputs')
+    parser.add_argument('-t',
+                        '--threads',
+                        help='Number of threads for parallel testing')
+    parser.add_argument('-c',
+                        '--cpp',
+                        action='store_true',
+                        help='Run C++ tests')
+    parser.add_argument(
+        '-a',
+        '--arch',
+        help='Specify arch(s) to run test on, e.g. -a opengl,metal')
+    parser.add_argument('files', nargs='*', help='Files to be tested')
+    return parser
+
+
+def main(debug=False):
+    argc = len(sys.argv)
+    mode = 'help' if argc == 1 else sys.argv.pop(1)
+    parser = make_argument_parser()
+    args = parser.parse_args()
+
+    lines = []
+    print()
+    lines.append(u' *******************************************')
+    lines.append(u' **     Taichi Programming Language       **')
+    lines.append(u' *******************************************')
+    if 'TI_DEBUG' in os.environ:
+        val = os.environ['TI_DEBUG']
+        if val not in ['0', '1']:
+            raise ValueError(
+                "Environment variable TI_DEBUG can only have value 0 or 1.")
+    if debug:
+        lines.append(u' *****************Debug Mode****************')
+        os.environ['TI_DEBUG'] = '1'
+    print(u'\n'.join(lines))
+    print()
+    import taichi as ti
+    if args.arch is not None:
+        ti.set_wanted_archs(args.arch.split(','))
+
+    if mode == 'help':
+        print(
+            "    Usage: ti run [task name]        |-> Run a specific task\n"
+            "           ti benchmark              |-> Run performance benchmark\n"
+            "           ti test                   |-> Run all the tests\n"
+            "           ti format                 |-> Reformat modified source files\n"
+            "           ti format_all             |-> Reformat all source files\n"
+            "           ti build                  |-> Build C++ files\n"
+            "           ti video                  |-> Make a video using *.png files in the current folder\n"
+            "           ti video_scale            |-> Scale video resolution \n"
+            "           ti video_crop             |-> Crop video\n"
+            "           ti video_speed            |-> Speed up video\n"
+            "           ti gif                    |-> Convert mp4 file to gif\n"
+            "           ti doc                    |-> Build documentation\n"
+            "           ti release                |-> Make source code release\n"
+            "           ti debug [script.py]      |-> Debug script\n")
+        return 0
+
+    t = time.time()
+    if mode.endswith('.py'):
+        import subprocess
+        subprocess.call([sys.executable, mode] + sys.argv[1:])
+    elif mode == "run":
+        if argc <= 1:
+            print("Please specify [task name], e.g. test_math")
+            return -1
+        print(sys.argv)
+        name = sys.argv[1]
+        task = ti.Task(name)
+        task.run(*sys.argv[2:])
+    elif mode == "debug":
+        ti.core.set_core_trigger_gdb_when_crash(True)
+        if argc <= 2:
+            print("Please specify [file name], e.g. render.py")
+            return -1
+        name = sys.argv[2]
+        with open(name) as script:
+            script = script.read()
+        exec(script, {'__name__': '__main__'})
+    elif mode == "test":
+        if len(args.files):
+            if args.cpp:
+                return test_cpp(args)
+            else:
+                return test_python(args)
+        elif args.cpp:
+            return test_cpp(args)
+        else:
+            ret = test_python(args)
+            if ret != 0:
+                return ret
+            return test_cpp(args)
+    elif mode == "build":
+        ti.core.build()
+    elif mode == "format":
+        diff = None
+        if len(sys.argv) >= 3:
+            diff = sys.argv[2]
+        ti.core.format(diff=diff)
+    elif mode == "format_all":
+        ti.core.format(all=True)
+    elif mode == "statement":
+        exec(sys.argv[2])
+    elif mode == "update":
+        ti.core.update(True)
+        ti.core.build()
+    elif mode == "asm":
+        fn = sys.argv[2]
+        os.system(
+            r"sed '/^\s*\.\(L[A-Z]\|[a-z]\)/ d' {0} > clean_{0}".format(fn))
+    elif mode == "interpolate":
+        interpolate_frames('.')
+    elif mode == "doc":
+        os.system('cd {}/docs && sphinx-build -b html . build'.format(
+            ti.get_repo_directory()))
+    elif mode == "video":
+        files = sorted(os.listdir('.'))
+        files = list(filter(lambda x: x.endswith('.png'), files))
+        if len(sys.argv) >= 3:
+            frame_rate = int(sys.argv[2])
+        else:
+            frame_rate = 24
+        if len(sys.argv) >= 4:
+            trunc = int(sys.argv[3])
+            files = files[:trunc]
+        ti.info('Making video using {} png files...', len(files))
+        ti.info("frame_rate={}", frame_rate)
+        output_fn = 'video.mp4'
+        make_video(files, output_path=output_fn, frame_rate=frame_rate)
+        ti.info('Done! Output video file = {}', output_fn)
+    elif mode == "video_scale":
+        input_fn = sys.argv[2]
+        assert input_fn[-4:] == '.mp4'
+        output_fn = input_fn[:-4] + '-scaled.mp4'
+        ratiow = float(sys.argv[3])
+        if len(sys.argv) >= 5:
+            ratioh = float(sys.argv[4])
+        else:
+            ratioh = ratiow
+        scale_video(input_fn, output_fn, ratiow, ratioh)
+    elif mode == "video_crop":
+        if len(sys.argv) != 7:
+            print('Usage: ti video_crop fn x_begin x_end y_begin y_end')
+            return -1
+        input_fn = sys.argv[2]
+        assert input_fn[-4:] == '.mp4'
+        output_fn = input_fn[:-4] + '-cropped.mp4'
+        x_begin = float(sys.argv[3])
+        x_end = float(sys.argv[4])
+        y_begin = float(sys.argv[5])
+        y_end = float(sys.argv[6])
+        crop_video(input_fn, output_fn, x_begin, x_end, y_begin, y_end)
+    elif mode == "video_speed":
+        if len(sys.argv) != 4:
+            print('Usage: ti video_speed fn speed_up_factor')
+            return -1
+        input_fn = sys.argv[2]
+        assert input_fn[-4:] == '.mp4'
+        output_fn = input_fn[:-4] + '-sped.mp4'
+        speed = float(sys.argv[3])
+        accelerate_video(input_fn, output_fn, speed)
+    elif mode == "gif":
+        input_fn = sys.argv[2]
+        assert input_fn[-4:] == '.mp4'
+        output_fn = input_fn[:-4] + '.gif'
+        ti.info('Converting {} to {}'.format(input_fn, output_fn))
+        framerate = 24
+        mp4_to_gif(input_fn, output_fn, framerate)
+    elif mode == "convert":
+        # http://www.commandlinefu.com/commands/view/3584/remove-color-codes-special-characters-with-sed
+        # TODO: Windows support
+        for fn in sys.argv[2:]:
+            print("Converting logging file: {}".format(fn))
+            tmp_fn = '/tmp/{}.{:05d}.backup'.format(fn,
+                                                    random.randint(0, 10000))
+            shutil.move(fn, tmp_fn)
+            command = r'sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
+            os.system('{} {} > {}'.format(command, tmp_fn, fn))
+    elif mode == "release":
+        from git import Git
+        import zipfile
+        import hashlib
+        g = Git(ti.get_repo_directory())
+        g.init()
+        with zipfile.ZipFile('release.zip', 'w') as zip:
+            files = g.ls_files().split('\n')
+            os.chdir(ti.get_repo_directory())
+            for f in files:
+                if not os.path.isdir(f):
+                    zip.write(f)
+        ver = ti.__version__
+        md5 = hashlib.md5()
+        with open('release.zip', "rb") as f:
+            for chunk in iter(lambda: f.read(4096), b""):
+                md5.update(chunk)
+        md5 = md5.hexdigest()
+        commit = ti.core.get_commit_hash()[:8]
+        fn = f'taichi-src-v{ver[0]}-{ver[1]}-{ver[2]}-{commit}-{md5}.zip'
+        import shutil
+        shutil.move('release.zip', fn)
+    else:
+        name = sys.argv[1]
+        print('Running task [{}]...'.format(name))
+        task = ti.Task(name)
+        task.run(*sys.argv[2:])
+    print()
+    print(">>> Running time: {:.2f}s".format(time.time() - t))
+    return 0
+
+
+def main_debug():
+    main(debug=True)
+
+
+if __name__ == '__main__':
+    exit(main())
