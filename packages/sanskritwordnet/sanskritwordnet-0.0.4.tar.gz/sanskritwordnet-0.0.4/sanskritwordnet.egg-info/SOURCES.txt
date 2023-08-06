@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+sanskritwordnet/__init__.py
+sanskritwordnet/sanskritwordnet.py
+sanskritwordnet.egg-info/PKG-INFO
+sanskritwordnet.egg-info/SOURCES.txt
+sanskritwordnet.egg-info/dependency_links.txt
+sanskritwordnet.egg-info/requires.txt
+sanskritwordnet.egg-info/top_level.txt
+tests/__init__.py
+tests/test_index.py
+tests/test_lemmas.py
+tests/test_other.py
+tests/test_semfields.py
+tests/test_sentiment_analysis.py
+tests/test_synsets.py
