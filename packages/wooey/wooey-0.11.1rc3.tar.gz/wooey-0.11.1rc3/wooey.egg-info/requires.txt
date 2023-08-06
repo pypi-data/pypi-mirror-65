@@ -1,0 +1,26 @@
+celery<5,>=4.0
+clinto>=0.3.0
+Django<2.2,>=1.11
+django-autoslug
+django-celery-results
+django-storages
+jsonfield<3
+six
+
+[:platform_system == "Windows"]
+eventlet>=0.22.1
+
+[:platform_system == "Windows" and python_version <= "3.4"]
+pypiwin32==219
+
+[:platform_system == "Windows" and python_version > "3.4"]
+pypiwin32
+
+[dev]
+boto3
+coverage
+factory-boy
+mock
+nose
+sphinx
+tox
