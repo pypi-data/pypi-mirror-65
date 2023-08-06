@@ -1,0 +1,9 @@
+[console_scripts]
+gias-hmfinp2surf = gias2.applications.giashmfinp2surf:main
+gias-inpsampledicom = gias2.applications.giasinpsampledicom:main
+gias-pcreg = gias2.applications.giaspcreg:main
+gias-rbfreg = gias2.applications.giasrbfreg:main
+gias-rigidreg = gias2.applications.giasrigidreg:main
+gias-surfacedistance = gias2.applications.giassurfacedistance:main
+gias-trainpcashapemodel = gias2.applications.giastrainpcashapemodel:main
+
