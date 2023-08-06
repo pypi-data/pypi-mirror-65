@@ -1,0 +1,9 @@
+pytest
+pytest-cov
+coveralls
+
+[dev]
+wheel
+
+[test]
+pytest
