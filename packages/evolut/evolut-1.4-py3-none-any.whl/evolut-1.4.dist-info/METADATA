@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: evolut
+Version: 1.4
+Summary: Permet de recupéré des informations que un compte evolut
+Home-page: http://github.com/megadose/evolut
+Author: megadose
+Author-email: anonymous@notmymail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Dist: argparse
+Requires-Dist: beautifulsoup4
+Requires-Dist: cfscrape
+Requires-Dist: fake-headers
+Requires-Dist: requests
+Requires-Dist: urllib3
+
+UNKNOWN
+
+
