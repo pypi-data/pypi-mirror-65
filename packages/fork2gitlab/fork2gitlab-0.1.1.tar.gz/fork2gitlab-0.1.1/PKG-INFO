@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: fork2gitlab
+Version: 0.1.1
+Summary: A script to help forking a project to gitlab and keeping it updated downstream
+Home-page: https://gitlab.com/NamingThingsIsHard/collaboration/fork2gitlab
+License: GPL-3.0-or-later
+Keywords: cron,forking,gitlab,script
+Author: LoveIsGrief
+Author-email: loveisgrief@tuta.io
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Version Control :: Git
+Requires-Dist: cliff (>=3.1.0,<4.0.0)
+Requires-Dist: python-gitlab (>=2.1.2,<3.0.0)
+Project-URL: Bug Tracker, https://gitlab.com/NamingThingsIsHard/collaboration/fork2gitlab/-/issues
+Project-URL: Repository, https://gitlab.com/NamingThingsIsHard/collaboration/fork2gitlab
+Description-Content-Type: text/markdown
+
+A script to help forking a project to gitlab and keeping it updated downstream
+
+# Installation
+
+`pip install fork2gitlab`
+
+# Configuration
+
+In order to interact with the gitlab instance, a configuration file will be needed.
+Create on in on the [locations supported by python-gitlab][python-gitlab locations]
+
+# Usage
+
+**Forking**
+
+Use `f2g fork <git url>` to import a git project.
+
+The project will also be automatically mirrored hourly by gitlab.
+
+You can then create your branch and make changes. 
+
+**Syncing**
+
+Use `f2g sync <gitlab project name> <branch>` to merge upstream changes into your branch.
+
+Since gitlab takes care of the hourly sync, this command simply attempts to merge the upstream changes.
+When a merge conflict occurs, a merge request will be created.
+
+It's up to you to notify in case the merge request has been created. 
+
+[python-gitlab locations]: https://python-gitlab.readthedocs.io/en/stable/cli.html#configuration
+
