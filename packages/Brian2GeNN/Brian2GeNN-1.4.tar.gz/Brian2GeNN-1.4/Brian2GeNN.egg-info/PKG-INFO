@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: Brian2GeNN
+Version: 1.4
+Summary: An interface to use the GeNN framework as a device in Brian 2
+Home-page: http://github.com/brian-team/brian2genn
+Author: Thomas Nowotny, Marcel Stimberg, Dan Goodman
+Author-email: t.nowotny@sussex.ac.uk
+License: UNKNOWN
+Description: 
+        Brian2GeNN is an interface between Brian 2 and GeNN. Brian2 is a simulator for spiking neural networks available on a variety of platforms. It is the successor of Brian1 and shares its approach of being highly flexible and easily extensible. It is based on a code generation framework that allows to execute simulations using other programming languages and/or on different
+        devices. 
+        
+        GeNN (GPU enhanced Neuronal Networksm, https://github.com/genn-team/genn) is a framework that uses code generation methods to allow using GPU accelerators without in-depth knowledge of the CUDA programming interface.
+        
+        Brian2Genn provides an interface to use GeNN as a backend device in Brian2. This allows users to run their Brian 2 scripts on NVIDIA GPU accelerators without any further necessary programming.
+        
+        We currently consider this software to be in the beta status, please report
+        issues to the github issue tracker (https://github.com/brian-team/brian2genn/issues).
+        
+        Documentation for Brian2GeNN can be found at http://brian2genn.readthedocs.org
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Intended Audience :: Science/Research
+Provides: brian2genn
+Provides-Extra: docs
