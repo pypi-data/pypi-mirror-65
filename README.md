@@ -3,36 +3,10 @@
 This repo contains 40000 packages uploaded to PyPI between 
 2020-04-02 12:21 and 2020-04-15 03:16.
 
-The repo is 69% (27998/40000) complete.
+The repo is 74% (29998/40000) complete.
 
-## Packages:
+Package contents can be found [in the code branch](https://github.com/pypi-data/pypi-mirror-65/tree/code/packages).
 
-| Name  | Count |
-| ----- | ----- |
-| tfa-nightly | 375 |
-| rapidfuzz | 309 |
-| polyscope | 202 |
-| omnitools | 138 |
-| elastiknn-client | 134 |
-| mlbench-core | 117 |
-| tensorflow-io-nightly | 89 |
-| deepforest | 88 |
-| credsafe | 88 |
-| cmake | 88 |
-| PyKrige | 87 |
-| hikari | 72 |
-| debugpy | 70 |
-| pulumi | 66 |
-| pch2csd | 62 |
-| neurora | 58 |
-| gw-md-lib | 58 |
-| nmcog | 57 |
-| yt-scraper | 54 |
-| nala | 52 |
-| intxr | 52 |
-| dv-pyclient | 52 |
-| pypitch | 50 |
-| doclib | 50 |
-| rchitect | 48 |
+A browsable package list for all repositories [all packages here](https://pypi-data.github.io/website/repositories/pypi-mirror-65).
 
 
