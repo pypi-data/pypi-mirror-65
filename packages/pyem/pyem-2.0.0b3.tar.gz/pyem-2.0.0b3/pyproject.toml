@@ -1,0 +1,27 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+author = "Tzu-ping Chung"
+author-email = "uranusjr@gmail.com"
+description-file = "README.rst"
+
+home-page = "https://github.com/uranusjr/pyem"
+license = "ISC"
+
+module = "pyem"
+requires-python = ">=3.7"
+requires = []
+
+[tool.flit.metadata.requires-extra]
+compat = ["virtualenv >=20.0.3"]
+test = ["pytest"]
+
+[tool.flit.scripts]
+pyem = "pyem:main"
+
+[tool.black]
+line-length = 79
+target_version = ["py37"]
+include = '^/(src|tests)/.+\.py$'
