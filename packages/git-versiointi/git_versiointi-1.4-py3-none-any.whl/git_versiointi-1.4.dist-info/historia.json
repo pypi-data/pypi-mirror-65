@@ -1,0 +1,146 @@
+[
+  {
+    "tyyppi": "julkaisu",
+    "tunnus": "97a4e96bed38fcc68ef5970c2fb4adfe5e12b7fe",
+    "versio": "1.4",
+    "kuvaus": "Versio 1.4\n* tiedostokohtainen, automaattinen versiointi\n* aikaleimaan perustuva viimek\u00e4tinen versiointi, kun tietovarastoa ei l\u00f6ydy"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "73871ec77c62407fa32f8e72cfd820e9037ae9ea",
+    "versio": "1.4",
+    "kuvaus": "Lis\u00e4tty mahdollisuus tiedostokohtaiseen versiointiin\n* poimitaan tiedostosta rivi `# versiointi: [alkaen tai *]`\n* pakettiin luodaan automaattisesti kopio tiedostosta kunkin muutoksen kohdalla\n* versioitujen tiedostojen nimet: `<moduuli>-<versionumero>.py`"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "0b542f44b341988b4d1585ba7805ee26d328b09e",
+    "versio": "1.3.3",
+    "kuvaus": "Siirretty komentoriviparametrien k\u00e4sittely erilliseen moduuliin"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "744e112be5d887c1ab4cd9212448c3668777cb1c",
+    "versio": "1.3.2",
+    "kuvaus": "Nostetaan poikkeus, mik\u00e4li `asennustiedot(...)`-kutsu ja `setup.cfg`-m\u00e4\u00e4ritys ovat ristiriidassa"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "ff69e744d915aab34a9ad7ba1e0d5c462bfe7d86",
+    "versio": "1.3.1",
+    "kuvaus": "Peitet\u00e4\u00e4n poikkeus, kun `.git`-hakemistoa ei l\u00f6ydy\n* luodaan aikaleimaan perustuva versionumero"
+  },
+  {
+    "tyyppi": "julkaisu",
+    "tunnus": "2418d3d1f916a913aac9dbe5f7d80bcb4eb72da2",
+    "versio": "1.3",
+    "kuvaus": "Versio 1.3\n* oksaversio ei-master-haaran versioille: oletuksena muotoa 1.2.3rc4+haara.56\n* vipu `--ref=`: versiota vastaavan git-tiivisteen haku\n* vipu `--historia=`: halutun mittaisen versiohistorian haku\n* tekij\u00f6istetty git-tietovaraston ja versiointitiedon k\u00e4sittely erikseen"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "208b803cad255a6139b0dbcebb203af853c8be41",
+    "versio": "1.3",
+    "kuvaus": "Lis\u00e4tty versiohistorian tulostus `--historia`-vivulla"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "405e5f778537bac17c604f5e6df4e7a20d9f49b8",
+    "versio": "1.3rc3",
+    "kuvaus": "Lis\u00e4tty `oksaversio`-k\u00e4yt\u00e4nt\u00f6 muiden kuin master-haaran versionumerointiin"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "4d6c8c3e768caa67172af36c001622d8bdd258fe",
+    "versio": "1.3rc2",
+    "kuvaus": "Annetaan varoitus, jos versiointim\u00e4\u00e4rityksess\u00e4 on tuntemattomia parametrej\u00e4"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "5729685fdf5ef151d63be6603ad7f61700e70d72",
+    "versio": "1.3rc1",
+    "kuvaus": "Paketoitu git-tietovaraston ja versiointitiedon k\u00e4sittelyyn liittyv\u00e4t toiminnallisuudet omiin olioihinsa"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "f80361c1324d9be2cf744a35d1df5cc9419f280e",
+    "versio": "1.3rc0",
+    "kuvaus": "Lis\u00e4tty `--ref=`-tulostusparametri versiota vastaavan git-revision hakuun"
+  },
+  {
+    "tyyppi": "julkaisu",
+    "tunnus": "a93508bae1d3e2606cfe0231475a8b3975be6e7a",
+    "versio": "1.2",
+    "kuvaus": "Versio 1.2\n* f-merkkijono versiointik\u00e4yt\u00e4nn\u00f6n m\u00e4\u00e4rityksess\u00e4\n* --ref-parametri\n* laiska versiohistorian laskenta"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "8b8f997410d325500f0661a7c3c9b7ce92d37fe0",
+    "versio": "1.2",
+    "kuvaus": "Lis\u00e4tty k\u00e4ytt\u00f6ohjeisiin `--ref`-parametrin kuvaus"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "2196e2c3b77677e067d1ed8eac2d2b19e7526f68",
+    "versio": "1.1.3",
+    "kuvaus": "Tuotetaan git-versiohistoria generaattorikutsuna vasta tarvittaessa"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "8f1ff6bbb2da2bd309eedc2210fd1e05313b8ec0",
+    "versio": "1.1.2",
+    "kuvaus": "Muutettu r\u00e4\u00e4t\u00e4l\u00f6ityjen versio- ja aliversionumeroiden muodostus k\u00e4ytt\u00e4m\u00e4\u00e4n f-merkkijonon interpolointia"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "adc66acdd1240a67ab6e91ebb519efcd7715247d",
+    "versio": "1.1.1",
+    "kuvaus": "Lis\u00e4tty `--ref`-komentoriviparametrin k\u00e4sittely"
+  },
+  {
+    "tyyppi": "julkaisu",
+    "tunnus": "24cc40dd6f8263aa176b28a4fd0955cf57ff457c",
+    "versio": "1.1",
+    "kuvaus": "Versio 1.1\n* kehitysversioiden numerointi\n* useiden, samaan revisioon osoittavien leimojen keskin\u00e4inen j\u00e4rjestys\n* versionumerointik\u00e4yt\u00e4nn\u00f6n r\u00e4\u00e4t\u00e4l\u00f6iminen setup-parametrien kautta\n* versioiksi tulkittavien leimojen rajaaminen `v[0-9]`-alkuisiin\n* k\u00e4ytt\u00f6ohjeet p\u00e4ivitetty"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "2e444f3c2d6668333ab8480f137e7e4ef961f79e",
+    "versio": "1.1",
+    "kuvaus": "P\u00e4ivitetty k\u00e4ytt\u00f6ohjeet ja esitet\u00e4\u00e4n ne paketin `long_description`-metatiedoissa"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "f2590c3ea003e6ca0688b5c04a52744c471de454",
+    "versio": "1.0.4",
+    "kuvaus": "Normalisoidaan lopulliset versionumerot"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "987187a2e0c91332892433312eaec931b2532d50",
+    "versio": "1.0.3",
+    "kuvaus": "P\u00e4ivitetty leimojen haku ja kehitysversioiden tunnistus ja numerointi"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "82334406ce2f4152d148517167b38c687450126f",
+    "versio": "1.0.2",
+    "kuvaus": "Lis\u00e4tty versiointim\u00e4\u00e4rityksen lataus `setup.cfg`-tiedostosta"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "579293fe812dd15d4da7b7c68281f008182fb2ad",
+    "versio": "1.0.1",
+    "kuvaus": "Lis\u00e4tty mahdollisuus versionumerointik\u00e4yt\u00e4nn\u00f6n m\u00e4\u00e4ritt\u00e4miseen projektikohtaisesti"
+  },
+  {
+    "tyyppi": "julkaisu",
+    "tunnus": "e8959a4dcd79ee416b84ebaf35a9cb00dee2c5a0",
+    "versio": "1.0",
+    "kuvaus": "Versio 1.0"
+  },
+  {
+    "tyyppi": "muutos",
+    "tunnus": "59f0f59838cbcea958f2345f243959504538efd7",
+    "versio": "1.0",
+    "kuvaus": "Alustava toteutus"
+  }
+]
