@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: printy
+Version: 1.0.0
+Summary: Colorize the print statement by global or inline flags
+Home-page: https://github.com/edraobdu/color_print
+Author: Edgardo Obregón
+Author-email: edraobdu@gmail.com
+License: MIT
+Description: # Printy
+        
+        A python application that allows us to colorize the print statement with 
+        flags, for instance >>> printy("some text", "yBH") will apply a Bold 
+        Highlighted Yellow color to the text.
+        
+        ### DEMO
+        
+        ![Color Print Demo](github/color_print.gif)
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
