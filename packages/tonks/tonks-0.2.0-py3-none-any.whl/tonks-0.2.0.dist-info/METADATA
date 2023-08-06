@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: tonks
+Version: 0.2.0
+Summary: General purpose multi-task classification library
+Home-page: https://github.com/shoprunner/tonks
+Author: Nicole Carlson, Michael Sugimura
+License: BSD-3-Clause
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: creevey
+Requires-Dist: fastprogress
+Requires-Dist: joblib
+Requires-Dist: numpy
+Requires-Dist: Pillow (<7.0.0)
+Requires-Dist: transformers (>=2.3.0)
+Requires-Dist: scikit-learn
+Requires-Dist: torch (==1.2.0)
+Requires-Dist: torchvision (==0.2.1)
+
+![tonks](https://net-shoprunner-scratch-data-science.s3.amazonaws.com/tonks/tonks_v2_hex_transparent.png)
+
+# Tonks
+Tonks is a general purpose deep learning library developed by the ShopRunner Data Science team to train multi-task image, text, or ensemble (image + text) models.
+
+What differentiates our library is that you can train a multi-task model with different datasets for each of your tasks. For example, you could train one model to label dress length for dresses and pants length for pants.
+
+See the [docs](https://tonks.readthedocs.io/en/latest/) for more details.
+
+To quickly get started, check out one of our tutorials in the `notebooks` folder. In particular, the `synthetic_data` tutorial provides a very quick example of how the code works.
+
+## Structure
+- `notebooks`
+    - `fashion_data`: a set of notebooks demonstrating training Tonks models on an open source fashion dataset consisting of images and text descriptions
+    - `synthetic_data`: a set of notebooks demonstrating training Tonks models on a set of generated color swatches. This is meant to be an easy fast demo of the library's capabilities that can be run on CPU's.
+- `tonks`
+    - `ensemble`: code for ensemble models of text and vision models
+    - `text`: code for text models with a BERT architecture
+    - `vision`: code for vision models with ResNet50 architectures
+
+## Installation 
+```
+pip install tonks
+```
+
+## Notes
+Currently, this library supports ResNet50 and BERT models.
+
+In some of our documentation the terms `pretrained` and `vanilla` appear. `pretrained` is our shorthand for Tonks models that have been trained at least once already so their weights have been tuned for a specific use case. `vanilla` is our shorthand for base weights coming from `transformers` or `PyTorch` for the out-of-the-box BERT and ResNet50 models.
+
+For our examples using text models, we use the [transformers](https://github.com/huggingface/transformers) repository managed by huggingface. The most recent version is called `transformers`. The huggingface repo is the appropriate place to check on BERT documentation and procedures.
+
+
+
+License
+-------
+Copyright (c) 2020, ShopRunner
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
