@@ -1,0 +1,14 @@
+MANIFEST.in
+pyproject.toml
+setup.cfg
+setup.py
+versioneer.py
+src/pickle_cacher/__init__.py
+src/pickle_cacher/_version.py
+src/pickle_cacher/pickle_cacher.py
+src/pickle_cacher.egg-info/PKG-INFO
+src/pickle_cacher.egg-info/SOURCES.txt
+src/pickle_cacher.egg-info/dependency_links.txt
+src/pickle_cacher.egg-info/not-zip-safe
+src/pickle_cacher.egg-info/requires.txt
+src/pickle_cacher.egg-info/top_level.txt
