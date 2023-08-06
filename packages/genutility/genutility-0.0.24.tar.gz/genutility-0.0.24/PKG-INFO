@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: genutility
+Version: 0.0.24
+Summary: A collection of various Python utilities
+Home-page: https://github.com/Dobatymo/genutility
+Author: Dobatymo
+License: UNKNOWN
+Description: # genutility
+        
+        A collection of various Python utilities.
+        
+        Most functionally is supported on Python 2.7+ / Python 3.5+. However some things might only be working on Python 3.6+.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
+Provides-Extra: tls
+Provides-Extra: mediainfo
+Provides-Extra: ALL
+Provides-Extra: toml
+Provides-Extra: pdf
+Provides-Extra: gensim
+Provides-Extra: json
