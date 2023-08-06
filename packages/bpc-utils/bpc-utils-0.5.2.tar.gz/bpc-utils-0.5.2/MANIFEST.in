@@ -1,0 +1,9 @@
+global-include *.py
+global-exclude *.py[cod]$
+
+prune .tox
+prune .venv
+prune __pycache__
+
+include README.md
+include LICENSE
