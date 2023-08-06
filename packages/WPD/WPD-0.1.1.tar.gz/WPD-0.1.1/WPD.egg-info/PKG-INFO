@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: WPD
+Version: 0.1.1
+Summary: Render html to pdf with weasyprint, controled from stdin
+Home-page: https://orus.io/orus-io/wpd
+Author: Orus Dev Team
+Author-email: contact@orus.io
+License: UNKNOWN
+Description: # WeasyPrint Daemon
+        
+        ## Protocol
+        
+        ### start header
+        
+        On startup, wpd sends a header to stdout, always on a single line:
+        
+        ```
+        {"wpd": "<implementation name>", "version": "<version>", "protocol": "1"}\n
+        ```
+        
+        ### job submission
+        
+        job submission, to stdin:
+        
+        ```
+        {"id": "xxx", "css": "css content", "size": <html content size>}\n
+        html content\n
+        ```
+        
+        The json header must be on _one line_.
+        
+        ### cancel job
+        
+        ```
+        {"id": "xxx", "action": "cancel"}\n
+        ```
+        
+        The job may be canceled by the renderer, but may also be rendered and returned.
+        
+        
+        ### get results
+        
+        result retrieval, from stdout:
+        
+        ```
+        {"id": "xxx", "size": <file size>}\n
+        PDF content\n
+        ```
+        
+        The json header will always be on _one line_.
+        
+        Any error will be reported as following:
+        ```
+        {"id": "xxx", "error": ""}
+        ```
+        
+        ### stopping
+        
+        To stop the daemon, just close stdin
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
