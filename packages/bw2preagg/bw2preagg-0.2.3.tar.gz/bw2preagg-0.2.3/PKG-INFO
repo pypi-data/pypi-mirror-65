@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: bw2preagg
+Version: 0.2.3
+Summary: Used to preemptively generate correlated samples in Brightway2 for whole LCI databases.
+Home-page: https://github.com/PascalLesage/bw2-database-preaggregator
+Author: Pascal Lesage
+Author-email: pascal.lesage@polymtl.ca
+License: MIT; LICENSE.txt
+Description: README
+        --------
+        
+        Add some docs here.
+Platform: UNKNOWN
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Description-Content-Type: text/markdown
