@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.cron" id="cron_import_products">
+            <field name="method">sale.channel|import_products_using_cron</field>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">days</field>
+	</record>
+        <record model="ir.cron" id="cron_import_orders">
+            <field name="method">sale.channel|import_orders_using_cron</field>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">days</field>
+	</record>
+        <record model="ir.cron" id="cron_update_orders">
+            <field name="method">sale.channel|update_order_status_using_cron</field>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">days</field>
+	</record>
+        <record model="ir.cron" id="cron_export_order_status">
+            <field name="method">sale.channel|export_order_status_using_cron</field>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">days</field>
+	</record>
+        <record model="ir.cron" id="cron_export_product_prices">
+            <field name="method">sale.channel|export_product_prices_using_cron</field>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">days</field>
+	</record>
+        <record model="ir.cron" id="cron_export_inventory">
+            <field name="method">sale.channel|export_inventory_using_cron</field>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">days</field>
+	</record>
+    </data>
+</tryton>
