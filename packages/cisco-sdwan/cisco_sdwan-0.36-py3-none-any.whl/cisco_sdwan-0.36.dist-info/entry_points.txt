@@ -1,0 +1,4 @@
+[console_scripts]
+sastre = cisco_sdwan.cmd:main
+sdwan = cisco_sdwan.cmd:main
+
