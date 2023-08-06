@@ -1,0 +1,4 @@
+[console_scripts]
+treebeard = treebeard:cli
+treebeard-spaceship = treebeard.version:cli
+
