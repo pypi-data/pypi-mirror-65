@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: fbsak
+Version: 0.9.5
+Summary: flipbit03's Swiss Army Knife
+Home-page: https://github.com/flipbit03/fbsak
+Author: flipbit03
+Author-email: cadu.coelho@gmail.com
+License: MIT
+Description: # fbsak
+        flipbit03's Python Swiss Army Knife
+        
+        
+        ##### build package after editing 
+            python setup.py sdist bdist_wheel
+            
+        ##### upload it to PyPI
+            twine upload -r pypi dist/*
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
