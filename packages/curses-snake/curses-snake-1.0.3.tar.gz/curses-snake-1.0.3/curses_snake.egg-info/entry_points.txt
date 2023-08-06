@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    curses-snake = curses_snake.cli:cli
+    
