@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: flask-slacksigauth
+Version: 1.0.0
+Summary: Python Flask adapter for verifying Slack signatures
+Home-page: https://github.com/eaescob/flask-slacksigauth
+Author: Emilio Escobar
+Author-email: eescobar@gmail.com
+License: GNU
+Platform: UNKNOWN
+Requires-Dist: flask
+Requires-Dist: pyee
+Requires-Dist: requests
+Requires-Dist: six
+
+UNKNOWN
+
+
