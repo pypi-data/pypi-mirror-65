@@ -1,0 +1,96 @@
+# Changelog
+All notable changes to this project will be documented (for humans) in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+
+## [0.4.3] - 2020-04-14
+
+### Added
+- Ability to download (multiple) individual files (using URL from
+  gui.dandiarchive.org having files selected)
+### Changed
+- `DANDI_CACHE_CLEAR` -> `DANDI_CACHE=(ignore|clear)` env variable.
+- Sanitize and tollerate better incorrect `nwb_version` field.
+### Fixed
+- Test to not invoke Popen with shell=True to avoid stalling.
+- Explicit `NO_ET=1` in workflows to avoid overreporting to etelemetry.
+
+
+## [0.4.2] - 2020-03-18
+
+### Added
+- Use of etelemetry for informing about new (or bad) versions
+### Changed
+- Fixed saving into yaml so it is consistently not using a flow style
+  (#59)
+- All file names starting with a period are not considered (#63)
+
+## [0.4.1] - 2020-03-16
+
+### Changed
+- `organize` -- now would add `_obj-` key with the crc32 checksum
+  of the nwb file `object_id` if files could not be otherwise
+  disambiguated
+- variety of small tune ups and fixes
+### Removed
+- `organize` -- not implemented option `--format`
+- `upload` -- not properly implemented option `-d|--dandiset-path`
+
+## [0.4.0] - 2020-03-13
+
+Provides interfaces for a full cycle of dandiset preparation,
+registration, upload, and download.
+
+### Added
+- caching of read metadata and validation results for .nwb files.
+  Typically those take too long and as long as dandi and pynwb
+  versions do not change -- results should not change.
+  Set `DANDI_DEVEL` variable to forcefully reset all the caches.
+### Changed
+- DEVELOPMENT.md provides more information about full local
+  test setup of the dandiarchive, and description of
+  environment variables which could assist in development.
+
+## [0.3.0] - 2020-02-28
+
+### Added
+- `organize`: organize files into hierarchy using metadata.
+  ATM operates only in "simulate" mode using .json files dumped by `ls`
+### Changed
+- various refactorings and minor improvements (docs, testing, etc).
+
+
+## [0.2.0] - 2020-02-04
+
+Improvements to `ls` and `upload` commands
+
+### Added
+- `ls`: include a list (with counts) of neural datatypes in the file
+- `upload`:
+  - ability to reupload files (by removing already existing ones)
+  - ability to "sync" (skip if not modified) to girder based on mtime
+    and size
+- CI (github actions): testing on macos-latest
+### Changed
+- removed `hdmf !=` statement in setup.cfg to not confuse pypi.
+### Fixed
+- `upload` - assure string for an error message
+- mitigated crashes in pynwb if neural data type schema is not cached
+  in the file and requires import of the extension module.  ATM the
+  known/handled only the `AIBS_ecephys` from `allensdk`
+
+
+## [Unreleased]
+
+TODO Summary
+
+### Added
+### Changed
+### Fixed
+### Removed
+### Security
+
+
+[0.2.0]: https://github.com/dandi/dandi-cli/commits/0.2.0
