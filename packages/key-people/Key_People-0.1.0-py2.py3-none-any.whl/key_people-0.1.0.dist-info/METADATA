@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: key-people
+Version: 0.1.0
+Summary: This is used to pull any of the key people from a company based off of the ticker. Currently NASDAQ and NYSE supported
+Home-page: https://github.com/BecketTrotter/Key_People
+License: MIT
+Keywords: stock,ticker,ceo,executives
+Author: Henry Becket Trotter
+Author-email: beckettrotter@gmail.com
+Requires-Python: >=2.7,<3.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Project-URL: Repository, https://github.com/BecketTrotter/Key_People
+Description-Content-Type: text/x-rst
+
+This package is used to pull key people from a company based on the ticker.
+
+
+from Key_People import get_Key_People, Key_People, get_c_Name
+list_of_key_people = get_Key_People("AAPL")
+company_Name = get_c_Name("AAPL")
+
+#if you are doing multiple entries and want to make it quicker
+db = Key_People()
+
+entry = db.entry("AAPL")
+
+entry.company_Name
+entry.key_People
+entry.ticker
+
