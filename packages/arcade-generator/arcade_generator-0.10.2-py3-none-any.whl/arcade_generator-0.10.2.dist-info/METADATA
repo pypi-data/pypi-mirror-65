@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: arcade-generator
+Version: 0.10.2
+Summary: A static site generator
+Author: Yabir Benchakhtir
+Author-email: yabirg@protonmail.com
+License: MIT
+Requires-Python: ==3.*,>=3.6.0
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: click==7.*,>=7.1.1
+Requires-Dist: jinja2
+Requires-Dist: livereload==2.*,>=2.6.1
+Requires-Dist: markdown==3.*,>=3.2.1
+Requires-Dist: pyyaml==5.*,>=5.3.1
+
+
+arcade
+======
+
+
+.. image:: assets/hartmut-tobies-O9TEKuI1Icw-unsplash-min.jpg
+   :target: assets/hartmut-tobies-O9TEKuI1Icw-unsplash-min.jpg
+   :alt: 
+
+
+Yet another static site generator. 
+
+Features
+--------
+
+
+* Theme customization (templates use ``jinja2``\ )
+* Live reload while editing
+* Customizable paths
+
+Installation
+------------
+
+.. code-block::
+
+   pip install arcade-generator
+
+Commands
+--------
+
+
+* 
+  Create a new site
+
+  .. code-block::
+
+     arcade init
+
+* 
+  Compile your site
+
+  .. code-block::
+
+     arcade build
+
+* Watch local project
+  .. code-block::
+
+     arcade watch
+
+How to use
+----------
+
+
+#. Create a new project
+
+.. code-block::
+
+   arcade init
+
+
+#. Modify the configuration file. An example is 
+
+.. code-block::
+
+   author_name: 'Yábir García Benchakhtir'
+   base_path: 'http://localhost:5500'
+   page_name: "Yabir Garcia's Blog"
+   theme: 'themes/baseline'
+   social:
+     email:
+       icon: 'fa-envelope'
+       url: 'mailto:yabirg@protonmail.com'
+     github:
+       icon: 'fa-github'
+       url: 'https://github.com/yabirgb'
+     linkedin:
+       icon: 'fa-linkedin-square'
+       url: 'https://www.linkedin.com/in/yabirgb/'
+     mastodon:
+       icon: 'fa-mastodon'
+       url: 'https://mstdn.io/@yabirgb'
+     twitter:
+       icon: 'fa-twitter'
+       url: 'https://twitter.com/yabirgb'
+
+
+#. Create a index file
+
+Go to the ``content`` and create an file called ``index.md``. This will
+be the entry point to your blog
+
+
+#. Build or watch your project
+
+.. code-block::
+
+   arcade build
+   arcade watch
+
+Made with :heart: and :snake: by Yábir Benchakhtir
+
+Credit
+------
+
+Photo by `@hartmuttobies <https://unsplash.com/@hartmuttobies>`_
