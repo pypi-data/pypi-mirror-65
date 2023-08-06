@@ -1,0 +1,1 @@
+{"": "", "Install/remove packages": "", "Apply changes": "Wizigingen tapasse", "Selections": "", "Mark for installation": "", "Mark for upgrade": "", "Installed": "", "Search packages": "", "Upgradeable": "", "pending": "", "Cancel": "Annulearje", "Close": "Slute", "Update package list": "", "Packages": "", "Mark for removal": ""}

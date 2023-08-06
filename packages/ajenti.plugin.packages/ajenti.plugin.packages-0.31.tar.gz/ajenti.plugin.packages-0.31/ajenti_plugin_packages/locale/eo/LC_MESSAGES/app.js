@@ -1,0 +1,1 @@
+{"": "", "Install/remove packages": "", "Apply changes": "", "Selections": "", "Mark for installation": "", "Mark for upgrade": "", "Installed": "Instalita", "Search packages": "", "Upgradeable": "", "pending": "", "Cancel": "Nuligi", "Close": "Fermi", "Update package list": "", "Packages": "", "Mark for removal": ""}
