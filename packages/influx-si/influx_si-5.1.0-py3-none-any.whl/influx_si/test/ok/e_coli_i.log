@@ -1,0 +1,47 @@
+"/home/sokol/.local/bin/influx_i.py" "e_coli_i"
+code gen: 2019-11-07 14:58:20
+executing: "/home/sokol/.local/bin/ftbl2optR.py" "--tblimit" "0" "--ropts" "noscale=TRUE; clowp=1e-09; zc=0.0; time_order='2'; TIMEIT=TRUE" "--case_i" "e_coli_i.ftbl"
+executing: R --vanilla --slave < e_coli_i.R
+calcul  : 2019-11-07 14:58:20
+load    : 2019-11-07 14:58:21.34 cpu=0.696
+rinit   : 2019-11-07 14:58:21.35 cpu=0.7
+r_flux  : 2019-11-07 14:58:21.35 cpu=0.7
+Afl qr(): 2019-11-07 14:58:21.43 cpu=0.786
+dfl_dffg: 2019-11-07 14:58:21.45 cpu=0.804
+spAbr   : 2019-11-07 14:58:21.45 cpu=0.805
+weight 1: 2019-11-07 14:58:21.45 cpu=0.805
+weight 2: 2019-11-07 14:58:21.48 cpu=0.834
+weight 3: 2019-11-07 14:58:21.53 cpu=0.878
+weight 4: 2019-11-07 14:58:21.56 cpu=0.915
+weight 5: 2019-11-07 14:58:21.63 cpu=0.98
+weight 6: 2019-11-07 14:58:21.64 cpu=0.987
+measure : 2019-11-07 14:58:21.65 cpu=1.005
+ineq    : 2019-11-07 14:58:21.71 cpu=1.058
+preopt  : 2019-11-07 14:58:21.84 cpu=1.151
+labargs : 2019-11-07 14:58:21.85 cpu=1.159
+cl expor: 2019-11-07 14:58:22.35 cpu=1.173
+cl sourc: 2019-11-07 14:58:23.04 cpu=1.256
+run    1: 2019-11-07 14:58:25.07 cpu=3.051
+Starting point
+zc ineq : 2019-11-07 14:58:25.07 cpu=3.052
+kvh init: 2019-11-07 14:58:25.10 cpu=3.071
+check ja: 2019-11-07 14:58:25.31 cpu=3.107
+optim   : 2019-11-07 14:58:26.12 cpu=3.114
+it=0	res=237.7947
+it=1	res=70.06248	normstep=30.47659	btk=1
+it=2	res=36.43491	normstep=31.35182	btk=1
+it=3	res=21.83319	normstep=0.2793447	btk=1
+it=4	res=21.7384	normstep=0.03332941	btk=1
+it=5	res=21.72383	normstep=0.03867587	btk=1
+it=6	res=21.6348	normstep=0.08885869	btk=1
+it=7	res=21.37745	normstep=0.4890457	btk=0.5
+it=8	res=21.24931	normstep=0.6490092	btk=1
+it=9	res=20.96647	normstep=0.3171006	btk=1
+it=10	res=20.96366	normstep=0.1287473	btk=1
+it=15	res=20.96358	normstep=5.448569e-05	btk=1
+secondzc: 2019-11-07 14:58:35.30 cpu=3.35
+After the first optimization, no zero crossing inequality was activated. So no reoptimization
+postopt : 2019-11-07 14:58:35.31 cpu=3.359
+linstats: 2019-11-07 14:58:35.81 cpu=3.617
+rend    : 2019-11-07 14:58:36.03 cpu=3.744
+end     : 2019-11-07 14:58:36
