@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: aiohttp-boilerplate
+Version: 0.1.12
+Summary: 
+License: MIT
+Author: Vladyslav Tarasenko
+Author-email: vladka@webdevelop.pro
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: PyJWT (==1.7.1)
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: asyncpg (==0.20.1)
+Requires-Dist: marshmallow (==2.19.5)
+Requires-Dist: ujson (==1.35)
+Requires-Dist: uvloop (==0.14.0)
