@@ -1,0 +1,1 @@
+from pandemic.main import large_town as run
