@@ -1,0 +1,4 @@
+dbt-core==0.16.1
+dbt-postgres==0.16.1
+boto3<1.12,>=1.4.4
+botocore<1.15,>=1.5.0
