@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: dever
+Version: 0.0.1
+Summary: Manage your dev environment at ease
+Home-page: https://github.com/yaseralnajjar/dever
+Author: Yaser Alnajjar
+Author-email: yaser.alnajjar@hotmail.com
+License: Apache License 2.0
+Description: pip3 install docker
+        
+        sudo python dever.py
+        
+        dever start
+        dever stop
+        dever reset
+        dever inside
+Keywords: dev environment,docker,setup dev env
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
