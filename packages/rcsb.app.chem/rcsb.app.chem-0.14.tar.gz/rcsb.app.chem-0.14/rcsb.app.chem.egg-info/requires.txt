@@ -1,0 +1,11 @@
+fastapi[all]
+uvicorn
+pydantic>=1.4
+rcsb.utils.io>=0.57
+rcsb.utils.chem>=0.26
+
+[dev]
+check-manifest
+
+[test]
+coverage
