@@ -1,0 +1,330 @@
+Metadata-Version: 2.1
+Name: django-api-forms
+Version: 0.7.1
+Summary: Declarative Django request validation
+Home-page: https://github.com/Sibyx/django_api_forms
+Author: Jakub Dubec
+Author-email: jakub.dubec@gmail.com
+License: MIT
+Keywords: django,forms,request,validation,python
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Environment :: Web Environment
+Description-Content-Type: text/markdown
+Requires-Dist: Django (>=2.0)
+Requires-Dist: msgpack
+
+# Django API Forms
+
+[![PyPI version](https://badge.fury.io/py/django-api-forms.svg)](https://badge.fury.io/py/django-api-forms)
+[![codecov](https://codecov.io/gh/Sibyx/django_api_forms/branch/master/graph/badge.svg)](https://codecov.io/gh/Sibyx/django_api_forms)
+
+[Django Forms](https://docs.djangoproject.com/en/3.0/topics/forms/) approach in validation of request payload
+(especially for content type like [JSON](https://www.json.org/) or [MessagePack](https://msgpack.org/))
+without HTML front-end.
+
+## Motivation
+
+Main idea was to create a simple and declarative way to specify format of expecting request with ability to validate
+them. Firstly I tried to use [Django Forms](https://docs.djangoproject.com/en/3.0/topics/forms/) to validate my API
+request (I use pure Django in my APIs). I have encountered a problem with nesting my requests without huge boilerplate.
+Also, the whole HTML thing was pretty useless in my RESTful APIs.
+
+I wanted something to:
+
+- define my requests as object (`Form`)
+- pass the request to my defined object (`form = Form.create_from_request(request)`)
+- validate my request `form.is_valid()`
+- extract data `form.clean_data` property
+
+I wanted to keep:
+
+- friendly declarative Django syntax
+([DeclarativeFieldsMetaclass](https://github.com/django/django/blob/master/django/forms/forms.py#L22) is beautiful)
+- [Django Validators](https://docs.djangoproject.com/en/3.0/ref/validators/)
+- [ValidationError](https://docs.djangoproject.com/en/3.0/ref/exceptions/#validationerror)
+
+So I decided to create simple Python package to cover all my expectations.
+
+## Installation
+
+```shell script
+# Using pip
+pip install django-api-forms
+
+# Using pipenv
+pipenv install django-api-forms
+
+# Using setup.py
+python setup.py install
+```
+
+## Example
+
+**Simple nested JSON request**
+
+```json
+{
+  "title": "Unknown Pleasures",
+  "type": "vinyl",
+  "artist": {
+    "name": "Joy Division",
+    "genres": [
+      "rock",
+      "punk"
+    ],
+    "members": 4
+  },
+  "year": 1979,
+  "songs": [
+    {
+      "title": "Disorder",
+      "duration": "3:29"
+    },
+    {
+      "title": "Day of the Lords",
+      "duration": "4:48",
+      "metadata": {
+        "_section": {
+          "type": "ID3v2",
+          "offset": 0,
+          "byteLength": 2048
+        },
+        "header": {
+          "majorVersion": 3,
+          "minorRevision": 0,
+          "flagsOctet": 0,
+          "unsynchronisationFlag": false,
+          "extendedHeaderFlag": false,
+          "experimentalIndicatorFlag": false,
+          "size": 2038
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "created_at": "2019-10-21T18:57:03+0100",
+    "updated_at": "2019-10-21T18:57:03+0100"
+  }
+}
+
+```
+
+**Django API Forms equivalent + validation**
+
+```python
+from enum import Enum
+
+from django.core.exceptions import ValidationError
+from django.forms import fields
+
+from django_api_forms import FieldList, FormField, FormFieldList, DictionaryField, EnumField, AnyField, Form
+
+
+class AlbumType(Enum):
+    CD = 'cd'
+    VINYL = 'vinyl'
+
+
+class ArtistForm(Form):
+    name = fields.CharField(required=True, max_length=100)
+    genres = FieldList(field=fields.CharField(max_length=30))
+    members = fields.IntegerField()
+
+
+class SongForm(Form):
+    title = fields.CharField(required=True, max_length=100)
+    duration = fields.DurationField(required=False)
+    metadata = AnyField(required=False)
+
+
+class AlbumForm(Form):
+    title = fields.CharField(max_length=100)
+    year = fields.IntegerField()
+    artist = FormField(form=ArtistForm)
+    songs = FormFieldList(form=SongForm)
+    type = EnumField(enum=AlbumType, required=True)
+    metadata = DictionaryField(fields.DateTimeField())
+
+    def clean_year(self):
+        if self.cleaned_data['year'] == 1992:
+            raise ValidationError("Year 1992 is forbidden!", 'forbidden-value')
+        return self.cleaned_data['year']
+
+    def clean(self):
+        if (self.cleaned_data['year'] == 1998) and (self.cleaned_data['artist']['name'] == "Nirvana"):
+            raise ValidationError("Sounds like a bullshit", code='time-traveling')
+        return self.cleaned_data
+
+
+
+"""
+Django view example
+"""
+def create_album(request):
+    form = AlbumForm.create_from_request(request)
+    if not form.is_valid():
+        # Process your validation error
+        print(form.errors)
+
+    # Cleaned valid payload
+    payload = form.cleaned_data
+    print(payload)
+```
+
+---
+Made with ❤️ and ☕️ by Jakub Dubec & [BACKBONE s.r.o.](https://www.backbone.sk/en/)
+
+# Changelog
+
+## 0.7.1 : 13.04.2020
+
+- **Change** Use [poetry](https://python-poetry.org/) instead of [pipenv](https://github.com/pypa/pipenv)
+- **Change**: Library renamed from `django_api_forms` to `django-api-forms` (cosmetic change without effect)
+
+## 0.7.0 : 03.03.2020
+
+- **Change**: Library renamed from `django_request_formatter` to `django_api_forms`
+- **Change**: Imports in main module `django_api_forms`
+
+## 0.6.0 : 18.02.2020
+
+- **Feature**: `BooleanField` introduced
+
+## 0.5.8 : 07.01.2020
+
+- **Fix**: Pass `Invalid value` as `ValidationError` not as a `string`
+
+## 0.5.7 : 07.01.2020
+
+- **Fix**: Introduced generic `Invalid value` error message, if there is `AttributeError`, `TypeError`, `ValueError`
+
+## 0.5.6 : 01.01.2020
+
+- **Fix**: Fixing issue from version `0.5.5` but this time for real
+- **Change**: Renamed version file from `__version__.py` to `version.py`
+
+## 0.5.5 : 01.01.2020
+
+- **Fix**: Check instance only if there is a value in `FieldList` and `FormFieldList`
+
+## 0.5.4 : 24.12.2019
+
+- **Fix**: Added missing `msgpack`` dependency to `setup.py`
+
+## 0.5.3 : 20.12.2019
+
+- **Feature**: Introduced generic `AnyField`
+
+## 0.5.2 : 19.12.2019
+
+- **Fix**: Skip processing of the `FormField` if value is not required and empty
+
+## 0.5.1 : 19.12.2019
+
+- **Fix**: Process `EnumField` even if it's not marked as required
+
+## 0.5.0 : 16.12.2019
+
+- **Change**: Use native `django.form.fields` if possible
+- **Change**: Removed `kwargs` propagation from release `0.3.0`
+- **Change**: Changed syntax back to `django.forms` compatible (e.g. `form.validate_{key}()` -> `form.clean_{key}()`)
+- **Change**: `FieldList` raises `ValidationError` instead of `RuntimeException` if there is a type  in validation
+- **Change**: Use private properties for internal data in field objects
+- **Fixed**: `FieldList` returns values instead of `None`
+- **Fix**: Fixed validation in `DictionaryField`
+- **Maintenance**: Basic unit tests
+
+## 0.4.3 : 29.11.2019
+
+- **Fix**: Fixed `Form` has no attribute `self._data`
+
+## 0.4.2 : 29.11.2019
+
+- **Fix**: If payload is empty, create empty dictionary to avoid `NoneType` error
+
+## 0.4.1 : 14.11.2019
+
+- **Feature**: Introduced `UUIDField`
+
+## 0.4.0 : 13.11.2019
+
+- **Feature**: Introduced `DictionaryField`
+
+## 0.3.0 : 11.11.2019
+
+- **Feature**: Propagate `kwargs` from `Form.is_valid()` to `Form.validate()` and `Form.validate_{key}()` methods
+
+## 0.2.1 : 4.11.2019
+
+- **Fix**: Fixed `to_python()` in FormFieldList
+
+## 0.2.0 : 31.10.2019
+
+- **Change**: `Form.validate()` replaced by `Form.is_valid()`
+- **Feature**: `Form.validate()` is now used as a last step of form validation and it's aimed to be overwritten if
+needed
+- **Note**: Unit tests initialization
+
+## 0.1.6 : 24.10.2019
+
+- **Fix**: Non-required EnumField is now working
+- **Feature**: WIP: Initial method for filling objects `Form::fill()`
+
+## 0.1.5 : 23.10.2019
+
+- **Fix**: Assign errors to form before raising `ValidationError`
+
+## 0.1.4 : 23.10.2019
+
+- **Fix**: Do not return empty error records in `Form:errors`
+
+## 0.1.3 : 23.10.2019
+
+- **Fix**: Use custom `DeclarativeFieldsMetaclass` because of custom `Field` class
+- **Fix**: Do not return untouched fields in `Form::payload`
+- **Fix**: Fix for None `default_validators` in `Field`
+
+## 0.1.2 : 22:10.2019
+
+- **Feature**: Support for `validation_{field}` methods in `Form` (initial support)
+
+## 0.1.1 : 22.10.2019
+
+- **Feature**: `EnumField`
+
+## 0.1.0 : 22.10.2019
+
+- **Feature**: First version of `Form` class
+- **Feature**: `CharField`
+- **Feature**: `IntegerField`
+- **Feature**: `FloatField`
+- **Feature**: `DecimalField`
+- **Feature**: `DateField`
+- **Feature**: `TimeField`
+- **Feature**: `DateTimeField`
+- **Feature**: `DurationField`
+- **Feature**: `RegexField`
+- **Feature**: `EmailField`
+- **Feature**: `BooleanField`
+- **Feature**: `RegexField`
+- **Feature**: `FieldList`
+- **Feature**: `FormField`
+- **Feature**: `FormFieldList`
+
+
