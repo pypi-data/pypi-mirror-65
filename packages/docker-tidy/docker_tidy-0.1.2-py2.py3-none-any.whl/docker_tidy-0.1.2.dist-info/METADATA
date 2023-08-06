@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: docker-tidy
+Version: 0.1.2
+Summary: Keep docker hosts tidy
+Home-page: https://github.com/xoxys/docker-tidy
+Author: Robert Kaussow
+Author-email: mail@geeklabor.de
+License: Apache-2.0
+Keywords: docker gc prune garbage
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development
+Requires-Python: >=3.5,<4
+Description-Content-Type: text/markdown
+Requires-Dist: anyconfig (==0.9.10)
+Requires-Dist: appdirs (==1.4.3)
+Requires-Dist: attrs (==19.3.0)
+Requires-Dist: certifi (==2020.4.5.1)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: dateparser (==0.7.4)
+Requires-Dist: docker (==4.2.0)
+Requires-Dist: docker-pycreds (==0.4.0)
+Requires-Dist: environs (==7.3.1)
+Requires-Dist: idna (==2.9)
+Requires-Dist: ipaddress (==1.0.23)
+Requires-Dist: jsonschema (==3.2.0)
+Requires-Dist: marshmallow (==3.5.1)
+Requires-Dist: nested-lookup (==0.2.21)
+Requires-Dist: pathspec (==0.8.0)
+Requires-Dist: pyrsistent (==0.16.0)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: python-dotenv (==0.12.0)
+Requires-Dist: python-json-logger (==0.1.11)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: regex (==2020.4.4)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: ruamel.yaml (==0.16.10)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: tzlocal (==2.0.0)
+Requires-Dist: urllib3 (==1.25.8)
+Requires-Dist: websocket-client (==0.57.0)
+Requires-Dist: zipp (==1.2.0)
+Requires-Dist: ruamel.yaml.clib (==0.2.0) ; platform_python_implementation == "CPython" and python_version < "3.9"
+Requires-Dist: importlib-metadata (==1.6.0) ; python_version < "3.8"
+
+# docker-tidy
+
+[![Build Status](https://img.shields.io/drone/build/xoxys/docker-tidy?logo=drone)](https://cloud.drone.io/xoxys/docker-tidy)
+[![Docker Hub](https://img.shields.io/badge/docker-latest-blue.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/xoxys/docker-tidy)
+[![Python Version](https://img.shields.io/pypi/pyversions/docker-tidy.svg)](https://pypi.org/project/docker-tidy/)
+[![PyPi Status](https://img.shields.io/pypi/status/docker-tidy.svg)](https://pypi.org/project/docker-tidy/)
+[![PyPi Release](https://img.shields.io/pypi/v/docker-tidy.svg)](https://pypi.org/project/docker-tidy/)
+[![Codecov](https://img.shields.io/codecov/c/github/xoxys/docker-tidy)](https://codecov.io/gh/xoxys/docker-tidy)
+[![License: MIT](https://img.shields.io/github/license/xoxys/docker-tidy)](LICENSE)
+
+This project is a fork of [Yelp/docker-custodian](https://github.com/Yelp/docker-custodian). Keep docker hosts tidy.
+
+You can find the full documentation at [https://docker-tidy.geekdocs.de](https://docker-tidy.geekdocs.de/).
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+## Maintainers and Contributors
+
+[Robert Kaussow](https://github.com/xoxys)
+
+
