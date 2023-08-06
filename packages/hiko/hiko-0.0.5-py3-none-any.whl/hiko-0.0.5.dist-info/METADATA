@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: hiko
+Version: 0.0.5
+Summary: Execute functions in parallel
+Home-page: https://github.com/sarunas-girdenas/hiko
+Author: Sarunas Girdenas, Chris Gell
+Author-email: sgirdenas@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: dask[complete]
+Requires-Dist: parameterized
+
+# hiko
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Sarunas-Girdenas/hiko/graphs/commit-activity)
+[![codecov](https://codecov.io/gh/Sarunas-Girdenas/hiko/branch/master/graph/badge.svg?token=2O20HPZX0I)](https://codecov.io/gh/Sarunas-Girdenas/hiko)
+
+Seamlessly run simple functions in parallel using [Dask](https://github.com/dask/dask)
+
+# Sample Usecases
+## Dask
+```python
+from hiko.dask import daskify
+
+@daskify()
+def squared(x):
+  return x ** 2
+
+squared_output = squared([i for i in range(10)])
+```
+
+It is also possible to provide cluster address if Dask is running on multiple machines. For example:
+
+```python
+@daskify("111.111.111.1:8797")
+def squared(x):
+  return x ** 2
+```
+## time
+Little utility to provide execution time using decorator
+
+```python
+from hiko.time import timeify
+
+@timeify(True)
+def squared(x):
+  return x ** 2
+
+# if True is provided, then execution time returned alongside the result
+result, execution_time = squared(5)
+```
+
+# IDEAS
+1. Data Query / Data Injection
+2. Standard Dask Functions
+3. Automated documentation
+4. Write more tests
+
+# Modules
+hiko
+  time
+  - data
+  - dask
+    decorators
+    - functions
+  - spark
+    decorators
+    - functions
+  - data
+  - pipelines
+
