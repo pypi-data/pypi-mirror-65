@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: Procpath
+Version: 0.0.1
+Summary: Procpath is a process tree analysis workbench
+Home-page: https://hg.sr.ht/~saaj/procpath
+Author: saaj
+Author-email: mail@saaj.me
+License: LGPL-3.0-only
+Description: ********
+        Procpath
+        ********
+        Procpath is a process tree analysis workbench.
+        
+        .. sourcecode::
+        
+            $ procpath query --help
+            usage: procpath query [-h] [-f FILE_LIST] [-d DELIMITER] [-i INDENT] [query]
+        
+            positional arguments:
+              query                 JSONPath expression, for example this query returns
+                                    PIDs for process subtree including the given root's:
+                                    $..children[?(@.stat.pid == 2610)]..pid
+        
+            optional arguments:
+              -h, --help            show this help message and exit
+              -f FILE_LIST, --file-list FILE_LIST
+                                    PID proc files to read. By default: stat,cmdline.
+                                    Available: stat,cmdline,io.
+              -d DELIMITER, --delimiter DELIMITER
+                                    Join query result using given delimiter
+              -i INDENT, --indent INDENT
+                                    Format result JSON using given indent number
+        
+        .. sourcecode::
+        
+            $ procpath record --help
+            usage: procpath record [-h] [-f FILE_LIST] [-e ENVIRONMENT] [-i INTERVAL]
+                                   [-r RECNUM] [-v REEVALNUM] -d DATABASE_FILE
+                                   [query]
+        
+            positional arguments:
+              query                 JSONPath expression, for example this query returns a
+                                    node including its subtree for given PID:
+                                    $..children[?(@.stat.pid == 2610)]
+        
+            optional arguments:
+              -h, --help            show this help message and exit
+              -f FILE_LIST, --file-list FILE_LIST
+                                    PID proc files to read. By default: stat,cmdline.
+                                    Available: stat,cmdline,io.
+              -e ENVIRONMENT, --environment ENVIRONMENT
+                                    Commands to evaluate in the shell and template the
+                                    query, like VAR=date
+              -i INTERVAL, --interval INTERVAL
+                                    Interval in second between each recording, 10 by
+                                    default.
+              -r RECNUM, --recnum RECNUM
+                                    Number of recordings to take at --interval seconds
+                                    apart. If not specified, recordings will be taken
+                                    indefinitely.
+              -v REEVALNUM, --reevalnum REEVALNUM
+                                    Number of recordings after which environment must be
+                                    re-evaluate. It's useful when you expect it to change
+                                    in while recordings are taken.
+              -d DATABASE_FILE, --database-file DATABASE_FILE
+                                    Path to the recording database file
+Keywords: procfs jsonpath
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Provides-Extra: jsonpath
