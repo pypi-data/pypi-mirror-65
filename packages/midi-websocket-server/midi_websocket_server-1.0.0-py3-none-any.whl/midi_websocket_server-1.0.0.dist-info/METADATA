@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: midi-websocket-server
+Version: 1.0.0
+Summary: Python Websocket server to facilitate two-way communication with all connected MIDI devices.
+Home-page: https://github.com/PeterSR/python-midi-websocket-server
+Author: Peter Severin Rasmussen
+Author-email: git@petersr.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Requires-Dist: websockets (>=8.1)
+Requires-Dist: python-rtmidi (>=1.4.0)
+
+# MIDI Websocket server
+
+Python Websocket server to facilitate two-way communication with all connected MIDI devices.
+
+Features:
+
+- Broadcasting all `NOTE ON` and `NOTE OFF` MIDI signals from all MIDI devices to all clients listening via websocket.
+- Playing received `NOTE ON` and `NOTE OFF` MIDI signals from connected clients to specific MIDI device.
+- Discovery of new devices when they are plugged in. Changes to device list is broadcasted to all connected clients.
+
+The server is designed to run on a Raspberry Pi with a MIDI keyboard plugged in via USB.
+
+Powered by [aaugustin/websockets](https://github.com/aaugustin/websockets) and [SpotlightKid/python-rtmidi](https://github.com/SpotlightKid/python-rtmidi).
+
+
