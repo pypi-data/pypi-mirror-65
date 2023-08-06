@@ -1,0 +1,4 @@
+[console_scripts]
+referenceseeker = referenceseeker.referenceseeker:main
+referenceseeker_db = referenceseeker.database:main
+
