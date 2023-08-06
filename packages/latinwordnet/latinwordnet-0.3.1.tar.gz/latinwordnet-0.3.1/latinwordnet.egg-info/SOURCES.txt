@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+latinwordnet/__init__.py
+latinwordnet/latinwordnet.py
+latinwordnet.egg-info/PKG-INFO
+latinwordnet.egg-info/SOURCES.txt
+latinwordnet.egg-info/dependency_links.txt
+latinwordnet.egg-info/requires.txt
+latinwordnet.egg-info/top_level.txt
+tests/__init__.py
+tests/test_index.py
+tests/test_lemmas.py
+tests/test_other.py
+tests/test_semfields.py
+tests/test_sentiment_analysis.py
+tests/test_synsets.py
