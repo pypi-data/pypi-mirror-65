@@ -1,0 +1,5 @@
+[console_scripts]
+conducto = conducto.__main__:main
+conducto-perm-data = conducto.data:perm_data._main
+conducto-temp-data = conducto.data:temp_data._main
+
