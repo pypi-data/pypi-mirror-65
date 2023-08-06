@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: zqy-utils
+Version: 0.1.6
+Summary: zqy's utility functions.
+Home-page: https://github.com/qianyizhang/
+Author: qianyizhang
+Author-email: landy123007@hotmail.com
+Maintainer: qianyizhang
+Maintainer-email: landy123007@hotmail.com
+License: MIT
+Download-URL: https://github.com/qianyizhang//tarball/2020-04-11
+Platform: Windows
+Platform: MacOS
+Platform: Unix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: SimpleITK
+Requires-Dist: scikit-learn
+
+utilities lib used by zqy!
+
+
