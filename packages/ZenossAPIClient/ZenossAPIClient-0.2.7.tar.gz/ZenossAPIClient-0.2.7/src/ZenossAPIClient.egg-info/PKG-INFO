@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: ZenossAPIClient
+Version: 0.2.7
+Summary: Zenoss API client module
+Home-page: https://github.com/Zuora-TechOps/ZenossAPIClient
+Author: Mark Troyer
+Author-email: disco@zuora.com
+License: Apache
+Description: 
+        Python module for interacting with the Zenoss API an an object-oriented way.
+        The philosophy here is to use objects to work with everything in the Zenoss 
+        API, and to try to normalize the various calls to the different routers.
+        Thus `get` methods will always return an object, `list` methods will return 
+        data. All methods to add or create start with `add`, all remove or delete 
+        start with `delete`. As much as possible the methods try to hide the 
+        idiosyncrasies of the JSON API, and to do the work for you, for example 
+        by letting you use a device name instead of having to provide the full 
+        device UID for every call.
+        
+Keywords: Zenoss monitoring api
+Platform: UNKNOWN
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: System :: Monitoring
