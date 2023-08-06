@@ -1,0 +1,245 @@
+from nn4mc_py.datastructures import NeuralNetwork
+from ._globals import G
+import numpy as np
+import os
+
+#This class deals with iterating on a NerualNetwork object and
+#generating C code.
+#NOTE:
+class Generator():
+    #NOTE: The following constants should actually be variable in the future
+    #more customization in terms of these values.
+    TEMPLATE_TYPE = 'c_standard'
+    INDEX_DATATYPE = 'int'
+    LAYER_OUTPUT_DATATYPE = 'float'
+    ACTIVATION_DATATYPE = 'char'
+    WEIGHT_DATATYPE = 'const float'
+
+    def __init__(self, nn_obj, output_directory):
+        self.nn = nn_obj #NerualNetwork object to iterate on
+        self.output_dir = output_directory #Output file path
+
+        path = os.path.dirname(__file__)
+        self.templates_path = os.path.join(path, 'templates/' + self.TEMPLATE_TYPE)
+
+        self.header_files = {}
+        self.source_files = {}
+
+    # Generates the code
+    #NOTE:
+    def generate(self):
+        self.buildFileTree() #Builds output file directory
+
+        self.processTemplates() #Processes required templates
+
+        self.processLayers() #Processes layers
+
+        self.dump() #Dumps output code
+
+    # Iterates through graph to extract which layers and
+    # activations are required. Also replaces any delimiters
+    # that can be at this point
+    #NOTE:
+    def processTemplates(self):
+        layers = []
+        activations = []
+
+        #Get lists of all activations and layers
+        for node in self.nn.iterate():
+            type = node.layer.layer_type
+            if type != 'input' and type != 'flatten':
+                activation = node.layer.activation
+
+                if type not in layers:
+                    layers.append(type)
+                if activation != '' and activation not in activations and activation != 'linear':
+                    activations.append(activation)
+
+        #For each layer type scrape file and replace delimiters
+        for layer_type in layers:
+            #Replace delimiters and add to layer_templates
+            file = G.LAYER_TEMPLATE_HEADER + layer_type + '.h'
+            with open(self.templates_path + file + '.template', 'r') as header:
+                contents = header.read()
+                contents = self.replaceDelimiters(contents)
+
+                self.header_files[file] = contents
+
+            #Replace delimiters and add to layer_templates
+            file = G.LAYER_TEMPLATE_SOURCE + layer_type + '.cpp'
+            with open(self.templates_path + file + '.template', 'r') as source:
+                contents = source.read()
+                contents = self.replaceDelimiters(contents)
+
+                self.source_files[file] = contents
+
+        #For each activation type scrape and replace delimiters
+        #NOTE: Need to change this to grab only the neccessary functions
+        file = G.ACTIVATION_HEADER
+        with open(self.templates_path + file + '.template', 'r') as header:
+            contents = header.read()
+            head_contents = self.replaceDelimiters(contents)
+
+            activations_string = ''
+            for act_type in activations:
+                begin = '<%' + act_type.upper() + '_BEGIN>'
+                end = '<%' + act_type.upper() + '_END>'
+
+                start = contents.find(begin) + len(begin)
+                stop = contents.find(end)
+
+                activations_string = activations_string + contents[start:stop] + '\n'
+
+            activations_string = self.replaceDelimiters(activations_string)
+            head_contents = head_contents.replace(G.ACTIVATIONS_DELIMITER, activations_string)
+
+            self.header_files[file] = head_contents
+
+        file = G.ACTIVATION_SOURCE
+        with open(self.templates_path + file + '.template', 'r') as source:
+            contents = source.read()
+            head_contents = self.replaceDelimiters(contents)
+
+            activations_string = ''
+            for act_type in activations:
+                begin = '<%' + act_type.upper() + '_BEGIN>'
+                end = '<%' + act_type.upper() + '_END>'
+
+                start = contents.find(begin) + len(begin)
+                stop = contents.find(end)
+
+                activations_string = activations_string + contents[start:stop] + '\n'
+
+            activations_string = self.replaceDelimiters(activations_string)
+            head_contents = head_contents.replace(G.ACTIVATIONS_DELIMITER, activations_string)
+
+            self.source_files[file] = head_contents
+
+        #Scrape weight file
+        file = G.PARAMETERS_HEADER
+        with open(self.templates_path + file + '.template', 'r') as params:
+            contents = params.read()
+            contents = self.replaceDelimiters(contents)
+
+            self.header_files[file] = contents
+
+        #Scrape nn4mc main include file and add include statements
+        file = G.NEURAL_NETWORK_HEADER
+        with open(self.templates_path + file + '.template', 'r') as header:
+            contents = header.read()
+            contents = self.replaceDelimiters(contents)
+
+            include_string = ''
+            #Might need to be edited
+            for layer_type in layers:
+                include_string = include_string + '#include ' +\
+                                layer_type + '.h\n'
+
+            contents = contents.replace(G.NN_INCLUDE_DELIMITER, include_string)
+
+            self.header_files[file] = contents
+
+        #Scrape nn4mc main source file
+        file = G.NEURAL_NETWORK_SOURCE
+        with open(self.templates_path + file + '.template', 'r') as source:
+            contents = source.read()
+            contents = self.replaceDelimiters(contents)
+
+            self.source_files[file] = contents
+
+    # Iterates through graph to extract all metadata and
+    # weight data and place in appropriate templates to
+    # be dumped.
+    #NOTE:
+    def processLayers(self):
+        #For each node we need to deal with the weights and biases
+        #and write the init and fwd functions
+        param_template = self.header_files[G.PARAMETERS_HEADER]
+        nn_header = self.header_files[G.NEURAL_NETWORK_HEADER]
+        nn_source = self.source_files[G.NEURAL_NETWORK_SOURCE]
+
+        for node in self.nn.iterate():
+            if node.layer.layer_type != 'input' and node.layer.layer_type != 'flatten':
+                weight_string = node.layer.w.getParams()
+                bias_string = node.layer.b.getParams()
+                init_string = node.layer.generateInit()
+                fwd_string = node.layer.generateFwd()
+
+                #Deal with weights and bias stuff
+                param_template = param_template.replace(
+                    G.W_WEIGHT_DELIMITER, weight_string + G.W_WEIGHT_DELIMITER)
+                param_template = param_template.replace(
+                    G.W_WEIGHT_DELIMITER, bias_string + G.W_WEIGHT_DELIMITER)
+
+                #Deal with writing the layer
+                #HEADER: Add the structs
+                pos = nn_header.find(G.NN_STRUCT_DELIMITER)
+                nn_header = nn_header.replace(G.NN_STRUCT_DELIMITER,
+                    'struct ' + node.layer.layer_type + ' ' + node.layer.identifier +\
+                    ';\n' + G.NN_STRUCT_DELIMITER)
+
+                #SOURCE: Add the init and fwd calls
+                pos = nn_source.find(G.NN_INIT_DELIMITER)
+                nn_source = nn_source.replace(G.NN_INIT_DELIMITER,
+                    init_string + G.NN_INIT_DELIMITER)
+
+                pos = nn_source.find(G.NN_FWD_DELIMITER)
+                nn_source = nn_source.replace(G.NN_FWD_DELIMITER,
+                    fwd_string + G.NN_FWD_DELIMITER)
+
+        #Remove the weight placement delimiter
+        param_template = param_template.replace(
+        G.W_WEIGHT_DELIMITER, '')
+        nn_header = nn_header.replace(G.NN_STRUCT_DELIMITER, '')
+        nn_source = nn_source.replace(G.NN_INIT_DELIMITER, '')
+        nn_source = nn_source.replace(G.NN_FWD_DELIMITER, '')
+
+        self.header_files[G.PARAMETERS_HEADER] = param_template
+        self.header_files[G.NEURAL_NETWORK_HEADER] = nn_header
+        self.source_files[G.NEURAL_NETWORK_SOURCE] = nn_source
+
+    # Builds the output file structure
+    #NOTE: Need to add more error handling
+    def buildFileTree(self):
+        directories = []
+        directories.append(self.output_dir + '/nn4mc')
+        directories.append(self.output_dir + '/nn4mc/include')
+        directories.append(self.output_dir + '/nn4mc/include/layers')
+        directories.append(self.output_dir + '/nn4mc/src')
+        directories.append(self.output_dir + '/nn4mc/src/layers')
+
+        try:
+            for dir in directories:
+                os.mkdir(dir)
+        except Exception as e:
+            print(e)
+
+    # Dumps all files into output structure
+    #NOTE: Done
+    def dump(self):
+        for header in self.header_files.keys():
+            with open(self.output_dir + 'nn4mc' + header, 'w') as outfile:
+                outfile.write(self.header_files[header])
+
+        for source in self.source_files.keys():
+            with open(self.output_dir + 'nn4mc' + source, 'w') as outfile:
+                outfile.write(self.source_files[source])
+
+    #Looks for all standard delimiters and replaces them with actual values
+    #NOTE:
+    def replaceDelimiters(self, contents):
+        start = contents.find(G.START_DELIMITER)
+        end = contents.find(G.END_DELIMITER)
+
+        if start != -1:
+            start += len(G.START_DELIMITER)
+
+            contents = contents[start:end]
+
+        contents = contents.replace(G.WEIGHT_DATATYPE_DELIMITER, self.WEIGHT_DATATYPE)
+        contents = contents.replace(G.INDEX_DATATYPE_DELIMITER, self.INDEX_DATATYPE)
+        #I think there might be more to this than I am thinking
+        contents = contents.replace(G.LAYER_DATATYPE_DELIMITER, self.LAYER_OUTPUT_DATATYPE)
+        contents = contents.replace(G.ACTIVATION_DATATYPE_DELIMITER, self.ACTIVATION_DATATYPE)
+
+        return contents

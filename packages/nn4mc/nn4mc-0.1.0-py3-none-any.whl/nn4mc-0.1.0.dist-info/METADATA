@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: nn4mc
+Version: 0.1.0
+Summary: Neural Networks for Microcontrollers is a Python packagefor generating microcontroller code in c from traind models.
+Home-page: https://github.com/RS-Coop/nn4mc_py
+Author: Cooper Simpson, Sarah Manzano, Dana Hughes
+Author-email: cooper.simpson@colorado.edu
+License: MIT
+Keywords: Neural Network,Microcontroller
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Code Generators
+Description-Content-Type: text/markdown
+Requires-Dist: h5py
+Requires-Dist: numpy
+
+# Neural Networks for Microcontrollers: Python
+
+A python nn4mc package that allows for the translation of trained neural network models in C code for use in embedded systems.
+
+### Development Status
+
+Please note that nn4mc_py is still in development and may have many bugs. We are working hard on getting everything operating seamlessly, and feel free to reach out with any questions.
+
+
