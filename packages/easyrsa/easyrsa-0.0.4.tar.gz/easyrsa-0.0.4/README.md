@@ -1,0 +1,45 @@
+# Easy RSA
+
+<i>Encrypt symmetric keys with RSA.</i>
+
+# Hierarchy
+
+```
+easyrsa
+'---- EasyRSA()
+    |---- gen_private_key()
+    |---- gen_public_key()
+    |---- encrypt()
+    '---- decrypt()
+```
+
+# Example
+
+## python
+```python
+from easyrsa import *
+
+# generate a key pair
+kp = {}
+EasyRSA(bits=512*2).gen_private_key(kp).gen_public_key(kp)
+print(kp)
+
+# encryption and decryption
+from base64 import b64encode
+symmetric_key = "abc" or b"abc" or b64encode(b"abc")
+encrypted_key = EasyRSA(public_key=kp["public_key"]).encrypt(symmetric_key)
+key_in_b64 = b64encode(encrypted_key).decode("utf-8")
+print(encrypted_key)
+print(key_in_b64)
+print(symmetric_key == EasyRSA(private_key=kp["private_key"]).decrypt(encrypted_key))
+print(symmetric_key == EasyRSA(private_key=kp["private_key"]).decrypt(key_in_b64))
+```
+
+## shell
+```shell script
+rem easyrsa.exe {private key in base64|public key in base64} {base64 string to decrypt|symmetric key to encrypt}
+rem decryption returns string
+easyrsa.exe <private key in base64> <base64 string to decrypt>
+rem encryption returns string in b64
+easyrsa.exe <public key in base64> <symmetric key to encrypt>
+```
