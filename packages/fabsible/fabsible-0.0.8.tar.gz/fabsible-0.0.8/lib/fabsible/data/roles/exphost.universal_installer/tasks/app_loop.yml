@@ -1,0 +1,7 @@
+- name: "install app {{app.key}}"
+  include_role:
+    name: "{{subapp.value.type}}"
+  loop: "{{app.value|dict2items}}"
+  loop_control:
+    loop_var: subapp
+  when: subapp.value['enabled']|default(False) and (single_app is not defined or single_app == app.key)

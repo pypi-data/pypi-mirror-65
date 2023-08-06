@@ -1,0 +1,9 @@
+- name: deb
+  debug:
+    msg: "Jeste defaule fillere"
+
+- name: defaults?
+  include_tasks: app_loop.yml
+  loop: "{{apps|dict2items}}"
+  loop_control:
+    loop_var: app

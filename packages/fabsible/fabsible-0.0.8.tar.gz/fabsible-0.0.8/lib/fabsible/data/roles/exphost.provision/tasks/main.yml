@@ -1,0 +1,35 @@
+- name: debug
+  debug:
+    msg: "jeste provisionere"
+
+- include_tasks: users.yml
+
+- block:
+  - name: set hostname
+    hostname:
+      name: "{{inventory_hostname}}"
+  - name: install epel
+    yum:
+      name: epel-release
+
+  - name: configure yum repos
+    yum_repository:
+      name: "{{item.key}}"
+      description: "{{item.value.description|default(item.key)}}"
+      baseurl: "{{item.value.baseurl}}"
+      gpgcheck: "{{item.value.gpgcheck|default(omit)}}"
+      skip_if_unavailable: "{{item.value.skip_if_unavailable|default(omit)}}"
+    loop: "{{configs.repos|default({})|dict2items}}"
+
+  - name: populate service facts
+    service_facts:
+
+  - name: turn of firewalld
+    service:
+      name: firewalld
+      state: stopped
+      enabled: False
+    when: services['firewalld.service']|default(False)
+  when: inventory_hostname != "localhost"
+
+  become: True

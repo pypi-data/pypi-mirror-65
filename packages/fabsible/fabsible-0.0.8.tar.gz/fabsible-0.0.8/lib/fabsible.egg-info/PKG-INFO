@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: fabsible
+Version: 0.0.8
+Summary: Ansible framework using object-oriented configuration
+Home-page: https://github.com/exphost/fabsible
+Author: TORGiren
+Author-email: exphost@fabrykowski.pl
+License: UNKNOWN
+Description: Fabsible
+        ========
+        
+        Fabsible is ansible framework which is object-oriented.
+        
+        Getting started
+        ---------------
+        
+        Installation
+        ############
+        
+        Create python virtual env
+        
+        ```
+        python3 -m venv venv
+        . venv/bin/activate
+        ```
+        
+        Install fabsible
+        
+        ```
+        pip install fabsible
+        ```
+        
+        
+        Configuration
+        -------------
+        
+        TODO: creating inventory file
+        
+        Init new project
+        
+        ```
+        fabsible-init -i libvirt-inventory.py
+        ```
+        
+        Create provisioning tasks and place them in `files/providers/<name>.yml`. Ex.
+        
+        ```
+        cat files/providers/libvirt.yml
+        - name: libvirt
+          debug:
+            msg: "Jeste provisione libvirte"
+        
+        - include_role:
+            name: exphost.create_user
+          vars:
+            ansible_user: root
+            ansible_password: super_password
+          loop: "{{ users }}"
+          loop_control:
+            loop_var: user
+        ```
+        
+        Create users
+        
+        ```
+        cat group_vars/all/users_admins.yml
+        users_admins:
+          - user: torgiren
+            group: wheel
+            password: "XXX" #Password hash
+            home: "/home/torgiren"
+        ```
+        
+        and add ssh-keys to `files/ssh-keys/<username>/<keyname>.pub`
+        
+        add become password (TODO: this should be per user not per project)
+        
+        ```
+        cat become.yml
+        ansible_become_pass: anotherpassword
+        ```
+        
+        Run
+        ---
+        
+        `fabsible-play`
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Information Technology
+Classifier: Natural Language :: English
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

@@ -1,0 +1,5 @@
+- name: "app_loop {{prio}}"
+  include_tasks: app_loop.yml
+  loop: "{{apps|dict2items|json_query('[?value.priority==`'+ prio|string +'`]')}}"
+  loop_control:
+    loop_var: app

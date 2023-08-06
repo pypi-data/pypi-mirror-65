@@ -1,0 +1,14 @@
+- name: deb defaults (never fail)
+  include_vars:
+    file: "{{FABSIBLE_CWD|default('..')}}/roles/{{app.value[app_type]['type']}}/defaults/main.yml"
+    name: app_defaults
+  failed_when: False
+  register: _reg_include_vars
+  when: app.value[app_type]['type']|default(False)
+  #ignore_errors: True
+
+- name: fill defaults
+  vars:
+    defaults: "{{_reg_include_vars.ansible_facts.app_defaults.app_defaults|default({})|retemplate(vars)}}"
+  set_fact:
+    apps: "{{ {app.key: {app_type: defaults}}|combine(apps, recursive=True)}}"

@@ -1,0 +1,6 @@
+- name: "fill defaults {{app.key}}"
+  include_tasks: app_loop_type.yml
+  loop: "{{app.value|list}}"
+  loop_control:
+    loop_var: app_type
+  when: app.value[app_type]

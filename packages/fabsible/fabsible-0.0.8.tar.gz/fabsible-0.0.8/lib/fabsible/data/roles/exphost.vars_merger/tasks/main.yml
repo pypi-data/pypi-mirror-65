@@ -1,0 +1,32 @@
+- name: debug
+  debug:
+    msg: "Jeste varse mergere"
+
+- name: asserts
+  assert:
+    that:
+      - apps is not defined
+      - users is not defined
+      - configs is not defined
+
+- name: create empty vars
+  set_fact:
+    apps: {}
+    users: []
+    configs: {}
+
+- name: apps
+  set_fact:
+    apps: "{{apps|default({})|combine(hostvars[inventory_hostname][item], recursive=True)}}"
+  with_items: "{{hostvars[inventory_hostname]|select('regex', '^apps_*')|list}}"
+  #change from loop to with_items because of https://github.com/ansible/ansible/pull/64401
+
+- name: users
+  set_fact:
+    users: "{{users|default([]) + hostvars[inventory_hostname][item]}}"
+  loop: "{{hostvars[inventory_hostname]|select('regex', '^users_*')|list}}"
+
+- name: configs
+  set_fact:
+    configs: "{{configs|default({})|combine(hostvars[inventory_hostname][item], recursive=True)}}"
+  loop: "{{hostvars[inventory_hostname]|select('regex', '^configs_*')|list}}"
