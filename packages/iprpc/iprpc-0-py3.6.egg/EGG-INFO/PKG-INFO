@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: iprpc
+Version: 0
+Summary: InPlat JSON RPC library
+Home-page: https://gitlab.app.ipl/inplat/iprpc/
+Author: Konstantin Stepanov
+License: Apache License 2.0
+Description: UNKNOWN
+Keywords: iprpc
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: ~=3.6
+Provides-Extra: aioapp
+Provides-Extra: aiohttp
