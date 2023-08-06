@@ -1,0 +1,6 @@
+[console_scripts]
+primerserver-config = primerserver2.web.config:prepare
+primertool = primerserver2.cmd.primertool:main
+primertool-isoform = primerserver2.cmd.isoforms:main
+primertool-junction = primerserver2.cmd.junctions:main
+
