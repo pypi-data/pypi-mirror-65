@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+README.rst
+dev-requirements.txt
+setup.cfg
+setup.py
+py2ts/__init__.py
+py2ts/__init__.pyi
+py2ts/exceptions.py
+py2ts/exceptions.pyi
+py2ts/python2ts.py
+py2ts/python2ts.pyi
+py2ts.egg-info/PKG-INFO
+py2ts.egg-info/SOURCES.txt
+py2ts.egg-info/dependency_links.txt
+py2ts.egg-info/requires.txt
+py2ts.egg-info/top_level.txt

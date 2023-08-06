@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: py2ts
+Version: 0.0.1
+Summary: Python type code generator
+Home-page: https://github.com/conanfanli/py2ts
+Author: Conan Li
+Author-email: conanlics@gmail.com
+License: MIT
+Description: 
+        py2ts
+        =====
+        
+        Python to TypeScript
+        
+Keywords: Python,TypeScript,Dataclass,Code Generation
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: ~=3.8
+Provides-Extra: dev
