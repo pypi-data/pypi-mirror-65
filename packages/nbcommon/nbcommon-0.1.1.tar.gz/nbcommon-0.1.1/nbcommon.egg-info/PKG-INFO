@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: nbcommon
+Version: 0.1.1
+Summary: nbcommon pkgs
+Home-page: UNKNOWN
+Author: chang@nextbillion.ai
+Author-email: chang@nextbillion.ai
+License: UNKNOWN
+Description: # nbcommon
+        
+        ## changelog
+        
+         - 20200413: add geo.to_poly_filter function. supporting converting to poly-filter format from single polygon geojson
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
