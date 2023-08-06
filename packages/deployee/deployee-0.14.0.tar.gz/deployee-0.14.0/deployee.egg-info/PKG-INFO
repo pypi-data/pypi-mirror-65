@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: deployee
+Version: 0.14.0
+Summary: Python tool to deploy python web application automatically
+Home-page: https://github.com/WqyJh/deployee
+Author: wqy
+Author-email: qiyingwangwqy@gmail.com
+License: UNKNOWN
+Description: # deployee
+        
+        [![Build Status](https://travis-ci.org/WqyJh/deployee.svg?branch=master)](https://travis-ci.org/WqyJh/deployee)
+        [![license](https://img.shields.io/badge/LICENCE-GPLv3-brightgreen.svg)](https://raw.githubusercontent.com/WqyJh/deployee/master/LICENSE)
+        
+        Server requirements:
+        
+        - rsync
+        - supervisor
+        - python3
+        - virtualenv
+        - pip
+        
+        
+        ## Usage
+        
+        Deploy an django application.
+        
+        ```bash
+        deployee /path/to/project production
+        ```
+        
+        Deploy a flask application.
+        
+        ```bash
+        ./run.py /path/to/project production --framework flask --script "python -m app"
+        ```
+        
+        ## Project Structure
+        
+        ```bash
+        /var
+        ├── lib
+        │   ├── local_settings
+        │   │   └── project
+        │   │       ├── production
+        │   │       ├── staging
+        │   │       └── test
+        │   └── venv
+        │   │   └── project
+        │   │       ├── production
+        |   |       |   └── <hash>
+        │   │       ├── staging
+        |   |       |   └── <hash>
+        │   │       └── test
+        ├── log
+        │   └── project
+        │       ├── production
+        │       ├── staging
+        │       └── test
+        ├── media
+        │   └── project
+        │       ├── production
+        │       ├── staging
+        │       └── test
+        ├── static
+        │   └── project
+        │       ├── production
+        │       ├── staging
+        │       └── test
+        └── www
+        │   └── project
+        │       ├── production
+        |       |   └── <hash>
+        │       ├── staging
+        |       |   └── <hash>
+        │       └── test
+        ```
+        # Changelog
+        
+        
+        ## 0.14.0
+        #### New Features
+        
+        * create working directory under /tmp
+        * add parallel option for django test
+        
+        
+        ## 0.12.0
+        #### New Features
+        
+        * add inventory argument
+        * add pkg_resources
+        * add support for custom script
+        * add --dry-run
+        * support stages
+        * add click to create cli
+        * generate vars.yml
+        * run playbook with python
+        * add <hash> to the directory tree
+        * add ansible
+        * add attr evaluation to format
+        * add string formatter
+        
+        #### Fixes
+        
+        * fix log path
+        
+Keywords: django,automation,deploy
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
