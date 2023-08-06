@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: rvfont
+Version: 1.0.1
+Summary: Fontchooser for python
+Home-page: https://github.com/ravikiranb36/rvfont.git
+Author: Ravikirana B
+Author-email: ravikiranb36@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+Fontchooser for python GUI or tkinter
+
+To install module : pip install rvfont\
+Latest version = "1.0.1"
+
+Example code:
+
+from rvfont.rvfontchooser import FontDialog\
+get_font=FontDialog()\
+print(get_font)
+
+It will give output like:
+{'font': 'Arial', 'size': 10, 'weight': 'normal', 'slant': 'roman', 'underline': True, 'strike': False}
+
+Developed by \
+Ravikirana B\
+Email: ravikiranb36@gmail.com
+
