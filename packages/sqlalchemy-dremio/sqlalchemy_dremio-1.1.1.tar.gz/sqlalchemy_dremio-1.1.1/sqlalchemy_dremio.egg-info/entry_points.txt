@@ -1,0 +1,4 @@
+[sqlalchemy.dialects]
+dremio = sqlalchemy_dremio.pyodbc:DremioDialect_pyodbc
+dremio.flight = sqlalchemy_dremio.flight:DremioDialect_flight
+
