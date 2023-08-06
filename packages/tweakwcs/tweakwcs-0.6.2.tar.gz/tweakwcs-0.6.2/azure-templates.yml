@@ -1,0 +1,76 @@
+jobs:
+- job: ${{ format(parameters.name) }}
+  pool:
+    ${{ if eq(parameters.os, 'windows') }}:
+      vmImage: vs2017-win2016
+    ${{ if eq(parameters.os, 'macos') }}:
+      vmImage: macOS-10.15
+    ${{ if eq(parameters.os, 'linux') }}:
+      vmImage: ubuntu-16.04
+
+  strategy:
+    matrix:
+      # spherical_geometry will not build on windows:py35
+      # py35 is mostly dead at this point anyway
+      #Python35:
+      #  python.version: '3.5'
+      Python36:
+        python.version: '3.6'
+      Python37:
+        python.version: '3.7'
+    maxParallel: 4
+
+  steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '$(python.version)'
+        architecture: 'x64'
+
+    - bash: |
+        export PIP_INSTALL='pip install --upgrade'
+        echo "##vso[task.setvariable variable=PIP_INSTALL]$PIP_INSTALL"
+      condition: ne( variables['Agent.OS'], 'Windows_NT' )
+      displayName: Pip on Linux/Darwin
+
+    - powershell: |
+        Set-Variable -Name PIP_INSTALL -Value 'python -m pip install --upgrade'
+        Write-Host "##vso[task.setvariable variable=PIP_INSTALL]$PIP_INSTALL"
+      condition: eq( variables['Agent.OS'], 'Windows_NT' )
+      displayName: Pip on Windows
+
+      # Some namespace packages require but do not provide stsci.distutils.
+      # $(PIP_INSTALL) git+https://github.com/spacetelescope/jwst@stable
+    - script: |
+        $(PIP_INSTALL) pip numpy stsci.distutils d2to1
+      displayName: install dependencies
+
+    - script: |
+        $(PIP_INSTALL) -e .[test]
+      displayName: build package
+
+    - script: |
+        python -m pip freeze
+      displayName: freeze output
+
+    - script: |
+        pytest --cov=./ -v --junitxml=junit/test-results.xml
+      displayName: run test
+
+    - bash: |
+        codecov -t $codecov_token
+      env:
+        codecov_token: $(CODECOV_TOKEN)
+      condition: ne( variables['Agent.OS'], 'Windows_NT' )
+      displayName: codecov upload on Linux/Darwin
+
+    - powershell: |
+        codecov -t "$(CODECOV_TOKEN)"
+      condition: eq( variables['Agent.OS'], 'Windows_NT' )
+      displayName: codecov upload on Windows
+
+    - task: PublishTestResults@2
+      condition: succeededOrFailed()
+      inputs:
+        testResultsFiles: '**/test-*.xml'
+        testRunTitle: 'Python $(python.version)-${{ format(parameters.name) }}'
+
