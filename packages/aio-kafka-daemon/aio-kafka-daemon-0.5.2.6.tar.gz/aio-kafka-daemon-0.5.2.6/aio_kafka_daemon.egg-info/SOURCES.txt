@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+aio_kafka_daemon.egg-info/PKG-INFO
+aio_kafka_daemon.egg-info/SOURCES.txt
+aio_kafka_daemon.egg-info/dependency_links.txt
+aio_kafka_daemon.egg-info/entry_points.txt
+aio_kafka_daemon.egg-info/requires.txt
+aio_kafka_daemon.egg-info/top_level.txt
+aiokafkadaemon/__init__.py
+aiokafkadaemon/daemon.py
+aiokafkadaemon/worker.py

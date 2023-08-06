@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: aio-kafka-daemon
+Version: 0.5.2.6
+Summary: Asynchronous Kafka Processing Daemon
+Home-page: UNKNOWN
+Author: Bob Zhou
+Author-email: bob.zhou@ef.com
+License: MIT
+Description: UNKNOWN
+Keywords: asyncio-based kafka producer/consumer daemon framework
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5, <4
