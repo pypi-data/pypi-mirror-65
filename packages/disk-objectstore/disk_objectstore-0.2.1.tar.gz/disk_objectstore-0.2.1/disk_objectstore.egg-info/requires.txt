@@ -1,0 +1,12 @@
+sqlalchemy
+
+[dev]
+profilehooks
+psutil
+click
+pre-commit
+yapf
+prospector
+pylint
+pytest
+pytest-cov
