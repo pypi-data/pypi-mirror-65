@@ -1,0 +1,3 @@
+[console_scripts]
+pyforensicstore = forensicstore.cmd.__main__:main
+
