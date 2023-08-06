@@ -1,0 +1,57 @@
+[tool.black]
+line-length=79
+target-version=["py38"]
+
+[tool.coverage.run]
+branch = true
+source = ["aiohttp_cache"]
+
+[tool.coverage.paths]
+source = ["aiohttp_cache/"]
+
+[tool.coverage.report]
+fail_under = 73 # TODO should be 95%
+skip_covered = true
+show_missing = true
+
+[tool.poetry]
+name = "aiohttp-cache"
+version = "2.0.2"
+description = "A cache system for aiohttp server"
+authors = ["Daniel Garcia (cr0hn) <cr0hn@cr0hn.com>"]
+maintainers = [
+    "Daniel Garcia (cr0hn) <cr0hn@cr0hn.com>",
+    "Artem Zhukov (zhukovgreen) <zhukovgreen@icloud.com",
+]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Other Audience",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Security",
+]
+readme = "README.md"
+repository = "https://github.com/cr0hn/aiohttp-cache"
+license = "BSD"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiohttp = "^3.6"
+envparse = "^0.2.0"
+aioredis = "^1.3"
+
+
+[tool.poetry.dev-dependencies]
+coverage = {extras = ["toml"], version = "^5.0.3"}
+pytest = "^5.3"
+pytest-aiohttp = "^0.3.0"
+pytest-cov = "^2.8"
+
+
+[build-system]
+requires = ["poetry>=1.0.0."]
+build-backend = "poetry.masonry.api"
