@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: vault-search
+Version: 0.2.4
+Summary: Utility that searching inside vault
+Home-page: https://gitlab.com/maksmikhalov/vault_search.git
+Author: Maks Mikhalov
+Author-email: dn2tx.com@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: colorlog (~=4.0.2)
+Requires-Dist: requests (~=2.23.0)
+Requires-Dist: urllib3 (~=1.24.1)
+
+# Search in Hashicorp Vault KV
+
+Searching in Vault first argument. Search is case insensetive. Wildcards are not supported but script is looking for partial entry of the argument.
+
+### Required environment varialbes:
+* VAULT_ADDR - Format is PROTOCOL+FQDN of vault instance;
+* VAULT_NS - Vault namespace;
+* VAULT_KV_PATH - name of KV where search will start from.
+
+### Usage
+* vs TEXT
+
+
