@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pytimeset
+Version: 0.5.11
+Summary: Defines sets and intervals to work with time, and provides arithmetic operations for them. Uses Cython extensions for performance.
+Home-page: https://github.com/GFlorio/pytimeset
+Author: Gabriel Florio
+Author-email: gabriel@gabrielflorio.com
+License: MIT
+Description: [![Build Status](https://travis-ci.org/gflorio/pytimeset.svg?branch=master)](https://travis-ci.org/gflorio/pytimeset)
+        [![Coverage Status](https://coveralls.io/repos/github/GFlorio/pytimeset/badge.svg?branch=master)](https://coveralls.io/github/GFlorio/pytimeset?branch=master)
+        [![PyPI version](https://badge.fury.io/py/pytimeset.svg)](https://badge.fury.io/py/pytimeset)
+        [![PyPI pyversions](https://img.shields.io/pypi/pyversions/pytimeset.svg)](https://pypi.python.org/pypi/pytimeset/)
+        
+        # PyTimeSet
+        Library that allows high speed arithmetics with time intervals, powered by Cython.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
