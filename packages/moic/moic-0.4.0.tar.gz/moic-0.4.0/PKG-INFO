@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: moic
+Version: 0.4.0
+Summary: My Own Issue CLI (Jira, Gitlab etc...)
+Home-page: https://gitlab.com/brice.santus/moic
+Author: Brice Santus
+Author-email: brice.santus@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: antidote (>=0.7.0,<0.8.0)
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: commonmark (>=0.9.1,<0.10.0)
+Requires-Dist: dynaconf (>=2.2.3,<3.0.0)
+Requires-Dist: jira
+Requires-Dist: keyring (>=21.1.1,<22.0.0)
+Requires-Dist: pyyaml (>=5.3,<6.0)
+Requires-Dist: rich (>=0.8.1,<0.9.0)
+Requires-Dist: tomd (>=0.1.3,<0.2.0)
+Project-URL: Documentation, https://gitlab.com/brice.santus/moic/-/blob/master/README.md
+Description-Content-Type: text/markdown
+
+# MOIC : My Own Issue CLI
+
+> Freely inspired by https://pypi.org/project/jira-cli/
+
+Command line utility to interact with issue manager such as Jira (I'll add Gitlab support later)
+
+## Getting Started
+
+* Install moic
+```bash
+> pip install moic
+```
+
+* Configure moic
+```bash
+> moic configure
+```
+
+* Commands
+```bash
+> moic
+Usage: moic [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  config    Configure Jira cli
+  issue     Create, edit, list Jira issues
+  list      List projects, issue_types, priorities, status
+  rabbit    Print an amazing rabbit
+  sprint    Create, edit, list Jira Sprints
+  template  List, edit templates
+```
+
+## Autocompletion
+
+To activate bash autocompletion just add:
+* For bash
+```
+# In your .bashrc
+eval "$(_MOIC_COMPLETE=source_bash moic)"
+```
+* For zsh
+```
+# In your .zshrc
+eval "$(_MOIC_COMPLETE=source_zsh moic)"
+```
+
+## Contribute
+
+### Setup
+
+* Create virtualenv
+```bash
+poetry shell
+```
+* Install dependencies
+```bash
+poetry install
+```
+* Install pre-commit
+```bash
+pre-commit install
+```
+
+> Pre-commit will check isort, black, flake8
+
