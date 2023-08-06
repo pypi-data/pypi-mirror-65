@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: kbase-workspace-client
+Version: 0.0.2
+Summary: KBase Workspace Client and Utilities
+License: MIT
+Author: KBase Team
+Author-email: info@kbase.us
+Requires-Python: >=3.6.7,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: biopython (>=1.76,<2.0)
+Requires-Dist: requests (>=2)
