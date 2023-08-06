@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: foliantcontrib.utils.chapters
+Version: 1.0.1
+Summary: Utils for chapters
+Home-page: https://github.com/foliant-docs/foliantcontrib.utils.chapters
+Author: Daniil Minukhin
+Author-email: ddddsa@gmail.com
+License: MIT
+Description: [![](https://img.shields.io/pypi/v/foliantcontrib.utils.chapters.svg)](https://pypi.org/project/foliantcontrib.utils.combined-options/) [![](https://img.shields.io/github/v/tag/foliant-docs/foliantcontrib.utils.chapters.svg?label=GitHub)](https://github.com/foliant-docs/foliantcontrib.utils.chapters)
+        
+        # Chapters utils
+        
+        This module contains utils which make work with Foliant chapter lists easier.
+        
+        ## Installation
+        
+        To use functions and classes from this module, install it with command
+        
+        ```bash
+        pip3 install foliantcontrib.utils.chapters
+        ```
+        
+        ## Usage
+        
+        Right now this module offers only one useful class, called `Chapters`. To start using it, import it:
+        
+        ```python
+        >>> from foliant.contrib.chapters import Chapters
+        
+        ```
+        
+        Let's assume we have the following list of chapters specified in foliant.yml:
+        
+        ```yml
+        chapters:
+            - introduction.md
+            - Overview:
+                - The Problem: problem.md
+                - Requirements: req.md
+                - Quick Start:
+                    - qs/installation.md
+                    - qs/first_steps.md
+                    - qs/advanced_usage.md
+            - Specifications:
+                - specs/core.md
+                - specs/classes.md
+        ```
+        
+        If we want to interact wit this list of chapters, we will probably only need path to Markdown-files in the proper order. That's exactly what the `Chapters` class offers. Let's translate this chapter list into Python and give it to the `Chapters` class:
+        
+        ```python
+        >>> chapters_list = {'chapters': ['introduction.md',{'Overview': [{'The Problem': 'problem.md'},{'Requirements': 'req.md'},{'Quick Start': ['qs/installation.md','qs/first_steps.md','qs/advanced_usage.md']}]},{'Specifications': ['specs/core.md', 'specs/classes.md']}]}
+        >>> chapters = Chapters(chapters_list)
+        
+        ```
+        
+        ### The **flat** property
+        
+        The `flat` property of the `Chapters` class contains the list of chapter filenames in the correct order, with all the original hierarchy neatly flattened.
+        
+        ```python
+        >>> for chapter in chapters.flat:
+        ...     print(chapter)
+        introduction.md
+        problem.md
+        req.md
+        qs/installation.md
+        qs/first_steps.md
+        qs/advanced_usage.md
+        specs/core.md
+        specs/classes.md
+        
+        ```
+        
+        ### The **paths** method
+        
+        Usually when we work with chapters, we need not just ther names, as they stated in foliant.yml, but the paths to the actual files.
+        
+        This is the work of the `paths` method, which accepts one argument: root of the markdown-files directory (usually `src` or `__folianttmp__`).
+        
+        This method returns a generator, which yields `PosixPath` objects to each chapter in the proper order
+        
+        ```python
+        >>> for path in chapters.paths('src'):
+        ...     print(repr(path))
+        PosixPath('src/introduction.md')
+        PosixPath('src/problem.md')
+        PosixPath('src/req.md')
+        PosixPath('src/qs/installation.md')
+        PosixPath('src/qs/first_steps.md')
+        PosixPath('src/qs/advanced_usage.md')
+        PosixPath('src/specs/core.md')
+        PosixPath('src/specs/classes.md')
+        
+        ```
+        
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
