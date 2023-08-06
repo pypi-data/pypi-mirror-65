@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: neurosum
+Version: 0.0.0.3
+Summary: Runs a statistical summary for electrophysiology data.
+Home-page: https://github.com/
+Author-email: lehenry@ucsd.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: statsmodels
+Requires-Dist: neurodsp
+Requires-Dist: scipy
+Requires-Dist: pyopenephys
+Requires-Dist: h5py
+
+# Statistical Summary For Neuroscience
+A statistical summary commandline tool for OpenEphys binary data, and specifically formatted .mat data.
+
+## How To Use
+Run this command, and you should see progress updates in the terminal, and plots will come up after a couple minutes. 
+```
+python3 location/to/summary/summary_statistics.py location/to/binary_data_or_mat
+```
+
+
+
+
