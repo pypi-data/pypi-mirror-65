@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: cycliclr
+Version: 2020.4.14.15.27.56
+Summary: 深度学习工具类
+Home-page: https://github.com/Jie-Yuan/cycliclr
+Author: JieYuan
+Author-email: 313303303@qq.com
+Maintainer: JieYuan
+Maintainer-email: 313303303@qq.com
+License: MIT
+Keywords: deepctr,deepnn,deepfm
+Platform: all
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: tqdm
+Requires-Dist: wrapt
+Requires-Dist: loguru
+Requires-Dist: sklearn
+Requires-Dist: pretty-errors
+Requires-Dist: pyforest
+
+<h1 align = "center">:rocket: CyclicLR :facepunch:</h1>
+
+[![Downloads](http://pepy.tech/badge/CyclicLR)](http://pepy.tech/project/CyclicLR)
+[![Downloads](https://pepy.tech/badge/CyclicLR/month)](https://pepy.tech/project/CyclicLR/month)
+[![Downloads](https://pepy.tech/badge/CyclicLR/week)](https://pepy.tech/project/CyclicLR/week)
+[![PyPI release](https://img.shields.io/pypi/v/CyclicLR.svg)](https://pypi.python.org/pypi/CyclicLR)
+[![PyPI version](https://img.shields.io/pypi/pyversions/CyclicLR.svg)](https://pypi.python.org/pypi/CyclicLR)
+---
+
+# Install
+```sh
+pip install cycliclr
+```
+
+
+---
+https://github.com/bckenstler/CLR
+
+https://github.com/m-romanenko/cycliclr
+
+https://github.com/automan000/CyclicLR_Scheduler_PyTorch
+
