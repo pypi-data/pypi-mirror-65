@@ -1,0 +1,16 @@
+[dffml.operation]
+check_if_valid_git_repository_URL = dffml_feature_git.feature.operations:check_if_valid_git_repository_URL
+cleanup_git_repo = dffml_feature_git.feature.operations:cleanup_git_repo
+clone_git_repo = dffml_feature_git.feature.operations:clone_git_repo
+count_authors = dffml_feature_git.feature.operations:count_authors
+git_commits = dffml_feature_git.feature.operations:git_commits
+git_repo_author_lines_for_dates = dffml_feature_git.feature.operations:git_repo_author_lines_for_dates
+git_repo_checkout = dffml_feature_git.feature.operations:git_repo_checkout
+git_repo_commit_from_date = dffml_feature_git.feature.operations:git_repo_commit_from_date
+git_repo_default_branch = dffml_feature_git.feature.operations:git_repo_default_branch
+git_repo_release = dffml_feature_git.feature.operations:git_repo_release
+lines_of_code_by_language = dffml_feature_git.feature.operations:lines_of_code_by_language
+lines_of_code_to_comments = dffml_feature_git.feature.operations:lines_of_code_to_comments
+quarters_back_to_date = dffml_feature_git.feature.operations:quarters_back_to_date
+work = dffml_feature_git.feature.operations:work
+
