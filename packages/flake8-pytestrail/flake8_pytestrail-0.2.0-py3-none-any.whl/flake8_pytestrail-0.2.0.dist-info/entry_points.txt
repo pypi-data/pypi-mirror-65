@@ -1,0 +1,3 @@
+[flake8.extension]
+TR=flake8_pytestrail:PyTestRailChecker
+
