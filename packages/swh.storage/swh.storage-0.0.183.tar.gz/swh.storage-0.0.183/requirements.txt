@@ -1,0 +1,8 @@
+click
+flask
+psycopg2
+python-dateutil
+vcversioner
+aiohttp
+tenacity
+cassandra-driver >= 3.19.0, != 3.21.0
