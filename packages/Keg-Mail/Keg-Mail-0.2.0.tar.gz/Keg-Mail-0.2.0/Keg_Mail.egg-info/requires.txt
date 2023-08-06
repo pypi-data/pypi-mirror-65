@@ -1,0 +1,16 @@
+flask_mail
+Keg
+SQLAlchemy-Utils
+arrow
+
+[mailgun]
+requests
+ordered-set
+
+[test]
+tox
+pytest
+pytest-coverage
+requests-mock
+flask-webtest
+KegElements
