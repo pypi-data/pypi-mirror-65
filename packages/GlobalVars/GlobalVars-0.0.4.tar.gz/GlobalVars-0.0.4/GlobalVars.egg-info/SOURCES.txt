@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+GlobalVars.egg-info/PKG-INFO
+GlobalVars.egg-info/SOURCES.txt
+GlobalVars.egg-info/dependency_links.txt
+GlobalVars.egg-info/top_level.txt
+globalVars/__init__.py
+globalVars/globalVars.py
+globalVars/load.py
+globalVars/removeVar.py
+globalVars/save.py
+globalVars/setOrUpdateVar.py
+globalVars/setVar.py
+globalVars/updateVar.py
