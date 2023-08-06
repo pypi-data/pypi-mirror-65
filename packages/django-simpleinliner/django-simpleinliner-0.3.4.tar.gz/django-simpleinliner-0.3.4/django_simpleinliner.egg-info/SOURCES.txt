@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+django_simpleinliner.egg-info/PKG-INFO
+django_simpleinliner.egg-info/SOURCES.txt
+django_simpleinliner.egg-info/dependency_links.txt
+django_simpleinliner.egg-info/not-zip-safe
+django_simpleinliner.egg-info/requires.txt
+django_simpleinliner.egg-info/top_level.txt
+simpleinliner/__init__.py
+simpleinliner/_version.py
+simpleinliner/exceptions.py
+simpleinliner/html.py
+simpleinliner/settings.py
+simpleinliner/templatetags/__init__.py
+simpleinliner/templatetags/simpleinliner.py
