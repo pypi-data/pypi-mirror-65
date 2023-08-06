@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pyconnect
+Version: 0.4.2
+Summary: A Python implementation of "Kafka Connect"-like functionality
+Home-page: https://github.com/real-digital/pyconnect
+Author: real.digital
+Author-email: opensource@real-digital.de
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Dist: confluent-kafka[avro] (>=1.0)
+Requires-Dist: pyaml (>=3.13)
+Requires-Dist: avro-python3
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+UNKNOWN
+
+
