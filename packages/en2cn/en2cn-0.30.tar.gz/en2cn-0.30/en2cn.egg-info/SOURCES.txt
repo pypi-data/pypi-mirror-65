@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.py
+en2cn/__init__.py
+en2cn/中文词典.py
+en2cn.egg-info/PKG-INFO
+en2cn.egg-info/SOURCES.txt
+en2cn.egg-info/dependency_links.txt
+en2cn.egg-info/top_level.txt
+en2cn/翻译/__init__.py
+en2cn/翻译/数据类型.py
+en2cn/翻译/自定义词典.py
+en2cn/翻译/词典相关常量.py
