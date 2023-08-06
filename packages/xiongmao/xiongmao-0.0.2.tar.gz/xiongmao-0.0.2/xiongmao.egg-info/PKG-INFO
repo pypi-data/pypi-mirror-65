@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: xiongmao
+Version: 0.0.2
+Summary: Binding Pandas functions to dataframe as methods
+Home-page: https://github.com/johnlichtenstein/xiongmao
+Author: Johnny Lichtenstein
+Author-email: johnlichtenstein@gmail.com
+License: UNKNOWN
+Description: # xiongmao
+        For a more tidy Pandas<p>
+        Binding pandas methods to the dataframe class can make for more compact, more pythonic code with fewer edits required to make a change. 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
