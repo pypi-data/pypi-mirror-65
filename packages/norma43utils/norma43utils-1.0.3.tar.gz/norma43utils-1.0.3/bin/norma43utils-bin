@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+import argparse
+import sys
+
+from norma43parser import DateFormat
+from norma43utils import GoogleSpreadsheetService
+
+parser = argparse.ArgumentParser(
+    description="Reads  a norma43 formatted document, converts it and uploads it to Google Spreadsheets."
+)
+parser.add_argument("input", help="norma43 input file path", type=str)
+parser.add_argument("format", help="Format to output the result", choices=["google"], type=str)
+parser.add_argument("output", help="Google spreadsheet document id", type=str)
+parser.add_argument("date_format", help="Date format (EN/ES)", choices=["EN", "ES"], type=str)
+
+
+args = parser.parse_args()
+date_format = DateFormat.ENGLISH if args.date_format == "EN" else DateFormat.SPANISH
+
+service = GoogleSpreadsheetService()
+
+# first version only supports google
+if args.format != "google":
+    sys.exit(1)
+
+norma_43 = service.read_norma43_file(args.input, date_format=date_format)
+data = service.get_values_list(norma_43)
+service.write(data, args.output)
