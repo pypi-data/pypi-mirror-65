@@ -1,0 +1,5 @@
+aiohttp
+sqlalchemy
+
+[:python_version < "3.7"]
+dataclasses
