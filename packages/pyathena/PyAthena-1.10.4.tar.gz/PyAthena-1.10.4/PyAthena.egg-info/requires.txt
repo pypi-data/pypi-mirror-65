@@ -1,0 +1,14 @@
+future
+botocore>=1.5.52
+boto3>=1.4.4
+tenacity>=4.1.0
+
+[:python_version == "2.7"]
+futures
+
+[Pandas]
+pandas>=0.24.0
+pyarrow>=0.15.0
+
+[SQLAlchemy]
+SQLAlchemy<2.0.0,>=1.0.0
