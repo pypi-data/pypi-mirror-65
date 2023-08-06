@@ -1,0 +1,17 @@
+equilibrator-cache==0.3.0b7
+path>=13.2.0
+uncertainties>=3.1
+
+[deployment]
+click
+click-log
+openbabel>=2.4.1
+python-dateutil
+requests
+tqdm
+periodictable
+
+[development]
+black
+isort
+tox
