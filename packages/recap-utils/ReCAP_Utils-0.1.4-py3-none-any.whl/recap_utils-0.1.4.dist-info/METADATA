@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: recap-utils
+Version: 0.1.4
+Summary: 
+Author: Mirko Lenz
+Author-email: info@mirko-lenz.de
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: click-pathlib (>=2019.12.28,<2020.0.0)
+Requires-Dist: recap-argument-graph (>=0.1.0,<0.2.0)
+Requires-Dist: recap-argument-graph-translator (>=0.1.1,<0.2.0)
+Requires-Dist: tomlkit (>=0.5.8,<0.6.0)
