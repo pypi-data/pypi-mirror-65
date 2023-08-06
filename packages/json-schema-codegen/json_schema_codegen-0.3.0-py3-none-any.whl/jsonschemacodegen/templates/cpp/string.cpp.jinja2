@@ -1,0 +1,140 @@
+{%-set className = resolver.cpp_resolve_namespace(ns)+Name%}
+{%-set std = resolver.cpp_resolve_namespace(['std']) %}
+{{className}}::{{Name}}(const {{std}}string& value)
+{
+    Set(value);
+}
+
+{{className}}::{{Name}}(const char* value)
+{
+    Set(value);
+}
+
+{%-if schema.default is defined %}
+{{className}}::{{Name}}()
+{
+    Set("{{schema.default}}");
+}
+{%-elif schema.format is defined and schema.format == 'uuid'%}
+{{className}}::{{Name}}()
+{
+    SetUuid();
+}
+{%-endif%}
+
+{{className}}::operator {{std}}string() const
+{
+    return Get();
+}
+
+{{className}}& {{className}}::operator=(const {{std}}string& value)
+{
+    Set(value);
+    return *this;
+}
+
+{{className}}& {{className}}::operator=(const char* value)
+{
+    Set(value);
+    return *this;
+}
+{%for origNs in originalNamespace %}
+namespace {{origNs}} {
+{%-endfor%}  
+{{std}}ostream& operator<<({{std}}ostream& os, const {{className}}& str)
+{
+    os << str._value;
+    return os;
+}
+
+bool operator< (const {{className}}& left, const {{className}}& right)
+{
+    return left._value < right._value;
+}
+
+{{std}}size_t hash_value(const {{className}}& str)
+{
+    return boost::hash_value(str._value);
+}
+{%for origNs in originalNamespace %}}{%-endfor%} // end namespaces
+
+{{className}}&  {{className}}::Set(const {{std}}string& value)
+{
+    Validate(value);
+    _value = value;
+    return *this;
+}
+
+{{className}}& {{className}}::Set(const char* value)
+{
+    Validate(value);
+    _value = value;
+    return *this;
+}
+
+{%-if schema.format is defined and schema.format == 'uuid'%}
+{{className}}& {{className}}::SetUuid()
+{
+    boost::uuids::random_generator generator;
+    boost::uuids::uuid uuid = generator();
+    Set(boost::uuids::to_string(uuid));
+    return *this;
+}
+{%-endif%}
+
+{{std}}string {{className}}::Get() const
+{
+    return _value;
+}
+
+void {{className}}::Validate(const {{std}}string& testValue)
+{
+    {%-if schema.maxLength is defined %}
+    if (testValue.size() > {{className}}::MAX_LENGTH)
+    {
+        throw {{std}}out_of_range("The string is longer than {{className}}::MAX_LENGTH={{schema.maxLength}}");
+    }
+    {%-endif%}
+    {%-if schema.minLength is defined %}
+    if (testValue.size() < {{className}}::MIN_LENGTH)
+    {
+        throw {{std}}out_of_range("The string is shorter than {{className}}::MIN_LENGTH={{schema.minLength}}");
+    }
+    {%-endif%}
+    {%-if schema.pattern is defined %}
+    {{std}}regex regexPattern("{{schema.pattern}}");
+    {{std}}smatch regexMatch;
+    {{std}}regex_match(testValue, regexMatch, regexPattern);
+    if (regexMatch.empty()) {{std}}out_of_range("The contents of '{{className}}' did not match the required pattern '{{schema.pattern}}'");
+    {%-endif%}
+}
+
+{{className}} {{className}}::FromJson(const {{resolver.cpp_resolve_namespace(['rapidjson'])}}Value& json)
+{
+    if (!(json.IsString()))
+    {
+        throw std::invalid_argument("The '{{className}}' document JSON wasn't a string");
+    }
+
+    return {{className}}(json.GetString());
+}
+
+{{className}} {{className}}::FromString(const {{std}}string& str)
+{
+    return {{className}}(str);
+}
+
+void {{className}}::ToJson({{resolver.cpp_resolve_namespace(['rapidjson'])}}Value& value, {{resolver.cpp_resolve_namespace(['rapidjson', 'Value'])}}AllocatorType& allocator) const
+{
+    value.SetString(_value.c_str(), _value.size(), allocator);  
+}
+
+void {{className}}::SetHandle(const std::string& handle)
+{
+    _handle = handle;
+}
+
+std::string {{className}}::GetHandle() const
+{
+    return _handle;
+}

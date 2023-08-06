@@ -1,0 +1,98 @@
+{%-set className = resolver.cpp_resolve_namespace(ns)+Name%}
+{%macro NestedObjectName(name) -%}
+    {{className}}::{{-name | UpperCamelCase-}}
+{%-endmacro%}
+{%-macro ObjectType(propName, propSchema) -%}
+    {%-if '$ref' in propSchema -%}
+        {{-loader.Reference(resolver, propSchema['$ref'])-}}
+    {%-else-%}
+        {{-NestedObjectName(propName)-}}
+    {%-endif-%}
+{%-endmacro%}
+{%-macro ObjectName(propName, propSchema) -%}
+    {%-if '$ref' in propSchema -%}
+        {{-resolver.cpp_get_name(propSchema['$ref'])|UpperCamelCase-}}
+    {%-else-%}
+        {{-propName | UpperCamelCase-}}
+    {%-endif-%}
+{%-endmacro%}
+{%-macro ComponentName(parentName, schema, i)-%}
+{%-if 'title' in schema -%}
+    {{-schema.title|UpperCamelCase-}}
+    {%-if schema.title|UpperCamelCase == parentName|UpperCamelCase-%}Component{%-endif-%}
+    {%-if 'properties' in schema and schema.title in schema.properties-%}Object{%-endif-%}
+{%-elif 'oneOf' in schema%}
+    {{-''-}}OneOfComponent{{-i-}}
+{%-elif 'type' in schema and schema['type'] == 'object' and schema['properties'] | length == 1 -%}
+    {{-schema.PropertyKeys()[0] | UpperCamelCase-}}Component
+{%-else-%}
+    {{-''-}}Component{{-i-}}
+{%-endif-%}
+{%-endmacro%}
+
+{%import 'loader.jinja2' as loader with context%}
+{%-for s in schema.allOf %}{%set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset%}
+{{loader.Class('cpp', resolver, [className], componentName, s) }}
+{%-endfor%}
+
+
+{{className}}::{{Name}}({%-for s in schema.allOf -%}
+        {%-set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset-%}
+        const {{ObjectType(componentName, s)}}& {{componentName|camelCase}}{%if not loop.last%}, {%endif-%}
+    {%-endfor%}) : {%for s in schema.allOf -%}
+        {%-set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset-%}
+        {{componentName|privatize}}({{componentName|camelCase}}){%if not loop.last%}, {%endif-%}
+    {%-endfor%}
+{
+
+}
+
+{%-for s in schema.allOf %}{%set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset%}
+{{ObjectType(componentName, s)}} {{className}}::Get{{ObjectName(componentName, s)}}() const
+{
+    return {{componentName|privatize}};
+}
+
+void {{className}}::Set{{ObjectName(componentName, s)}}(const {{ObjectType(componentName, s)}}& component)
+{
+    {{componentName|privatize}} = component;
+    {{componentName|privatize}}.SetHandle(_handle);
+}
+{%endfor%}
+
+{{className}} {{className}}::FromJson(const rapidjson::Value& json)
+{
+    {%-for s in schema.allOf %}{%set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset%}
+    {{ObjectType(componentName, s)}} init{{componentName}} = {{ObjectType(componentName, s)}}::FromJson(json);
+    {%-endfor%}
+
+    return {{className}}({%-for s in schema.allOf %}{%set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset%}init{{componentName}}{%if not loop.last%}, {%endif%}{%endfor%});
+}
+
+void {{className}}::ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator) const
+{
+    if (!value.IsObject())
+    {
+        value.SetObject();
+    }
+
+    {%-for s in schema.allOf %}{%set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset%}
+    {{componentName|privatize}}.ToJson(value, allocator);
+    {%-endfor %}
+}
+
+void {{className}}::SetHandle(const std::string& handle)
+{
+    _handle = handle;
+
+    // This 'allOf' object passes the handle through to its children objects
+    {%for s in schema.allOf -%}
+        {%-set componentName%}{{ComponentName(Name, s, loop.index)}}{%endset-%}
+        {{componentName|privatize}}.SetHandle(handle);
+    {%-endfor%}
+}
+
+std::string {{className}}::GetHandle() const
+{
+    return _handle;
+}

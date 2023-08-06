@@ -1,0 +1,34 @@
+{%-set className = resolver.cpp_resolve_namespace(ns)+Name%}
+{{className}}::{{Name}}()
+{
+}
+
+boost::none_t {{className}}::Get() const
+{
+    return boost::none;
+}
+
+{{className}} {{className}}::FromJson(const {{resolver.cpp_resolve_namespace(['rapidjson'])}}Value& json)
+{
+    if (!(json.IsNull()))
+    {
+        throw std::invalid_argument("The '{{className}}' document JSON wasn't a string");
+    }
+
+    return {{className}}();
+}
+
+void {{className}}::ToJson({{resolver.cpp_resolve_namespace(['rapidjson'])}}Value& value, {{resolver.cpp_resolve_namespace(['rapidjson', 'Value'])}}AllocatorType& allocator) const
+{
+    value.SetNull();  
+}
+
+void {{className}}::SetHandle(const std::string& handle)
+{
+    _handle = handle;
+}
+
+std::string {{className}}::GetHandle() const
+{
+    return _handle;
+}

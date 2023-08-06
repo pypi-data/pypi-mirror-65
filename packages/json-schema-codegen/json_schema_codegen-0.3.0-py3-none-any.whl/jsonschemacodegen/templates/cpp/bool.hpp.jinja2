@@ -1,0 +1,73 @@
+/*! {{Name}} is a wrapper around a boolean.
+ {%-if schema.description %}
+ * {{schema.description}}
+ {%-endif%}
+ */
+class {{Name}}
+{
+public:
+    /*! \fn {{Name}}(bool value)
+     * \brief Constructor with initial value
+     * \param value initial value
+     */
+    {{Name}}(bool value);
+
+    {%-if schema.default is defined %}
+    /*! \fn {{Name}}()
+     * \brief Constructor that uses default value of {{schema.default}}
+     */
+    {{Name}}();
+    {%-endif%}
+
+    virtual ~{{Name}}() = default;
+
+    /*! Cast to bool operator
+     */
+    operator bool() const;
+    
+    /*! Assign from bool operator
+     */
+    {{Name}}& operator=(bool value);
+
+    /*! \fn void Set(bool value)
+     * \brief reset value to new bool
+     * \param value new value
+     */
+    void Set(bool value);
+
+    /*! \fn bool Get() const
+     * \brief get current boolean value
+     */
+    bool Get() const;
+
+    /*! \fn {{Name}} FromJson(const rapidjson::Value& json)
+     * \brief Deserializes JSON into a new instance of the {{Name}} object.
+     * \param json is the RapidJSON value which must be a boolean type.
+     * \throw If the JSON data isn't a boolean
+     * \returns {{Name}}
+     */
+    static {{Name}} FromJson(const rapidjson::Value& json);
+
+    /*! \fn ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator)
+     * \brief Serializes boolean value to JSON
+     * \param value is the RapidJSON value which will be modified to contain the serialization
+     * \param allocator is the top-level RapidJSON document allocator which may be used for allocations
+     */
+    void ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator) const;
+
+    /*! Sets a string handle associated with this {{Name}} instance.
+     * This gets called by a parent object after creating an instance that is used for an object's property.
+     * \param handle is the string name.
+     */
+    void SetHandle(const std::string& handle);
+
+    /*! Gets the string handle associated with this {{Name}} instance.
+     * This is often the property name used in a JSON-object parent.
+     * It may be empty.
+     * \returns the handle string
+     */
+    std::string GetHandle() const;
+private:
+    bool _value;
+    std::string _handle;
+};

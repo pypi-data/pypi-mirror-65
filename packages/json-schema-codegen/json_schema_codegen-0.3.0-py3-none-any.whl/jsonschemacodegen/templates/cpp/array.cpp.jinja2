@@ -1,0 +1,105 @@
+{%import 'loader.jinja2' as loader with context-%}
+{%-set std = resolver.cpp_resolve_namespace(['std']) %}
+{%-set className = resolver.cpp_resolve_namespace(ns)+Name%}
+{%-if schema.GetItemSchema()['$ref'] %}
+// Array uses items reference
+{%-set itemtype = loader.Reference(resolver, schema.GetItemSchema()['$ref']) %}
+{%-else%}
+{%-set itemtype = className+'::Item'%}
+
+{{loader.Class('cpp', 
+               resolver, 
+               resolver.append_to_namespace(ns, Name), 
+               'Item', 
+               schema.GetItemSchema()) }}
+{%endif%}
+
+{{className}}::{{Name}}({{resolver.cpp_resolve_namespace(['std'])}}vector<{{itemtype}}> arr)
+{
+    SetArray(arr);
+}
+
+{%if schema.minItems is not defined or schema.minItems == 0 -%}
+{{className}}::{{Name}}()
+{
+
+}
+{%-endif%}
+
+void {{className}}::SetArray(const {{resolver.cpp_resolve_namespace(['std'])}}vector<{{itemtype}}>& arr)
+{
+    {%-if schema.maxItems is defined %}
+    if (arr.size() > {{schema.maxItems}})
+    {
+        throw {{std}}out_of_range("The array is shorter than {{className}}::MIN_ITEMS={{schema.minItems}}");
+    }
+    {%-endif%}
+    {%-if schema.minItems is defined %}
+    if (arr.size() < {{schema.minItems}})
+    {
+        throw {{std}}out_of_range("The array is longer than {{className}}::MAX_ITEMS={{schema.maxItems}}");
+    }
+    {%-endif%}
+    _arr = arr;
+    for ({{itemtype}}& el : _arr)
+    {
+        el.SetHandle(_handle);
+    }
+}
+
+{{resolver.cpp_resolve_namespace(['std'])}}vector<{{itemtype}}> {{className}}::GetArray() const
+{
+    return _arr;
+}
+
+void {{className}}::Append(const {{itemtype}}& item)
+{
+    {%-if schema.maxItems is defined %}
+    if (_arr.size() == {{schema.maxItems}})
+    {
+        throw {{std}}out_of_range("Adding to {{className}} would cause it to be longer than {{className}}::MAX_ITEMS={{schema.maxItems}}");
+    }
+    {%-endif%}
+    _arr.push_back(item);
+    _arr.back().SetHandle(_handle);
+}
+
+{{className}} {{className}}::FromJson(const {{resolver.cpp_resolve_namespace(['rapidjson'])}}Value& json)
+{
+    if (!json.IsArray())
+    {
+        throw std::invalid_argument("The '{{className}}' document JSON wasn't an array");
+    }
+    {{resolver.cpp_resolve_namespace(['std'])}}vector<{{itemtype}}> arr;
+    for (auto& v : json.GetArray())
+    {
+        arr.push_back({{itemtype}}::FromJson(v));
+    }
+    return {{className}}(arr);
+}
+
+void {{className}}::ToJson({{resolver.cpp_resolve_namespace(['rapidjson'])}}Value& value, {{resolver.cpp_resolve_namespace(['rapidjson', 'Value'])}}AllocatorType& allocator) const
+{
+    value.SetArray();
+    for (const {{itemtype}}& el : _arr)
+    {
+        {{resolver.cpp_resolve_namespace(['rapidjson'])}}Value elementValue;
+        el.ToJson(elementValue, allocator);
+        value.PushBack(elementValue, allocator);
+    }
+}
+
+void {{className}}::SetHandle(const std::string& handle)
+{
+    _handle = handle;
+
+    for ({{itemtype}}& el : _arr)
+    {
+        el.SetHandle(handle);
+    }
+}
+
+std::string {{className}}::GetHandle() const
+{
+    return _handle;
+}

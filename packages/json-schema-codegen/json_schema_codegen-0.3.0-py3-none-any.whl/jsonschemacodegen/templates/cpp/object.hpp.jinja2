@@ -1,0 +1,119 @@
+{%-import 'loader.jinja2' as loader-%}
+{%-import 'propname.jinja2' as helper-%}
+{%macro NestedObjectName(name) -%}
+    {%-if name|UpperCamelCase != Name|UpperCamelCase%}{{-name | UpperCamelCase-}}{%else%}{{name | UpperCamelCase}}Property{%endif-%}
+{%-endmacro%}
+{%-macro ObjectType(propName, propSchema) -%}
+    {%-if '$ref' in propSchema -%}
+        {{-loader.Reference(resolver, propSchema['$ref'])-}}
+    {%-else-%}
+        {{-NestedObjectName(propName)-}}
+    {%-endif-%}
+{%-endmacro%}
+/*! {{Name}} is a wrapper around an object.
+ * \brief Wrapper around object with properties: {%for propName in schema.properties.keys() %}{{propName}}{%if not loop.last%}, {%endif%}{%endfor%}
+ {%-if schema.description %}
+ * {{schema.description}}
+ {%-endif%}
+ */
+class {{Name}}
+{
+public:
+    {%-for propName, propSchema in schema.properties.items() %}
+    /*! The key name used in the exported JSON object.
+     */
+    static constexpr auto {{helper.ConstPropertyName(propName)}} = "{{propName}}";
+    {%endfor-%}
+    {%-for propName, propSchema in schema.properties.items() %}
+    {%-if '$ref' not in propSchema %}
+    {{loader.Class('hpp', resolver, [Name], NestedObjectName(propName), propSchema) | indent(4) }}
+    {%-endif%}
+    {%endfor%}
+
+    {%-if schema.RequiredList() | length > 0 %}
+    /*! Constructor that sets required properties.
+     */
+    {{Name}}({%for propName, propSchema in schema.RequiredList()%}const {{ObjectType(propName, propSchema)}}& {{propName | camelCase}}{%if not loop.last%}, {%endif%}{%endfor%});
+    {%-else%}
+    /*! Constructor that initializes all properties to their defaults.
+     */
+    {{Name}}();
+    {%if schema['properties'] | length == 1 %}
+    {%-set propName = schema.PropertyKeys()[0] %}
+    {%-set propSchema = schema.PropertyValues()[0] %}
+    /*! Constructor for initializing object's single property.
+     * \param {{propName | camelCase}} property to initialize.
+    */
+    {{Name}}(const {{ObjectType(propName, propSchema)}}& {{propName | camelCase}});
+    {%if 'type' in propSchema and propSchema['type'] in ['boolean', 'integer', 'string', 'number'] %}
+    /*! Constructor for initializing object's single {{propSchema.type}} property.
+     * \param {{propName | camelCase}} value for initialization.
+    */
+    {{Name}}({{ {"boolean":"bool", "integer":"int", "string":"const std::string&", "number":"double"}[propSchema.type] }} {{propName | camelCase}});
+    {%-endif%} {# propschema type #}
+    {%-endif%} {# single property object #}
+
+    {%-endif%}
+
+    /*! Destructor.
+     */
+    virtual ~{{Name}}() = default;
+    {%for propName, propSchema in schema.properties.items() %}
+    {%-if propName in schema.required%}
+    /*! Returns the required '{{propName}}' property of the object
+     * \fn {{ObjectType(propName, propSchema)}} Get{{propName | UpperCamelCase}}() const
+     * \returns {{ObjectType(propName, propSchema)}} Required property value
+     */
+    {{ObjectType(propName, propSchema)}} Get{{propName | UpperCamelCase}}() const;
+    {%else%}
+    /*! Returns the optional '{{propName}}' property of the object
+     * \fn boost::optional<{{ObjectType(propName, propSchema)}}> Get{{propName | UpperCamelCase}}() const
+     * \returns boost::optional<{{ObjectType(propName, propSchema)}}> Optional property value
+     */
+    boost::optional<{{ObjectType(propName, propSchema)}}> Get{{propName | UpperCamelCase}}() const;
+    {%-endif%}
+
+    /*! Sets the '{{propName}}' property of the object.
+     * \fn void Set{{propName | UpperCamelCase}}(const {{ObjectType(propName, propSchema)}}& value)
+     * \param value the value which is set as the {{propName}} property.
+     */
+    {{Name}}& Set{{propName | UpperCamelCase}}(const {{ObjectType(propName, propSchema)}}& value);
+    {%-endfor%}
+
+    /*! \fn {{Name}} FromJson(const rapidjson::Value& json)
+     * \brief Deserializes a JSON "object" value into a new instance of {{Name}}.
+     * \param json is the RapidJSON value which must be of "object" type.
+     * \throw If the JSON didn't validate according to the schema
+     * \returns {{Name}}
+     */
+    static {{Name}} FromJson(const rapidjson::Value& json);
+
+    /*! \fn ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator)
+     * \brief Sets 'value' to a JSON object
+     * \param value is the RapidJSON value which will be modified to contain the serialization
+     * \param allocator is the top-level RapidJSON document allocator which may be used for allocations
+     */
+    void ToJson(rapidjson::Value& value, rapidjson::Value::AllocatorType& allocator) const;
+
+    /*! Sets a string handle associated with this {{Name}} instance.
+     * This gets called by a parent object after creating an instance that is used for an object's property.
+     * \param handle is the string name.
+     */
+    void SetHandle(const std::string& handle);
+
+    /*! Gets the string handle associated with this {{Name}} instance.
+     * This is often the property name used in a JSON-object parent.
+     * It may be empty.
+     * \returns the handle string
+     */
+    std::string GetHandle() const;
+private:
+    {%-for propName, propSchema in schema.properties.items() %}
+    {%-if propName in schema.required %}
+    {{ObjectType(propName, propSchema)}} {{propName | privatize}};
+    {%-else%}
+    boost::optional<{{ObjectType(propName, propSchema)}}> {{propName | privatize}};
+    {%-endif%}
+    {%-endfor%}
+    std::string _handle;
+};
