@@ -1,0 +1,11 @@
+file_name=$(git diff --cached --name-only --diff-filter=ACM)
+python3 .git/hooks/heimdall.py $PWD $file_name
+output=$?
+#if [ ! -z "$output" -a "$output" != " " ]
+#then
+#  echo "Successfully executed script"
+#else
+#  # Redirect stdout from echo command to stderr.
+#  echo "Script exited with error." >&2
+#fi
+exit $output
