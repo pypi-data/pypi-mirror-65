@@ -1,0 +1,124 @@
+Metadata-Version: 2.1
+Name: xlref
+Version: 1.0.0
+Summary: Excel table reader library.
+Home-page: https://github.com/vinci1it2000/xlref
+Author: Vincenzo Arcidiacono
+Author-email: vinci1it2000@gmail.com
+License: EUPL 1.1+
+Download-URL: https://github.com/vinci1it2000/xlref/tarball/v1.0.0
+Project-URL: Documentation, http://xlref.readthedocs.io
+Project-URL: Issue tracker, https://github.com/vinci1it2000/xlref/issues
+Project-URL: Donate, https://donorbox.org/xlref
+Keywords: python,utility,library,data,scientific,range,engineering,data,excel,tables,reader,reference
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: European Union Public Licence 1.1 (EUPL 1.1)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Dist: click
+Requires-Dist: click-log
+Requires-Dist: schedula (>=1.1.1)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: xlrd
+
+
+About xlref
+***********
+
+**xlref** is an useful library to capture by a simple reference (e.g.,
+*A1(RD):..:RD*) a table with non-empty cells from Excel-sheets when
+its exact position is not known beforehand.
+
+This code was inspired by the *xleash* module of the `pandalone
+<https://github.com/pandalone/pandalone>`_ library. The reason of
+developing a similar tool was to have a smaller library to install and
+improve the performances of reading *.xlsx* files.
+
+
+Installation
+************
+
+To install it use (with root privileges):
+
+::
+
+   $ pip install xlref
+
+Or download the last git version and use (with root privileges):
+
+::
+
+   $ python setup.py install
+
+
+Tutorial
+********
+
+A typical example is *capturing* a table with a “header” row and
+convert into a dictionary. The code below shows how to do it:
+
+>>> import xlref as xl
+>>> _ref = 'excel.xlsx#ref!A1(RD):RD[%s]'  
+>>> ref = xl.Ref(_ref % '"dict"')
+>>> ref.range  # Captured range.
+B2:C24
+>>> values = ref.values; values  # Captured values.
+{...}
+>>> values['st-cell-move']
+'#D5(RU):H1(DL)'
+
+You can notice from the code above that all the values of the
+dictionary are references. To parse it recursively, there are two
+options:
+
+..
+
+   1. add the “recursive” filter before the “dict”:
+
+       >>> values = xl.Ref(_ref % '"recursive", "dict"').values
+       >>> values['st-cell-move'].tolist()
+       [[1.0, 2.0, 3.0],
+        [4.0, 5.0, 6.0],
+        [7.0, 8.0, 9.0]]
+
+   2. apply a filter onto dictionary’ values using the extra
+       functionality of the “dict” filter:
+
+       >>> values = xl.Ref(_ref % '{"fun": "dict", "value":"ref"}').values
+       >>> values['st-cell-move'].tolist()
+       [[1.0, 2.0, 3.0],
+        [4.0, 5.0, 6.0],
+        [7.0, 8.0, 9.0]]
+
+You have also the possibility to define and use your custom filters as
+follows:
+
+>>> import numpy as np
+>>> xl.FILTERS['my-filter'] = lambda parent, x: np.sum(x)
+>>> xl.Ref('#D5(RU):H1(DL)["my-filter"]', ref).values
+45.0
+
+An alternative way is to use directly the methods of the filtered
+results as follows:
+
+>>> xl.Ref('#D5(RU):H1(DL)["sum"]', ref).values
+45.0
+
+
