@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+import argparse
+import sys
+import yaml
+from cosymlib import file_io
+from cosymlib import Cosymlib
+
+
+parser = argparse.ArgumentParser(description='Shape_map ')
+parser.add_argument(type=str, dest='input_file', help='input file name(+extension)')
+parser.add_argument('-o', '--output_name', dest='output_name', default=None, help='save in file name')
+parser.add_argument(type=str, dest="yaml_input", nargs='?', default=None,
+                    help='Perform the calculations with the command file')
+parser.add_argument('-c', '--central_atom', action='store', dest='central_atom',
+                    type=int, default=0, help='position of the central atom if exist')
+parser.add_argument('-custom_ref', action='store', dest='custom_ref', default=None,
+                    help='take a given structure from the file and use it as reference')
+parser.add_argument('-fix_perm', '--fix_permutation', dest='fix_permutation', action='store_true', default=False,
+                    help='use the given permutation to perform a calculation')
+
+# Shape input flags
+group_shape = parser.add_argument_group('Shape')
+group_shape.add_argument('-x', dest='x', action='store', default=False,
+                         help='x axis label')
+group_shape.add_argument('-y', dest='y', action='store', default=False,
+                         help='y axis label')
+group_shape.add_argument('-p', dest='p', action='store_true', default=False,
+                         help='Print all the information')
+
+
+args = parser.parse_args(sys.argv[1:])
+
+if args.yaml_input:
+    with open(args.yaml_input, 'r') as stream:
+        input_parameters = yaml.load(stream)
+
+    for key, value in input_parameters.items():
+        if key.lower() in args:
+            setattr(args, key.lower(), value)
+        else:
+            raise KeyError("Key %s is not valid" % key)
+
+reference_polyhedron = []
+if args.input_file is not None:
+    structures = file_io.read_generic_structure_file(args.input_file, read_multiple=True)
+    symobj = Cosymlib(structures)
+
+if args.custom_ref is not None:
+    reference_polyhedron = file_io.get_geometry_from_file_xyz(args.custom_ref, read_multiple=True)
+    [x.set_positions(args.central_atom - 1) for x in reference_polyhedron]
+
+
+if not args.x:
+    args.x = reference_polyhedron[0]
+elif not args.y:
+    args.y = reference_polyhedron[0]
+
+if args.x:
+    symobj.print_minimum_distortion_path_shape(args.x,
+                                               args.y,
+                                               central_atom=args.central_atom)
