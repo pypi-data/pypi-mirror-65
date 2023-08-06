@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: grabserial
+Version: 2.0.4
+Summary: Serial dump and timing program
+Home-page: https://github.com/straend/grabserial
+Author: Tim Bird
+Author-email: tbird20d@yahoo.com
+Maintainer: Tim Bird
+Maintainer-email: tbird20d@yahoo.com
+License: GPL v2
+Keywords: grabserial serial boot time optimization tool
+Platform: UNKNOWN
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Embedded Systems
+Requires-Dist: pyserial (>=2.6)
+
+
+https://github.com/tbird20d/grabserial
+
+grabserial is a small program which reads a serial port and writes the data
+to standard output. The main purpose of this tool is to collect messages
+written to the serial console from a target board running Linux, and save
+the messages on a host machine.
+
+
