@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: sndata
+Version: 1.0.1
+Summary: A Python interface for data published by various supernova surveys
+Home-page: https://sn-data.readthedocs.io
+Author: Daniel Perrefort
+Author-email: djperrefort@pitt.edu
+License: GPL v3
+Description: SNData provides a Python interface for data releases published by various supernova surveys. For more information see https://sn-data.readthedocs.io
+Keywords: Supernova Astronomy Data Release
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
