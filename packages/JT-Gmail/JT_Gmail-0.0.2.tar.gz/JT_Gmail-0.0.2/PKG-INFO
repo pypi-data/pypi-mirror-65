@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: JT_Gmail
+Version: 0.0.2
+Summary: My Gmail API Wrapper
+Home-page: UNKNOWN
+Author: Jacob Thompson
+Author-email: Gothingbop@gmail.com
+License: UNKNOWN
+Description: # JT_Gmail
+        This is a simple interface for programmatically sending emails using the Gmail API. 
+        I typically import it as 
+        
+        
+        To get started you must <a href="https://console.developers.google.com/apis/library/gmail.googleapis.com">enable the 
+        Gmail API</a> and save the `credential.json` file somewhere.
+        
+        Before you can use this module for the first time, you must run:
+        ```python
+        import JT_Gmail as gmail
+        
+        gmail.GetToken('scope1', 'scope2', ..., cred_path="path_to_your_credentials")
+        ```
+        
+        Supply the scopes you plan on using as *args. A list of all the scopes can be found 
+        <a href="https://developers.google.com/gmail/api/auth/scopes">here<a>.
+        
+        This will generate the proper token to use the scopes you supplied. The token and credentials are saved for later use, 
+        so you only have to run that line once.
+        
+        To send emails, it's as easy as:
+        ```python
+        import JT_Gmail as gmail
+        
+        with open("email.html") as file:
+            gmail.SendHTMLEmail(
+                to="recipient@some.website", 
+                subject="Example Email", 
+                message_html=file.read()
+        )
+        ```
+        
+        This was base heavily on <a href="https://developers.google.com/gmail/api/quickstart/python">code snippets supplied by 
+        Google<a>.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
