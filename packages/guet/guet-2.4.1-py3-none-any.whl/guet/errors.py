@@ -1,0 +1,2 @@
+class InvalidInitialsError(Exception):
+    pass
