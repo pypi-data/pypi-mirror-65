@@ -1,0 +1,10 @@
+include LICENSE.txt
+include CHANGES.txt
+include README.rst
+include sockjs-testsrv.py
+include requirements.txt
+graft sanic_sockjs
+graft docs
+graft examples
+graft tests
+global-exclude *.pyc
