@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: fpga-device-monitor
+Version: 0.2.5
+Summary: A GUI for remotely controlling FPGA devices, serving as an example on how to use the FPGA Bridge API.
+Home-page: UNKNOWN
+Author: Hannes Preiss
+Author-email: sophie@sophieware.net
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: qtpy
+Requires-Dist: PySide2
+Requires-Dist: fpga-i2c-bridge
+
+# fpga_device_monitor
+A GUI for remotely controlling a Smart Home FPGA that was created as part of a Bachelor's thesis on the subject.
+
+A more comprehensive description will follow shortly.
+
+## Installation
+```
+pip install fpga-device-monitor
+```
+
+## Usage
+```
+python -m fpga_device_monitor
+```
+
+Use the `--dummy` switch to run with simulated dummy devices instead. See `--help`.
+
