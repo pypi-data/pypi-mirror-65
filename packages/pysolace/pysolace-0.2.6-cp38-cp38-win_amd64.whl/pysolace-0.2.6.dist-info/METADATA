@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pysolace
+Version: 0.2.6
+Summary: python solclient
+Home-page: https://github.com/Yvictor/pybind_solace
+Author: YVictor, TKHuang
+Author-email: yvictor3141@gmail.com, tkhuangs@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: loguru
+Requires-Dist: msgpack
+Requires-Dist: sentry-sdk
+Provides-Extra: dev
+Requires-Dist: pybind11 (>=2.2) ; extra == 'dev'
+Requires-Dist: ujson ; extra == 'dev'
+
+UNKNOWN
+
+
