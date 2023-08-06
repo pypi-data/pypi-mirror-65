@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: magic-sdk
+Version: 0.0.1
+Summary: Magic Python Library
+Home-page: https://magic.link
+Author: Magic
+Author-email: support@magic.link
+License: MIT
+Project-URL: Website, https://magic.link
+Keywords: magic python sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: retrying (==1.3.3)
+Requires-Dist: web3 (==5.4.0)
+
+# magic-sdk-python
+
+
