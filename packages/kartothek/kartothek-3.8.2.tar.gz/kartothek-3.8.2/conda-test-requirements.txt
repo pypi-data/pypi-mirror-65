@@ -1,0 +1,22 @@
+# Test Code Dependencies
+distributed
+pytz
+
+# Test Framework
+hypothesis
+pytest>=4.5.0
+pytest-cov
+pytest-mock
+setuptools_scm
+
+# Benchmarks
+asv
+
+# Documentation
+sphinx
+sphinx_rtd_theme
+IPython
+
+# Formatting / Checking
+pre-commit
+flake8-mutable
