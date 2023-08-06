@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: sportmonks
+Version: 1.1.2
+Summary: Pythonic wrapper around SportMonks API.
+Home-page: https://github.com/Dmitrii-I/sportmonks
+Author: Dmitrii Izgurskii
+Author-email: izgurskii@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.5.2
+Requires-Dist: requests (<3.0.0,>=2.18.0)
+Requires-Dist: tzlocal (<3.0.0,>=2.0.0)
+
+Pythonic wrapper around SportMonks API.
+
+
