@@ -1,0 +1,3 @@
+[console_scripts]
+log_receiver = socket_log_receiver.__main__:main
+

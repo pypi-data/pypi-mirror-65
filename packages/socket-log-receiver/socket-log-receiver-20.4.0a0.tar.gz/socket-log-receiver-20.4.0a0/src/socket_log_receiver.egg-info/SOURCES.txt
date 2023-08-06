@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/socket_log_receiver/__init__.py
+src/socket_log_receiver/__main__.py
+src/socket_log_receiver/receivers.py
+src/socket_log_receiver.egg-info/PKG-INFO
+src/socket_log_receiver.egg-info/SOURCES.txt
+src/socket_log_receiver.egg-info/dependency_links.txt
+src/socket_log_receiver.egg-info/entry_points.txt
+src/socket_log_receiver.egg-info/requires.txt
+src/socket_log_receiver.egg-info/top_level.txt
