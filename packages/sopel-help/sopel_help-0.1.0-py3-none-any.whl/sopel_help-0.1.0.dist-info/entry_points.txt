@@ -1,0 +1,12 @@
+[sopel.plugins]
+help = sopel_help.plugin
+
+[sopel_help.providers]
+0x0 = sopel_help.providers:NullPointerPublisher
+base = sopel_help.providers:Base
+clbin = sopel_help.providers:CLBinPublisher
+hastebin = sopel_help.providers:HasteBinPublisher
+local = sopel_help.providers:LocalFile
+termbin = sopel_help.providers:TermBinPublisher
+ubuntu = sopel_help.providers:UbuntuPublisher
+

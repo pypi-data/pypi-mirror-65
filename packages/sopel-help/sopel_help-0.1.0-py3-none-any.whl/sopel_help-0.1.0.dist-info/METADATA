@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: sopel-help
+Version: 0.1.0
+Summary: Help plugin for Sopel
+Home-page: https://github.com/sopel-irc/sopel-help
+Author: Florian Strzelecki
+Author-email: florian.strzelecki@gmail.com
+License: Eiffel Forum License, version 2
+Platform: Linux x86
+Platform: x86-64
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: Eiffel Forum License (EFL)
+Classifier: License :: OSI Approved :: Eiffel Forum License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Communications :: Chat :: Internet Relay Chat
+Requires-Python: <4,>=3.5
+Description-Content-Type: text/x-rst
+Requires-Dist: sopel (>=7)
+Requires-Dist: requests
+
+==========
+sopel-help
+==========
+
+Sopel plugin ``.help`` command::
+
+    [Exirel]: .help help
+    [Sopel]: Generate help for Sopel's commands.
+    [Sopel]: e.g. .help help or .help
+
+Install
+=======
+
+The recommanded way to install this plugin is to use ``pip``::
+
+    $ pip install sopel-help
+
+Note that this plugin requires Python 3.5+ and Sopel 7+.
+
+Providers
+=========
+
+There are several providers built-in with this plugin:
+
+* ``base`` (the default): basic provider; it outputs help directly to the user
+* ``local``: it generates an HTML file and outputs an URL; you have to
+  install and configure your own origin server to serve that file
+* ``clbin``, ``0x0``, ``hastebin``, ``termbin``, ``ubuntu``: all these
+  providers post a plain-text file to a pastebin service and then output the
+  resulting URL
+
+
