@@ -1,0 +1,19 @@
+# include
+include README.rst
+include DESCRIPTION.rst
+include LICENSE.md
+include bash/rulemanager-completion.bash
+include bash/iam_identities.py
+include bash/regions.py
+
+# exclude
+global-exclude *.py[cod] __pycache__ *.so
+exclude .gitignore
+exclude .coverage
+exclude pytest.ini
+exclude readthedocs.yml
+exclude .environment.yml
+exclude .rtd-environment.yml
+recursive-exclude .git *
+recursive-exclude *.egg-info *
+recursive-exclude tests *
