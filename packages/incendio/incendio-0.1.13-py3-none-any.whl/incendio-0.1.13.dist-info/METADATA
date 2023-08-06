@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: incendio
+Version: 0.1.13
+Summary: A mini-library of PyTorch utilities, wrappers, and miscellaneous tools for deep learning.
+Home-page: https://github.com/hdmamin/incendio
+Author: Harrison Mamin
+Author-email: hmamin55@gmail.com
+License: Apache Software License 2.0
+Keywords: PyTorch,deep learning,machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tabulate
+Requires-Dist: torch
+Requires-Dist: accio
+Requires-Dist: htools
+
+# Incendio
+> A mini-library of PyTorch utilities, wrappers, and miscellaneous tools for deep learning.
+
+
+## Install
+
+`pip install incendio`
+
+## Documentation
+
+https://hdmamin.github.io/incendio/
+
+
