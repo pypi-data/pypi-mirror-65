@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: omnitools
+Version: 0.0.19
+Summary: Miscellaneous functions written in short forms.
+Home-page: https://github.com/foxe6-temp/omnitools
+Author: f̣ộx̣ệ6
+Author-email: foxe6@protonmail.com
+License: AGPL-3.0
+Description: # Omnitools
+        
+        <i>Miscellaneous functions written in short forms.</i>
+        
+        # Hierarchy
+        ```
+        omnitools
+        |---- p()
+        |---- charenc()
+        '---- Obj()
+        ```
+        
+        # Example
+        
+        ## python
+        ```python
+        from omnitools import *
+        
+        # print and always flush buffer
+        p("abc")
+        # abc
+        # 
+        
+        # detect character encoding
+        p(charenc(b"\xe3\x81\x82"))
+        # utf-8
+        
+        # turn (nested) dict into an object
+        p(Obj({"a":{"b":{"c":123}}}).a.b.c)
+        # 123
+        ```
+        
+        ## shell
+        ```shell script
+        rem omnitools.exe <function name> [argument] ...
+        omnitools.exe p abc
+        ```
+Keywords: omnitools utilities
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
