@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: anyser
+Version: 0.0.3
+Summary: UNKNOWN
+Home-page: https://github.com/Cologler/anyser-python
+License: MIT License
+Description: # anyser
+        
+        Common interfaces for multiple serialization formats.
+        
+        ## API
+        
+        - `dumps(obj, format: str, **options) -> str`
+        - `dumpb(obj, format: str, **options) -> bytes`
+        - `loads(s: str, format: str, **options) -> object`
+        - `loadb(b: bytes, format: str, **options) -> object`
+        
+        format canbe:
+        
+        | Format | Data format             | requires                |
+        |:-------|:------------------------|:------------------------|
+        | json   | `json`, `.json`         |                         |
+        | pickle | `pickle`                |                         |
+        | xml    | `xml`, `.xml`           |                         |
+        | json5  | `json5`, `.json5`       | install `anyser[json5]` |
+        | toml   | `toml`, `.toml`         | install `anyser[toml]`  |
+        | yaml   | `yaml`, `.yaml`, `.yml` | install `anyser[yaml]`  |
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Provides-Extra: yaml
+Provides-Extra: toml
+Provides-Extra: json5
