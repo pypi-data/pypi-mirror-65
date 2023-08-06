@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: COVID-19-Cases
+Version: 0.0.3
+Summary: A python script that generates latest data set of COVID-19 cases around the globe.
+Home-page: https://github.com/jrclarete/COVID-19-Cases
+Author: Jhon Rommel Clarete
+Author-email: rommel.clarete18@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: astroid (==2.3.3)
+Requires-Dist: autopep8 (==1.5)
+Requires-Dist: beautifulsoup4 (==4.8.2)
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: idna (==2.9)
+Requires-Dist: isort (==4.3.21)
+Requires-Dist: lazy-object-proxy (==1.4.3)
+Requires-Dist: lxml (==4.5.0)
+Requires-Dist: mccabe (==0.6.1)
+Requires-Dist: pycodestyle (==2.5.0)
+Requires-Dist: pylint (==2.4.4)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: soupsieve (==2.0)
+Requires-Dist: urllib3 (==1.25.8)
+Requires-Dist: wrapt (==1.11.2)
+
+# COVID-19 Cases
+
+A python script that generates latest data set of COVID-19 cases around the globe.
+
+## Setup
+
+```
+pip install COVID-19-Cases
+```
+
+## Usage
+
+### Import the module.
+
+```
+import covid19cases as covid
+```
+
+## Fetching of data
+
+### Get the latest cases around the globe.
+
+```
+get_global_cases()
+```
+
+### Get the latest cases of all affected countries if there's no parameter passed to the method. Else, it will fetch data of specific country.
+
+```
+get_country_cases()
+get_country_cases("Philippines")
+```
+
+### Get the latest cases of all affected continents if there's no parameter passed to the method. Else, it will fetch data of specific continent.
+
+```
+get_continent_cases()
+get_continent_cases("Asia")
+```
+
+## Source
+
+I get the data on this site https://www.worldometers.info/coronavirus/ via Web scraping.
+
+## Note
+
+The keys or format of the dictionary will depend on the website where I scraped the data so it will change from time to time.
+
+
