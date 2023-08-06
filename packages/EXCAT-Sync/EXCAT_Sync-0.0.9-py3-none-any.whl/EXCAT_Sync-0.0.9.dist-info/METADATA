@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: EXCAT-Sync
+Version: 0.0.9
+Summary: A package to download images and annotations from the EXACT Server https://github.com/ChristianMarzahl/Exact
+Home-page: https://github.com/ChristianMarzahl/EXACT-Sync
+Author: Christian Marzahl
+Author-email: christian.marzahl@gamil.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# EXACT-Sync
+Rest API sync with the EXACT Server https://github.com/ChristianMarzahl/Exact
+
+
+## Example Notebooks
+
+In the folder examples or:
+https://colab.research.google.com/drive/1nOTyAVwzBDMSEAdgjbdpe7isGfeVpusK
+
+### Basic features:
+
+#### Get image set information
+```python
+username="Demo"
+password="demodemo"
+serverurl="http://127.0.0.1:8000/"
+target_folder = Path('examples/images/') 
+
+manager = ExactManager(username=username,  password=password, serverurl=serverurl)
+imageset = manager.retrieve_imagesets()
+```
+
+#### Upload image to image set
+
+```python
+manager.upload_image_to_imageset(imageset_id=image_set['id'], filename="example.png")
+```
+
+##### Donwload image from image set
+
+```python
+id = image['id']
+name = image['name']
+image_path = target_folder/name
+manager.download_image(id, image_path, None)# , original_image=True
+```
+
+#### Download image annotations 
+
+```python
+id = image['id']
+annotations = manager.retrieve_annotations(id)
+```
+
+## Pip
+
+pip install EXCAT-Sync
+
+
+
