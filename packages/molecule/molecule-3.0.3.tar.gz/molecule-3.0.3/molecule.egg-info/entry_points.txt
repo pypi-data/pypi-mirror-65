@@ -1,0 +1,12 @@
+[console_scripts]
+molecule = molecule.__main__:main
+
+[molecule.driver]
+delegated = molecule.driver.delegated:Delegated
+docker = molecule.driver.docker:Docker
+podman = molecule.driver.podman:Podman
+
+[molecule.verifier]
+ansible = molecule.verifier.ansible:Ansible
+testinfra = molecule.verifier.testinfra:Testinfra
+
