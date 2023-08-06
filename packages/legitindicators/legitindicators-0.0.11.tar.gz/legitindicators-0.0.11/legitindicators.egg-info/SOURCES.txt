@@ -1,0 +1,17 @@
+README.md
+setup.py
+legitindicators.egg-info/PKG-INFO
+legitindicators.egg-info/SOURCES.txt
+legitindicators.egg-info/dependency_links.txt
+legitindicators.egg-info/requires.txt
+legitindicators.egg-info/top_level.txt
+src/__init__.py
+src/legitindicators.py
+tests/__init__.py
+tests/test_atr.py
+tests/test_ema.py
+tests/test_rma.py
+tests/test_roofingfilter.py
+tests/test_supersmoother.py
+tests/test_szladx.py
+tests/test_truerange.py
