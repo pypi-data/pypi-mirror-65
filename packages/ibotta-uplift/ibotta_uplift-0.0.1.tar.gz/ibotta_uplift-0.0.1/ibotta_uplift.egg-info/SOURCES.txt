@@ -1,0 +1,17 @@
+README.rst
+setup.py
+dataset/__init__.py
+dataset/data_simulation.py
+examples/__init__.py
+ibotta_uplift/__init__.py
+ibotta_uplift/calibrate_uplift.py
+ibotta_uplift/erupt.py
+ibotta_uplift/ibotta_uplift.py
+ibotta_uplift/keras_model_functionality.py
+ibotta_uplift.egg-info/PKG-INFO
+ibotta_uplift.egg-info/SOURCES.txt
+ibotta_uplift.egg-info/dependency_links.txt
+ibotta_uplift.egg-info/top_level.txt
+tests/__init__.py
+tests/test_calibrate.py
+tests/test_ibotta_uplift.py
