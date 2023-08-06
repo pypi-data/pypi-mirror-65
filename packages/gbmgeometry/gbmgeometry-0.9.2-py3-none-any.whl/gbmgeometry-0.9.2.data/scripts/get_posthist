@@ -1,0 +1,9 @@
+#!python
+
+import sys
+
+from gbmgeometry.io.data_download import download_posthist
+
+year, month, day = sys.argv[1:]
+
+download_posthist(year, month, day)
