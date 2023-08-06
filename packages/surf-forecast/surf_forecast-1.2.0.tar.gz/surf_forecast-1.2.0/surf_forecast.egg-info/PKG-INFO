@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: surf-forecast
+Version: 1.2.0
+Summary: An api to fetch surf-forecast data
+Home-page: https://github.com/dewittethomas/surf-forecast
+Author: Thomas Dewitte
+Author-email: thomasdewittecontact@gmail.com
+License: MIT
+Description: # surf-forecast
+        
+        [![pypi](https://img.shields.io/pypi/v/surf-forecast.svg)](https://pypi.org/project/surf-forecast)
+        
+        An api to fetch surf forecast data
+        
+        ## Installation
+        To install the package run this command:
+        
+        ```bash
+        pip install surf-forecast
+        ```
+        
+        ## Usage
+        
+        ### getCity
+        
+        ```python
+        from surf_forecast import getCity
+        
+        getCity("Sao Conrado")
+        ```
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >= 3.5
+Description-Content-Type: text/markdown
