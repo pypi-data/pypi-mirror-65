@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: sib-commit-parser
+Version: 0.3.3
+Summary: Commit parser for StartinBlox packages
+Home-page: UNKNOWN
+License: MIT
+Description: # Conventional changelog for Startin'blox
+        
+        ## Commit types
+        
+        | Commit Type | Title      | Description       | Release    | In changelog |
+        |:-----------:|------------|-------------------|------------|:------------:|
+        | `minor`     | Minor      | Minor release     | `minor`    | `yes`        |
+        | `major`     | Major      | Major release     | `major`    | `yes`        |
+        | `feature`   | Features   | New behavior      | `patch`    | `yes`        |
+        | `update`    | Updates    | Change behavior   | `patch`    | `yes`        |
+        | `bugfix`    | Bug Fixes  | Fix bugs          | `patch`    | `yes`        |
+        | `ui`        | Interface  | Change appearance | `patch`    | `yes`        |
+        | `syntax`    | Syntax     | Refactoring code  | `patch`    | `yes`        |
+        |             | Other      | All others        | `patch`    | `no`         |
+        
+        [See reference](https://git.happy-dev.fr/startinblox/management#commit-messages)
+        
+        ## Setup
+        
+        Add the relevant `semantic_release` section to your `setup.cfg`:
+        ```
+        [semantic_release]
+        version_source = tag
+        version_variable = myapp/__init__.py:__version__
+        commit_parser = commit_parse.parse
+        ```
+        
+        ## Develop the parser
+        
+        Install `python-semantic-release` along with the parser:
+        ```
+        # docker run --rm -v $PWD:/code -w /code -it python:3.6 bash
+        # pip install python-semantic-release
+        # pip install -e .[dev]
+        # export PYTHONPATH=/code/commit_parser/
+        ```
+        
+        Create a dummy project:
+        ```
+        # git init /tmp/test
+        # cd !$
+        ```
+        
+        Add a minimal project:
+        ```
+        # echo 'setup()' > setup.py
+        # echo '__version__ = 0.0.0' > version.py
+        # cat <<EOF > setup.cfg
+        [semantic_release]
+        upload_to_pypi = false
+        version_source = tag
+        version_variable = version.py:__version__
+        commit_parser = commit_parser.parse
+        EOF
+        ```
+        
+        Simulate release:
+        ```
+        # git commit --allow-empty -m 'type: some stupid message'
+        $ semantic-release version --noop
+        Creating new version..
+        Current version: 0.4.6
+        No operation mode. Should have bumped from 0.4.6 to 0.4.7
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Description-Content-Type: text/markdown
