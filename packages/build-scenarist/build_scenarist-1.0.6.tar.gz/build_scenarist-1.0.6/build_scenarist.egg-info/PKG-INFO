@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: build-scenarist
+Version: 1.0.6
+Summary: Make-like utility to execute platform-dependent scripts (scenarios) written in Python 2.7. Format of scenario-name consist information about platform it written. Scenarios consist of targets
+Home-page: http://github.com/sogimu/scenarist
+Author: Aleksandr Lizin
+Author-email: sogimu@nxt.ru
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: CI,ci,crossplatform,build,tool,dev,shell
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: Freely Distributable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: System
+Classifier: Topic :: System :: Operating System
+Classifier: Topic :: System :: Shells
+Classifier: Operating System :: OS Independent
