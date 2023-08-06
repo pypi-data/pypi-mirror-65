@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: asphodel
+Version: 1.2.0
+Summary: Python wrapper for the Asphodel C library
+Home-page: https://bitbucket.org/suprocktech/asphodel_py
+Author: Suprock Technologies, LLC
+Author-email: inquiries@suprocktech.com
+License: UNKNOWN
+Description: # Asphodel Python Library
+        
+        ## About
+        The Asphodel Python Library wraps the Asphodel C Library, which supports communicating with USB and TCP devices communicating through the Asphodel communication protocol.
+        
+        The Asphodel communication protocol was developed by Suprock Technologies (http://www.suprocktech.com)
+        
+        ## License
+        The Apshodel Python Library is licensed under the ISC license.
+        
+        The ISC license is a streamlined version of the BSD license, and permits usage in both open source and propretary projects.
+        
+Keywords: asphodel suprock
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Hardware
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

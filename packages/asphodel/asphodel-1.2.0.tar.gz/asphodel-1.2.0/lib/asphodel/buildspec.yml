@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - if (${env:CODEBUILD_WEBHOOK_TRIGGER} -match "^branch/") {git checkout (${env:CODEBUILD_WEBHOOK_TRIGGER} -replace "^branch/","")}
+      - ("On branch " + (git rev-parse --abbrev-ref HEAD) + " with webhook ${env:CODEBUILD_WEBHOOK_TRIGGER}")
+      - pip install --upgrade pip
+      - pip install requests
+      - choco install cmake -y --no-progress --installargs 'ADD_CMAKE_TO_PATH=System'
+  pre_build:
+    commands:
+      - Invoke-WebRequest https://s3.us-east-2.amazonaws.com/suprock-public-software/libusb-1.0.22.zip -OutFile libusb-1.0.22.zip
+      - Expand-Archive -Path libusb-1.0.22.zip -DestinationPath .
+      - $libusb = Convert-Path libusb-1.0.22
+  build:
+    commands:
+      - 'python ci-scripts/build.py -b build64 -G "Visual Studio 14 2015 Win64" -z Asphodel_Win64_${env:CODEBUILD_RESOLVED_SOURCE_VERSION}.zip
+         -t RelWithDebInfo -c $env:CODEBUILD_RESOLVED_SOURCE_VERSION -k win64 -n "Win64 Binaries" -u $env:CODEBUILD_BUILD_URL
+         "--" -DVER_SUFFIX=-aws "-DPC_LIBUSB_INCLUDEDIR=${libusb}\include\libusb-1.0" "-DPC_LIBUSB_LIBDIR=${libusb}\MS64\dll"'
+      - 'python ci-scripts/build.py -b build32 -G "Visual Studio 14 2015" -z Asphodel_Win32_${env:CODEBUILD_RESOLVED_SOURCE_VERSION}.zip
+         -t RelWithDebInfo -c $env:CODEBUILD_RESOLVED_SOURCE_VERSION -k win32 -n "Win32 Binaries" -u $env:CODEBUILD_BUILD_URL
+         "--" -DVER_SUFFIX=-aws "-DPC_LIBUSB_INCLUDEDIR=${libusb}\include\libusb-1.0" "-DPC_LIBUSB_LIBDIR=${libusb}\MS32\dll"'
