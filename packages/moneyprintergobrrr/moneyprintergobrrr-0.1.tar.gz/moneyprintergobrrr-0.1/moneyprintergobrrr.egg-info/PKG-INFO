@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: moneyprintergobrrr
+Version: 0.1
+Summary: Money printer go brr
+Home-page: https://github.com/mkmozgawa/moneyprintergobrrr
+Author: Magda Mozgawa
+Author-email: mkmozgawa@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/moneyprintergobrrr/
+Description: ## moneyprintergobrrr
+        
+        Based on [this meme](https://knowyourmeme.com/memes/money-printer-go-brrr) and specifically this image:
+        
+        ![le meme](/meme.jpg)
+        
+        ### Usage
+        ```
+        from moneyprintergobrrr import MoneyPrinter
+        
+        MoneyPrinter().go()
+        ## => brrr
+        ```
+Keywords: Moneyprinter,Money printer,brrr,meme
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
