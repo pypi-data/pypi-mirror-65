@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: rs2wapy
+Version: 0.5.27
+Summary: Rising Storm 2: Vietnam WebAdmin Python Interface
+Home-page: https://github.com/tuokri/rs2wapy
+Author: tuokri
+Author-email: tuokri@tuta.io
+License: UNKNOWN
+Description: # rs2wapy
+        [![Discord](https://img.shields.io/discord/684326231210328074?label=Discord)](https://discord.gg/6tgWHpM)
+        
+        ### Rising Storm 2: Vietnam WebAdmin Python Interface
+        Provides a Python interface for performing RS2 WebAdmin
+        tasks programmatically.
+        
+        The library uses PycURL internally to communicate with RS2 WebAdmin.
+        
+        **Work in progress; interface will change!**
+        
+        
+        ### Brief Usage Examples
+        This section contains some brief usage examples.
+        For more comprehensive tutorials check out the
+        [examples repository](https://github.com/tuokri/rs2wapy-examples).
+        
+        ##### Installation
+        ```bash
+        # Requires Python=>3.7
+        pip install rs2wapy
+        ```
+        
+        ##### Steam Web API key (optional)
+        Setting your Steam Web API key as an environment variable
+        allows `rs2wapy` to offer some extra functionality.
+        
+        Unix:
+        ```bash
+        export STEAM_WEB_API_KEY="TOPSECRETKEY"
+        ```
+        
+        Windows:
+        ```Batchfile
+        set STEAM_WEB_API_KEY="TOPSECRETKEY"
+        ```
+        
+        ##### Quickstart
+        It is recommended to create a new WebAdmin account for
+        `rs2wapy`.
+        ```python
+        from rs2wapy import RS2WebAdmin
+        
+        wa = RS2WebAdmin(
+            username="AutoModerator",
+            password="topsecret123",
+            webadmin_url="http://localhost:8080/",
+        )
+        ```
+        
+        ##### Poll server ranked status and switch map automatically
+        ```python
+        while True:
+            if not wa.get_current_game().ranked:
+                wa.post_chat_message("Unranked bug happened! Changing map in 5 seconds!")
+                time.sleep(5)
+                wa.change_map("VNTE-Resort")
+            time.sleep(1)
+        ```
+        
+Keywords: automation webadmin ue3 rcon
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
