@@ -1,0 +1,83 @@
+Metadata-Version: 1.2
+Name: useful-decoration
+Version: 1.1.5
+Summary: powerful and useful decorations
+Home-page: https://github.com/changyubiao/useful_decoration
+Author: frank
+Author-email: 15769162764@163.com
+License: Apache License 2.0
+Project-URL: Documentation, https://useful-decoration.readthedocs.io/en/latest/
+Project-URL: Code, https://github.com/changyubiao/useful_decoration
+Description: Useful-decoration
+        ===================
+        Description
+        -----------
+        
+        I wrote some decorators that are commonly used in my daily work. And I gave an example if the decorator is often used.
+        
+        Installing
+        -----------
+        
+        Install and update using `pip`_:
+        
+        
+        .. code:: python
+        
+            pip install  useful-decoration
+        
+        Simples
+        ________
+        
+        .. code-block:: python
+        
+        
+            from useful_decoration.decorations import element_mapping
+        
+        
+            class Person:
+        
+                def __init__(self, name):
+                    self.name = name
+        
+                @element_mapping(factor_name="factor")
+                def calculate(self):
+                    return 10
+        
+        
+            if __name__ == '__main__':
+                p = Person(name='frank')
+        
+                print(p.calculate())  # {'factor': 10}
+        
+        
+        Contributes
+        ___________
+        
+        Welcome, you can join this repo to  enhance this repo  together. you can pull request to me.
+        please don't  hesitate to contact with  me if you have any questions .
+        
+        
+        Links
+        _____
+        
+        * pypi address https://pypi.org/project/useful-decoration/
+        
+        * Documentation: https://useful-decoration.readthedocs.io/en/latest/
+        
+        
+        .. _pip: https://pip.pypa.io/en/stable/quickstart/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
