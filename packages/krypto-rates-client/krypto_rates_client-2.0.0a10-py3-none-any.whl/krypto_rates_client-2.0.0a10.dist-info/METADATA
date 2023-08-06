@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: krypto-rates-client
+Version: 2.0.0a10
+Summary: Krypto Rates Python Client
+Home-page: https://github.com/raptorsystems/krypto-rates
+License: MIT
+Author: Raptor Systems SpA
+Author-email: raptor@raptorsystems.cl
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: typing-extensions (>=3.7.4,<4.0.0)
+Project-URL: Repository, https://github.com/raptorsystems/krypto-rates
+Description-Content-Type: text/markdown
+
+# @raptorsystems/krypto-rates-python
+
+> Krypto Rates Python Client
+
