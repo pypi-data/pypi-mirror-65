@@ -1,0 +1,20 @@
+Click>=6.0
+requests>=2.21.0
+confuse
+simplejson
+attrs
+six
+
+[:python_version == "2.7"]
+futures
+
+[full]
+pyarrow>=0.15.0
+pandas>=0.24.2
+requests-futures==1.0.0
+markdown
+
+[noarrow]
+pandas>=0.24.2
+requests-futures==1.0.0
+markdown
