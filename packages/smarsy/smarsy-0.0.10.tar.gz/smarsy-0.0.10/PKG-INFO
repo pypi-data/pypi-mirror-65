@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: smarsy
+Version: 0.0.10
+Summary: Python REST API wrapper for smarsy.ua website
+Home-page: https://github.com/dkultasev/smarsy-py
+Author: KulZu
+Author-email: dkultasev@gmail.com
+License: UNKNOWN
+Description: # Python REST API wrapper for smarsy.ua website
+        
+        This package provides REST API endpoints to work with smarsy.ua database.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
