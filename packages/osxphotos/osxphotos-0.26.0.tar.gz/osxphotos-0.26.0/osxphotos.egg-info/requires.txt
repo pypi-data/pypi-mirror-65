@@ -1,0 +1,11 @@
+pyobjc>=6.0.1
+Click>=7
+PyYAML>=5.1.2
+Mako>=1.1.1
+pathvalidate==2.2.1
+
+[:python_version < "3.8"]
+bpylist2==2.0.3
+
+[:python_version >= "3.8"]
+bpylist2==3.0.0
