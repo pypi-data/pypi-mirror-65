@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: stpmex
+Version: 3.1.3
+Summary: Client library for stpmex.com
+Home-page: https://github.com/cuenca-mx/stpmex-python
+Author: Cuenca
+Author-email: dev@cuenca.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyopenssl (<18.1.0,>=18.0.0)
+Requires-Dist: clabe (<0.3.0,>=0.2.1)
+Requires-Dist: pydantic (<2.0,>=1.2)
+Requires-Dist: requests (<3.0,>=2.22.0)
+Requires-Dist: luhnmod10 (<1.1.0,>=1.0.2)
+Requires-Dist: dataclasses (>=0.6) ; python_version < "3.7"
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-vcr ; extra == 'test'
+Requires-Dist: pycodestyle ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: black ; extra == 'test'
+Requires-Dist: isort[pipfile] ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: mypy ; extra == 'test'
+
+# STP python3.6+ client library
+
+[![Build Status](https://travis-ci.com/cuenca-mx/stpmex-python.svg?branch=master)](https://travis-ci.com/cuenca-mx/stpmex-python)
+[![Coverage Status](https://coveralls.io/repos/github/cuenca-mx/stpmex-python/badge.svg?branch=master)](https://coveralls.io/github/cuenca-mx/stpmex-python?branch=master)
+[![PyPI](https://img.shields.io/pypi/v/stpmex.svg)](https://pypi.org/project/stpmex/)
+
+Cliente para el servicio REST de STP
+
+
+## Requerimientos
+
+Python v3.6 o superior.
+
+## Documentación de API
+
+[General](https://stpmex.zendesk.com/hc/es) y
+[WADL](https://demo.stpmex.com:7024/speidemows/rest/application.wadl?metadata=true&detail=true)
+
+## Instalación
+
+```
+pip install stpmex
+```
+
+## Correr pruebas
+
+```
+make venv
+source venv/bin/activate
+make test
+```
+
+## Uso básico
+
+```python
+from stpmex import Client
+
+client = Client(
+    empresa='TU_EMPRESA',
+    priv_key='PKEY_CONTENIDO',
+    priv_key_passphrase='supersecret',
+)
+
+cuenta = client.cuentas.alta(
+    nombre='Eduardo',
+    apellidoPaterno='Salvador',
+    apellidoMaterno='Hernández',
+    rfcCurp='SAHE800416HDFABC01',
+    cuenta='646180110400000007',
+)
+
+orden = client.ordenes.registra(
+    monto=1.2,
+    cuentaOrdenante=cuenta.cuenta,
+    nombreBeneficiario='Ricardo Sanchez',
+    cuentaBeneficiario='072691004495711499',
+    institucionContraparte='40072',
+    conceptoPago='Prueba',
+)
+
+cuenta.baja()
+```
+
+
