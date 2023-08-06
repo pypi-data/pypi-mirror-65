@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: trellotasks
+Version: 0.1.0
+Summary: A simple task scheduler built with Python and managed through Trello.
+License: MIT
+Author: Alejandro Piad
+Author-email: alepiad@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: psutil (>=5.7.0,<6.0.0)
+Requires-Dist: py-trello (>=0.16.0,<0.17.0)
+Requires-Dist: pyyaml (>=5.3.1,<6.0.0)
+Requires-Dist: typer (>=0.1.1,<0.2.0)
