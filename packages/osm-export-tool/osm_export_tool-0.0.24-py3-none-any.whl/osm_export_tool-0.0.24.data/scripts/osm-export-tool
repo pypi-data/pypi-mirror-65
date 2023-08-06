@@ -1,0 +1,6 @@
+#!python
+
+from osm_export_tool.cmd import main
+
+if __name__ == '__main__':
+	main()
