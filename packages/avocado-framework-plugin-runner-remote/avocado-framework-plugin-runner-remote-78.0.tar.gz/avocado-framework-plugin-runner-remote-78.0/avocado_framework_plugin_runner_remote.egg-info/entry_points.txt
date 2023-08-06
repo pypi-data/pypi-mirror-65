@@ -1,0 +1,6 @@
+[avocado.plugins.cli]
+remote = avocado_runner_remote:RemoteCLI
+
+[avocado.plugins.runner]
+remote = avocado_runner_remote:RemoteTestRunner
+
