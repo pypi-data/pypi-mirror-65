@@ -1,0 +1,25 @@
+image: "painless/tox"
+
+before_script:
+  - python --version
+  - pip install .
+  - pip install flake8 pylint
+
+stages:
+  - Static Analysis
+  - Unit testing
+
+flake8:
+  stage: Static Analysis
+  script:
+  - flake8 --max-line-length=120 setup.py sch/*.py
+
+pylint:
+  stage: Static Analysis
+  allow_failure: true
+  script:
+  - pylint -d C0301 setup.py sch/*.py
+
+tox:
+  stage: Unit testing
+  script: tox
