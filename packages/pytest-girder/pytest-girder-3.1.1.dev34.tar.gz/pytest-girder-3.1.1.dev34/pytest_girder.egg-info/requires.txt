@@ -1,0 +1,6 @@
+girder>=3
+mock
+mongomock
+pytest>=3.6
+pytest-cov
+pymongo
