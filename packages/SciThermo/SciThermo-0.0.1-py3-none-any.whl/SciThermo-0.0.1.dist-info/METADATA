@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: SciThermo
+Version: 0.0.1
+Summary: Scientific Thermodynamics in Python
+Home-page: https://github.com/dejac001/SciThermo
+Author: Robert F. De Jaco
+Author-email: dejac001@umn.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: matplotlib (==3.2.1)
+Requires-Dist: numpy (==1.18.2)
+Requires-Dist: scipy (==1.4.1)
+
+Thermodynamic Properties
+========================
+
+A package for obtaining thermodynamic properties and computing integrals.
+Designed for integration with computational simulation environments.
+
+
