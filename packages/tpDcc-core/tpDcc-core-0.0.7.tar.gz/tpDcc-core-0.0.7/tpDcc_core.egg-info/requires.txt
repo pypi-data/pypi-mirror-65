@@ -1,0 +1,21 @@
+Qt.py
+appdirs
+tpDcc-libs-python
+
+[:python_version < "2.7" and sys_platform == "darwin"]
+PySide
+
+[:python_version <= "3.4" and sys_platform == "win32"]
+PySide
+
+[:python_version > "3.4" and sys_platform == "win32"]
+PySide2
+
+[:python_version >= "2.7" and sys_platform == "darwin"]
+PySide2
+
+[dev]
+wheel
+
+[test]
+pytest
