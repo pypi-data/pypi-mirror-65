@@ -1,0 +1,13 @@
+[console_scripts]
+prepuller = jupyterhubutils.scanrepo:prepullerstandalone
+reaper = jupyterhubutils.scanrepo:reaperstandalone
+scanrepo = jupyterhubutils.scanrepo:standalone
+
+[jupyterhub.authenticators]
+LSSTCILogonOAuthenticator = jupyterhubutils.authenticator.LSSTCILogonOAuthenticator
+LSSTGitHubOAuthenticator = jupyterhubutils.authenticator.LSSTGitHubOAuthenticator
+LSSTJWTAuthenticator = jupyterhubutils.authenticator.LSSTJWTAuthenticator
+
+[jupyterhub.spawners]
+LSSTSpawner = jupyterhubutils.spawners.LSSTSpawner
+
