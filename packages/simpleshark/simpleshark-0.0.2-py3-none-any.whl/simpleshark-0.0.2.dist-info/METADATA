@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: simpleshark
+Version: 0.0.2
+Summary: Python package to parse tshark/wireshark/tcpdump captured pcaps and return python objects.
+Home-page: https://github.com/naveenraju23/simpleshark
+Author: Naveen Raju
+Author-email: naveen.raju23@gmail.com
+License: UNKNOWN
+Keywords: wireshark packets parsing pcap packets
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: lxml
+Requires-Dist: py
+
+# simpleshark
+Python package to parse tshark/wireshark/tcpdump output pacps and return python objects.
+[Github-flavored Markdown](https://github.com/naveenraju23/simpleshark)
+
+
