@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: source-query-proxy
+Version: 1.0.1
+Summary: Async proxy for Source Engine Query Protocol
+Home-page: https://github.com/spumer/source-query-proxy
+License: GPL-3.0
+Keywords: valve,source,engine,proxy,query,cache
+Author: spumer
+Author-email: spumer-tm@yandex.ru
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: async-timeout (>=3.0,<4.0)
+Requires-Dist: asyncio_dgram (>=1.0,<2.0)
+Requires-Dist: backoff (>=1.10,<2.0)
+Requires-Dist: click (>=7.0,<8.0)
+Requires-Dist: pid (>=2.2,<4.0)
+Requires-Dist: pydantic[dotenv] (>=1.4,<2.0)
+Requires-Dist: pylru (>=1.2.0,<2.0.0)
+Requires-Dist: pyroute2 (>=0.5.10,<0.6.0)
+Requires-Dist: python-dotenv (>=0.10.3,<0.11.0)
+Requires-Dist: pyyaml (>=5.2,<6.0)
+Requires-Dist: sentry-sdk (>=0.14.3,<0.15.0)
+Requires-Dist: uvloop (==0.14.0)
+Description-Content-Type: text/x-rst
+
+
+source-query-proxy
+==================
+
+Credits
+-------
+
+Source Engine messages inspired by **Python-valve**
+https://github.com/serverstf/python-valve
+
+Prerequisites
+-------------
+
+Python 3.7 or above
+
+You can use `pyenv <https://github.com/pyenv/pyenv>`_ to install any version of Python without root privileges
+
+Installing
+----------
+
+.. code-block:: bash
+
+    pip install source-query-proxy==1.0.1
+
+Configuring
+-----------
+
+sqproxy search configs in ``/etc/sqproxy/conf.d`` and ``./conf.d`` directories.
+You should place your config files only in this directories.
+
+For more info see `examples <examples/conf.d>`_
+
+Run
+---
+
+.. code-block:: bash
+
+    sqproxy run
+
+
+Run with eBPF
+-------------
+
+https://github.com/spumer/source-query-proxy-kernel-module/tree/master/src-ebpf
+
+1. Download eBPF script and copy ``src-ebpf`` folder to target working directory
+
+2. Install requirements https://github.com/spumer/source-query-proxy-kernel-module/tree/master/src-ebpf/README.md
+
+3. Enable eBPF in config (see examples/00-globals.yaml)
+
+4. Run
+
+.. code-block:: bash
+
+    sqproxy run
+
+
+Development
+-----------
+
+.. code-block:: bash
+
+    git clone https://github.com/spumer/source-query-proxy.git
+    cd source-query-proxy
+    poetry install
+
