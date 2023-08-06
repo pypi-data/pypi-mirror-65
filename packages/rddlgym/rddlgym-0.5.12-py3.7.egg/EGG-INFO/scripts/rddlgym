@@ -1,0 +1,77 @@
+#!/home/tbueno/Projects/planning-through-backpropagation/bin/python3
+
+# This file is part of rddlgym.
+
+# rddlgym is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# rddlgym is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with rddlgym. If not, see <http://www.gnu.org/licenses/>.
+
+
+import argparse
+import os
+
+import pandas as pd
+
+import rddlgym
+from rddlgym import Runner
+from rddlgym.utils import list_all, info, show, make
+from rddlgym.viz.plot_trajectory import plot_trajectory
+
+
+def parse_args():
+    description = "rddl-gym: A toolkit for working with RDDL domains in Python3."
+    parser = argparse.ArgumentParser(description=description)
+    parser.add_argument(
+        "command",
+        type=str,
+        choices=["list", "info", "show", "parse", "run", "viz"],
+        help="available commands",
+    )
+    parser.add_argument("--rddl", type=str, help="RDDL id")
+    parser.add_argument("--filepath", type=str, help="trajectory filepath")
+    parser.add_argument("--logdir", type=str, help="logdir")
+    parser.add_argument("-v", "--verbose", action="store_true", help="verbosity mode")
+    return parser.parse_args()
+
+
+if __name__ == "__main__":
+    args = parse_args()
+
+    if args.command in ["info", "show", "parse"] and args.rddl is None:
+        print("Error: please provide the domain id via --rddl")
+        exit()
+
+    if args.command == "list":
+        list_all()
+    elif args.command == "info":
+        info(args.rddl)
+    elif args.command == "show":
+        show(args.rddl)
+    elif args.command == "parse":
+        model = make(args.rddl, mode=rddlgym.AST, verbose=args.verbose)
+        print(model.domain.name)
+        print(model.instance.name)
+    elif args.command == "viz":
+        df = pd.read_csv(args.filepath)
+        plot_trajectory(args.rddl, df, group_by_fluent=True, group_by_obj=True)
+    elif args.command == "run":
+        env = make(args.rddl, mode=rddlgym.GYM)
+        filepath = os.path.join(args.logdir, "data.csv")
+
+        def planner(state, timestep):
+            # pylint: disable=unused-argument
+            return env.action_space.sample()
+
+        trajectory = Runner(env, planner).run()
+        trajectory.save(filepath)
+
+        print(f"rddlgym viz --rddl {args.rddl} --filepath {filepath}")
