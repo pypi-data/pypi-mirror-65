@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: hypothesis_pandas
+Version: 0.1.0
+Summary: Hypothesis strategies for pandas objects.
+Home-page: UNKNOWN
+License: UNKNOWN
+Author: Bao Wei
+Author-email: baowei.ur521@gmail.com
+Requires-Dist: pandas >= 0.25
+Requires-Dist: functional-itertools
