@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: dead-simple-framework
+Version: 0.0.1
+Summary: Specify APIs with a Python dict and run with one line
+Home-page: https://github.com/Topazoo/dead_simple_framework
+Author: Peter Swanson
+Author-email: peter.swanson@ucdavis.edu
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Requires-Dist: flask
+Requires-Dist: pymongo
+Requires-Dist: celery
+
+# Dead Simple Web Framework
+
+## Overview:
+
+A dead simple framework for web applications:
+
+Backend:
+
+- Python 3.7 [Flask]
+- MongoDB
+- TODO: Kafka Hooks
+- TODO: Redis Hooks
+- TODO: RabbitMQ Hooks
+- TODO: Celery Hooks
+
+## Installing:
+
+TODO
+
+
+## Configuration:
+
+TODO
+
+## Sample:
+
+TODO
+
