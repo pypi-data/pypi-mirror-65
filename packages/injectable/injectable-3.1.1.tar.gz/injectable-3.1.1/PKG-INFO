@@ -1,0 +1,208 @@
+Metadata-Version: 1.2
+Name: injectable
+Version: 3.1.1
+Summary: Clean dependency injection and lazy initialization support
+Home-page: https://github.com/allrod5/injectable
+Author: Rodrigo Martins de Oliveira
+Author-email: oliveira.rodrigo.m@gmail.com
+License: MIT
+Description: .. _injectable:
+        .. role:: python(code)
+           :language: python
+        
+        Injectable: Dependency Injection for Humans™
+        ============================================
+        
+        
+        
+        **Injectable** is an elegant and simple Dependency Injection framework built with Heart
+        and designed for Humans.
+        
+        .. list-table::
+            :header-rows: 0
+        
+            * - .. code:: python
+        
+                    from injectable import Autowired, autowired
+                    from typing import List
+                    from models import Database
+                    from messaging import Broker
+        
+                    class Service:
+                        @autowired
+                        def __init__(
+                            self,
+                            database: Autowired(Database),
+                            message_brokers: Autowired(List[Broker]),
+                        ):
+                            pending = database.retrieve_pending_messages()
+                            for broker in message_brokers:
+                                broker.send_pending(pending)
+        
+                .. code:: python
+        
+                    from abc import ABC
+        
+                    class Broker(ABC):
+                        def send_pending(messages):
+                            ...
+        
+              - .. code:: python
+        
+                    from injectable import injectable
+        
+                    @injectable
+                    class Database:
+                        ...
+        
+                .. code:: python
+        
+                    from messaging import Broker
+                    from injectable import injectable
+        
+                    @injectable
+                    class KafkaProducer(Broker):
+                        ...
+        
+                .. code:: python
+        
+                    from messaging import Broker
+                    from injectable import injectable
+        
+                    @injectable
+                    class SQSProducer(Broker):
+                        ...
+        
+        Features you'll love ❤️
+        -----------------------
+        
+        * **Autowiring**: injection is transparent to the function. Just decorate the function
+          with :python:`@autowired` and annotate parameters with :python:`Autowired`, that's it.
+        
+        * **Automatic dependency discovery**: just call :python:`InjectionContainer.load()` at the
+          root of your project or pass the root path as an argument. All classes decorated with
+          :python:`@injectable` will be automatically discovered and ready for injection.
+        
+        * **Qualifier overloading**: declare as many injectables as you like for a single
+          qualifier or extending the same base class. You can inject all of them just by
+          specifying a :python:`typing.List` to :python:`Autowired`: :python:`deps: Autowired(List["qualifier"])`.
+        
+        * **Transparent lazy initialization**: passing the argument :python:`lazy=True` for
+          :python:`Autowired` will make your dependency to be initialized only when actually used, all
+          in a transparent fashion.
+        
+        * **Singletons**: decorate your class with :python:`@injectable(singleton=True)` and only a
+          single instance will be initialized and shared for injection.
+        
+        * **Namespaces**: specify different namespaces for injectables as in
+          :python:`@injectable(namespace="foo")` and then just use them when annotating your
+          parameters as in :python:`dep: Autowired(..., namespace="foo")`.
+        
+        * **Linters friendly**: :python:`Autowired` is carefully designed to comply with static linter
+          analysis such as PyCharm's to preserve the parameter original type hint.
+        
+        These are just a few cool and carefully built features for you. Check out our `docs
+        <https://injectable.readthedocs.io/en/latest/>`_!
+        
+        Changelog
+        =========
+        
+        3.1.1 (2020-04-13)
+        ------------------
+        
+        * Fix bug of scanning the same module more than once when InjectionContainer.load() is
+            called multiple times with different relative search paths.
+        
+        3.1.0 (2020-04-13)
+        ------------------
+        
+        * Added `@injectable_factory` decorator for declaring injectable factory methods
+        * Include the console output in the examples
+        
+        3.0.1 (2020-04-13)
+        ------------------
+        
+        * Fix package content missing
+        
+        3.0.0 (2020-04-12)
+        ------------------
+        
+        * Drop support for autowiring without previous initialization of the InjectionContainer
+        * Refactor ``@autowired`` decorator for working with the ``Autowired`` type annotation
+        * Added ``@injectable`` decorator for registering injectables to the InjectionContainer
+        * Support for qualifiers, groups and namespaces
+        * Added ``Autowired`` type annotation for marking parameters for autowiring
+        * Added ``inject`` and ``inject_multiple`` as service locators
+        * Added InjectionContainer for registering injectables
+        * Official support for Python 3.7 and 3.8
+        * Official support for Ubuntu, Windows and MacOS
+        * Drop Python 3.4 and 3.5 official support
+        * General code refactoring
+        * Official documentation
+        * Added usage examples
+        
+        2.0.0 (2018-02-24)
+        ------------------
+        
+        * Drop Python 3.3 official support
+        
+        1.1.2 (2018-02-24)
+        ------------------
+        
+        * Support for dependencies of classes without signature
+        * Fix bug of builtin types not being accepted for injectable dependencies
+        
+        1.1.1 (2018-02-23)
+        ------------------
+        
+        * Statically infer dependency's constructor suitability for injection instead of using
+            trial instantiation
+        * Fix bug of raising ``TypeError`` when injectable fails on the trial dependency
+            instantiation which can happen when the dependency does provide a default
+            constructor with no arguments but the running environment (possibly a test suite
+            environment) will make the instantiation fail
+        
+        1.1.0 (2018-02-10)
+        ------------------
+        
+        * Enable the use of ``@autowired`` decorator without parenthesis
+        
+        1.0.1 (2018-02-10)
+        ------------------
+        
+        * Fixes required dependency ``lazy_object_proxy`` not being installed when installing
+            injectable through pip
+        
+        1.0.0 (2018-02-06)
+        ------------------
+        
+        * First stable release
+        
+        0.2.0 (2018-02-06)
+        ------------------
+        
+        * Support for lazy dependency initialization
+        * Support for type annotations with strings
+        
+        0.1.1 (2018-02-05)
+        ------------------
+        
+        * Python 3.3 and 3.4 support
+        
+        0.1.0 (2018-02-05)
+        ------------------
+        
+        * First beta release
+        
+Keywords: injection inject injectable injectables autowiring autowire autowired dependency dependency-injection DI SOLID lazy lazy-initialization circular circular-dependency cyclic cyclic-dependency inversion-of-control ioc container spring fixture
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
