@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+from time import sleep
+from pydbus import SessionBus
+
+BUS = SessionBus()
+SCREENCAST = BUS.get("org.gnome.Shell.Screencast", "/org/gnome/Shell/Screencast")
+SCREENCAST.Screencast("/home/test/Videos/Screencast.webm", {})
+sleep(10000)
