@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: bytestring-splitter
+Version: 2.0.2
+Summary: Among the simplest imaginable ways to serialize: concatenate and split.
+Home-page: https://github.com/nucypher/bytestringSplitter
+Author: NuCypher
+Author-email: dev@nucypher.com
+License: Apache Software License v2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: msgpack-python (==0.5.6)
+Provides-Extra: testing
+Requires-Dist: attrs (==19.3.0) ; extra == 'testing'
+Requires-Dist: bumpversion (==0.5.3) ; extra == 'testing'
+Requires-Dist: coverage (==5.1) ; extra == 'testing'
+Requires-Dist: more-itertools (==8.2.0) ; extra == 'testing'
+Requires-Dist: packaging (==20.3) ; extra == 'testing'
+Requires-Dist: pluggy (==0.13.1) ; extra == 'testing'
+Requires-Dist: py (==1.8.1) ; extra == 'testing'
+Requires-Dist: pyparsing (==3.0.0a1) ; extra == 'testing'
+Requires-Dist: pytest-cov (==2.5.1) ; extra == 'testing'
+Requires-Dist: pytest (==5.4.1) ; extra == 'testing'
+Requires-Dist: six (==1.14.0) ; extra == 'testing'
+Requires-Dist: wcwidth (==0.1.9) ; extra == 'testing'
+Requires-Dist: zipp (==3.1.0) ; extra == 'testing'
+Requires-Dist: importlib-metadata (==1.6.0) ; (python_version < "3.8") and extra == 'testing'
+
+[![CircleCI](https://circleci.com/gh/nucypher/bytestringSplitter.svg?style=svg)](https://circleci.com/gh/nucypher/bytestringSplitter)
+
+
+
