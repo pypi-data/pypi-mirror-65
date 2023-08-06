@@ -1,0 +1,26 @@
+{% load behko_template_utils %}
+{% if form.errors %}
+    <div class="alert alert-solid-danger alert-bold" role="alert">
+        <div class="alert-icon">
+            <i class="flaticon-warning"></i>
+        </div>
+        <div class="alert-text">
+            <ul style="list-style-type: none;">
+                {% for index,field in form.errors.items %}
+                    <li><b>{{ form.fields|get_index:index|get_attr:'label' }}</b>
+                        <ul style="list-style-type: arabic-indic;padding: 0 13px 0 0;">
+                            {% for error in field %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="alert-close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="la la-close"></i></span>
+            </button>
+        </div>
+    </div>
+{% endif %}

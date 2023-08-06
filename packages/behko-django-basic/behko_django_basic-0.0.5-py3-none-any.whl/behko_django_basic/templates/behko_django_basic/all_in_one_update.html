@@ -1,0 +1,61 @@
+{% extends 'shared/main.html' %}
+{% load static %}
+{% load behko_template_utils %}
+
+{% block body %}
+    <div class="kt-container--fluid m-5">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'shared/form-errors.html' %}
+                {% include 'shared/messages.html' %}
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                {{ update_form_title }}
+                            </h3>
+                        </div>
+                    </div>
+                    <form method="post" class="kt-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="kt-portlet__body">
+                            <div class="row">
+                                {% for key,value in form.fields.items %}
+                                    <div class="{{ value|get_attr:'cols'|default:'col-lg-4 col-sm-12' }}">
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-12">{{ value.label }}</label>
+                                            <div class="col-lg-12">
+                                                {{ form|get_item:key }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="kt-portlet__foot">
+                            <div class="kt-form__actions">
+                                <div class="row">
+                                    <div class="col-lg-12 ml-lg-auto">
+                                        <button type="submit" class="btn btn-brand">بروزرسانی</button>
+                                        <a href="{{ success_url }}" class="btn btn-secondary">لغو</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extra_script_before_script %}
+{% endblock %}
+{% block script %}
+    <link rel="stylesheet" href="{% static 'assets/js/pages/crud/forms/widgets/persian-datepicker.css' %}">
+    <script src="{% static 'assets/js/pages/crud/forms/widgets/persian-date.js' %}"></script>
+    <script src="{% static 'assets/js/pages/crud/forms/widgets/persian-datepicker.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/custom/datatables/datatables.bundle.js' %}" type="text/javascript"></script>
+    <script src="{% static 'my_datatable/datatable.js' %}" type="text/javascript"></script>
+{% endblock %}
+{% block extra_script_after_script %}
+{% endblock %}
