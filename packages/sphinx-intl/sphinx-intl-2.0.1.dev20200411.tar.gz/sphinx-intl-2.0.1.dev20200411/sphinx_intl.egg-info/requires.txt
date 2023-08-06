@@ -1,0 +1,11 @@
+setuptools
+click
+babel
+sphinx
+
+[test]
+pytest
+mock
+
+[transifex]
+transifex_client>=0.11
