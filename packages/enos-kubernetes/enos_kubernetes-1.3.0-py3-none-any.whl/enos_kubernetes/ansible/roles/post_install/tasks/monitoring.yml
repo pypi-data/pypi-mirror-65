@@ -1,0 +1,9 @@
+---
+- name: Starting prometheus-operator
+  shell: >
+    helm list | grep prometheus-operator
+    ||
+    helm install stable/prometheus-operator --name prometheus-operator --namespace monitoring
+
+- name: Set default ROOT_URL for grafana
+  shell: "kubectl set env deployment/prometheus-operator-grafana GF_SERVER_ROOT_URL='http://{{ master }}:8001/api/v1/namespaces/monitoring/services/prometheus-operator-grafana:80/proxy/' -n monitoring"

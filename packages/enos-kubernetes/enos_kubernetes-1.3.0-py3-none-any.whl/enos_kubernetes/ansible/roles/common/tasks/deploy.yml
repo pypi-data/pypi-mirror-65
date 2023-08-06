@@ -1,0 +1,17 @@
+---
+# https://serverfault.com/questions/881517/why-disable-swap-on-kubernetes
+- name: Disable swap
+  command: swapoff -a
+
+- name: Install pip
+  apt:
+    name: python-pip
+    state: present
+
+- name: Install Openshift client (for k8s module)
+  pip:
+    name: openshift
+    state: present
+
+- include: "g5k.yml"
+  when: context == "g5k"
