@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: sensoff
+Version: 1.0
+Summary: Correct GPS transect coordinates to account for sensor offsets
+Home-page: https://github.com/usda-ars-ussl/sensoff
+Author: Todd Skaggs
+Author-email: todd.skaggs@usda.gov
+License: Public Domain CC0
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+
+Correct GPS transect coordinates to account for sensor offsets on on-the-go mobile survey platforms 
+
+
