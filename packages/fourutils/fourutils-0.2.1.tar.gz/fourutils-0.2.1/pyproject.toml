@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "fourutils"
+version = "0.2.1"
+description = ""
+authors = ["Oscar Rainford <oscar@fourbs.com.au>"]
+license = "GPL-3.0"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+sentry-sdk = "^0"
+
+[tool.poetry.dev-dependencies]
+sphinx = "*"
+
+[tool.poetry.extras]
+webnotifications = ["pillow>=5", "pyopenssl"]
+flask = ["flask>=1.0.0", "redis"]
+sqlalchemy = ["sqlalchemy", "msgpack"]
+ldap =["ldap3"]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
