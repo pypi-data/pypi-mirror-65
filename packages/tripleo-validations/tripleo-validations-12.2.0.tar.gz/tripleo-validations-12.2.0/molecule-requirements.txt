@@ -1,0 +1,11 @@
+# this is required for the molecule jobs
+ansible
+ansi2html
+docker
+pytest
+pytest-cov
+pytest-html
+pytest-xdist
+molecule>=3.0,<3.1
+selinux  # MIT
+jinja2>=2.8.0,<3
