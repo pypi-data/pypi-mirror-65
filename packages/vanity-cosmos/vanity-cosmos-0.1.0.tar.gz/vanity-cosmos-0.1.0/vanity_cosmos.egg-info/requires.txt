@@ -1,0 +1,9 @@
+bech32
+secp256k1
+
+[test]
+pytest
+pytest-cov
+pytest-mock
+bech32
+secp256k1
