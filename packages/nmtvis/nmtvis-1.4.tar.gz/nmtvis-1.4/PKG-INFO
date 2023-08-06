@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: nmtvis
+Version: 1.4
+Summary: A visualization toolkit for NMT(Neural Machine Translation) system.
+Home-page: https://github.com/player-eric/NMT-Visualizer
+Author: Player Eric
+Author-email: digimonyan@gmail.com
+License: MIT
+Description: **nmtvis**
+        ========
+        
+        **nmtvis** is a visualization toolkit for NMT(Neural Machine Translation) system.
+        
+        
+        Installation
+        ------------
+        Use pip to install **nmtvis**:
+        
+           pip install nmtvis
+        
+        Features
+        --------
+        
+        - Visualize attention weights in attention-based NMT models
+        - Other features to be developed
+        
+        
+        Links
+        ----------
+        
+        - Source Code: https://github.com/player-eric/NMT-Visualizer
+        - Documentation: 
+        
+        License
+        -------
+        
+        The project is licensed under the MIT license.
+        
+        Support
+        -------
+        
+        If you are having issues, please let me know.
+        Contact me at digimonyan@gmail.com
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
