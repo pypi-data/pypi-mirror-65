@@ -1,0 +1,96 @@
+[tox]
+envlist =
+    {% for env in supports | sort -%}
+    {{ env }}
+    {% endfor -%}
+    build
+    readme
+    safety
+    secrets
+    {% if style -%}style{%- endif %}
+    {% if docs -%}docs-{dirhtml,doctest,linkcheck,spelling,style}{%- endif %}
+skipsdist = True
+
+[testenv]
+setenv =
+changedir = {envtmpdir}
+commands =
+    {envpython} -m pip install {toxinidir}
+    {envpython} -m {{ test_runner }} {posargs:{{ tests }}}
+    {envpython} -m doctest {toxinidir}/README.rst
+deps =
+    {% for each in test_deps -%}
+    {{ each }}
+    {%- endfor %}
+    {% if not closed %}codecov,{% endif %}coverage: coverage
+    {% if not closed %}codecov: codecov{%- endif %}
+
+[testenv:coverage]
+setenv =
+    {[testenv]setenv}
+    COVERAGE_FILE={envtmpdir}/coverage-data
+commands =
+    {envpython} -m pip install {toxinidir}
+    {envpython} -m coverage run --rcfile={toxinidir}/.coveragerc -m {{ test_runner }} {{ tests }}
+    {envpython} -m coverage report --rcfile={toxinidir}/.coveragerc --show-missing
+    {envpython} -m coverage html --directory={envtmpdir}/htmlcov --rcfile={toxinidir}/.coveragerc {posargs}
+
+[testenv:build]
+deps = pep517
+commands =
+    {envpython} -m pep517.check {toxinidir}
+
+[testenv:bandit]
+deps = bandit
+commands = {envpython} -m bandit --recursive {{ tests }}
+
+[testenv:readme]
+deps =
+    pep517
+    twine
+commands =
+    {envpython} -m pep517.build --out-dir {envtmpdir}/dist {toxinidir}
+    {envpython} -m twine check {envtmpdir}/dist/*
+
+[testenv:safety]
+deps = safety
+commands =
+    {envpython} -m pip install {toxinidir}
+    {envpython} -m safety check
+
+[testenv:secrets]
+deps = detect-secrets
+commands = {envbindir}/detect-secrets scan {toxinidir}
+
+[testenv:style]
+deps = ebb-lint
+commands =
+    {envpython} -m flake8 {posargs} --max-complexity 10 {{ tests }}{% if cffi %} {toxinidir}/setup.py{% endif %}{% if docs %} {toxinidir}/docs
+{% for each in ["dirhtml", "doctest", "linkcheck", "spelling"] -%}
+
+[testenv:docs-{{ each }}]
+commands = {envpython} -m sphinx -b {{ each }} {toxinidir}/docs/ {envtmpdir}/build {posargs:-a -n -q -T -W}
+deps =
+    -r{toxinidir}/docs/requirements.txt
+{% endfor %}
+
+[testenv:docs-style]
+commands = doc8 {posargs} {toxinidir}/docs
+deps =
+    doc8
+    pygments
+    pygments-github-lexers
+{% endif %}
+{% if not closed %}
+[testenv:codecov]
+passenv = CODECOV* CI
+setenv =
+    {[testenv]setenv}
+    COVERAGE_DEBUG_FILE={envtmpdir}/coverage-debug
+    COVERAGE_FILE={envtmpdir}/coverage-data
+commands =
+    {envpython} -m pip install {toxinidir}
+    {envpython} -m coverage run --rcfile={toxinidir}/.coveragerc -m {{ test_runner }} {{ tests }}
+    {envpython} -m coverage xml -o {envtmpdir}/coverage.xml
+    {envpython} -m codecov --required --disable gcov --file {envtmpdir}/coverage.xml
+{%- endif %}

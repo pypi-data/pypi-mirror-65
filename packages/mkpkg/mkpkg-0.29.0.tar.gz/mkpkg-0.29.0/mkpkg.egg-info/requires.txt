@@ -1,0 +1,10 @@
+click
+jinja2
+sphinx
+
+[:python_version < "3.8"]
+importlib_metadata
+
+[:python_version == "2.7"]
+configparser
+pathlib2
