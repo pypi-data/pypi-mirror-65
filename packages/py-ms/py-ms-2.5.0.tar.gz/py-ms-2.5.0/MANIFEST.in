@@ -1,0 +1,8 @@
+include README.md
+include requirements.txt
+include requirements-tests.txt
+recursive-include pyms *
+recursive-exclude tests *
+recursive-exclude examples *
+prune tests
+prune examples
