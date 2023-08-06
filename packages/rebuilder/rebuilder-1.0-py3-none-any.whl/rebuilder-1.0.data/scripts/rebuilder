@@ -1,0 +1,54 @@
+#!python
+# -*- coding: utf-8 -*-
+
+from rebuilder.main import run
+from argparse import ArgumentParser
+
+parser = ArgumentParser(description='rebuilder is a python program designed to generate macrocomplex'
+                                    ' models from chain pair interaction pdb files.')
+
+parser.add_argument("-i", "--input",
+                    dest="input",
+                    action="store",
+                    type=str,
+                    help="Input directory where chain pair interaction pdb files are.",
+                    required=True)
+
+parser.add_argument("-o", "--output",
+                    dest="output",
+                    action="store",
+                    type=str,
+                    help="Name of the output directory. The output model will be saved there",
+                    required=True)
+
+parser.add_argument("-f", "--fasta",
+                    dest="fasta",
+                    action="store",
+                    type=str,
+                    help="Input fasta file used in order to obtain the chain id's or alternatively the entities id's."
+                         " It is important that the fasta header contains either the id followed by a colon, "
+                         "the chain/entity id and then a vertical bar (i.e. '>CODE:A|') or the same thing but an "
+                         "underscore instead of a colon (i.e. '>CODE_A|').",
+                    required=True)
+
+parser.add_argument("-v", "--verbose",
+                    dest="verbose",
+                    action="store_true",
+                    default=False,
+                    help="The program is more explicit while running the program,"
+                         " giving more information about the sub-steps performed. Default = False")
+
+parser.add_argument("-s", "--stoich",
+                    dest="stoichiometry",
+                    action="store_true",
+                    default=False,
+                    help="While running, the program will ask the user to give the model stoichiometry."
+                         " The program will use the required fasta file to retrieve chain id's or alternatively,"
+                         " the entities id's, while helping the user to correctly identify the chains, showing a "
+                         "part of their sequence and their respective length. Default = False")
+
+options = parser.parse_args()
+
+
+run(fasta_file=options.fasta, has_stoichiometry=options.stoichiometry, directory=options.input,
+    verbosity=options.verbose, output_directory=options.output)
