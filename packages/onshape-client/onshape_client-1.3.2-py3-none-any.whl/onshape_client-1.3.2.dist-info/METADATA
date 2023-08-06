@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: onshape-client
+Version: 1.3.2
+Summary: Onshape REST API
+Home-page: UNKNOWN
+Author-email: api-support@onshape.zendesk.com
+License: UNKNOWN
+Keywords: OpenAPI,OpenAPI-Generator,Onshape REST API
+Platform: UNKNOWN
+Requires-Python: >3.6.3
+Requires-Dist: certifi (>=2017.4.17)
+Requires-Dist: python-dateutil (>=2.1)
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.23)
+Requires-Dist: nulltype
+Requires-Dist: requests-oauthlib
+Requires-Dist: ruamel.yaml
+Requires-Dist: pint
+
+The Onshape REST API consumed by all clients.  # noqa: E501
+
+
