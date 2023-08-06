@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: bisearch
+Version: 0.1.2
+Summary: UNKNOWN
+Home-page: https://github.com/KPRATT11/bisearch
+Author-email: pratt.keegan@gmail.com
+License: UNKNOWN
+Description: # Binary Search
+        
+        This module allows the function of binary searching in strings, lists or tuples
+        <p>&nbsp;</p> 
+        <p>&nbsp;</p> 
+        
+        
+        ## Installation
+        
+        Run the following to install:
+        ```python
+        pip install bisearch
+        ```
+        <p>&nbsp;</p> 
+        
+        
+        
+        ## Usage
+        ```python
+        import bisearch 
+        
+        # Check if target exists within search range
+        bisearch.exist(target,field)
+        
+        # Check where target is located within search range
+        bisearch.location(target,field)
+        ```
+        <p>&nbsp;</p> 
+        
+        
+        
+        ## Types of target inputs 
+        *Target input refers to the first input argument when the function is called*  
+        <p>&nbsp;</p>  
+        
+        **Int** - accepts int value --- *Note - int inputs are not compatible with string fields*
+        
+        
+        **Float** - accepts float value --- *Note - float inputs are not compatible with string fields*
+        
+        
+        **Single character string** - accepts single character string --- *Note - single character string inputs are only compatible with one word strings*
+        
+        
+        **Word string** - accepts string of single word --- *Note - word strings are only compatible with multiple word strings*
+        <p>&nbsp;</p> 
+        <p>&nbsp;</p> 
+        
+        
+        ## Types of field inputs
+        *Field input refers to the second argument when the function is called*
+        <p>&nbsp;</p>   
+        
+        **2D Array** - accepts any length 2D array
+        
+        
+        **Tuple** - accepts any length tuple --- *Note - tuples are converted into lists*
+        
+        
+        **One Word Strings** - accepts strings without any spaces --- *Note - string is split into list of characters*
+        
+        
+        **Multiple Word Strings** - accepts strings that are seperated by *one* white space --- *Note - string is split into list of words*
+        <p>&nbsp;</p> 
+        <p>&nbsp;</p> 
+        
+        
+        
+        
+        ### Notes
+        *when using location if the target does not exist within the field the function will return None.*
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
