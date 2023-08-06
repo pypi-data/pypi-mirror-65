@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: pyasstosrt
+Version: 0.0.4
+Summary: Convert ASS subtitle to SRT format
+Home-page: https://github.com/GitBib/pyasstosrt
+Author: Ivan Vyalov
+Author-email: me@bnff.website
+License: Apache License, Version 2.0, see LICENSE file
+Download-URL: https://github.com/GitBib/pyasstosrt/archive/0.0.4.zip
+Description: pyasstosrt
+        =================================================================================================================================================================================
+        **pyasstosrt** – this tool will help you convert Advanced SubStation Alpha (ASS/SSA) subtitle files to SubRip (SRT) files.
+        
+        ```python
+        from pyasstosrt import Substation
+        
+        sub = Substation('sub.ass')
+        sub.translate()
+        ```
+        
+        Installation
+        ------------
+            $ pip install pyasstosrt
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
