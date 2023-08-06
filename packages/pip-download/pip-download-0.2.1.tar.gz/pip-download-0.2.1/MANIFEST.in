@@ -1,0 +1,7 @@
+include README.rst
+include LICENSE-MIT
+include HISTORY.rst
+include pyproject.toml
+include tox.ini
+prune tests
+
