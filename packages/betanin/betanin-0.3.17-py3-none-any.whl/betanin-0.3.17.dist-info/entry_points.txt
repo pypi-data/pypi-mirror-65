@@ -1,0 +1,4 @@
+[console_scripts]
+betanin = betanin.entry_betanin:main
+betanin-shell = betanin.entry_shell:main
+
