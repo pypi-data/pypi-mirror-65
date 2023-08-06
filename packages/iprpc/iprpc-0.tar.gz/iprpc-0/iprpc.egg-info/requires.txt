@@ -1,0 +1,10 @@
+jsonschema==3.2.0
+strict-rfc3339==0.7
+pydantic==1.4
+tinyrpc==1.0.4
+
+[aioapp]
+aioapp-http==0.0.1b6
+
+[aiohttp]
+aiohttp==3.4.4

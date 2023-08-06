@@ -1,0 +1,15 @@
+-r requirements.txt
+-r requirements_aioapp.txt
+-r requirements_aiohttp.txt
+
+pytest==5.2.1
+pytest-asyncio==0.10.0
+pytest-aiohttp==0.3.0
+pytest-cov==2.8.1
+coverage==4.5.4
+tox==3.14.0
+
+flake8==3.7.8
+mypy==0.730
+bandit==1.6.2
+safety==1.8.5
