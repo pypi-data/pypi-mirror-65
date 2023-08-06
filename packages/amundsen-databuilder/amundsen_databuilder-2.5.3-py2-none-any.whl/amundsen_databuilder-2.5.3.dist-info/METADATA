@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: amundsen-databuilder
+Version: 2.5.3
+Summary: Amundsen Data builder
+Home-page: https://www.github.com/lyft/amundsendatabuilder
+Maintainer: Lyft
+Maintainer-email: dev@lyft.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*
+Requires-Dist: flake8 (==3.5.0)
+Requires-Dist: flake8-tidy-imports (<2.0,>=1.1.0)
+Requires-Dist: pytest (<4.0,>=3.6.0)
+Requires-Dist: pytest-cov (<3.0,>=2.5.1)
+Requires-Dist: mock (<3.0,>=2.0.0)
+Requires-Dist: pytest-mock (<2.0,>=1.1)
+Requires-Dist: typing (==3.6.4)
+Requires-Dist: elasticsearch (<7.0,>=6.2.0)
+Requires-Dist: atomicwrites (==1.1.5)
+Requires-Dist: attrs (==18.1.0)
+Requires-Dist: more-itertools (==4.2.0)
+Requires-Dist: pluggy (>=0.6.0)
+Requires-Dist: py (==1.5.3)
+Requires-Dist: pyhocon (==0.3.42)
+Requires-Dist: pyparsing (==2.2.0)
+Requires-Dist: six (<2.0.0,>=1.11.0)
+Requires-Dist: sqlalchemy (<2.0,>=1.3.0)
+Requires-Dist: wheel (==0.31.1)
+Requires-Dist: neo4j-driver (==1.7.2)
+Requires-Dist: neotime (==1.7.1)
+Requires-Dist: pytz (==2018.4)
+Requires-Dist: statsd (==3.2.1)
+Requires-Dist: retrying (==1.3.3)
+Requires-Dist: unicodecsv (<1.0,==0.14.1)
+Requires-Dist: httplib2 (~=0.9.2)
+Requires-Dist: unidecode
+Requires-Dist: typing (>=3.6) ; python_version=="2.7"
+Provides-Extra: all
+Requires-Dist: flake8 (==3.5.0) ; extra == 'all'
+Requires-Dist: flake8-tidy-imports (<2.0,>=1.1.0) ; extra == 'all'
+Requires-Dist: pytest (<4.0,>=3.6.0) ; extra == 'all'
+Requires-Dist: pytest-cov (<3.0,>=2.5.1) ; extra == 'all'
+Requires-Dist: mock (<3.0,>=2.0.0) ; extra == 'all'
+Requires-Dist: pytest-mock (<2.0,>=1.1) ; extra == 'all'
+Requires-Dist: typing (==3.6.4) ; extra == 'all'
+Requires-Dist: elasticsearch (<7.0,>=6.2.0) ; extra == 'all'
+Requires-Dist: atomicwrites (==1.1.5) ; extra == 'all'
+Requires-Dist: attrs (==18.1.0) ; extra == 'all'
+Requires-Dist: more-itertools (==4.2.0) ; extra == 'all'
+Requires-Dist: pluggy (>=0.6.0) ; extra == 'all'
+Requires-Dist: py (==1.5.3) ; extra == 'all'
+Requires-Dist: pyhocon (==0.3.42) ; extra == 'all'
+Requires-Dist: pyparsing (==2.2.0) ; extra == 'all'
+Requires-Dist: six (<2.0.0,>=1.11.0) ; extra == 'all'
+Requires-Dist: sqlalchemy (<2.0,>=1.3.0) ; extra == 'all'
+Requires-Dist: wheel (==0.31.1) ; extra == 'all'
+Requires-Dist: neo4j-driver (==1.7.2) ; extra == 'all'
+Requires-Dist: neotime (==1.7.1) ; extra == 'all'
+Requires-Dist: pytz (==2018.4) ; extra == 'all'
+Requires-Dist: statsd (==3.2.1) ; extra == 'all'
+Requires-Dist: retrying (==1.3.3) ; extra == 'all'
+Requires-Dist: unicodecsv (<1.0,==0.14.1) ; extra == 'all'
+Requires-Dist: httplib2 (~=0.9.2) ; extra == 'all'
+Requires-Dist: unidecode ; extra == 'all'
+Requires-Dist: confluent-kafka (==1.0.0) ; extra == 'all'
+Requires-Dist: cassandra-driver (==3.20.1) ; extra == 'all'
+Requires-Dist: boto3 (==1.10.1) ; extra == 'all'
+Requires-Dist: snowflake-connector-python ; extra == 'all'
+Requires-Dist: snowflake-sqlalchemy ; extra == 'all'
+Requires-Dist: PyAthena[sqlalchemy] (>=1.0.0) ; extra == 'all'
+Requires-Dist: google-api-python-client (<2.0.0dev,>=1.6.0) ; extra == 'all'
+Requires-Dist: google-auth-httplib2 (<2.0.0dev,>=0.0.1google-auth>=1.0.0) ; extra == 'all'
+Requires-Dist: jsonpath-rw (==1.4.0) ; extra == 'all'
+Provides-Extra: athena
+Requires-Dist: PyAthena[sqlalchemy] (>=1.0.0) ; extra == 'athena'
+Provides-Extra: bigquery
+Requires-Dist: google-api-python-client (<2.0.0dev,>=1.6.0) ; extra == 'bigquery'
+Requires-Dist: google-auth-httplib2 (<2.0.0dev,>=0.0.1google-auth>=1.0.0) ; extra == 'bigquery'
+Provides-Extra: cassandra
+Requires-Dist: cassandra-driver (==3.20.1) ; extra == 'cassandra'
+Provides-Extra: glue
+Requires-Dist: boto3 (==1.10.1) ; extra == 'glue'
+Provides-Extra: jsonpath
+Requires-Dist: jsonpath-rw (==1.4.0) ; extra == 'jsonpath'
+Provides-Extra: kafka
+Requires-Dist: confluent-kafka (==1.0.0) ; extra == 'kafka'
+Provides-Extra: snowflake
+Requires-Dist: snowflake-connector-python ; extra == 'snowflake'
+Requires-Dist: snowflake-sqlalchemy ; extra == 'snowflake'
+
+UNKNOWN
+
+
