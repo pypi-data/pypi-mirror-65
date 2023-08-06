@@ -1,0 +1,24 @@
+<CsoundSynthesizer>
+<CsOptions>
+</CsOptions>
+<CsInstruments>
+sr = 44100 ;96000?
+kr = 22050 ;24000?
+nchnls = 2
+0dbfs = 1
+
+gkBPM init 120
+
+opcode K2Y, k, k  ; THIS IS TEMPORARY!
+    kin xin
+    kout = (kin > 0 ? 1 : 0)
+    xout kout
+endop
+
+opcode A2O, a, a  ; THIS IS TEMPORARY!
+    setksmps 1
+    ain xin
+    kin = k(ain)
+    kout = (kin > 0 ? 1 : 0)
+    xout a(kout)
+endop
