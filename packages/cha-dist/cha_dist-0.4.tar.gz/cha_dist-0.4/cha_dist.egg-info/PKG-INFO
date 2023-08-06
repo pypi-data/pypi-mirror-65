@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: cha-dist
+Version: 0.4
+Summary: Gaussian distributions
+Home-page: UNKNOWN
+Author: Nagesh Singh Chauhan
+Author-email: nageshsinghc4@gmail.com
+License: UNKNOWN
+Description: This is a distribution class for calculating and visualizing a probaility distribution.
+        
+        It consist of two functions for now which are 
+        
+        
+        ### Installation
+        
+        pip install cha_dist
+        
+        
+        ### Example
+        
+        from cha_dist import Guassian
+        In: Guassian(10,7)
+        Out: mean 10, standard deviation 7
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
