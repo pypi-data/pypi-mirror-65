@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: blacksock
+Version: 0.1.0
+Summary: An OpenCV app to turn a webcom into a virtual midi controller.
+Home-page: https://github.com/arkocal/black-sock
+Author: Ali Rasim Kocal
+Author-email: arkocal@posteo.net
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: python-rtmidi
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+
+UNKNOWN
+
+
