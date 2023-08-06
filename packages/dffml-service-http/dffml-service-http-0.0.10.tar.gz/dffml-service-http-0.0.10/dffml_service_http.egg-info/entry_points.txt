@@ -1,0 +1,3 @@
+[dffml.service.cli]
+http = dffml_service_http.cli:HTTPService
+
