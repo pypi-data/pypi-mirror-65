@@ -1,0 +1,140 @@
+##########################################################################
+#  Passenger Standalone is built on the same technology that powers
+#  Passenger for Nginx, so any configuration option supported by Passenger
+#  for Nginx can be applied to Passenger Standalone as well. You can do
+#  this by direct editing the Nginx configuration template that is used by
+#  Passenger Standalone.
+#
+#  Learn more about using the Nginx configuration template at:
+#  https://www.phusionpassenger.com/library/config/standalone/intro.html#nginx-configuration-template
+#
+#  To test this configuration template run:
+#  passenger start --nginx-config-template config/passenger_standalone/nginx.conf.erb --debug-nginx-config
+#
+#  *** NOTE ***
+#  If you customize the template file, make sure you keep an eye on the
+#  original template file and merge any changes. New Phusion Passenger
+#  features may require changes to the template file.
+##############################################################
+
+<%
+  def include_passenger_custom_template(template, indent = 0, the_binding = get_binding)
+    path = File.join(File.dirname(__FILE__), 'includes', template)
+    erb = ERB.new(File.read(path), nil, "-", next_eoutvar)
+    erb.filename = path
+    result = erb.result(the_binding)
+
+    # Set indenting
+    result.gsub!(/^/, " " * indent)
+    result.gsub!(/\A +/, '')
+
+    result
+  end
+
+  def use_canonical?
+    !canonical_domain.nil? &&
+    !canonical_domain.empty? &&
+    !canonical_domain_protocol.nil? &&
+    !canonical_domain_protocol.empty?
+  end
+
+  def canonical_domain
+    ENV['SATORIX_CANONICAL_URI_HOST']
+  end
+
+  def canonical_domain_protocol
+    ENV['SATORIX_CANONICAL_URI_PROTOCOL']
+  end
+
+  def canonical_uri
+    "#{ canonical_domain_protocol }://#{ canonical_domain }" if use_canonical?
+  end
+%>
+
+<%= include_passenger_internal_template('global.erb') %>
+
+worker_processes 1;
+events {
+    worker_connections 4096;
+}
+
+http {
+    <%= include_passenger_internal_template('http.erb', 4) %>
+
+    ### BEGIN your own configuration options ###
+    # This is a good place to put your own config
+    # options. Note that your options must not
+    # conflict with the ones Passenger already sets.
+    # Learn more at:
+    # https://www.phusionpassenger.com/library/config/standalone/intro.html#nginx-configuration-template
+
+    ### END your own configuration options ###
+
+    default_type application/octet-stream;
+    types_hash_max_size 2048;
+    server_names_hash_bucket_size 96;
+    client_max_body_size 1024m;
+    access_log off;
+    keepalive_timeout 60;
+    underscores_in_headers on;
+    gzip on;
+    gzip_comp_level 3;
+    gzip_min_length 150;
+    gzip_proxied any;
+    gzip_types text/plain text/css text/json text/javascript
+        application/javascript application/x-javascript application/json
+        application/rss+xml application/vnd.ms-fontobject application/x-font-ttf
+        application/xml font/opentype image/svg+xml text/xml;
+  <% if @app_finder.multi_mode? %>
+    # Default server entry for mass deployment mode.
+    server {
+        <%= include_passenger_internal_template('mass_deployment_default_server.erb', 12) %>
+    }
+  <% end %>
+  <% @apps.each do |app| %>
+    <% if use_canonical? %>
+    # Redirect all requests to the canonical domain.
+    server {
+      server_name <%= app[:server_names].join(' ') %>;
+      listen <%= nginx_listen_address(app) %> default_server;
+      return 301 <%= canonical_uri %>$request_uri;
+    }
+    <% else %>
+    # No canonical domain defined, passing all requests to the main server block.
+    <% end %>
+
+    # Main server block.
+    server {
+      <% app[:server_names] = [canonical_domain] if use_canonical? %>
+      <%= include_passenger_internal_template('server.erb', 8, true, binding) %>
+
+      <%= include_passenger_custom_template('django_asset_pipeline.erb', 8, binding) %>
+      <%= include_passenger_custom_template('page_level_redirects.erb', 8, binding) %>
+      <%= include_passenger_custom_template('proxy_configuration.erb', 8, binding) %>
+      <%= include_passenger_custom_template('authentication.erb', 8, binding) %>
+
+      ### BEGIN your own configuration options ###
+      # This is a good place to put your own config options.
+      # Note that your options must not conflict with the ones Passenger already sets.
+      #
+      # Learn more at:
+      # https://www.phusionpassenger.com/library/config/standalone/intro.html#nginx-configuration-template
+      #
+      # You can use the include_passenger_custom_template to method include your own custom template.
+      # This will help you compartmentalize your configurations, to help organize your settings.
+      #
+      #   Example:
+      #
+      #     Create a new file for your new logic ( /config/passenger_standalone/includes/my_new_logic.erb )
+      #     Add your custom logic to your newly created file.
+      #     Add your file to the area below, in an ERB block ( include_passenger_custom_template('my_new_logic.erb') )
+
+
+      ### END your own configuration options ###
+    }
+
+    passenger_pre_start <%= listen_url(app) %>;
+  <% end %>
+
+  <%= include_passenger_internal_template('footer.erb', 4) %>
+}

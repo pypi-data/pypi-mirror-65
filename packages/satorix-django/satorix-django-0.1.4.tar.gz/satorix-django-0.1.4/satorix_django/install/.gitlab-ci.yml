@@ -1,0 +1,31 @@
+# We are using the Satorix base image from https://hub.docker.com/r/satorix/base/
+image: 'satorix/base:18'
+
+# Global caching directives.
+cache:
+  key: "$CI_PROJECT_ID"
+  paths:
+    - 'tmp/satorix/cache' # To cache buildpack output between runs.
+
+.satorix: &satorix
+  script:
+    - gem install satorix --no-document
+    - satorix
+
+# Safety checks your installed dependencies for known security vulnerabilities https://pyup.io/safety/
+safety:
+  <<: *satorix
+
+# Test Django using unittest
+django_test:
+  <<: *satorix
+
+deploy_with_flynn:
+  environment:
+    name: $CI_COMMIT_REF_NAME
+    url: "http://$CI_PROJECT_NAME.$CI_COMMIT_REF_SLUG.$SATORIX_HOSTING_NAMESPACE"
+  stage: deploy
+  only:
+    - staging
+    - production
+  <<: *satorix
