@@ -1,0 +1,185 @@
+{% extends 'admin.html' %}
+{% block title %}{% trans %}User management{% endtrans %}{% endblock %}
+{% set admin_nav_active="users" %}
+{% block content %}
+	
+{% from 'include/modal_dialog.html' import modal_dialog, button_confirm, modal_confirm %}
+{% from 'include/search.html' import search_bar %}
+
+{% call search_bar(
+    search_placeholder=_('Search by name, email or username'),
+    criterias=[('',_('All')), ('admins', _('Admins')), ('ldap', _('LDAP'))],
+    criteria=criteria,
+    search=search) %}
+<div class="pull-right">
+    <button type="button" class="btn btn-success" data-toggle="modal"
+        data-target="#add-user-modal">{% trans %}Add user{% endtrans %}</button>
+</div>
+{% endcall %}
+
+<!-- Users View -->
+<div class="row">
+    <div class="col-md-12">
+    
+    {% if users %}
+    <div class="panel panel-default">
+        <ul class="list-group">
+        	{# List filtered user by name. #}
+            {% for user in users|sort(attribute='username') %}
+            <li class="list-group-item clearfix">
+                {{ user.username }}
+                {% if user.email %}
+                <span class="light">
+                    ({{ user.email }})
+                </span>
+                {% endif%}
+                {% if user.is_admin %}
+                <span class="label label-info">{% trans %}Admin{% endtrans %}</span>
+                {% endif %}
+                {% if user.is_ldap %}
+                <span class="label label-default">{% trans %}LDAP{% endtrans %}</span>
+                {% endif %}
+                {% if user.username == username %}
+                <span class="label label-success">{% trans %}It's you{% endtrans %}</span>
+                {% endif %}
+                
+                <div class="pull-right">
+                    <span class="light">
+                        {{ user.user_root }}
+                    </span>
+                    <button type="button" class="btn btn-default"
+                            data-toggle="modal"
+                            data-target="#edit-user-{{ user.username }}-modal">
+                        {% trans %}Edit{% endtrans %}</button>
+                    {{ button_confirm(label=_('Delete'), target="#delete-user-modal", action="delete", username=user.username) }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+    {% else %}
+    <p class="text-center">{% trans %}No users found{% endtrans%}</p>
+    {% endif %}
+<!-- /.row -->
+</div>
+
+{# Dialog to create new user. #}
+{% call modal_dialog('add-user-modal',_('Add user'), _('Add user')) %}
+    <input type="hidden" name="action" value="add" >
+    <div class="alert alert-info" role="alert">
+    {% trans %}To create an LDAP user, use the same username. You may leave the email and password empty.{% endtrans %}
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="username">
+        	{% trans %}Username{% endtrans %}</label>
+    	<div class="col-sm-7">
+        <input type="text" name="username" value="" id="username"
+            class="form-control" required>
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-3 control-label" for="email">
+        	{% trans %}Email{% endtrans %}</label>
+    	<div class="col-sm-7">
+        <input type="text" name="email" value="" id="email"
+            class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="password">
+        	{% trans %}Password{% endtrans %}</label>
+    	<div class="col-sm-7">
+        <input type="password" name="password" id="password"
+            class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="user-root">
+        	{% trans %}Root directory{% endtrans %}</label>
+    	<div class="col-sm-7">
+        <input type="text" name="user_root" id="user-root"
+            value="{{ user_root }}" class="form-control">
+        <span class="help-block">{% trans %}Absolute path defining the location of the repositories for this user.{% endtrans %}</span>
+        </div>
+    </div>
+	<div class="form-group">
+    	<div class="col-sm-offset-3 col-sm-7">
+	        <div class="checkbox">
+	            <label>
+	                <input type="checkbox" name="is_admin">
+	                {% trans %}Is administrator{% endtrans %}
+	            </label>
+            </div>
+        </div>
+    </div>
+{% endcall %}
+
+{# Dialogs to edit user. #}
+{% for user in users|sort(attribute='username') %}
+{% set modalid = "edit-user-" + user.username + "-modal" %}
+{% call modal_dialog(modalid, _('Edit user %(name)s', name=user.username),
+		_('Save changes')) %}
+    <input type="hidden" name="action" value="edit" >
+    <input type="hidden" name="username" value="{{ user.username }}" >
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="user-email-{{ loop.index }}">
+        	{% trans %}Email{% endtrans %}</label>
+    	<div class="col-sm-7">
+            <input type="text" class="form-control"
+                id="user-email-{{ loop.index }}" name="email"
+                value="{{ user.email }}" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="user-password-{{ loop.index }}">
+        	{% trans %}Password{% endtrans %}</label>
+    	<div class="col-sm-7">
+            <input type="password" class="form-control"
+                id="user-password-{{ loop.index }}" name="password"
+                value="" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="user-root-{{ loop.index }}">
+        	{% trans %}Root directory{% endtrans %}</label>
+    	<div class="col-sm-7">
+            <input type="text" class="form-control"
+                id="user-root-{{ loop.index }}" name="user_root"
+                value="{{ user.user_root }}" >
+            <span class="help-block">{% trans %}Absolute path defining the location of the repositories for this user.{% endtrans %}</span>
+        </div>
+    </div>
+    <div class="form-group">
+    	<div class="col-sm-offset-3 col-sm-7">
+	        <div class="checkbox">
+	            <label>
+	                <input type="checkbox" name="is_admin"
+	                		{% if user.is_admin%}
+	                		checked="checked"
+	                		{% endif %}
+	                		{% if user.username == username %}
+	                		disabled="disabled"
+	                		{% endif %}>
+	                {% trans %}Is administrator{% endtrans %}
+	            </label>
+	            {% if user.username == username %}
+	            <p class="help-block">
+	            	{% trans %}You cannot remove your own admin rights.{% endtrans %}
+	            </p>
+	            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endcall %}
+{% endfor %}
+
+<!-- Delete User Modal -->
+{{ modal_confirm(
+    id='delete-user-modal',
+    title=_('Delete User'),
+    message=_("Are you sure you want to delete this User?"),
+    fields=['action', 'username'],
+    submit=_('Delete')) }}
+
+{% endblock %}
