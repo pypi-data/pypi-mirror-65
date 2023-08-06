@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: ChitraPy
+Version: 0.0.1
+Summary: Digital Image Processing Library
+Home-page: https://github.com/mgautam98/ImgPy
+Author: Gautam Mishra
+Author-email: mishragautam96@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# ChitraPy [![Build Status](https://travis-ci.com/mgautam98/ChitraPy.svg?branch=master)](https://travis-ci.com/mgautam98/ChitraPy)  [![codecov](https://codecov.io/gh/mgautam98/ChitraPy/branch/master/graph/badge.svg)](https://codecov.io/gh/mgautam98/ChitraPy)
+
+ChitraPy is a digital Image Processing Library in Python.
+
+## Features
+
+* Crop
+* Grayscale
+* Negative
+* Sepia
+* Hue
+* Salt and Pepper
+* Stretch
+* Warp
+* Rotate
+* Invert
+* Gaussian blur
+* Quick Blur
+* Contrast Enhancement (Histogram Equalization)
+* Local Contrast Enhancement
+* Add Watermark
+* Sobel Edge detection
+* Halftoning
+* Dither
+* resize
+* sharpen
+* Emboss
+* Identity
+* Outline
+* Monochrome
+* Zoom
+* Contrast adjustment (Histogram sliding)
+
+
+## References
+
+* https://en.wikipedia.org/wiki/Digital_image_processing
+* http://setosa.io/ev/image-kernels/
+* http://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/
+* https://www.cs.princeton.edu/courses/archive/fall00/cs426/lectures/dither/dither.pdf
+* https://hypjudy.github.io/2017/03/19/dip-histogram-equalization/
+
+
