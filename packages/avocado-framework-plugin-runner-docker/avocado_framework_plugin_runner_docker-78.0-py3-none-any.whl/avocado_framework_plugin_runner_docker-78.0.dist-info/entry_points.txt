@@ -1,0 +1,6 @@
+[avocado.plugins.cli]
+docker = avocado_runner_docker:DockerCLI
+
+[avocado.plugins.runner]
+docker = avocado_runner_docker:DockerTestRunner
+
