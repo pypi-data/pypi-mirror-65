@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: wfdispatcher
+Version: 0.0.11
+Summary: UNKNOWN
+Home-page: https://github.com/sqre-lsst/wfdispatcher
+Author: Adam Thornton
+Author-email: athornton@lsst.org
+License: MIT
+Description: # wf-dispatcher
+        
+        Dispatch engine for Argo Workflows in the Nublado environment.  Requires
+        an HTTP header on the request that looks like what we get at NCSA carrying
+        user and group information.
+        
+Keywords: lsst,rubinobservatory,argo,workflow,jupyter
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
