@@ -1,0 +1,8 @@
+black
+pre-commit~=2.2
+pytest-cov~=2.8
+pytest<6,>5.4
+snakeviz
+
+[docs]
+sphinx
