@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: fpga-device-manager
+Version: 0.2.4
+Summary: A GUI for managing FPGA Device configurations.
+Home-page: UNKNOWN
+Author: Hannes Preiss
+Author-email: sophie@sophieware.net
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: moody-templates
+Requires-Dist: PySide2
+Requires-Dist: QtPy
+
+# FPGA Device Manager
+A GUI for managing device configurations for a Smart Home FPGA solution that was created as part of a Bachelor's thesis.
+
+This application aids you in creating a device configuration for a Smart Home FPGA and automatically generates the corresponding Verilog code.
+
+## Installation
+```
+pip install fpga-device-manager
+```
+
+## Usage
+To launch the GUI, execute:
+```
+python -m fpga_device_manager
+```
+
+- The generated Verilog `.v` files will have to be copied manually to the `smarthome/source/generated` folder of the Lattice Diamond project.
+- The generated `smarthome.ldf` file has to be copied manually to the root folder of the Lattice Diamond project.
+
+### Command-line generation
+Verilog code can be generated from the command line like this:
+```
+python -m fpga_device_manager.generator --output=./generated configuration.json
+```
+
+## Valid configurations
+A valid configuration needs:
+
+- at least one appliance
+- at least one sensor
+- every sensor to be associated with an appliance
+
