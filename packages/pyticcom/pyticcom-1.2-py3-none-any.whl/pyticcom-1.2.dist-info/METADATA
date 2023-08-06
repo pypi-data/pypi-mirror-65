@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: pyticcom
+Version: 1.2
+Summary: Teleinfo python library
+Home-page: https://github.com/biker91620/pyticcom/tree/master
+Author: biker91620
+License: GPL-3
+Keywords: rest,pyticcom,linky,tic,io,smart-things,iot
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Home Automation
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2)
+
+# pyticcom - EDF teléinformation Python library
+
+[![PyPI version](https://badge.fury.io/py/pyticcom.svg)](https://badge.fury.io/py/pyticcom)
+
+This library allows you to retrieve teleinfo using serial port device (USBTICLCV2).
+
+### Example
+
+~~~
+import asyncio
+
+from pyticcom import Teleinfo, Mode
+from scanner import ComScanner
+
+scanner = ComScanner()
+serials = scanner.scan()
+for serial in serials:
+    print(serial.device)
+
+async def main():
+    with Teleinfo('/dev/USB0', mode=Mode.HISTORY) as teleinfo:
+        while True:
+            frame = await teleinfo.read_frame()
+            print("{} groups found".format(len(frame.groups)))
+            for group in frame.groups:
+                print(group)
+            await asyncio.sleep(1)
+
+
+loop = asyncio.get_event_loop()
+result = loop.run_until_complete(main())
+
+~~~
+
