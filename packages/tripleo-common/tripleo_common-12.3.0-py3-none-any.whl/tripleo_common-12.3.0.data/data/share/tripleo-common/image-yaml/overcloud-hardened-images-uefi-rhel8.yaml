@@ -1,0 +1,8 @@
+disk_images:
+  -
+    imagename: overcloud-hardened-uefi-full
+    type: qcow2
+    distro: rhel
+    environment:
+      DIB_RELEASE: '8'
+

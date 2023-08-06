@@ -1,0 +1,7 @@
+disk_images:
+  -
+    imagename: overcloud-hardened-full
+    type: qcow2
+    distro: rhel
+    environment:
+      DIB_RELEASE: '7'
