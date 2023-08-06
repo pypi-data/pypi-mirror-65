@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+django_mp_stock.egg-info/PKG-INFO
+django_mp_stock.egg-info/SOURCES.txt
+django_mp_stock.egg-info/dependency_links.txt
+django_mp_stock.egg-info/requires.txt
+django_mp_stock.egg-info/top_level.txt
+stock/__init__.py
+stock/models.py
+stock/urls.py
+stock/views.py
