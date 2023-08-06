@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: edautils
+Version: 0.1.0
+Summary: This package contains exploratory data analysis (EDA) helper functions
+Home-page: UNKNOWN
+Author: David Furrer
+Author-email: furrer.david1@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Provides-Extra: tests
+Requires-Dist: pytest (>=4.0.0) ; extra == 'tests'
+Requires-Dist: pytest-pep8 ; extra == 'tests'
+
+UNKNOWN
+
+
