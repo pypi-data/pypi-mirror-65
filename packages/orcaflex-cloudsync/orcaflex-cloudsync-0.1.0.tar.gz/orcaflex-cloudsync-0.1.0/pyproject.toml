@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "orcaflex-cloudsync"
+version = "0.1.0"
+description = "Tool to sync OrcaFlex simulations to the cloud and local drives"
+authors = ["AgileDat <ofxcs@agiledat.co.uk>"]
+license = "MIT"
+packages = [
+                { include = "ofxcs" },
+                { include = "ofxcloudsync/**/*.py" },
+                { include = "ofxcloudsync" }
+    ]
+
+
+[tool.poetry.dependencies]
+python = "^3.6"
+OrcFxAPI = "11.0.2"
+awscli = "1.18.31"
+boto3 = "1.12.30"
+pytest = "5.4.1"
+PyYAML = "5.3.1"
+click = "7.1.1"
+appdirs = "^1.4.3"
+pytest-mock = "^3.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+ofxcs = "ofxcs:ofxcs"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
