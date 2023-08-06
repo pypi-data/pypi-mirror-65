@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://fei.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://fei.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://fei.org/">
+      <s:element name="findOfficial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersonStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnyID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PersonGender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdminNF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpokenLanguageCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OfficialFunction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OfficialFunctionDiscipline" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OfficialStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdditionalRole" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AdditionalRoleDiscipline" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findOfficialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findOfficialResult" type="tns:ArrayOfPersonOfficialOC" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPersonOfficialOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PersonOfficialOC" nillable="true" type="tns:PersonOfficialOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PersonOfficialOC">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Person">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ListGroup" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ListRole" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Roles" type="tns:ArrayOfRole" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Person">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PersonFEIID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdminNF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GenderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Civility" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaidenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalityCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="InactiveReason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasPhoto" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfRetirement" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfDeath" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleInitials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Homepage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailingLng" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompetingFor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoEmailConfirmation" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrivateMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HostNFCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFLicenseNr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventingCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnduranceQualificationLevel" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndurancePenaltyPoints" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnduranceQualificationEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Role">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RoleLabel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleStart" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleEnd" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FunctionOrAdditionalRole" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Message">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Detail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exceptions" type="tns:ArrayOfString" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="searchForOfficial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Conditions" type="tns:ArrayOfSearchCriteria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSearchCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SearchCriteria" nillable="true" type="tns:SearchCriteria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Field" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="searchForOfficialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchForOfficialResult" type="tns:ArrayOfPersonOfficialOC" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShowDateFrom" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShowDateTo" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="VenueName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DisciplineCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LevelCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsIndoor" nillable="true" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findEventResult" type="tns:ArrayOfShowOC" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShowOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShowOC" nillable="true" type="tns:ShowOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShowOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ShowID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowDateStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowDateEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShowType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShowUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContinentRegion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VenueName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VenueComplement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VenueCountry" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VenueLatitude" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="VenueLongitude" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="VenueEmails" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfEventOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEventOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EventOC" nillable="true" type="tns:EventOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EventOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EventID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventDateStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventDateEnd" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventCodeComplement" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFEIApproved" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisciplineCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LevelCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOfficialTeam" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsIndoor" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SchedulePrizeMoney" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="SchedulePrizeMoneyCurrency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrizeMoney" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrizeMoneyCurrency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOpenForEntries" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntriesInPrincipleDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NominatedEntriesDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DefiniteEntriesDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubstitutionsLastDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubstitutionsByOCFirstDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorseInspectionDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AthleteMinAge" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AthleteMaxAge" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorseMinAge" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorseMaxAge" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Competitions" type="tns:ArrayOfCompetitionOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCompetitionOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CompetitionOC" nillable="true" type="tns:CompetitionOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CompetitionOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompetitionID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompetitionDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompetitionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduleCompetitionNr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompetitionRuleCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompetitionRuleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsIndividualCompetition" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTeamCompetition" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AreResultsValid" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObstacleHeight" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SchedulePrizeMoney" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="SchedulePrizeMoneyCurrency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SchedulePointGroup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrizeMoney" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrizeMoneyCurrency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PointGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DressageTest" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CourseDistance" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="findAthlete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FEIIDs" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GenderCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompetingFor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findAthleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findAthleteResult" type="tns:ArrayOfAthleteOC" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAthleteOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AthleteOC" nillable="true" type="tns:AthleteOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AthleteOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FEIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaidenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalityCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="GenderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Civility" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSuspended" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfRetirement" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfDeath" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleInitials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdmNFCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompetingFor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HostNFCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFLicenseNr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailingLanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JumpingWorldCupLeagueCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JumpingWorldCupLeagueName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnduranceQualificationLevel" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndurancePenaltyPoints" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnduranceQualificationEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Registrations" type="tns:ArrayOfRegistrationOC" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rankings" type="tns:ArrayOfRankingOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRegistrationOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RegistrationOC" nillable="true" type="tns:RegistrationOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RegistrationOC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisciplineCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRankingOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RankingOC" nillable="true" type="tns:RankingOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RankingOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RankingName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RankingNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RankingDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AthleteFEIID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AthleteFamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AthleteFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseFEIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Points" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="findHorse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FEIIDs" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SexCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsPony" nillable="true" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="AthleteFEIID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="findHorseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="findHorseResult" type="tns:ArrayOfHorseOC" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorseOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorseOC" nillable="true" type="tns:HorseOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorseOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FEIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BirthName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommercialName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCNSuffix" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompleteName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortenName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSuspended" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfRetirement" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfDeath" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BirthCountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColorComplement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SexCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfCastration" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPony" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StudBookCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StudBookName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreedName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreederName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseSireName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseDamName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseSireOfDamName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseSireFEIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseDamFEIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseSireOfDamFEIID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdmNFCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalPasseportID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuingNFCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuingBodyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UELN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChipID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDTypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfIssuing" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfExpiry" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerNationality" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OwnerSince" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bedding" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Trainer" type="tns:HorseTrainer" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnduranceQualificationLevel" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnduranceRestPeriodEnd" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnduranceQualificationEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TCN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Registrations" type="tns:ArrayOfRegistrationOC" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rankings" type="tns:ArrayOfRankingOC" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnershipMembers" type="tns:ArrayOfHorseOwnershipMemberOC" />
+          <s:element minOccurs="1" maxOccurs="1" name="MissingDocuments" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorseTrainer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseFEICode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompleteName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseAdminNF" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonFEIID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonAdminNF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfHorseOwnershipMemberOC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorseOwnershipMemberOC" nillable="true" type="tns:HorseOwnershipMemberOC" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorseOwnershipMemberOC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FEIID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorporationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OwnershipPercentage" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="downloadResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="downloadResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="downloadResultsResult" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uploadResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResultsXMLData" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uploadResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uploadResultsResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmUploadResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="confirmUploadResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="confirmUploadResultsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="submitResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="submitResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="submitResultsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchHorseTrainers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HorseFEICode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PersonFEIID" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EvalDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageNumber" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchHorseTrainersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchHorseTrainersResult" type="tns:ArrayOfHorseTrainer" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorseTrainer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorseTrainer" nillable="true" type="tns:HorseTrainer" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckHorseEventingQualifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HorseIDs" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckHorseEventingQualificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckHorseEventingQualificationsResult" type="tns:ArrayOfHorseQualification" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorseQualification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorseQualification" nillable="true" type="tns:HorseQualification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorseQualification">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseQualification">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="HorseID" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseQualification" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsQualified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Code" type="tns:EventingCheckCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EventingCheckCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Error" />
+          <s:enumeration value="Qualified" />
+          <s:enumeration value="insufficientMers" />
+          <s:enumeration value="horseRQ" />
+          <s:enumeration value="athleteSuspended" />
+          <s:enumeration value="horseOverQualified" />
+          <s:enumeration value="RiderBadChampionshipCategory" />
+          <s:enumeration value="HorseBadChampionshipCategory" />
+          <s:enumeration value="RiderNotAllowedInJuniorChampionships" />
+          <s:enumeration value="HorseNotAllowedInJuniorChampionships" />
+          <s:enumeration value="HorseNotAllowedInPonyEvent" />
+          <s:enumeration value="PonyNotAllowedInHorseEvent" />
+          <s:enumeration value="AthleteNotRegistered" />
+          <s:enumeration value="HorseNotRegistered" />
+          <s:enumeration value="AthleteNotOfAge" />
+          <s:enumeration value="HorseNotOfAge" />
+          <s:enumeration value="AthleteGenderNotAllowed" />
+          <s:enumeration value="AthleteInvalidFEIID" />
+          <s:enumeration value="HorseInvalidFEIID" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CheckAthleteEventingQualifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AthleteIDs" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckAthleteEventingQualificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckAthleteEventingQualificationsResult" type="tns:ArrayOfAthleteQualification" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAthleteQualification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AthleteQualification" nillable="true" type="tns:AthleteQualification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AthleteQualification">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseQualification">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AthleteID" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CheckCombinationEventingQualifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Combinations" type="tns:ArrayOfCombination" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCombination">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Combination" nillable="true" type="tns:Combination" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Combination">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AthleteID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HorseID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckCombinationEventingQualificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckCombinationEventingQualificationsResult" type="tns:ArrayOfCombinationQualification" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCombinationQualification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CombinationQualification" nillable="true" type="tns:CombinationQualification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CombinationQualification">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseQualification">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="combination" type="tns:Combination" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="findOfficialSoapIn">
+    <wsdl:part name="parameters" element="tns:findOfficial" />
+  </wsdl:message>
+  <wsdl:message name="findOfficialSoapOut">
+    <wsdl:part name="parameters" element="tns:findOfficialResponse" />
+  </wsdl:message>
+  <wsdl:message name="findOfficialAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="searchForOfficialSoapIn">
+    <wsdl:part name="parameters" element="tns:searchForOfficial" />
+  </wsdl:message>
+  <wsdl:message name="searchForOfficialSoapOut">
+    <wsdl:part name="parameters" element="tns:searchForOfficialResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchForOfficialAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="findEventSoapIn">
+    <wsdl:part name="parameters" element="tns:findEvent" />
+  </wsdl:message>
+  <wsdl:message name="findEventSoapOut">
+    <wsdl:part name="parameters" element="tns:findEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="findEventAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="findAthleteSoapIn">
+    <wsdl:part name="parameters" element="tns:findAthlete" />
+  </wsdl:message>
+  <wsdl:message name="findAthleteSoapOut">
+    <wsdl:part name="parameters" element="tns:findAthleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="findAthleteAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="findHorseSoapIn">
+    <wsdl:part name="parameters" element="tns:findHorse" />
+  </wsdl:message>
+  <wsdl:message name="findHorseSoapOut">
+    <wsdl:part name="parameters" element="tns:findHorseResponse" />
+  </wsdl:message>
+  <wsdl:message name="findHorseAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="downloadResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:downloadResults" />
+  </wsdl:message>
+  <wsdl:message name="downloadResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:downloadResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadResultsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="uploadResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:uploadResults" />
+  </wsdl:message>
+  <wsdl:message name="uploadResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:uploadResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadResultsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="confirmUploadResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:confirmUploadResults" />
+  </wsdl:message>
+  <wsdl:message name="confirmUploadResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:confirmUploadResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="confirmUploadResultsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="submitResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:submitResults" />
+  </wsdl:message>
+  <wsdl:message name="submitResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:submitResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="submitResultsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="searchHorseTrainersSoapIn">
+    <wsdl:part name="parameters" element="tns:searchHorseTrainers" />
+  </wsdl:message>
+  <wsdl:message name="searchHorseTrainersSoapOut">
+    <wsdl:part name="parameters" element="tns:searchHorseTrainersResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchHorseTrainersAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckHorseEventingQualificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckHorseEventingQualifications" />
+  </wsdl:message>
+  <wsdl:message name="CheckHorseEventingQualificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckHorseEventingQualificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckHorseEventingQualificationsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckAthleteEventingQualificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAthleteEventingQualifications" />
+  </wsdl:message>
+  <wsdl:message name="CheckAthleteEventingQualificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAthleteEventingQualificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAthleteEventingQualificationsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckCombinationEventingQualificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCombinationEventingQualifications" />
+  </wsdl:message>
+  <wsdl:message name="CheckCombinationEventingQualificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCombinationEventingQualificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckCombinationEventingQualificationsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="OrganizerWS_1_2Soap">
+    <wsdl:operation name="findOfficial">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve one or more officials matching the criteria.</wsdl:documentation>
+      <wsdl:input message="tns:findOfficialSoapIn" />
+      <wsdl:output message="tns:findOfficialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchForOfficial">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search for official records matching given criteria.</wsdl:documentation>
+      <wsdl:input message="tns:searchForOfficialSoapIn" />
+      <wsdl:output message="tns:searchForOfficialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve one or more events matching some criteria.</wsdl:documentation>
+      <wsdl:input message="tns:findEventSoapIn" />
+      <wsdl:output message="tns:findEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findAthlete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return one or more Athletes matching some criteria.</wsdl:documentation>
+      <wsdl:input message="tns:findAthleteSoapIn" />
+      <wsdl:output message="tns:findAthleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="findHorse">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve one or more horses matching some search criteria.</wsdl:documentation>
+      <wsdl:input message="tns:findHorseSoapIn" />
+      <wsdl:output message="tns:findHorseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Download the results XML file for a given event or a given competition.</wsdl:documentation>
+      <wsdl:input message="tns:downloadResultsSoapIn" />
+      <wsdl:output message="tns:downloadResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload the results XML file for a given event or a given competition.</wsdl:documentation>
+      <wsdl:input message="tns:uploadResultsSoapIn" />
+      <wsdl:output message="tns:uploadResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="confirmUploadResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Confirm the uploading of the results file when only warnings were encountered.</wsdl:documentation>
+      <wsdl:input message="tns:confirmUploadResultsSoapIn" />
+      <wsdl:output message="tns:confirmUploadResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="submitResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit the results to the FEI validation for a given event or a given competition.</wsdl:documentation>
+      <wsdl:input message="tns:submitResultsSoapIn" />
+      <wsdl:output message="tns:submitResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchHorseTrainers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search for horse trainers.</wsdl:documentation>
+      <wsdl:input message="tns:searchHorseTrainersSoapIn" />
+      <wsdl:output message="tns:searchHorseTrainersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckHorseEventingQualifications">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check eventing qualifications for horses.</wsdl:documentation>
+      <wsdl:input message="tns:CheckHorseEventingQualificationsSoapIn" />
+      <wsdl:output message="tns:CheckHorseEventingQualificationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAthleteEventingQualifications">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check eventing qualifications for athletes.</wsdl:documentation>
+      <wsdl:input message="tns:CheckAthleteEventingQualificationsSoapIn" />
+      <wsdl:output message="tns:CheckAthleteEventingQualificationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCombinationEventingQualifications">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check eventing qualifications for combinations.</wsdl:documentation>
+      <wsdl:input message="tns:CheckCombinationEventingQualificationsSoapIn" />
+      <wsdl:output message="tns:CheckCombinationEventingQualificationsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrganizerWS_1_2Soap" type="tns:OrganizerWS_1_2Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findOfficial">
+      <soap:operation soapAction="http://fei.org/findOfficial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:findOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:findOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchForOfficial">
+      <soap:operation soapAction="http://fei.org/searchForOfficial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:searchForOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:searchForOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findEvent">
+      <soap:operation soapAction="http://fei.org/findEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:findEventAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:findEventAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAthlete">
+      <soap:operation soapAction="http://fei.org/findAthlete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:findAthleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:findAthleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findHorse">
+      <soap:operation soapAction="http://fei.org/findHorse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:findHorseAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:findHorseAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadResults">
+      <soap:operation soapAction="http://fei.org/downloadResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:downloadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:downloadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadResults">
+      <soap:operation soapAction="http://fei.org/uploadResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:uploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:uploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmUploadResults">
+      <soap:operation soapAction="http://fei.org/confirmUploadResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:confirmUploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:confirmUploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitResults">
+      <soap:operation soapAction="http://fei.org/submitResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:submitResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:submitResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchHorseTrainers">
+      <soap:operation soapAction="http://fei.org/searchHorseTrainers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:searchHorseTrainersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:searchHorseTrainersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckHorseEventingQualifications">
+      <soap:operation soapAction="http://fei.org/CheckHorseEventingQualifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckHorseEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckHorseEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAthleteEventingQualifications">
+      <soap:operation soapAction="http://fei.org/CheckAthleteEventingQualifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckAthleteEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckAthleteEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCombinationEventingQualifications">
+      <soap:operation soapAction="http://fei.org/CheckCombinationEventingQualifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckCombinationEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckCombinationEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrganizerWS_1_2Soap12" type="tns:OrganizerWS_1_2Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="findOfficial">
+      <soap12:operation soapAction="http://fei.org/findOfficial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchForOfficial">
+      <soap12:operation soapAction="http://fei.org/searchForOfficial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:searchForOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:searchForOfficialAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findEvent">
+      <soap12:operation soapAction="http://fei.org/findEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findEventAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findEventAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAthlete">
+      <soap12:operation soapAction="http://fei.org/findAthlete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findAthleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findAthleteAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findHorse">
+      <soap12:operation soapAction="http://fei.org/findHorse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findHorseAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:findHorseAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadResults">
+      <soap12:operation soapAction="http://fei.org/downloadResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:downloadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:downloadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadResults">
+      <soap12:operation soapAction="http://fei.org/uploadResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:uploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:uploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confirmUploadResults">
+      <soap12:operation soapAction="http://fei.org/confirmUploadResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:confirmUploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:confirmUploadResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitResults">
+      <soap12:operation soapAction="http://fei.org/submitResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:submitResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:submitResultsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchHorseTrainers">
+      <soap12:operation soapAction="http://fei.org/searchHorseTrainers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:searchHorseTrainersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:searchHorseTrainersAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckHorseEventingQualifications">
+      <soap12:operation soapAction="http://fei.org/CheckHorseEventingQualifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckHorseEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckHorseEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAthleteEventingQualifications">
+      <soap12:operation soapAction="http://fei.org/CheckAthleteEventingQualifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckAthleteEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckAthleteEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCombinationEventingQualifications">
+      <soap12:operation soapAction="http://fei.org/CheckCombinationEventingQualifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckCombinationEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckCombinationEventingQualificationsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrganizerWS_1_2">
+    <wsdl:port name="OrganizerWS_1_2Soap" binding="tns:OrganizerWS_1_2Soap">
+      <soap:address location="https://data.fei.org/_vti_bin/FEI/OrganizerWS_1_2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrganizerWS_1_2Soap12" binding="tns:OrganizerWS_1_2Soap12">
+      <soap12:address location="https://data.fei.org/_vti_bin/FEI/OrganizerWS_1_2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://fei.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://fei.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://fei.org/">
+      <s:element name="getVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="getVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exceptions" type="tns:ArrayOfString" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getLookupDateList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getLookupDateListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLookupDateListResult" type="tns:ArrayOfLookupDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLookupDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LookupDate" nillable="true" type="tns:LookupDate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LookupDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCountryList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCountryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCountryListResult" type="tns:ArrayOfCountry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCountry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Country" nillable="true" type="tns:Country" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Country">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ISONumeric" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISOAlpha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getDisciplineList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDisciplineListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDisciplineListResult" type="tns:ArrayOfDiscipline" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDiscipline">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Discipline" nillable="true" type="tns:Discipline" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Discipline">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsParaEquestrian" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getDocIssuingBodyList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDocIssuingBodyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDocIssuingBodyListResult" type="tns:ArrayOfDocIssuingBody" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDocIssuingBody">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocIssuingBody" nillable="true" type="tns:DocIssuingBody" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocIssuingBody">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UELNCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getNationalFederationList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getNationalFederationListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNationalFederationListResult" type="tns:ArrayOfNationalFederation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNationalFederation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NationalFederation" nillable="true" type="tns:NationalFederation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NationalFederation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHorseAdminChangeAutoAccepted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsRiderAdminChangeAutoAccepted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getDocumentTypeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDocumentTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDocumentTypeListResult" type="tns:ArrayOfDocumentType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDocumentType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentType" nillable="true" type="tns:DocumentType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getHorseNameKindChangeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getHorseNameKindChangeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHorseNameKindChangeListResult" type="tns:ArrayOfKindChange" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKindChange">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KindChange" nillable="true" type="tns:KindChange" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KindChange">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getLanguageList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getLanguageListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLanguageListResult" type="tns:ArrayOfLanguage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLanguage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Language" nillable="true" type="tns:Language" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Language">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCategoryList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCategoryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoryListResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Category">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getAddressNameList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAddressNameListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAddressNameListResult" type="tns:ArrayOfAddressName" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAddressName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AddressName" nillable="true" type="tns:AddressName" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AddressName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getHorseGenderList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getHorseGenderListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHorseGenderListResult" type="tns:ArrayOfGender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGender">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Gender" nillable="true" type="tns:Gender" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Gender">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getHorseFEIIDTypeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getHorseFEIIDTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHorseFEIIDTypeListResult" type="tns:ArrayOfFEIIDType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFEIIDType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FEIIDType" nillable="true" type="tns:FEIIDType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FEIIDType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getMessageTypeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getMessageTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMessageTypeListResult" type="tns:ArrayOfMessageType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageType" nillable="true" type="tns:MessageType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCritical" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWarning" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CEW" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getAdditionalRoleList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAdditionalRoleListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAdditionalRoleListResult" type="tns:ArrayOfAdditionalRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAdditionalRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalRole" nillable="true" type="tns:AdditionalRole" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AdditionalRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisciplineCodes" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getOfficialFunctionList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOfficialFunctionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOfficialFunctionListResult" type="tns:ArrayOfOfficialFunction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOfficialFunction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OfficialFunction" nillable="true" type="tns:OfficialFunction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OfficialFunction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getOfficialStatusList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOfficialStatusListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOfficialStatusListResult" type="tns:ArrayOfOfficialStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOfficialStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OfficialStatus" nillable="true" type="tns:OfficialStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OfficialStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPersonGenderList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPersonGenderListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPersonGenderListResult" type="tns:ArrayOfGender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPersonCivilityList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPersonCivilityListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPersonCivilityListResult" type="tns:ArrayOfCivility" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCivility">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Civility" nillable="true" type="tns:Civility" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Civility">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSeasonList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DisciplineCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSeasonListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSeasonListResult" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Message">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Detail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getLeagueList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DisciplineCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SeasonCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLeagueListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLeagueListResult" type="tns:ArrayOfLeague" />
+            <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLeague">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="League" nillable="true" type="tns:League" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="League">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:getVersion" />
+  </wsdl:message>
+  <wsdl:message name="getVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:getVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVersionAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getLookupDateListSoapIn">
+    <wsdl:part name="parameters" element="tns:getLookupDateList" />
+  </wsdl:message>
+  <wsdl:message name="getLookupDateListSoapOut">
+    <wsdl:part name="parameters" element="tns:getLookupDateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLookupDateListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getCountryListSoapIn">
+    <wsdl:part name="parameters" element="tns:getCountryList" />
+  </wsdl:message>
+  <wsdl:message name="getCountryListSoapOut">
+    <wsdl:part name="parameters" element="tns:getCountryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCountryListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getDisciplineListSoapIn">
+    <wsdl:part name="parameters" element="tns:getDisciplineList" />
+  </wsdl:message>
+  <wsdl:message name="getDisciplineListSoapOut">
+    <wsdl:part name="parameters" element="tns:getDisciplineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDisciplineListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getDocIssuingBodyListSoapIn">
+    <wsdl:part name="parameters" element="tns:getDocIssuingBodyList" />
+  </wsdl:message>
+  <wsdl:message name="getDocIssuingBodyListSoapOut">
+    <wsdl:part name="parameters" element="tns:getDocIssuingBodyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDocIssuingBodyListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getNationalFederationListSoapIn">
+    <wsdl:part name="parameters" element="tns:getNationalFederationList" />
+  </wsdl:message>
+  <wsdl:message name="getNationalFederationListSoapOut">
+    <wsdl:part name="parameters" element="tns:getNationalFederationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNationalFederationListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:getDocumentTypeList" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentTypeListSoapOut">
+    <wsdl:part name="parameters" element="tns:getDocumentTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentTypeListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getHorseNameKindChangeListSoapIn">
+    <wsdl:part name="parameters" element="tns:getHorseNameKindChangeList" />
+  </wsdl:message>
+  <wsdl:message name="getHorseNameKindChangeListSoapOut">
+    <wsdl:part name="parameters" element="tns:getHorseNameKindChangeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHorseNameKindChangeListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getLanguageListSoapIn">
+    <wsdl:part name="parameters" element="tns:getLanguageList" />
+  </wsdl:message>
+  <wsdl:message name="getLanguageListSoapOut">
+    <wsdl:part name="parameters" element="tns:getLanguageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLanguageListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getCategoryListSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategoryList" />
+  </wsdl:message>
+  <wsdl:message name="getCategoryListSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategoryListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getAddressNameListSoapIn">
+    <wsdl:part name="parameters" element="tns:getAddressNameList" />
+  </wsdl:message>
+  <wsdl:message name="getAddressNameListSoapOut">
+    <wsdl:part name="parameters" element="tns:getAddressNameListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAddressNameListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getHorseGenderListSoapIn">
+    <wsdl:part name="parameters" element="tns:getHorseGenderList" />
+  </wsdl:message>
+  <wsdl:message name="getHorseGenderListSoapOut">
+    <wsdl:part name="parameters" element="tns:getHorseGenderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHorseGenderListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getHorseFEIIDTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:getHorseFEIIDTypeList" />
+  </wsdl:message>
+  <wsdl:message name="getHorseFEIIDTypeListSoapOut">
+    <wsdl:part name="parameters" element="tns:getHorseFEIIDTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHorseFEIIDTypeListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getMessageTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:getMessageTypeList" />
+  </wsdl:message>
+  <wsdl:message name="getMessageTypeListSoapOut">
+    <wsdl:part name="parameters" element="tns:getMessageTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMessageTypeListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getAdditionalRoleListSoapIn">
+    <wsdl:part name="parameters" element="tns:getAdditionalRoleList" />
+  </wsdl:message>
+  <wsdl:message name="getAdditionalRoleListSoapOut">
+    <wsdl:part name="parameters" element="tns:getAdditionalRoleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAdditionalRoleListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getOfficialFunctionListSoapIn">
+    <wsdl:part name="parameters" element="tns:getOfficialFunctionList" />
+  </wsdl:message>
+  <wsdl:message name="getOfficialFunctionListSoapOut">
+    <wsdl:part name="parameters" element="tns:getOfficialFunctionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOfficialFunctionListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getOfficialStatusListSoapIn">
+    <wsdl:part name="parameters" element="tns:getOfficialStatusList" />
+  </wsdl:message>
+  <wsdl:message name="getOfficialStatusListSoapOut">
+    <wsdl:part name="parameters" element="tns:getOfficialStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOfficialStatusListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getPersonGenderListSoapIn">
+    <wsdl:part name="parameters" element="tns:getPersonGenderList" />
+  </wsdl:message>
+  <wsdl:message name="getPersonGenderListSoapOut">
+    <wsdl:part name="parameters" element="tns:getPersonGenderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPersonGenderListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getPersonCivilityListSoapIn">
+    <wsdl:part name="parameters" element="tns:getPersonCivilityList" />
+  </wsdl:message>
+  <wsdl:message name="getPersonCivilityListSoapOut">
+    <wsdl:part name="parameters" element="tns:getPersonCivilityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPersonCivilityListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getSeasonListSoapIn">
+    <wsdl:part name="parameters" element="tns:getSeasonList" />
+  </wsdl:message>
+  <wsdl:message name="getSeasonListSoapOut">
+    <wsdl:part name="parameters" element="tns:getSeasonListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeasonListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getLeagueListSoapIn">
+    <wsdl:part name="parameters" element="tns:getLeagueList" />
+  </wsdl:message>
+  <wsdl:message name="getLeagueListSoapOut">
+    <wsdl:part name="parameters" element="tns:getLeagueListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLeagueListAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="CommonWSSoap">
+    <wsdl:operation name="getVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return the version string of the web service software.</wsdl:documentation>
+      <wsdl:input message="tns:getVersionSoapIn" />
+      <wsdl:output message="tns:getVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLookupDateList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of cached information types, and the date each was last modified.</wsdl:documentation>
+      <wsdl:input message="tns:getLookupDateListSoapIn" />
+      <wsdl:output message="tns:getLookupDateListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCountryList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of countries.</wsdl:documentation>
+      <wsdl:input message="tns:getCountryListSoapIn" />
+      <wsdl:output message="tns:getCountryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDisciplineList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of disciplines.</wsdl:documentation>
+      <wsdl:input message="tns:getDisciplineListSoapIn" />
+      <wsdl:output message="tns:getDisciplineListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocIssuingBodyList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of document issuing bodies.</wsdl:documentation>
+      <wsdl:input message="tns:getDocIssuingBodyListSoapIn" />
+      <wsdl:output message="tns:getDocIssuingBodyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNationalFederationList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of National Federations.</wsdl:documentation>
+      <wsdl:input message="tns:getNationalFederationListSoapIn" />
+      <wsdl:output message="tns:getNationalFederationListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentTypeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of supported document extensions.</wsdl:documentation>
+      <wsdl:input message="tns:getDocumentTypeListSoapIn" />
+      <wsdl:output message="tns:getDocumentTypeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHorseNameKindChangeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of kind of name changes.</wsdl:documentation>
+      <wsdl:input message="tns:getHorseNameKindChangeListSoapIn" />
+      <wsdl:output message="tns:getHorseNameKindChangeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLanguageList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of languages.</wsdl:documentation>
+      <wsdl:input message="tns:getLanguageListSoapIn" />
+      <wsdl:output message="tns:getLanguageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of categories.</wsdl:documentation>
+      <wsdl:input message="tns:getCategoryListSoapIn" />
+      <wsdl:output message="tns:getCategoryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressNameList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of address names.</wsdl:documentation>
+      <wsdl:input message="tns:getAddressNameListSoapIn" />
+      <wsdl:output message="tns:getAddressNameListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHorseGenderList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of horse genders.</wsdl:documentation>
+      <wsdl:input message="tns:getHorseGenderListSoapIn" />
+      <wsdl:output message="tns:getHorseGenderListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHorseFEIIDTypeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of FEI ID types.</wsdl:documentation>
+      <wsdl:input message="tns:getHorseFEIIDTypeListSoapIn" />
+      <wsdl:output message="tns:getHorseFEIIDTypeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMessageTypeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of error messages and warnings.</wsdl:documentation>
+      <wsdl:input message="tns:getMessageTypeListSoapIn" />
+      <wsdl:output message="tns:getMessageTypeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAdditionalRoleList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return a list of allowed AdditionalRoles/Disciplines.</wsdl:documentation>
+      <wsdl:input message="tns:getAdditionalRoleListSoapIn" />
+      <wsdl:output message="tns:getAdditionalRoleListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOfficialFunctionList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of official functions.</wsdl:documentation>
+      <wsdl:input message="tns:getOfficialFunctionListSoapIn" />
+      <wsdl:output message="tns:getOfficialFunctionListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOfficialStatusList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of official status.</wsdl:documentation>
+      <wsdl:input message="tns:getOfficialStatusListSoapIn" />
+      <wsdl:output message="tns:getOfficialStatusListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPersonGenderList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of person genders.</wsdl:documentation>
+      <wsdl:input message="tns:getPersonGenderListSoapIn" />
+      <wsdl:output message="tns:getPersonGenderListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPersonCivilityList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of person civility.</wsdl:documentation>
+      <wsdl:input message="tns:getPersonCivilityListSoapIn" />
+      <wsdl:output message="tns:getPersonCivilityListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeasonList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of seasons for a given league type.</wsdl:documentation>
+      <wsdl:input message="tns:getSeasonListSoapIn" />
+      <wsdl:output message="tns:getSeasonListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLeagueList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a list of leagues for a given league type and season.</wsdl:documentation>
+      <wsdl:input message="tns:getLeagueListSoapIn" />
+      <wsdl:output message="tns:getLeagueListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommonWSSoap" type="tns:CommonWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction="http://fei.org/getVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getVersionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getVersionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLookupDateList">
+      <soap:operation soapAction="http://fei.org/getLookupDateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getLookupDateListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getLookupDateListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountryList">
+      <soap:operation soapAction="http://fei.org/getCountryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCountryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCountryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDisciplineList">
+      <soap:operation soapAction="http://fei.org/getDisciplineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getDisciplineListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getDisciplineListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocIssuingBodyList">
+      <soap:operation soapAction="http://fei.org/getDocIssuingBodyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getDocIssuingBodyListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getDocIssuingBodyListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNationalFederationList">
+      <soap:operation soapAction="http://fei.org/getNationalFederationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getNationalFederationListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getNationalFederationListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentTypeList">
+      <soap:operation soapAction="http://fei.org/getDocumentTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getDocumentTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getDocumentTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHorseNameKindChangeList">
+      <soap:operation soapAction="http://fei.org/getHorseNameKindChangeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getHorseNameKindChangeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getHorseNameKindChangeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLanguageList">
+      <soap:operation soapAction="http://fei.org/getLanguageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getLanguageListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getLanguageListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryList">
+      <soap:operation soapAction="http://fei.org/getCategoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCategoryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCategoryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressNameList">
+      <soap:operation soapAction="http://fei.org/getAddressNameList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getAddressNameListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getAddressNameListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHorseGenderList">
+      <soap:operation soapAction="http://fei.org/getHorseGenderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getHorseGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getHorseGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHorseFEIIDTypeList">
+      <soap:operation soapAction="http://fei.org/getHorseFEIIDTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getHorseFEIIDTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getHorseFEIIDTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageTypeList">
+      <soap:operation soapAction="http://fei.org/getMessageTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getMessageTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getMessageTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdditionalRoleList">
+      <soap:operation soapAction="http://fei.org/getAdditionalRoleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getAdditionalRoleListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getAdditionalRoleListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOfficialFunctionList">
+      <soap:operation soapAction="http://fei.org/getOfficialFunctionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getOfficialFunctionListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getOfficialFunctionListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOfficialStatusList">
+      <soap:operation soapAction="http://fei.org/getOfficialStatusList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getOfficialStatusListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getOfficialStatusListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonGenderList">
+      <soap:operation soapAction="http://fei.org/getPersonGenderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getPersonGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getPersonGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonCivilityList">
+      <soap:operation soapAction="http://fei.org/getPersonCivilityList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getPersonCivilityListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getPersonCivilityListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeasonList">
+      <soap:operation soapAction="http://fei.org/getSeasonList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSeasonListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSeasonListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLeagueList">
+      <soap:operation soapAction="http://fei.org/getLeagueList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getLeagueListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:getLeagueListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommonWSSoap12" type="tns:CommonWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getVersion">
+      <soap12:operation soapAction="http://fei.org/getVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getVersionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getVersionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLookupDateList">
+      <soap12:operation soapAction="http://fei.org/getLookupDateList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getLookupDateListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getLookupDateListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountryList">
+      <soap12:operation soapAction="http://fei.org/getCountryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCountryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCountryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDisciplineList">
+      <soap12:operation soapAction="http://fei.org/getDisciplineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getDisciplineListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getDisciplineListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocIssuingBodyList">
+      <soap12:operation soapAction="http://fei.org/getDocIssuingBodyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getDocIssuingBodyListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getDocIssuingBodyListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNationalFederationList">
+      <soap12:operation soapAction="http://fei.org/getNationalFederationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getNationalFederationListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getNationalFederationListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentTypeList">
+      <soap12:operation soapAction="http://fei.org/getDocumentTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getDocumentTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getDocumentTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHorseNameKindChangeList">
+      <soap12:operation soapAction="http://fei.org/getHorseNameKindChangeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getHorseNameKindChangeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getHorseNameKindChangeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLanguageList">
+      <soap12:operation soapAction="http://fei.org/getLanguageList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getLanguageListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getLanguageListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryList">
+      <soap12:operation soapAction="http://fei.org/getCategoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCategoryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCategoryListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressNameList">
+      <soap12:operation soapAction="http://fei.org/getAddressNameList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getAddressNameListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getAddressNameListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHorseGenderList">
+      <soap12:operation soapAction="http://fei.org/getHorseGenderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getHorseGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getHorseGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHorseFEIIDTypeList">
+      <soap12:operation soapAction="http://fei.org/getHorseFEIIDTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getHorseFEIIDTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getHorseFEIIDTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageTypeList">
+      <soap12:operation soapAction="http://fei.org/getMessageTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getMessageTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getMessageTypeListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdditionalRoleList">
+      <soap12:operation soapAction="http://fei.org/getAdditionalRoleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getAdditionalRoleListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getAdditionalRoleListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOfficialFunctionList">
+      <soap12:operation soapAction="http://fei.org/getOfficialFunctionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getOfficialFunctionListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getOfficialFunctionListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOfficialStatusList">
+      <soap12:operation soapAction="http://fei.org/getOfficialStatusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getOfficialStatusListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getOfficialStatusListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonGenderList">
+      <soap12:operation soapAction="http://fei.org/getPersonGenderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getPersonGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getPersonGenderListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPersonCivilityList">
+      <soap12:operation soapAction="http://fei.org/getPersonCivilityList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getPersonCivilityListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getPersonCivilityListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeasonList">
+      <soap12:operation soapAction="http://fei.org/getSeasonList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSeasonListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSeasonListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLeagueList">
+      <soap12:operation soapAction="http://fei.org/getLeagueList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getLeagueListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getLeagueListAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonWS">
+    <wsdl:port name="CommonWSSoap" binding="tns:CommonWSSoap">
+      <soap:address location="https://data.fei.org/_vti_bin/FEI/CommonWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommonWSSoap12" binding="tns:CommonWSSoap12">
+      <soap12:address location="https://data.fei.org/_vti_bin/FEI/CommonWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
