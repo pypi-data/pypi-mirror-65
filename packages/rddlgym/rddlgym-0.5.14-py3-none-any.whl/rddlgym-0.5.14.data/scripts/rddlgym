@@ -1,0 +1,127 @@
+#!python
+
+# This file is part of rddlgym.
+
+# rddlgym is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# rddlgym is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with rddlgym. If not, see <http://www.gnu.org/licenses/>.
+
+"""rddlgym script defines the CLI."""
+
+
+import os
+
+import click
+
+from rddlgym import Runner
+from rddlgym.utils import read_db, make, Mode
+
+
+@click.group()
+def cli():
+    """rddlgym: A toolkit for working with RDDL domains in Python3."""
+
+
+@cli.command()
+def ls():
+    """List all RDDL domains and instances available."""
+    for domain in read_db():
+        print(domain)
+
+
+@cli.command()
+@click.argument("rddl")
+def info(rddl):
+    """Print metadata for a `rddl` domain/instance."""
+    domains = read_db()
+    if rddl not in domains:
+        raise ValueError("Couldn't find RDDL file: {}".format(rddl))
+
+    metadata = domains[rddl]
+    print(f"### {rddl} ###")
+    print(">> Authors:      {}".format(", ".join(metadata["authors"])))
+    print(">> Date:         {}".format(metadata["date"]))
+    print(">> Requirements: {}".format(", ".join(metadata["requirements"])))
+    print(">> Description:")
+    print(metadata["description"])
+
+
+@cli.command()
+@click.argument("rddl")
+def show(rddl):
+    """Print `rddl` file."""
+    model = make(rddl, mode=Mode.RAW)
+    print(model)
+
+
+@cli.command()
+@click.argument("rddl")
+@click.option("-v", "--verbose", is_flag=True, help="Verbosity flag.")
+def parse(rddl, verbose):
+    """Check RDDL file parsing."""
+    model = make(rddl, mode=Mode.AST, verbose=verbose)
+    print("Successfully parsed RDDL ...")
+    print(model.domain.name)
+    print(model.instance.name)
+    print(model)
+
+
+@cli.command()
+@click.argument("rddl")
+@click.option(
+    "-e",
+    "--episodes",
+    type=int,
+    default=1,
+    help="Number of episodes to generate.",
+    show_default=True,
+)
+@click.option(
+    "--logdir",
+    type=click.Path(),
+    default="/tmp/rddlgym/",
+    help="Directory for saving trajectory data.",
+    show_default=True,
+)
+def run(**kwargs):
+    """Run random policy in `rddl` domain/instance."""
+    rddl = kwargs["rddl"]
+    episodes = kwargs["episodes"]
+    logdir = kwargs["logdir"]
+
+    env = make(rddl, mode=Mode.GYM)
+
+    def random(state, timestep):
+        # pylint: disable=unused-argument
+        return env.action_space.sample()
+
+    print(">> Running random policy ...")
+    print()
+
+    with Runner(env, random) as runner:
+
+        for i in range(episodes):
+            trajectory = runner.run()
+
+            filepath = os.path.join(logdir, f"episode-{i}.csv")
+            trajectory.save(filepath)
+
+            print(f">> Episode {i}:")
+            print(f"Total Reward = {trajectory.total_reward}")
+            print(f"Episode length = {len(trajectory)}")
+            print()
+
+    print(f">> Results saved in {logdir}.")
+
+
+if __name__ == "__main__":
+    cli()
