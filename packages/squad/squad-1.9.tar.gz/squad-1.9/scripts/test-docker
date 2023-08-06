@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -exu
+
+docker build -t squad .
+docker run squad python3 manage.py test -v 3
+docker run squad squad-admin showmigrations
