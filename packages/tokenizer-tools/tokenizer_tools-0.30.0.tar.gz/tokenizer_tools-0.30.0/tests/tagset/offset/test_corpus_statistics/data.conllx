@@ -1,0 +1,54 @@
+#	{"label": null, "id": "1", "domain": "domain_one", "function": "function_one", "sub_function": "sub_function_one", "intent":"intent_one"}
+王	B-PERSON
+小	I-PERSON
+明	L-PERSON
+在	O
+北	B-GPE
+京	L-GPE
+的	O
+清	B-ORG
+华	I-ORG
+大	I-ORG
+学	L-ORG
+读	O
+书	O
+。	O
+
+#	{"label": null, "id": "2", "domain": "domain_two", "function": "function_two", "sub_function": "sub_function_two", "intent":"intent_two"}
+来	O
+一	O
+首	O
+蓝	B-歌手名
+泽	I-歌手名
+雨	L-歌手名
+的	O
+歌	O
+。	O
+
+#	{"label": null, "id": "1", "domain": "domain_one", "function": "function_one", "sub_function": "sub_function_one", "intent":"intent_one"}
+王	B-PERSON
+小	I-PERSON
+明	L-PERSON
+在	O
+北	B-GPE
+京	L-GPE
+的	O
+清	B-ORG
+华	I-ORG
+大	I-ORG
+学	L-ORG
+读	O
+书	O
+。	O
+
+#	{"label": null, "id": "2", "domain": "domain_two", "function": "function_two", "sub_function": "sub_function_two", "intent":"intent_two"}
+来	O
+一	O
+首	O
+蓝	B-歌手名
+泽	I-歌手名
+雨	L-歌手名
+的	O
+歌	O
+。	O
+
