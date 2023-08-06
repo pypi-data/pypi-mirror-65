@@ -1,0 +1,4 @@
+[console_scripts]
+rstfmt = rstfmt.main:main
+rstfmtd = rstfmt.server:main [d]
+
