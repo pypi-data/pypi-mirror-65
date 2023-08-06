@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: zumidashboard
+Version: 1.75
+Summary: zumidashboard server with Flask
+Home-page: UNKNOWN
+Author: robolink
+Author-email: admin@robolink.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.3
+Requires-Dist: zumi (>=1.2)
+Requires-Dist: matplotlib
+Requires-Dist: pyzbar
+Requires-Dist: psutil
+Requires-Dist: notebook (>=6.0.2)
+Requires-Dist: jupyter-core (>=4.6.1)
+Requires-Dist: smbus2
+
+UNKNOWN
+
+
