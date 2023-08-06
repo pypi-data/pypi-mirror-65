@@ -1,0 +1,14 @@
+
+        [console_scripts]
+        pulsar-main=pulsar.main:main
+        pulsar-check=pulsar.client.test.check:main
+        pulsar-config=pulsar.scripts.config:main
+        pulsar-drmaa-launch=pulsar.scripts.drmaa_launch:main
+        pulsar-drmaa-kill=pulsar.scripts.drmaa_kill:main
+        pulsar-chown-working-directory=pulsar.scripts.chown_working_directory:main
+        pulsar-submit=pulsar.scripts.submit:main
+        pulsar-run=pulsar.scripts.run:main
+        _pulsar-conda-init=pulsar.scripts._conda_init:main
+        _pulsar-configure-slurm=pulsar.scripts._configure_slurm:main
+        _pulsar-configure-galaxy-cvmfs=pulsar.scripts._configure_galaxy_cvmfs:main
+    
