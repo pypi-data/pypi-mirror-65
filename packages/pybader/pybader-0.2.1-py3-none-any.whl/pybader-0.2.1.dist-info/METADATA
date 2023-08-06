@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: pybader
+Version: 0.2.1
+Summary: Threaded implementation of grid-based Bader charge analysis.
+Home-page: https://github.com/kerrigoon/pybader
+Author: Adam Kerrigan
+Author-email: ak1014@york.ac.uk
+License: MIT
+Keywords: grid-based,Bader,charge,analysis
+Platform: Linux
+Platform: Unix
+Platform: Mac OS-X
+Platform: Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.6
+Requires-Dist: tqdm
+Requires-Dist: numba
+Requires-Dist: numpy
+
+Grid-based Bader charge analysis based on methods presented
+in W. Tang, E. Sanville, and G. Henkelman A grid-based Bader analysis algorithm
+without lattice bias, J. Phys.: Condens. Matter 21, 084204 (2009). Methods have
+been updated to allow threading over multiple threads.
+
+

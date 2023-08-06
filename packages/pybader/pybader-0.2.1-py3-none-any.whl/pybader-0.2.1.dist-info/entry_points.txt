@@ -1,0 +1,8 @@
+[console_scripts]
+bader = pybader.entry_points:bader
+bader-read = pybader.entry_points:bader_read
+
+[pybader_ep]
+cache_JIT = pybader.entry_points:JIT_caching
+create_config = pybader.entry_points:config_writer
+
