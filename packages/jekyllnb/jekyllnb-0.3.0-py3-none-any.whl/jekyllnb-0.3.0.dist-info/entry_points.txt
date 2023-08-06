@@ -1,0 +1,6 @@
+[console_scripts]
+jupyter-jekyllnb=jekyllnb:JekyllNB.launch_instance
+
+[nbconvert.exporters]
+jekyll=jekyllnb:JekyllExporter
+
