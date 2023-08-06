@@ -1,0 +1,35 @@
+name: Publish Python 🐍 package
+
+on: [push]
+
+jobs:
+  build-n-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.7"
+
+    - name: Install setup dependencies
+      run: pip install setuptools_scm wheel
+
+    - name: Build distribution
+      run: make build
+
+    - name: Publish distribution 📦 to PyPI
+      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        user: __token__
+        password: ${{ secrets.pypi_password }}
+
+    - name: Publish distribution 📦 to Test PyPI
+      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        user: __token__
+        password: ${{ secrets.test_pypi_password }}
+        repository_url: https://test.pypi.org/legacy/

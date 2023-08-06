@@ -1,0 +1,36 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install setup dependencies
+      run: pip install setuptools_scm wheel
+
+    - name: Install dependencies
+      run: make install
+
+    - name: Build docs
+      run: make docs
+
+    - name: Build docs
+      run: make docs
+
+    - name: Test with pytest
+      run: make test
