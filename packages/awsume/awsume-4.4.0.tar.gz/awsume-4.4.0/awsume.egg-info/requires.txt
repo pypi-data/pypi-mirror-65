@@ -1,0 +1,11 @@
+colorama
+boto3
+psutil
+pluggy
+pyyaml
+
+[fuzzy]
+python-levenshtein
+
+[saml]
+xmltodict
