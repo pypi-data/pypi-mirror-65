@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+  <Identifier>ObservableCommandController</Identifier>
+  <DisplayName>Observable Command Controller</DisplayName>
+  <Description>
+    Allows to pause, resume or stop a currently running observable command
+  </Description>
+  <Command>
+    <Identifier>Pause</Identifier>
+    <DisplayName>Pause</DisplayName>
+    <Description>Pause the command. The command can then be resumed again</Description>
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>CommandExecutionUUID</Identifier>
+      <DisplayName>Command Execution UUID</DisplayName>
+      <Description>The observable command execution identifier</Description>
+      <DataType>
+        <DataTypeIdentifier>UUID</DataTypeIdentifier>
+      </DataType>
+    </Parameter>
+    <DefinedExecutionErrors>
+      <Identifier>InvalidCommandExecutionUUID</Identifier>
+      <Identifier>InvalidCommandState</Identifier>
+      <Identifier>OperationNotSupported</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <Command>
+    <Identifier>Resume</Identifier>
+    <DisplayName>Resume</DisplayName>
+    <Description>Resume the command after it has been paused</Description>
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>CommandExecutionUUID</Identifier>
+      <DisplayName>Command Execution UUID</DisplayName>
+      <Description>The observable command execution identifier</Description>
+      <DataType>
+        <DataTypeIdentifier>UUID</DataTypeIdentifier>
+      </DataType>
+    </Parameter>
+    <DefinedExecutionErrors>
+      <Identifier>InvalidCommandExecutionUUID</Identifier>
+      <Identifier>InvalidCommandState</Identifier>
+      <Identifier>OperationNotSupported</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <Command>
+    <Identifier>Abort</Identifier>
+    <DisplayName>Abort</DisplayName>
+    <Description>Abort the command. This will make it impossible to resume the command</Description>
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>CommandExecutionUUID</Identifier>
+      <DisplayName>Command Execution UUID</DisplayName>
+      <Description>The observable command execution identifier</Description>
+      <DataType>
+        <DataTypeIdentifier>UUID</DataTypeIdentifier>
+      </DataType>
+    </Parameter>
+    <DefinedExecutionErrors>
+      <Identifier>InvalidCommandExecutionUUID</Identifier>
+      <Identifier>InvalidCommandState</Identifier>
+      <Identifier>OperationNotSupported</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <DefinedExecutionError>
+    <Identifier>InvalidCommandExecutionUUID</Identifier>
+    <DisplayName>Invalid Command Execution UUID</DisplayName>
+    <Description>
+      The specified command is not under execution
+    </Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>InvalidCommandState</Identifier>
+    <DisplayName>Invalid Command State</DisplayName>
+    <Description>
+      The specified command is not in a valid state to perform the operation (Pause, Resume or Abort)
+    </Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>OperationNotSupported</Identifier>
+    <DisplayName>Operation Not Supported</DisplayName>
+    <Description>
+      The operation (Pause, Resume or Abort) is not supported for the SiLA 2 command which the
+      specified CommandExecutionUUID belongs to
+    </Description>
+  </DefinedExecutionError>
+  <Property>
+    <Identifier>SupportedCommands</Identifier>
+    <DisplayName>Supported Commands</DisplayName>
+    <Description>List of commands supported by this feature</Description>
+    <Observable>No</Observable>
+    <DataType>
+      <List>
+        <DataType>
+          <Constrained>
+            <DataType>
+              <Basic>String</Basic>
+            </DataType>
+            <Constraints>
+              <FullyQualifiedIdentifier>CommandIdentifier</FullyQualifiedIdentifier>
+            </Constraints>
+          </Constrained>
+        </DataType>
+      </List>
+    </DataType>
+  </Property>
+  <DataTypeDefinition>
+    <Identifier>UUID</Identifier>
+    <DisplayName>UUID</DisplayName>
+    <Description>A Universally Unique IDentifier (UUID) referring to observable command executions</Description>
+    <DataType>
+      <Constrained>
+        <DataType>
+          <Basic>String</Basic>
+        </DataType>
+        <Constraints>
+          <Length>36</Length>
+          <Pattern>[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}</Pattern>
+        </Constraints>
+      </Constrained>
+    </DataType>
+  </DataTypeDefinition>
+</Feature>
