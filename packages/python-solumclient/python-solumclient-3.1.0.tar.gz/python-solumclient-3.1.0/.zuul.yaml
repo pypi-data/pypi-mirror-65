@@ -1,0 +1,8 @@
+- project:
+    templates:
+      - check-requirements
+      - openstack-cover-jobs
+      - openstack-lower-constraints-jobs
+      - openstack-pypy-jobs-nonvoting
+      - openstack-python3-ussuri-jobs
+      - publish-openstack-docs-pti
