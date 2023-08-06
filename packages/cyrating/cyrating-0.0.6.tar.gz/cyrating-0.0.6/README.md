@@ -1,0 +1,115 @@
+# python-cyrating
+
+A python wrapper for Cyrating https://www.cyrating.com.
+
+[![Latest PyPI Release](https://img.shields.io/pypi/v/cyrating.svg)](https://pypi.org/project/cyrating/)
+[![License](https://img.shields.io/pypi/l/cyrating.svg)](https://github.com/wq/python-requirejs/blob/master/LICENSE)
+[![Python Support](https://img.shields.io/pypi/pyversions/cyrating.svg)](https://pypi.org/project/cyrating/)
+
+## Installation
+```sh
+pip install cyrating
+```
+
+Then in your application root directory use the following command to set up your configuration including your Cyrating token which is provided in your user interface:
+
+```sh
+echo -e "[cyrating]\ntoken: cyratingtoken" > cyrating.ini
+```
+
+
+## Usage example
+
+```python
+>>> import cyrating
+>>> cr = cyrating.init()
+```
+
+Method  | Description
+------------- | -------------
+get_main_company | returns main company
+get_entities  | returns list of entities
+get_suppliers | returns list of suppliers
+domains | return list of domains for a company
+set_tags | set tags to a specified domain
+get_assets | get assets for a company
+get_events | get list of active reputation events
+get_certificate | returns certificate of a specific company
+
+# Examples
+
+**Returns main company**
+```python
+>>> cr.main_company()
+[...]
+```
+
+**Returns list of entities**
+```python
+>>> cr.entities()
+[...]
+```
+
+**Returns list of suppliers**
+```python
+>>> cr.suppliers()
+[...]
+```
+
+**Returns domains of a company**
+```python
+>>> cr.domains(main_company)
+[...]
+```
+
+**Tag a domain**
+```python
+>>> cr.set_tags('example.com', ['tag1', 'tag2'])
+[...]
+```
+
+**Get assets**
+
+The method get_assets returns a dictionnary of assets with tags and type attributes.
+
+```python
+>>> cr.get_assets(cr.domains(main_company))
+[...]
+```
+
+**Get the list of active reputation events**
+
+The method get_events returns a list of active reputation events. _assets_
+parameter is optional and is needed to provide tags association.
+
+```python
+>>> main_company = cr.main_company()
+>>> cr.get_events(main_company, assets=cr.get_assets(main_company))
+[...]
+```
+
+**Returns certificate of a specific company**
+```python
+>>> main_company = cr.get_main_company()
+>>> cr.get_certificate(main_company)
+```
+
+**Save certificate of a specific company to a file**
+```python
+>>> main_company = cr.get_main_company()
+>>> cr.get_certificate(main_company, filename='Cyrating - Certificate of {}.pdf'.format(main_company['name']))
+```
+
+
+## Meta
+
+Cyrating – [@cyrating](https://twitter.com/cyrating) – hello@cyrating.com
+
+Distributed under the ISCL license. See ``LICENSE`` for more information.
+
+
+## Contributing
+
+1. Send issues to issues@cyrating.com
+
+
