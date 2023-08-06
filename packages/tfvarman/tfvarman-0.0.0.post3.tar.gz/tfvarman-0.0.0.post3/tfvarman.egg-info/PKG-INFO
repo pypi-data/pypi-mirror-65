@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: tfvarman
+Version: 0.0.0.post3
+Summary: variable management cli tool for terraform cloud
+Home-page: https://github.com/dsikes/tfvarman
+Author: Dan Sikes
+Author-email: dansikes7@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/dsikes/tfvarman
+Description: # TF Var(iable) Man(ager)
+        Simple CLI Tool to manage terraform workspace variables
+        
+        
+        ## TODO:
+        - Add error checking for api token
+        
+Keywords: terraform,automation,tfvars,terraform variables
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
