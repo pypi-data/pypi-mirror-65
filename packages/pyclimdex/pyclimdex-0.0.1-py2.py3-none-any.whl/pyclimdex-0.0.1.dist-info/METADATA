@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyclimdex
+Version: 0.0.1
+Summary: Python implementation of Climdex indices using xarray/dask
+Home-page: UNKNOWN
+Maintainer: Brian Groenke
+Maintainer-email: brian.groenke@colorado.edu
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: dask
+Requires-Dist: distributed
+Requires-Dist: xarray
+Requires-Dist: numpy
+Requires-Dist: bottleneck
+
+# pyclimdex
+Implementation of Climdex indices in Python/xarray/dask
+
+
