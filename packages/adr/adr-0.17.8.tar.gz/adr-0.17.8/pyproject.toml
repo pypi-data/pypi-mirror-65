@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "adr"
+version = "0.17.8"
+description = "Utility for running ActiveData recipes"
+
+packages = [
+    { include = "adr" },
+    { include = "app" },
+    { include = "recipes" },
+]
+include = [
+    "adr/util/*",
+    "app/*",
+    "extra/*",
+    "recipes/queries/*",
+]
+
+license = "MPL-2.0"
+authors = [
+    "Andrew Halberstadt <ahalberstadt@mozilla.com>",
+    "Trang Nguyen <huyentrang1511@gmail.com>",
+]
+
+readme = "README.md"
+repository = "https://github.com/mozilla/adr"
+homepage = "https://github.com/mozilla/adr"
+
+[tool.poetry.scripts]
+adr = "adr.cli:main"
+adr-gist = "adr.export.gist:cli"
+adr-test = "adr.export.test:cli"
+adr-app = "app.app:main"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+json-e = "^3.0.0"
+requests = "^2.21.0"
+terminaltables = "^3.1.0"
+pyyaml = "^5.1"
+markdown = "^3.0.1"
+docutils = ">=0.14,<0.17"
+pygments = "^2.3.1"
+appdirs = "^1.4"
+tomlkit = "^0.5.3"
+cachy = ">=0.2,<0.4"
+loguru = ">=0.2.5,<0.5.0"
+
+# Optional dependencies
+flask = { version = "^1.0.2", optional = true }
+redis = { version = "^3.2", optional = true }
+python3-memcached = { version = "^1.51", optional = true }
+zstandard = { version = "^0.13.0", optional = true }
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.7.9"
+flake8-import-order = "^0.18.1"
+pytest = "^5.4.1"
+tox = "^3.14.6"
+sphinx = "^3.0"
+sphinx_rtd_theme = "^0.4.3"
+codespell = "^1.16"
+responses = "^0.10.12"
+
+[tool.poetry.extras]
+app = ["flask"]
+
+[build-system]
+requires = ["poetry>=1.0.2"]
+build-backend = "poetry.masonry.api"
