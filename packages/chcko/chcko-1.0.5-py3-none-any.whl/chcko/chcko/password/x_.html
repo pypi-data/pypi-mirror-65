@@ -1,0 +1,54 @@
+<script>
+    //These are just solutions to exercises...
+    //The user can, but does not have to make a strong password
+    function validate() {
+        var password = document.passwordform.password.value;
+        if (password == "") {
+            alert("{{tpassword}}");
+            return false;
+        }
+        var confirmp = document.passwordform.confirmp.value;
+        if (confirmp == "") {
+            alert("{{tconfirm}}");
+            return false;
+        } else if(confirmp != password){
+            alert("{{tnopasswordmatch}}"); 
+            return false; 
+        }
+        return true;
+    }
+</script>
+
+<h1>{{ ttitle }}</h1>
+
+<p>
+{{db.user_email(self.request.user)}}
+</p>
+
+%def fieldme(tme,what,wvalue,wtype='text',extra=''):
+<div class="grid_10" style="margin:0.5em 0.5em;">
+    <div class="grid_3">
+        <label for="{{what}}">{{tme}}</label>
+    </div>
+    <input class="grid_6 chq" type="{{wtype}}"
+        %if wvalue:
+        value="{{ wvalue }}"
+        %end
+        name="{{what}}"/>
+</div>
+%end
+
+%if not db.is_social_login(self.request.user):
+<form method="POST" name=passwordform onsubmit='return validate()'>
+    %fieldme(tfullname,'fullname',self.request.user.fullname)
+    %fieldme(tpassword,'password','','password')
+    %fieldme(tconfirm,'confirmp','','password')
+
+    <input type="hidden" name="token" value="{{ defined('token') and token or ''}}" />
+    <input class="nbutton chq grid_10" style="text-align:center" type="submit" value="{{ tupdate }}" />
+</form>
+%else:
+    %fieldme(tfullname,'fullname',self.request.user.fullname,extra='readonly')
+%end
+
+% include('chcko/main')
