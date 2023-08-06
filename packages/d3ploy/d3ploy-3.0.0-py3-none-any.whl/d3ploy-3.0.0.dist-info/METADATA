@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: d3ploy
+Version: 3.0.0
+Summary: Easily deploy to S3 with multiple environment support.
+License: MIT
+Author: dryan
+Author-email: dryan@users.noreply.github.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: boto3 (>=1.12.38,<2.0.0)
+Requires-Dist: pathspec (>=0.7.0,<0.8.0)
+Requires-Dist: progressbar2 (>=3.50.1,<4.0.0)
+Requires-Dist: pync (>=2.0.3,<3.0.0)
