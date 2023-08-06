@@ -1,0 +1,5 @@
+[console_scripts]
+toughio-export = toughio._cli:export
+toughio-extract = toughio._cli:extract
+toughio-merge = toughio._cli:merge
+
