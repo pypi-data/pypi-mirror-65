@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data depends="sale_channel">
+        <!-- record model="ir.ui.view" id="sale_channel_view_tree">
+            <field name="model">sale.channel</field>
+            <field name="inherit" ref="sale_channel.sale_channel_view_tree"/>
+            <field name="name">sale_channel_tree</field>
+        </record -->
+        <record model="ir.ui.view" id="sale_channel_view_form">
+            <field name="model">sale.channel</field>
+            <field name="inherit" ref="sale_channel.sale_channel_view_form"/>
+            <field name="name">sale_channel_form</field>
+        </record>
+	
+	<record model="ir.ui.view" id="carrier_view_form">
+            <field name="model">sale.channel.carrier</field>
+            <field name="type">form</field>
+            <field name="name">channel_carrier_form</field>
+        </record>
+        <record model="ir.ui.view" id="carrier_view_tree">
+            <field name="model">sale.channel.carrier</field>
+            <field name="type">tree</field>
+            <field name="name">channel_carrier_tree</field>
+        </record>
+
+	<record model="ir.model.button" id="channel_import_carriers_button">
+            <field name="name">import_shipping_carriers</field>
+            <field name="string">Import carriers</field>
+            <field name="model" search="[('model', '=', 'sale.channel')]"/>
+        </record>
+        <!-- record model="ir.model.button-res.group" id="channel_import_carriers_button_group_sale">
+            <field name="button" ref="channel_import_carriers_button"/>
+            <field name="group" ref="sale.group_sale"/>
+	</record -->
+    </data>
+</tryton>

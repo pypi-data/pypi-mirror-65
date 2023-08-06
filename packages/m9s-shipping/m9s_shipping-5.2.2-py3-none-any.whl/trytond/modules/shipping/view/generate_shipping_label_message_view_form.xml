@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<form col="2">
+  <image name="tryton-attachment" xexpand="0" xfill="0"/>
+  <field name="message" colspan="4"/>
+  <newline/>
+  <label name="tracking_number"/>
+  <field name="tracking_number"/>
+  <label name="cost"/>
+  <field name="cost"/>
+  <label name="cost_currency"/>
+  <field name="cost_currency"/>
+  <field name="attachments" colspan="2"/>
+</form>

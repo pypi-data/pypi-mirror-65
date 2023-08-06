@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/field[@name='subdivision']" position="after">
+        <newline/>
+        <button name="validate_address_button" string="Validate Address" colspan="2"/>
+    </xpath>
+</data>
