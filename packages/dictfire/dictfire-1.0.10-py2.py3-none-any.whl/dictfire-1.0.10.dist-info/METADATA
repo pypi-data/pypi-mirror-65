@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: dictfire
+Version: 1.0.10
+Summary: 命令行下[中英，中俄，中日，中韩，中法，中德，中西]文互翻译工具（Command line translation tool for Chinese English,Chinese French, Chinese Japanese, Chinese Korean, Chinese German），翻译服务基于有道翻译。
+Home-page: https://github.com/HeywoodKing/dictfire
+Author: hywell
+Author-email: opencoding@hotmail.com
+Maintainer: hywell
+Maintainer-email: opencoding@hotmail.com
+License: MIT
+Download-URL: https://github.com/HeywoodKing/dictfire
+Requires-Dist: requests
+Requires-Dist: fake-useragent
+
+dict
+
+
