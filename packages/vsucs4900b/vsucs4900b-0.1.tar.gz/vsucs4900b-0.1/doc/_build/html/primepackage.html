@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>primepackage package &#8212; Prime 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="generator module" href="generator.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="generator.html" title="generator module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Prime 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">Prime</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="primepackage-package">
+<h1>primepackage package<a class="headerlink" href="#primepackage-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-primepackage.primeio">
+<span id="primepackage-primeio-module"></span><h2>primepackage.primeio module<a class="headerlink" href="#module-primepackage.primeio" title="Permalink to this headline">¶</a></h2>
+<p>Function for io operations</p>
+<p>In Spring 2020, to demo how to build a Python project, this project was
+created for the students in CS4900 senior seminar class. This module contains
+the functions about input and output the prime nubmers into or from a csv file.</p>
+<dl class="simple">
+<dt>Example:</dt><dd><p>python primeio.py</p>
+</dd>
+</dl>
+<dl class="function">
+<dt id="primepackage.primeio.read_primes">
+<code class="sig-prename descclassname">primepackage.primeio.</code><code class="sig-name descname">read_primes</code><span class="sig-paren">(</span><em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#primepackage.primeio.read_primes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a list of prime numbers from a csv file</p>
+<dl>
+<dt>Args:</dt><dd><p>file_name (str): file name of a csv file</p>
+</dd>
+<dt>Raises:</dt><dd><p>IOError: if file is not able to be read</p>
+</dd>
+<dt>Examples:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">read_primes</span><span class="p">(</span><span class="s1">&#39;output.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="primepackage.primeio.write_primes">
+<code class="sig-prename descclassname">primepackage.primeio.</code><code class="sig-name descname">write_primes</code><span class="sig-paren">(</span><em class="sig-param">prime_list</em>, <em class="sig-param">file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#primepackage.primeio.write_primes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output a list of prime numbers into a csv file</p>
+<dl>
+<dt>Args:</dt><dd><p>prime_list (list): a list of prime numbers
+file_name (str): file name of a csv file</p>
+</dd>
+<dt>Raises:</dt><dd><p>IOError: if file is not able to be opened</p>
+</dd>
+<dt>Examples:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">write_primes</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="s1">&#39;output.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-primepackage.primemodule">
+<span id="primepackage-primemodule-module"></span><h2>primepackage.primemodule module<a class="headerlink" href="#module-primepackage.primemodule" title="Permalink to this headline">¶</a></h2>
+<p>Functions for prime numbers</p>
+<p>In Spring 2020, to demo how to build a Python project, this project was
+created for the students in CS4900 senior seminar class. This module contains
+the functions about prime numbers.</p>
+<dl class="simple">
+<dt>Example:</dt><dd><p>python primemodule.py</p>
+</dd>
+</dl>
+<dl class="function">
+<dt id="primepackage.primemodule.get_n_prime">
+<code class="sig-prename descclassname">primepackage.primemodule.</code><code class="sig-name descname">get_n_prime</code><span class="sig-paren">(</span><em class="sig-param">num</em><span class="sig-paren">)</span><a class="headerlink" href="#primepackage.primemodule.get_n_prime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fist num prime numbers</p>
+<dl>
+<dt>Args:</dt><dd><p>num (int): the number of the first prime numbers</p>
+</dd>
+<dt>Return:</dt><dd><p>list: a list of integer numbers</p>
+</dd>
+<dt>Examples:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prime_list</span> <span class="o">=</span> <span class="n">get_n_prime</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="primepackage.primemodule.is_prime">
+<code class="sig-prename descclassname">primepackage.primemodule.</code><code class="sig-name descname">is_prime</code><span class="sig-paren">(</span><em class="sig-param">number</em><span class="sig-paren">)</span><a class="headerlink" href="#primepackage.primemodule.is_prime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a number is a prime</p>
+<dl>
+<dt>Args:</dt><dd><p>number (int): integer number</p>
+</dd>
+<dt>Return:</dt><dd><p>boolean: true if n is a prime number, false otherwise</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: if n is not a natural number</p>
+</dd>
+<dt>Examples:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">is_prime</span><span class="p">(</span><span class="mi">83</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-primepackage">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-primepackage" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">primepackage package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-primepackage.primeio">primepackage.primeio module</a></li>
+<li><a class="reference internal" href="#module-primepackage.primemodule">primepackage.primemodule module</a></li>
+<li><a class="reference internal" href="#module-primepackage">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="generator.html"
+                        title="previous chapter">generator module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/primepackage.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="generator.html" title="generator module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Prime 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >Prime</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Lin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+  </body>
+</html>
