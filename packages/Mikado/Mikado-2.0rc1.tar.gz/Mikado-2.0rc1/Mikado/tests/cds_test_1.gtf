@@ -1,0 +1,34 @@
+# To make the type of situation clearer: presume to have four models, A, A’, A’’ and A’’’, all on the same strand and
+# with two exons: (1001, 1500) and (1700, 2000). Model A does not have any CDS. Model A’ has an ORF with coordinates
+# (1201, 1470). Model A’’ has an ORF with coordinates (1401, 1900). Model A’’’ is identical to model A’’.
+# At the moment, as they have the same exonic coordinates, Mikado would consider these four models identical and keep
+# only one of these (chosen randomly).
+
+# Chr5	TAIR10	exon	9930	10172	.	+	.	Parent=AT5G01030.1
+# Chr5	TAIR10	five_prime_UTR	9930	10172	.	+	.	Parent=AT5G01030.1
+# Chr5	TAIR10	exon	10620	12665	.	+	.	Parent=AT5G01030.1
+
+
+Chr5	TAIR10	mRNA	208937	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.0";
+Chr5	TAIR10	exon	208937	209593	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.0";
+Chr5	TAIR10	exon	209881	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.0";
+Chr5	TAIR10	mRNA	208937	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.1"; Name "AT5G01530.1"; Index "1";
+Chr5	TAIR10	exon	208937	209593	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.1";
+Chr5	TAIR10	CDS	209084	209593	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.1";
+Chr5	TAIR10	CDS	209881	210243	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.1";
+Chr5	TAIR10	exon	209881	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.1";
+Chr5	TAIR10	mRNA	208937	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.2";
+Chr5	TAIR10	exon	208937	209593	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.2";
+Chr5	TAIR10	CDS	209084	209593	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.2";
+Chr5	TAIR10	CDS	209881	210243	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.2";
+Chr5	TAIR10	exon	209881	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.2";
+Chr5	TAIR10	mRNA	209084	210243	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.3";
+Chr5	TAIR10	exon	209084	209593	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.3";
+Chr5	TAIR10	CDS	209084	209593	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.3";
+Chr5	TAIR10	CDS	209881	210243	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.3";
+Chr5	TAIR10	exon	209881	210243	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.3";
+Chr5	TAIR10	mRNA	208937	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.4";
+Chr5	TAIR10	exon	208937	209593	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.4";
+Chr5	TAIR10	CDS	209087	209593	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.4";
+Chr5	TAIR10	CDS	209881	210240	.	+	0	gene_id "AT5G01530"; transcript_id "AT5G01530.4";
+Chr5	TAIR10	exon	209881	210445	.	+	.	gene_id "AT5G01530"; transcript_id "AT5G01530.4";
