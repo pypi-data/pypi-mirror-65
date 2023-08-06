@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pyfoot
+Version: 0.0.1
+Summary: 
+    Pyfoot
+    ~~~~~~
+
+    Pyfoot is a high-level library for writing simple 2d games.
+    It is based upon the Python library pygame and was inspired by the java library Greenfoot.
+    Most of the functions provided also accept pygame objects, which can provide more functionality.
+    
+Home-page: https://github.com/Threated/pyfoot
+Author: Jan Skiba
+Author-email: jan2001.07@gmail.com
+License: GNU 3
+Description: # pyfoot
+        
+        Pyfoot is a high-level library for writing simple 2d games.\
+        It is based upon the Python library [pygame](https://github.com/pygame/pygame "Pygame Github") and was inspired by the java libary [Greenfoot](https://www.greenfoot.org/door "Greenfoot Homepage").
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
