@@ -1,0 +1,44 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+      name: Create Release
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Uploading Release Assets
+          uses: softprops/action-gh-release@v1
+          with:
+            body: ""
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  pypi:
+      name: Upload to PyPi
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@master
+
+        - name: Preparing Docker image
+          run: |
+              sudo docker build -t audiosync .
+
+        - name: Uploading
+          env:
+            TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+            TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          run: |
+            sudo --preserve-env docker run \
+                --env TWINE_USERNAME --env TWINE_PASSWORD \
+                audiosync /bin/sh -c \
+                    'pip install twine; \ 
+                    python setup.py sdist bdist_wheel; \
+                    twine upload dist/*'
