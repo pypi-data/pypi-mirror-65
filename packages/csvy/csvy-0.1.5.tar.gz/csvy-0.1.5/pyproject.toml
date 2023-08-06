@@ -1,0 +1,72 @@
+[tool.poetry]
+name = "csvy"
+version = "0.1.5"
+description = "Convenience wrappers for the standard library csv module."
+authors = ["Mark Gemmill <gitlab@markgemmill.com>"]
+readme = "README.md"
+license = "BSD-4-Clause"
+repository = "https://gitlab.com/mgemmill-pypi/csvy"
+keywords = ["csv"]
+classifiers = [
+    "Topic :: Software Development :: Libraries",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-cov = "^2.8.1"
+xini = "^0.2.2"
+
+[tool.dover]
+versioned_files = ["pyproject.toml", "src/csvy/__init__.py"]
+
+[tool.isort]
+line_length = 90
+force_single_line = true
+no_lines_before = "STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+
+[tool.pylint]
+disable = [
+    "missing-docstring",
+    "line-too-long",
+    "bad-continuation",
+    "invalid-name",
+    "logging-format-interpolation",
+    "consider-using-ternary"
+]
+
+[tool.flake8]
+statistics = true
+ignore = ["E501","W503","E241","E731", "E262"]
+max-line-length = 80
+max-complexity = 7
+tee = true
+exclude = [
+    ".git",
+    ".tox",
+    "__pycache__",
+    "docs",
+    "build",
+    "dist",
+]
+
+[tool.pytest]
+addopts = "-vv --strict --cov=csvy --cov-report=term-missing"
+
+[tool.coverage.run]
+source = "ttmr"
+branch = true
+
+[tool.coverage.paths]
+source = "csvy"
+
+[tool.coverage.report]
+show_missing = true
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
