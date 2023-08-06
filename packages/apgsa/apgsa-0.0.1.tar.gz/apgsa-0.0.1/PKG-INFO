@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: apgsa
+Version: 0.0.1
+Summary: A wrapper around asyncpg for use with sqlalchemy core
+Home-page: https://github.com/kelvingao/apgsa
+Author: Kelvin Gao
+Author-email: 89156201@qq.com
+License: UNKNOWN
+Description: apgsa, a wrapper around asyncpg for use with sqlalchemy core
+        ============================================================
+        [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+Keywords: sqlalchemy asyncpg asyncio async
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
