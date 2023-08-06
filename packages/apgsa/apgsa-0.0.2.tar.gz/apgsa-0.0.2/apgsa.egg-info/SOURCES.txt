@@ -1,0 +1,15 @@
+README.rst
+setup.py
+apgsa/__init__.py
+apgsa/connection.py
+apgsa/dialect.py
+apgsa/version.py
+apgsa.egg-info/PKG-INFO
+apgsa.egg-info/SOURCES.txt
+apgsa.egg-info/dependency_links.txt
+apgsa.egg-info/requires.txt
+apgsa.egg-info/top_level.txt
+tests/__init__.py
+tests/model.py
+tests/test_executing.py
+tests/test_sa_insert_expressions.py
