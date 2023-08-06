@@ -1,0 +1,6 @@
+[console_scripts]
+jupyter-runtimes = elyra.metadata.runtime:RuntimeMetadataApp.launch_instance
+
+[elyra.pipeline.processors]
+kfp = elyra.pipeline.processor_kfp:KfpPipelineProcessor
+
