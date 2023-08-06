@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: fpga-device-manager
+Version: 0.2.2
+Summary: A GUI for managing FPGA Device configurations.
+Home-page: UNKNOWN
+Author: Hannes Preiss
+Author-email: sophie@sophieware.net
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: moody-templates
+Requires-Dist: PySide2
+Requires-Dist: QtPy
+
+# fpga_device_manager
+A GUI for managing device configurations for a FPGA Smart Home project that was created as part of a Bachelor's thesis on the subject.
+
+Generates Verilog code for use with the Smart Home FPGA.
+
+A more comprehensive description will follow shortly.
+
+## Installation
+```
+pip install fpga-device-manager
+```
+
+## Usage
+```
+python -m fpga_device_manager
+```
+
+Generated Verilog code as well as the Lattice `.ldf` file will be exported to the `generated` directory and will have to be copied to the Lattice project manually (for now.)
+
