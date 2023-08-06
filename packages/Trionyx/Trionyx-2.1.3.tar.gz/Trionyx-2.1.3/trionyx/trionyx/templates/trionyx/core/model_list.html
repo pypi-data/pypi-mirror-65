@@ -1,0 +1,660 @@
+{% extends "trionyx/base.html" %}
+{% load static i18n %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block header_buttons %}
+    {% include 'trionyx/base/model_header_buttons.html' %}
+
+    {% if create_permission and model_config.display_add_button %}
+        <a href="{{ create_url }}" class="btn btn-flat bg-theme">{% trans "Create" %}</a>
+    {% endif %}
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .dragtable-no-drag:hover .dragtable-drag-handle {
+            display: none !important;
+        }
+        .model-list > thead > tr > th {
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .model-list > thead > tr > th > i.fa {
+            position: absolute;
+            right: 4px;
+            bottom: 8px;
+        }
+        .dragtable-drag-handle {
+            display: none;
+            position: absolute;
+            padding: 10px;
+            right: 10px;
+            opacity: 0.9;
+            bottom: -5px;
+        }
+
+        .mass-action-group {
+            width: 40px;
+        }
+
+        .btn-group.mass-action-group > .btn.dropdown-toggle {
+            padding-right: 2px;
+            padding-left: 2px;
+        }
+        .model-list-filters {
+            padding: 0;
+            background-color: #f8f8f8;
+            border-top: 1px solid #eee;
+        }
+        .model-list-filters .trionyx-filters {
+            padding-top: 0 !important;
+        }
+
+        .model-list-pagination {
+            float: right;
+        }
+
+        .model-list-pagination .btn,
+        .model-list-pagination .select2-container {
+            margin-bottom: 3px;
+        }
+
+        .model-list > thead > tr > th,
+        .model-list > tbody > tr > td {
+            white-space: nowrap;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .model-list > thead > tr > th:last-child {
+            width: 100%;
+        }
+
+
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div class="info-box" id="app-model-list" v-cloak>
+        <div class="box-header" style="padding-bottom: 0;">
+            <div class="input-group input-group" style="width: 175px;">
+                <input type="text" name="table_search" class="form-control pull-right" placeholder="{% trans "Search" %}" v-model="search" v-on:keyup="searchLoad()">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default btn-flat" v-on:click="searchLoad()"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="box-tools">
+                <form method="post" v-bind:action="downloadUrl">
+                    <input type="hidden" name="csrfmiddlewaretoken" v-model="csrfmiddlewaretoken">
+                    <input type="hidden" name="page" v-model="page">
+                    <input type="hidden" name="page_size" v-model="pageSize">
+                    <input type="hidden" name="selected_fields" v-model="selected_fields">
+                    <input type="hidden" name="sort" v-model="sort">
+                    <input type="hidden" name="search" v-model="search">
+                    <button type="button" class="btn btn-flat btn-default hidden-xs" onclick="$('#listfiltersmodal').modal({backdrop: 'static', keyboard: false}, 'show');">
+                        <i class="fa fa-filter"></i>
+                    </button>
+                    <button type="submit" class="btn btn-flat btn-default hidden-xs" v-if="downloadUrl != ''">
+                        <i class="fa fa-download"></i>
+                    </button>
+                </form>
+            </div>
+            <button id="fields-popover" type="button" class="btn btn-flat btn-default pull-right hidden-xs" data-placement="bottom" data-toggle="popover" title="Fields" >
+                <i class="fa fa-columns" style="font-size: 16px"></i>
+            </button>
+        </div>
+        <div class="box-header" style="padding-bottom: 7px">
+            {% if delete_permission or change_permission %}
+                <div class="btn-group" style="margin-right: 10px">
+                  <button type="button" class="btn btn-flat btn-default" data-toggle="dropdown" aria-expanded="false">{% trans 'Actions' %}</button>
+                  <button type="button" class="btn btn-flat btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                      {% if delete_permission %}
+                        <li><a href="#" v-on:click="massActionDelete()">{% trans 'Delete' %}</a></li>
+                      {% endif %}
+                      {% if change_permission %}
+                        <li><a href="#" v-on:click="massActionUpdate()">{% trans 'Update' %}</a></li>
+                      {% endif %}
+                  </ul>
+                </div>
+            {% endif %}
+            <span style="line-height: 37px">
+                {% trans '[[count]] items found' %} <span v-if="massActionSelected">({% trans '[[massActionSelected]] selected' %})</span>
+            </span>
+            <div class="model-list-pagination">
+                <select v-model="pageSize" id="select-pageSize">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                </select>
+                {% trans "per page" %}
+
+                <button
+                    class="btn btn-default btn-flat"
+                    style="margin-left: 15px; margin-right: 5px"
+                    v-bind:disabled="previousPage == 0"
+                    v-on:click="toPage(previousPage)"
+                >
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                </button>
+                <input class="form-control" style="display: inline-block; width: 50px" v-on:change="pageChange()" v-model="editPage" />
+                    {% trans 'of [[numPages]]' %}
+                <button
+                    class="btn btn-default btn-flat"
+                    style="margin-left: 5px;"
+                    v-bind:disabled="nextPage == 0"
+                    v-on:click="toPage(nextPage)"
+                >
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-header model-list-filters" v-if="renderedActiveFilters.length > 0">
+            <div class="trionyx-filters">
+                <div v-for="filter in renderedActiveFilters" class="filter filter-block">
+                    [[filter.label]] [[filter.operator]] [[filter.renderedValue]]
+                    <span v-on:click="clickRemoveFilter(filter)">×</span>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding table-responsive">
+            <div class="alert alert-info" v-if="items.length == 0" style="margin-bottom: 0px">
+                {% trans "There are no" %} {{ title }}
+            </div>
+            <table class="table table-striped model-list" v-if="items.length > 0">
+                <thead>
+                    <tr>
+                        {% if delete_permission or change_permission %}
+                            <th class="dragtable-no-drag" style="width: 45px; padding-right: 0;" data-header="--checkbox--">
+                                <div class="btn-group btn-group-xs mass-action-group">
+                                  <button type="button" class="btn btn-flat btn-default" data-toggle="dropdown" aria-expanded="false">
+                                      <i class="fa no-margin" v-bind:class="massActionIconClass"></i>
+                                  </button>
+                                  <button type="button" class="btn btn-flat btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="caret"></span>
+                                  </button>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" v-on:click="massActionSelectAll()">{% trans 'Select All' %}</a></li>
+                                    <li><a href="#" v-on:click="massActionDeselectAll()">{% trans 'Deselect All' %}</a></li>
+                                    <li><a href="#" v-on:click="massActionSelectAllOnPage()">{% trans 'Select All on this page' %}</a></li>
+                                  </ul>
+                                </div>
+                                <span class="dragtable-drag-handle"></span>
+                            </th>
+                        {% endif %}
+                        <th class="dragtable-drag-boundary dragtable-no-drag" style="width: 10px" data-header="NR">#<span class="dragtable-drag-handle"></span></th>
+                        <th v-for="header in headers" v-on:click="clickSort(header.field)" v-bind:data-header="header.field">
+                            [[ header.label ]]
+                            <span class="dragtable-drag-handle">
+                                <i class="fa fa-arrows"></i>
+                            </span>
+
+                            <i class="fa fa-sort pull-right" v-if="header.sort == 'sort'"></i>
+                            <i class="fa fa-sort-amount-asc pull-right" v-if="header.sort == 'asc'"></i>
+                            <i class="fa fa-sort-amount-desc pull-right" v-if="header.sort == 'desc'"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in enumeratedItems">
+                        {% if delete_permission or change_permission %}
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    v-model="item.selected"
+                                    true-value="1"
+                                    false-value="0"
+                                />
+                            </td>
+                        {% endif %}
+                        <td v-for="column in item.row_data" v-html="column" v-on:click="clickItem(item, $event)" v-on:click.middle="clickItem(item, $event)"/>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="fields-popover-content" class="hidden">
+            <div style="max-height: 250px; overflow-y: scroll">
+                <div class="col-md-12">
+                    <input id="fields-popover-search" placeholder="{% trans "search" %}" class="form-control">
+                </div>
+                <div v-for="field in fields" class="col-md-6">
+                    <label>
+                        <input v-bind:name="field.name" type="checkbox">
+                        [[field.label]]
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Modal -->
+        <div class="modal fade" id="listfiltersmodal" role="dialog">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{% trans "Filters" %}
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <trionyx-filters :filters="activeFilters" :content-type-id="contentTypeId" ref="trionyxFilters"></trionyx-filters>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static "js/jquery-ui.min.js" %}"></script>
+    <script src="{% static "js/jquery.dragtable.js" %}"></script>
+
+    <script type="text/javascript">
+    function TrionyxList(config){
+        return new Vue({
+            el: '#app-model-list',
+            delimiters: ['[[', ']]'],
+            data: {
+                ajaxUrl: config.ajaxUrl,
+                downloadUrl: config.downloadUrl,
+                ajaxCall: null,
+                contentTypeId: config.contentTypeId,
+
+                loading: false,
+                items: [],
+
+                csrfmiddlewaretoken: getCookie('csrftoken'),
+                enumeratedAdded: false,
+                page: 1,
+                editPage: 1,
+                pageSize: 10,
+                initialPageSize: 0,
+                numPages: 0,
+                count: 0,
+                sort: '',
+                allFields: {},
+                selected_fields: '',
+                currentFields: [],
+                search: '',
+                massActionAllSelected: false,
+
+                activeFilters: [],
+                setActiveFilters: false,
+                renderedActiveFilters: [],
+            },
+
+            computed: {
+                headers: function(){
+                    var self = this;
+                    return this.currentFields.map(function(field){
+                        return {
+                            field: field,
+                            label: field in self.allFields ? self.allFields[field].label : '',
+                            sort: self.sort == field ? 'asc' : self.sort == '-' + field ? 'desc' : 'sort',
+                        }
+                    });
+                },
+                enumeratedItems: function(){
+                    var counter = (this.page - 1) * this.pageSize + 1;
+                    var enumeratedAdded = this.enumeratedAdded;
+                    this.enumeratedAdded = true;
+
+                    return this.items.map(function(item){
+                        if (!enumeratedAdded) {
+                            item.row_data.splice(0, 0, counter++);
+                        }
+                        return item;
+                    });
+                },
+                fields: function(){
+                    return Object.values(this.allFields).sort(function (a, b) {
+                        return a.label.localeCompare(b.label);
+                    });
+                },
+                nextPage: function() {
+                    return this.page < this.numPages ? this.page + 1 : 0;
+                },
+                previousPage: function() {
+                    return this.page > 1 ? this.page -1 : 0;
+                },
+                massActionSelected: function() {
+                    if (this.massActionAllSelected) {
+                        return this.count;
+                    }
+                    return this.items.reduce((value, item) => value + (item.selected === '1' ? 1 : 0), 0);
+                },
+                massActionIds: function() {
+                    if (this.massActionAllSelected) {
+                        return [];
+                    }
+
+                    return this.items.map(function (item) {
+                        return  item.selected === '1'? item.id : null;
+                    }).filter(function (id) {
+                        return typeof(id) === 'number';
+                    });
+                },
+                massActionIconClass: function () {
+                    if (this.massActionAllSelected) {
+                        return 'fa-check-square-o';
+                    } else if(this.massActionSelected > 0) {
+                        return 'fa-minus-square-o';
+                    } else {
+                        return 'fa-square-o';
+                    }
+                },
+            },
+            
+            watch: {
+                activeFilters: function() {
+                    this.renderedActiveFilters = this.$refs.trionyxFilters.renderedFilters;
+
+                    if (!this.setActiveFilters) {
+                        this.load();
+                    }
+                },
+                pageSize: function (pageSize) {
+                    // Prevent a double load on initial load
+                    if (this.initialPageSize === pageSize) {
+                        this.initialPageSize = false;
+                        return
+                    }
+                    this.page = 1;
+                    this.load();
+                },
+            },
+            methods: {
+                clickSort: function (field) {
+                    if (this.sort == field){
+                        this.sort = '-' + field;
+                    } else {
+                        this.sort = field;
+                    };
+                    this.load();
+                },
+                toPage: function (page) {
+                    this.page = page;
+                    this.editPage = page;
+                    this.load();
+                },
+                pageChange: function() {
+                    if (this.editPage < 1) {
+                        this.editPage = 1;
+                        this.page = 1;
+                    } else if (this.editPage > this.numPages) {
+                        this.editPage = this.numPages;
+                        this.page = this.numPages;
+                    } else {
+                        this.page = this.editPage;
+                    }
+                    this.load();
+                },
+                clickItem: function(item, event) {
+                    if (event.button === 1 || (event.ctrlKey && event.button === 0)) {
+                        window.open(item.url, '_blank');
+                    } else {
+                        window.location.href = item.url;
+                    }
+                },
+                clickRemoveFilter: function(filter){
+                    if (this.activeFilters.indexOf(filter) !== -1) {
+                        this.activeFilters.splice(this.activeFilters.indexOf(filter), 1);
+                    }
+                },
+                searchLoad: function() {
+                    this.load();
+                },
+                load: function(initial, selected_fields){
+                    var self = this;
+                    this.loading = true;
+                    initial = typeof initial !== 'undefined' ? initial : false;
+                    selected_fields = typeof selected_fields !== 'undefined' ? selected_fields : this.currentFields;
+                    var filters = typeof this.$refs.trionyxFilters !== 'undefined' ? this.$refs.trionyxFilters.json : '[]';
+                    var data = {
+                        page: this.page,
+                        page_size: this.pageSize,
+                        sort: this.sort,
+                        selected_fields: selected_fields.join(','),
+                        filters: filters,
+                        search: this.search,
+                    };
+
+                    if (this.ajaxCall) {
+                        this.ajaxCall.abort();
+                    }
+
+                    this.ajaxCall = $.ajax({
+                        type: 'POST',
+                        url: this.ajaxUrl,
+                        data: initial ? {} : data,
+                    }).done(function(response){
+                        if(response.status !== 'success') {
+                            return;
+                        }
+                        var data = response.data;
+
+                        if (initial) {
+                           self.search = data.search;
+                           self.initialPageSize = data.page_size;
+                        }
+
+                        self.items = data.items.map(function(item){
+                            item.selected = false;
+                            return item
+                        });
+                        self.enumeratedAdded = false;
+                        self.page = data.page;
+                        self.editPage = data.page;
+                        self.pageSize = data.page_size;
+                        self.numPages = data.num_pages;
+                        self.sort = data.sort;
+                        self.count = data.count;
+                        self.selected_fields = data.current_fields.join(',');
+                        self.allFields = data.fields;
+                        self.currentFields = data.current_fields;
+                        self.setActiveFilters = true;
+                        self.activeFilters = data.filters;
+                    }).fail(function (response) {
+                        if (response.status !== 0) {
+                            console.log('error', data);
+                        }
+                    }).always(function () {
+                        self.ajaxCall = null;
+                        self.loading = false;
+
+                        // To prevent watch is little later and get in load loop
+                        setTimeout(function () {
+                            self.setActiveFilters = false;
+                        }, 100)
+                    });
+                },
+
+                massActionSelectAll: function () {
+                    this.massActionAllSelected = true;
+                    this.items.map(function (item) {
+                        item.selected = '1';
+                        return item;
+                    });
+                },
+                massActionSelectAllOnPage: function () {
+                    this.massActionAllSelected = false;
+                    this.items.map(function (item) {
+                        item.selected = '1';
+                        return item;
+                    });
+                },
+                massActionDeselectAll: function () {
+                    this.massActionAllSelected = false;
+                    this.items.map(function (item) {
+                        item.selected = '0';
+                        return item;
+                    });
+                },
+
+                massActionDelete: function () {
+                    var self = this;
+                    openDialog(
+                        config.massDeleteUrl,
+                        {
+                            post: {
+                                filters: this.$refs.trionyxFilters.json,
+                                all: this.massActionAllSelected ? '1' : '0',
+                                ids: this.massActionIds.join(','),
+                            },
+                            callback: function (data, dialog) {
+                                if ('deleted' in data && data.deleted) {
+                                    dialog.close();
+                                    self.page = 1;
+                                    self.load();
+                                }
+                            }
+                        }
+                    );
+                },
+
+                massActionUpdate: function(){
+                    url = config.massUpdateUrl + '?all=' + (this.massActionAllSelected ? '1' : '0');
+                    url += '&ids=' + this.massActionIds.join(',');
+                    url += '&filters=' + this.$refs.trionyxFilters.json;
+
+                    window.location = url;
+                },
+            },
+
+            created() {
+                this.load(true);
+            },
+
+            mounted(){
+                var self = this;
+                $('#fields-popover').popover({
+                    html: true,
+                    content: function(){
+                        // TODO render this with vuejs?
+                        var content = $($('#fields-popover-content').html());
+
+                        // Add field search
+                        $(content.find('#fields-popover-search')[0]).keyup(function(){
+                            var search = $(this).val().toLowerCase();
+                           content.find('input:checkbox').each(function () {
+                               var field = $(this).attr('name').toLowerCase();
+                               var parent = $(this).parent().parent();
+                               if (field.indexOf(search) !== -1){
+                                   $(parent).removeClass('hidden');
+                               } else {
+                                   $(parent).addClass('hidden');
+                               }
+                           });
+                        });
+
+                        content.find('input:checkbox').each(function () {
+                            var input = $(this);
+                            var field = input.attr('name');
+                            if (self.currentFields.indexOf(field) >= 0) {
+                                input.attr('checked', true);
+                            }
+
+                            input.click(function(){
+                                if (this.checked) {
+                                    self.currentFields.push(field);
+                                    self.currentFields = $.arrayUnique(self.currentFields);
+                                    self.load();
+                                } else {
+                                    var index = self.currentFields.indexOf(field);
+                                    if (index >= 0) {
+                                        self.currentFields.splice(index, 1);
+                                        self.load();
+                                    }
+                                }
+                            });
+                        });
+                        return content;
+                    },
+                }).on("show.bs.popover", function(){
+                    var popover =  $(this).data("bs.popover").tip();
+                    popover.css("max-width", "100%").css("min-width", "400px");
+
+                    // Dirty hack to lock popover width for when search is used.
+                    setTimeout(function(){
+                        popover.css("width", popover.width() + 'px');
+                    }, 50);
+                });
+            },
+
+            updated: function () {
+                var self = this;
+
+                this.renderedActiveFilters = this.$refs.trionyxFilters.renderedFilters;
+
+                $('#select-pageSize').select2({
+                    minimumResultsForSearch: -1
+                }).change(function ($event) {
+                    self.pageSize = $($event.target).val();
+                });
+
+                $('#app-model-list table').dragtable({
+                    start(e){
+                        e.preventDefault();
+                    },
+                    stop(){
+                        var currentFields = ['NR'];
+                        $.each(self.currentFields, function(index, value){
+                           currentFields.push(value);
+                        });
+                        var changed_fields = $(this).dragtable('order');
+
+                        if (!$.arrayCompare(currentFields, changed_fields)) {
+                            changed_fields.shift();
+                            if (changed_fields.includes('NR')) {
+                                changed_fields.shift();
+                            }
+                            self.load(false, changed_fields);
+                        }
+                    }
+                });
+
+                // Update DragTable
+                var currentFields = config.massPermission ? ['--checkbox--', 'NR'] : ['NR'];
+                $.each(self.currentFields, function(index, value){
+                    if (value !== 'NR' || value !== '--checkbox--') {
+                        currentFields.push(value);
+                    }
+                });
+                $('#app-model-list table').dragtable('order', currentFields);
+            }
+        });
+    }
+    </script>
+{% endblock %}
+
+{% block extra_foot %}
+    <script type="text/javascript">
+        $(function(){
+           $(function () {
+                var trionyxList = new TrionyxList({
+                    ajaxUrl: "{{ ajax_url }}",
+                    downloadUrl: "{{ download_url }}",
+                    contentTypeId: {{ content_type_id }},
+                    massDeleteUrl: "{{ mass_delete_url }}",
+                    massUpdateUrl: "{{ mass_update_url }}",
+                    massPermission: {% if delete_permission or change_permission %}true{% else %}false{% endif %}
+                });
+            });
+        });
+    </script>
+{% endblock %}

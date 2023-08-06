@@ -1,0 +1,10 @@
+<table class="table table-condensed" {% if component.css_id %}id="{{ component.css_id }}"{% endif %}>
+    <tbody>
+        {% for field in component.get_rendered_object %}
+            <tr>
+                <th style="width: {{ field.width }};">{{ field.label }}:</th>
+                <td class="description-value">{{ field.value|safe }}</td>
+            </tr>
+        {% endfor %}
+  </tbody>
+</table>
