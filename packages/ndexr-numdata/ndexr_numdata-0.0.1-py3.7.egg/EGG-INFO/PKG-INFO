@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: ndexr-numdata
+Version: 0.0.1
+Summary: A simple package calculating values for a single number and created in my Udemy course
+Home-page: http://github.com/fdrennan/ndexr_numdata
+Author: Freddy Drennan
+Author-email: drennanfreddy@gmail.com
+License: UNKNOWN
+Description: # Installation
+        
+        ```
+        sudo python setup.py install
+        ```
+        
+        ```
+        pip install ndexr_numdata
+        ```
+        
+        # Usage
+        
+        Initialization is not required for using methods in ndexr_numdata
+        ```
+        from ndexr_numdata import calculate
+        calculate.calculate_cube(3)
+        ```
+Keywords: package numbers calculations
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
