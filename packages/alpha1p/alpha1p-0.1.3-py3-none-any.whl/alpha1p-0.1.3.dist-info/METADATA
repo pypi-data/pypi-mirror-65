@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: alpha1p
+Version: 0.1.3
+Summary: Alpha 1 Pro driver
+Home-page: https://github.com/wuruiqi/alpha1p
+Author: wuruiqi
+Author-email: woshiwuruiqi@163.com
+License: GNU General Public License v3.0
+Keywords: Alpha 1,ubteach
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy (>=1.18.1)
+Requires-Dist: pandas (>=1.0.1)
+Requires-Dist: numba (>=0.48.0)
+Requires-Dist: pyusb (>=1.0.2)
+Requires-Dist: pyserial (>=3.4)
+
+UNKNOWN
+
+
