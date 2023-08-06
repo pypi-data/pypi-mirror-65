@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: enchanter
+Version: 0.4.0
+Summary: Machine Learning Pipeline, Training and Logging for Me.
+Home-page: https://github.com/khirotaka/enchanter
+Author: Hirotaka Kawashima
+Author-email: UNKNOWN
+License: Apache-2.0
+Platform: UNKNOWN
+Requires-Dist: torch (>=1.4.0)
+Requires-Dist: numpy (>=1.17.4)
+Requires-Dist: scikit-learn (>=0.22.1)
+Requires-Dist: tqdm (>=4.41.1)
+Requires-Dist: tensorboard (>=2.1.0)
+Requires-Dist: pandas (>=1.0.1)
+
+UNKNOWN
+
+
