@@ -1,0 +1,130 @@
+Metadata-Version: 2.1
+Name: reana-db
+Version: 0.7.0.dev20200410
+Summary: REANA-DB.
+Home-page: https://github.com/reanahub/reana-db
+Author: REANA
+Author-email: info@reana.io
+License: UNKNOWN
+Description: =========
+         REANA DB
+        =========
+        
+        .. image:: https://img.shields.io/pypi/pyversions/reana-db.svg
+              :target: https://pypi.org/pypi/reana-db
+        
+        .. image:: https://img.shields.io/travis/reanahub/reana-db.svg
+              :target: https://travis-ci.org/reanahub/reana-db
+        
+        .. image:: https://readthedocs.org/projects/reana-db/badge/?version=latest
+              :target: https://reana-db.readthedocs.io/en/latest/?badge=latest
+        
+        .. image:: https://img.shields.io/coveralls/reanahub/reana-db.svg
+              :target: https://coveralls.io/r/reanahub/reana-db
+        
+        .. image:: https://badges.gitter.im/Join%20Chat.svg
+              :target: https://gitter.im/reanahub/reana?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
+        
+        .. image:: https://img.shields.io/github/license/reanahub/reana-db.svg
+              :target: https://github.com/reanahub/reana-db/blob/master/LICENSE
+        
+        About
+        -----
+        
+        REANA-DB is a component of the `REANA
+        <http://reanahub.io/>`_ reusable analysis platform.
+        It contains REANA database models and utilities.
+        
+        Features
+        --------
+        
+        - database persistence for REANA system
+        - database models and utilities
+        - database upgrades and migrations
+        
+        Useful links
+        ------------
+        
+        - `documentation <https://reana-db.readthedocs.io/>`_
+        - `releases <https://github.com/reanahub/reana-db/releases>`_
+        - `known issues <https://github.com/reanahub/reana-db/issues>`_
+        - `source code <https://github.com/reanahub/reana-db>`_
+        
+        For more information about the REANA reusable analysis platform, please see the
+        general `REANA documentation <http://reana.readthedocs.io/>`_.
+        
+        
+        Changes
+        =======
+        
+        Version 0.6.0 (2019-12-19)
+        --------------------------
+        
+        - Adds new method which returns full workflow name.
+        - Adds more granular DB configuration.
+        - Adds Git repository information to the workflow model.
+          (``Workflow.git_repo``, ``Workflow.git_provider``)
+        - Adds user name information to the user model.
+          (``User.full_name``, ``User.username``)
+        - Removes restart count information from the job model.
+          (``Job.restart_count``, ``Job.max_restart_count``)
+        - Adds support for Python 3.8.
+        
+        Version 0.5.0 (2019-04-16)
+        --------------------------
+        
+        - Introduces new workflow statuses: ``deleted``, ``stopped``, ``queued``.
+        - Adds new field to store workflow stopping time. (``Workflow.run_stopped_at``)
+        - Moves workflow input parameters to its own column to separate them from
+          operational options. Adapts getters accordingly.
+          (``Workflow.input_parameters``)
+        - Adds new method to retrieve the workflow owner's token.
+          (``Workflow.get_owner_access_token``)
+        - Introduces new utility function to retrieve workflows by ``uuid`` or name.
+          (``_get_workflow_with_uuid_or_name``)
+        - Introduces new fields for interactive sessions: ``interactive_session``,
+          ``interactive_session_name`` and ``interactive_session_type``. Note that with
+          current design only one interactive session per workflow is supported.
+        - Adds a new enumeration for possible job statuses. (``JobStatus``)
+        - Adds new field to identify jobs in the underlying compute backend.
+          (``Job.backend_job_id``)
+        
+        Version 0.4.0 (2018-11-06)
+        --------------------------
+        
+        - Stores ``reana.yaml`` in database models.
+        - Adds Workflow specification and parameter getters.
+        - Adds support for Python 3.7.
+        - Changes license to MIT.
+        
+        Version 0.3.0 (2018-08-10)
+        --------------------------
+        
+        - This package is a result of refactoring `reana-commons
+          <https://reana-commons.readthedocs.io/>`_.
+        - Provides common REANA models.
+        - Provides database connection logic.
+        
+        .. admonition:: Please beware
+        
+           Please note that REANA is in an early alpha stage of its development. The
+           developer preview releases are meant for early adopters and testers. Please
+           don't rely on released versions for any production purposes yet.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: all
+Provides-Extra: docs
+Provides-Extra: tests
