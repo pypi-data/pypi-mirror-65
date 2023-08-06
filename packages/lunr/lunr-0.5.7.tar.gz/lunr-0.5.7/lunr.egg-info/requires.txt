@@ -1,0 +1,9 @@
+future>=0.16.0
+six>=1.11.0
+
+[:python_version<'3']
+enum34
+nltk<3.5
+
+[languages]
+nltk>=3.2.5
