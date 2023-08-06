@@ -1,0 +1,10 @@
+numpy>=1.15.0
+scipy
+
+[advanced]
+llvmlite
+numba
+pyfftw
+PyWavelets
+scikit-fmm
+spgl1
