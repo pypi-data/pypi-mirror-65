@@ -1,0 +1,3 @@
+[sentry.plugins]
+sentry_dingtalk_ihoey = sentry_dingtalk_ihoey.plugin:DingTalkPlugin
+
