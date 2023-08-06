@@ -1,0 +1,401 @@
+#!/usr/bin/env python3
+
+import click
+import json
+from pathlib import Path
+from pprint import pprint
+import requests
+import sys
+import yaml
+import os
+
+
+@click.group()
+@click.option('--config', '-c', required=False,
+              default=str(Path.home()) + "/hyperkube-config.yaml")
+@click.pass_context
+def cli(ctx, config):
+    ctx.ensure_object(dict)
+    ctx.obj['hyperkube_config'] = _load_config(config)
+    ctx.obj['url'] = ctx.obj['hyperkube_config']['url']
+    ctx.obj['stage'] = ctx.obj['hyperkube_config']['stage']
+    headers = {'X-Api-Key': ctx.obj['hyperkube_config']['x_api_key']}
+    ctx.obj['headers'] = headers
+
+
+@cli.command()
+@click.pass_context
+def list(ctx):
+    """List all clusters in hyper-kube-config"""
+
+    try:
+        r = requests.get(
+            f'{ctx.obj["url"]}/{ctx.obj["stage"]}/clusters/list',
+            headers=ctx.obj['headers']
+        )
+        pprint(sorted(r.json()))
+        if r.status_code != 200:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--k8s-config', '-k', default=f"{Path.home()}/.kube/config")
+@click.pass_context
+def add(ctx, k8s_config):
+    """Add cluster to hyper-kube-config"""
+
+    k8s_cfg = json.dumps(_load_config(k8s_config))
+    print(k8s_cfg)
+
+    try:
+        r = requests.post(
+            f'{ctx.obj["url"]}/{ctx.obj["stage"]}/clusters/add',
+            headers=ctx.obj['headers'],
+            data=k8s_cfg
+        )
+        pprint(r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--ca-key', '-a', required=True)
+@click.option('--cluster-name', '-n', required=True)
+@click.pass_context
+def add_ca_key(ctx, cluster_name, ca_key):
+    """Add cluster CA key to hyper-kube-config"""
+
+    key = _load_pem(ca_key)
+    post = {"cluster_name": cluster_name, "ca_key": key}
+
+    try:
+        r = requests.post(
+            f'{ctx.obj["url"]}/{ctx.obj["stage"]}/clusters/add-ca-key',
+            headers=ctx.obj['headers'],
+            data=post
+        )
+        pprint(r.json())
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--cluster-name', '-n', required=True)
+@click.pass_context
+def remove_ca_key(ctx, cluster_name):
+    """Remove specified cluster CA key from hyper-kube-config"""
+
+    try:
+        r = requests.get(
+            (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+             f'/clusters/remove-ca-key?{cluster_name}'),
+            headers=ctx.obj['headers']
+        )
+        pprint(r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--cluster-to-remove', '-k', required=True)
+@click.pass_context
+def remove(ctx, cluster_to_remove):
+    """Remove cluster from hyper-kube-config"""
+
+    try:
+        r = requests.post(
+            f'{ctx.obj["url"]}/{ctx.obj["stage"]}/clusters/remove',
+            headers=ctx.obj['headers'],
+            data=json.dumps({"cluster_name": cluster_to_remove})
+        )
+        pprint(r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--cluster', '-g', multiple=True)
+@click.option('--k8s-config', '-k', default=f"{Path.home()}/.kube/config")
+@click.option('--merge', '-m', is_flag=True, default=False,
+              help='Cluster config will be merged with existing kubeconfig')
+@click.pass_context
+def get(ctx, cluster, k8s_config, merge):
+    """Retrieve and concatenate one or more cluster configs into one config,
+    set context to first cluster"""
+
+    param_string = ""
+    for c in cluster:
+        param_string = param_string + c + "&"
+
+    # remove trailing '&'
+    param_string = param_string[:-1]
+
+    try:
+        r = requests.get(
+            (f'{ctx.obj["url"]}/{ctx.obj["stage"]}/clusters/get-k8-config?'
+             f'{param_string}'),
+            headers=ctx.obj['headers']
+        )
+        print(r.json())
+        if merge:
+            _merge(k8s_config, r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--k8s-config', '-k', default=f"{Path.home()}/.kube/config")
+@click.option('--merge', '-m', is_flag=True, default=False,
+              help='Cluster config will be merged with existing kubeconfig')
+@click.pass_context
+def get_all(ctx, k8s_config, merge):
+    """Retrieve and concatenate all cluster configs into one config"""
+
+    try:
+        r = requests.get(
+            f'{ctx.obj["url"]}/{ctx.obj["stage"]}/clusters/get-all-k8-configs',
+            headers=ctx.obj['headers']
+        )
+        print(r.json())
+        if merge:
+            _merge(k8s_config, r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--cluster', '-g')
+@click.pass_context
+def get_pem(ctx, cluster):
+    """Get the pem file for a specific cluster"""
+
+    try:
+        r = requests.get(
+            (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+             f'/clusters/get-pem?cluster_name={cluster}'),
+            headers=ctx.obj['headers']
+        )
+        print(r.text)
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--cluster', '-g', required=True)
+@click.option('--pem', '-p', required=True)
+@click.pass_context
+def add_pem(ctx, cluster, pem):
+    """Add a pem file for a specific cluster"""
+
+    pem_data = _load_pem(pem)
+
+    try:
+        r = requests.post(
+            (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+             f'/clusters/add-pem?cluster_name={cluster}'),
+            headers=ctx.obj['headers'],
+            data=pem_data
+        )
+        pprint(r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--environment', '-e')
+@click.option('--status', '-s')
+@click.option('--cluster', '-g', required=True)
+@click.pass_context
+def set_cluster_status(ctx, environment, status, cluster):
+    """Set cluster status, you are able to update both environment or status"""
+
+    if environment:
+        try:
+            print(f'Setting cluster environment to {environment}')
+            r = requests.get(
+                (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+                 f'/clusters/set-cluster-environment?cluster_name={cluster}'
+                 f'&environment={environment}'),
+                headers=ctx.obj['headers']
+            )
+            if r.status_code == 404:
+                sys.exit(1)
+        except requests.exceptions.RequestException as err:
+            print(f'Request error: {err}')
+    if status:
+        try:
+            print(f'Setting cluster status {status}')
+            r = requests.get(
+                (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+                 f'/clusters/set-cluster-status?cluster_name={cluster}'
+                 f'&cluster_status={status}'),
+                headers=ctx.obj['headers']
+            )
+            if r.status_code == 404:
+                sys.exit(1)
+        except requests.exceptions.RequestException as err:
+            print(f'Request error: {err}')
+
+    if not status and not environment:
+        print(('Please provide either --environment or --status flag'
+               'for updating cluster'))
+
+
+@cli.command()
+@click.option('--environment', '-e', required=True)
+@click.option('--status', '-s', required=True)
+@click.pass_context
+def get_cluster_status(ctx, environment, status):
+    """Get clusters of a given status in a particular environment"""
+
+    try:
+        r = requests.get(
+            (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+             f'/clusters/cluster-status?cluster_status={status}'
+             f'&environment={environment}'),
+            headers=ctx.obj['headers']
+        )
+        pprint(r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--environment', '-e')
+@click.pass_context
+def get_cluster_for_environment(ctx, environment):
+    """Get clusters of a given status in a particular environment"""
+    req_path = (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+                f'/clusters/clusters-per-environment')
+    if environment is not None:
+        req_path += f'?environment={environment}'
+    try:
+        r = requests.get(req_path, headers=ctx.obj['headers'])
+        pprint(r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--metadata-file', '-f')
+@click.option('--cluster', '-g', required=True)
+@click.pass_context
+def set_cluster_metadata(ctx, metadata_file, cluster):
+    """Set cluster metadata """
+
+    metadata = _load_config(metadata_file)
+    try:
+        print(f'Setting cluster {cluster} metadata.')
+        r = requests.post(
+            (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+             f'/clusters/set-cluster-metadata?cluster_name={cluster}'),
+            headers=ctx.obj['headers'],
+            data=metadata
+        )
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+@cli.command()
+@click.option('--cluster', '-g', required=True)
+@click.pass_context
+def get_cluster_metadata(ctx, cluster):
+    """Get cluster metadata for a give cluster name"""
+
+    try:
+        r = requests.get(
+            (f'{ctx.obj["url"]}/{ctx.obj["stage"]}'
+             f'/clusters/get-cluster-metadata?cluster_name={cluster}'),
+            headers=ctx.obj['headers']
+        )
+        pprint(r.json())
+        if r.status_code == 404:
+            sys.exit(1)
+    except requests.exceptions.RequestException as err:
+        print(f'Request error: {err}')
+
+
+def _load_config(config):
+    """Loads yaml config to dict object"""
+    try:
+        with open(config, 'r') as ymlfile:
+            cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
+            return cfg
+    except FileNotFoundError as err:
+        print(f'Error: {err}')
+        sys.exit(1)
+
+
+def _load_pem(pem):
+    """Open and return a pem file as object"""
+    try:
+        with open(pem, 'r') as pemfile:
+            return pemfile.read()
+    except FileNotFoundError:
+        print(f'Provided pem not found: {pem}')
+        sys.exit(1)
+
+
+def _is_duplicate(dest_config_object, new_config_item_name):
+    for item in dest_config_object:
+        if item.get("name") == new_config_item_name:
+            return True
+    return False
+
+
+def _remove_old_objects(key, dest_config_object, new_config_object):
+    dest_config_new = []
+    for item in dest_config_object:
+        if not _is_duplicate(new_config_object, item.get("name")):
+            dest_config_new.append(item)
+    return dest_config_new
+
+
+def _merge(dest_file, *configs):
+    # Now do an effective flatmap to get it all into a single structure
+    if os.path.exists(dest_file):
+        dest_config = _load_config(dest_file)
+    else:
+        dest_config = {
+            "apiVersion": "v1",
+            "kind": "Config",
+            "current-context": "",
+            "clusters": [],
+            "contexts": [],
+            "users": [],
+        }
+
+    for new_config in configs:
+        for key in ['clusters', 'contexts', 'users']:
+            dest_config[key] = _remove_old_objects(key,
+                                                   dest_config[key],
+                                                   new_config.get(key, []))
+            dest_config[key].extend(new_config.get(key, []))
+    with open(dest_file, 'w') as dest_file_obj:
+        yaml.dump(dest_config, dest_file_obj)
+
+
+if __name__ == '__main__':
+    cli(obj={})
