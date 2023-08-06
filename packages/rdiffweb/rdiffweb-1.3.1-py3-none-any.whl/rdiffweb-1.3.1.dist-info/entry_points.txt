@@ -1,0 +1,7 @@
+[console_scripts]
+rdiffweb = rdiffweb.main:start
+rdiffweb-restore = rdiffweb.core.restore:main
+
+[rdiffweb.plugins]
+
+
