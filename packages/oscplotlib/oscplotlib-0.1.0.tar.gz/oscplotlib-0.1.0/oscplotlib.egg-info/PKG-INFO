@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: oscplotlib
+Version: 0.1.0
+Summary: OSC1337 wrapper for Matplotlib
+Home-page: https://github.com/jtcbrule/oscplotlib
+Author: Joshua Brule
+Author-email: jtcbrule@gmail.com
+License: UNKNOWN
+Description: # oscplotlib
+        
+        Use Matplotlib in terminals that support the OSC 1337 image protocol.
+        
+        Example:
+        
+            import matplotlib.pyplot as plt
+            import oscplotlib as osc
+        
+            plt.plot([1, 2, 3])
+            osc.show()
+        
+            plt.figure(2)
+            plt.plot([3, 2, 1])
+        
+            plt.figure(3)
+            plt.hist([1, 1, 2])
+        
+            osc.show_all()
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
