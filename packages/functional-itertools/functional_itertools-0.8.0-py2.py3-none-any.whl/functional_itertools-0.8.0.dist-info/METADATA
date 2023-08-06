@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: functional_itertools
+Version: 0.8.0
+Summary: Python collections in a functional-programming style.
+Home-page: UNKNOWN
+License: UNKNOWN
+Author: Bao Wei
+Author-email: baowei.ur521@gmail.com
+Requires-Dist: attrs >= 19.3
+Requires-Dist: more-itertools >= 8.2
