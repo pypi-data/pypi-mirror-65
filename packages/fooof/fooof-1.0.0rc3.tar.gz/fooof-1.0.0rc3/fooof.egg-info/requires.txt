@@ -1,0 +1,13 @@
+numpy
+scipy>=0.19.0
+
+[all]
+matplotlib
+tqdm
+pytest
+
+[plot]
+matplotlib
+
+[tests]
+pytest
