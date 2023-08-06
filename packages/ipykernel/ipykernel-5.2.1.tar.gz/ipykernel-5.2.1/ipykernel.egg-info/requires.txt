@@ -1,0 +1,13 @@
+ipython>=5.0.0
+traitlets>=4.1.0
+jupyter_client
+tornado>=4.2
+
+[:platform_system == "Darwin"]
+appnope
+
+[test]
+pytest!=5.3.4
+pytest-cov
+flaky
+nose
