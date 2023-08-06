@@ -1,0 +1,3 @@
+[console_scripts]
+boottorrent = boottorrent.cli:parse_args
+
