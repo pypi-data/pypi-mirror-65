@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: ogr2wkt
+Version: 0.0.2
+Summary: Convert (Fiona-supported) OGR data sources to plaintext WKT.
+Home-page: https://github.com/tomplex/ogr2wkt
+Author: Tom Caruso
+Author-email: carusot42@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: GIS
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Requires-Dist: fiona
+Requires-Dist: geomet
+Requires-Dist: click
+
+
+### ogr2wkt
+
+Convert Fiona-supported OGR data sources to pipe-delimited WKT format.
+
+
+#### Why?
+
+ogr2ogr's csv driver does not support pipe delimiters. If you want to use it to create a text file with WKT geometry 
+which also contains attributes, you're out of luck unless you want a TAB-delimited file (which, why would you?)
+
+#### Installation
+
+This tool depends on Fiona, which in turn depends on GDAL. Fiona, when installed using a wheel, will
+automatically include its dependencies.
+
+```bash
+pip install ogr2wkt
+```
+
+#### Usage
+
+```bash
+ogr2wkt INPUT_FILE OUTPUT_FILE
+```
+
+
