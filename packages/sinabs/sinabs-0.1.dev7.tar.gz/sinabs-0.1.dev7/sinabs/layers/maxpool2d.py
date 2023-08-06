@@ -1,0 +1,143 @@
+#  Copyright (c) 2019-2019     aiCTX AG (Sadique Sheik, Qian Liu).
+#
+#  This file is part of sinabs
+#
+#  sinabs is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Affero General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  sinabs is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Affero General Public License for more details.
+#
+#  You should have received a copy of the GNU Affero General Public License
+#  along with sinabs.  If not, see <https://www.gnu.org/licenses/>.
+
+##
+# iaf_conv2d.py - Torch implementation of a spiking 2D convolutional layer
+##
+
+import numpy as np
+import pandas as pd
+import torch.nn as nn
+import torch
+from typing import Optional, Union, List, Tuple
+from operator import mul
+from functools import reduce
+from .layer import TorchLayer
+from sinabs.cnnutils import conv_output_size
+
+# - Type alias for array-like objects
+ArrayLike = Union[np.ndarray, List, Tuple]
+
+
+class SpikingMaxPooling2dLayer(TorchLayer):
+    def __init__(
+        self,
+        image_shape: ArrayLike,
+        pool_size: ArrayLike,
+        strides: Optional[ArrayLike] = None,
+        padding: ArrayLike = (0, 0, 0, 0),
+        layer_name: str = "pooling2d",
+        # state_number: int = 16,
+    ):
+        """
+        Torch implementation of SpikingMaxPooling
+        """
+        TorchLayer.__init__(
+            self, input_shape=(None, *image_shape), layer_name=layer_name
+        )
+        self.padding = padding
+        self.pool_size = pool_size
+        if strides is None:
+            strides = pool_size
+        self.strides = strides
+        if padding == (0, 0, 0, 0):
+            self.pad = None
+        else:
+            self.pad = nn.ZeroPad2d(padding)
+        self.pool = nn.MaxPool2d(kernel_size=pool_size, stride=strides)
+        # self.state_number = state_number
+
+        # Blank parameter place holders
+        self.spikes_number = None
+
+    def forward(self, binary_input):
+        # Determine no. of time steps from input
+        time_steps = len(binary_input)
+
+        # Calculate the cumulative sum spikes of each neuron
+        sum_count = torch.cumsum(binary_input, 0)
+
+        # max_sum is the pooled sum_count
+        if self.pad is None:
+            max_sum = self.pool(sum_count)
+        else:
+            max_sum = self.pool(self.pad(sum_count))
+
+        # make sure a single spike, how much sum_count it brings, max_input_sum shows that
+        input_sum = sum_count * (binary_input > 0).float()
+        # pool all inputs at once
+        if self.pad is None:
+            max_input_sum = self.pool(input_sum)
+        else:
+            max_input_sum = self.pool(self.pad(input_sum))
+
+        # max of 1 and 0 s from spike train
+        if self.pad is None:
+            original_max_input_sum = self.pool(binary_input)
+        else:
+            original_max_input_sum = self.pool(self.pad(binary_input))
+
+        # Make sure the max sum is brought by the single spike from input_sum
+        # (max_input_sum >= max_sum).float() is the gate to pass through spikes
+        max_input_sum = (max_input_sum >= max_sum).float() * original_max_input_sum
+
+        self.spikes_number = max_input_sum.abs().sum()
+        self.tw = len(max_input_sum)
+        return max_input_sum.float()  # Float is just to keep things compatible
+
+    def summary(self):
+        """
+        Returns the summary of this layer as a pandas Series
+        """
+        summary = pd.Series(
+            {
+                "Type": self.__class__.__name__,
+                "Layer": self.layer_name,
+                "Output_Shape": (tuple(self.output_shape)),
+                "Input_Shape": (tuple(self.input_shape)),
+                "Padding": tuple(self.padding),
+                "Kernel": tuple(self.pool_size),
+                "Pooling": tuple(self.pool_size),
+                "Stride": tuple(self.strides),
+                "Fanout_Prev": reduce(
+                    mul, np.array(self.pool_size) / np.array(self.strides), 1
+                ),
+                "Neurons": 0,
+                "Kernel_Params": 0,
+                "Bias_Params": 0,
+            }
+        )
+        return summary
+
+    def get_output_shape(self, input_shape: Tuple) -> Tuple:
+        """
+        Returns the shape of output, given an input to this layer
+
+        :param input_shape: (channels, height, width)
+        :return: (channelsOut, height_out, width_out)
+        """
+        (channels, height, width) = input_shape
+
+        height_out = conv_output_size(
+            height + sum(self.padding[2:]), self.pool_size[0], self.strides[0]
+        )
+        width_out = conv_output_size(
+            width + sum(self.padding[:2]), self.pool_size[1], self.strides[1]
+        )
+        return channels, height_out, width_out
+
+
