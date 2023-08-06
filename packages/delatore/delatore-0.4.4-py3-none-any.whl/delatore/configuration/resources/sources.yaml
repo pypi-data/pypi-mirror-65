@@ -1,0 +1,50 @@
+- name: influxdb
+  params:
+    host: 'influx1.eco.tsi-dev.otc-service.com'
+    port: 8086
+    username: 'csm'
+    database: 'csm'
+    metrics:
+      - name: LB_LOAD
+        metric_id: lb_timing
+        query: 'SELECT LAST(elapsed) FROM {entity} LIMIT 1;'
+        timeout: 300
+      - name: LB_DOWN
+        metric_id: lb_down
+        query: 'SELECT LAST(requests) FROM {entity} LIMIT 1;'
+        timeout: 900
+      - name: SCSI_HDD_TEST
+        metric_id: iscsi_connection
+        query: 'SELECT LAST(state) FROM {entity} LIMIT 1;'
+        timeout: 300
+      - name: RDS_TEST
+        metric_id: ce_result
+        query: 'SELECT LAST(elapsed) FROM {entity} LIMIT 1;'
+        timeout: 300
+      - name: AUTOSCALING
+        metric_id: as_result
+        query: 'SELECT LAST(value) FROM {entity} LIMIT 1;'
+        timeout: 5400
+      - name: HDD_TEST
+        metric_id: diskio
+        query: "SELECT LAST(writes) FROM {entity} WHERE host=~/scn3/ LIMIT 1;"
+        timeout: 300
+  publishes: 'INFLUX'
+  timings:
+    polling_interval: 60
+    request_timeout: 5
+- name: awx_api
+  params:
+    host: 'https://awx.eco.tsi-dev.otc-service.com/api/v2'
+    topic_in: 'AWX_CLIENT_IN'
+  publishes: 'AWX_CLIENT_OUT'
+  timings:
+    polling_interval: .1  # /status request polling
+    request_timeout: 5
+- name: awx_web_hook
+  params:
+    port: 23834
+  publishes: 'AWX_WEB_HOOK'
+  timings:
+    polling_interval: .1  # internal queue polling interval
+    request_timeout: 5  # internal queue .get timeout
