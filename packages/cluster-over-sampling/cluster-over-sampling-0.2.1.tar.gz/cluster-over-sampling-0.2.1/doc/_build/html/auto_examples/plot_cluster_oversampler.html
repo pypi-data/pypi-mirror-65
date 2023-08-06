@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Clustering-based over-sampling &mdash; cluster-over-sampling 0.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/cluster-over-sampling.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release History" href="../release_history.html" />
+    <link rel="prev" title="Basic algorithms" href="plot_basic_cluster_oversamplers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cluster-over-sampling
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_basic_cluster_oversamplers.html">Basic algorithms</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Clustering-based over-sampling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generate-imbalanced-data">Generate imbalanced data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effect-of-clustering-to-over-samplers">Effect of clustering to over-samplers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-evaluation-of-clustering-based-over-sampling">Performance evaluation of clustering based over-sampling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_history.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cluster-over-sampling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">General</a> &raquo;</li>
+        
+      <li>Clustering-based over-sampling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/auto_examples/plot_cluster_oversampler.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-cluster-oversampler-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="clustering-based-over-sampling">
+<span id="sphx-glr-auto-examples-plot-cluster-oversampler-py"></span><h1>Clustering-based over-sampling<a class="headerlink" href="#clustering-based-over-sampling" title="Permalink to this headline">¶</a></h1>
+<p>This example illustrates the data generation
+process and the performance of various
+over-samplers when clustering-based over-sampling
+is used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Georgios Douzas &lt;gdouzas@icloud.com&gt;</span>
+<span class="c1"># Licence: MIT</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone" title="sklearn.base.clone" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-function"><span class="n">clone</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html#sklearn.datasets.make_classification" title="sklearn.datasets.make_classification" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">make_classification</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class"><span class="n">GradientBoostingClassifier</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans" title="sklearn.cluster.KMeans" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering" title="sklearn.cluster.AgglomerativeClustering" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class"><span class="n">AgglomerativeClustering</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split" title="sklearn.model_selection.train_test_split" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">train_test_split</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score" title="sklearn.metrics.f1_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">f1_score</span></a>
+<span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">RandomOverSampler</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SMOTE</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">BorderlineSMOTE</span></a>
+<span class="kn">from</span> <span class="nn">imblearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+
+<span class="kn">from</span> <span class="nn">clover.over_sampling</span> <span class="kn">import</span> <a href="../generated/clover.over_sampling.ClusterOverSampler.html#clover.over_sampling.ClusterOverSampler" title="clover.over_sampling.ClusterOverSampler" class="sphx-glr-backref-module-clover-over_sampling sphx-glr-backref-type-py-class"><span class="n">ClusterOverSampler</span></a>
+
+<span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a> <span class="o">=</span> <span class="mi">0</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">OVERSAMPLERS</span></a> <span class="o">=</span> <span class="p">[</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">RandomOverSampler</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a><span class="p">),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SMOTE</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">BorderlineSMOTE</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span>
+<span class="p">]</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans" title="sklearn.cluster.KMeans" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">KMEANS</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans" title="sklearn.cluster.KMeans" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class"><span class="n">KMeans</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">generate_imbalanced_data</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Generate imbalanced data.&quot;&quot;&quot;</span>
+    <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html#sklearn.datasets.make_classification" title="sklearn.datasets.make_classification" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">make_classification</span></a><span class="p">(</span>
+        <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">class_sep</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+        <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.94</span><span class="p">],</span>
+        <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">n_repeated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">n_samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a>
+
+
+<span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span> <span class="n">oversampler</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot original or resampled data.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">oversampler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Original data&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">oversampler</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone" title="sklearn.base.clone" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-function"><span class="n">clone</span></a><span class="p">(</span><span class="n">oversampler</span><span class="p">)</span>
+        <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">oversampler</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">oversampler</span><span class="p">,</span> <a href="../generated/clover.over_sampling.ClusterOverSampler.html#clover.over_sampling.ClusterOverSampler" title="clover.over_sampling.ClusterOverSampler" class="sphx-glr-backref-module-clover-over_sampling sphx-glr-backref-type-py-class"><span class="n">ClusterOverSampler</span></a><span class="p">):</span>
+            <span class="n">ovs_name</span> <span class="o">=</span> <span class="n">oversampler</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Resampling using </span><span class="si">{</span><span class="n">ovs_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">clusterer_name</span> <span class="o">=</span> <span class="n">oversampler</span><span class="o">.</span><span class="n">clusterer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="n">ovs_name</span> <span class="o">=</span> <span class="n">oversampler</span><span class="o">.</span><span class="n">oversampler_</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Resampling using </span><span class="si">{</span><span class="n">clusterer_name</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">ovs_name</span><span class="si">}</span><span class="s1">&#39;</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.scatter.html#matplotlib.axes.Axes.scatter" title="matplotlib.axes.Axes.scatter" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span><span class="n">X_res</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_res</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_res</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/collections.html#collections.OrderedDict" title="collections.OrderedDict" class="sphx-glr-backref-module-collections sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span></a><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/collections.html#collections.OrderedDict" title="collections.OrderedDict" class="sphx-glr-backref-module-collections sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span></a><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.get_xaxis.html#matplotlib.axes.Axes.get_xaxis" title="matplotlib.axes.Axes.get_xaxis" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span></a><span class="p">()</span><span class="o">.</span><span class="n">tick_bottom</span><span class="p">()</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.get_yaxis.html#matplotlib.axes.Axes.get_yaxis" title="matplotlib.axes.Axes.get_yaxis" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span></a><span class="p">()</span><span class="o">.</span><span class="n">tick_left</span><span class="p">()</span>
+    <a href="https://docs.python.org/3/library/collections.html#collections.OrderedDict" title="collections.OrderedDict" class="sphx-glr-backref-module-collections sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span></a><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;outward&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <a href="https://docs.python.org/3/library/collections.html#collections.OrderedDict" title="collections.OrderedDict" class="sphx-glr-backref-module-collections sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span><span class="o">.</span><span class="n">spines</span></a><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;outward&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="matplotlib.axes.Axes.set_title" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span></a><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">compare_f1_scores</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a><span class="p">,</span> <span class="n">oversampler</span><span class="p">,</span> <span class="n">clusterer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compare F1 scores of oversamplers with and</span>
+<span class="sd">    without clustering.&quot;&quot;&quot;</span>
+    <span class="n">ovs_clf</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone" title="sklearn.base.clone" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-function"><span class="n">clone</span></a><span class="p">(</span><span class="n">oversampler</span><span class="p">),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a><span class="p">)</span>
+    <span class="n">clr_ovs_clf</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><a href="../generated/clover.over_sampling.ClusterOverSampler.html#clover.over_sampling.ClusterOverSampler" title="clover.over_sampling.ClusterOverSampler" class="sphx-glr-backref-module-clover-over_sampling sphx-glr-backref-type-py-class"><span class="n">ClusterOverSampler</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone" title="sklearn.base.clone" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-function"><span class="n">clone</span></a><span class="p">(</span><span class="n">oversampler</span><span class="p">),</span> <span class="n">clusterer</span><span class="p">),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">ovs_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">y_pred_clr</span> <span class="o">=</span> <span class="n">clr_ovs_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">ovs_name</span> <span class="o">=</span> <span class="n">oversampler</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="n">clr_name</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="n">ovs_score</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score" title="sklearn.metrics.f1_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">f1_score</span></a><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+    <span class="n">clr_ovs_score</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score" title="sklearn.metrics.f1_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">f1_score</span></a><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_clr</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[[</span><span class="n">ovs_score</span><span class="p">,</span> <span class="n">clr_ovs_score</span><span class="p">]],</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;No clustering&#39;</span><span class="p">,</span> <span class="n">clr_name</span><span class="p">],</span>
+        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">ovs_name</span><span class="p">],</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="generate-imbalanced-data">
+<h2>Generate imbalanced data<a class="headerlink" href="#generate-imbalanced-data" title="Permalink to this headline">¶</a></h2>
+<p>We are generating a highly imbalanced multi-class data set, using
+<code class="docutils literal notranslate"><span class="pre">make_classification</span></code> from scikit-learn.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <span class="n">generate_imbalanced_data</span><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">_</span></a><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_data</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/sphx_glr_plot_cluster_oversampler_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_cluster_oversampler_001.png" />
+</div>
+<div class="section" id="effect-of-clustering-to-over-samplers">
+<h2>Effect of clustering to over-samplers<a class="headerlink" href="#effect-of-clustering-to-over-samplers" title="Permalink to this headline">¶</a></h2>
+<p>Clustering based over-sampling allows to identify areas of the input space
+which are appropriate to generate artificial data. Therefore, the generation
+of noisy samples is avoided and the within-classes imbalanced issue is also
+addressed. The next plots show the resampled data when clustering is applied,
+comparing them to the resampled data of the initial over-samplers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axs</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">),</span> <span class="n">oversampler</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axs</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">OVERSAMPLERS</span></a><span class="p">):</span>
+    <span class="n">plot_data</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone" title="sklearn.base.clone" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-function"><span class="n">clone</span></a><span class="p">(</span><span class="n">oversampler</span><span class="p">),</span> <span class="n">ax1</span><span class="p">)</span>
+    <span class="n">plot_data</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span> <a href="../generated/clover.over_sampling.ClusterOverSampler.html#clover.over_sampling.ClusterOverSampler" title="clover.over_sampling.ClusterOverSampler" class="sphx-glr-backref-module-clover-over_sampling sphx-glr-backref-type-py-class"><span class="n">ClusterOverSampler</span></a><span class="p">(</span><span class="n">oversampler</span><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans" title="sklearn.cluster.KMeans" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">KMEANS</span></a><span class="p">),</span> <span class="n">ax2</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.tight_layout" title="matplotlib.figure.Figure.tight_layout" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/sphx_glr_plot_cluster_oversampler_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_cluster_oversampler_002.png" />
+</div>
+<div class="section" id="performance-evaluation-of-clustering-based-over-sampling">
+<h2>Performance evaluation of clustering based over-sampling<a class="headerlink" href="#performance-evaluation-of-clustering-based-over-sampling" title="Permalink to this headline">¶</a></h2>
+<p>We are evaluating various over-samplers using F1-score as evaluation metric
+on a test set. The scores with and without clustering are compared.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class"><span class="n">GradientBoostingClassifier</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split" title="sklearn.model_selection.train_test_split" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">train_test_split</span></a><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">RANDOM_STATE</span></a><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">oversampler</span> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">OVERSAMPLERS</span></a><span class="p">:</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">compare_f1_scores</span><span class="p">(</span><span class="o">*</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a><span class="p">,</span> <span class="n">oversampler</span><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans" title="sklearn.cluster.KMeans" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">KMEANS</span></a><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>                   No clustering    KMeans
+RandomOverSampler       0.755701  0.753091
+SMOTE                   0.611372  0.759189
+BorderlineSMOTE         0.755701  0.763755
+</pre></div>
+</div>
+<p>We repeat the process for AgglomerativeClustering instead of KMeans.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering" title="sklearn.cluster.AgglomerativeClustering" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">aff_prop</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering" title="sklearn.cluster.AgglomerativeClustering" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class"><span class="n">AgglomerativeClustering</span></a><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">oversampler</span> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">OVERSAMPLERS</span></a><span class="p">:</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">compare_f1_scores</span><span class="p">(</span><span class="o">*</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier" class="sphx-glr-backref-module-sklearn-ensemble sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a><span class="p">,</span> <span class="n">oversampler</span><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering" title="sklearn.cluster.AgglomerativeClustering" class="sphx-glr-backref-module-sklearn-cluster sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">aff_prop</span></a><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/gdouzas/.pyenv/versions/miniconda3-latest/lib/python3.7/importlib/_bootstrap.py:219: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 192 from C header, got 216 from PyObject
+  return f(*args, **kwds)
+                   No clustering  AgglomerativeClustering
+RandomOverSampler       0.755701                 0.746050
+SMOTE                   0.611372                 0.757699
+BorderlineSMOTE         0.755701                 0.776927
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.515 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-cluster-oversampler-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<a class="reference download internal" download="" href="../_downloads/546c912742d2a0093c9fe2f607d4a92e/plot_cluster_oversampler.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_cluster_oversampler.py</span></code></a></div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<a class="reference download internal" download="" href="../_downloads/84b28655d9c20fb8be40cf4305202cef/plot_cluster_oversampler.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_cluster_oversampler.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../release_history.html" class="btn btn-neutral float-right" title="Release History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plot_basic_cluster_oversamplers.html" class="btn btn-neutral float-left" title="Basic algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Georgios Douzas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

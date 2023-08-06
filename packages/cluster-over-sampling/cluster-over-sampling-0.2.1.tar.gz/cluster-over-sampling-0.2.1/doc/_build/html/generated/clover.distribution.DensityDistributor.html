@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>clover.distribution.DensityDistributor &mdash; cluster-over-sampling 0.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/cluster-over-sampling.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="clover.over_sampling.ClusterOverSampler" href="clover.over_sampling.ClusterOverSampler.html" />
+    <link rel="prev" title="API" href="../api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cluster-over-sampling
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#module-clover.distribution"><code class="docutils literal notranslate"><span class="pre">clover.distribution</span></code>: Distribution of generated samples</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">clover.distribution</span></code>.DensityDistributor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-clover.over_sampling"><code class="docutils literal notranslate"><span class="pre">clover.over_sampling</span></code>: Clustering based over-samplers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_history.html">Release History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cluster-over-sampling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api.html">API</a> &raquo;</li>
+        
+      <li><code class="docutils literal notranslate"><span class="pre">clover.distribution</span></code>.DensityDistributor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/clover.distribution.DensityDistributor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="clover-distribution-densitydistributor">
+<h1><a class="reference internal" href="../api.html#module-clover.distribution" title="clover.distribution"><code class="xref py py-mod docutils literal notranslate"><span class="pre">clover.distribution</span></code></a>.DensityDistributor<a class="headerlink" href="#clover-distribution-densitydistributor" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="clover.distribution.DensityDistributor">
+<em class="property">class </em><code class="descclassname">clover.distribution.</code><code class="descname">DensityDistributor</code><span class="sig-paren">(</span><em>filtering_threshold='auto'</em>, <em>distances_exponent='auto'</em>, <em>sparsity_based=True</em>, <em>distribution_ratio=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clover/distribution/_density.html#DensityDistributor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clover.distribution.DensityDistributor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to perform density based distribution.</p>
+<p>Samples are distributed based on the density of clusters.</p>
+<p>Read more in the <a class="reference internal" href="../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>filtering_threshold</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float or ‘auto’, default=’auto’</span></dt>
+<dd><p class="first">The threshold of a filtered cluster. It can be any non-negative number or
+<code class="docutils literal notranslate"><span class="pre">'auto'</span></code> to be calculated automatically.</p>
+<ul class="simple">
+<li>If <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, the filtering threshold is calculated from the imbalance
+ratio of the target for the binary case or the maximum of the target’s
+imbalance ratios for the multiclass case.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">float</span></code> then it is manually set to this number.</li>
+</ul>
+<p class="last">Any cluster that has an imbalance ratio smaller than the filtering threshold is
+identified as a filtered cluster and can be potentially used to generate
+minority class instances. Higher values increase the number of filtered
+clusters.</p>
+</dd>
+<dt><strong>distances_exponent</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float or ‘auto’, default=’auto’</span></dt>
+<dd><p class="first">The exponent of the mean distance in the density calculation. It can be
+any non-negative number or <code class="docutils literal notranslate"><span class="pre">'auto'</span></code> to be calculated automatically.</p>
+<ul class="last simple">
+<li>If <code class="docutils literal notranslate"><span class="pre">'auto'</span></code> then it is set equal to the number of
+features. Higher values make the calculation of density more sensitive
+to the cluster’s size i.e. clusters with large mean euclidean distance
+between samples are penalized.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">float</span></code> then it is manually set to this number.</li>
+</ul>
+</dd>
+<dt><strong>sparsity_based</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default=True</span></dt>
+<dd><p class="first">Whether sparse clusters receive more generated samples.</p>
+<ul class="last simple">
+<li>When <code class="docutils literal notranslate"><span class="pre">True</span></code> clusters receive generated samples that are inversely
+proportional to their density.</li>
+<li>When <code class="docutils literal notranslate"><span class="pre">False</span></code> clusters receive
+generated samples that are proportional to their density.</li>
+</ul>
+</dd>
+<dt><strong>distribution_ratio</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=1.0</span></dt>
+<dd><p class="first last">The ratio of intra-cluster to inter-cluster generated samples. It is a
+number in the <img class="math" src="../_images/math/14a646aa4c09fe7dc92b0c1b1e7f01cd0f481862.png" alt="[0.0, 1.0]"/> range. The default value is <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, a
+case corresponding to only intra-cluster generation. As the number
+decreases, less intra-cluster samples are generated. Inter-cluster
+generation, i.e. when <code class="docutils literal notranslate"><span class="pre">distribution_ratio</span></code> is less than <code class="docutils literal notranslate"><span class="pre">1.0</span></code>,
+requires a neighborhood structure for the clusters, i.e. a
+<code class="docutils literal notranslate"><span class="pre">neighbors_</span></code> attribute should be created after fitting and it will
+raise an error when it is not found.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">clover.distribution</span> <span class="kn">import</span> <span class="n">DensityDistributor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">density_distributor</span> <span class="o">=</span> <span class="n">DensityDistributor</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">density_distributor</span><span class="o">.</span><span class="n">filtered_clusters_</span>
+<span class="go">[(7, 1), (4, 1), (3, 1), (1, 1), (6, 2), (1, 2), (2, 2), (4, 2)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">density_distributor</span><span class="o">.</span><span class="n">intra_distribution_</span>
+<span class="go">{(7, 1): 0.066096796165... (4, 2): 0.0911085147...}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">density_distributor</span><span class="o">.</span><span class="n">inter_distribution_</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>clusters_density_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Each dict key is a multi-label tuple of shape <code class="docutils literal notranslate"><span class="pre">(cluster_label,</span>
+<span class="pre">class_label)</span></code>, while the values correspond to the density.</p>
+</dd>
+<dt><strong>distances_exponent_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Actual exponent of the mean distance used in the calculations.</p>
+</dd>
+<dt><strong>distribution_ratio_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">A copy of the parameter in the constructor.</p>
+</dd>
+<dt><strong>filtered_clusters_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">Each element is a tuple of <code class="docutils literal notranslate"><span class="pre">(cluster_label,</span> <span class="pre">class_label)</span></code> pairs.</p>
+</dd>
+<dt><strong>filtering_threshold_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">Actual filtering threshold used in the calculations.</p>
+</dd>
+<dt><strong>inter_distribution_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Each dict key is a multi-label tuple of
+shape <code class="docutils literal notranslate"><span class="pre">((cluster_label1,</span> <span class="pre">cluster_label2),</span> <span class="pre">class_label)</span></code>.</p>
+</dd>
+<dt><strong>intra_distribution_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Each dict key is a multi-label tuple of shape <code class="docutils literal notranslate"><span class="pre">(cluster_label,</span>
+<span class="pre">class_label)</span></code>.</p>
+</dd>
+<dt><strong>labels_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array, shape (n_samples,)</span></dt>
+<dd><p class="first last">Labels of each sample.</p>
+</dd>
+<dt><strong>majority_class_label_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The majority class label.</p>
+</dd>
+<dt><strong>n_samples_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The number of samples.</p>
+</dd>
+<dt><strong>neighbors_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array, (n_neighboring_pairs, 2)</span></dt>
+<dd><p class="first last">An array that contains all neighboring pairs. Each row is
+a unique neighboring pair.</p>
+</dd>
+<dt><strong>sparsity_based_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">A copy of the parameter in the constructor.</p>
+</dd>
+<dt><strong>unique_class_labels_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array, shape (n_classes, )</span></dt>
+<dd><p class="first last">An array of unique class labels.</p>
+</dd>
+<dt><strong>unique_cluster_labels_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array, shape (n_clusters, )</span></dt>
+<dd><p class="first last">An array of unique cluster labels.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="clover.distribution.DensityDistributor.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>self</em>, <em>filtering_threshold='auto'</em>, <em>distances_exponent='auto'</em>, <em>sparsity_based=True</em>, <em>distribution_ratio=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clover/distribution/_density.html#DensityDistributor.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#clover.distribution.DensityDistributor.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="clover.distribution.DensityDistributor.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>self</em>, <em>X</em>, <em>y</em>, <em>labels=None</em>, <em>neighbors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clover.distribution.DensityDistributor.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the intra-label and inter-label distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>X</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{array-like, sparse matrix}, shape (n_samples, n_features)</span></dt>
+<dd><p class="first last">Matrix containing the data which have to be sampled.</p>
+</dd>
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, shape (n_samples,)</span></dt>
+<dd><p class="first last">Corresponding label for each sample in X.</p>
+</dd>
+<dt><strong>labels</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, shape (n_samples,)</span></dt>
+<dd><p class="first last">Labels of each sample.</p>
+</dd>
+<dt><strong>neighbors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, (n_neighboring_pairs, 2)</span></dt>
+<dd><p class="first last">An array that contains all neighboring pairs. Each row is
+a unique neighboring pair.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>self</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object,</span></dt>
+<dd><p class="first last">Return self.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clover.distribution.DensityDistributor.fit_distribute">
+<code class="descname">fit_distribute</code><span class="sig-paren">(</span><em>self</em>, <em>X</em>, <em>y</em>, <em>labels=None</em>, <em>neighbors=None</em><span class="sig-paren">)</span><a class="headerlink" href="#clover.distribution.DensityDistributor.fit_distribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intra-label and inter-label distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>X</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{array-like, sparse matrix}, shape (n_samples, n_features)</span></dt>
+<dd><p class="first last">Matrix containing the data which have to be sampled.</p>
+</dd>
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, shape (n_samples,)</span></dt>
+<dd><p class="first last">Corresponding label for each sample in X.</p>
+</dd>
+<dt><strong>labels</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, shape (n_samples,)</span></dt>
+<dd><p class="first last">Labels of each sample.</p>
+</dd>
+<dt><strong>neighbors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, shape (n_neighboring_pairs, 2)</span></dt>
+<dd><p class="first last">An array that contains all neighboring pairs. Each row is
+a unique neighboring pair.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>distributions</strong> <span class="classifier-delimiter">:</span> <span class="classifier">tuple of (intra_distribution, inter_distribution) arrays</span></dt>
+<dd><p class="first last">A tuple with the two distributions.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clover.distribution.DensityDistributor.get_params">
+<code class="descname">get_params</code><span class="sig-paren">(</span><em>self</em>, <em>deep=True</em><span class="sig-paren">)</span><a class="headerlink" href="#clover.distribution.DensityDistributor.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>deep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default=True</span></dt>
+<dd><p class="first last">If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>params</strong> <span class="classifier-delimiter">:</span> <span class="classifier">mapping of string to any</span></dt>
+<dd><p class="first last">Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="clover.distribution.DensityDistributor.set_params">
+<code class="descname">set_params</code><span class="sig-paren">(</span><em>self</em>, <em>**params</em><span class="sig-paren">)</span><a class="headerlink" href="#clover.distribution.DensityDistributor.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The latter have parameters of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s possible to update each
+component of a nested object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>**params</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Estimator parameters.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>self</strong> <span class="classifier-delimiter">:</span> <span class="classifier">object</span></dt>
+<dd><p class="first last">Estimator instance.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<div style='clear:both'></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clover.over_sampling.ClusterOverSampler.html" class="btn btn-neutral float-right" title="clover.over_sampling.ClusterOverSampler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Georgios Douzas
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
