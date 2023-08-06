@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: MCRLLM
+Version: 0.0.68
+Summary: MCRLLM: Multivariate Curve Resolution by Log-Likelihood Maximization
+Home-page: UNKNOWN
+Author: Ryan Gosselin
+Author-email: ryan.gosselin@usherbrooke.ca
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+MCRLLM: Multivariate Curve Resolution by Log-Likelihood Maximization.    
+
+X = CS    
+where    
+X(nxk): Spectroscopic data where n spectra acquired over k energy levels    
+C(nxa): Composition map based on a MCRLLM components    
+S(axk): Spectra of the a components as computed by MCRLLM    
+
+# Method first presented in    
+Lavoie F.B., Braidy N. and Gosselin R. (2016) Including Noise Characteristics in MCR to improve Mapping and Component Extraction from Spectral Images, Chemometrics and Intelligent Laboratory Systems, 153, 40-50.    
+
+# Input data    
+Algorithm is designed to treat 2D data X(nxk) where n spectra acquired over k energy levels.    
+A 3D spectral image X(n1,n2,k) can be reshaped to a 2D matrix X(n1xn2,k) prior to MCRLLM analysis. Composition maps can then be obtained by reshaping C(n1xn2,a) into 2D chemical maps C(n1,n2,a).    
+# Input and output arguments    
+MCRLLM requires 2 inputs : X data and number of MCRLLM components to compute (a).    
+decomposition = mcr.mcrllm(X,a)    
+S = decomposition.S    
+C = decomposition.C    
+# Example    
+#Compute MCRLLM on X using 7 components.    
+
+#First obtain X data. Spectroscopic data is available in the zip file of this Pypi module (data_EELS.txt). It represents EELS (Electron Energy Loss Spectroscopy). This data consists of 100 spectra acquired over 2048 energy levels.    
+
+import MCRLLM as mcr    
+import matplotlib.pyplot as plt    
+import numpy as np    
+
+X = np.loadtxt('data_EELS.txt', delimiter=',')    
+
+decomposition = mcr.mcrllm(X,7)    
+#Iterate each component 10 times    
+decomposition.iterate(10)    
+S = decomposition.S    
+C = decomposition.C    
+plt.figure();plt.plot(S.T)    
+plt.figure();plt.plot(C)    
+# Compatibility    
+MCRLLM tested on Python 3.7 using the following modules:    
+Numpy 1.17.2    
+Scipy 1.3.1    
+Sklearn 0.21.3    
+Pysptools 0.15.0    
+Tqdm 4.36.1
+
