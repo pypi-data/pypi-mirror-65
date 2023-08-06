@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: emfwebcrawler
+Version: 0.1.6
+Summary: Basic web crawler
+Home-page: https://github.com/Max1mum4444/emf-web-crawler
+Author: Erik Fabry
+Author-email: erikfabry@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: beautifulsoup4
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: werkzeug
+
+# EMF Web Crawler #
+Part of school diploma thesis project
+Get links from url and analyze them
+
+
