@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: vault-cli
+Version: 1.3.0
+Summary: CLI tool for hashicorp vault
+Home-page: https://github.com/peopledoc/vault-cli
+Author: PeopleDoc
+Author-email: joachim.jablon@people-doc.com
+License: Apache Software License
+Description: UNKNOWN
+Keywords: hashicorp vault cli
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+Provides-Extra: dev
+Provides-Extra: test
+Provides-Extra: lint
+Provides-Extra: docs
+Provides-Extra: docs_spelling

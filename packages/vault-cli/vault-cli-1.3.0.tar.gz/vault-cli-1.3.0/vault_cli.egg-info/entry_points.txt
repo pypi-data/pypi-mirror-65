@@ -1,0 +1,4 @@
+[console_scripts]
+vault = vault_cli.cli:main
+vault-cli = vault_cli.cli:main
+
