@@ -1,0 +1,143 @@
+#!python
+
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Copyright (C) 2020 Michał Góral.
+
+import os
+import sys
+import subprocess
+from collections import namedtuple
+import requests
+
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
+    QLineEdit, QTextEdit, QComboBox, QFileDialog, QShortcut
+)
+
+from PyQt5.QtGui import QClipboard, QKeySequence
+
+FmtData = namedtuple('FormatData', ('fmt', 'ext'))
+
+def is_url(url):
+    return url.startswith('http://') or url.startswith('https://')
+
+def home():
+    return os.path.expanduser('~')
+
+def geturl(url):
+    if not url or not is_url(url):
+        return
+
+    return requests.get(url).content
+
+
+class MainWindow(QMainWindow):
+    def __init__(self, url=''):
+        super().__init__()
+
+        self._url = None
+        self._content = None
+
+        self.urlbox = QLineEdit()
+        self.download = QPushButton('>')
+        self.outformat = QComboBox()
+        self.editor = QTextEdit()
+        self.save = QPushButton('Save')
+
+        bar = QHBoxLayout()
+        bar.addWidget(self.urlbox, stretch=1)
+        bar.addWidget(self.outformat)
+        bar.addWidget(self.download)
+
+        layout = QVBoxLayout()
+        layout.addLayout(bar)
+        layout.addWidget(self.save)
+        layout.addWidget(self.editor, stretch=1)
+
+        if is_url(url):
+            self.urlbox.setText(url)
+
+        self.outformat.addItem('Markdown', FmtData('md', '.md'))
+        self.outformat.addItem('HTML', FmtData('html', '.html'))
+        self.outformat.addItem('Plain Text', FmtData('text', '.txt'))
+        self.outformat.addItem('Dump', FmtData('dump', '.txt'))
+
+        self.save_shortcut = QShortcut(QKeySequence("Ctrl+S"), self.save)
+
+        self.urlbox.returnPressed.connect(lambda: self.update(fetch=True))
+        self.download.clicked.connect(lambda: self.update(fetch=True))
+        self.outformat.currentIndexChanged.connect(lambda: self.update())
+        self.save.clicked.connect(self.save_text)
+        self.save_shortcut.activated.connect(self.save_text)
+
+        widget = QWidget()
+        widget.setLayout(layout)
+        self.setCentralWidget(widget)
+
+        self.urlbox.selectAll()
+        self.urlbox.setFocus()
+
+    def save_text(self):
+        text = self.editor.toPlainText()
+        if not text:
+            return
+
+        data = self.outformat.currentData()
+
+        filters = {
+            '.md': 'Markdown files (*.md)',
+            '.html': 'HTML files (*.htm *.html)',
+        }
+
+        default_filter = 'Text files (*.txt)'
+        flt = filters.get(data.ext, default_filter)
+        flt = '{};;All files (*)'.format(flt)
+
+        default_file = os.path.join(home(), 'article{}'.format(data.ext))
+
+        path, filter_ = QFileDialog.getSaveFileName(
+            self, directory=default_file, filter=flt)
+
+        if not path:
+            return
+
+        with open(path, 'w') as out:
+            out.write(text)
+        print(path)
+
+    def update(self, fetch=False):
+        if fetch:
+            self._url = self.urlbox.text()
+            try:
+                self._content = geturl(self._url)
+            except requests.exceptions.RequestException as e:
+                self.editor.setText(str(e))
+                return
+
+        if self._content is None:
+            return
+
+        archive = self.webarchive()
+        if archive is None:
+            archive = ''
+        self.editor.setText(archive)
+
+    def webarchive(self):
+        if not self._content:
+            return
+
+        data= self.outformat.currentData()
+        cmd = ['webarchive', '-m', '-t', data.fmt, '--baseurl', self._url,  '-']
+        out = subprocess.check_output(cmd, input=self._content)
+        return out.decode()
+
+
+def main():
+    app = QApplication(sys.argv)
+    window = MainWindow(app.clipboard().text())
+    window.show()
+    app.exec()
+
+
+sys.exit(main())
