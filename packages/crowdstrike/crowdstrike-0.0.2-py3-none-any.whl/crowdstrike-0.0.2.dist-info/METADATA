@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: crowdstrike
+Version: 0.0.2
+Summary: Crowdstrike interface to the Python API
+Home-page: https://github.com/yaleman/crowdstrike_api
+Author: James Hodgkinson
+Author-email: yaleman@ricetek.net
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests-oauthlib
+Requires-Dist: loguru
+
+# Crowdstrike API
+
+Implements some of the functions to interface with the [Crowdstrike APIs](https://assets.falcon.crowdstrike.com/support/api/swagger.html).
+
+Want to contribute? Log an issue or PR on the Repo.
+
+To enable logging, use [loguru](https://github.com/Delgan/loguru) and run `logger.enable("crowdstrike")` in your script.
+
