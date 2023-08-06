@@ -1,0 +1,223 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+docs/CODE_OF_CONDUCT.md
+docs/CONTRIBUTING.md
+docs/Makefile
+docs/README.md
+docs/conf.py
+docs/index.rst
+docs/explanations/a_walk_around_the_settings.rst
+docs/explanations/main.rst
+docs/explanations/microservice_base_class.rst
+docs/explanations/microservice_cookiecutter_template.rst
+docs/explanations/microservice_lifecycle.rst
+docs/how_to_guides/install_tamarco.rst
+docs/how_to_guides/main.rst
+docs/how_to_guides/make_the_docs.rst
+docs/how_to_guides/setup_a_logging_backend.rst
+docs/how_to_guides/setup_a_metrics_backend.rst
+docs/how_to_guides/setup_a_setting_backend.rst
+docs/how_to_guides/setup_settings_for_a_resource.rst
+docs/how_to_guides/setup_settings_for_a_specific_microservice.rst
+docs/how_to_guides/use_logging_resource.rst
+docs/how_to_guides/use_metrics_resource.rst
+docs/reference/main.rst
+docs/tutorials/main.rst
+docs/tutorials/quick_start.rst
+docs/tutorials/write_your_first_microservice.rst
+examples/http_resource/microservice.py
+examples/metrics_resource/microservice.py
+examples/metrics_resource/prometheus_example.py
+examples/settings_watcher/microservice.py
+examples/status_resource/microservice.py
+tamarco/__init__.py
+tamarco/tamarco
+tamarco.egg-info/PKG-INFO
+tamarco.egg-info/SOURCES.txt
+tamarco.egg-info/dependency_links.txt
+tamarco.egg-info/not-zip-safe
+tamarco.egg-info/requires.txt
+tamarco.egg-info/top_level.txt
+tamarco/codecs/__init__.py
+tamarco/codecs/interface.py
+tamarco/codecs/json.py
+tamarco/codecs/pickle.py
+tamarco/codecs/yaml.py
+tamarco/core/__init__.py
+tamarco/core/dependency_resolver.py
+tamarco/core/microservice.py
+tamarco/core/signals.py
+tamarco/core/tasks.py
+tamarco/core/utils.py
+tamarco/core/logging/__init__.py
+tamarco/core/logging/logging.py
+tamarco/core/logging/formatters/__init__.py
+tamarco/core/logging/formatters/colored.py
+tamarco/core/logging/formatters/logstash.py
+tamarco/core/logging/formatters/syslog.py
+tamarco/core/logging/handlers/__init__.py
+tamarco/core/logging/handlers/asyncronous.py
+tamarco/core/logging/handlers/elasticsearch.py
+tamarco/core/logging/handlers/http.py
+tamarco/core/logging/handlers/logstash.py
+tamarco/core/logging/handlers/redis.py
+tamarco/core/patterns/__init__.py
+tamarco/core/patterns/flyweight.py
+tamarco/core/patterns/proxy.py
+tamarco/core/patterns/singleton.py
+tamarco/core/settings/__init__.py
+tamarco/core/settings/setting_proxy.py
+tamarco/core/settings/settings.py
+tamarco/core/settings/backends/__init__.py
+tamarco/core/settings/backends/dictionary.py
+tamarco/core/settings/backends/etcd.py
+tamarco/core/settings/backends/file_based.py
+tamarco/core/settings/backends/interface.py
+tamarco/core/settings/utils/__init__.py
+tamarco/core/settings/utils/etcd_tool.py
+tamarco/core/settings/utils/utils.py
+tamarco/resources/__init__.py
+tamarco/resources/bases.py
+tamarco/resources/basic/__init__.py
+tamarco/resources/basic/metrics/__init__.py
+tamarco/resources/basic/metrics/collector.py
+tamarco/resources/basic/metrics/manager.py
+tamarco/resources/basic/metrics/resource.py
+tamarco/resources/basic/metrics/settings.py
+tamarco/resources/basic/metrics/meters/__init__.py
+tamarco/resources/basic/metrics/meters/base.py
+tamarco/resources/basic/metrics/meters/counter.py
+tamarco/resources/basic/metrics/meters/gauge.py
+tamarco/resources/basic/metrics/meters/summary.py
+tamarco/resources/basic/metrics/reporters/__init__.py
+tamarco/resources/basic/metrics/reporters/base.py
+tamarco/resources/basic/metrics/reporters/carbon.py
+tamarco/resources/basic/metrics/reporters/file.py
+tamarco/resources/basic/metrics/reporters/prometheus.py
+tamarco/resources/basic/metrics/reporters/stdout.py
+tamarco/resources/basic/registry/__init__.py
+tamarco/resources/basic/registry/resource.py
+tamarco/resources/basic/registry/settings.py
+tamarco/resources/basic/status/__init__.py
+tamarco/resources/basic/status/resource.py
+tamarco/resources/basic/status/settings.py
+tamarco/resources/basic/status/status_codes.py
+tamarco/resources/debug/__init__.py
+tamarco/resources/debug/config.py
+tamarco/resources/debug/memory_analizer.py
+tamarco/resources/debug/pdb.py
+tamarco/resources/debug/profiler.py
+tamarco/resources/io/__init__.py
+tamarco/resources/io/http/__init__.py
+tamarco/resources/io/http/resource.py
+tamarco/tools/__init__.py
+tamarco/tools/ci.py
+tamarco/tools/etcd.py
+tamarco/tools/project/start_project.py
+tamarco/tools/project/project_template/cookiecutter.json
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/.coveragerc
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/.gitignore
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/Dockerfile
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/HISTORY.md
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/README.md
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/app.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/requirements.txt
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/setup.cfg
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/Makefile
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/authors.rst
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/conf.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/history.rst
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/index.rst
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/installation.rst
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/make.bat
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/mkdsupport.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/readme.rst
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/docs/usage.rst
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/tests/__init__.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/tests/conftest.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/tests/custom_settings/settings.yml
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/tests/functional/__init__.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/tests/unit/__init__.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/{{ cookiecutter.project_slug }}/__init__.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/{{ cookiecutter.project_slug }}/meters.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/{{ cookiecutter.project_slug }}/microservice.py
+tamarco/tools/project/project_template/{{ cookiecutter.project_name }}/{{ cookiecutter.project_slug }}/logic/__init__.py
+tests/__init__.py
+tests/conftest.py
+tests/utils.py
+tests/custom_settings/settings.yml
+tests/functional/__init__.py
+tests/functional/conftest.py
+tests/functional/core/__init__.py
+tests/functional/core/test_logging.py
+tests/functional/core/logging/__init__.py
+tests/functional/core/logging/handlers/__init__.py
+tests/functional/core/logging/handlers/conftest.py
+tests/functional/core/logging/handlers/test_redis_handler.py
+tests/functional/core/settings/__init__.py
+tests/functional/core/settings/conftest.py
+tests/functional/core/settings/test_backends.py
+tests/functional/core/settings/files/__init__.py
+tests/functional/core/settings/files/settings.json
+tests/functional/core/settings/files/settings.py
+tests/functional/core/settings/files/settings.yaml
+tests/functional/core/settings/utils/__init__.py
+tests/functional/core/settings/utils/settings.yml
+tests/functional/core/settings/utils/test_etcd_tool.py
+tests/functional/resources/__init__.py
+tests/functional/resources/basic/__init__.py
+tests/functional/resources/basic/metrics/__init__.py
+tests/functional/resources/basic/metrics/test_metrics.py
+tests/functional/resources/basic/registry/__init__.py
+tests/functional/resources/basic/registry/test_resource.py
+tests/functional/resources/basic/status/__init__.py
+tests/functional/resources/basic/status/conftest.py
+tests/functional/resources/basic/status/test_resource.py
+tests/functional/resources/io/__init__.py
+tests/functional/resources/io/http/__init__.py
+tests/functional/resources/io/http/test_resource.py
+tests/unit/__init__.py
+tests/unit/codecs/__init__.py
+tests/unit/codecs/test_codecs.py
+tests/unit/core/__init__.py
+tests/unit/core/test_dependency_resolver.py
+tests/unit/core/test_logging.py
+tests/unit/core/test_microservice.py
+tests/unit/core/test_signals.py
+tests/unit/core/test_tasks.py
+tests/unit/core/test_utils.py
+tests/unit/core/settings/__init__.py
+tests/unit/core/settings/example_settings.json
+tests/unit/core/settings/example_settings.py
+tests/unit/core/settings/example_settings.yaml
+tests/unit/core/settings/test_dict_deep_update.py
+tests/unit/core/settings/test_settings_backends.py
+tests/unit/resources/__init__.py
+tests/unit/resources/basic/__init__.py
+tests/unit/resources/basic/metrics/__init__.py
+tests/unit/resources/basic/metrics/conftest.py
+tests/unit/resources/basic/metrics/test_collector.py
+tests/unit/resources/basic/metrics/test_manager.py
+tests/unit/resources/basic/metrics/meters/__init__.py
+tests/unit/resources/basic/metrics/meters/test_base.py
+tests/unit/resources/basic/metrics/meters/test_counter.py
+tests/unit/resources/basic/metrics/meters/test_custom.py
+tests/unit/resources/basic/metrics/meters/test_gauge.py
+tests/unit/resources/basic/metrics/meters/test_summary.py
+tests/unit/resources/basic/metrics/reporters/__init__.py
+tests/unit/resources/basic/metrics/reporters/test_base.py
+tests/unit/resources/basic/metrics/reporters/test_carbon.py
+tests/unit/resources/basic/metrics/reporters/test_file.py
+tests/unit/resources/basic/metrics/reporters/test_prometheus.py
+tests/unit/resources/basic/metrics/reporters/test_stdout.py
+tests/unit/resources/basic/registry/__init__.py
+tests/unit/resources/basic/registry/test_resource.py
+tests/unit/resources/basic/status/__init__.py
+tests/unit/resources/basic/status/test_status.py
+tests/unit/resources/debug/__init__.py
+tests/unit/resources/debug/test_profiler.py
+tests/unit/resources/io/__init__.py
+tests/unit/resources/io/http/test_http.py
