@@ -1,0 +1,68 @@
+
+
+.. towncrier release notes start
+
+2.0.0 (2020-04-14)
+==================
+
+Deprecations and Removals
+-------------------------
+
+- Python 3.4 isn't supported anymore, Python 3.5 support will be dropped at its EOL in September 2020.
+
+
+Features
+--------
+
+- Upgrade pg8000 to version 1.14.0 or newer and take advantage of its improved SSL interface.
+
+
+1.1.0 (2020-01-31)
+==================
+
+Features
+--------
+
+- fix #738: add ``ssl_cert_reqs``, ``ssl_ca_certs``, ``ssl_certfile`` and ``ssl_keyfile`` settings to the --storage=pg8000 option. Each setting corresponds to the similarly-named key (remove the initial ``ssl_``) in the ``ssl`` parameter passed to pg8000.connect(). ``ssl_cert_reqs`` should be either "cert_optional" or "cert_required" and the other three settings are file names.
+
+
+1.0.0 (2019-04-26)
+==================
+
+Deprecations and Removals
+-------------------------
+
+- Requires at least PostgreSQL 9.5 for ``ON CONFLICT`` support.
+
+- Dropped support for Python 2.x and PyPy2.
+
+
+0.3.0 (2018-09-08)
+==================
+
+Bug Fixes
+---------
+
+- Fixes required for bug fixes devpi-server 4.7.0.
+
+
+0.2.0 (2018-01-17)
+==================
+
+Bug Fixes
+---------
+
+- Use advisory locks to serialize writes.
+
+
+0.1.1 (2017-12-12)
+==================
+
+- Add ``unix_sock``, ``user`` and ``password`` to possible connection options.
+  Thanks to Szabolcs Rumi for the patch.
+
+
+0.1.0 (2016-02-11)
+==================
+
+- initial release
