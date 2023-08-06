@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: kaaengine
+Version: 0.6.1
+Summary: Pythonic game engine for humans.
+Home-page: https://github.com/kaaengine/kaa
+Author: labuzm, maniek2332
+Author-email: labuzm@gmail.com, maniek2332@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Software Development
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+
+# kaa
+KAA - Pythonic game engine for humans
+
+
+## Installation
+
+From PyPI:
+```
+pip install kaaengine
+```
+
+From repository (with `pip`):
+```
+pip install 'git+https://github.com/kaaengine/kaa'
+```
+
+From cloned repository:
+```
+git clone --recursive https://github.com/kaaengine/kaa && cd kaa
+python setup.py install
+```
+
+Debug build:
+```
+git clone --recursive https://github.com/kaaengine/kaa && cd kaa
+python setup.py install --build-type Debug
+```
+
+
+## Documentation
+
+COMING SOON!
+
+
