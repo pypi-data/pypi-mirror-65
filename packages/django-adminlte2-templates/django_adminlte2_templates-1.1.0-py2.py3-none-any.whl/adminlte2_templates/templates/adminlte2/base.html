@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html {% block html_attribute %}lang="{% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}" {% endblock html_attribute %}>
+<head>
+    {% block meta %}
+        {% include 'adminlte2/components/_meta.html' %}
+    {% endblock meta %}
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    {% block stylesheets %}
+        {% include 'adminlte2/components/_stylesheets.html' %}
+    {% endblock stylesheets %}
+
+    {% block favicon %}
+        <link rel="shortcut icon" href="{% block favicon_image %}{% static 'favicon.ico' %}{% endblock favicon_image %}">
+    {% endblock favicon %}
+
+    {% block shim %}
+        {% if ADMINLTE_USE_SHIM %}
+            {% include 'adminlte2/components/_shim.html' %}
+        {% endif %}
+    {% endblock shim %}
+
+    {% block javascripts %}
+        {% include 'adminlte2/components/_javascripts.html' %}
+    {% endblock javascripts %}
+</head>
+<body {% block body_attribute %}class="{% block body_class %}hold-transition {% block skin_style %}{{ ADMINLTE_SKIN_STYLE }}{% endblock skin_style %}{% endblock body_class %}"{% endblock body_attribute %}>
+    {% block body %}
+        <div class="wrapper">
+            {% block header_template %}
+                {% include 'adminlte2/components/header.html' %}
+            {% endblock header_template %}
+
+            {% block sidebar_template %}
+                {% include 'adminlte2/components/sidebar.html' %}
+            {% endblock sidebar_template %}
+
+            {% block content_template %}
+                <div class="content-wrapper">
+                    {% block content_wrapper %}
+                        {% block no_content_header %}
+                            <section class="content-header">
+                                {% block content_header %}
+                                    {% block no_page_title %}
+                                        <h1>
+                                            {% block page_title %}{% endblock page_title %}
+                                            <small>{% block page_description %}{% endblock page_description %}</small>
+                                        </h1>
+                                    {% endblock no_page_title %}
+
+                                    {% block no_breadcrumbs %}
+                                        <ol class="breadcrumb">
+                                            {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                        </ol>
+                                    {% endblock no_breadcrumbs %}
+                                {% endblock content_header %}
+                            </section>
+                        {% endblock no_content_header %}
+
+                        {% block content_body %}
+                            <section class="content">
+                                {% block messages_template %}
+                                    {% include 'adminlte2/components/messages.html' %}
+                                {% endblock messages_template %}
+
+                                {% block content %}
+                                {% endblock content %}
+                            </section>
+                        {% endblock content_body %}
+                    {% endblock content_wrapper %}
+                </div>
+            {% endblock content_template %}
+
+            {% block control_template %}
+                {% include 'adminlte2/components/control.html' %}
+            {% endblock control_template %}
+
+            {% block footer_template %}
+                {% include 'adminlte2/components/footer.html' %}
+            {% endblock footer_template %}
+        </div>
+    {% endblock body %}
+
+    {% block javascripts_body %}
+    {% endblock javascripts_body %}
+</body>
+</html>
