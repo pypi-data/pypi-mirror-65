@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ito_diffusions
+Version: 1.0.4
+Summary: Library for stochastic process simulation
+Home-page: https://github.com/sauxpa/stochastic
+Author: Patrick Saux
+Author-email: patrick.jr.saux@gmail.com
+License: UNKNOWN
+Description: ### ito_diffusions
+        Libraries for stochastic processes simulation and visualization including:
+        * Ito diffusion : Brownian motion, Geometric Brownian motion, Vasicek, CIR...
+        * Jump processes : Ito diffusion driven by a Levy process i.e with a jump component with a given intensity and jump size distribution
+        * Multidimensional processes, stochastic volatility diffusions (SABR...)
+        * Fractional Brownian motion, Karhunen-Loeve expansion, fractional diffusions
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
