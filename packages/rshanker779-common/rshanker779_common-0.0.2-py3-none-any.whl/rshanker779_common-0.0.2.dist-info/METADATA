@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: rshanker779-common
+Version: 0.0.2
+Summary: Common utilities
+Home-page: UNKNOWN
+Author: rshanker779
+Author-email: rshanker779@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: black
+Requires-Dist: pre-commit (~=2.2)
+Requires-Dist: pytest-cov (~=2.8)
+Requires-Dist: pytest (<6,>5.4)
+Requires-Dist: snakeviz
+Requires-Dist: wheel (>0.33)
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+
+UNKNOWN
+
+
