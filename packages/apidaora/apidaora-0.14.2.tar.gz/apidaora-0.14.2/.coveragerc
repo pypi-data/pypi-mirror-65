@@ -1,0 +1,12 @@
+[run]
+omit = 
+    */.local/*
+    /usr/*
+    **__init__.py
+    **venv*
+    */test_*
+    *docs*
+include = *apidaora*
+
+[report]
+show_missing = True
