@@ -1,0 +1,99 @@
+{% extends 'easycms/base.html' %}
+
+{% block easycms_title %}Preview Page: {{ page.title }}{% endblock %}
+
+{% block easycms_h1 %}{% endblock easycms_h1 %}
+
+{% block easycms_content %}
+	<div class="button-list">
+		<a class="btn btn-secondary" href="{{ url_for('.view_pages') }}">
+			<span class="oi" data-glyph="arrow-left"></span> Back to Pages
+		</a>
+		{% if page.front_end_url %}
+			<a class="btn btn-secondary" href="{{ page.front_end_url }}">
+				<span class="oi" data-glyph="external-link"></span>
+				View Live Page
+			</a>
+		{% endif %}
+		{% if access_control.can_edit_page() %}
+			<a class="btn btn-primary" href="{{ url_for('.edit_page', page_id=page.id) }}">
+				<span class="oi" data-glyph="pencil"></span> Edit Page
+			</a>
+		{% endif %}
+		{% if settings.page_publishing_enabled and not page.published and access_control.can_publish_page() %}
+			<a class="btn btn-success" href="{{ url_for('.publish_page', page_id=page.id) }}">
+				<span class="oi" data-glyph="share"></span> Publish Page
+			</a>
+		{% endif %}
+		{% if settings.page_publishing_enabled and (page.published_by or page.published_page) and access_control.can_publish_page() %}
+			<a class="btn btn-secondary" href="{{ url_for('.view_published_page_history', page_id=page.id) }}">
+				<span class="oi" data-glyph="calendar"></span> Published Page History
+			</a>
+		{% endif %}
+	</div>
+	
+	{% if settings.page_publishing_enabled and not page.published %}
+		<div class="alert alert-info">
+			This page contains unpublished content.  To view the published version click here:
+			<a href="?published=True">View Published Content</a>
+		</div>
+	{% endif %}
+
+	{% if published %}
+		<div class="alert alert-info">
+			You are viewing the published version of this page.  To view the latest unpublished version click
+			here: <a href="{{ request.path }}">View Un-Published Content</a>
+		</div>
+	{% endif %}
+
+	<div class="preview">
+		<h1>{{ page.title }}</h1>
+		{% if page.disabled %}
+			<h2 class="info text-center">DISABLED</h2>
+		{% endif %}
+
+		{{ page.content | safe }}
+	</div>
+	
+	<hr style="margin-top: 100px;">
+
+	<h4>Page Attributes:</h4>
+
+	<table class="table table-bordered" style="width: initial;">
+		<tr>
+			<th>Created</th>
+			<td>{{ page.created | easycms_format_datetime }}</td>
+		</tr>
+		<tr>
+			<th>Code (URL Name)</th>
+			<td>{{ page.code }} </td>
+		</tr>
+		<tr>
+			<th>Author</th>
+			<td>
+				{% if page.author %}
+					{{ page.author.name }}
+				{% else %}
+					{{ macros.format_result(None) }}
+				{% endif %}
+			</td>
+		</tr>
+		{% if settings.page_publishing_enabled %}
+			<tr>
+				<th>Published</th>
+				<td>{{ macros.format_result(page.published) }}</td>
+			</tr>
+			<tr>
+				<th>Published By</th>
+				<td>
+					{% if page.published %}
+						{{ page.published_by.name }}
+					{% else %}
+						{{ macros.format_result(None) }}
+					{% endif %}
+				</td>
+			</tr>
+		{% endif %}
+	</table>
+{% endblock %}
+

@@ -1,0 +1,50 @@
+{% extends 'easycms/base.html' %}
+
+{% block easycms_title %}{{ settings.website_name }} Content Editor{% endblock %}
+
+{% block easycms_h1 %}{% endblock %}
+
+{% block easycms_content %}
+	<div class="main-card card">
+		<div class="card-header">
+			<h1>{{ self.easycms_title() }}</h1>
+		</div>
+		<div class="card-body">
+			<ul class="links">
+				{% if pages_enabled %}
+					<li>
+						<a href="{{ url_for('.view_pages') }}">
+							Pages
+						</a>
+					</li>
+				{% endif %}
+				<li>
+					<a href="{{ url_for('.view_posts') }}">
+						Posts
+					</a>
+				</li>
+				<li>
+					<a href="{{ url_for('.view_categories') }}">
+						Categories
+					</a>
+				</li>
+				<li>
+					<a href="{{ url_for('.view_comments') }}">
+						Comments
+					</a>
+				</li>
+				<li>
+					<a href="{{ url_for('.view_authors') }}">
+						Authors
+					</a>
+				</li>
+				<li>
+					<a href="{{ url_for('flaskfilemanager.index') }}">
+						File Manager
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}
+
