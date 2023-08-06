@@ -1,0 +1,13 @@
+requests
+six
+
+[cli]
+Click
+docker
+jsonschema
+pyhcl
+
+[model-monitoring]
+fluent-logger
+prometheus_client
+numpy
