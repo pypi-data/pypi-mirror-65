@@ -1,0 +1,7 @@
+click>=6.6
+ruamel.yaml>=0.15.37
+requests>=2.20
+
+[build]
+jsmin>=2.2.1
+libsass>=0.14.4
