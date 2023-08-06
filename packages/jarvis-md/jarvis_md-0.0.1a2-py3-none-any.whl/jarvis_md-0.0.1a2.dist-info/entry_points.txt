@@ -1,0 +1,14 @@
+[console_scripts]
+jarvis = scripts.jarvis:main
+
+[load_funcs]
+hdf5 = jarvis.utils.io.parser_hdf5:load_hdf5
+json = jarvis.utils.io.parser_json:load_json
+npy = jarvis.utils.io.parser_npy:load_npy
+npz = jarvis.utils.io.parser_npy:load_npz
+
+[save_funcs]
+hdf5 = jarvis.utils.io.parser_hdf5:save_hdf5
+npy = jarvis.utils.io.parser_npy:save_npy
+npz = jarvis.utils.io.parser_npy:save_npz
+
