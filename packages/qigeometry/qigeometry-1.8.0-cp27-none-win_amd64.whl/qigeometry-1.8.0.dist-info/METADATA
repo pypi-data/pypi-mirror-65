@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: qigeometry
+Version: 1.8.0
+Summary: QiGeometry Python Module
+Home-page: http://doc.aldebaran.com
+Author: SoftBank Robotics
+Author-email: release@softbankrobotics.com
+License: UNKNOWN
+Keywords: naoqi softbank nao pepper romeo robot
+Platform: win-amd64
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: Framework :: Robot Framework :: Tool
+Classifier: Programming Language :: Python :: 2
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=2.6, <3
+Requires-Dist: qi
+
+QiGeometry
+
+---
+
+QiGeometry Python Module.
+
+
