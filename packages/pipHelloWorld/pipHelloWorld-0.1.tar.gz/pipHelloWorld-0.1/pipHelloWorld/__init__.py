@@ -1,0 +1,1 @@
+from pipHelloWorld.class1 import Class1
