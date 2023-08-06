@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: moz-crlite-lib
+Version: 0.2
+Summary: Formats and tools used for CRLite
+Home-page: http://github.com/mozilla/crlite
+Author: J.C. Jones
+Author-email: jc@mozilla.com
+License: Mozilla Public License 2.0 (MPL 2.0)
+Description: This project contains common functions and structures used in the creation and querying of CRLite data, which compresses all revocation information for the Web PKI into a compact data structure.
+Keywords: bloom filter cascade multi level mlbf crlite
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Programming Language :: Python :: 3
