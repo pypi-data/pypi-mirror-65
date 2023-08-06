@@ -1,0 +1,12 @@
+
+[dev]
+wheel>=0.34.2
+setuptools>=40.8.0
+setuptools-setup-versions>=0.0.30
+pytest>=5.3.5
+twine>=3.1.1
+tox>=3.14.3
+
+[test]
+pytest>=5.3.5
+tox>=3.14.3
