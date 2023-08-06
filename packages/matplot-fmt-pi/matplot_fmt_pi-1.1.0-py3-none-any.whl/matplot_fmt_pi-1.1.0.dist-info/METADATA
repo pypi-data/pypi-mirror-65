@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: matplot-fmt-pi
+Version: 1.1.0
+Summary: Format numbers as multiples of Pi
+Home-page: https://github.com/k-donn/format-pi
+Author: k-donn
+Author-email: k-donn@github.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+
+# Matplotlib Format Pi
+
+Create locator and formatter instances that format multiples of pi.
+
