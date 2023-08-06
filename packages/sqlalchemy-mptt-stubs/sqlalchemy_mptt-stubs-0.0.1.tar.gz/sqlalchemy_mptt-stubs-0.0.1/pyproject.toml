@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "sqlalchemy_mptt-stubs"
+version = "0.0.1"
+description = "Stubs for sqlalchemy_mptt"
+authors = ["ssfdust <ssfdust@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github/ssfdust/sqlalchemy_mptt-stubs"
+
+packages = [
+    {include = "sqlalchemy_mptt-stubs"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+sqlalchemy-stubs = "^0.3"
+sqlalchemy_mptt = "^0.2.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
