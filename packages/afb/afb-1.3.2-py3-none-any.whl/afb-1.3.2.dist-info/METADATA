@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: afb
+Version: 1.3.2
+Summary: A base for abstract factory in Python
+Home-page: https://github.com/dave-msk/afb
+Author: Siu-Kei Muk (David)
+Author-email: muksiukei@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/dave-msk/broker/archive/v1.3.2.tar.gz
+Keywords: afb,factory,abstract factory,config
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Abstract Factory Broker
+
+Abstract Factory Broker (`afb`) is a library that facilitates abstract factory management. It introduces a mechanism for transforming configuration files into Python objects through a network of abstract factories, allowing flexible specification of execution behavior.
+
+## Setup
+
+This library supports Python 3.3+.
+
+```bash
+$ pip install afb
+```
+
+## Documentations
+
+- [Mechanism](./docs/MECHANISM.md): Description on `afb`'s mechanism
+- [Usage Guide](./docs/USAGE.md): Description on usage details
+
