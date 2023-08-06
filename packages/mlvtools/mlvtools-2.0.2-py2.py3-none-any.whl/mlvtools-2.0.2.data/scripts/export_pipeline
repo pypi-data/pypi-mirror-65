@@ -1,0 +1,5 @@
+#!python
+from mlvtools.export_pipeline import MlExportPipeline
+
+if __name__ == '__main__':
+    MlExportPipeline().run_cmd()
