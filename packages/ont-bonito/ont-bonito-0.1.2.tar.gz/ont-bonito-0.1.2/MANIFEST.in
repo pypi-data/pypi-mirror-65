@@ -1,0 +1,6 @@
+include README.md
+include LICENCE.txt
+include requirements.txt
+graft bonito/data
+graft bonito/models/configs
+graft bonito/models/dna_r9.4.1/
