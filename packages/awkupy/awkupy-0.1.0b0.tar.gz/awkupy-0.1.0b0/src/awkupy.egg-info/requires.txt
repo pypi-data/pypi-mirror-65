@@ -1,0 +1,23 @@
+ipython>=6.0
+
+[:python_version < "3.6"]
+typing
+
+[:python_version < "3.7"]
+dataclasses
+
+[dev]
+sphinx
+recommonmark>=0.5.0
+sphinx_rtd_theme==0.4.3
+pytest
+jupyter
+flake8
+twine
+wheel
+readme-renderer[md]==24.0
+
+[docs]
+sphinx
+recommonmark>=0.5.0
+sphinx_rtd_theme==0.4.3
