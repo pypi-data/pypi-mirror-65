@@ -1,0 +1,9 @@
+[iotile.emulated_tile]
+envbsl_1 = iotile_support_firm_env_1.envbsl_1
+
+[iotile.proxy]
+env_proxy = iotile_support_firm_env_1.env_proxy
+
+[iotile.virtual_device]
+dev_envbsl_1 = iotile_support_firm_env_1.dev_envbsl_1
+
