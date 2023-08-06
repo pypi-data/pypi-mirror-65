@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+{%- macro nav_item(item) %}
+    {%- if item.active %}
+        <li class="nav-item">
+        {%- if item.url %}
+            <a href="{{ item.url|url }}">{{ item.title }}</a>
+        {%- else %}
+            {{ item.title }}
+        {%- endif %}
+         &#187; </li>
+        {%- if item.children %}
+            {%- for child in item.children %}
+                {{ nav_item(child) }}
+            {%- endfor %}
+        {%- endif %}
+    {%- endif %}
+{%- endmacro %}
+
+{%- macro relbar() %}
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+            {%- block repo %}
+            {%- if config.repo_url %}
+                <li class="right" style="margin-right: 10px">
+                    <a href="{{ config.repo_url }}" title="View this project on {{ config.repo_name }}">
+                    {%- if config.repo_name == 'GitHub' -%}
+                        <img src="{{ 'static/github.png'|url }}" width=16px style="vertical-align: middle; margin-top: -1px" />
+                    {%- elif config.repo_name == 'Bitbucket' -%}
+                        <img src="{{ 'static/bitbucket.png'|url }}" width=16px style="vertical-align: middle; margin-top: -1px" />
+                    {%- endif -%}
+                    </a>
+                </li>
+            {%- endif %}
+            {%- endblock %}
+            <li class="right" style="margin-right: 10px">
+                <a href="{{ 'sitemap.html'|url }}" title="Sitemap" accesskey="I">index</a>
+            </li>
+            {% if page and page.next_page %}<li class="right">
+                <a href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}" accesskey="N">next</a> |
+            </li>{% endif %}
+            {% if page and page.previous_page %}<li class="right">
+                <a href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}" accesskey="P">previous</a> |
+            </li>{% endif %}
+            {% if config.theme.icon %}<li><img src="{{ config.theme.icon|url }}"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>{% endif %}
+            <li class="nav-item nav-item-0">
+                <a href="{{ nav.homepage.url|url }}">{{ config.site_name }} {{ config.theme.release }} documentation</a> &#187;
+            </li>
+            {%- if page and not page.is_homepage %}
+                {%- for item in nav %}
+                    {{ nav_item(item) }}
+                {%- endfor %}
+            {%- endif %}
+        </ul>
+    </div>
+{%- endmacro %}
+
+{%- macro toc_item(item) %}
+    <li>
+        <a class="reference internal" href="{{ item.url }}">{{ item.title }}</a>
+        {%- if item.children %}
+        <ul>
+        {%- for child in item.children %}
+            {{ toc_item(child) }}
+        {%- endfor %}
+        </ul>
+        {%- endif %}
+    </li>
+{%- endmacro %}
+
+{%- macro sidebar() %}
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            {%- block sidebarlogo %}
+            {%- if config.theme.logo %}
+            <p class="logo"><a href="{{ nav.homepage.url|url }}">
+              <img class="logo" src="{{ config.theme.logo|url }}" alt="Logo"/>
+            </a></p>
+            {%- endif %}
+            {%- endblock %}
+
+            {%- if page and page.toc %}
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+            {%- for item in page.toc %}
+                {{ toc_item(item) }}
+            {%- endfor %}
+            </ul>
+            {%- endif %}
+
+            {%- block next_prev %}
+            {% if page and page.previous_page %}
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="{{ page.previous_page.url|url }}" title="previous page">{{ page.previous_page.title }}</a>
+            </p>
+            {%- endif %}
+
+            {% if page and page.next_page %}
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="{{ page.next_page.url|url }}" title="next page">{{ page.next_page.title }}</a>
+            </p>
+            {%- endif %}
+            {%- endblock %}
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    {%- if config.theme.issue_tracker %}
+                    <li><a href="{{ config.theme.issue_tracker }}">Report a Bug</a></li>
+                    {%- endif %}
+                    {%- if page and page.edit_url %}
+                    <li><a href="{{ page.edit_url }}">Edit on {{ config.repo_name }}</a></li>
+                    {%- endif %}
+                </ul>
+            </div>
+
+            {%- block search_button %}
+            {%- if config.plugins.search %}
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="{{ 'search.html'|url }}" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+            {%- endif %}
+            {%- endblock %}
+
+        </div>
+    </div>
+{%- endmacro %}
+
+<html lang="en">
+    <head>
+      {%- block site_meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        {% if page and page.is_homepage %}<meta name="description" content="{{ config['site_description'] }}">{% endif %}
+        {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
+        {% if page and page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
+        <link rel="shortcut icon" href="{{ 'favicon.ico'|url }}">
+        <link rel="search" title="Search" href="{{ 'search.html'|url }}" />
+        {% if page and page.next_page %}<link rel="next" title="{{ page.next_page.title }}" href="{{ page.next_page.url|url }}" />{% endif %}
+        {% if page and page.previous_page %}<link rel="prev" title="{{ page.previous_page.title }}" href="{{ page.previous_page.url|url }}" />{% endif %}
+      {%- endblock %}
+
+      {%- block htmltitle %}
+        <title>{% if page and page.title %}{{ page.title }} &#8212; {% endif %}{{ config.site_name }} {{ config.theme.release }} documentation</title>
+      {%- endblock %}
+
+      {%- block styles %}
+        <link rel="stylesheet" href="{{ 'static/nature.css'|url }}" type="text/css" />
+        <link rel="stylesheet" href="{{ 'static/pygments.css'|url }}" type="text/css" />
+        {%- for path in config.extra_css %}
+        <link rel="stylesheet" href="{{ path|url }}" type="text/css" />
+        {%- endfor %}
+      {%- endblock %}
+
+      {%- block libs %}
+        <script type="text/javascript" src="{{ 'static/jquery.js'|url }}"></script>
+        <script type="text/javascript" src="{{ 'static/underscore.js'|url }}"></script>
+      {%- endblock %}
+
+      {%- block analytics %}
+        {%- if config.google_analytics %}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', '{{ config.google_analytics[0] }}', '{{ config.google_analytics[1] }}');
+            ga('send', 'pageview');
+        </script>
+        {%- endif %}
+      {%- endblock %}
+
+      {%- block extrahead %} {% endblock %}
+    </head>
+
+    <body{% if page and page.is_homepage %} class="homepage"{% endif %}>
+
+{%- block relbar1 %}{{ relbar() }}{% endblock %}
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main">
+
+{%- block content %}{{ page.content }}{%- endblock %}
+
+                    </div>
+                </div>
+            </div>
+
+{%- block sidebar %}{{ sidebar() }}{% endblock %}
+
+            <div class="clearer"></div>
+        </div>
+
+{%- block relbar2 %}{{ relbar() }}{% endblock %}
+
+{%- block footer %}
+        <div class="footer" role="contentinfo">
+        {%- if config.copyright %}{{ config.copyright }}{% if config.site_author %}, {{ config.site_author }}{% endif %}.{% endif %}
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> {{ mkdocs_version }}.
+        </div>
+{%- endblock %}
+
+{%- block scripts %}
+        <script>var base_url = '{{ base_url }}';</script>
+        {%- for path in config.extra_javascript %}
+        <script src="{{ path|url }}"></script>
+        {%- endfor %}
+{%- endblock %}
+
+        <!--
+        MkDocs version      : {{ mkdocs_version }}
+        Docs Build Date UTC : {{ build_date_utc }}
+        -->
+    </body>
+</html>
