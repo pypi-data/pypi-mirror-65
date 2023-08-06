@@ -1,0 +1,9 @@
+{
+  "display_name": "xpython",
+  "argv": [
+      "xpython",
+      "-f",
+      "{connection_file}"
+  ],
+  "language": "python"
+}
