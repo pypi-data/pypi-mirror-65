@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="text/javascript" src="/webiopi.js"></script>
+    <script type="text/javascript">
+        webiopi().ready(function () {
+            // Create a "Light" labeled button for GPIO 24
+            var LightsButton = webiopi().createGPIOButton(24, "Light");
+            // Append button to HTML element with ID="controls" using jQuery
+            $("#controls").append(LightsButton);
+
+            var UpButton = webiopi().createMacroButton("macro", "", "Forward");
+            $("#arrow-top").append(UpButton);
+
+            var LeftButton = webiopi().createMacroButton("macro", "", "TurnLeft");
+            $("#arrow-left").append(LeftButton);
+
+            var RightButton = webiopi().createMacroButton("macro", "", "TurnRight");
+            $("#arrow-right").append(RightButton);
+
+            var StopButton = webiopi().createMacroButton("macro", "", "Stop");
+            $("#stop").append(StopButton);
+
+            var ReverseButton = webiopi().createMacroButton("macro", "", "Reverse");
+            $("#arrow-down").append(ReverseButton);
+
+            var CreditsButton = webiopi().createMacroButton("macro", "Credits", "FlashAll");
+            $("#credits").append(CreditsButton);
+
+            // Refresh GPIO buttons
+            //pass true to refresh repeatedly of false to refresh once
+            webiopi().refreshGPIO(true);
+        });
+
+    </script>
+    <style type="text/css">
+        button
+        {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 120px;
+            height: 120px;
+            font-size: 24pt;
+            font-weight: normal;
+            color: white;
+        }
+        
+        #gpio24.LOW
+        {
+            background-color: Black;
+        }
+        
+        #gpio24.HIGH
+        {
+            background-color: Blue;
+        }
+        
+        table
+        {
+            margin: auto auto;
+        }
+        
+        .zentriert
+        {
+            margin: 0 auto;
+            border: none;
+            background-color: Yellow;
+        }
+        
+        img
+        {
+            border: none;
+            padding: 20px;
+            width: 120px;
+            height: 120px;
+        }
+        div
+        {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="zentriert">
+        <div class="container zentriert">
+            <div class="center">
+                <div id="controls" align="center">
+                </div>
+                <table>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            <div id="arrow-top">
+                            </div>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="arrow-left">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="stop">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="arrow-right">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <div id="arrow-down">
+                            </div>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <div id="credits">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
