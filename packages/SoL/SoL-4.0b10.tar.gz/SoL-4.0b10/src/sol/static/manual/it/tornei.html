@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>Gestione tornei &#8212; SoL 4, manuale utente</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations-it.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Gestione torneo" href="torneo.html" />
+    <link rel="prev" title="Gestione campionati" href="campionati.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gestione-tornei">
+<span id="id1"></span><h1><a class="toc-backref" href="#id5">Gestione tornei</a><a class="headerlink" href="#gestione-tornei" title="Link a questa intestazione">¶</a></h1>
+<p id="index-0">Il <em>torneo</em> è chiaramente l'elemento primario di tutto il sistema, tutto quanto verte a
+permettere di gestire in maniera facile e veloce questi eventi.</p>
+<p>La finestra di gestione dei tornei di default <strong>non</strong> mostra i tornei <em>futuri</em>: per vederli,
+<a class="reference internal" href="filtri.html#filtri"><span class="std std-ref">annulla il filtro</span></a> applicato al campo <span class="guilabel">data</span>.</p>
+<div class="contents topic" id="indice">
+<p class="topic-title">Indice</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#gestione-tornei" id="id5">Gestione tornei</a></p>
+<ul>
+<li><p><a class="reference internal" href="#voci-del-menu" id="id6">Voci del menu</a></p></li>
+<li><p><a class="reference internal" href="#inserimento-e-modifica" id="id7">Inserimento e modifica</a></p>
+<ul>
+<li><p><a class="reference internal" href="#data-e-descrizione" id="id8">Data e descrizione</a></p></li>
+<li><p><a class="reference internal" href="#campionato" id="id9">Campionato</a></p></li>
+<li><p><a class="reference internal" href="#ospitato-da" id="id10">Ospitato da</a></p></li>
+<li><p><a class="reference internal" href="#posto" id="id11">Posto</a></p></li>
+<li><p><a class="reference internal" href="#sito-social" id="id12">Sito social</a></p></li>
+<li><p><a class="reference internal" href="#durata-e-preavviso" id="id13">Durata e preavviso</a></p></li>
+<li><p><a class="reference internal" href="#valutazione" id="id14">Valutazione</a></p></li>
+<li><p><a class="reference internal" href="#abbinamenti" id="id15">Abbinamenti</a></p></li>
+<li><p><a class="reference internal" href="#ritarda-abbinamenti-teste-di-serie" id="id16">Ritarda abbinamenti teste di serie</a></p></li>
+<li><p><a class="reference internal" href="#ritarda-abbinamenti-connazionali" id="id17">Ritarda abbinamenti connazionali</a></p></li>
+<li><p><a class="reference internal" href="#score-fantasma" id="id18">Score fantasma</a></p></li>
+<li><p><a class="reference internal" href="#responsabile" id="id19">Responsabile</a></p></li>
+<li><p><a class="reference internal" href="#finali" id="id20">Finali</a></p></li>
+<li><p><a class="reference internal" href="#tipo-di-finale" id="id21">Tipo di finale</a></p></li>
+<li><p><a class="reference internal" href="#ritiri" id="id22">Ritiri</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="voci-del-menu">
+<h2><a class="toc-backref" href="#id6">Voci del menu</a><a class="headerlink" href="#voci-del-menu" title="Link a questa intestazione">¶</a></h2>
+<p>Oltre alle <a class="reference internal" href="azionistd.html#pulsanti-standard"><span class="std std-ref">azioni standard</span></a> il menu contiene queste voci:</p>
+<div class="float-right figure align-default" id="id4">
+<img alt="_images/tornei.png" src="_images/tornei.png" />
+<p class="caption"><span class="caption-text">Gestione tornei</span><a class="headerlink" href="#id4" title="Link a questa immagine">¶</a></p>
+</div>
+<dl class="simple">
+<dt><span class="guilabel">Dettagli</span></dt><dd><p>Mostra la <a class="reference internal" href="torneo.html#gestione-torneo"><span class="std std-ref">gestione</span></a> del torneo selezionato.</p>
+</dd>
+<dt><span class="guilabel">Concorrenti</span></dt><dd><p>Consente di <a class="reference internal" href="concorrenti.html#correzione-concorrenti"><span class="std std-ref">correggere i concorrenti</span></a> di un torneo già svolto.</p>
+</dd>
+<dt><span class="guilabel">Rigioca di nuovo</span></dt><dd><p>Consente di <em>duplicare</em> un torneo: particolarmente utile nei tornei di doppio o a squadre: in
+pratica replica il torneo sul giorno corrente, con tutti i suoi concorrenti; assicurati di
+aggiornarne la descrizione ed eventualmente la data dell'evento!</p>
+</dd>
+<dt><span class="guilabel">Scarica</span></dt><dd><p>Permette di scaricare i dati del torneo.</p>
+</dd>
+<dt><span class="guilabel">Assegna</span></dt><dd><p>Assegna la responsabilità dei tornei selezionati: è possibile selezionare uno o più
+tornei tenendo premuto il tasto <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ed estendere la selezione premendo il tasto
+<kbd class="kbd docutils literal notranslate">Shift</kbd></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="inserimento-e-modifica">
+<span id="inserimento-e-modifica-torneo"></span><h2><a class="toc-backref" href="#id7">Inserimento e modifica</a><a class="headerlink" href="#inserimento-e-modifica" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="data-e-descrizione">
+<span id="index-1"></span><h3><a class="toc-backref" href="#id8">Data e descrizione</a><a class="headerlink" href="#data-e-descrizione" title="Link a questa intestazione">¶</a></h3>
+<p>Ogni torneo ha una <span class="guilabel">data</span> e una <span class="guilabel">descrizione</span> dell'evento e non ci possono
+essere due distinti tornei nella stessa data associati al medesimo campionato.</p>
+</div>
+<div class="section" id="campionato">
+<h3><a class="toc-backref" href="#id9">Campionato</a><a class="headerlink" href="#campionato" title="Link a questa intestazione">¶</a></h3>
+<p>Un torneo appartiene a un particolare <span class="guilabel">campionato</span>. Il selettore ti permette di
+sceglierne uno tra quelli correntemente attivi (cioè <strong>non</strong> <a class="reference internal" href="campionati.html#campionato-concluso"><span class="std std-ref">conclusi</span></a>) <strong>e</strong> almeno una delle seguenti condizioni è valida:</p>
+<ol class="loweralpha simple">
+<li><p>ne sei il responsabile (quindi probabilmente creati da te)</p></li>
+<li><p>sono legati ad un club che ti appartiene <em>oppure</em> a cui sei stato <a class="reference internal" href="utenticlub.html#gestione-associazione-club-utenti"><span class="std std-ref">associato</span></a>.</p></li>
+</ol>
+</div>
+<div class="section" id="ospitato-da">
+<h3><a class="toc-backref" href="#id10">Ospitato da</a><a class="headerlink" href="#ospitato-da" title="Link a questa intestazione">¶</a></h3>
+<p>Può accadere che un torneo sia ospitato da un club diverso da quello che organizza il
+campionato: in questi casi è possibile selezionare il club ospitante, che apparirà su alcune
+stampe.</p>
+</div>
+<div class="section" id="posto">
+<h3><a class="toc-backref" href="#id11">Posto</a><a class="headerlink" href="#posto" title="Link a questa intestazione">¶</a></h3>
+<p>Il <span class="guilabel">posto</span> è opzionale ed è puramente descrittivo.</p>
+</div>
+<div class="section" id="sito-social">
+<h3><a class="toc-backref" href="#id12">Sito social</a><a class="headerlink" href="#sito-social" title="Link a questa intestazione">¶</a></h3>
+<p>L'eventuale URL del <em>canale</em> dedicato al torneo, di solito usato nell'ambito dei
+<a class="reference internal" href="campionati.html#campionato-partite-solitarie"><span class="std std-ref">campionati di partite solitarie</span></a>, dove ciascun giocatore
+si filma mentre gioca e alla fine carica il video sul canale.</p>
+</div>
+<div class="section" id="durata-e-preavviso">
+<h3><a class="toc-backref" href="#id13">Durata e preavviso</a><a class="headerlink" href="#durata-e-preavviso" title="Link a questa intestazione">¶</a></h3>
+<p><span class="guilabel">Durata</span> e <span class="guilabel">preavviso</span> si riferiscono alla durata di un singolo turno e
+sono espressi in <em>minuti</em>. Vengono usati per visualizzare il <a class="reference internal" href="altre.html#countdown"><span class="std std-ref">conto alla rovescia</span></a>.</p>
+</div>
+<div class="section" id="valutazione">
+<span id="valutazione-torneo"></span><h3><a class="toc-backref" href="#id14">Valutazione</a><a class="headerlink" href="#valutazione" title="Link a questa intestazione">¶</a></h3>
+<p>Un torneo può essere associato a una particolare <span class="guilabel">valutazione</span>: in questo caso il
+primo turno verrà generato tenendo conto del valore di ciascun giocatore invece che usando un
+ordine casuale.</p>
+<p>Può anche essere impostata sul <a class="reference internal" href="campionati.html#valutazione-campionato"><span class="std std-ref">campionato</span></a>, in modo tale che
+verrà inizializzata automaticamente alla creazione di ogni nuovo torneo associato.</p>
+</div>
+<div class="section" id="abbinamenti">
+<span id="id2"></span><h3><a class="toc-backref" href="#id15">Abbinamenti</a><a class="headerlink" href="#abbinamenti" title="Link a questa intestazione">¶</a></h3>
+<p>Il <span class="guilabel">metodo abbinamenti</span> determina come verranno create le coppie di avversari ad
+ogni nuovo turno:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Tutti</span> <span class="pre">contro</span> <span class="pre">tutti</span></code></dt><dd><p>l'algoritmo <code class="docutils literal notranslate"><span class="pre">all</span></code> genera tutte le possibili combinazioni, senza un particolare ordine;</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Classifica</span></code></dt><dd><p>l'algoritmo <code class="docutils literal notranslate"><span class="pre">serial</span></code> cercherà di abbinare un concorrente con uno di quelli che lo seguono
+nella classifica corrente, ad esempio il primo col secondo, il terzo con il quarto e così
+via;</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Classifica</span> <span class="pre">incrociata</span></code></dt><dd><p>per ritardare per quanto possibile gli incontri tra le teste di serie, questo metodo
+(<code class="docutils literal notranslate"><span class="pre">dazed</span></code>) usa un sistema più elaborato: prende i concorrenti a pari punti di quello che sta
+esaminando e cerca di abbinare il primo con quello che sta a metà di questa serie, il
+secondo con quello a metà+1, e così via;</p>
+</dd>
+</dl>
+<div class="admonition attention">
+<p class="admonition-title">Attenzione</p>
+<p>Con meno di otto concorrenti gli algoritmi <code class="docutils literal notranslate"><span class="pre">serial</span></code> e <code class="docutils literal notranslate"><span class="pre">dazed</span></code> non possono
+garantire la generazione di tutti i possibili incontri. Dovesse accadere, SoL
+suggerirà di passare al metodo <code class="docutils literal notranslate"><span class="pre">all</span></code> per generare le partite rimanenti.</p>
+<p>In generale, con un numero di concorrenti così basso, consiglio di usare il
+metodo <code class="docutils literal notranslate"><span class="pre">all</span></code> fin dall'inizio del torneo.</p>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Classifica</span> <span class="pre">sfalsata</span></code></dt><dd><p>il metodo <code class="docutils literal notranslate"><span class="pre">staggered</span></code> è equivalente al precedente quando il numero di concorrenti a pari
+merito non supera i 50, superato il quale anziché abbinare il primo con quello a metà della
+serie viene usato un scostamento massimo di 25 a prescindere dal numero: si otterrà quindi il
+primo con il ventiseiesimo, il secondo con il ventisettesimo e così via.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="ritarda-abbinamenti-teste-di-serie">
+<h3><a class="toc-backref" href="#id16">Ritarda abbinamenti teste di serie</a><a class="headerlink" href="#ritarda-abbinamenti-teste-di-serie" title="Link a questa intestazione">¶</a></h3>
+<p>Il campo <span class="guilabel">ritarda abbinamenti teste di serie</span>, significativo solo quando il torneo è
+associato a una valutazione, determina per quanti turni viene data priorità alla quotazione
+Glicko di ciascun concorrente rispetto alla <em>differenza pedine</em> nell'ordinamento utilizzato per
+effettuare gli abbinamenti.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>SoL utilizza cinque parametri per stabilire l'ordinamento della classifica:</p>
+<ol class="arabic simple">
+<li><p>punteggio</p></li>
+<li><p>bucholz</p></li>
+<li><p>differenza score</p></li>
+<li><p>score totale</p></li>
+<li><p>quotazione Glicko</p></li>
+</ol>
+<p>Prima di giocare il primo turno i primi 4 valori sono tutti nulli, quindi solo il
+quinto è determinante. All'inizio del secondo turno tutti i vincitori hanno lo stesso
+punteggio e lo stesso bucholz, per cui è la differenza pedine ad essere determinante.</p>
+<p>Dal punto di vista della generazione dei turni, per la bellezza del gioco è
+generalmente desiderabile ritardare quanto più possibile gli scontri tra le <em>teste di
+serie</em>: a tal fine è sufficiente dare una priorità maggiore alla quotazione Glicko,
+spostandola al terzo posto, dopo il bucholz e prima della differenza score.</p>
+<p>Il valore assegnato a questo campo controlla appunto per quanti turni debba venire
+utilizzato questo diverso criterio di ordinamento: il valore di default è <code class="docutils literal notranslate"><span class="pre">1</span></code>,
+indica che si desidera usarlo al termine del primo turno per la generazione del
+secondo; un valore <code class="docutils literal notranslate"><span class="pre">0</span></code> invece inibisce questo ritardo e quindi solo il primo turno è
+determinato dalla quotazione Glicko, dal secondo in poi diventa di fatto
+ininfluente. Valori maggiori di <code class="docutils literal notranslate"><span class="pre">1</span></code> hanno un impatto via via meno significativo, dal
+momento che dal terzo turno in avanti il punteggio e i bucholz diventano comunque
+predominanti.</p>
+</div>
+</div>
+<div class="section" id="ritarda-abbinamenti-connazionali">
+<h3><a class="toc-backref" href="#id17">Ritarda abbinamenti connazionali</a><a class="headerlink" href="#ritarda-abbinamenti-connazionali" title="Link a questa intestazione">¶</a></h3>
+<p>Il campo <span class="guilabel">ritarda abbinamenti connazionali</span> indica se l'algoritmo di generazione
+degli abbinamenti dovrà tentare di ritardare per quanto possibile gli incontri tra giocatori
+<em>con il medesimo punteggio</em> appartenenti alla stessa nazione.</p>
+<p>Ad esempio se il campo è marcato <strong>e</strong> il metodo di abbinamento è diverso da <em>&quot;tutti contro
+tutti&quot;</em>, quando in base alla classifica attuale ci fossero 10 giocatori a pari punti, i primi
+tre italiani e i rimanenti di una nazionalità diversa, il sistema anziché tentare un
+abbinamento tra il primo e il secondo oppure tra il primo e il terzo, cercherà prima di far
+giocare il primo con il quarto e poi col quinto, prendendo in considerazione il secondo e il
+terzo solo se necessario.</p>
+</div>
+<div class="section" id="score-fantasma">
+<h3><a class="toc-backref" href="#id18">Score fantasma</a><a class="headerlink" href="#score-fantasma" title="Link a questa intestazione">¶</a></h3>
+<p>Lo <span class="guilabel">score fantasma</span> è il punteggio assegnato al giocatore negli incontri con il
+<em>fantasma</em>, quando il numero di concorrenti è dispari. Per convenzione questi incontri
+assegnano uno score pari a 25 al giocatore ma ci possono essere casi in cui sia preferibile un
+punteggio diverso, ad esempio quando il numero di concorrenti è molto basso e il vincere 25—0
+darebbe un vantaggio inappropriato ai giocatori più deboli.</p>
+</div>
+<div class="section" id="responsabile">
+<h3><a class="toc-backref" href="#id19">Responsabile</a><a class="headerlink" href="#responsabile" title="Link a questa intestazione">¶</a></h3>
+<p>Il <span class="guilabel">responsabile</span> generalmente indica l'utente che ha inserito quel particolare
+torneo: i dati del torneo potranno essere modificati solo da lui (oltre che
+dall'<em>amministratore</em> del sistema.).</p>
+</div>
+<div class="section" id="finali">
+<span id="campo-finali"></span><h3><a class="toc-backref" href="#id20">Finali</a><a class="headerlink" href="#finali" title="Link a questa intestazione">¶</a></h3>
+<p>Il campo <span class="guilabel">finali</span> stabilisce quante finali verranno giocate. Può essere lasciato in
+bianco oppure può essere un numero tra <code class="docutils literal notranslate"><span class="pre">0</span></code> e <code class="docutils literal notranslate"><span class="pre">2</span></code> compresi: nel primo caso le finali
+verranno gestite <em>manualmente</em>, nel senso che SoL non genererà gli incontri finali ma il loro
+esito potrà essere applicato correggendo i premi finali. Il valore <code class="docutils literal notranslate"><span class="pre">0</span></code> indica che non ci sarà
+alcuna finale, <code class="docutils literal notranslate"><span class="pre">1</span></code> indica che SoL genererà un singolo match finale per il primo e secondo
+posto, mentre con il valore <code class="docutils literal notranslate"><span class="pre">2</span></code> verranno generati due incontri, uno per il primo e secondo
+posto e l'altro per il terzo e quarto posto.</p>
+</div>
+<div class="section" id="tipo-di-finale">
+<h3><a class="toc-backref" href="#id21">Tipo di finale</a><a class="headerlink" href="#tipo-di-finale" title="Link a questa intestazione">¶</a></h3>
+<p>Il <span class="guilabel">Tipo di finale</span> determina la modalità di svolgimento delle finali:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Match</span> <span class="pre">singolo</span></code></dt><dd><p>il tipo <code class="docutils literal notranslate"><span class="pre">single</span></code> creerà un singolo round, con un match tra il primo e secondo concorrente
+e, se <span class="guilabel">finali</span> è impostato a <code class="docutils literal notranslate"><span class="pre">2</span></code>, un altro tra il terzo e il quarto concorrente;</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Al</span> <span class="pre">meglio</span> <span class="pre">di</span> <span class="pre">tre</span> <span class="pre">match</span></code></dt><dd><p>il tipo <code class="docutils literal notranslate"><span class="pre">bestof3</span></code> creerà al massimo tre turni e la finale sarà vinta dal concorrente che ne
+vince almeno due.</p>
+</dd>
+</dl>
+<p>Non appena i risultati di tutti i turni sono stati inseriti, l'assegnazione dei <em>premi finali</em>
+avviene automaticamente.</p>
+</div>
+<div class="section" id="ritiri">
+<span id="id3"></span><h3><a class="toc-backref" href="#id22">Ritiri</a><a class="headerlink" href="#ritiri" title="Link a questa intestazione">¶</a></h3>
+<p>Il campo <span class="guilabel">ritiri</span> consente di scegliere un meccanismo diverso per calcolare il valore
+<code class="docutils literal notranslate"><span class="pre">bucholz</span></code> quando ci sono concorrenti <cite>ritirati</cite>. Normalmente quel valore viene calcolato come
+somma dei <code class="docutils literal notranslate"><span class="pre">punti</span></code> degli avversari incontrati da un determinato contendente, misurando in
+pratica la loro forza. Quando uno (o più) di questi avversari smette di giocare, il loro
+punteggio rimane costante e quindi non contribuisce alla classifica dei concorrenti che ha
+incontrato. Nei tornei altamente competitivi questo può essere visto come una penalità, quindi
+abbiamo cercato di immaginare un meccanismo per mitigare l'effetto. Le opzioni sono:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">none</span></code></dt><dd><p>il metodo classico, nessun aggiustamento: il valore <code class="docutils literal notranslate"><span class="pre">bucholz</span></code> è la semplice somma dei punti
+degli avversari incontrati</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trend</span></code></dt><dd><p>calcola il <em>punteggio medio</em> del giocatore ritirato (escludendo eventuali incontri con il
+<em>fantasma</em>) e assegna un <em>bonus extra</em> ai suoi avversari, in modo che il loro <code class="docutils literal notranslate"><span class="pre">bucholz</span></code>
+viene <em>aumentato artificialmente</em> di un valore uguale a quella media moltiplicata per il
+numero di turni; in altre parole, è <em>come se</em> il giocatore ritirato avesse continuato a
+giocare allo stesso livello</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trend70</span></code></dt><dd><p>simile alla precedente, ma viene considerato il 70% del punteggio medio</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Avvertimento</p>
+<p>Si tratta di approccio <strong>sperimentale</strong>, comprendi bene le implicazioni prima di
+usarlo!</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="torneo.html">Gestione torneo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torneo.html#concorrenti">Concorrenti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torneo.html#primo-turno">Primo turno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torneo.html#incontri">Incontri</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torneo.html#classifica">Classifica</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concorrenti.html">Correzione concorrenti</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigazione</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduzione</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="interfacciautente.html">Interfaccia utente</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="autenticazione.html">Autenticazione</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="anagrafiche.html">Anagrafiche di base</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="filtri.html">Filtri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="azionistd.html">Inserimento, cancellazione e modifica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utenti.html">Gestione utenti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="giocatori.html">Gestione giocatori</a></li>
+<li class="toctree-l3"><a class="reference internal" href="club.html">Gestione club</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utenticlub.html">Gestione associazione utenti di un club</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campionati.html">Gestione campionati</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Gestione tornei</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#voci-del-menu">Voci del menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inserimento-e-modifica">Inserimento e modifica</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="valutazioni.html">Gestione valutazioni Glicko</a></li>
+<li class="toctree-l3"><a class="reference internal" href="valutazionigiocatori.html">Valutazioni dei giocatori</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="altre.html">Altre finestre</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stampati.html">Stampati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendici.html">Appendici</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="interfacciautente.html">Interfaccia utente</a><ul>
+  <li><a href="anagrafiche.html">Anagrafiche di base</a><ul>
+      <li>Previous: <a href="campionati.html" title="capitolo precedente">Gestione campionati</a></li>
+      <li>Next: <a href="torneo.html" title="capitolo successivo">Gestione torneo</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Ricerca veloce</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Vai" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tornei.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

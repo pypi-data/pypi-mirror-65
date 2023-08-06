@@ -1,0 +1,15 @@
+-r base.txt
+
+beautifulsoup4==4.9.0
+coverage==5.1.0
+metapensiero.sqlalchemy.dbloady==2.10
+more-itertools==8.2.0
+progressbar2==3.50.1
+pytest-cov==2.8.1
+pytest==5.4.1
+python-utils==2.4.0
+soupsieve==2.0
+wcwidth==0.1.9
+webtest==2.0.34
+
+-e .

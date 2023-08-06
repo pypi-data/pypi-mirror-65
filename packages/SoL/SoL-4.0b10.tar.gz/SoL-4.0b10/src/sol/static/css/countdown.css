@@ -1,0 +1,58 @@
+/* -*- coding: utf-8 -*-
+ * :Project:   SoL -- Countdown page styles
+ * :Created:   mer 27 apr 2016 10:25:43 CEST
+ * :Author:    Lele Gaifax <lele@metapensiero.it>
+ * :License:   GNU General Public License version 3 or later
+ * :Copyright: © 2016 Lele Gaifax
+ */
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align: center;
+}
+
+.hint {
+    font:normal 11px arial,tahoma,helvetica,sans-serif;
+}
+
+img {
+    border: none;
+}
+
+.invisible {
+    display: none;
+}
+
+div #stop-sign {
+    width: 414px;
+}
+
+#buttons {
+    padding-top: 15px;
+}
+
+#stop-sign {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.swing-left {
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+}
+
+.swing-right {
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+}

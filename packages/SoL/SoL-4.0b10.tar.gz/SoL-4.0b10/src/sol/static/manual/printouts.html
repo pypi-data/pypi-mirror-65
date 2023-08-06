@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sol.printouts -- PDF printouts generators &#8212; SoL 4 developers documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sol.views -- Pyramid views" href="views.html" />
+    <link rel="prev" title="sol.models.utils -- Utilities" href="utils.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sol.printouts">
+<span id="sol-printouts-pdf-printouts-generators"></span><h1><a class="reference internal" href="#module-sol.printouts" title="sol.printouts"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code></a> -- PDF printouts generators<a class="headerlink" href="#module-sol.printouts" title="Permalink to this headline">¶</a></h1>
+<p>This module uses ReportLab to produce all the needed printouts.</p>
+<dl class="py data">
+<dt id="sol.printouts.badgename_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">badgename_style</code><em class="property"> = &lt;ParagraphStyle 'Italic'&gt;</em><a class="headerlink" href="#sol.printouts.badgename_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the player name on the badges</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.base_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">base_style</code><em class="property"> = &lt;reportlab.lib.styles.StyleSheet1 object&gt;</em><a class="headerlink" href="#sol.printouts.base_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The base style used to build the document</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.caption_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">caption_style</code><em class="property"> = &lt;ParagraphStyle 'Italic'&gt;</em><a class="headerlink" href="#sol.printouts.caption_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the caption of the table's columns</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.cardinfo_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">cardinfo_style</code><em class="property"> = &lt;ParagraphStyle 'Italic'&gt;</em><a class="headerlink" href="#sol.printouts.cardinfo_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the additional info on the score cards</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.cardname_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">cardname_style</code><em class="property"> = &lt;ParagraphStyle 'Italic'&gt;</em><a class="headerlink" href="#sol.printouts.cardname_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the player name on the score cards</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.cardsmall_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">cardsmall_style</code><em class="property"> = &lt;ParagraphStyle 'Normal'&gt;</em><a class="headerlink" href="#sol.printouts.cardsmall_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for most of the text on the score cards</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.cardtitle_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">cardtitle_style</code><em class="property"> = &lt;ParagraphStyle 'Normal'&gt;</em><a class="headerlink" href="#sol.printouts.cardtitle_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the title of the score cards</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.heading_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">heading_style</code><em class="property"> = &lt;ParagraphStyle 'Heading2'&gt;</em><a class="headerlink" href="#sol.printouts.heading_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the heading paragraphs of the document</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.normal_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">normal_style</code><em class="property"> = &lt;ParagraphStyle 'Normal'&gt;</em><a class="headerlink" href="#sol.printouts.normal_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for most of the paragraphs of the document</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.prizes_width">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">prizes_width</code><em class="property"> = 56.69291338582677</em><a class="headerlink" href="#sol.printouts.prizes_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the <cite>prizes</cite> columns</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.rank_width">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">rank_width</code><em class="property"> = 22.67716535433071</em><a class="headerlink" href="#sol.printouts.rank_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the <cite>rank</cite> columns</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.scores_width">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">scores_width</code><em class="property"> = 28.346456692913385</em><a class="headerlink" href="#sol.printouts.scores_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the <cite>scores</cite> columns</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.subtitle_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">subtitle_style</code><em class="property"> = &lt;ParagraphStyle 'Heading1'&gt;</em><a class="headerlink" href="#sol.printouts.subtitle_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the subtitle of the document</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="sol.printouts.title_style">
+<code class="sig-prename descclassname">sol.printouts.</code><code class="sig-name descname">title_style</code><em class="property"> = &lt;ParagraphStyle 'Title'&gt;</em><a class="headerlink" href="#sol.printouts.title_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>The style used for the title of the document</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">SoL modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i18n.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code> -- Internationalization utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">SoL modules</a><ul>
+      <li>Previous: <a href="utils.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.utils</span></code> -- Utilities</a></li>
+      <li>Next: <a href="views.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/printouts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

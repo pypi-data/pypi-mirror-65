@@ -1,0 +1,57 @@
+diff --git a/pygal/test/test_graph.py b/pygal/test/test_graph.py
+index 3ee99f1..4a5cf66 100644
+--- a/pygal/test/test_graph.py
++++ b/pygal/test/test_graph.py
+@@ -292,7 +292,7 @@ def test_unicode_labels_decode(Chart):
+     chart.add(u('Série1'), [{
+         'value': 1,
+         'xlink': 'http://1/',
+-        'label': u('{\}Â°ĳæð©&×&<—×€¿_…\{_…')
++        'label': u('{\\\\}Â°ĳæð©&×&<—×€¿_…\\\\{_…')
+     }, {
+         'value': 2,
+         'xlink': {
+@@ -316,7 +316,7 @@ def test_unicode_labels_python2(Chart):
+     chart.add(u('Série1'), [{
+         'value': 1,
+         'xlink': 'http://1/',
+-        'label': eval("u'{\}Â°ĳæð©&×&<—×€¿_…\{_…'")
++        'label': eval("u'{\\\\}Â°ĳæð©&×&<—×€¿_…\\\\{_…'")
+     }, {
+         'value': 2,
+         'xlink': {
+@@ -340,7 +340,7 @@ def test_unicode_labels_python3(Chart):
+     chart.add(u('Série1'), [{
+         'value': 1,
+         'xlink': 'http://1/',
+-        'label': eval("'{\}Â°ĳæð©&×&<—×€¿_…\{_…'")
++        'label': eval("'{\\\\}Â°ĳæð©&×&<—×€¿_…\\\\{_…'")
+     }, {
+         'value': 2,
+         'xlink': {
+diff --git a/setup.cfg b/setup.cfg
+index 40a8157..1c415bc 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,7 +1,7 @@
+-[wheel]
++[bdist_wheel]
+ universal = 1
+ 
+-[pytest]
++[tool:pytest]
+ flake8-ignore = 
+ 	*.py E731 E402
+ 	pygal/__init__.py F401
+diff --git a/setup.py b/setup.py
+index c0f2dd3..c9c1ec1 100644
+--- a/setup.py
++++ b/setup.py
+@@ -75,7 +75,6 @@ setup(
+     keywords=[
+         "svg", "chart", "graph", "diagram", "plot", "histogram", "kiviat"],
+     setup_requires=['pytest-runner'],
+-    test_requires=tests_requirements,
+     cmdclass={'test': PyTest},
+     package_data={'pygal': ['css/*', 'graph/maps/*.svg']},
+     extras_require={
