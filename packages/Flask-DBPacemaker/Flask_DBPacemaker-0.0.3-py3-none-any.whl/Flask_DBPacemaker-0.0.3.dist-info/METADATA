@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: Flask-DBPacemaker
+Version: 0.0.3
+Summary: The main purpose for hook connection with db, based on flask-sqlalchemy and Flask-APScheduler.
+Home-page: https://github.com/Ron-Chang/flask_dbpacemaker
+Author: Ron Chang
+Author-email: ron.hsien.chang@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Flask (>=1.0.2)
+Requires-Dist: Flask-APScheduler (>=1.11.0)
+Requires-Dist: Flask-SQLAlchemy (>=2.3.2)
+
+# Flask Database Pacemaker
+<a href="https://www.buymeacoffee.com/ronchang" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" align="right"></a>
+
+`python_requires>=3.6`
+`Flask>=1.0.2`
+`Flask-APScheduler>=1.11.0`
+`Flask-SQLAlchemy>=2.3.2`
+
+## - How to use
+
+- Import package at `app.py`
+```python
+    from flask_dbpacemaker import DBPacemaker
+```
+
+- Append this after you declare `config` and `app`
+
+```
+DBPacemaker.run(app=app, config=config, interval=60, display=True)
+```
+
+- If you already have a exist scheduler, remember add it as parameters.
+```
+DBPacemaker.run(app, config, 60, True, secheduler=secheduler)
+```
+
+Note: The job trigger is 'interval', and interval unit is set as seconds.
+
+
