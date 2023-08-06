@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: GOUDA
+Version: 0.3.0
+Summary: Good Old Utilities for Data Analysis!
+Home-page: https://github.com/pyscaffold/pyscaffold/
+Author: Sean Mullan
+Author-email: sean-mullan@uiowa.edu
+License: mit
+Project-URL: Documentation, https://pyscaffold.org/
+Description: =====
+        GOUDA
+        =====
+        
+        
+        Good Old Utilities for Data Analysis
+        
+        
+        Description
+        ===========
+        
+        These are a bunch of miscellaneous data/image utilities that have been made as needed. Full documentation on its way.
+        
+        
+        Note
+        ====
+        
+        This project has been set up using PyScaffold 3.2.1. For details and usage
+        information on PyScaffold see https://pyscaffold.org/.
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: image
+Provides-Extra: testing
