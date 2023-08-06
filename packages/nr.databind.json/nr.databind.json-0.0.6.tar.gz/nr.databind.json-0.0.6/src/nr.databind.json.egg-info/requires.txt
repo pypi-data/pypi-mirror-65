@@ -1,0 +1,9 @@
+nr.collections<1.0.0,>=0.0.1
+nr.databind.core<0.1.0,>=0.0.1
+nr.interface<0.1.0,>=0.0.1
+nr.parsing.date<0.2.0,>=0.1.0
+nr.pylang.utils<0.1.0,>=0.0.1
+
+[test]
+PyYAML
+pytest
