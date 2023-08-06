@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: gitlab-mirror-maker
+Version: 0.1.0
+Summary: GitLab Mirror Maker - Automatically mirror your repositories from GitLab to GitHub
+Author: Grzegorz Dlugoszewski
+Author-email: g.dlugoszewski@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
