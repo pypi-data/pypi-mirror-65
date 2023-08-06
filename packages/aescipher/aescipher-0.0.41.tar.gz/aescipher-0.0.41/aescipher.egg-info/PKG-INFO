@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: aescipher
+Version: 0.0.41
+Summary: Use AES-256 to encrypt everything with ease!
+Home-page: https://github.com/foxe6-temp/aescipher
+Author: f̣ộx̣ệ6
+Author-email: foxe6@protonmail.com
+License: AGPL-3.0
+Description: # AES Cipher
+        
+        <i>Use AES-256 to encrypt everything with ease!</i>
+        
+        # Hierarchy
+        
+        ```
+        aes_cipher
+        '---- AESCipher()
+            |---- encrypt()
+            '---- decrypt()
+        ```
+        
+        # Example
+        
+        ## python
+        ```python
+        from aes_cipher import *
+        key = "abc" or b"abc"
+        plaintext = "abc" or b"abc"
+        ciphertext = AESCipher(key).encrypt(plaintext)
+        print(ciphertext)
+        # gZ46WXSNkc9isggV31YQ0YKwT3luFvgYwzetERtTW2g=
+        print(plaintext == AESCipher(key).decrypt(ciphertext))
+        # True
+        ```
+        
+        ## shell
+        ```shell script
+        rem aes_cipher.exe {e|d} <key> {<plaintext>|<ciphertext>}
+        aes_cipher.exe e "abc" "abc"
+        aes_cipher.exe d "abc" "gZ46WXSNkc9isggV31YQ0YKwT3luFvgYwzetERtTW2g="
+        ```
+        
+Keywords: aes cipher
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
