@@ -1,0 +1,11 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include JSON files (generated values)
+include stix_shifter_modules/azure_sentinel/configuration/azure_sentinel_config.json 
+include stix_shifter_modules/azure_sentinel/configuration/azure_sentinel_lang.json 
+include stix_shifter_modules/azure_sentinel/stix_translation/json/from_stix_map.json 
+include stix_shifter_modules/azure_sentinel/stix_translation/json/to_stix_map.json 
