@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: transiter
+Version: 0.4.2.dev712
+Summary: HTTP web service for transit data
+Home-page: https://github.com/jamespfennell/transiter
+Author: James Fennell
+Author-email: jamespfennell@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: alembic (==1.4.1)
+Requires-Dist: apscheduler (==3.6.3)
+Requires-Dist: celery (==4.4.2)
+Requires-Dist: click (==7.0)
+Requires-Dist: decorator (==4.4.1)
+Requires-Dist: flask (==1.1.1)
+Requires-Dist: gunicorn (==20.0.4)
+Requires-Dist: gtfs-realtime-bindings (==0.0.6)
+Requires-Dist: inflection (==0.3.1)
+Requires-Dist: Jinja2 (==2.11.1)
+Requires-Dist: psycopg2-binary (==2.8.4)
+Requires-Dist: pytimeparse (==1.1.8)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: sqlalchemy (==1.3.13)
+Requires-Dist: strictyaml (==1.0.6)
+
+UNKNOWN
+
+
