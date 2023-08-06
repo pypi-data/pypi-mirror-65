@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: hypothesis-graphql
+Version: 0.2.0
+Summary: Hypothesis strategies for GraphQL schemas and queries
+License: MIT
+Keywords: hypothesis,graphql,testing
+Author: Dmitry Dygalo
+Author-email: dadygalo@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Framework :: Hypothesis
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: graphql-core (>=3.1.0,<4.0.0)
+Requires-Dist: hypothesis (>=5.8.0,<6.0.0)
