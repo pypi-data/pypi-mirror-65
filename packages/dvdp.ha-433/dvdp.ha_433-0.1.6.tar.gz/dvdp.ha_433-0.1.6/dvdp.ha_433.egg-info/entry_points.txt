@@ -1,0 +1,5 @@
+[console_scripts]
+ha_433 = dvdp.ha_433.__main__:main
+record_433 = dvdp.recorder_433.__main__:main
+transmit_433 = dvdp.transmitter_433.__main__:main
+
