@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+scalr/VERSION
+scalr/__init__.py
+scalr/api_client.py
+scalr/scalr.py
+scalr/utils.py
+scalr_api.egg-info/PKG-INFO
+scalr_api.egg-info/SOURCES.txt
+scalr_api.egg-info/dependency_links.txt
+scalr_api.egg-info/not-zip-safe
+scalr_api.egg-info/requires.txt
+scalr_api.egg-info/top_level.txt
+tests/__init__.py
