@@ -1,0 +1,8 @@
+.navbar-djcorecap {
+    @extend .navbar;
+    @extend .navbar-expand-md;
+    @extend .navbar-light;
+    @extend .bg-light;
+}
+
+@import "/static/thirdparty/bootstrap/4.1.3/scss/bootstrap.scss";
