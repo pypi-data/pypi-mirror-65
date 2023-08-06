@@ -1,0 +1,4 @@
+#!python
+
+from TFEA import annotate_motifs
+annotate_motifs.main()
