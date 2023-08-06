@@ -1,0 +1,44 @@
+# third-part dependency:
+pandas==1.0.3
+numpy==1.17.3
+# tensorflow >>
+tensorflow-datasets==2.0.0 # 可能依赖$pip install siphash
+# tensorflow_hub==0.7.0 # 可以不用该库，transformers代替
+# sentencepiece==0.1.85 # 可以不用该库，for bert tokenization.py
+# pytorch >>
+torch==1.4.0
+torchvision>=0.4.2  # see https://github.com/pytorch/vision/releases
+# ray-project >>
+# e.g. pip install -U ray==0.8.4 -i https://pypi.tuna.tsinghua.edu.cn/simple
+ray>=0.8.4
+# redis cluster: redis和redis-py-cluster冲突，可能需要先uninstall已安装高版本的redis, 然后再安装redis-py-cluster, 最后再$pip install -U redis==3.0.1
+redis==3.0.1
+redis-py-cluster==2.0.0
+# self-research framework:
+py-common-util>=0.1.6
+# ###########################
+# 机器学习算法库
+# 1.numba (待定）
+# 2.ta-lib, finta(https://github.com/peerchemist/finta)
+deap==1.3.1 # 遗传算法
+scikit_learn==0.22.2 # tpot库用到了scikit_learn
+tpot==0.11.1 # 用遗传算法优化机器学习效果的自动机器学习库
+#xgboost==0.90 # mac os上用$brew install xgboost命令手工安装
+pygraphviz==1.5 # 在mac osx上安装pygraphviz展示deap生成的个体图: pip3 install --install-option="--include-path=/usr/local/include/" --install-option="--library-path=/usr/local/lib/" pygraphviz
+# ###########################
+# for reinforcement learning(baselines可以参考：https://github.com/hill-a/stable-baselines)
+# 手工安装tf2分支版本的gym baselines：$ mkdir -p ~/tmp/gym_baselines; touch ~/tmp/gym_baselines/install.txt; cd ~/tmp/gym_baselines; git clone -b tf2 https://github.com/openai/baselines.git; cd baselines/; python setup.py install --record ~/tmp/gym_baselines/install.txt
+# 手工卸载gym baselines：sudo cat ~/tmp/gym_baselines/install.txt | xargs rm -rf
+# gym==0.15.4
+opencv-python=4.1.1.26
+# for cython and build
+cython==0.29.14
+wheel==0.33.4
+# bert of huggingface
+transformers==2.4.1
+# robo-advisor
+cvxopt==1.2.4
+# ############################
+# tushare==1.2.54 #生产环境不用安装该库
+# beautifulsoup4==4.8.2 #抓取并解析html，生产环境不用安装该库
+

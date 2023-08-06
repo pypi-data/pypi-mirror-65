@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: skydl
+Version: 0.9.9
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: tony
+Author-email: UNKNOWN
+License: BSD
+Description: # skydl
+        high efficiency deep learning framework
+        
+        # add skydl quickly
+        pip install skydl (or: pip install --no-deps skydl)
+        
+        # how to use skydl
+        ```
+        >>> import skydl
+        >>> skydl.__version__
+        ```
+        
+        # how to setup
+        $python setup.py install or $python3 setup.py sdist bdist_wheel --universal , it will create folder: build, dist, egg-info
+        
+Keywords: robot,ai,reinforcement learning,machine learning,RL,ML,tensorflow,pytorch,ray,skydl,high efficiency,deep learning
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Framework :: Robot Framework :: Library
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
