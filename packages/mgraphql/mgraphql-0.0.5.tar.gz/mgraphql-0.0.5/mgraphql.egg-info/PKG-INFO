@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: mgraphql
+Version: 0.0.5
+Summary: Python library link with graphql
+Home-page: https://github.com/mahekan/mgraphql
+Author: ayaz abdi
+Author-email: mayazabdi@gmail.com
+License: UNKNOWN
+Description: # mgraphql
+        Python library link with graphql
+        
+        ------------------------------------------------
+        
+        ```
+        from mgraphql import Mgraphql
+        ```
+        
+        ```
+        query ="""
+        {
+          viewer {
+            login
+          }
+          rateLimit {
+            limit
+            cost
+            remaining
+            resetAt
+          }
+        }
+        """
+        ```
+        
+        ```
+        variables = {
+        
+        your variables
+        
+        type Python Dictionary 
+        
+        }
+        ```
+        
+        ```
+        url = 'https://api.github.com/graphql'
+        ```
+        
+        # token default none
+        ```
+        mgraph = Mgraphql(url,token)
+        ```
+        
+        ```
+        query =mgraph.query(query)
+        ```
+        
+        ```
+        mutation =mgraph.mutation(query,variables)
+        ```
+        
+        ```
+        print(mutation)
+        print(query)
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
