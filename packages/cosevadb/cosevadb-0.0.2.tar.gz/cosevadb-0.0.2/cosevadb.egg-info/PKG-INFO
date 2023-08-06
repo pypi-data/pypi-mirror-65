@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: cosevadb
+Version: 0.0.2
+Summary: SQL Database of csv files(RDBMS). Execute SQL queries on csv files.
+Home-page: https://github.com/ppml38/cosevadb
+Author: Prakash Maria Liju P
+Author-email: ppml38@gmail.com
+License: UNKNOWN
+Description: Python module to handle csv files as tables of SQL RDBMS.
+        We can pass SQL queries to parse and retreive data from csv files
+        
+        ### Usage
+        ```
+        import cosevadb
+        cosevadb.query("select name,age from data/passengers.csv,data/header.csv where native='USA'")
+        ```
+        #### Return type
+        ```
+        [sqlcode,'<success/error message>',[result/empty]]
+        
+        On error  >>> SQLCode=-1, empty result list
+        On success>>> SQLCode=0
+        ```
+        #### Reserved words
+        SELECT
+        
+        FROM
+        
+        WHERE
+        
+        ### Operators supported
+        Arithmatic operators : +, -, *, /, %
+        
+        Comparison operators : >, <, >=, <=, =, !=
+        
+        Logical operators : &,|
+        
+        ### Operator precedence (in order from high to low)
+        '%'
+        
+        '/'
+        
+        '*'
+        
+        '+'
+        
+        '-'
+        
+        '<','<='
+        
+        '>','>='
+        
+        '!'
+        
+        '='
+        
+        '&'
+        
+        '|'
+        
+        ### File formats
+        Comma seperated value(.csv) files.
+        
+        ### Instructions
+        * String values should be within '<string>'
+        * A file with headers(Comma separated) should be passed along with csv data file
+        * As of now only select operations implemented
+        * Comparison operator '=' is used instead of '=='
+        * Expression evaluation will use BODMAS and have individual operator precedence unlike python or java. i.e., '9-7+1' will result '1'
+        
+        ### Licence
+        MIT Licence. Contributions are welcome
+        
+        ![](screenshot.png)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
