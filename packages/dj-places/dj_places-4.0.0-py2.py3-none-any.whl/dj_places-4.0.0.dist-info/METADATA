@@ -1,0 +1,255 @@
+Metadata-Version: 2.1
+Name: dj-places
+Version: 4.0.0
+Summary: A django app for store places using Google Maps API
+Home-page: https://github.com/oscarmcm/django-places
+Author: Oscar Cortez
+Author-email: om.cortez.2010@gmail.com
+License: MIT
+Project-URL: Funding, https://donate.pypi.org
+Project-URL: Say Thanks!, http://saythanks.io/to/oscarmcm
+Project-URL: Source, https://github.com/oscarmcm/django-places/
+Project-URL: Tracker, https://github.com/oscarmcm/django-places/issues
+Keywords: django geocomplete google maps places
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: Django
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: Django (>=3.0)
+
+
+django-places
+=============================
+
+A Django app for store places with autocomplete function and a related map to the selected place.
+
+Badges
+---------
+
+[![PyPI](https://badge.fury.io/py/dj-places.png)](https://badge.fury.io/py/dj-places)
+[![Travis-ci](https://travis-ci.org/oscarmcm/django-places.png?branch=master)](https://travis-ci.org/oscarmcm/django-places)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6433fc7fc384f63b9f41fc251ee70b1)](https://www.codacy.com/app/om-cortez-2010/django-places?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oscarmcm/django-places&amp;utm_campaign=Badge_Grade)
+
+Quickstart
+----------
+
+Install dj-places and add it to your installed apps:
+
+    $ pip install dj-places
+
+    INSTALLED_APPS = (
+    	...
+    	'places',
+    	...
+    )
+
+Add the following settings and maps api key ( [read more here](https://developers.google.com/maps/documentation/javascript/reference/map) ):
+
+```python
+PLACES_MAPS_API_KEY='YourAwesomeUltraSecretKey'
+PLACES_MAP_WIDGET_HEIGHT=480
+PLACES_MAP_OPTIONS='{"center": { "lat": 38.971584, "lng": -95.235072 }, "zoom": 10}'
+PLACES_MARKER_OPTIONS='{"draggable": true}'
+```
+
+Then use it in a project:
+
+```python
+from django.db import models
+from places.fields import PlacesField
+
+
+class MyLocationModel(models.Model):
+    location = PlacesField()
+
+```
+
+This enables the following API:
+
+```python
+    >>> from myapp.models import ModelName
+    >>> poi = ModelName.objects.get(id=1)
+    >>> poi.position
+    Place('Metrocentro, Managua, Nicaragua', 52.522906, 13.41156)
+    >>> poi.position.place
+    'Metrocentro, Managua, Nicaragua'
+    >>> poi.position.latitude
+    52.522906
+    >>> poi.position.longitude
+    13.41156
+```
+
+For using outside the Django Admin:
+
+```html
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+    {{ form.media }}
+</form>
+```
+Remember to add the `{{ form.media }}` in your template.
+
+Demo
+------
+
+![](http://g.recordit.co/LheQH0HDMR.gif)
+
+
+Running Tests
+--------------
+
+Does the code actually work?
+
+    source <YOURVIRTUALENV>/bin/activate
+    (myenv) $ pip install -r requirements_test.txt
+    (myenv) $ python runtests.py
+
+Credits
+---------
+
+Tools used in rendering this package:
+
+*  [Cookiecutter](https://github.com/audreyr/cookiecutter)
+*  [cookiecutter-djangopackage](https://github.com/pydanny/cookiecutter-djangopackage)
+*  [jquery-geocomplete](https://github.com/ubilabs/geocomplete) (_no longer used in the project._)
+
+Similar Projects
+------------
+
+*  [Django Location Field](https://github.com/caioariede/django-location-field)
+*  [Django GeoPosition](https://github.com/philippbosch/django-geoposition)
+
+
+# Changelog
+
+## [Unreleased](https://github.com/oscarmcm/django-places/tree/HEAD)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v3.1.0...HEAD)
+
+**Implemented enhancements:**
+
+- Update fields.py for Django 3.0 [\#24](https://github.com/oscarmcm/django-places/pull/24) ([dryan](https://github.com/dryan))
+
+**Closed issues:**
+
+-  Deprecated Field.\_get\_val\_from\_obj\(\) [\#25](https://github.com/oscarmcm/django-places/issues/25)
+
+## [v3.1.0](https://github.com/oscarmcm/django-places/tree/v3.1.0) (2018-10-30)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v3.0.0...v3.1.0)
+
+**Implemented enhancements:**
+
+- Support marker options and set marker as draggable [\#22](https://github.com/oscarmcm/django-places/pull/22) ([oscarmcm](https://github.com/oscarmcm))
+
+**Fixed bugs:**
+
+- Empty Map in admin [\#16](https://github.com/oscarmcm/django-places/issues/16)
+
+## [v3.0.0](https://github.com/oscarmcm/django-places/tree/v3.0.0) (2018-10-29)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v2.0.0...v3.0.0)
+
+**Implemented enhancements:**
+
+- Load map-options settings [\#21](https://github.com/oscarmcm/django-places/pull/21) ([oscarmcm](https://github.com/oscarmcm))
+- Add support for inline admin [\#20](https://github.com/oscarmcm/django-places/pull/20) ([oscarmcm](https://github.com/oscarmcm))
+
+**Fixed bugs:**
+
+- Multiple PlacesField\(\) Objects declaration in one Model clones data from one Object to the other. [\#14](https://github.com/oscarmcm/django-places/issues/14)
+- Remove jquery geocomplete [\#19](https://github.com/oscarmcm/django-places/pull/19) ([oscarmcm](https://github.com/oscarmcm))
+
+## [v2.0.0](https://github.com/oscarmcm/django-places/tree/v2.0.0) (2017-09-10)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.1.4...v2.0.0)
+
+**Implemented enhancements:**
+
+- Update for django 1.11 [\#12](https://github.com/oscarmcm/django-places/pull/12) ([pavillet](https://github.com/pavillet))
+
+**Fixed bugs:**
+
+- Django 1.11 not render widget [\#9](https://github.com/oscarmcm/django-places/issues/9)
+
+## [v1.1.4](https://github.com/oscarmcm/django-places/tree/v1.1.4) (2017-05-08)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.1.3...v1.1.4)
+
+**Fixed bugs:**
+
+- undefined name Location [\#10](https://github.com/oscarmcm/django-places/issues/10)
+
+## [v1.1.3](https://github.com/oscarmcm/django-places/tree/v1.1.3) (2017-05-07)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.1.2...v1.1.3)
+
+**Fixed bugs:**
+
+- Kwargs problem [\#8](https://github.com/oscarmcm/django-places/issues/8)
+- Problems with djplaces [\#6](https://github.com/oscarmcm/django-places/issues/6)
+- i18n support [\#3](https://github.com/oscarmcm/django-places/issues/3)
+
+## [v1.1.2](https://github.com/oscarmcm/django-places/tree/v1.1.2) (2017-05-07)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.1.1...v1.1.2)
+
+## [v1.1.1](https://github.com/oscarmcm/django-places/tree/v1.1.1) (2017-01-22)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.1.0...v1.1.1)
+
+## [v1.1.0](https://github.com/oscarmcm/django-places/tree/v1.1.0) (2017-01-09)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.0.5...v1.1.0)
+
+## [v1.0.5](https://github.com/oscarmcm/django-places/tree/v1.0.5) (2016-07-26)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.0.4...v1.0.5)
+
+**Implemented enhancements:**
+
+- Add own jquery to avoid conflicts and be able to used in admin and templates [\#5](https://github.com/oscarmcm/django-places/pull/5) ([darwing1210](https://github.com/darwing1210))
+
+## [v1.0.4](https://github.com/oscarmcm/django-places/tree/v1.0.4) (2016-07-20)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.0.3...v1.0.4)
+
+## [v1.0.3](https://github.com/oscarmcm/django-places/tree/v1.0.3) (2016-06-01)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.0.2...v1.0.3)
+
+## [v1.0.2](https://github.com/oscarmcm/django-places/tree/v1.0.2) (2016-05-12)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.0.1...v1.0.2)
+
+## [v1.0.1](https://github.com/oscarmcm/django-places/tree/v1.0.1) (2016-05-12)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/v1.0.0...v1.0.1)
+
+**Fixed bugs:**
+
+- Geocomplete is not a function [\#1](https://github.com/oscarmcm/django-places/issues/1)
+
+**Merged pull requests:**
+
+- Fixes \#1 Geocomplete is not a function [\#2](https://github.com/oscarmcm/django-places/pull/2) ([oscarmcm](https://github.com/oscarmcm))
+
+## [v1.0.0](https://github.com/oscarmcm/django-places/tree/v1.0.0) (2016-04-28)
+
+[Full Changelog](https://github.com/oscarmcm/django-places/compare/76c5eebb54bbffa7840162934b0086ce96a9eade...v1.0.0)
+
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
+
+
