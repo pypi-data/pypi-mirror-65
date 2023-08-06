@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pylorem/__init__.py
+pylorem/lorem.json
+pylorem/lorem.py
+pylorem.egg-info/PKG-INFO
+pylorem.egg-info/SOURCES.txt
+pylorem.egg-info/dependency_links.txt
+pylorem.egg-info/top_level.txt
+tests/__init__.py
+tests/test_lorem_ipsum.py
