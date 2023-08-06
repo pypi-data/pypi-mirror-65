@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: shor
+Version: 0.0.2a2
+Summary: Quantum Computing for Humans
+Home-page: https://github.com/shor-team/shor
+Author: shor.dev
+Author-email: shordotdev@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.9.1)
+
+# shor
+The Python Quantum Computing Library
+
+
