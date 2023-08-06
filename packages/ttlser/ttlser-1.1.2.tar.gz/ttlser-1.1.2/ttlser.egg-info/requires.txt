@@ -1,0 +1,15 @@
+rdflib>=5.0.0.dev0
+
+[dev]
+pytest-cov
+wheel
+
+[test]
+pytest
+pytest-runner
+docopt
+joblib
+
+[ttlfmt]
+docopt
+joblib
