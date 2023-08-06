@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: commit-generation-datasets
+Version: 0.0.3
+Summary: Dataset downloader for the commits generation project
+Home-page: https://github.com/commits-generation/commits-datasets
+Author: Wassim Benzarti
+Author-email: m.wassim.benzarti@gmail.com
+License: UNKNOWN
+Description: # Dataset downloader
+        #### For the commit generation project
+        This is a package for the commit generation project that lets you download the datasets
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
