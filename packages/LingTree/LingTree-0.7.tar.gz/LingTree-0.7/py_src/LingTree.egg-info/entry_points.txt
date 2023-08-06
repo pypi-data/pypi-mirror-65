@@ -1,0 +1,7 @@
+[console_scripts]
+lingtree_convert = lingtree:convert_main
+lingtree_html = lingtree.csstree:csstree_main
+lingtree_merge = lingtree.conll:merge_main
+lingtree_recombine = lingtree.conll:recombine_main
+lingtree_totext = lingtree:totext_main
+
