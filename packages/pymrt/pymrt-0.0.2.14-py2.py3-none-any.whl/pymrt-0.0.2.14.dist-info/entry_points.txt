@@ -1,0 +1,16 @@
+[console_scripts]
+pymrt_batch_compute = scripts_cli.batch_compute:main
+pymrt_calc_mask = scripts_cli.calc_mask:main
+pymrt_coil_combine = scripts_cli.coil_combine:main
+pymrt_compute = scripts_cli.compute:main
+pymrt_correlate = scripts_cli.correlate:main
+pymrt_ernst_calc = scripts_cli.ernst_calc:main
+pymrt_extract_nifti_bruker = scripts_cli.extract_nifti_bruker:main
+pymrt_gen_phantom = scripts_cli.gen_phantom:main
+pymrt_unwrap = scripts_cli.unwrap:main
+
+[gui_scripts]
+pymrt_ernst_angle = scripts_gui.flash_ernst_angle:main
+pymrt_mp2rage_b1t = scripts_gui.mp2rage_b1t_sensitivity_t1:main
+pymrt_mp2rage_t1 = scripts_gui.mp2rage_t1_sensitivity_b1t:main
+
