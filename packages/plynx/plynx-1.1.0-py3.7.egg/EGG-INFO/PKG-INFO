@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: plynx
+Version: 1.1.0
+Summary: ML platform
+Home-page: https://plynx.com
+Author: Ivan Khomyakov
+Author-email: ivan@plynx.com
+License: UNKNOWN
+Project-URL: Demo, https://plynx.com
+Project-URL: Source, https://github.com/plynx-team/plynx
+Description: Interactive, Scalable, Shareable and Reproducible ML experiments
+Keywords: data science,machine learning,pipeline,workflow,experiments
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Provides-Extra: all
+Provides-Extra: s3
+Provides-Extra: ssh
+Provides-Extra: gs
