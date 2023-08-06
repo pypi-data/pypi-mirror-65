@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['pfm', 'pfm.pf_command', 'pfm.util']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['Click>=6.0,<7.0', 'texttable>=1.0,<2.0']
+
+entry_points = \
+{'console_scripts': ['pfm = pfm.cli:main']}
+
+setup_kwargs = {
+    'name': 'pfm',
+    'version': '0.6.0',
+    'description': '',
+    'long_description': '.. image:: https://travis-ci.org/takahi-i/pfm.png?branch=master\n   :alt: Build status\n   :target: https://travis-ci.org/takahi-i/pfm\n\n=====================================================\npfm -- a ssh port forward manager for data scientists\n=====================================================\n\nData scientists launch a Jupyter Notebook servers to tackle each machine learning task.\nUsually local computers are not enough to handle multiple machine learning tasks.\nAnd therefore data scientists do their experiments in servers launched in remote hosts such as EC2 instances.\n\nTo connect Jupyter Notebook servers in remote hosts, we use ssh port forwarding.\nPort forwarding is useful since we do not consume resources in local PC.\n\nUnfortunately, when connecting servers in multiple remote hosts and ports numbers, we easily forget\nthe port number or assign the local port number which is used in another task. Especially when there are multiple remote\nhosts and ssh servers as the following image, understanding the combinations of remote hosts and local ports are difficult.\n\n.. image:: images/port-forwarding.jpeg\n   :height: 50px\n   :width: 50px\n   :scale: 40%\n\npfm manages the remote hosts and port numbers used in port forwarding. Users understand which local\nports are used and which ports are not. Once users register the port forwarding information, pfm generates\nssh parameters any time specifying the task name.\n\nInstall\n=======\n\nWe can install pfm with pip.\n\n::\n\n    pip install pfm\n\n\nUsage\n=====\n\nRegister settings of ssh port forwarding\n-----------------------------------------\n\n:code:`pfm add` registers port forward settings.\n\nRegister settings with options\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nThe following is a sample of adding port forward settings with command line options.\n\n::\n\n    $ pfm add -n image-classification --local-port 9999 --remote-port 8888 --ssh-server myml.aws.com --remote-host localhost\n\n:code:`pfm add` provides the following options.\n\n::\n\n    Usage: pfm add [OPTIONS]\n\n    add port forwarding target\n\n    Options:\n        -n, --name TEXT        name of port fowarding\n        --forward-type TEXT    port forwarding type [L (local) or R (remote)]\n        --local-port INTEGER   local port\n        --remote-port INTEGER  remote host port\n        --ssh-server TEXT      server to ssh login\n        --server-port INTEGER  server port\n        --remote-host TEXT     remote host for port forwarding\n        --login-user TEXT      login user of ssh server\n        --help                 Show this message and exit.\n\nNote that when local port number  (:code:`--local-port`)  is not specified, :code:`pfm add` automatically assigns the local port not to collide to other port forward settings.\n\nRegister settings with a argument\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nIf you think adding many options are tedious, :code:`pfm add` also provides argument style of registration.\n\nThe following is a sample of registration which forwards port 8888 in takahi-i-ml.aws.com to port 9999 of localhost with a local port forward setting.\n\n::\n\n    $pfm add -n image-classification "9999:localhost:8888 takahi-i-ml.aws.com"\n\nAs we see the above example is simple and just uses :code:`-n` option. Note that default forward type is set to local (L). If you want to set forward type\nto remote please specify the type with :code:`--forward_type` parameter.\n\nGenerate ssh port forward parameters\n-------------------------------------\n\nAfter the registration of port forward settings with :code:`pfm add` , we can generate ssh parameters with :code:`pfm param`.\n\n::\n\n    $ ssh `pfm param image-classification`\n\nOr we can also use :code:`pfm connect` in order to do same (Note that this command includes -A ssh option).\n\n::\n\n    $ pfm connect image-classification\n\n\nUpdate port forward settings\n----------------------------\n\nAfter the registration of port forward settings with :code:`pfm add` , we can modify ssh parameters with :code:`pfm update`.\nFor example, the following command changes the port forwarding type  of `image-classification` setting from local to remote.\n\n::\n\n    $ pfm update --name image-classification --forward-type R\n\n\nList registered ssh port forward settings\n------------------------------------------\n\nWe can see the list of registered port forward settings.\n\n::\n\n    $ pfm list\n    +----------------------+------------+------------+--------------------------------+--------------+-----------------+--------------------------------+--------------+\n    |         name         |    type    | local_port |          remote_host           | remote_port  |   login_user    |           ssh_server           | server_port  |\n    +======================+============+============+================================+==============+=================+================================+==============+\n    | image-processing     | L          | 9999       | localhost                      | 8888         | None            | my-ml-instance.aws.com         |              |\n    +----------------------+------------+------------+--------------------------------+--------------+-----------------+--------------------------------+--------------+\n    | text-processing      | L          | 7777       | localhost                      | 8888         | None            | my-ml-instance-2.aws.com       |              |\n    +----------------------+------------+------------+--------------------------------+--------------+-----------------+--------------------------------+--------------+\n\nDelete registered forwarding setting\n------------------------------------\n\nWhen a port forward settings is not needed, we can remove the setting with :code:`pfm delete` command\n\n::\n\n    $ pfm delete image-process\n\n\nLicense\n=======\n\n* Free software: MIT license\n\nResources\n=========\n\n`Slides on pfm <https://speakerdeck.com/takahiko03/pfm>`_.\n\n\nFor developers\n===============\n\n\nWe are welcome any contribution. For details, please see `CONTRIBUTING.rst <https://github.com/takahi-i/pfm/blob/master/CONTRIBUTING.rst>`_.\n',
+    'author': 'Takahiko Ito',
+    'author_email': 'takahiko03@gmail.com',
+    'maintainer': None,
+    'maintainer_email': None,
+    'url': None,
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'entry_points': entry_points,
+    'python_requires': '>=3.6,<4.0',
+}
+
+
+setup(**setup_kwargs)
