@@ -1,0 +1,204 @@
+Metadata-Version: 2.1
+Name: monitaur
+Version: 0.6.1
+Summary: Monitaur Client Library
+Home-page: UNKNOWN
+Author: Michael Herman
+Author-email: michael@monitaur.ai
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6, <3.9
+Description-Content-Type: text/markdown
+Requires-Dist: boto3 (>=1.10.45)
+Requires-Dist: dill (>=0.3.1.1)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: numpy (>=1.18.1)
+Requires-Dist: joblib (>=0.14.1)
+
+# Monitaur Client Library
+
+Tested with the following versions of Python:
+
+1. 3.8.1
+1. 3.7.6
+1. 3.6.10
+
+## Install
+
+```sh
+$ pip install monitaur
+```
+
+## Methods
+
+1. `add_model`: Adds metadata about the machine learning model to the system.
+1. `get_credentials`: Retrieves AWS credentials.
+1. `record_training_tabular`: Sends trained model and anchors data to S3.
+1. `record_training_image`: Sends trained image model to S3.
+1. `record_transaction`: Sends transaction details to the server.
+1. `read_transactions`: Retrieves transactions.
+
+## Client Library Examples
+
+```python
+from monitaur import Monitaur
+from monitaur.utils import hash_file
+
+
+# create monitaur instance
+monitaur = Monitaur(
+    client_secret="changme",
+    base_url="http://localhost:8008",
+)
+
+# train model
+dataset = loadtxt("./_example/data.csv", delimiter=",")
+seed = 7
+test_size = 0.1
+model_data = train_model(dataset, seed, test_size)
+trained_model = model_data["trained_model"]
+training_data = model_data["training_data"]
+dump(trained_model, open(f"./_example/data.joblib", "wb"))
+
+
+# add model to api
+model_data = {
+    "name": "Diabetes Classifier",
+    "model_type": "xgboost",
+    "model_class": "tabular",
+    "library": "xg_boost",
+    "trained_model_hash": hash_file("./_example/data.joblib"),  # trained model (None is allowed)
+    "production_file_hash": hash_file("./_example/prediction.py"),  # production file used for running inputs through the trained model (None is allowed)
+    "feature_number": 8,
+    "owner": "Anthony Habayeb",
+    "developer": "Andrew Clark",
+    "influences": True,
+}
+model_set_id = monitaur.add_model(**model_data)
+
+# get aws credentials
+credentials = monitaur.get_credentials(model_set_id)
+
+# record training
+record_training_data = {
+    "credentials": credentials,
+    "model_set_id": model_set_id,
+    "trained_model": trained_model,
+    "training_data": training_data,
+    "feature_names": [
+        "Pregnancies",
+        "Glucose",
+        "BloodPressure",
+        "SkinThickness",
+        "Insulin",
+        "BMI",
+        "DiabetesPedigreeF",
+        "Age",
+    ],
+    # "re_train": True
+}
+monitaur.record_training_tabular(**record_training_data)
+
+# record_training_data = {
+#     "credentials": credentials,
+#     "model_set_id": model_set_id,
+#     "trained_model": trained_image_model,
+#     # "re_train": True
+# }
+# monitaur.record_training_image(**record_training_data)
+
+# record transaction
+prediction = get_prediction([2, 84, 68, 27, 0, 26.7, 0.341, 32])
+transaction_data = {
+    "credentials": credentials,
+    "model_set_id": model_set_id,
+    "trained_model_hash": hash_file("./_example/data.joblib"),
+    "production_file_hash": hash_file("./_example/prediction.py"),
+    "prediction": prediction,
+    "image": "cat.jpeg",  # required if 'model_class' is  'image'
+    "python_version": "3.8.1",
+    "ml_library_version": "1.0.2",
+    "features": {
+        "Pregnancies": 2,
+        "Glucose": 84,
+        "BloodPressure": 68,
+        "SkinThickness": 27,
+        "Insulin": 0,
+        "BMI": 26.7,
+        "DiabetesPedigreeF": 0.341,
+        "Age": 32,
+    },
+}
+response = monitaur.record_transaction(**transaction_data)
+print(response)
+
+# read transactions by passing model_id and/or model_set_id
+# both are optional arguments
+transactions = monitaur.read_transactions(model_set_id=model_set_id)
+print(transactions)
+```
+
+## API Examples
+
+[requests](https://requests.readthedocs.io/):
+
+```python
+import requests
+
+API_ENDPOINT = "http://localhost:8000"
+CLIENT_SECRET = "eaa74a3d715a36ed6d40af3fb9f5916d8205cf2c"
+MODEL_SET_ID = "b7f60d02-06c9-418c-943e-cf74fe61d613"
+
+# get access and refresh tokens
+tokens = requests.post(
+    f"{API_ENDPOINT}/api/auth/?grant_type=client_credentials",
+    data={"client_secret": CLIENT_SECRET}
+)
+access_token = tokens.json()["access"]
+refresh_token = tokens.json()["refresh"]
+
+headers = {"Authorization": f"Token {access_token}"}
+
+# get model metadata
+model = requests.get(f"{API_ENDPOINT}/api/models/set/{MODEL_SET_ID}", headers=headers)
+print(model.json())
+model_id = model.json()["id"]
+
+# get transactions
+transactions = requests.get(f"{API_ENDPOINT}/api/transactions/?model={model_id}", headers=headers)
+for transaction in transactions.json():
+    print(f"\n{transaction}")
+```
+
+cURL:
+
+```sh
+$ curl -X POST http://localhost:8000/api/auth/\?grant_type=client_credentials \
+    -d '{"client_secret": "eaa74a3d715a36ed6d40af3fb9f5916d8205cf2c"}' \
+    -H 'Content-Type: application/json'
+
+$ curl -X GET "http://localhost:8000/api/models/set/b7f60d02-06c9-418c-943e-cf74fe61d613/" \
+    -H "Authorization: Token 54321"
+```
+
+[httpie](https://httpie.org/):
+
+```sh
+$ http --json POST http://localhost:8000/api/auth/\?grant_type=client_credentials \
+    client_secret=eaa74a3d715a36ed6d40af3fb9f5916d8205cf2c
+
+$ http GET http://localhost:8000/api/models/set/b7f60d02-06c9-418c-943e-cf74fe61d613/ Authorization:"Token 54321"
+```
+
+
+# History
+
+TBD
+
+
