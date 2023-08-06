@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: recap-argument-graph
+Version: 0.1.26
+Summary: 
+Author: Mirko Lenz
+Author-email: info@mirko-lenz.de
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: graphviz (>=0.13.2,<0.14.0)
+Requires-Dist: lxml (>=4.4.2,<5.0.0)
+Requires-Dist: networkx (>=2.4,<3.0)
+Requires-Dist: pendulum (>=2.0,<3.0)
