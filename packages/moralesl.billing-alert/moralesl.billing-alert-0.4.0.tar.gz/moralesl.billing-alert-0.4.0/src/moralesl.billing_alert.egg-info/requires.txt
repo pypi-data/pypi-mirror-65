@@ -1,0 +1,8 @@
+jsii~=1.2.0
+publication>=0.0.3
+aws-cdk.aws-cloudwatch==1.32.2
+aws-cdk.aws-cloudwatch-actions==1.32.2
+aws-cdk.aws-sns==1.32.2
+aws-cdk.aws-sns-subscriptions==1.32.2
+aws-cdk.core==1.32.2
+constructs<3.0.0,>=2.0.0
