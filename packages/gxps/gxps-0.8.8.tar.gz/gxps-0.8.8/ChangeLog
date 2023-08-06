@@ -1,0 +1,85 @@
+CHANGES
+=======
+
+v0.8.8
+------
+
+* added residual plot and resolved conflicting canvas tool buttons
+* "ask for save" dialog now presents itself (i.e. pops up)
+* more debug messages and minor spelling corrections
+* improved constraint handling
+* better priority handling in event bus
+* config file improvements
+* streamlined ComboBoxes; changing background type is now possible
+
+v0.8.7
+------
+
+* made a todo file
+* cli "--version" improvements
+* speed improvement: each user action only fires the event bus once
+* made buttons affecting the canvas to ToggleButtons
+
+v0.8.6
+------
+
+* started on image exporter
+* fixed bug where saving the project prevented plot refreshing
+* makefile does windows build reliably now
+* fixed description file for PyPI (?)
+* added some makefile targets and minor documentation
+
+v0.8.5
+------
+
+* resolved further dependency issues
+* use correct long\_description file
+* detect virtualenv and detect missing GTK dependencies
+* prepared for PyPI
+* added a bit of documentation
+
+v0.8.4
+------
+
+* implemented "./build.sh rebuild" for skipping dependency installation
+* Implemented ASCII export and rudimentary image export
+* clean up setup
+* fixed minor issues that were introduced in last commit
+* refactored the windows build scripts
+* switched from version string to release string
+
+v0.8.3
+------
+
+* fixed windows version querying problem
+* install launcher script in bin/
+* minor fixes for data file locations
+* forgot version printing
+
+v0.8.2
+------
+
+* changed resource path finding method
+* switched to pyinstaller; renamed gxps.gxps to gxps.gui
+* First try at building Windows installer / exe
+* switched to pbr for packaging
+
+v0.8.0
+------
+
+* added launcher script
+* can now be started via "$ gxps" from console
+* can now be started via "$ gxps" from console
+* implemented changing background type
+* implemented (more) lineshapes
+* rehauled view and began implementing more peak models
+* controller finally rehauled, CommandSender now does heavy lifting
+* Shuffled around a lot at the Controller class, not yet figured out
+* Completely rehauled observer pattern to now include an event bus
+* Implement peak panel and event queueing system
+* Refinement of logging and event system, changed python filenames
+* data model fully implemented
+* more structuring and implementations
+* implemented background subtraction
+* rudimentary structure, first tests
+* initial commit
