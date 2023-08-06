@@ -1,0 +1,38 @@
+os: linux
+dist: xenial
+language: python
+cache: pip
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.8"
+  - "nightly"
+  - "pypy3.6-7.1.1"
+install: pip install -U $DEPS pytest pytest-asyncio pytest-httpbin flaky structlog
+script: pytest
+env:
+  global:
+    # github
+    - secure: "JNuxbHbO+Qj88r0So+FKp8GBVmobGlBNi0hkZIyOH4cBXtuiM1Jo6FtRYInfTUH5TcgfMQml1a8p9g8n1fbRcTsxPt3kkT0ZleW1fJNudOHJFOmDooM4gC2/A+6aMl3xdnLCQ9cXxqsXjIUBie3GhqC4ufInU7VshxOn7KZADbI3zDuLuw9gdsBQf/OADY4oO3y1URxdnWjssP8pwfDFRSEkuLKNDtsYrhkmp3jRAq5DMtMXTEyHly9CJHow7yMyoBHa6Q/J7+C57pI4JsO8c0nJWy/wQUnqw9EeLE/9gAHY1sHlEpjZtJrV45kRd+KC6x4FtoFjvngxymK2A0zmecBI3DRTWBAZedPPVatAD9nlDmwAacBtwvuZJkt6fMUBWMY1I1NEiwdYxceBiqrnvU48FfNOylXE6KuarCQZik/VWk8olIQjXIukMu8EQ58pnEuLZB7wbwNzMLheomuVMEK1nfLOltKaytztl/7cKlsx6SmxY5rQI/x7QInd+rq9OxDDwCo+jEofPKvAcCbUJj6SqfB7QAUxJwwD/ER4/Bji9KSz3BoCu+x7h/ILcskNqLlg4LDCcpxqMOyxePk7A30sSop1E5YLWo0lmS9s88mEz89tzCWSDVIzwQrdMghNBe6JFMzOoKDRDhEkMrs3MAK+FUJkbteGhHrdC86EidU="
+    # gitlab
+    - secure: "DjtWOVNYGGWQ9SHOrfqbh7SVm9DHOSUCYcgDmzIpSCbbFJq5wXAiuHwm8LBUOmjYVV73/pY01sSL7Ud/hO61WMXt3be++XHtEqaCTw9HXJzvnDNva/zudVQiSotLZfG9J9Jqi4EqdzfCB0MiN+1FhdomkJ2wbn5rRB+xUDzDJdnSR0RuutR3p9101VMbpBGnFbKOJUYBlYz6xptXsYpN56hYJstEcmjasJm1mrh1RttdPspl1L0Cy8CaXhf+z9Pke2xFKPIAzGo3P9jDGrZmLeKq4R693qfCjUWPATRWfI+YaSoSlNjefbdOJiDW2miNpu3yStMxyyxiMbNIQEfLiNIltmuLEUe618lmXUF38D4S23qsivXZ6hk7gbdA2dS1MUvaggmDnoGWciJF5Chf0cZ5Ft7C4mCL1kO8z8c9IlXswWcqEqmm4UZ2LwWkuU+xxCkPQIhOZ4IUJ2fSJO9ykOcvcIWqRFfl3UVl67NNKFaIKACm0TOEHWAMxMljrvwYRZ9c8mbslmJeBKQd3hNtQNgyB/9Abgg0/zvn818HtDpZyKMqmLC6w5OeBAwSijtD+a2nKqwFtOxa6tkmc+y0qZJkSI3CUPq/fOppTP8riHEhxXdv69GkPHpdoxfR0CuiEhBfeMiC4+woL1B8uTlBiFPKcRh6Vv8Z+zPq5ALObtw="
+  jobs:
+    - DEPS=aiohttp
+    - DEPS="tornado pycurl"
+    - DEPS=tornado
+jobs:
+  fast_finish: true
+  allow_failures:
+    # doesn't work well, see https://travis-ci.org/lilydjwg/nvchecker/jobs/376326582
+    - python: pypy3.6-7.1.1
+      env: DEPS=aiohttp
+    # it works now, but may be broken in the future again
+    - python: nightly
+      env: DEPS=aiohttp
+
+addons:
+  apt:
+    packages:
+    # This is needed for pycurl
+    - libgnutls-dev

@@ -1,0 +1,10 @@
+records/
+*.egg-info/
+__pycache__/
+/build/
+.cache/
+.eggs/
+*.pyc
+*.pyo
+.travis.pub
+.pytest_cache/
