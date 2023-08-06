@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: cached-url
+Version: 0.0.9
+Summary: Library for get url content (cached when testing).
+Home-page: https://github.com/gaoyunzhi/cached_url
+Author: Yunzhi Gao
+Author-email: gaoyunzhi@gmail.com
+License: UNKNOWN
+Description: # cached_url
+        
+        Library to fetch url, read from cache when testing.
+        
+        ## usage
+        
+        ```
+        import cached_url
+        content = cached_url.get(webpage_url)
+        ```
+        
+        ## how to install
+        
+        `pip3 install cached_url`
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
