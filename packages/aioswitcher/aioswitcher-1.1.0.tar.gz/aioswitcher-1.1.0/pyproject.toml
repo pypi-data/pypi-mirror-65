@@ -1,0 +1,140 @@
+[build-system]
+requires = ["poetry~=1.0.5"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "aioswitcher"
+version = "1.1.0"
+description = "Switcher Boiler Unofficial Bridge and API."
+license = "MIT"
+authors = ["Tomer Figenblat <tomer.figenblat@gmail.com>"]
+readme = "README.md"
+homepage = "https://pypi.org/project/aioswitcher/"
+repository = "https://github.com/tomerfi/aioswitcher"
+documentation = "https://aioswitcher.tomfi.info"
+keywords = ["home", "automation", "switcher", "water-heater"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Home Automation",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed"
+]
+include = [] # CAHNGELOG, LICENSE, README and pyproject.toml are automatically included
+exclude = [
+    ".*",
+    "dist",
+    "docs",
+    "tests",
+    "CODE_OF_CONDUCT.md",
+    "mypy.ini",
+    "pylintrc",
+    "*__pycache__*",
+    "*.pyc"
+] # poetry.lock is automatically excluded
+
+[tool.poetry.dependencies]
+python = "^3.6"
+asynctest = { version = "0.13.0", optional = true }
+bandit = { version = "1.6.2", optional = true }
+black = { version = "19.10b0", optional = true }
+codecov = { version = "2.0.22", optional = true }
+doc8 = { version = "0.8.0", optional = true }
+flake8 = { version = "3.7.9", optional = true }
+flake8-docstrings = { version = "1.5.0", optional = true }
+isort = { version = "4.3.21", optional = true }
+mypy = { version = "0.770", optional = true }
+pygments = { version = "2.6.1", optional = true }
+pytest = { version = "5.4.1", optional = true }
+pytest-aiohttp = { version = "0.3.0", optional = true }
+pytest-asyncio = { version = "0.10.0", optional = true }
+pytest-cov = { version = "2.8.1", optional = true }
+yamllint = { version = "1.21.0", optional = true }
+
+[tool.poetry.extras]
+checkers = [
+    "bandit",
+    "black",
+    "doc8",
+    "flake8",
+    "flake8-docstrings",
+    "isort",
+    "mypy",
+    "pygments",
+    "yamllint"
+]
+tests = [
+    "asynctest",
+    "codecov",
+    "pytest",
+    "pytest-aiohttp",
+    "pytest-asyncio",
+    "pytest-cov"
+]
+
+[tool.isort]
+line_length = 79
+
+[tool.black]
+line-length = 79
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist =
+    update-poetry
+    checkers
+    py{36,37,38}
+isolated_build = true
+minversion = 3.13.1
+requires = poetry>=1.0.5
+skipdist = true
+
+[testenv]
+basepython = python3.8
+skip_missing_interpreters = true
+whitelist_externals = poetry
+
+[testenv:update-poetry]
+skip_install = true
+commands = poetry update
+
+[testenv:checkers]
+skip_install = true
+commands =
+    poetry install -vv -E "checkers"
+    yamllint --config-file .yamllint --format colored --strict .
+    bandit -rvc .bandit src/ tests/ docs/ -l -ii
+    isort --check-only --recursive src/ tests/ docs/
+    flake8 --statistics --count --doctests src/ tests/ docs/
+    black --check --diff src/ tests/ docs/
+    mypy --follow-imports silent --ignore-missing-imports --show-error-codes src/ tests/ docs/
+    doc8 --allow-long-titles --max-line-length 100 docs
+
+[testenv:py36]
+basepython = python3.6
+commands =
+    poetry install -vv -E "tests"
+    pytest -vs
+
+[testenv:py37]
+basepython = python3.7
+commands =
+    poetry install -vv -E "tests"
+    pytest -vs
+
+[testenv:py38]
+commands =
+    poetry install -vv -E "tests"
+    pytest -vs --cov --cov-config=.coveragerc
+
+"""
