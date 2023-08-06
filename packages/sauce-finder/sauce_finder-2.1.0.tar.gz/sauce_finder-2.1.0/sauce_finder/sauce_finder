@@ -1,0 +1,207 @@
+#!/usr/bin/env python
+import re
+from os import path
+from typing import Union
+from urllib.parse import urlparse
+
+import click
+import requests
+from validators import url
+
+from sauce_finder.sauce_finder import check_url, get_match
+
+
+class LinkType(click.ParamType):
+    """
+    A class to provide link validation straight in the commandline instead of
+    elsewhere.
+    """
+    name = "link"
+
+    def convert(self, value, param, ctx):
+        from validators import url
+        if not url(value):
+            self.fail(f"expected a valid URL, but was given an invalid one",
+                      param, ctx)
+        if not check_url(value):
+            self.fail(f"provided URL does not have a content-type containing"
+                      "'image'", param, ctx)
+        return value
+
+
+LINK = LinkType()
+
+
+@click.command()
+@click.argument("link", type=LINK)
+@click.option("-d", "--download", default=False, is_flag=True, type=bool,
+              help="Whether to download the first match.")
+@click.option("-o", "--open", "open_", default=False, is_flag=True, type=bool,
+              help="Whether to open the first match in browser.")
+@click.option("-v", "--verbose", default=False, is_flag=True, type=bool,
+              help="Whether to display more verbose data.")
+@click.option("-e", "--export", default="", type=str,
+              help="Where to export the findings as JSON")
+@click.version_option(version='2.1.0')
+def main(link, download, open_, verbose, export):
+    """sauce_finder is a script to automatically find sources for and deal
+    with anime art.
+    Full documentation available at
+    <https://gitlab.com/miicat/sauce-finder/-/wikis/script-mode>
+
+    LINK is the link to source.
+
+    Programmed by /u/Miicat_47 and /u/RaxFTB
+    """
+    args = {
+        "download": download,
+        "browser": open_,
+        "verbose": verbose,
+        "export": export,
+    }
+
+    res = get_match(link)
+
+    _parse_res(res, **args)
+
+
+def _parse_res(res, **kwargs):
+    if not res["type"] or not res["found"]:
+        raise ValueError("Missing data in response object.")
+
+    if res["type"] == "definite":
+        _parse_definite(res, **kwargs)
+    elif res["type"] == "possible":
+        _parse_possible(res, **kwargs)
+
+
+def _parse_definite(res, **kwargs):
+    verbose = kwargs["verbose"] if "verbose" in kwargs.keys() else False
+    found = res["found"]
+
+    if type(found) is not dict:
+        raise ValueError(f"'found' is invalid type of {type(found)} but was"
+                         "expecting dict")
+
+    if "download" in kwargs.keys() and kwargs["download"]:
+        try:
+            _download_img(found["link"], verbose)
+        except ValueError as e:
+            print(e)
+    if "browser" in kwargs.keys() and kwargs["browser"]:
+        try:
+            _open_browser(found["link"])
+        except ValueError as e:
+            print(e)
+    if "export" in kwargs.keys() and kwargs["export"] != "":
+        try:
+            _export(kwargs["export"], found)
+        except ValueError as e:
+            print(e)
+
+    _print_item(found, verbose)
+
+
+def _parse_possible(res, **kwargs):
+    verbose = kwargs["verbose"] if "verbose" in kwargs.keys() else False
+    found = res["found"]
+
+    if type(found) is not list:
+        raise ValueError(f"'found' is invalid type of {type(found)} but was"
+                         "expecting list")
+
+    for x in found:
+        print("_" * 50)
+        _print_item(x, verbose)
+        print("_" * 50)
+
+    first = found[0]
+
+    if "download" in kwargs.keys() and kwargs["download"]:
+        if verbose:
+            print("Downloading first result.")
+        try:
+            _download_img(first["link"], verbose)
+        except ValueError as e:
+            print(e)
+    if "browser" in kwargs.keys() and kwargs["browser"]:
+        if verbose:
+            print("Attempting to open first result in browser.")
+        try:
+            _open_browser(first["link"])
+        except ValueError as e:
+            print(e)
+    if "export" in kwargs.keys() and kwargs["export"] != "":
+        if verbose:
+            print("Exporting all to json")
+        try:
+            _export(kwargs["export"], found)
+        except ValueError as e:
+            print(e)
+
+
+def _print_item(item: dict, verbose: bool = False):
+    sim = item["similarity"] if "similarity" in item.keys() else None
+    link = item["link"] if "link" in item.keys() else None
+    rating = item["rating"] if "rating" in item.keys() else None
+    size = item["size"] if "size" in item.keys() else None
+
+    if not sim or not link or not rating or not size:
+        raise ValueError("Missing parameters in item dict.")
+
+    print(f"{sim}% similarity")
+    if verbose:
+        print(f"{rating} | {size['width']}x{size['height']}")
+    print(link)
+    return
+
+
+def _download_img(link: str, verbose: bool = False):
+    """Downloads a given image."""
+    if not url(link):
+        raise ValueError(f"Invalid link {link}")
+    response = requests.get(link).text
+    image_element = re.search(r"id=\"image\"", response).start()
+    parsed_html = response[image_element:]
+    img_url = re.search(r'src=\"(.*)\"', parsed_html).group(1)
+    img_name = path.basename(urlparse(img_url).path)
+    base_name, ext = path.splitext(img_name)
+    img_name = base_name
+    i = 0
+    while path.exists(f"{img_name}{ext}"):
+        if verbose:
+            print(f"Found image with name `{img_name}{ext}`, attempting new"
+                  "filename")
+        img_name = f"{base_name}_{i}"
+        i += 1
+    response = requests.get(img_url)
+    with open(f"{img_name}{ext}", 'wb') as f:
+        f.write(response.content)
+    print(f"Image saved as {img_name}{ext}")
+    return
+
+
+def _export(file: str, found: Union[dict, list]):
+    """Exports a result as json."""
+    import json
+
+    if path.exists("file"):
+        raise ValueError(f"File `{file}` already exists")
+
+    with open(file, "w") as f:
+        json.dump(found, f, indent=4)
+    return
+
+
+def _open_browser(link: str):
+    """Opens a link in browser."""
+    import webbrowser
+
+    if url(link):
+        webbrowser.open(link)
+    else:
+        raise ValueError(f"Invalid link {link}")
+
+
+if __name__ == "__main__":
+    main()
