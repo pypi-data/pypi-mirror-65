@@ -1,0 +1,5 @@
+[console_scripts]
+htmlgenerator = packtools.htmlgenerator:main
+package_optimiser = packtools.package_optimiser:main
+stylechecker = packtools.stylechecker:main
+
