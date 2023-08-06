@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: orcaflex-cloudsync
+Version: 0.1.0
+Summary: Tool to sync OrcaFlex simulations to the cloud and local drives
+License: MIT
+Author: AgileDat
+Author-email: ofxcs@agiledat.co.uk
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: OrcFxAPI (==11.0.2)
+Requires-Dist: PyYAML (==5.3.1)
+Requires-Dist: appdirs (>=1.4.3,<2.0.0)
+Requires-Dist: awscli (==1.18.31)
+Requires-Dist: boto3 (==1.12.30)
+Requires-Dist: click (==7.1.1)
+Requires-Dist: pytest (==5.4.1)
+Requires-Dist: pytest-mock (>=3.0.0,<4.0.0)
