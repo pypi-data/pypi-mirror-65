@@ -1,0 +1,32 @@
+Metadata-Version: 1.0
+Name: aiojson
+Version: 0.2.7
+Summary: Simple json request template validator for aiohttp
+Home-page: https://git.yurzs.dev/yurzs/aiojson
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: aiojson
+        =======
+        
+        Simple json template verifier for ``aiohttp``
+        
+        Usage
+        -----
+        
+        Simple example:
+        
+        .. code-block:: python
+        
+            from aiohttp import JsonTemplate
+        
+        
+            @JsonTemplate({
+                "messages": [{
+                    "id": int,
+                    "text": str
+            }])
+            async def received_message(request, validated_data):
+                pass
+        
+Platform: UNKNOWN
