@@ -1,0 +1,14 @@
+boto3
+click~=7.0
+cligj
+requests
+requests-toolbelt
+jsonschema~=3.0
+jsonseq~=1.0
+
+[test]
+pytest>=3.6.0
+pytest-cov
+pre-commit
+black
+pep8
