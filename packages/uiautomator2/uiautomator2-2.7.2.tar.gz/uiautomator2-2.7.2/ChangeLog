@@ -1,0 +1,132 @@
+CHANGES
+=======
+
+2.7.2
+-----
+
+* update adbutils which buildin adb.exe for windows
+
+2.7.1
+-----
+
+* upgrade adbutils: support download adb.exe when missing on windows
+
+2.7.0
+-----
+
+* add click\_exists to xpath
+
+2.6.2
+-----
+
+* fix with reinstall apks when meet signature not matched error
+* add image.click doc and tests
+
+2.6.1
+-----
+
+* screenrecord support horizontal and vertical, support limit fps
+* add screenrecord usage
+
+2.6.0
+-----
+
+* add screenrecord code
+* add screenrecord sample
+
+2.5.9
+-----
+
+* upgrade atx-agent to 0.9.4 to fix go panic on go12
+
+2.5.8
+-----
+
+* update minicap sync method
+* update atx-agent version and apk version
+* call watcher when d.xpath calls
+* let d.touch.down support percent position, remove stop-app when reset-uiautomator
+* update doc
+* support Android Q minicap, show debug log when image search
+
+2.5.7
+-----
+
+* fix click on infinitly display not working bug
+* add recommended article
+* support generate all docs by sphinx
+* fix docs generate with sphinx, not very well
+* add missing file
+* fix retry when take screenshot, update readthedocs
+* add readthedocs for test
+
+2.5.6
+-----
+
+* add match and scroll\_to to xpath object, update atx-agent version
+
+2.5.5
+-----
+
+* change connect\_usb not start uiautomator automatically
+
+2.5.4
+-----
+
+* update atx-agent and apk version to use minitouchagent
+
+2.5.3
+-----
+
+
+2.5.2
+-----
+
+* fix pull error
+* add readTimeout handle
+
+2.5.1
+-----
+
+* fix \_request func recursive error
+
+2.5.0
+-----
+
+* add d.alibaba support
+* update scale and wait-for-device timeout to 70s
+* fix when device replugin, d.shell fails
+
+2.4.6
+-----
+
+* fix wait am instrument too short, change timeout from 20 to 40
+* fix adbutils shell decode error
+* add retry in push\_url
+
+2.4.5
+-----
+
+* fix usb cable replug raise ConnectionError bug
+
+2.4.4
+-----
+
+* update apk version, and atx-agent version
+* update atx-agent to 0.8.1, do lot of code format
+* fix Android Q screenshot error
+* fix init may raise FileNotFoundError bug
+* add uiautomator2 version in command line
+* add session test
+
+2.4.3
+-----
+
+* add fallback and session add some missing method
+* fix github workflow
+* fix flake8 warning
+* test github actions
+* change callback to fallback
+* add d.xpath(xxxxx).callback(click, px, py).click() support
+* add back token again
+* check if travis notification is working
