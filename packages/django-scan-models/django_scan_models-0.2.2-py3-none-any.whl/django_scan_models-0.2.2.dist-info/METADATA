@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: django-scan-models
+Version: 0.2.2
+Summary: Django scan models: Parse django models to frontend validation
+Author: Jessie Liauw A Fong
+Author-email: jessielaff@live.nl
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Framework :: Django :: 3.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: django (>=3.0.4,<4.0.0)
+Requires-Dist: mysqlclient (>=1.4.6,<2.0.0)
