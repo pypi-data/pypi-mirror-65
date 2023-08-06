@@ -1,0 +1,6 @@
+#! /usr/bin/env python
+import fire
+from mongoke import main
+import yaml
+
+fire.Fire(main)
