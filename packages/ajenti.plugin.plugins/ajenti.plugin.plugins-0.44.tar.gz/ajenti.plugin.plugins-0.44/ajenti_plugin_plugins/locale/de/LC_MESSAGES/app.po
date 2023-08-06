@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2018-11-02 14:42\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: de\n"
+"X-Crowdin-File: /2.0/plugins.po\n"
+
+#: plugins/plugins/resources/partial/index.html:14
+msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
+msgstr "Ajenti Kern {{ajentiVersion}}, keine Upgrades verfügbar."
+
+#: plugins/plugins/resources/partial/index.html:20
+msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
+msgstr "Ajenti Core {{ajentiVersion}}. Ein Upgrade auf {{coreUpgradeAvailable}} ist verfügbar."
+
+#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/repo-plugin.html:47
+msgid "Author"
+msgstr "Author"
+
+#: plugins/plugins/resources/partial/index.html:47
+msgid "Available plugins"
+msgstr "Verfügbare Plugins"
+
+#: plugins/plugins/resources/partial/index.html:154
+#: plugins/plugins/resources/partial/index.html:206
+msgid "Close"
+msgstr "Schließen"
+
+#: plugins/plugins/resources/partial/index.html:70
+msgid "Community"
+msgstr "Community"
+
+#: plugins/plugins/resources/partial/index.html:10
+msgid "Core"
+msgstr "Core"
+
+#: plugins/plugins/resources/partial/index.html:184
+msgid "Downloads in the last month"
+msgstr "Downloads im letzten Monat"
+
+#: plugins/plugins/resources/partial/repo-plugin.html:39
+msgid "Downloads this month"
+msgstr "Downloads in diesem Monat"
+
+#: plugins/plugins/resources/partial/index.html:103
+msgid "Error"
+msgstr "Fehler"
+
+#: plugins/plugins/resources/partial/index.html:114
+msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
+msgstr "Ausnahme: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
+
+#: plugins/plugins/resources/partial/index.html:71
+msgid "Filter"
+msgstr "Filter"
+
+#: plugins/plugins/resources/partial/index.html:142
+#: plugins/plugins/resources/partial/repo-plugin.html:55
+msgid "Homepage"
+msgstr "Homepage"
+
+#: plugins/plugins/resources/partial/index.html:203
+#: plugins/plugins/resources/partial/index.html:56
+#: plugins/plugins/resources/partial/index.html:74
+msgid "Install"
+msgstr "Installieren"
+
+#: plugins/plugins/resources/partial/index.html:24
+msgid "Installed plugins"
+msgstr "Installierte Plugins"
+
+#: plugins/plugins/resources/partial/index.html:41
+msgid "Loading error"
+msgstr "Ladefehler"
+
+#: plugins/plugins/resources/partial/index.html:129
+msgid "Location"
+msgstr "Ort"
+
+#: plugins/plugins/resources/partial/index.html:117
+msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
+msgstr "Nachricht: <code>{{selectedInstalledPlugin.crash.message}}</code>"
+
+#: plugins/plugins/resources/partial/index.html:166
+#: plugins/plugins/resources/partial/index.html:97
+#: plugins/plugins/resources/partial/repo-plugin.html:7
+msgid "Name"
+msgstr "Name"
+
+#: plugins/plugins/resources/partial/index.html:53
+msgid "Official"
+msgstr "Offiziell"
+
+#: plugins/plugins/resources/partial/index.html:215
+msgid "Restart panel"
+msgstr "Panel neustarten"
+
+#: plugins/plugins/resources/partial/index.html:112
+msgid "This plugin crashed with the following error:"
+msgstr "Das Plugin ist mit dem folgenden Fehler abgestürzt:"
+
+#: plugins/plugins/resources/partial/index.html:107
+msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
+msgstr "Dieses Plugin erfordert die binäre Anwendung <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, die während des Startvorgangs nicht verfügbar war."
+
+#: plugins/plugins/resources/partial/index.html:104
+msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
+msgstr "Dieses Plugin benötigt das Plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, das während des Startvorgangs nicht verfügbar war."
+
+#: plugins/plugins/resources/partial/repo-plugin.html:15
+msgid "Title"
+msgstr "Titel"
+
+#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:30
+msgid "Uninstall"
+msgstr "Deinstallieren"
+
+#: plugins/plugins/resources/partial/index.html:148
+msgid "Update"
+msgstr "Aktualisierung"
+
+#: plugins/plugins/resources/partial/index.html:6
+msgid "Update everything"
+msgstr "Alles aktualisieren"
+
+#: plugins/plugins/resources/partial/index.html:3
+msgid "Updates"
+msgstr "Aktualisierungen"
+
+#: plugins/plugins/resources/partial/index.html:38
+msgid "Upgradeable to {{getUpgrade(plugin).version}}"
+msgstr "Aktualisierbar auf {{getUpgrade(plugin).version}}"
+
+#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/repo-plugin.html:23
+msgid "Version"
+msgstr "Version"
+
+#: plugins/plugins/main.py:15
+msgid "Plugins"
+msgstr "Erweiterungen"
+

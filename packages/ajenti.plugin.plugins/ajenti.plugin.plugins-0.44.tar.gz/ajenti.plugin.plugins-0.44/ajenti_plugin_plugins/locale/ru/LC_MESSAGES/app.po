@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2018-11-02 14:44\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: ru\n"
+"X-Crowdin-File: /2.0/plugins.po\n"
+
+#: plugins/plugins/resources/partial/index.html:14
+msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
+msgstr "Ajenti ядро {{ajentiVersion}}, нет доступных обновлений."
+
+#: plugins/plugins/resources/partial/index.html:20
+msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
+msgstr "Ajenti ядро {{ajentiVersion}}. Доступно обновление для {{coreUpgradeAvailable}}."
+
+#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/repo-plugin.html:47
+msgid "Author"
+msgstr "Автор"
+
+#: plugins/plugins/resources/partial/index.html:47
+msgid "Available plugins"
+msgstr "Доступные плагины"
+
+#: plugins/plugins/resources/partial/index.html:154
+#: plugins/plugins/resources/partial/index.html:206
+msgid "Close"
+msgstr "Закрыть"
+
+#: plugins/plugins/resources/partial/index.html:70
+msgid "Community"
+msgstr "Сообщество"
+
+#: plugins/plugins/resources/partial/index.html:10
+msgid "Core"
+msgstr "Ядро"
+
+#: plugins/plugins/resources/partial/index.html:184
+msgid "Downloads in the last month"
+msgstr "Скачиваний за месяц"
+
+#: plugins/plugins/resources/partial/repo-plugin.html:39
+msgid "Downloads this month"
+msgstr "Скачиваний в этом месяце"
+
+#: plugins/plugins/resources/partial/index.html:103
+msgid "Error"
+msgstr "Ошибка"
+
+#: plugins/plugins/resources/partial/index.html:114
+msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
+msgstr "Исключение: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
+
+#: plugins/plugins/resources/partial/index.html:71
+msgid "Filter"
+msgstr "Фильтр"
+
+#: plugins/plugins/resources/partial/index.html:142
+#: plugins/plugins/resources/partial/repo-plugin.html:55
+msgid "Homepage"
+msgstr "Главная страница"
+
+#: plugins/plugins/resources/partial/index.html:203
+#: plugins/plugins/resources/partial/index.html:56
+#: plugins/plugins/resources/partial/index.html:74
+msgid "Install"
+msgstr "Установка"
+
+#: plugins/plugins/resources/partial/index.html:24
+msgid "Installed plugins"
+msgstr "Установленные плагины"
+
+#: plugins/plugins/resources/partial/index.html:41
+msgid "Loading error"
+msgstr "Ошибка загрузки"
+
+#: plugins/plugins/resources/partial/index.html:129
+msgid "Location"
+msgstr "Местоположение"
+
+#: plugins/plugins/resources/partial/index.html:117
+msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
+msgstr "Сообщение: <code>{{selectedInstalledPlugin.crash.message}}</code>"
+
+#: plugins/plugins/resources/partial/index.html:166
+#: plugins/plugins/resources/partial/index.html:97
+#: plugins/plugins/resources/partial/repo-plugin.html:7
+msgid "Name"
+msgstr "Имя"
+
+#: plugins/plugins/resources/partial/index.html:53
+msgid "Official"
+msgstr "Официальный"
+
+#: plugins/plugins/resources/partial/index.html:215
+msgid "Restart panel"
+msgstr "Перезапустить панель"
+
+#: plugins/plugins/resources/partial/index.html:112
+msgid "This plugin crashed with the following error:"
+msgstr "Этот плагин завершил работу с ошибкой:"
+
+#: plugins/plugins/resources/partial/index.html:107
+msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
+msgstr "Этот плагин требует исполняемый код <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, который был недоступен во время запуска."
+
+#: plugins/plugins/resources/partial/index.html:104
+msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
+msgstr "Для работы этого плагина требует плагин <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, который был недоступен во время запуска."
+
+#: plugins/plugins/resources/partial/repo-plugin.html:15
+msgid "Title"
+msgstr "Заголовок"
+
+#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:30
+msgid "Uninstall"
+msgstr "Удалить"
+
+#: plugins/plugins/resources/partial/index.html:148
+msgid "Update"
+msgstr "Обновить"
+
+#: plugins/plugins/resources/partial/index.html:6
+msgid "Update everything"
+msgstr "Обновить все"
+
+#: plugins/plugins/resources/partial/index.html:3
+msgid "Updates"
+msgstr "Обновления"
+
+#: plugins/plugins/resources/partial/index.html:38
+msgid "Upgradeable to {{getUpgrade(plugin).version}}"
+msgstr "Есть обновления до версии {{getUpgrade(plugin).version}}"
+
+#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/repo-plugin.html:23
+msgid "Version"
+msgstr "Версия"
+
+#: plugins/plugins/main.py:15
+msgid "Plugins"
+msgstr "Плагины"
+
