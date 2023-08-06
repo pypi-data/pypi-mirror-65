@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ipapp
+Version: 0.1.0
+Summary: InPlat application framework
+Home-page: https://gitlab.app.ipl/inplat/ipapp
+Author: InPlat
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet
+Requires-Python: >=3.7
+Provides-Extra: postgres
+Provides-Extra: oracle
+Provides-Extra: rabbitmq
+Provides-Extra: iprpc
+Provides-Extra: testing
+Provides-Extra: s3

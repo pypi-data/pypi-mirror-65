@@ -1,0 +1,37 @@
+version: '3'
+services:
+  db:
+    container_name: ipapp-test-postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: ipapp
+      POSTGRES_PASSWORD: secretpwd
+    ports:
+      - '58971:5432'
+  rabbit:
+    container_name: ipapp-test-rabbit
+    image: rabbitmq:3-management
+    ports:
+      - '58972:5672'
+      - '58973:15672'
+  s3:
+    container_name: ipapp-test-minio
+    image: minio/minio:latest
+    environment:
+      MINIO_ACCESS_KEY: EXAMPLEACCESSKEY
+      MINIO_SECRET_KEY: EXAMPLESECRETKEY
+    ports:
+      - '9000:9000'
+    command: server /data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+  mockiato:
+    container_name: ipapp-test-mockiato
+    image: registry.app.ipl/cred/mockiato/test:32
+    ports:
+      - '58974:8080'
+    volumes:
+      - ./mocks:/app/mocks

@@ -1,0 +1,1009 @@
+{
+    "components": {
+        "examples": {
+            "CustomerNotFound": {
+                "value": {
+                    "code": 404,
+                    "message": "Customer not found"
+                }
+            },
+            "DeserializeError": {
+                "value": {
+                    "code": -32700,
+                    "message": "Parse error"
+                }
+            },
+            "InternalError": {
+                "value": {
+                    "code": -32603,
+                    "message": "Internal Error"
+                }
+            },
+            "InvalidArguments": {
+                "value": {
+                    "code": -32602,
+                    "message": "Invalid params"
+                }
+            },
+            "InvalidRequest": {
+                "value": {
+                    "code": -32600,
+                    "message": "Invalid Request"
+                }
+            },
+            "MethodNotFound": {
+                "value": {
+                    "code": -32601,
+                    "message": "Method not found"
+                }
+            }
+        },
+        "schemas": {
+            "CreateCustomerRequest": {
+                "properties": {
+                    "method": {
+                        "example": "create_customer",
+                        "title": "Method",
+                        "type": "string"
+                    },
+                    "params": {
+                        "$ref": "#/components/schemas/CreateCustomerRequestParams"
+                    }
+                },
+                "required": [
+                    "method",
+                    "params"
+                ],
+                "title": "CreateCustomerRequest",
+                "type": "object"
+            },
+            "CreateCustomerRequestParams": {
+                "properties": {
+                    "birth_date": {
+                        "description": "Date of birth",
+                        "format": "date",
+                        "title": "Birth Date",
+                        "type": "string"
+                    },
+                    "customer_id": {
+                        "description": "Customer UUID",
+                        "format": "uuid",
+                        "title": "Customer Id",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "example": "Ivan",
+                        "title": "First Name",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender",
+                        "enum": [
+                            "MALE",
+                            "FEMALE"
+                        ],
+                        "title": "Gender",
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "default": false,
+                        "deprecated": true,
+                        "title": "Is Active",
+                        "type": "boolean"
+                    },
+                    "last_name": {
+                        "example": "Ivanov",
+                        "title": "Last Name",
+                        "type": "string"
+                    },
+                    "passport": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Passport"
+                            }
+                        ],
+                        "description": "Passport",
+                        "title": "Passport"
+                    },
+                    "username": {
+                        "description": "Username",
+                        "example": "ivan.ivanov",
+                        "title": "Username",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customer_id",
+                    "username"
+                ],
+                "title": "CreateCustomerRequestParams",
+                "type": "object"
+            },
+            "CreateCustomerResponse": {
+                "properties": {
+                    "code": {
+                        "example": 0,
+                        "title": "Code",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "example": "OK",
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "result": {
+                        "$ref": "#/components/schemas/CreateCustomerResponseResult"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "title": "CreateCustomerResponse",
+                "type": "object"
+            },
+            "CreateCustomerResponseResult": {
+                "properties": {
+                    "birth_date": {
+                        "description": "Date of birth",
+                        "format": "date",
+                        "title": "Birth Date",
+                        "type": "string"
+                    },
+                    "customer_id": {
+                        "description": "Customer UUID",
+                        "format": "uuid",
+                        "title": "Customer Id",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "example": "Ivan",
+                        "title": "First Name",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender",
+                        "enum": [
+                            "MALE",
+                            "FEMALE"
+                        ],
+                        "title": "Gender",
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "default": false,
+                        "deprecated": true,
+                        "title": "Is Active",
+                        "type": "boolean"
+                    },
+                    "last_name": {
+                        "example": "Ivanov",
+                        "title": "Last Name",
+                        "type": "string"
+                    },
+                    "passport": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Passport"
+                            }
+                        ],
+                        "description": "Passport",
+                        "title": "Passport"
+                    },
+                    "username": {
+                        "description": "Username",
+                        "example": "ivan.ivanov",
+                        "title": "Username",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customer_id",
+                    "username"
+                ],
+                "title": "CreateCustomerResponseResult",
+                "type": "object"
+            },
+            "Customer": {
+                "properties": {
+                    "birth_date": {
+                        "description": "Date of birth",
+                        "format": "date",
+                        "title": "Birth Date",
+                        "type": "string"
+                    },
+                    "customer_id": {
+                        "description": "Customer UUID",
+                        "format": "uuid",
+                        "title": "Customer Id",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "example": "Ivan",
+                        "title": "First Name",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender",
+                        "enum": [
+                            "MALE",
+                            "FEMALE"
+                        ],
+                        "title": "Gender",
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "default": false,
+                        "deprecated": true,
+                        "title": "Is Active",
+                        "type": "boolean"
+                    },
+                    "last_name": {
+                        "example": "Ivanov",
+                        "title": "Last Name",
+                        "type": "string"
+                    },
+                    "passport": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Passport"
+                            }
+                        ],
+                        "description": "Passport",
+                        "title": "Passport"
+                    },
+                    "username": {
+                        "description": "Username",
+                        "example": "ivan.ivanov",
+                        "title": "Username",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customer_id",
+                    "username"
+                ],
+                "title": "Customer",
+                "type": "object"
+            },
+            "DeleteCustomerRequest": {
+                "properties": {
+                    "method": {
+                        "example": "delete_customer",
+                        "title": "Method",
+                        "type": "string"
+                    },
+                    "params": {
+                        "$ref": "#/components/schemas/DeleteCustomerRequestParams"
+                    }
+                },
+                "required": [
+                    "method",
+                    "params"
+                ],
+                "title": "DeleteCustomerRequest",
+                "type": "object"
+            },
+            "DeleteCustomerRequestParams": {
+                "properties": {
+                    "customer_id": {
+                        "format": "uuid",
+                        "title": "Customer Id",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customer_id"
+                ],
+                "title": "DeleteCustomerRequestParams",
+                "type": "object"
+            },
+            "DeleteCustomerResponse": {
+                "properties": {
+                    "code": {
+                        "example": 0,
+                        "title": "Code",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "example": "OK",
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "result": {
+                        "format": "uuid",
+                        "title": "Result",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "title": "DeleteCustomerResponse",
+                "type": "object"
+            },
+            "FindCustomerRequest": {
+                "properties": {
+                    "method": {
+                        "example": "find_customer",
+                        "title": "Method",
+                        "type": "string"
+                    },
+                    "params": {
+                        "$ref": "/api.json#/components/schemas/Request"
+                    }
+                },
+                "required": [
+                    "method",
+                    "params"
+                ],
+                "title": "FindCustomerRequest",
+                "type": "object"
+            },
+            "FindCustomerResponse": {
+                "properties": {
+                    "code": {
+                        "example": 0,
+                        "title": "Code",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "example": "OK",
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "result": {
+                        "$ref": "/api.json#/components/schemas/Response"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "title": "FindCustomerResponse",
+                "type": "object"
+            },
+            "GetCustomersRequest": {
+                "properties": {
+                    "method": {
+                        "example": "get_customers",
+                        "title": "Method",
+                        "type": "string"
+                    },
+                    "params": {
+                        "$ref": "#/components/schemas/GetCustomersRequestParams"
+                    }
+                },
+                "required": [
+                    "method",
+                    "params"
+                ],
+                "title": "GetCustomersRequest",
+                "type": "object"
+            },
+            "GetCustomersRequestParams": {
+                "properties": {
+                    "customers": {
+                        "items": {
+                            "$ref": "#/components/schemas/Customer"
+                        },
+                        "title": "Customers",
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "customers"
+                ],
+                "title": "GetCustomersRequestParams",
+                "type": "object"
+            },
+            "GetCustomersResponse": {
+                "properties": {
+                    "code": {
+                        "example": 0,
+                        "title": "Code",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "example": "OK",
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "result": {
+                        "items": {
+                            "$ref": "#/components/schemas/Customer"
+                        },
+                        "title": "Result",
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "title": "GetCustomersResponse",
+                "type": "object"
+            },
+            "Health": {
+                "properties": {
+                    "checks": {
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "example": {
+                            "srv": "ok"
+                        },
+                        "title": "Checks",
+                        "type": "object"
+                    },
+                    "is_sick": {
+                        "default": false,
+                        "title": "Is Sick",
+                        "type": "boolean"
+                    },
+                    "start_time": {
+                        "format": "date-time",
+                        "title": "Start Time",
+                        "type": "string"
+                    },
+                    "up_time": {
+                        "example": "0:00:12.850850",
+                        "title": "Up Time",
+                        "type": "string"
+                    },
+                    "version": {
+                        "example": "1.0.0",
+                        "title": "Version",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "checks",
+                    "version",
+                    "start_time",
+                    "up_time"
+                ],
+                "title": "Health",
+                "type": "object"
+            },
+            "Passport": {
+                "properties": {
+                    "number": {
+                        "example": "567890",
+                        "pattern": "^\\d{6}$",
+                        "title": "Number",
+                        "type": "string"
+                    },
+                    "series": {
+                        "example": "1234",
+                        "pattern": "^\\d{4}$",
+                        "title": "Series",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "series",
+                    "number"
+                ],
+                "title": "Passport",
+                "type": "object"
+            },
+            "UpdateCustomerRequest": {
+                "properties": {
+                    "method": {
+                        "example": "update_customer",
+                        "title": "Method",
+                        "type": "string"
+                    },
+                    "params": {
+                        "$ref": "#/components/schemas/UpdateCustomerRequestParams"
+                    }
+                },
+                "required": [
+                    "method",
+                    "params"
+                ],
+                "title": "UpdateCustomerRequest",
+                "type": "object"
+            },
+            "UpdateCustomerRequestParams": {
+                "properties": {
+                    "birth_date": {
+                        "description": "Date of birth",
+                        "format": "date",
+                        "title": "Birth Date",
+                        "type": "string"
+                    },
+                    "customer_id": {
+                        "format": "uuid",
+                        "title": "Customer Id",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "example": "Ivan",
+                        "title": "First Name",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender",
+                        "enum": [
+                            "MALE",
+                            "FEMALE"
+                        ],
+                        "title": "Gender",
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "default": false,
+                        "deprecated": true,
+                        "title": "Is Active",
+                        "type": "boolean"
+                    },
+                    "last_name": {
+                        "example": "Ivanov",
+                        "title": "Last Name",
+                        "type": "string"
+                    },
+                    "passport": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Passport"
+                            }
+                        ],
+                        "description": "Passport",
+                        "title": "Passport"
+                    },
+                    "username": {
+                        "example": "ivan.ivanov",
+                        "title": "Username",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customer_id",
+                    "username"
+                ],
+                "title": "UpdateCustomerRequestParams",
+                "type": "object"
+            },
+            "UpdateCustomerResponse": {
+                "properties": {
+                    "code": {
+                        "example": 0,
+                        "title": "Code",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "example": "OK",
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "result": {
+                        "$ref": "#/components/schemas/UpdateCustomerResponseResult"
+                    }
+                },
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "title": "UpdateCustomerResponse",
+                "type": "object"
+            },
+            "UpdateCustomerResponseResult": {
+                "properties": {
+                    "birth_date": {
+                        "description": "Date of birth",
+                        "format": "date",
+                        "title": "Birth Date",
+                        "type": "string"
+                    },
+                    "customer_id": {
+                        "description": "Customer UUID",
+                        "format": "uuid",
+                        "title": "Customer Id",
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "example": "Ivan",
+                        "title": "First Name",
+                        "type": "string"
+                    },
+                    "gender": {
+                        "description": "Gender",
+                        "enum": [
+                            "MALE",
+                            "FEMALE"
+                        ],
+                        "title": "Gender",
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "default": false,
+                        "deprecated": true,
+                        "title": "Is Active",
+                        "type": "boolean"
+                    },
+                    "last_name": {
+                        "example": "Ivanov",
+                        "title": "Last Name",
+                        "type": "string"
+                    },
+                    "passport": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Passport"
+                            }
+                        ],
+                        "description": "Passport",
+                        "title": "Passport"
+                    },
+                    "username": {
+                        "description": "Username",
+                        "example": "ivan.ivanov",
+                        "title": "Username",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customer_id",
+                    "username"
+                ],
+                "title": "UpdateCustomerResponseResult",
+                "type": "object"
+            }
+        }
+    },
+    "info": {
+        "contact": {
+            "email": "ivan.ivanov@acme.inc",
+            "name": "Ivan Ivanov"
+        },
+        "description": "Customer service description",
+        "title": "Customer API",
+        "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {
+        "/#create_customer": {
+            "post": {
+                "deprecated": false,
+                "description": "Create customer description",
+                "operationId": "create_customer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateCustomerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "DeserializeError": {
+                                        "$ref": "#/components/examples/DeserializeError"
+                                    },
+                                    "InternalError": {
+                                        "$ref": "#/components/examples/InternalError"
+                                    },
+                                    "InvalidArguments": {
+                                        "$ref": "#/components/examples/InvalidArguments"
+                                    },
+                                    "InvalidRequest": {
+                                        "$ref": "#/components/examples/InvalidRequest"
+                                    },
+                                    "MethodNotFound": {
+                                        "$ref": "#/components/examples/MethodNotFound"
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Failed operation"
+                    }
+                },
+                "summary": "Create Customer",
+                "tags": [
+                    "Api"
+                ]
+            }
+        },
+        "/#delete_customer": {
+            "post": {
+                "deprecated": true,
+                "description": "",
+                "operationId": "delete_customer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteCustomerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeleteCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "DeserializeError": {
+                                        "$ref": "#/components/examples/DeserializeError"
+                                    },
+                                    "InternalError": {
+                                        "$ref": "#/components/examples/InternalError"
+                                    },
+                                    "InvalidArguments": {
+                                        "$ref": "#/components/examples/InvalidArguments"
+                                    },
+                                    "InvalidRequest": {
+                                        "$ref": "#/components/examples/InvalidRequest"
+                                    },
+                                    "MethodNotFound": {
+                                        "$ref": "#/components/examples/MethodNotFound"
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeleteCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Failed operation"
+                    }
+                },
+                "summary": "Delete Customer",
+                "tags": [
+                    "Api"
+                ]
+            }
+        },
+        "/#find_customer": {
+            "post": {
+                "deprecated": false,
+                "description": "",
+                "operationId": "find_customer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FindCustomerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FindCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "DeserializeError": {
+                                        "$ref": "#/components/examples/DeserializeError"
+                                    },
+                                    "InternalError": {
+                                        "$ref": "#/components/examples/InternalError"
+                                    },
+                                    "InvalidArguments": {
+                                        "$ref": "#/components/examples/InvalidArguments"
+                                    },
+                                    "InvalidRequest": {
+                                        "$ref": "#/components/examples/InvalidRequest"
+                                    },
+                                    "MethodNotFound": {
+                                        "$ref": "#/components/examples/MethodNotFound"
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/FindCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Failed operation"
+                    }
+                },
+                "summary": "Find Customer",
+                "tags": [
+                    "Api"
+                ]
+            }
+        },
+        "/#get_customers": {
+            "post": {
+                "deprecated": false,
+                "description": "Get customers description",
+                "operationId": "get_customers",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetCustomersRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCustomersResponse"
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "DeserializeError": {
+                                        "$ref": "#/components/examples/DeserializeError"
+                                    },
+                                    "InternalError": {
+                                        "$ref": "#/components/examples/InternalError"
+                                    },
+                                    "InvalidArguments": {
+                                        "$ref": "#/components/examples/InvalidArguments"
+                                    },
+                                    "InvalidRequest": {
+                                        "$ref": "#/components/examples/InvalidRequest"
+                                    },
+                                    "MethodNotFound": {
+                                        "$ref": "#/components/examples/MethodNotFound"
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCustomersResponse"
+                                }
+                            }
+                        },
+                        "description": "Failed operation"
+                    }
+                },
+                "summary": "Get Customers",
+                "tags": [
+                    "Api"
+                ]
+            }
+        },
+        "/#update_customer": {
+            "post": {
+                "deprecated": false,
+                "description": "",
+                "operationId": "update_customer",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateCustomerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "CustomerNotFound": {
+                                        "$ref": "#/components/examples/CustomerNotFound"
+                                    },
+                                    "DeserializeError": {
+                                        "$ref": "#/components/examples/DeserializeError"
+                                    },
+                                    "InternalError": {
+                                        "$ref": "#/components/examples/InternalError"
+                                    },
+                                    "InvalidArguments": {
+                                        "$ref": "#/components/examples/InvalidArguments"
+                                    },
+                                    "InvalidRequest": {
+                                        "$ref": "#/components/examples/InvalidRequest"
+                                    },
+                                    "MethodNotFound": {
+                                        "$ref": "#/components/examples/MethodNotFound"
+                                    }
+                                },
+                                "schema": {
+                                    "$ref": "#/components/schemas/UpdateCustomerResponse"
+                                }
+                            }
+                        },
+                        "description": "Failed operation"
+                    }
+                },
+                "summary": "Update Customer",
+                "tags": [
+                    "Api"
+                ]
+            }
+        },
+        "/health": {
+            "get": {
+                "description": "",
+                "operationId": "health",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Health"
+                                }
+                            }
+                        },
+                        "description": "Successful operation"
+                    },
+                    "default": {
+                        "description": "Error"
+                    }
+                },
+                "summary": "Health Check",
+                "tags": [
+                    "Api"
+                ]
+            }
+        }
+    },
+    "servers": [
+        {
+            "description": "dev",
+            "url": "http://localhost:8080/"
+        }
+    ],
+    "tags": [
+        {
+            "description": "Customer API",
+            "name": "Api"
+        }
+    ]
+}
