@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: dffml-model-tensorflow-hub
+Version: 0.0.5
+Summary: UNKNOWN
+Home-page: https://github.com/intel/dffml/blob/master/model/tensorflow_hub/README.md
+Author: Himanshu Tripathi
+Author-email: himanshutripathi366@gmail.com
+License: MIT
+Description: # DFFML Tensorflow Hub Models
+        
+        ## About
+        
+        dffml_model_tensorflow_hub supports pretrained NLP models available on ![tensorflow hub](https://tfhub.dev/s)
+        
+        ## Documentation
+        
+        Documentation is hosted at https://intel.github.io/dffml/plugins/dffml_model.html#dffml-model-tensorflow-hub
+        
+        ## Acknowledgement
+        
+        For tokenizatin needed by BERT models dffml_model_tensorflow_hub uses code from ![google research bert repository](https://github.com/google-research/bert/blob/master/tokenization.py), ![License](https://github.com/google-research/bert/blob/master/LICENSE)
+        
+        ## License
+        
+        dffml_model_tensorflow_hub Models are distributed under the terms of the
+        [MIT License](LICENSE).
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown

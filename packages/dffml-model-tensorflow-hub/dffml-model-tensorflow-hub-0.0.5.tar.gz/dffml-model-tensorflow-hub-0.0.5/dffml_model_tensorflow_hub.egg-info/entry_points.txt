@@ -1,0 +1,3 @@
+[dffml.model]
+text_classifier = dffml_model_tensorflow_hub.text_classifier:TextClassificationModel
+
