@@ -1,0 +1,17 @@
+The pysyte.config.xdg module
+=============================
+
+    >>> from pysyte.config import xdg
+    >>> assert 'XDG config files' in xdg.__doc__
+
+More imports for testing
+------------------------
+    >>> from pysyte.types import paths
+
+User configs
+------------
+    >>> fred = xdg.home_config('fred')
+    >>> assert not fred
+    >>> if paths.path('~/.config/pysyte.yml').isfile():
+    ...     pysyte = xdg.home_config('pysyte')
+    ...     assert pysyte is not None

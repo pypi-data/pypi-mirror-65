@@ -1,0 +1,125 @@
+#! /usr/bin/env python3
+"""Script to display a collection of paths after inserting one new path
+
+Examples of use:
+    $ export PATH=/bin:/usr/bin
+
+    $ %(prog)s PATH /usr/local/bin
+    PATH=/bin:/usr/bin:/usr/local/bin
+
+    $ %(prog)s PATH /usr/local/bin --start
+    PATH=/usr/local/bin:/bin:/usr/bin
+
+    $ %(prog)s PATH /usr/local/bin -i1
+    PATH=/bin:/usr/local/bin:/usr/bin
+"""
+
+
+from __future__ import print_function
+import os
+import sys
+import argparse
+from bdb import BdbQuit
+
+
+from pysyte import __version__
+from pysyte.cli.main import run
+
+
+class ScriptError(NotImplementedError):
+    pass
+
+
+def add_args(parser):
+    """Add arguments to the command line parser"""
+    parser.string('symbol', help='The bash symbol to be changed')
+    parser.string('path', help='The path to be added')
+    parser.boolean('', 'start',
+                        help='Add the path at start of list of paths')
+    parser.integer('', 'index', type=int,
+                        help='The index at which the path will be inserted')
+    parser.boolean('', 'version', help='Show version')
+    return parser
+
+
+def post_parse(args):
+    if args.version:
+        sys.stdout.write(f'{sys.argv[0]} version: {__version__}')
+        raise SystemExit
+    if not args.index:
+        if args.start:
+            args.index = 0
+        else:
+            args.index = False
+    return args
+
+
+def _add_symbol_to_paths(paths, symbol, i):
+    if i is False:
+        i = len(paths)
+    result = paths[:]
+    if not symbol:
+        return result
+    if symbol not in result:
+        result.insert(i, symbol)
+        return result
+    j = result.index(symbol)
+    if i != j:
+        del result[j]
+        result.insert(i, symbol)
+    return result
+
+
+def get_arg_path(args):
+    path = args.path
+    if not path:
+        return ''
+    user_path = os.path.expanduser(path)
+    real_path = os.path.realpath(user_path)
+    if not os.path.isdir(real_path):
+        return ''
+    return real_path
+
+
+def split_paths(string):
+    if not string:
+        return []
+    return [p for p in string.split(os.path.pathsep) if p]
+
+
+def get_paths(args):
+    symbol = args.symbol
+    paths_string = ''
+    if symbol in os.environ:
+        paths_string = os.environ[symbol]
+    elif os.path.pathsep in symbol:
+        paths_string = symbol
+    return split_paths(paths_string)
+
+
+def script(args):
+    arg_path = get_arg_path(args)
+    paths = get_paths(args)
+    if not arg_path:
+        if not paths:
+            return False
+    elif os.path.isdir(arg_path):
+        if arg_path in paths:
+            paths.remove(arg_path)
+        paths = _add_symbol_to_paths(paths, arg_path, args.index)
+    else:
+        return False
+    print('='.join((args.symbol, os.path.pathsep.join(paths))))
+    return True
+
+
+def main(args):
+    """Run the script"""
+    try:
+        return os.EX_OK if script(args) else not os.EX_OK
+    except (SystemExit, BdbQuit):
+        pass
+    return os.EX_OK
+
+
+run(main, add_args=add_args, post_parse=post_parse)

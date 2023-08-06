@@ -1,0 +1,37 @@
+#! /usr/bin/env python3
+"""Show some lines from files
+
+Usage: %(prog)s [options] [files]
+
+"""
+from pysyte.cli import main
+from pysyte.cli import streams
+from pysyte.cli import lines
+from pysyte import types
+
+
+def add_args(main_parser):
+    """Parse out command line arguments"""
+    parser = lines.add_args(main_parser)
+    parser.add_files(action='kat')
+    return parser
+
+
+def kat(args):
+    """Run kat"""
+    at = args.at
+    first = args.first or 1
+    last = args.last or -1
+    for stream in streams.args(args, 'files'):
+        start, lines_in = types.lines.first_and_rest(
+            stream.read(),
+            at,
+            first,
+            last
+        )
+        lines_out = args.sed(lines_in, start)
+        print(types.lines.as_text(lines_out))
+    return True
+
+
+main.run(kat, add_args)
