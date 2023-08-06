@@ -1,0 +1,16 @@
+setup.py
+src/nr/__init__.py
+src/nr.collections.egg-info/PKG-INFO
+src/nr.collections.egg-info/SOURCES.txt
+src/nr.collections.egg-info/dependency_links.txt
+src/nr.collections.egg-info/requires.txt
+src/nr.collections.egg-info/top_level.txt
+src/nr/collections/__init__.py
+src/nr/collections/abc.py
+src/nr/collections/chaindict.py
+src/nr/collections/generic.py
+src/nr/collections/hashdict.py
+src/nr/collections/lambdadict.py
+src/nr/collections/ordereddict.py
+src/nr/collections/orderedset.py
+src/nr/collections/persistable.py
