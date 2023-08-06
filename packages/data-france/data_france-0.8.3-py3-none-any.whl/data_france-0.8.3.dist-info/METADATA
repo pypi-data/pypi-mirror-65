@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: data_france
+Version: 0.8.3
+Summary: Données administratives et géographiques sur la France
+Home-page: https://github.com/aktiur/data-france
+License: GNU-GPL 3.0
+Author: Arthur Cheysson
+Author-email: arthur@cheysson.fr
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Requires-Dist: django >= 2.0
+
+DATA-FRANCE
+===========
+
+Un ensemble de données administratives et géographiques pour la France. Elle double comme application Django
+pour permettre l'intégration aisée de ces données.
+
+
+Importer les données
+--------------------
+
+Pour importer les données, appliquez les migrations et utilisez la commande de management::
+
+    ./manage.py update_data_france
+
+
+Modèles
+-------
+
+Pour le moment, j'ai inclus :
+
+* Les communes
+    * Inclut les communes délégués / communes associées / arrondissements PLM
+* Les EPCI
+    * CA, CC, CU et métropoles
+    * N'inclut pas encore les EPT du Grand Paris
+* Les départements
+* Les régions
+* Les codes postaux
+
+Toutes ces entités (sauf les codes postaux) viennent avec une géometrie et les articles + charnière.
+
+Vues
+----
+
+Une vue de recherche renvoyant les résultats en JSON est disponible, par défaut
+à l'URL `chercher/communes/` (en utilisant le paramètre GET `q`).
+
+
+Autres remarques
+----------------
+
+**ATTENTION** : Ce paquet ne fonctionne que si votre projet Django utilise **PostGIS.**
+
