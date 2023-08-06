@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+activate_aiida/__init__.py
+activate_aiida/parse_args.py
+activate_aiida/read_config.py
+activate_aiida.egg-info/PKG-INFO
+activate_aiida.egg-info/SOURCES.txt
+activate_aiida.egg-info/dependency_links.txt
+activate_aiida.egg-info/entry_points.txt
+activate_aiida.egg-info/requires.txt
+activate_aiida.egg-info/top_level.txt
+activate_aiida.egg-info/zip-safe
+bin/aiida-activate
+bin/aiida-deactivate

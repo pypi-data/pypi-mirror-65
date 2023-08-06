@@ -1,0 +1,11 @@
+COLORGREEN='\033[0;32m'
+COLORBLUE='\033[0;34m'
+COLORNONE='\033[0m'
+
+echo -e "${COLORBLUE}Stopping Daemon:${COLORNONE}"
+verdi daemon stop
+
+echo -e "${COLORBLUE}Stopping Postgres:${COLORNONE}"
+pg_ctl stop
+
+echo -e "${COLORGREEN}Done!${COLORNONE}"
