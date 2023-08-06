@@ -1,0 +1,14 @@
+Babel
+Sphinx
+sphinx_rtd_theme
+pytest
+pytest-cov
+wheel
+twine
+
+[vscode]
+pylint
+rope
+
+[vscode:python_version >= "3.6"]
+black
