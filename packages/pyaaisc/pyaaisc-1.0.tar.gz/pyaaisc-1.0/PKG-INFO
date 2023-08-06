@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: pyaaisc
+Version: 1.0
+Summary: Python AAindex database scrape
+Home-page: https://github.com/stefs304/pyaaisc
+Author: Stefan Stojanovic
+Author-email: stefs304@gmail.com
+License: UNKNOWN
+Description: # pyaaisc
+        Python AAindex database scrape
+        
+        AAindex website: https://www.genome.jp/aaindex/
+        
+        ### Instalation
+        
+        ```
+        pip install pyaaisc
+        ```
+        
+        ### Usage
+        
+        ```python
+        from pyaaisc import Aaindex
+        
+        aai = Aaindex()
+        for result in aai.search('charge'):
+            print(result)
+        
+        record = aai.get('KLEP840101')
+        print(record.accession_number, record.title)
+        
+        ```
+        ```
+        ## output
+        >>> ('CHAM830107', 'A parameter of charge transfer capability (Charton-Charton, 1983)')
+        >>> ('CHAM830108', 'A parameter of charge transfer donor capability (Charton-Charton, 1983)')
+        >>> ('FAUJ880111', 'Positive charge (Fauchere et al., 1988)')
+        >>> ('FAUJ880112', 'Negative charge (Fauchere et al., 1988)')
+        >>> ('KLEP840101', 'Net charge (Klein et al., 1984)')
+        
+        >>> KLEP840101 Prediction of protein function from sequence properties: Discriminant analysis of a data base
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Description-Content-Type: text/markdown
