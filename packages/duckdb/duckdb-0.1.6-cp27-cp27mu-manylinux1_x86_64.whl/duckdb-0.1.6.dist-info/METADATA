@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: duckdb
+Version: 0.1.6
+Summary: DuckDB embedded database
+Home-page: https://www.duckdb.org
+Maintainer: Hannes Muehleisen
+Maintainer-email: hannes@cwi.nl
+License: UNKNOWN
+Keywords: DuckDB Database SQL OLAP
+Platform: UNKNOWN
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Intended Audience :: Developers
+Requires-Dist: numpy (>=1.14)
+Requires-Dist: pandas (>=0.23)
+Requires-Dist: pybind11 (>=2.4)
+
+UNKNOWN
+
+
