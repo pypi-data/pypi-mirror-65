@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: vs301-util
+Version: 0.1.1
+Summary: vs301 utils
+Home-page: https://gitlab.com/telelian/peripheral-library/vs301-systemutil
+Author: mrzjo
+Author-email: mrzjo05@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Hardware
+Description-Content-Type: text/markdown
+Requires-Dist: pyalsaaudio (==0.8.4)
+Requires-Dist: pyudev (==0.22.0)
+Requires-Dist: pyusb (==1.0.2)
+Requires-Dist: loguru (==0.4.1)
+
+# vs301-util
+
+
+
