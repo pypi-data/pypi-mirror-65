@@ -1,0 +1,10 @@
+django>=1.11
+Pillow>=6.2.1
+requests>=2
+simplejson==3.16.0
+
+[libcloud]
+apache-libcloud
+
+[sftp]
+paramiko
