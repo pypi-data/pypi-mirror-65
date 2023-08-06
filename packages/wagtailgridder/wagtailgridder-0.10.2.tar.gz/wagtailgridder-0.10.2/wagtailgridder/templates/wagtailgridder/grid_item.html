@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_head_top %}
+    <link rel="stylesheet" href="{% static 'wagtailgridder/css/grid_index_page.css' %}">
+{% endblock extra_head_top %}
+
+{% block inner_content %}
+    <div id="wg-grid-item-content">
+        <div class="row">
+            <h2>{{ page.title }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center pb-2">
+                {% image page.description_image original class="img-fluid center-block" %}
+            </div>
+            <div class="col-md-8 pb-2">
+                {{ page.landing_page_text|safe }}
+                {% block buttons %}
+                    {% for button_section in page.buttons %}
+                        <div class="row">
+                            {% for action_item in button_section.value.action_items %}
+                                <div class="col-md-12 border-bottom border-secondary">
+                                    {% block action_item %}
+                                        {{ action_item }}
+                                    {% endblock action_item %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                {% endblock buttons %}
+            </div>
+        </div>
+    </div>
+{% endblock inner_content %}
+
+{% block extra_footer_js %}
+{% endblock extra_footer_js %}

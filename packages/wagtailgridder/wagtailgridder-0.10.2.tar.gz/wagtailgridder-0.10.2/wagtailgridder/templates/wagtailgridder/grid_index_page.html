@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static cache wagtailcore_tags wagtailimages_tags %}
+
+{% comment %}
+    The following is using template includes heavily to make it easy for users to create their own custom grid index
+    pages incase you need a different base template.
+    It is important to consider the usage template caching for permissions due to permissions calls
+    in this package, and the wagtail uses templates.
+    Use django debug toolbar to easily see if you are hitting over several hundred templates in a given page.
+{% endcomment %}
+
+{% block site_title %}
+    {{ page.title }}
+{% endblock site_title %}
+
+{% block additional_classes %}
+    wagtailgridder
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock breadcrumbs %}
+
+{% block extra_head_bottom %}
+    {% include "wagtailgridder/index/__extra_head_bottom.html" %}
+{% endblock extra_head_bottom %}
+
+{% block content %}
+    {% cache 1 604800 "wagtailgridder-" request.path %}
+        {% block hero_section %}
+            {% include "wagtailgridder/index/__hero_section.html" %}
+        {% endblock hero_section %}
+        {### CONTENT ###}
+        {% include "wagtailgridder/index/__wg-content-container.html" %}
+    {% endcache %}
+{% endblock content %}
+
+{% block extra_footer_js %}
+    {% include "wagtailgridder/index/__extra_footer_js.html" %}
+{% endblock extra_footer_js %}
