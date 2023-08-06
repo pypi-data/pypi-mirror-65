@@ -1,0 +1,135 @@
+#! /usr/bin/env python
+import argparse
+import matplotlib
+matplotlib.use("Agg")
+
+
+def add_subparser(subparsers, name, help, parameterization):
+
+    parser = subparsers.add_parser(name, help=help)
+
+    if "subject" in parameterization:
+        parser.add_argument("-s", "--subject",
+                            nargs="*",
+                            metavar="id",
+                            help="subject id(s)")
+
+    if "session" in parameterization:
+        parser.add_argument("--session",
+                            nargs="*",
+                            metavar="sess",
+                            help="scanning session(s) for single subject")
+
+    if "experiment" in parameterization:
+        parser.add_argument("-e", "--experiment",
+                            metavar="name",
+                            help="experiment name")
+
+    if "model" in parameterization:
+        parser.add_argument("-m", "--model",
+                            metavar="name",
+                            help="model name")
+
+    parser.add_argument("-n", "--n-procs",
+                        type=int,
+                        default=4,
+                        metavar="number",
+                        help="size of multiprocessing pool")
+    parser.add_argument("--graph",
+                        const=True,
+                        nargs="?",
+                        metavar="<fname>",
+                        help="create graph image instead of executing")
+    parser.add_argument("--debug",
+                        action="store_true",
+                        help="enable nipype debug mode")
+    parser.add_argument("--clear-cache",
+                        action="store_true",
+                        help="remove existing cache directory before running")
+    parser.add_argument("--no-qc",
+                        dest="qc", action="store_false",
+                        help="don't connect qc nodes")
+    parser.add_argument("--no-exec",
+                        dest="execute", action="store_false",
+                        help="define the workflow but do not execute it")
+
+
+if __name__ == "__main__":
+
+    import lyman
+    from lyman.workflows.template import define_template_workflow
+    from lyman.workflows.preproc import define_preproc_workflow
+    from lyman.workflows.model import (define_model_fit_workflow,
+                                       define_model_results_workflow)
+
+    parser = argparse.ArgumentParser(prog="lyman")
+    subparsers = parser.add_subparsers(help="processing stage",
+                                       dest="stage")
+
+    # ---
+
+    add_subparser(
+        subparsers,
+        "template",
+        "functional template definition",
+        ["subject"],
+    )
+
+    add_subparser(
+        subparsers,
+        "preproc",
+        "functional preprocessing",
+        ["subject", "session", "experiment"],
+    )
+
+    add_subparser(
+        subparsers,
+        "model",
+        "fit univariate GLM and estimate contrasts",
+        ["subject", "session", "experiment", "model"],
+    )
+
+    add_subparser(
+        subparsers,
+        "model-fit",
+        "fit univariate GLM",
+        ["subject", "session", "experiment", "model"],
+    )
+
+    add_subparser(
+        subparsers,
+        "model-res",
+        "estimate univariate contrasts",
+        ["subject", "experiment", "model"],
+    )
+
+    # ---
+
+    args = parser.parse_args()
+
+    stage = args.stage
+    qc = args.qc
+
+    experiment = getattr(args, "experiment", None)
+    model = getattr(args, "model", None)
+    subjects = getattr(args, "subject", None)
+    sessions = getattr(args, "session", None)
+
+    info = lyman.info(experiment, model)
+    subjects = lyman.subjects(subjects, sessions)
+
+    if stage == "template":
+        wf = define_template_workflow(info, subjects, qc)
+        lyman.execute(wf, args, info)
+
+    if stage == "preproc":
+        wf = define_preproc_workflow(info, subjects, sessions, qc)
+        lyman.execute(wf, args, info)
+
+    if stage in ["model", "model-fit"]:
+        wf = define_model_fit_workflow(info, subjects, sessions, qc)
+        lyman.execute(wf, args, info)
+
+    if stage in ["model", "model-res"]:
+        wf = define_model_results_workflow(info, subjects, qc)
+        lyman.execute(wf, args, info)
