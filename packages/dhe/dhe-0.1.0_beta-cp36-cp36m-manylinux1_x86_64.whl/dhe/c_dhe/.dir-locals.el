@@ -1,0 +1,1 @@
+((c-mode . ((flycheck-clang-include-path . ("/usr/include/coin" "/usr/include/python3.6m/" "/usr/include/python3.7m/" "/usr/lib64/python3.5/site-packages/numpy/core/include/" "/usr/lib64/python3.6/site-packages/numpy/core/include/" "/usr/lib64/python3.7/site-packages/numpy/core/include/" "/usr/lib64/python3.7/site-packages/numpy/core/include/numpy/")))))
