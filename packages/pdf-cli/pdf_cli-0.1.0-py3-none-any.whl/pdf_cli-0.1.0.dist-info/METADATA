@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: pdf-cli
+Version: 0.1.0
+Summary: command line pdf tools
+License: MIT
+Keywords: pdf
+Author: Stefano Apostolico
+Requires-Python: >3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: pyPdf4 (>=1.27.0,<2.0.0)
+Requires-Dist: pytest-coverage (>=0.0,<0.1)
+Description-Content-Type: text/markdown
+
+# pdfcli
+
+pdfcli is a command line utility to work with pdf.
+
+It is able to split,join,reorder,extract pdf.
+
+    $ pdfcli --help
+    Usage: pdfcli [OPTIONS] COMMAND [ARGS]...
+    
+    Options:
+      --help  Show this message and exit.
+    
+    Commands:
+      extract  extract one or multiple pages and build a new document.
+      join     join multiple pdf together in a single file
+      split    split pdf into single page file
+
