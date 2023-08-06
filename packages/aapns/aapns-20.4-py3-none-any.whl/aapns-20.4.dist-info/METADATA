@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: aapns
+Version: 20.4
+Summary: Asynchronous Apple Push Notification Service Client
+Home-page: https://github.com/HENNGE/aapns
+License: Apache-2.0
+Keywords: push-notification,apple,ios,asyncio
+Author: Jonas Obrist
+Author-email: jonas.obrist@hennge.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Communications
+Classifier: Typing :: Typed
+Provides-Extra: cli
+Requires-Dist: attrs (>=19.3.0,<20.0.0)
+Requires-Dist: click (>=7.0,<8.0); extra == "cli"
+Requires-Dist: h2 (>=3.2.0,<4.0.0)
+Project-URL: Documentation, https://aapns.readthedocs.io
+Project-URL: Repository, https://github.com/hennge/aapns
+Description-Content-Type: text/markdown
+
+# AAPNS
+
+[![CircleCI](https://circleci.com/gh/HENNGE/aapns.svg?style=svg)](https://circleci.com/gh/HENNGE/aapns)
+[![Documentation Status](https://readthedocs.org/projects/aapns/badge/?version=latest)](http://aapns.readthedocs.io/en/latest/?badge=latest)
+
+Asynchronous Apple Push Notification Service client.
+
+* Requires TLS 1.2 or better
+* Requires Python 3.8 or better
+
+## Quickstart
+
+```python
+from aapns.api import create_client
+from aapns.config import Priority, Production
+from aapns.models import Notification, Alert, Localized
+
+async def send_hello_world():
+    client = await create_client('/path/to/push/cert.pem', Production)
+    apns_id = await client.send_notification(
+        'my-device-token',
+        Notification(
+            alert=Alert(
+                body=Localized(
+                    key='Hello World!',
+                    args=['foo', 'bar']
+                ),
+            ),
+            badge=42
+        ),
+        priority=Priority.immediately
+    )
+    print(f'Sent push notification with ID {apns_id}')
+    await client.close()
+```
+
