@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: ICUSIM
+Version: 0.2.0
+Summary: Intensive Care Unit (ICU) Simulation
+Home-page: http://autonom.io
+Author: Mikko Kotila
+Author-email: mailme@mikkokotila.com
+Maintainer: Mikko Kotila
+Maintainer-email: mailme@mikkokotila.com
+License: MIT
+Download-URL: https://github.com/autonomio/ICUSIM/
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Human Machine Interfaces
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Requires-Dist: simpy (==3.0.12)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: salib
+
+ICUSIM simplifies the process of simulating ICU burden scenarios
+based on rich set of input variables.
+
+
