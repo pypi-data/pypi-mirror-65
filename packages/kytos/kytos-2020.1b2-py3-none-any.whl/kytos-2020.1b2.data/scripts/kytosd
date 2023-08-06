@@ -1,0 +1,6 @@
+#!python
+"""Start Kytos SDN Platform core."""
+
+from kytos.core import kytosd
+
+kytosd.main()
