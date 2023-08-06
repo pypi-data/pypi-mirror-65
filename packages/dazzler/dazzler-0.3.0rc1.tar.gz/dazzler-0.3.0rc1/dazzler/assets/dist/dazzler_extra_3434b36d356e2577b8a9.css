@@ -1,0 +1,137 @@
+.dazzler-extra-pager {
+  text-align: center; }
+  .dazzler-extra-pager .page {
+    padding: 5px;
+    background-color: #5294e2;
+    margin: 3px;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .dazzler-extra-pager .page:hover, .dazzler-extra-pager .page:focus {
+      background-color: #52a3f1; }
+
+.dazzler-extra-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid #c9c9ce;
+  border-top-color: #5294e2;
+  border-radius: 50%;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 1.2s;
+  -webkit-animation-name: rotate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-transition-property: -moz-transform;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 1.2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  transition-property: transform;
+  animation-name: rotate;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.dazzler-extra-sticky {
+  position: sticky;
+  overflow-x: hidden; }
+
+.dazzler-extra-drawer {
+  display: flex;
+  background-color: white;
+  z-index: 100; }
+  .dazzler-extra-drawer .drawer-content {
+    padding: 0.125rem; }
+  .dazzler-extra-drawer .drawer-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #c9c9ce; }
+    .dazzler-extra-drawer .drawer-control.vertical {
+      height: 100%; }
+    .dazzler-extra-drawer .drawer-control.horizontal {
+      width: 100%; }
+  .dazzler-extra-drawer.vertical {
+    height: 100%; }
+  .dazzler-extra-drawer.horizontal {
+    width: 100%;
+    flex-direction: column; }
+  .dazzler-extra-drawer.right {
+    flex-direction: row-reverse !important; }
+  .dazzler-extra-drawer.bottom {
+    flex-direction: column-reverse !important; }
+
+.dazzler-extra-pop-up {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .dazzler-extra-pop-up .popup-content {
+    position: absolute;
+    z-index: 1;
+    padding: 0.5rem;
+    bottom: 125%;
+    left: 0.5rem;
+    background-color: #c9c9ce;
+    border-radius: 5px;
+    visibility: hidden; }
+    .dazzler-extra-pop-up .popup-content::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      text-align: center;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #c9c9ce transparent transparent transparent; }
+    .dazzler-extra-pop-up .popup-content.visible {
+      visibility: visible;
+      -webkit-animation: fadeIn 1s;
+      -moz-animation: fadeIn 1s;
+      animation: fadeIn 1s; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+
+/*# sourceMappingURL=dazzler_extra_3434b36d356e2577b8a9.js.map*/

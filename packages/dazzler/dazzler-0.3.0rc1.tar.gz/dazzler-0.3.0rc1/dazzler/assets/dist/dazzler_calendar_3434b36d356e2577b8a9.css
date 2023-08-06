@@ -1,0 +1,102 @@
+._calendar-cell, .dazzler-calendar-calendar .empty, .dazzler-calendar-calendar .week-labels .week-label, .dazzler-calendar-calendar .week-rows .calendar-day {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.dazzler-calendar-calendar {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #c9c9ce; }
+  .dazzler-calendar-calendar .calendar-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .dazzler-calendar-calendar .calendar-header span {
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      padding: 0.125rem; }
+    .dazzler-calendar-calendar .calendar-header span:first-child {
+      margin-right: 0.5rem; }
+    .dazzler-calendar-calendar .calendar-header span:last-child {
+      margin-left: 0.5rem; }
+  .dazzler-calendar-calendar .month-label {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .dazzler-calendar-calendar .week-labels {
+    display: flex;
+    border-bottom: solid 1px #c9c9ce; }
+  .dazzler-calendar-calendar .week-rows .calendar-week {
+    display: flex; }
+  .dazzler-calendar-calendar .week-rows .calendar-day {
+    cursor: pointer; }
+    .dazzler-calendar-calendar .week-rows .calendar-day.selected-day {
+      background-color: #107bdb;
+      color: white; }
+    .dazzler-calendar-calendar .week-rows .calendar-day:hover {
+      background-color: #52a3f1;
+      color: white; }
+
+.dazzler-calendar-date-picker {
+  position: relative; }
+  .dazzler-calendar-date-picker .picker {
+    position: absolute;
+    top: 1.25rem;
+    left: 0.125rem;
+    display: flex;
+    border: 1px solid #c9c9ce;
+    width: auto;
+    z-index: 201;
+    background: white; }
+    .dazzler-calendar-date-picker .picker .dazzler-calendar-calendar {
+      border: none; }
+
+.dazzler-calendar-time-picker.fallback-mode {
+  height: 100%;
+  position: relative; }
+  .dazzler-calendar-time-picker.fallback-mode .time-input {
+    width: 96px;
+    height: 1.8rem;
+    text-align: center;
+    box-sizing: border-box; }
+  .dazzler-calendar-time-picker.fallback-mode .fallback-timepicker {
+    position: absolute;
+    z-index: 200;
+    top: 1.9rem;
+    background: white;
+    display: flex;
+    flex-wrap: nowrap;
+    border: solid 1px #c9c9ce; }
+    .dazzler-calendar-time-picker.fallback-mode .fallback-timepicker .time-range {
+      overflow-y: scroll;
+      color: black;
+      border: none;
+      height: 300px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer; }
+      .dazzler-calendar-time-picker.fallback-mode .fallback-timepicker .time-range div:first-child {
+        color: #9c9c9c;
+        text-align: center;
+        padding: 0.25rem; }
+      .dazzler-calendar-time-picker.fallback-mode .fallback-timepicker .time-range .time-value {
+        padding: 0.5rem; }
+        .dazzler-calendar-time-picker.fallback-mode .fallback-timepicker .time-range .time-value:hover {
+          background-color: #52a3f1;
+          color: #fff; }
+
+
+/*# sourceMappingURL=dazzler_calendar_3434b36d356e2577b8a9.js.map*/
