@@ -1,0 +1,13 @@
+
+[aiohttp]
+aiohttp>=3.6
+
+[dashboard]
+jinja2>=2.10.0
+PyYAML>=5.0.0
+
+[django]
+django>=2.2
+
+[flask]
+flask>=1.0.0
