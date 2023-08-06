@@ -1,0 +1,52 @@
+webarchive (0.3.0)
+
+  * Added a simple GUI wrapper written in Qt, which is available in a contrib
+    directory
+  * Page contents can be fetched also from a file and from stdin
+  * Added --baseurl option to specify URLs of web pages when they're read from
+    a file or stdin
+  * Fixed incorrect help message
+  * Fixed post-processing relative URLs.
+
+ -- Michał Góral <dev@goral.net.pl> Fri, 10 Apr 2020 00:29:42 +0200
+
+webarchive (0.2.1)
+
+  * Fixed extensions for various out formats
+
+ -- Michał Góral <dev@goral.net.pl> Sun, 22 Mar 2020 23:44:05 +0100
+
+webarchive (0.2.0)
+
+  * BREAKING: -t switch now means --to (previously: --title)
+  * BREAKING: short form of --title changed to -T
+  * BREAKING: removed --web switch; use "-t dump" instead
+  * BREAKING: --web-cmd changed to --dump-cmd
+  * Select output format by passing -t/--to. Available formats are:
+    * text: plain text
+    * md: markdown - requires installed pandoc in $PATH
+    * html: simplified HTML
+    * dump: textual dump as returned by --dump-cmd
+  * Improved web page extraction (in text, md and html modes)
+  * Relative links (<a href>) and images (<img src>) are converted to
+    absolute ones
+
+ -- Michał Góral <dev@goral.net.pl> Sun, 22 Mar 2020 23:21:53 +0100
+
+webarchive (0.1.2)
+
+  * Print deduced path to stdout instead of stderr
+
+ -- Michał Góral <dev@goral.net.pl> Sat, 21 Mar 2020 21:50:46 +0100
+
+webarchive (0.1.0)
+
+ * Initial release:
+    * archive page text of full page dump in text form
+    * use any command for dumping web pages (default: links -dump)
+    * optionally add YAML front matter (useful when page is later piped to e.g.
+      pandoc)
+    * save page to file or print to standard output
+    * users can change page title
+
+ -- Michał Góral <dev@goral.net.pl> Sat, 21 Mar 2020 21:07:10 +0100
