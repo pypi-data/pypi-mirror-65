@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: TemplateGitHub
+Version: 0.0.1
+Summary: A package containing a dog
+Home-page: https://github.com/drbmrp/TemplateGitHub/
+Author: drbmrp
+Author-email: borja.rojo.perez@gmail.com
+License: LICENSE.txt
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.0)
+
+# TemplateGitHub
+This is a template repository for future packages developed by drbmrp. The main purpose is 
+* This an item with **black** and *italic*
+  * This is my second item
+    * And my third My local edit
+
+
+This is definetely new
+
+
