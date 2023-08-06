@@ -1,0 +1,73 @@
+stages:
+  - test
+  - docs
+  - deploy
+
+code_quality:
+  stage: test
+  image: julianwgs/codequality:20191116
+  script:
+  # install library
+  - pip install -e .
+  # download CAN dbc repository
+  - git clone https://gitlab-ci-token:${CI_BUILD_TOKEN}@gitlab.com/lionsracing/can.git
+  # delete line when analysis code is removed from repository
+  - rm -r can/analysis
+
+  # install test libraries
+  - pip install pylint pytest pytest-cov radon anybadge
+
+  # run tests and show coverage, duration of each test
+  - pytest --cov=candas --cov-report=term-missing --cov-branch --durations=0 -p no:warnings
+
+  # lint code for PEP8 errors (will never fail)
+  - (pylint --rcfile=pylint.conf candas || exit 0) 2>&1 | tee pylint.txt
+  - rating=$(grep -e '(?<=[a-zA-Z]\s)\d[.]\d\d(?=[/]\d\d)' -P -o pylint.txt)
+  - anybadge -l "code quality" -v "$rating" -f pylint.svg 2=red 4=orange 8=yellow 10=green
+
+  # determine cyclomatic complexity of functions (will never fail)
+  - radon cc -a candas 2>&1 | tee radon_cc.txt
+  - radon_cc=$(grep -e '(?<=(Average complexity. ))[ABCDEF]' -P -o radon_cc.txt)
+  - anybadge -l "complexity" -v "$radon_cc" -f radon_cc.svg F=red D=red C=orange B=yellow A=green
+
+  # determine maintainibility of modules (will never fail)
+  - radon mi candas 2>&1 | tee radon_mi.txt
+  - radon_mi=$(grep -e '(?<=[.][p][y]\s\-\s)[ABCDEF]' -P -o radon_mi.txt)
+  - anybadge -l "maintainability" -v "$radon_mi" -f radon_mi.svg F=red D=red C=orange B=yellow A=green
+
+  artifacts:
+    paths:
+    - "pylint.*"
+    - "radon_cc.*"
+    - "radon_mi.*"
+
+pages:
+  stage: docs
+  only: 
+  - master
+  - tags
+  image: python:3.7
+  script:
+  # install dependencies
+  - pip install -e .[docs]
+  # make html documentation
+  - cd docs/
+  - make html
+  - cd ..
+  # publish documentation
+  - mkdir public
+  - mv docs/build/html/* public
+  artifacts:
+    paths:
+    - public
+
+release:
+  stage: deploy
+  only:
+  - master
+  - tags
+  image: python:3.7
+  script:
+  - pip install twine
+  - python setup.py sdist bdist_wheel
+    # - twine upload dist/* -u $TWINE_USER -p $TWINE_PASSWORD
