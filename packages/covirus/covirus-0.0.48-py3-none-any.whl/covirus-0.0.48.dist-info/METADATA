@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: covirus
+Version: 0.0.48
+Summary: A library for dealing with COVID19 analysis
+Home-page: https://github.com/maricatovictor/covirus
+Author: Victor Maricato
+Author-email: maricatovictor@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: cycler (==0.10.0)
+Requires-Dist: git-python (==1.0.3)
+Requires-Dist: gitdb (==4.0.2)
+Requires-Dist: gitpython (==3.1.0)
+Requires-Dist: joblib (==0.14.1)
+Requires-Dist: kiwisolver (==1.2.0)
+Requires-Dist: matplotlib (==3.2.1)
+Requires-Dist: numpy (==1.18.2)
+Requires-Dist: pandas (==1.0.3)
+Requires-Dist: pyparsing (==2.4.7)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: scikit-learn (==0.22.2.post1)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: sklearn (==0.0)
+Requires-Dist: smmap (==3.0.1)
+
+covirus is a Python library to centralize data and models related to COVID19 outbreak. Its goal is to make importing data and running models easier, allowing many researchers and also data enthusiasts to help understand how COVID-19 is spreading worldwide and what to expect.
+
+
+
