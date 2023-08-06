@@ -1,0 +1,4 @@
+[console_scripts]
+datapane=datapane.__main__:main
+dp-runner=dp_runner.__main__:main
+
