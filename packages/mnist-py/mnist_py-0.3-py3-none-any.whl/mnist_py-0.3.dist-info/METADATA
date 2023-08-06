@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: mnist-py
+Version: 0.3
+Summary: Lighweight Numpy MNIST loader
+Home-page: https://github.com/mattpetersen/mnist-py
+Author: Matt Petersen
+Author-email: peterm0273@gmail.com
+License: MIT
+Keywords: mnist
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: requests
+
+# mnist-async
+
+Loads from `/tmp/mnist/` after downloading any missing files.
+
+## Installation
+
+```bash
+pip install mnist
+```
+
+## Usage
+
+```python
+from mnist import accuracy, load_mnist, minibatches, render
+
+
+# Load all the data into memory
+mnist = load_mnist()
+
+mnist.train.images  # (60000, 784)
+mnist.train.labels  # (60000, 10)
+mnist.test.images   # (10000, 784)
+mnist.test.labels   # (10000, 10)
+
+# Inspect the data visually
+render(train_or_test='test')
+
+# Generate minibatches over the shuffled train set
+for images, labels in minibatches(mnist.train, batch_size=256, n_epochs=1):
+
+    predicted_labels = ...
+
+    # Calculate the accuracy of predicted class labels
+    acc = accuracy(predicted_labels, labels)
+```
+
+## Image data
+
+Images are rows, each of length 784, and with pixel values scaled to the range zero through one.
+
+## Label data
+
+Lables are one-hot rows each of length ten.
+
+```python
+[0 0 1 ... 0]  # 3
+[0 0 0 ... 1]  # 9
+```
+
+
