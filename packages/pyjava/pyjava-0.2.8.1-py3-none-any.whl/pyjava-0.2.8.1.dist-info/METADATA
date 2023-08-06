@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pyjava
+Version: 0.2.8.1
+Summary: PyJava Python API
+Home-page: https://github.com/allwefantasy/pyjava
+Author: allwefantasy
+Author-email: allwefantasy@gmail.com
+License: http://www.apache.org/licenses/LICENSE-2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Provides-Extra: pyjava
+Requires-Dist: py4j (==0.10.8.1)
+Provides-Extra: pyjava
+Requires-Dist: pandas (>=0.23.2); extra == 'pyjava'
+Requires-Dist: pyarrow (>=0.12.1); extra == 'pyjava'
+
+UNKNOWN
+
+
