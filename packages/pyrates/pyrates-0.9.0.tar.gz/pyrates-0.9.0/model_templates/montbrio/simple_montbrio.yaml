@@ -1,0 +1,145 @@
+%YAML 1.2
+---
+
+Op_e_adapt:
+  base: OperatorTemplate
+  equations:
+    - "d/dt * r = delta/(PI * tau^2) + 2.*r*v/tau"
+    - "d/dt * v = (v^2 + eta + inp)/tau + J_e*(r + r_e - r_i)*(1.0-I_a) - tau*(PI*r)^2"
+    - "d/dt * I_a = x"
+    - "d/dt * x = (alpha*r - 2.0*x - I_a/tau_a)/tau_a"
+  variables:
+    r:
+      default: output(0.75)
+    v:
+      default: variable(-0.4)
+    I_a:
+      default: variable(0.36)
+    x:
+      default: variable(0.0)
+    r_e:
+      default: input
+    r_i:
+      default: input
+    tau:
+      default: 1.0
+    delta:
+      default: 2.0
+    eta:
+      default: -4.6
+    J_e:
+      default: 21.2132
+    alpha:
+      default: 0.05
+    tau_a:
+      default: 10.0
+    inp:
+      default: input
+
+Op_e:
+  base: OperatorTemplate
+  equations:
+    - "d/dt * r = delta/(PI * tau^2) + 2.*r*v/tau"
+    - "d/dt * v = (v^2 + eta + inp) / tau + J_e * (r + r_e) - J_i * r_i - tau*(PI*r)^2"
+  variables:
+    r:
+      default: output
+    v:
+      default: variable
+    r_e:
+      default: input
+    r_i:
+      default: input
+    tau:
+      default: 1.0
+    delta:
+      default: 2.0
+    eta:
+      default: -10.0
+    J_e:
+      default: 21.2132
+    J_i:
+      default: 2.0
+    inp:
+      default: input
+
+Op_i:
+  base: OperatorTemplate
+  equations:
+    - "d/dt * r = delta/(PI * tau^2) + 2.*r*v/tau"
+    - "d/dt * v = (v^2 + eta + inp) / tau - J_i* (r + r_i) + J_e * r_e - tau*(PI*r)^2"
+  variables:
+    r:
+      default: output
+    v:
+      default: variable
+    r_e:
+      default: input
+    r_i:
+      default: input
+    tau:
+      default: 1.0
+    delta:
+      default: 1.0
+    eta:
+      default: -1.0
+    J_e:
+      default: 12.0
+    J_i:
+      default: 2.0
+    inp:
+      default: input
+
+Pop_e:
+  base: NodeTemplate
+  operators:
+    - Op_e
+
+Pop_adapt:
+  base: NodeTemplate
+  operators:
+    - Op_e_adapt
+
+Pop_i:
+  base: NodeTemplate
+  operators:
+    - Op_i
+
+DummyEdge:
+  base: EdgeTemplate
+  operators: []
+
+Net1:
+  base: CircuitTemplate
+  nodes:
+    Pop1: Pop_e
+  edges:
+
+Net2:
+  base: CircuitTemplate
+  nodes:
+    Pop1: Pop_i
+  edges:
+
+Net3:
+  base: CircuitTemplate
+  nodes:
+    PC: Pop_e
+    IIN: Pop_i
+  edges:
+    - [PC/Op_e/r, IIN/Op_i/r_e, DummyEdge, {weight: 5.0}]
+    - [IIN/Op_i/r, PC/Op_e/r_i, DummyEdge, {weight: 5.0}]
+
+Net4:
+  base: CircuitTemplate
+  nodes:
+    E1: Pop_e
+    E2: Pop_e
+  edges:
+    - [E1/Op_e/r, E2/Op_e/r_e, DummyEdge, {weight: 1.0, delay: 0.0}]
+    - [E2/Op_e/r, E1/Op_e/r_e, DummyEdge, {weight: 1.0, delay: 0.0}]
+
+Net5:
+  base: CircuitTemplate
+  nodes:
+    E: Pop_adapt
