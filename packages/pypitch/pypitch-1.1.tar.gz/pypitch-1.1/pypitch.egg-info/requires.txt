@@ -1,0 +1,9 @@
+Cython>=0.27
+
+[docs]
+sphinx
+sphinx_rtd_theme
+
+[tests]
+pytest<5
+numpy<1.17
