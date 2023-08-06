@@ -1,0 +1,18 @@
+Metadata-Version: 1.2
+Name: garpundatahub
+Version: 0.0.3
+Summary: Garpun DataHub API Library for Python
+Home-page: https://github.com/garpun/garpun-datahub-lib-python
+Author: Garpun Cloud
+Author-email: support@garpun.com
+License: Apache 2.0
+Description: The Garpun DataHub API Client for Python is a client library for 
+        accessing the DataHub user data. Also provides Pandas wrapper class.
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
