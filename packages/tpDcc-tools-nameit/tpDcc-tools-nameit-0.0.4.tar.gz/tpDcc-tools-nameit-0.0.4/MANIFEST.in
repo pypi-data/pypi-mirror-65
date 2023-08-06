@@ -1,0 +1,5 @@
+include tpDcc/tools/nameit/__logging__.ini
+include tpDcc/tools/nameit/data/naming_data.yml
+recursive-include tpDcc/tools/nameit/resources/* *.*
+include versioneer.py
+include tpDcc/tools/nameit/_version.py
