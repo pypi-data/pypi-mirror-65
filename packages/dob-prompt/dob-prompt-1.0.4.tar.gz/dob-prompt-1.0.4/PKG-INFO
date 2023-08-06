@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: dob-prompt
+Version: 1.0.4
+Summary: journal and time tracker, supercharged for the terminal
+Home-page: https://github.com/hotoffthehamster/dob-prompt
+Author: HotOffThe Hamster
+Author-email: hotoffthehamster+dobprompt@gmail.com
+License: GPLv3+
+Project-URL: Documentation, https://dob-prompt.readthedocs.io/en/latest/
+Project-URL: Source Code, https://github.com/hotoffthehamster/dob-prompt
+Description: @@@@@@@@@@
+        dob-prompt
+        @@@@@@@@@@
+        
+        .. image:: https://travis-ci.com/hotoffthehamster/dob-prompt.svg?branch=develop
+          :target: https://travis-ci.com/hotoffthehamster/dob-prompt
+          :alt: Build Status
+        
+        .. image:: https://codecov.io/gh/hotoffthehamster/dob-prompt/branch/develop/graph/badge.svg
+          :target: https://codecov.io/gh/hotoffthehamster/dob-prompt
+          :alt: Coverage Status
+        
+        .. image:: https://readthedocs.org/projects/dob-prompt/badge/?version=latest
+          :target: https://dob-prompt.readthedocs.io/en/latest/
+          :alt: Documentation Status
+        
+        .. image:: https://img.shields.io/github/release/hotoffthehamster/dob-prompt.svg?style=flat
+          :target: https://github.com/hotoffthehamster/dob-prompt/releases
+          :alt: GitHub Release Status
+        
+        .. image:: https://img.shields.io/pypi/v/dob-prompt.svg
+          :target: https://pypi.org/project/dob-prompt/
+          :alt: PyPI Release Status
+        
+        .. image:: https://img.shields.io/github/license/hotoffthehamster/dob-prompt.svg?style=flat
+          :target: https://github.com/hotoffthehamster/dob-prompt/blob/master/LICENSE
+          :alt: License Status
+        
+        .. |dob| replace:: ``dob``
+        .. _dob: https://github.com/hotoffthehamster/dob
+        
+        .. |dob-docs| replace:: Dob documentation
+        .. _dob-docs: https://dob.readthedocs.io/en/latest/
+        
+        .. |dob-prompt| replace:: ``dob-prompt``
+        .. _dob-prompt: https://github.com/hotoffthehamster/dob-prompt
+        
+        |dob-prompt|_ is a component of |dob|_,  an interactive, terminal-based,
+        time tracking, journaling, note-taking, and life-hacking application.
+        
+        |dob-prompt|_ provides the interface for entering Activity\@Category
+        labels, as well as for assigning and removing Tags.
+        
+        Please see the |dob-docs|_ for lots more help and instruction.
+        
+        
+Keywords: journal,diary,timesheet,timetrack,jrnl,rednotebook,todo.txt,prjct,hamster,fact
+Platform: any
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/x-rst; charset=UTF-8

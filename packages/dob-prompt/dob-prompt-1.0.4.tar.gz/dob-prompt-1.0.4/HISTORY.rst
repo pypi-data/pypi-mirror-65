@@ -1,0 +1,35 @@
+#######
+History
+#######
+
+.. |dob| replace:: ``dob``
+.. _dob: https://github.com/hotoffthehamster/dob
+
+.. |dob-bright| replace:: ``dob-bright``
+.. _dob-bright: https://github.com/hotoffthehamster/dob-bright
+
+.. |dob-prompt| replace:: ``dob-prompt``
+.. _dob-prompt: https://github.com/hotoffthehamster/dob-prompt
+
+.. :changelog:
+
+1.0.4 (2020-04-08)
+==================
+
+- Bugfix: Choosing prompt completion fails (because upstream PTK changes).
+
+1.0.3 (2020-04-01)
+==================
+
+- Bugfix: Send package name to get_version, lest nark use its own.
+
+1.0.2 (2020-04-01)
+==================
+
+- Refactor: DRY: Use new library get_version.
+
+1.0.0 (2020-03-30)
+==================
+
+- Booyeah: Inaugural release (spin-off from dob).
+
