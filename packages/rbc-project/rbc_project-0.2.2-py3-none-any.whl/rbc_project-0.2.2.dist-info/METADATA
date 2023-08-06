@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: rbc-project
+Version: 0.2.2
+Summary: RBC - Remote Backend Compiler Project
+Home-page: https://github.com/xnd-project/rbc
+Author: Pearu Peterson
+Author-email: pearu.peterson@quansight.com
+Maintainer: Pearu Peterson
+License: BSD
+Platform: Cross Platform
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Requires-Dist: numba
+Requires-Dist: llvmlite (>=0.29)
+Requires-Dist: tblib
+Requires-Dist: thriftpy2
+Requires-Dist: six
+Requires-Dist: netifaces
+
+
+The aim of the Remote Backend Compiler project is to distribute the
+tasks of a program JIT compilation process to separate computer
+systems using the client-server model. The frontend of the compiler
+runs on the client computer and the backend runs on the server
+computer. The compiler frontend will send the program code to compiler
+backend in IR form where it will be compiled to machine code.
+
+
