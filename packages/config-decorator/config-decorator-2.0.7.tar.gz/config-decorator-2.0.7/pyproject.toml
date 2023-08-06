@@ -1,0 +1,9 @@
+# This file exists within 'config-decorator':
+#
+#   https://github.com/hotoffthehamster/config-decorator
+
+# (lb): Including this file to be pedantic.
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
