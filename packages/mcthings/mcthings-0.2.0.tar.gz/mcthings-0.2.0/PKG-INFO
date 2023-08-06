@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: mcthings
+Version: 0.2.0
+Summary: McThings is a python library for building things in Minecraft
+Home-page: https://github.com/juntosdesdecasa/mcthings
+Author: Alvaro del Castillo
+Author-email: alvaro.delcastillo@gmail.com
+License: ASL
+Description: # McThings [![Documentation Status](https://readthedocs.org/projects/mcthings/badge/?version=latest)](https://mcthings.readthedocs.io/en/latest/?badge=latest)
+        A library of things for Minecraft
+        
+Keywords: development library minecraft buildings games
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
