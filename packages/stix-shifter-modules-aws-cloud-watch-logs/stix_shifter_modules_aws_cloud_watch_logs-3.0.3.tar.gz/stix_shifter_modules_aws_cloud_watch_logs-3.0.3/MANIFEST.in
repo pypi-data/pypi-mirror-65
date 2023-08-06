@@ -1,0 +1,15 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include JSON files (generated values)
+include stix_shifter_modules/aws_cloud_watch_logs/configuration/aws_cloudwatchlogs_config.json 
+include stix_shifter_modules/aws_cloud_watch_logs/configuration/aws_cloudwatchlogs_lang.json 
+include stix_shifter_modules/aws_cloud_watch_logs/stix_translation/json/common_attributes.json 
+include stix_shifter_modules/aws_cloud_watch_logs/stix_translation/json/guardduty_from_stix_map.json 
+include stix_shifter_modules/aws_cloud_watch_logs/stix_translation/json/master_config.json 
+include stix_shifter_modules/aws_cloud_watch_logs/stix_translation/json/network_protocol_map.json 
+include stix_shifter_modules/aws_cloud_watch_logs/stix_translation/json/to_stix_map.json 
+include stix_shifter_modules/aws_cloud_watch_logs/stix_translation/json/vpcflow_from_stix_map.json 
