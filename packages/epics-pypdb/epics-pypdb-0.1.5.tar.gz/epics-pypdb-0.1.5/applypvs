@@ -1,0 +1,185 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Copyright (c) 2015 Michael Davidsaver
+Copyright (c) 2012 Brookhaven Science Associates, as Operator of
+    Brookhaven National Laboratory.
+pyPDB is distributed subject to a Software License Agreement found
+in file LICENSE that is included with this distribution.
+"""
+
+import re, sys, os.path
+from warnings import warn
+from optparse import OptionParser
+
+import re
+
+parser = OptionParser(usage='%prog [options] <-i file.po ...> <input.db | in.edl>')
+parser.add_option('-i', '--po', action='append', default=[],
+                  help='Translation file(s) to apply', metavar='FILE')
+parser.add_option('-o', '--output', default='.',
+                  help='Location to write output files', metavar='DIR')
+parser.add_option('-F', '--flat', action="store_true", default=False,
+                  help="Don't preserve directory structure in output")
+parser.add_option('-R', '--reverse', action='store_true', default=False,
+                  help='Apply reverse translation')
+parser.add_option('-m', '--mode', default="db", metavar="NAME",
+                  help='Replacement mode (db, edl, opi, xml, proto, alias)')
+
+opts, args = parser.parse_args()
+
+if len(opts.po)==0:
+    parser.error('No translation files specified')
+
+mappings={}
+src={}
+
+def loadPO(file):
+    with open(file, 'r') as F:
+        orig, sub = None, None
+        for L in F:
+            L = L.strip()
+            if not L:
+                orig, sub = None, None # reset on blank line
+
+            elif L.startswith('msgid'):
+                M = re.match(r'msgid\s+"(.*)"\s*', L)
+                assert M is not None, L
+                orig = M.group(1)
+                assert sub is None
+
+            elif L.startswith('msgstr'):
+                M = re.match(r'msgstr\s+"(.*)"\s*', L)
+                assert M is not None, L
+                sub = M.group(1)
+                assert orig is not None
+                if not sub:
+                    continue
+
+                if orig in mappings:
+                    if mappings[orig] != sub:
+                        warn("Found duplicate definition of '%s'\nIn '%s'\nPrevious '%s'"% \
+                                (orig, file, src[orig]))
+                    else:
+                        pass # duplicate, but idential
+
+                else: # new mapping
+                    mappings[orig]=sub
+                    src[orig]=file
+
+            elif L.startswith('#'):
+                pass
+
+            elif L.startswith('"'):
+                pass
+
+            else:
+                raise RuntimeError('Unknown line: '+repr(L))
+
+for po in opts.po:
+    loadPO(po)
+
+if opts.reverse:
+    fail=False
+    nm={}
+    for orig, sub in mappings.items():
+        if sub not in nm:
+            nm[sub]=orig
+
+        else:
+            sys.stderr.write("""Un-reversable mapping
+From %(origfile)s '%(orig)s = %(sub)s'
+and
+From %(prevfile)s '%(prev)s = %(sub)s'
+""") % {'orig':orig, 'sub':sub, 'prev':nm[sub],
+       'origfile':src[orig], 'prevfile':src[nm[sub]]}
+            fail=True
+    if fail:
+        sys.exit(1)
+    mappings=nm
+
+#valid   = PP.alphanums + '$:-[]{}<>()'
+
+actions=[]
+
+if opts.mode in ['db', 'edl']:
+    for orig, sub in mappings.items():
+        if opts.mode=='edl':
+            orig = orig.replace('{', '\{')
+            sub = sub.replace('{', '\{')
+            orig = orig.replace('}', '\}')
+            sub = sub.replace('}', '\}')
+
+        # look behind for beginning of line or a non-name charactor
+        # look ahead for end of line or a non-name charactor
+
+        # Records names look like
+        #  record(type, "name")
+        #  field(INPA, "name.VAL EXTRA")
+        #  field(INPA, name.VAL)
+        # So break names on whitespace, '.', or '"'
+        tst = b'(?:^|(?<=[\s,"\(]))' + re.escape(orig).encode('utf-8') + b'(?:$|(?=[\s.,"\)]))'
+        actions.append((re.compile(tst), sub.encode('utf-8')))
+
+elif opts.mode in ['xml','opi']:
+    from xml.sax.saxutils import escape
+
+    for orig, sub in mappings.items():
+        # Like DB except record names are found
+        # enclosed like ">$(1):name.FLD<"
+        orig, sub = map(escape, (orig,sub))
+        tst = b'''(?:^|(?<=[\s'">]))''' + re.escape(orig).encode('utf-8') + b'''(?:$|(?=[\s.'"<]))'''
+        actions.append((re.compile(tst), sub.encode('utf-8')))
+
+elif opts.mode=='proto':
+    for orig, sub in mappings.items():
+        # Like DB except that macros are "\$1" and record names are found
+        # enclosed like "(\$1:name.FLD)"
+        tst = b'(?:^|(?<=[\s"\(]))' + re.escape(orig).encode('utf-8') + b'(?:$|(?=[\)\s."]))'
+        actions.append((re.compile(tst), sub.encode('utf-8')))
+
+elif opts.mode=='alias':
+    if opts.output=='.':
+        out=sys.stdout
+    else:
+        out=open(opts.output, 'w')
+
+    for orig, sub in mappings.items():
+        out.write(b'alias("%s",\t"%s")\n'%(orig,sub))
+    out.close()
+    sys.exit(0)
+
+else:
+    sys.stderr.write("Unknown replacement mode %s\n"%opts.mode)
+    sys.exit(1)
+
+if not os.path.exists(opts.output):
+    os.makedirs(opts.output)
+
+for f in args:
+    if opts.flat:
+        out=os.path.join(opts.output, os.path.basename(f))
+    else:
+        out=os.path.normpath(os.path.join(opts.output, f))
+        DN=os.path.dirname(out)
+        if len(DN.strip())>0 and not os.path.exists(DN):
+            os.makedirs(DN)
+
+    # Use binary I/O to ensure the EOL stays the same
+    # in output files
+    inp=open(f, 'rb')
+    val=inp.read()
+
+    for pat, sub in actions:
+        try:
+            val=pat.sub(sub, val)
+        except TypeError as e:
+            raise TypeError("%s"%((type(pat),type(sub),type(val)),))
+
+    inp.close()
+    # close input file in case it is about to be overwritten
+
+    out=open(out, 'wb')
+    out.write(val)
+
+    out.close()

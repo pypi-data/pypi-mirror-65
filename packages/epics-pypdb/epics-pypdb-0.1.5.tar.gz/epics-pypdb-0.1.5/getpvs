@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Copyright (c) 2015 Michael Davidsaver
+Copyright (c) 2012 Brookhaven Science Associates, as Operator of
+    Brookhaven National Laboratory.
+pyPDB is distributed subject to a Software License Agreement found
+in file LICENSE that is included with this distribution.
+"""
+
+from optparse import OptionParser
+
+parser = OptionParser()
+parser.add_option("-I", dest='include', action='append', default=[],
+                  help='Add to search path', metavar='PATH')
+parser.add_option("-o", '--output',
+                  help='Output file', metavar='FILE')
+parser.add_option('-M', '--merge-duplicates', dest='dups', action='store_true',
+                  help='When encountering records with duplicate names '
+                  'treat them as one record')
+parser.add_option('-m', '--mode', default="db", metavar="NAME",
+                  help='Replacement mode (db, edl, opi)')
+
+opts, args = parser.parse_args()
+
+
+from pyPDB.po import writePO
+
+if len(opts.include)==0:
+    opts.include=['.']
+
+if opts.mode=='db':
+    from pyPDB.getdbd import main
+elif opts.mode=='edl':
+    from pyPDB.getedl import main
+elif opts.mode=='opi':
+    from pyPDB.getopi import main
+else:
+    parser.error('Unknown module "%s"'%opts.mode)
+        
+if __name__=='__main__':
+
+    if opts.output is None:
+        import sys
+        out=sys.stdout
+    else:
+        out=open(opts.output, 'w')
+
+    entries=main(opts,args,out)
+
+    entries=list(entries.values())
+    entries.sort()
+    
+    writePO(out, entries, header={'path':opts.include})
+
+    out.close()
