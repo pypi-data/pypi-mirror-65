@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: linguistics
+Version: 2020.4.7
+Summary: Python library for natural language processing
+Home-page: https://github.com/idin/linguistics
+Author: Idin
+Author-email: py@idin.ca
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: ~=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: abstract
+Requires-Dist: spacy
+Requires-Dist: requests
+Requires-Dist: jellyfish
+Requires-Dist: editdistance
+Requires-Dist: chronometry
+Requires-Dist: slytherin
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: torch
+Requires-Dist: transformers
+
+# Linguistics
+Linguistics is a Python library for natural language processing.
+
+## Installation
+You can use pip to install linguistics.
+```bash
+pip install linguistics
+```
+
+## Dependencies
+Linguistics uses Abstract and Graphviz to visualize graphs of the document.
+
+## Usage
+
+### *Document*
+```python
+from linguistics import Document
+
+# create document
+document = Document("He also begat and brought up five pairs of male children.")
+```
+
+### Entity Graph
+```python
+display(document.entity_graph.render())
+```
+![](https://github.com/idin/linguistics/blob/master/pictures/entity_graph.png?raw=true)
+
+### Document Graph
+```python
+display(document.graph.render())
+```
+![](https://github.com/idin/linguistics/blob/master/pictures/document_graph.png?raw=true)
+
+### Masking
+
+
