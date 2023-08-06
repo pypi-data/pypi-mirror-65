@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: bearoslib
+Version: 0.0.3
+Summary: A small example package of bear os
+Home-page: https://github.com/Dragon445/bearoslib/blob/master/__init__.py
+Author: Ethan Brammah
+Author-email: bearoshelp@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyinstaller
+Requires-Dist: cryptography
+Requires-Dist: sounddevice
+Requires-Dist: playsound
+Requires-Dist: pyperclip
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+
