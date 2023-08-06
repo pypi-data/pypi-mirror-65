@@ -1,0 +1,84 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "agent.json",
+	"type": "object",
+	"title": "RAC JSON Schema",
+	"allOf": [{
+		"$id": "#/agent",
+		"type": "object",
+		"title": "Agents",
+		"required": [
+			"external_identifiers",
+			"title",
+			"type",
+			"agent_type"
+		],
+		"properties": {
+			"agent_type": {
+				"$id": "#/agent/properties/agent_type",
+				"type": "string",
+				"minLength": 1,
+				"enum": [
+					"family",
+					"organization",
+					"person"
+				]
+			},
+			"type": {
+				"$id": "#/agent/properties/type",
+				"type": "string",
+				"minLength": 1,
+				"enum": [
+					"agent"
+				]
+			},
+			"title": {
+				"$id": "#/agent/properties/title",
+				"type": "string",
+				"title": "Agent Title",
+				"description": "Title for Agent",
+				"minLength": 1,
+				"examples": [
+					"Lawson Foundation"
+				],
+				"pattern": "^(.*)$"
+			},
+			"description": {
+				"$id": "#/agent/properties/description",
+				"type": ["string", "null"],
+				"minLength": 1,
+				"title": "Agent Description",
+				"description": "Description of the Agent",
+				"examples": [
+					"Elit irure adipisicing esse minim Lorem non deserunt ullamco. Ex eiusmod tempor ipsum nisi. Aliqua tempor cillum ea labore laboris consectetur ut incididunt esse dolor labore ullamco magna magna."
+				],
+				"pattern": "^(.*)$"
+			},
+			"dates": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/date"
+					}]
+				}
+			},
+			"notes": {
+				"type": "array",
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/note"
+					}]
+				}
+			},
+			"external_identifiers": {
+				"type": "array",
+				"minItems": 1,
+				"items": {
+					"allOf": [{
+						"$ref": "base.json#/definitions/external_identifier"
+					}]
+				}
+			}
+		}
+	}]
+}

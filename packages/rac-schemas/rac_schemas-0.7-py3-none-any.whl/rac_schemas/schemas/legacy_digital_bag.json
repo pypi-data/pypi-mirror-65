@@ -1,0 +1,50 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "legacy_digital_bag.json",
+	"type": "object",
+	"title": "Ursa Major Legacy Digital Bag Schema",
+	"allOf": [{
+		"$id": "#/accession",
+		"type": "object",
+		"title": "Accession",
+		"required": ["title"],
+		"properties": {
+			"count": {
+				"type": "integer",
+				"example": 123
+			},
+			"next": {
+				"type": ["string", "null"]
+			},
+			"previous": {
+				"type": ["string", "null"]
+			},
+			"results": {
+				"type": "array",
+				"items": {
+					"properties": {
+						"url": {
+							"type": "string"
+						},
+						"title": {
+							"type": "string",
+							"maxLength": 256
+						},
+						"accession_number": {
+							"type": ["string", "null"],
+							"maxLength": 10
+						},
+						"created": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"last_modified": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				}
+			}
+		}
+	}]
+}
