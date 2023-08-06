@@ -1,0 +1,12 @@
+netCDF4
+threedi-api-client
+threedigrid
+pandas
+
+[test]
+mock
+pytest
+pytest-black
+pytest-cov
+pytest-flakes
+pytest-mypy
