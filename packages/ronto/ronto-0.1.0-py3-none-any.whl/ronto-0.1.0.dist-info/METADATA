@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: ronto
+Version: 0.1.0
+Summary: Wrapper around building stuff using repotool and Yocto
+Home-page: https://github.com/volker-kempert/ronto
+Author: Volker Kempert
+Author-email: volker.kempert@almedso.de
+Maintainer: Volker Kempert
+Maintainer-email: volker.kempert@almedso.de
+License: MIT license
+Keywords: ronto
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: PyYAML (==5.3.1)
+Requires-Dist: docker (==4.2.0)
+
+ronto
+#####
+
+ Wrapper around building stuff using repotool and Yocto
+
+
+Quickstart
+==========
+
+ronto is available on PyPI and can be installed with `pip <https://pip.pypa.io>`_.
+
+.. code-block:: console
+
+    $ pip install ronto
+
+After installing ronto you can use it like any other Python module.
+
+Here is a simple example:
+
+.. code-block:: python
+
+    import ronto
+    # Fill this section in with the common use-case.
+
+The `API Reference <http://ronto.readthedocs.io>`_ provides API-level documentation.
+
+
+.. _change-log-label:
+
+Change Log
+==========
+
+Version History
+---------------
+
+0.0.1
+    * Project created.
+0.1.0
+    * Rontofile version 1 (not checked)
+    * init, build and arbitrary docker sub-commands
+
+
