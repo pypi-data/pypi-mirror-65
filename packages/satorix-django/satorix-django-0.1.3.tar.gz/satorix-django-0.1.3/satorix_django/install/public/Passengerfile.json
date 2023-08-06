@@ -1,0 +1,6 @@
+{
+  "nginx_config_template": "../config/passenger_standalone/nginx.conf.erb",
+  "static_files_dir": "staticfiles",
+  "log_file": "/dev/stdout",
+  "environment": "production"
+}

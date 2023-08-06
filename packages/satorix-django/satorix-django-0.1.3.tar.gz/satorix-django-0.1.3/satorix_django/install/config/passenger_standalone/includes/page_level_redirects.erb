@@ -1,0 +1,13 @@
+# Page-level Redirects
+# Prevent Nginx from adding the internal app port to the rewrite, aka port 8080
+
+port_in_redirect off;
+
+#   Define your own custom page-level redirects below.
+#
+#   Examples:
+#     Standard single page redirects:
+#       location = /old-page-1 { return 301 /new-page-1; }
+#       location = /old-page-2 { return 301 /new-page-2; }
+
+# End Page-level Redirects

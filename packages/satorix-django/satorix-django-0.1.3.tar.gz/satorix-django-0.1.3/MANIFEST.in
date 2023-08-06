@@ -1,0 +1,11 @@
+include README.md
+include satorix_django/install/.buildpacks
+include satorix_django/install/.gitlab-ci.yml
+include satorix_django/install/.ruby-version
+include satorix_django/install/Gemfile
+include satorix_django/install/Gemfile.lock
+include satorix_django/install/Procfile
+include satorix_django/install/requirements.txt
+include satorix_django/install/config/passenger_standalone/includes/*.erb
+include satorix_django/install/config/passenger_standalone/nginx.conf.erb
+include satorix_django/install/public/Passengerfile.json
