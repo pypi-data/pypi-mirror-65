@@ -1,0 +1,52 @@
+language: python
+services:
+- docker
+os: linux
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+before_install:
+  - python -m pip install --upgrade pip
+  - jq -r '.default | to_entries[] | .key + .value.version' Pipfile.lock > requirements.txt
+  - jq -r '.develop | to_entries[] | .key + .value.version' Pipfile.lock > requirements.txt
+install:
+  - pip install tox
+script:
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then export TOXENV=py36; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then export TOXENV=py37; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.8 ]]; then export TOXENV=py38; fi
+  - tox
+after_script:
+  - rm -rf requirements.txt
+
+jobs:
+  include:
+  - stage: Code style
+    env: TOXENV=style
+    before_install:
+      - python -m pip install --upgrade pip
+    install:
+      - pip install tox
+    script:
+      - tox
+
+  - stage: Lint documentation
+    install:
+    - gem install mdl
+    script:
+    - mdl docs --rules "~MD013,~MD025"
+
+  - stage: Deploy
+    script:
+      - jq -r '.default | to_entries[] | .key + .value.version' Pipfile.lock > requirements.txt
+      - pip install -r requirements.txt
+      - sed -i "s/development/$TRAVIS_COMMIT/g" wilfred/version.py
+      - sed -i "s/YYYY-MM-DD/`git log -1 --format="%at" | xargs -I{} date -d @{} +%Y-%m-%d`/g" wilfred/version.py
+      - rm -rf requirements.txt
+    deploy:
+      provider: pypi
+      distributions: "sdist bdist_wheel"
+      edge: true # opt in to dpl v2
+      on:
+        tags: true
