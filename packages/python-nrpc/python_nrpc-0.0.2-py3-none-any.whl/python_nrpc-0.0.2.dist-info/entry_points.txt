@@ -1,0 +1,3 @@
+[console_scripts]
+protoc-gen-pynrpc = nrpc.gen:main
+
