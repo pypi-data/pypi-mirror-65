@@ -1,0 +1,16 @@
+M2Crypto
+pyOpenSSL
+requests
+requests-ecp
+
+[docs]
+sphinx
+sphinx-argparse
+sphinx_automodapi
+sphinx_rtd_theme
+sphinx_tabs
+
+[test]
+pytest>=3.9.0
+pytest-cov
+requests-mock
