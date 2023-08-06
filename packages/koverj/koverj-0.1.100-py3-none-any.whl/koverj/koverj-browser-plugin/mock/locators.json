@@ -1,0 +1,87 @@
+{
+  "(//div[@data-test-id='page--accounts']//*[@data-test-id='activity-container']//table//tbody//tr[@tabindex='0'])[4]//i[@class='icon-send']": {
+      "type": "xpath",
+      "id": "83b76399-e95d-44bd-9610-484d41a0d9b0",
+      "tests": [
+          "testRelativeCssLocators()",
+          "testRelativeCssLocators2()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  },
+  "(//div[@data-test-id='page--accounts']//*[@data-test-id='activity-container']//table//tbody//tr[@tabindex='0'])[1]": {
+      "type": "xpath",
+      "id": "44a729e1-1305-4125-8695-62fc82c2857f",
+      "tests": [
+          "testRelativeCssLocators2()",
+          "testRelativeCssLocators3()",
+          "testRelativeCssLocators4()",
+          "testRelativeCssLocators5()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  },
+  "(//div[@data-test-id='page--accounts']//*[@data-test-id='activity-container']//table//tbody//tr[@tabindex='0'])[1]//td[@aria-colindex='1']": {
+      "type": "xpath",
+      "id": "566111f2-dca2-426f-ad77-54cbfaa8c74c",
+      "tests": [
+          "testRelativeCssLocators()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  },
+  "(//div[@data-test-id='page--accounts']//*[@data-test-id='activity-container']//table//tbody//tr[@tabindex='0'])[1]//td[@aria-colindex='3']": {
+      "type": "xpath",
+      "id": "93a1a62d-d0d0-4f09-872f-446aa1eed005",
+      "tests": [
+          "testRelativeXpathLocators()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  },
+  "(//div[@data-test-id='page--accounts']//*[@data-test-id='activity-container']//table//tbody//tr[@tabindex='0'])[1]//td[@aria-colindex='2']": {
+      "type": "xpath",
+      "id": "3b09c915-95a6-449b-9106-3af5edb97f00",
+      "tests": [
+          "testRelativeXpathLocators()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  },
+  "//*[@data-test-id='icon-filter']": {
+      "type": "xpath",
+      "id": "26ea5cd0-87ba-4917-bdcd-03367c1ffa52",
+      "tests": [
+          "testRelativeXpathLocators()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  },
+  "(//div[@data-test-id='page--accounts']//*[@data-test-id='activity-container']//table//tbody//tr[@tabindex='0'])[1]//td[@aria-colindex='4']": {
+      "type": "xpath",
+      "id": "4665a837-de59-4819-9aba-d0484c188e0f",
+      "tests": [
+          "testSimpleAndRelativeCssLocators()",
+          "testSimpleCssLocators()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  },
+  "//*[@data-test-id='row_txn_details_coin']": {
+      "type": "xpath",
+      "id": "bbb97447-be02-42d7-a8fb-99a5c945d5d8",
+      "tests": [
+          "testSimpleXpathLocators()"
+      ],
+      "urls": [
+          "http://cryptowallet.local.introduct.net/accounts"
+      ]
+  }
+}
