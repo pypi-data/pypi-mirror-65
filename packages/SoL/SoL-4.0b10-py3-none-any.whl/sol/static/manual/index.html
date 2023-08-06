@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Scarry On Lin{e|ux} &#8212; SoL 4 developers documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changes" href="changes.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="scarry-on-lin-e-ux">
+<h1>Scarry On Lin{e|ux}<a class="headerlink" href="#scarry-on-lin-e-ux" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This application has the goal of making it easier the organization of a championship of
+<a class="reference external" href="http://en.wikipedia.org/wiki/Carrom">Carrom</a>.</p>
+<p>Its short codename, <code class="docutils literal notranslate"><span class="pre">SoL</span></code>, may stand either as <em>Scarry On (GNU)/Linux</em> or as <em>Scarry On
+Line</em>, until a better description comes out. Both are a bit imprecise, because</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SoL</span></code> should run perfectly well on many other operating systems, being written in <a class="reference external" href="http://www.python.org/">Python</a>
+and (currently) JavaScript</p></li>
+<li><p>despite it being a <em>client/server</em> application, potentially exposed on Internet or on the
+local LAN, it does <strong>not</strong> require the network, everything can run on a single disconnected
+machine.</p></li>
+</ul>
+<p>In turn <code class="docutils literal notranslate"><span class="pre">Scarry</span></code>, the ancestor of <code class="docutils literal notranslate"><span class="pre">SoL</span></code>, was named after the word I'm used to call <a class="reference external" href="http://en.wikipedia.org/wiki/Carrom">Carrom</a>
+with, <a class="reference external" href="https://www.facebook.com/Scarambol">Scarambol</a>.</p>
+<div class="section" id="brief-history">
+<h3>Brief history<a class="headerlink" href="#brief-history" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Scarry</span></code> was a Delphi application I wrote years ago, with the equivalent goal. It started as
+a &quot;quick and dirty&quot; solution to the problem, and Delphi was quite good at that. It served us
+for years, with good reliability, but since I find programming in that claudicant environment
+really boring, there was no way I could be convinced to enhance it further.</p>
+<p>This is a complete reimplementation, restarting from scratch: it's built exclusively with <a class="reference external" href="http://en.wikipedia.org/wiki/Free_software">free
+software</a> components, so that I won't be embaraced to public the whole source code.</p>
+<div class="section" id="changelog">
+<h4>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h4>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="user-manuals">
+<h2>User manuals<a class="headerlink" href="#user-manuals" title="Permalink to this headline">¶</a></h2>
+<p>The user manual is currently available in the following languages:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="en/index.html">English</a></p></li>
+<li><p><a class="reference external" href="it/index.html">Italiano</a></p></li>
+</ul>
+</div>
+<div class="section" id="developers">
+<h2>Developers<a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">SoL modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code> -- Internationalization utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printouts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">SoL modules</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="changes.html" title="next chapter">Changes</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

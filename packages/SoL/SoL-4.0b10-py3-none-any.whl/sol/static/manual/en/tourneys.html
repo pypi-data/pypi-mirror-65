@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tourneys management &#8212; SoL 4 user manual</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tourney management" href="tourney.html" />
+    <link rel="prev" title="Championships management" href="championships.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="tourneys-management">
+<span id="id1"></span><h1><a class="toc-backref" href="#id5">Tourneys management</a><a class="headerlink" href="#tourneys-management" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">The <em>tourney</em> is clearly the primary element of the whole system, everything has been designed
+to allow an easy and fast management of these events.</p>
+<p>The tourneys window by default does <strong>not</strong> show <em>future</em> tournaments: to see them, <a class="reference internal" href="filtering.html#filtering"><span class="std std-ref">reset
+the filter</span></a> applied to the <span class="guilabel">date</span> field.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tourneys-management" id="id5">Tourneys management</a></p>
+<ul>
+<li><p><a class="reference internal" href="#menu-actions" id="id6">Menu actions</a></p></li>
+<li><p><a class="reference internal" href="#insert-and-edit" id="id7">Insert and edit</a></p>
+<ul>
+<li><p><a class="reference internal" href="#date-and-description" id="id8">Date and description</a></p></li>
+<li><p><a class="reference internal" href="#championship" id="id9">Championship</a></p></li>
+<li><p><a class="reference internal" href="#hosted-by" id="id10">Hosted by</a></p></li>
+<li><p><a class="reference internal" href="#location" id="id11">Location</a></p></li>
+<li><p><a class="reference internal" href="#social-site" id="id12">Social site</a></p></li>
+<li><p><a class="reference internal" href="#duration-and-prealarm" id="id13">Duration and prealarm</a></p></li>
+<li><p><a class="reference internal" href="#rating" id="id14">Rating</a></p></li>
+<li><p><a class="reference internal" href="#pairings" id="id15">Pairings</a></p></li>
+<li><p><a class="reference internal" href="#delay-top-players-pairing" id="id16">Delay top players pairing</a></p></li>
+<li><p><a class="reference internal" href="#delay-compatriots-pairing" id="id17">Delay compatriots pairing</a></p></li>
+<li><p><a class="reference internal" href="#phantom-score" id="id18">Phantom score</a></p></li>
+<li><p><a class="reference internal" href="#owner" id="id19">Owner</a></p></li>
+<li><p><a class="reference internal" href="#finals" id="id20">Finals</a></p></li>
+<li><p><a class="reference internal" href="#final-kind" id="id21">Final kind</a></p></li>
+<li><p><a class="reference internal" href="#drop-outs" id="id22">Drop outs</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="menu-actions">
+<h2><a class="toc-backref" href="#id6">Menu actions</a><a class="headerlink" href="#menu-actions" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the <a class="reference internal" href="stdactions.html#standard-actions"><span class="std std-ref">standard actions</span></a> the menu at the top contains the
+following items:</p>
+<div class="float-right figure align-default" id="id4">
+<img alt="_images/tourneys.png" src="_images/tourneys.png" />
+<p class="caption"><span class="caption-text">Tourneys management</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<dl class="simple">
+<dt><span class="guilabel">Details</span></dt><dd><p>Opens the <a class="reference internal" href="tourney.html#tourney-management"><span class="std std-ref">management</span></a> window of the selected tourney</p>
+</dd>
+<dt><span class="guilabel">Competitors</span></dt><dd><p>Opens the <a class="reference internal" href="competitors.html#competitors-fixup"><span class="std std-ref">Competitors fixup</span></a> window that allows the correction of the competitors of
+old tourneys</p>
+</dd>
+<dt><span class="guilabel">Replay again</span></dt><dd><p>Allows <em>duplicating</em> an existing tourney, expecially handy on teams events: it basically
+clones a tourney on the current date, with all its competitors; just be sure to update the
+description, maybe adjusting the date of the event!</p>
+</dd>
+<dt><span class="guilabel">Download</span></dt><dd><p>Downloads an archive of the selected tourney's data</p>
+</dd>
+<dt><span class="guilabel">Assign</span></dt><dd><p>Change the ownership of the selected tourneys: you can select one or more tourneys
+keeping pressed the <kbd class="kbd docutils literal notranslate">Ctrl</kbd> key and extend the selection with the <kbd class="kbd docutils literal notranslate">Shift</kbd> key</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="insert-and-edit">
+<span id="tourney-insert-and-edit"></span><h2><a class="toc-backref" href="#id7">Insert and edit</a><a class="headerlink" href="#insert-and-edit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="date-and-description">
+<span id="index-1"></span><h3><a class="toc-backref" href="#id8">Date and description</a><a class="headerlink" href="#date-and-description" title="Permalink to this headline">¶</a></h3>
+<p>Each tourney has a <span class="guilabel">date</span> and a <span class="guilabel">description</span> of the event and there cannot
+be two dictinct tourneys in the same date associated to a single championship.</p>
+</div>
+<div class="section" id="championship">
+<h3><a class="toc-backref" href="#id9">Championship</a><a class="headerlink" href="#championship" title="Permalink to this headline">¶</a></h3>
+<p>A tournament belongs to a particular <span class="guilabel">championship</span>. The lookup lets you choose one
+among the currently active (i.e. <strong>not</strong> <a class="reference internal" href="championships.html#closed-championship"><span class="std std-ref">closed</span></a>) championships
+<strong>and</strong> at least one the following holds:</p>
+<ol class="loweralpha simple">
+<li><p>you are the owner (thus possibly created by you)</p></li>
+<li><p>are linked to the clubs owned by you <em>or</em> or that you have been <a class="reference internal" href="clubusers.html#club-users-association-management"><span class="std std-ref">associated</span></a> with</p></li>
+</ol>
+</div>
+<div class="section" id="hosted-by">
+<h3><a class="toc-backref" href="#id10">Hosted by</a><a class="headerlink" href="#hosted-by" title="Permalink to this headline">¶</a></h3>
+<p>It may happen that a tournament is hosted by a club other than the one that organizes the
+championship: in these cases you can select the host club, which will appear on some printouts.</p>
+</div>
+<div class="section" id="location">
+<h3><a class="toc-backref" href="#id11">Location</a><a class="headerlink" href="#location" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">location</span> is optional and is purely descriptive.</p>
+</div>
+<div class="section" id="social-site">
+<h3><a class="toc-backref" href="#id12">Social site</a><a class="headerlink" href="#social-site" title="Permalink to this headline">¶</a></h3>
+<p>The optional URL of the <em>channel</em> dedicated to the tournament, usually in the context of
+<a class="reference internal" href="championships.html#training-championship"><span class="std std-ref">solitaire tourneys championships</span></a>, where every player records a
+video of his games and eventually uploads it on the channel.</p>
+</div>
+<div class="section" id="duration-and-prealarm">
+<h3><a class="toc-backref" href="#id13">Duration and prealarm</a><a class="headerlink" href="#duration-and-prealarm" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">duration</span> and <span class="guilabel">prealarm</span> refer to the length of a single round, and
+are expressed in <em>minutes</em>. They will be used by the <a class="reference internal" href="other.html#countdown"><span class="std std-ref">countdown window</span></a>.</p>
+</div>
+<div class="section" id="rating">
+<span id="tourney-rating"></span><h3><a class="toc-backref" href="#id14">Rating</a><a class="headerlink" href="#rating" title="Permalink to this headline">¶</a></h3>
+<p>A tourney may use a particular <span class="guilabel">rating</span>: in such a case, the first round is generated
+accordingly with the rate of each player instead of using a random order.</p>
+<p>It may be set it also on the <a class="reference internal" href="championships.html#championship-rating"><span class="std std-ref">championship</span></a>, so that it will be
+automatically initialized when you create a new associated tournament.</p>
+</div>
+<div class="section" id="pairings">
+<span id="id2"></span><h3><a class="toc-backref" href="#id15">Pairings</a><a class="headerlink" href="#pairings" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">pairing method</span> determines how the pairing are done at each new round:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">possible</span> <span class="pre">matches</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">all</span></code> algorithm generates all possible combinations, without a particular ordering;</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Ranking</span> <span class="pre">order</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">serial</span></code> algorithm will try to pair a competitor with one of the competitors that
+follow him in the current ranking order, for example the first with the second, the third
+with the fourth, and so on;</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Cross</span> <span class="pre">ranking</span> <span class="pre">order</span></code></dt><dd><p>to delay as much as possible most exciting matches, the <code class="docutils literal notranslate"><span class="pre">dazed</span></code> method is more elaborated:
+it takes the competitors with same points as the pivot, and tries to pair the first with the
+one in the middle of that serie, the second with the middle+1 one, and so on;</p>
+</dd>
+</dl>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>With less than eight competitors the <code class="docutils literal notranslate"><span class="pre">serial</span></code> and <code class="docutils literal notranslate"><span class="pre">dazed</span></code> algorithms cannot
+guarantee the generation of all possible matches. Should this happen, SoL will
+suggests to switch to the <code class="docutils literal notranslate"><span class="pre">all</span></code> method to generate remaining matches.</p>
+<p>In general, with such a low number of competitors, I recommend using the <code class="docutils literal notranslate"><span class="pre">all</span></code>
+method from the beginning.</p>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Staggered</span> <span class="pre">ranking</span> <span class="pre">order</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">staggered</span></code> method is equivalent to the previous when the number of competitors with
+the same points does not exceed 50, beyond which instead of pairing the first with the one in
+the middle of the serie a maximum offset of 25 is used regardless of the number: so you will
+get the first with the twenty-sixth, the second with the twenty-seventh and so on.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="delay-top-players-pairing">
+<h3><a class="toc-backref" href="#id16">Delay top players pairing</a><a class="headerlink" href="#delay-top-players-pairing" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">delay top players pairing</span>, meaningful only when the tourney is associated with
+a rating, determines how many rounds will use an higher priority for the Glicko rate of each
+competitor over the <em>net score</em> in the ordering used by the pairing method.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SoL uses five parameters to rank the competitors:</p>
+<ol class="arabic simple">
+<li><p>points</p></li>
+<li><p>bucholz</p></li>
+<li><p>net score</p></li>
+<li><p>total score</p></li>
+<li><p>Glicko rate</p></li>
+</ol>
+<p>Before playing the first round the first 4 values are all zero, so only the fifth
+is crucial. At the beginning of the second round, all winners have the same score and
+the same bucholz, thus the net score become decisive.</p>
+<p>From the point of view of rounds generation, for the beauty of the game it is
+generally desirable to delay as much as possible the matches between <em>top players</em>: to
+this end it is sufficient to give an higher priority to the Glicko rate, moving it to
+the third place, after the bucholz and before the net score.</p>
+<p>The value assigned to this field controls how many turns shall be generated using this
+different sorting criteria: the default value of <code class="docutils literal notranslate"><span class="pre">1</span></code> means that it will be used at
+the end of the first round to generate the second one; a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> instead
+inhibits this delay and therefore only the first round is determined by the Glicko
+rate, from the second onward it becomes irrelevant. Values higher than <code class="docutils literal notranslate"><span class="pre">1</span></code> have an
+impact less and less significant, because from the third round on the points and the
+bucholz become more and more predominant.</p>
+</div>
+</div>
+<div class="section" id="delay-compatriots-pairing">
+<h3><a class="toc-backref" href="#id17">Delay compatriots pairing</a><a class="headerlink" href="#delay-compatriots-pairing" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">delay compatriots pairing</span> tells that the pairing-generator algorithm should try
+to postpone as much as possible matches between players <em>with the same points</em> belonging to the
+same nation.</p>
+<p>For example if the field is marked <strong>and</strong> the pairing method is not <em>&quot;all possible matches&quot;</em>,
+when according to the current ranking there were 10 players with equal points and the top three
+are Italian and the remaining of a different nationality, instead of trying to pair the first
+with second or the first first with the third, the system will try to meet the first with the
+fourth and then with the fifth, considering the second and the third only if necessary.</p>
+</div>
+<div class="section" id="phantom-score">
+<h3><a class="toc-backref" href="#id18">Phantom score</a><a class="headerlink" href="#phantom-score" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">phantom score</span> is the score assigned to a player in the matches against the
+<em>phantom player</em>, when there are an odd number of competitors. By convention these matches
+assign a score of 25 to the player but there may be cases where a different score is more
+appropriate, for example when the number of competitors is very low and winning 25—0 would be
+an unfair advantage.</p>
+</div>
+<div class="section" id="owner">
+<h3><a class="toc-backref" href="#id19">Owner</a><a class="headerlink" href="#owner" title="Permalink to this headline">¶</a></h3>
+<p>The user who is <em>responsible</em> of the tourney data, usually the one that inserted that
+particular record: the information related to the tournament are changeable only by him (and
+also by the <em>administrator</em> of the system).</p>
+</div>
+<div class="section" id="finals">
+<span id="finals-field"></span><h3><a class="toc-backref" href="#id20">Finals</a><a class="headerlink" href="#finals" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">finals</span> is the number of finals that will be played. It can be either left blank
+or it must be a number between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> inclusive: in the former case, finals will be
+handled <em>manually</em>, that is SoL won't generate final matches but the results shall be reflected
+by adjusting the bounties. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> means that there won't be any final, <code class="docutils literal notranslate"><span class="pre">1</span></code> means
+that SoL will generate one single final match for the first and the second place, with <code class="docutils literal notranslate"><span class="pre">2</span></code>
+SoL will generate two final matches, one for the first and second place and another for the
+third and fourth place.</p>
+</div>
+<div class="section" id="final-kind">
+<h3><a class="toc-backref" href="#id21">Final kind</a><a class="headerlink" href="#final-kind" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">final kind</span> determines the kind of finals that will be played:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Single</span> <span class="pre">match</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">single</span></code> kind will create one single round, with a match between the first and the
+second ranked competitors and, if <span class="guilabel">finals</span> is set to <code class="docutils literal notranslate"><span class="pre">2</span></code>, another one pairing the
+third and the fourth ranked competitors</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Best</span> <span class="pre">of</span> <span class="pre">three</span> <span class="pre">matches</span></code></dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">bestof3</span></code> method will create at most three rounds, the final is won by the competitor
+that wins at least two of them.</p>
+</dd>
+</dl>
+<p>As soon as the final scores of all these rounds are entered the <em>bounty giving</em> operation to
+assign final bounties is performed automatically.</p>
+</div>
+<div class="section" id="drop-outs">
+<span id="id3"></span><h3><a class="toc-backref" href="#id22">Drop outs</a><a class="headerlink" href="#drop-outs" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="guilabel">drop outs</span> allows you to choose a different mechanism to compute the <code class="docutils literal notranslate"><span class="pre">bucholz</span></code>
+value when there are <cite>withdrawn</cite> competitors. Normally that value is computed summing up the
+<code class="docutils literal notranslate"><span class="pre">points</span></code> of the opponents a given contender met, so that it's basically a <em>measure</em> of their
+strength. When one (or more) of these opponents stop playing, their points value remains
+constant and thus it does not contribute to the rank of the competitors he played against. In
+highly competitive tournaments this may be seen as a <em>penalty</em>, so we tried to come up with a
+mechanism to mitigate the effect. The options are:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">none</span></code></dt><dd><p>the classic behavior, no adjustment at all: the <code class="docutils literal notranslate"><span class="pre">bucholz</span></code> value is just the sum of the
+<code class="docutils literal notranslate"><span class="pre">points</span></code> of the opponents</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trend</span></code></dt><dd><p>computes the <em>average points</em> (excluding matches against the <em>phantom</em>) of the withdrawn
+player and assigns an <em>extra bonus</em> to his opponents, so that their <code class="docutils literal notranslate"><span class="pre">bucholz</span></code> value is
+<em>artificially augmented</em> by an amount equals to that average multiplied by the number of
+turns; in other words, it would appear <em>as if</em> the retired player kept going on at the same
+pace</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">trend70</span></code></dt><dd><p>similar to the above, but it considers the 70% of the average points</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is an <strong>experimental</strong> approach, be sure to understand the implications
+before using it!</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tourney.html">Tourney management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tourney.html#competitors">Competitors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tourney.html#first-round">First round</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tourney.html#matches">Matches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tourney.html#ranking">Ranking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="competitors.html">Competitors fixup</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="userinterface.html">User interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="entities.html">Basic entities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="filtering.html">Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stdactions.html">Insert, delete and modify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="users.html">Users management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="players.html">Players management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clubs.html">Clubs management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clubusers.html">Club's users association management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="championships.html">Championships management</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tourneys management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#menu-actions">Menu actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-and-edit">Insert and edit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ratings.html">Glicko ratings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="playersrates.html">Players rates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="other.html">Other windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="printouts.html">Printouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendixes.html">Appendixes</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="userinterface.html">User interface</a><ul>
+  <li><a href="entities.html">Basic entities</a><ul>
+      <li>Previous: <a href="championships.html" title="previous chapter">Championships management</a></li>
+      <li>Next: <a href="tourney.html" title="next chapter">Tourney management</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tourneys.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

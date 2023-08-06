@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sol.models.bio -- Batched I/O &#8212; SoL 4 developers documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Entities" href="entities.html" />
+    <link rel="prev" title="sol.models -- SQLAlchemy modelization" href="models.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sol.models.bio">
+<span id="sol-models-bio-batched-i-o"></span><h1><a class="reference internal" href="#module-sol.models.bio" title="sol.models.bio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.bio</span></code></a> -- Batched I/O<a class="headerlink" href="#module-sol.models.bio" title="Permalink to this headline">¶</a></h1>
+<p>This module implements some utilities, mainly related to importing and
+exporting tourneys data in a portable format.</p>
+<p>Scarry used an <code class="docutils literal notranslate"><span class="pre">INI</span></code> file and we had several drawbacks with it, mainly
+because sending them with e-mail would result in data corruption.</p>
+<p>SoL uses <a class="reference external" href="http://yaml.org/">YAML</a> or <a class="reference external" href="http://json.org/">JSON</a> instead, by default compressing the outcome with gzip.</p>
+<dl class="py function">
+<dt id="sol.models.bio.save_changes">
+<code class="sig-prename descclassname">sol.models.bio.</code><code class="sig-name descname">save_changes</code><span class="sig-paren">(</span><em class="sig-param">sasess</em>, <em class="sig-param">request</em>, <em class="sig-param">modified</em>, <em class="sig-param">deleted</em>, <em class="sig-param">clogger=&lt;Logger sol.models.bio.changes (WARNING)&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.save_changes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save insertions, changes and deletions to the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sasess</strong> -- the SQLAlchemy session</p></li>
+<li><p><strong>request</strong> -- the Pyramid web request</p></li>
+<li><p><strong>modified</strong> -- a sequence of record changes, each represented by
+a tuple of two items, the PK name and a
+dictionary with the modified fields; if the value
+of the PK field is null or 0 then the record is
+considered new and will be inserted instead of updated</p></li>
+<li><p><strong>deleted</strong> -- a sequence of deletions, each represented by a tuple
+of two items, the PK name and the ID of the record to
+be removed</p></li>
+<li><p><strong>clogger</strong> -- where to log applied changes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>three lists, respectively inserted, modified and deleted record IDs,
+grouped in a dictionary keyed on PK name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.models.bio.backup">
+<code class="sig-prename descclassname">sol.models.bio.</code><code class="sig-name descname">backup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sasess</span></em>, <em class="sig-param"><span class="n">pdir</span></em>, <em class="sig-param"><span class="n">edir</span></em>, <em class="sig-param"><span class="n">location</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keep_only_if_changed</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">only_played_tourneys</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">serialization_format</span><span class="o">=</span><span class="default_value">'yaml'</span></em>, <em class="sig-param"><span class="n">native_when_possible</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">keep_max</span><span class="o">=</span><span class="default_value">30</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.backup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump almost everything in a ZIP file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sasess</strong> -- a SQLAlchemy session</p></li>
+<li><p><strong>pdir</strong> -- the base path of the portrait images, <code class="docutils literal notranslate"><span class="pre">sol.portraits_dir</span></code></p></li>
+<li><p><strong>edir</strong> -- the base path of the emblem images, <code class="docutils literal notranslate"><span class="pre">sol.emblems_dir</span></code></p></li>
+<li><p><strong>location</strong> -- either None or a string</p></li>
+<li><p><strong>keep_only_if_changed</strong> -- a boolean flag</p></li>
+<li><p><strong>only_played_tourneys</strong> -- a boolean flag</p></li>
+<li><p><strong>serialization_format</strong> -- a string, either <code class="docutils literal notranslate"><span class="pre">yaml</span></code> or <code class="docutils literal notranslate"><span class="pre">json</span></code></p></li>
+<li><p><strong>native_when_possible</strong> -- if <code class="docutils literal notranslate"><span class="pre">True</span></code>, use the <a class="reference external" href="https://docs.python.org/3.7/library/sqlite3.html#sqlite3.Connection.backup">native</a> interface to perform the backup</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bytes</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the ZIP archive</p>
+</dd>
+</dl>
+<p>This function builds a <code class="docutils literal notranslate"><span class="pre">ZIP</span></code> archive containing a database dump and two subdirectories
+<code class="docutils literal notranslate"><span class="pre">portraits</span></code> and <code class="docutils literal notranslate"><span class="pre">emblems</span></code>, respectively containing the images associated to the players
+and to the clubs. When <cite>native_when_possible</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code> and the underlying system permits
+it the dump is a complete backup of the database, otherwise it is a standard <code class="docutils literal notranslate"><span class="pre">.sol</span></code> dump
+made with <a class="reference internal" href="#sol.models.bio.dump_sol" title="sol.models.bio.dump_sol"><code class="xref py py-func docutils literal notranslate"><span class="pre">dump_sol()</span></code></a> named <code class="docutils literal notranslate"><span class="pre">everything.sol</span></code> with <em>all</em> tourneys and <em>all</em> players
+(that is, not just those who actually played).</p>
+<p>If <cite>location</cite> is given, it may be either the full path name of the output file where the
+backup will be written or the path of a directory. In the latter case the file name will be
+automatically computed using current time, giving something like
+<code class="docutils literal notranslate"><span class="pre">sol-backup_2014-02-03T14:35:12.zip</span></code>.</p>
+<p>When <cite>keep_only_if_changed is ``True`</cite> (the default) and <cite>location</cite> is a directory, the
+newly generated backup will be compared with the previous one (if there is at least one, of
+course) and if nothing has changed it will be removed.</p>
+<p>When <cite>only_played_tourneys</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>), the tourneys &quot;in
+preparation&quot; (that is, those without played matches) are ignored and not included in the
+dump.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.models.bio.restore">
+<code class="sig-prename descclassname">sol.models.bio.</code><code class="sig-name descname">restore</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sasess</span></em>, <em class="sig-param"><span class="n">pdir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">edir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">content</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">idowner</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore everything from a backup.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sasess</strong> -- a SQLAlchemy session</p></li>
+<li><p><strong>pdir</strong> -- the base path of the portrait images, <code class="docutils literal notranslate"><span class="pre">sol.portraits_dir</span></code></p></li>
+<li><p><strong>edir</strong> -- the base path of the emblem images, <code class="docutils literal notranslate"><span class="pre">sol.emblems_dir</span></code></p></li>
+<li><p><strong>url</strong> -- the URL of the file containing the archive, or None</p></li>
+<li><p><strong>content</strong> -- the content of the archive</p></li>
+<li><p><strong>idowner</strong> -- the ID of the responsible for newly created instances</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the list of loaded tourney instances and the number of skipped tourneys</p>
+</dd>
+</dl>
+<p>This reads the <code class="docutils literal notranslate"><span class="pre">ZIP</span></code> created by <a class="reference internal" href="#sol.models.bio.backup" title="sol.models.bio.backup"><code class="xref py py-func docutils literal notranslate"><span class="pre">backup()</span></code></a> and loads its content into the database,
+writing the images in the right place (pre-existing images <strong>won't</strong> be overwritten,
+though).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.models.bio.load_sol">
+<code class="sig-prename descclassname">sol.models.bio.</code><code class="sig-name descname">load_sol</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sasess</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">content</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">restore</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">idowner</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.load_sol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the archive exported from SoL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sasess</strong> -- a SQLAlchemy session</p></li>
+<li><p><strong>url</strong> -- the URL of the <code class="docutils literal notranslate"><span class="pre">.sol</span></code> (or <code class="docutils literal notranslate"><span class="pre">.sol.gz</span></code>) file</p></li>
+<li><p><strong>content</strong> -- the content of a <code class="docutils literal notranslate"><span class="pre">.sol</span></code> (or <code class="docutils literal notranslate"><span class="pre">.sol.gz</span></code>) file</p></li>
+<li><p><strong>restore</strong> -- whether this is a restore, <code class="docutils literal notranslate"><span class="pre">False</span></code> by default</p></li>
+<li><p><strong>idowner</strong> -- the ID of the responsible for newly created instances</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the list of loaded tourney instances and number of skipped tournaments</p>
+</dd>
+</dl>
+<p>If <cite>content</cite> is not specified, it will be loaded with <code class="docutils literal notranslate"><span class="pre">urlopen()</span></code> from the given <cite>url</cite>.</p>
+<p>Normally only missing data is updated, except when <cite>restore</cite> is True.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.models.bio.dump_sol">
+<code class="sig-prename descclassname">sol.models.bio.</code><code class="sig-name descname">dump_sol</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tourneys</span></em>, <em class="sig-param"><span class="n">gzipped</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">serialization_format</span><span class="o">=</span><span class="default_value">'yaml'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.dump_sol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump tourneys as a YAML or JSON document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tourneys</strong> -- the sequence of tourneys to dump</p></li>
+<li><p><strong>gzipped</strong> -- a boolean indicating whether the output will be compressed
+with <code class="docutils literal notranslate"><span class="pre">gzip</span></code></p></li>
+<li><p><strong>serialization_format</strong> -- a string, either <code class="docutils literal notranslate"><span class="pre">yaml</span></code> or <code class="docutils literal notranslate"><span class="pre">json</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bytes</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the YAML/JSON document, possibly gzipped</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="sol.models.bio.Serializer">
+<em class="property">class </em><code class="sig-prename descclassname">sol.models.bio.</code><code class="sig-name descname">Serializer</code><a class="headerlink" href="#sol.models.bio.Serializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize some SoL entities as flat dictionaries.</p>
+<dl class="py method">
+<dt id="sol.models.bio.Serializer.addChampionship">
+<code class="sig-name descname">addChampionship</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">championship</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Serializer.addChampionship" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize a championship, if not already done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>club</strong> -- a <a class="reference internal" href="championships.html#sol.models.championship.Championship" title="sol.models.championship.Championship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Championship</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an integer marker that identify the given championship</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Serializer.addClub">
+<code class="sig-name descname">addClub</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">club</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Serializer.addClub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize a club, if not already done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>club</strong> -- a <a class="reference internal" href="clubs.html#sol.models.club.Club" title="sol.models.club.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">Club</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an integer marker that identify the given club</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Serializer.addPlayer">
+<code class="sig-name descname">addPlayer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">player</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Serializer.addPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize a player, if not already done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>player</strong> -- a <a class="reference internal" href="players.html#sol.models.player.Player" title="sol.models.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an integer marker that identify the given player</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Serializer.addRate">
+<code class="sig-name descname">addRate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Serializer.addRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize a rate, if not already done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rate</strong> -- a <a class="reference internal" href="rates.html#sol.models.rate.Rate" title="sol.models.rate.Rate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rate</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an integer marker that identify the given rate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Serializer.addRating">
+<code class="sig-name descname">addRating</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rating</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Serializer.addRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize a rating, if not already done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rating</strong> -- a <a class="reference internal" href="ratings.html#sol.models.rating.Rating" title="sol.models.rating.Rating"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rating</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an integer marker that identify the given rating</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Serializer.addTourney">
+<code class="sig-name descname">addTourney</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tourney</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Serializer.addTourney" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize a tourney, if not already done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tourney</strong> -- a <a class="reference internal" href="tourneys.html#sol.models.tourney.Tourney" title="sol.models.tourney.Tourney"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tourney</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an integer marker that identify the given tourney</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Serializer.addUser">
+<code class="sig-name descname">addUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Serializer.addUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize a user, if not already done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user</strong> -- a <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an integer marker that identify the given user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.championships">
+<code class="sig-name descname">championships</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.championships" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of serialized championships</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.clubs">
+<code class="sig-name descname">clubs</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.clubs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of serialized clubs</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.id_map">
+<code class="sig-name descname">id_map</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.id_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>An hash mapping a particular instance to its serial marker</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.modified">
+<code class="sig-name descname">modified</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Most recent modification timestamp of any serialized entity</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.players">
+<code class="sig-name descname">players</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.players" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of serialized players</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.rates">
+<code class="sig-name descname">rates</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of serialized rates</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.ratings">
+<code class="sig-name descname">ratings</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.ratings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of serialized ratings</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.tourneys">
+<code class="sig-name descname">tourneys</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.tourneys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of serialized tourneys</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Serializer.users">
+<code class="sig-name descname">users</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Serializer.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of serialized users</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="sol.models.bio.Deserializer">
+<em class="property">class </em><code class="sig-prename descclassname">sol.models.bio.</code><code class="sig-name descname">Deserializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">idowner</span></em>, <em class="sig-param"><span class="n">update_only_missing_fields</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a flat representation of some SoL entities.</p>
+<dl class="py method">
+<dt id="sol.models.bio.Deserializer.addChampionship">
+<code class="sig-name descname">addChampionship</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">schampionship</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer.addChampionship" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a <a class="reference internal" href="championships.html#sol.models.championship.Championship" title="sol.models.championship.Championship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Championship</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>schampionship</strong> -- a dictionary containing the flatified representation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="championships.html#sol.models.championship.Championship" title="sol.models.championship.Championship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Championship</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>either an existing or a new instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Deserializer.addClub">
+<code class="sig-name descname">addClub</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sclub</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer.addClub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a <a class="reference internal" href="clubs.html#sol.models.club.Club" title="sol.models.club.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">Club</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sclub</strong> -- a dictionary containing the flatified representation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="clubs.html#sol.models.club.Club" title="sol.models.club.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">Club</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>either an existing or a new instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Deserializer.addPlayer">
+<code class="sig-name descname">addPlayer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">splayer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer.addPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a <a class="reference internal" href="players.html#sol.models.player.Player" title="sol.models.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>splayer</strong> -- a dictionary containing the flatified representation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="players.html#sol.models.player.Player" title="sol.models.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>either an existing or a new instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Deserializer.addRate">
+<code class="sig-name descname">addRate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">srate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer.addRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a <a class="reference internal" href="rates.html#sol.models.rate.Rate" title="sol.models.rate.Rate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rate</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>srate</strong> -- a dictionary containing the flatified representation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="rates.html#sol.models.rate.Rate" title="sol.models.rate.Rate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rate</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>either an existing or a new instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Deserializer.addRating">
+<code class="sig-name descname">addRating</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">srating</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer.addRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a <a class="reference internal" href="ratings.html#sol.models.rating.Rating" title="sol.models.rating.Rating"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rating</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>srating</strong> -- a dictionary containing the flatified representation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="ratings.html#sol.models.rating.Rating" title="sol.models.rating.Rating"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rating</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>either an existing or a new instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Deserializer.addTourney">
+<code class="sig-name descname">addTourney</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stourney</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer.addTourney" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a <a class="reference internal" href="tourneys.html#sol.models.tourney.Tourney" title="sol.models.tourney.Tourney"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tourney</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stourney</strong> -- a dictionary containing the flatified representation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="tourneys.html#sol.models.tourney.Tourney" title="sol.models.tourney.Tourney"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tourney</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>either an existing or a new instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.bio.Deserializer.addUser">
+<code class="sig-name descname">addUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">suser</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.bio.Deserializer.addUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserialize a <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>suser</strong> -- a dictionary containing the flatified representation</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>either an existing or a new instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.championships">
+<code class="sig-name descname">championships</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.championships" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="championships.html#sol.models.championship.Championship" title="sol.models.championship.Championship"><code class="xref py py-class docutils literal notranslate"><span class="pre">championships</span></code></a> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.clubs">
+<code class="sig-name descname">clubs</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.clubs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="clubs.html#sol.models.club.Club" title="sol.models.club.Club"><code class="xref py py-class docutils literal notranslate"><span class="pre">clubs</span></code></a> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.idowner">
+<code class="sig-name descname">idowner</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.idowner" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">owner</span></code></a> of newly created instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.players">
+<code class="sig-name descname">players</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.players" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="players.html#sol.models.player.Player" title="sol.models.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">players</span></code></a> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.rates">
+<code class="sig-name descname">rates</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="rates.html#sol.models.rate.Rate" title="sol.models.rate.Rate"><code class="xref py py-class docutils literal notranslate"><span class="pre">rates</span></code></a> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.ratings">
+<code class="sig-name descname">ratings</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.ratings" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="ratings.html#sol.models.rating.Rating" title="sol.models.rating.Rating"><code class="xref py py-class docutils literal notranslate"><span class="pre">ratings</span></code></a> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.session">
+<code class="sig-name descname">session</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.session" title="Permalink to this definition">¶</a></dt>
+<dd><p>The SQLAlchemy session.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.skipped">
+<code class="sig-name descname">skipped</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.skipped" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of skipped tournaments, because already present.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.tourneys">
+<code class="sig-name descname">tourneys</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.tourneys" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="tourneys.html#sol.models.tourney.Tourney" title="sol.models.tourney.Tourney"><code class="xref py py-class docutils literal notranslate"><span class="pre">tourneys</span></code></a> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.update_only_missing_fields">
+<code class="sig-name descname">update_only_missing_fields</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.update_only_missing_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean flag, whether only missing fields will be updated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.bio.Deserializer.users">
+<code class="sig-name descname">users</code><em class="property"> = None</em><a class="headerlink" href="#sol.models.bio.Deserializer.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">users</span></code></a> instances.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">SoL modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i18n.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code> -- Internationalization utilities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printouts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">SoL modules</a><ul>
+  <li><a href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a><ul>
+      <li>Previous: <a href="models.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+      <li>Next: <a href="entities.html" title="next chapter">Entities</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/bio.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

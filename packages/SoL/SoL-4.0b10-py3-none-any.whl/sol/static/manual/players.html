@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sol.models.player -- Players &#8212; SoL 4 developers documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sol.models.rate -- Player rates" href="rates.html" />
+    <link rel="prev" title="sol.models.mergedplayer -- Merged players" href="mergedplayers.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sol.models.player">
+<span id="sol-models-player-players"></span><h1><a class="reference internal" href="#module-sol.models.player" title="sol.models.player"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.player</span></code></a> -- Players<a class="headerlink" href="#module-sol.models.player" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="sol.models.player.Player">
+<em class="property">class </em><code class="sig-prename descclassname">sol.models.player.</code><code class="sig-name descname">Player</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player" title="Permalink to this definition">¶</a></dt>
+<dd><p>A single person.</p>
+<dl class="py method">
+<dt id="sol.models.player.Player.acceptedDiscernibility">
+<code class="sig-name descname">acceptedDiscernibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.acceptedDiscernibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the player's name should be obfuscated or not.</p>
+<p>The player may have already explicitly stated his privacy policy agreement, and in such
+case we honor his will, showing the full name only when he agrees.</p>
+<p>Otherwise, we check if he participated to any tournaments after January 1, 2020: if so,
+assume he implicitly accepted the common clause that requires one to agree in order to
+play in public tourneys.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.agreedprivacy">
+<code class="sig-name descname">agreedprivacy</code><a class="headerlink" href="#sol.models.player.Player.agreedprivacy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the player explicitly accepted the privacy policy: <code class="docutils literal notranslate"><span class="pre">A</span></code> means <em>agreed</em>, <code class="docutils literal notranslate"><span class="pre">N</span></code>
+means <em>did not agree</em>.</p>
+<p>When left blank, this gets implicitly inferred from whether the person participated to a
+tournament after January 1, 2020.</p>
+<p>His name and other details will be dimmed if he did not agree.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.birthdate">
+<code class="sig-name descname">birthdate</code><a class="headerlink" href="#sol.models.player.Player.birthdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date of birth of the player.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.caption">
+<code class="sig-name descname">caption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">html</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">localized</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">css_class</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ignore_privacy</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.caption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the player, made up concatenating his names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.check_insert">
+<em class="property">classmethod </em><code class="sig-name descname">check_insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">fields</span></em>, <em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.check_insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prevent duplicated players.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.check_update">
+<code class="sig-name descname">check_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.check_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform any check before updating the instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.citizenship">
+<code class="sig-name descname">citizenship</code><a class="headerlink" href="#sol.models.player.Player.citizenship" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the player belongs legally to the given country or not.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.country">
+<em class="property">property </em><code class="sig-name descname">country</code><a class="headerlink" href="#sol.models.player.Player.country" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the player's country.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prevent deletion if this player is involved in some tourney.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#sol.models.player.Player.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the player, made up concatenating his names.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#sol.models.player.Player.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email address of the player.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.find">
+<em class="property">classmethod </em><code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span></em>, <em class="sig-param"><span class="n">lastname</span></em>, <em class="sig-param"><span class="n">firstname</span></em>, <em class="sig-param"><span class="n">nickname</span></em>, <em class="sig-param"><span class="n">guid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a player, even after it has been merged into another.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session</strong> -- an SQLAlchemy session</p></li>
+<li><p><strong>lastname</strong> -- a string, the last name of the player</p></li>
+<li><p><strong>firstname</strong> -- a string, the first name of the player</p></li>
+<li><p><strong>nickname</strong> -- a string, the nick name of the player</p></li>
+<li><p><strong>guid</strong> -- the hex string of an UUID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>a tuple</p>
+</dd>
+</dl>
+<p>This tries to find the given player by looking for it first in the <code class="docutils literal notranslate"><span class="pre">players</span></code>
+table then in the <code class="docutils literal notranslate"><span class="pre">merged_players</span></code> table, either by <cite>guid</cite> or by name.</p>
+<p>If found, it returns a tuple with the <strong>current</strong> player (that is, the eventual target
+of the merge) and a boolean flag, <code class="docutils literal notranslate"><span class="pre">False</span></code> when it is current or <code class="docutils literal notranslate"><span class="pre">True</span></code> if it has
+been merged.</p>
+<p>If not found it returns a <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">False)</span></code> tuple.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.firstname">
+<code class="sig-name descname">firstname</code><a class="headerlink" href="#sol.models.player.Player.firstname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Player's first name.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.idclub">
+<code class="sig-name descname">idclub</code><a class="headerlink" href="#sol.models.player.Player.idclub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Membership club's ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.idfederation">
+<code class="sig-name descname">idfederation</code><a class="headerlink" href="#sol.models.player.Player.idfederation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Membership federation's ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.idowner">
+<code class="sig-name descname">idowner</code><a class="headerlink" href="#sol.models.player.Player.idowner" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">user</span></code></a> that is responsible for this record.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.idplayer">
+<code class="sig-name descname">idplayer</code><a class="headerlink" href="#sol.models.player.Player.idplayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary key.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.language">
+<code class="sig-name descname">language</code><a class="headerlink" href="#sol.models.player.Player.language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference external" href="http://en.wikipedia.org/wiki/ISO_639-1">ISO code</a> of the preferred
+language of the player.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.lastname">
+<code class="sig-name descname">lastname</code><a class="headerlink" href="#sol.models.player.Player.lastname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Player's last name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.matchesSummary">
+<code class="sig-name descname">matchesSummary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.matchesSummary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of won, lost, tied and single matches.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.mergePlayers">
+<code class="sig-name descname">mergePlayers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other_players</span></em>, <em class="sig-param"><span class="n">clogger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.mergePlayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge multiple players into a single one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other_players</strong> -- a sequence of players ids or guids, or tuples like
+<code class="docutils literal notranslate"><span class="pre">(guid,</span> <span class="pre">lastname,</span> <span class="pre">firstname,</span> <span class="pre">nickname)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>a list of replaced players descriptions</p>
+</dd>
+</dl>
+<p>This will replace the specified players with this one wherever
+they participated to a game, either in singles or team events.</p>
+<p>This is obviously possible only when the specified players didn't
+play together in any tourney.</p>
+<p>The old names are stored in the table <code class="docutils literal notranslate"><span class="pre">merged_players</span></code> with a reference to the
+current player (that is, <cite>self</cite>), so that they can be correctly resolved in the future.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.merged">
+<code class="sig-name descname">merged</code><a class="headerlink" href="#sol.models.player.Player.merged" title="Permalink to this definition">¶</a></dt>
+<dd><p>A possibly empty list of <code class="docutils literal notranslate"><span class="pre">MergedPlayer</span></code> that has been merged into this one.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.nationality">
+<code class="sig-name descname">nationality</code><a class="headerlink" href="#sol.models.player.Player.nationality" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO country code</a>
+to compute national rankings.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.nickname">
+<code class="sig-name descname">nickname</code><a class="headerlink" href="#sol.models.player.Player.nickname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Player's nickname.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.opponentMatches">
+<code class="sig-name descname">opponentMatches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">opponent</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.opponentMatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of <a class="reference internal" href="matches.html#sol.models.match.Match" title="sol.models.match.Match"><code class="xref py py-class docutils literal notranslate"><span class="pre">matches</span></code></a> against the <cite>opponent</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.opponents">
+<code class="sig-name descname">opponents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.opponents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a summary of the opponents this player met, in singles.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.owner">
+<code class="sig-name descname">owner</code><a class="headerlink" href="#sol.models.player.Player.owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="users.html#sol.models.user.User" title="sol.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">owner</span></code></a> of this record, <cite>admin</cite> when <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.participations">
+<code class="sig-name descname">participations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.participations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of <a class="reference internal" href="competitors.html#sol.models.competitor.Competitor" title="sol.models.competitor.Competitor"><code class="xref py py-class docutils literal notranslate"><span class="pre">competitors</span></code></a> involving this player.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.portrait">
+<code class="sig-name descname">portrait</code><a class="headerlink" href="#sol.models.player.Player.portrait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Picture of the player, used by lit.</p>
+<p>This is just the filename, referencing a picture inside the
+<code class="docutils literal notranslate"><span class="pre">sol.portraits_dir</span></code> directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">serializer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce a single player to a simple dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serializer</strong> -- a <a class="reference internal" href="bio.html#sol.models.bio.Serializer" title="sol.models.bio.Serializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializer</span></code></a> instance</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a plain dictionary containing a flatified view of this player</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="sol.models.player.Player.sex">
+<code class="sig-name descname">sex</code><a class="headerlink" href="#sol.models.player.Player.sex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Player's gender: <code class="docutils literal notranslate"><span class="pre">F</span></code> means <em>female</em>, <code class="docutils literal notranslate"><span class="pre">M</span></code> means <em>male</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="sol.models.player.Player.shouldOmitNickName">
+<code class="sig-name descname">shouldOmitNickName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_non_word_letters</span><span class="o">=</span><span class="default_value">re.compile('\\W')</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.models.player.Player.shouldOmitNickName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the nickname should be omitted because redundant.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">SoL modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i18n.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code> -- Internationalization utilities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printouts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">SoL modules</a><ul>
+  <li><a href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a><ul>
+  <li><a href="entities.html">Entities</a><ul>
+      <li>Previous: <a href="mergedplayers.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.mergedplayer</span></code> -- Merged players</a></li>
+      <li>Next: <a href="rates.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models.rate</span></code> -- Player rates</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/players.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

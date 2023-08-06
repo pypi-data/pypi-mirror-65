@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>sol.i18n -- Internationalization utilities &#8212; SoL 4 developers documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sol.models -- SQLAlchemy modelization" href="models.html" />
+    <link rel="prev" title="SoL modules" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sol.i18n">
+<span id="sol-i18n-internationalization-utilities"></span><h1><a class="reference internal" href="#module-sol.i18n" title="sol.i18n"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code></a> -- Internationalization utilities<a class="headerlink" href="#module-sol.i18n" title="Permalink to this headline">¶</a></h1>
+<dl class="py data">
+<dt id="sol.i18n.DOMAIN">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">DOMAIN</code><em class="property"> = 'sol-server'</em><a class="headerlink" href="#sol.i18n.DOMAIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The translation domain of the server side</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.countries_names">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">countries_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.countries_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a list of dictionaries <code class="docutils literal notranslate"><span class="pre">(code,</span> <span class="pre">translated-name)</span></code> of all known countries.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.country_name">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">country_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">request</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.country_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate the given ISO 3166 country <cite>code</cite> name.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.gettext">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">gettext</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.gettext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Immediately translate the given string with current request locale</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> -- either a string or a TranslationString instance</p></li>
+<li><p><strong>just_subst</strong> -- by default False, True to disable the actual translation
+and perform only mapping substitution</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.language_name">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">language_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">code</span></em>, <em class="sig-param"><span class="n">request</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.language_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate the given ISO 639-3 language <cite>code</cite>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.languages_names">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">languages_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.languages_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a list of dictionaries <code class="docutils literal notranslate"><span class="pre">(code,</span> <span class="pre">translated-name)</span></code> of all available languages.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.locale_negotiator">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">locale_negotiator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">_available_languages</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.locale_negotiator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recognize the user preferred language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> -- the Pyramid request</p></li>
+<li><p><strong>_available_languages</strong> -- the list of available languages (this is used
+as a cache, computed at the first call to this
+function)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Honor the user preferred language, stored in the <code class="docutils literal notranslate"><span class="pre">ui_language</span></code> slot of the request's
+<code class="docutils literal notranslate"><span class="pre">session</span></code> at login time by <code class="xref py py-func docutils literal notranslate"><span class="pre">sol.views.auth.auth_user()</span></code>, falling back to the
+language accepted by the user's browser.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.ngettext">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">ngettext</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em>, <em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.ngettext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Immediately translate the singular or plural form with current request locale</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> -- either a string or a TranslationString instance with the
+singular form</p></li>
+<li><p><strong>p</strong> -- either a string or a TranslationString instance with the
+plural form</p></li>
+<li><p><strong>n</strong> -- an integer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.translatable_string">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">translatable_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msgid</span></em>, <em class="sig-param"><span class="n">mapping</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">context</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.translatable_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to make a translatable string.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="sol.i18n.translator">
+<code class="sig-prename descclassname">sol.i18n.</code><code class="sig-name descname">translator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sol.i18n.translator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a function that translates a given string in the specified request</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> -- either None or a Pyramid request instance</p>
+</dd>
+</dl>
+<p>This is an helper function that handle the case when the request
+does not exist, for example while testing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">translator</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">(</span><span class="s1">&#39;$first $last&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="s1">&#39;Foo&#39;</span><span class="p">,</span> <span class="n">last</span><span class="o">=</span><span class="s1">&#39;Bar&#39;</span><span class="p">))</span>
+<span class="go">&#39;Foo Bar&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SoL</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-v3.html">Changelog of version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes-up-to-v3.html">Changelog up to version 3.0</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">SoL modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.i18n</span></code> -- Internationalization utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="printouts.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.printouts</span></code> -- PDF printouts generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.views</span></code> -- Pyramid views</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">SoL modules</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">SoL modules</a></li>
+      <li>Next: <a href="models.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sol.models</span></code> -- SQLAlchemy modelization</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2008—2020, Lele Gaifax.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/i18n.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
