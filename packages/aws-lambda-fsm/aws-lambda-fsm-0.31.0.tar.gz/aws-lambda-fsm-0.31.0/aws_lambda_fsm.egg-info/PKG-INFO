@@ -1,0 +1,15 @@
+Metadata-Version: 1.2
+Name: aws-lambda-fsm
+Version: 0.31.0
+Summary: AWS FSMs on Lambda/Kinesis
+Home-page: https://workiva.github.io/aws-lambda-fsm-workflows/
+Author: Shawn Rusaw
+Author-email: shawn.rusaw@workiva.com
+License: http://www.apache.org/licenses/LICENSE-2.0
+Description: A Python framework for developing finite state machine-based workflows on AWS Lambda.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=2.7, >=3.6
