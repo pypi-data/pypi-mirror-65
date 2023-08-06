@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+ndindex/__init__.py
+ndindex/_version.py
+ndindex/ndindex.py
+ndindex.egg-info/PKG-INFO
+ndindex.egg-info/SOURCES.txt
+ndindex.egg-info/dependency_links.txt
+ndindex.egg-info/requires.txt
+ndindex.egg-info/top_level.txt
+ndindex/tests/__init__.py
+ndindex/tests/helpers.py
+ndindex/tests/test_ndindex.py
