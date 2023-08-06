@@ -1,0 +1,67 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "boozelib"
+author = "Brutus"
+author-email = "brutus.dmc@googlemail.com"
+home-page = "https://github.com/brutus/boozelib"
+description-file = "README.rst"
+classifiers = [
+	"Intended Audience :: Developers",
+	"Intended Audience :: Healthcare Industry",
+	"Natural Language :: English",
+	"Programming Language :: Python",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+	"Development Status :: 5 - Production/Stable",
+	"License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+
+[tool.flit.metadata.urls]
+Documentation = "https://boozelib.readthedocs.org/"
+
+[tool.ward]
+path = ["tests"]
+
+[tool.black]
+target-version = ["py27"]
+
+[tool.flakehell]
+max_line_length = 88
+exclude = [".nox/*"]
+
+[tool.flakehell.plugins]
+pyflakes = ["+*"]
+
+[tool.towncrier]
+filename = "CHANGELOG.rst"
+directory = "changes"
+title_format = "{version} ({project_date})"
+issue_format = "`#{issue} <https://github.com/brutus/boozelib/issues/{issue}>`_"
+
+# types: feature, change, removal, fix, misc
+[[tool.towncrier.type]]
+directory = "feature"
+name = "Features"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "change"
+name = "Changes"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "removal"
+name = "Deprecations and Removals"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "fix"
+name = "Bugfixes"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "misc"
+name = "Misc"
+showcontent = false
