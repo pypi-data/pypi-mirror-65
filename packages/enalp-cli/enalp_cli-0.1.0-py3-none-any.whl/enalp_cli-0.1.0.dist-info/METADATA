@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: enalp-cli
+Version: 0.1.0
+Summary: Easy NAtural Language Processig CLI Tool for Tokenization, POS, Sentiment Analysis, Translations and more.
+Home-page: https://github.com/rosariomoscato
+License: MIT
+Keywords: word token,sentence token,sentiment analysis,part of speech,named entity recognition,rosario moscato,machine learning
+Author: Rosario Moscato
+Author-email: rosario.moscato@outlook.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: click_help_colors (>=0.8,<0.9)
+Requires-Dist: pyfiglet (>=0.8.post1,<0.9)
+Requires-Dist: textblob (>=0.15.3,<0.16.0)
+Project-URL: Repository, https://github.com/rosariomoscato/enalp_cli
+Description-Content-Type: text/markdown
+
+## ENALP (Easy NAtural Language Processing) CLI Tool
++ Aim: making some basic Machine Learning activity from CLI
++ Purpose: for tokenization, part of speech, sentiment analysis, translations, etc.
+
+### Installation
+bash
++ pip install enalp-cli
++ check that ".local/bin" is in your PATH 
+
+### Basic usage
+bash
++ enalp_cli --help
++ enalp_cli about
++ enalp_cli [COMMAND] --help
+
+### License
++ MIT
+
+### Author
++ Rosario Moscato
++ https://www.linkedin.com/in/rosariomoscato
