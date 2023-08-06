@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ravenclaw
+Version: 2020.4.7
+Summary: For data wrangling.
+Home-page: https://github.com/idin/ravenclaw
+Author: Idin
+Author-email: py@idin.ca
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: chronometry
+Requires-Dist: SPARQLWrapper
+Requires-Dist: slytherin
+Requires-Dist: fuzzywuzzy
+Requires-Dist: joblib
+
+UNKNOWN
+
+
