@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: criclive
+Version: 0.2
+Summary: Live Cricket Scores in Command Line.
+Home-page: https://github.com/aktech/criclive
+Author: Amit Kumar
+Author-email: dtu.amit@gmail.com
+License: MIT
+Keywords: Cricket score espn scores cli
+Platform: UNKNOWN
+Requires-Dist: beautifulsoup4 (==4.9.0)
+Requires-Dist: requests
+Requires-Dist: lxml (==4.5.0)
+Requires-Dist: tabulate (==0.8.7)
+
+
+Cricket Live: Get Live scores of all cricket matches in your Command Line.
+
+
