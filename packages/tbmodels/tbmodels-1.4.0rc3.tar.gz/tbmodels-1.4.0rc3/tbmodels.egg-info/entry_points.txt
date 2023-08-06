@@ -1,0 +1,6 @@
+[console_scripts]
+tbmodels = tbmodels._cli:cli
+
+[fsc.hdf5_io.load]
+tbmodels = tbmodels
+
