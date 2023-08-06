@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: mpp
+Version: 0.0.1
+Summary: My Python Project: a command-line tool to create a Pythpn project
+Home-page: https://github.com/deplanty/mpp
+Author: deplanty
+License: UNKNOWN
+Description: # MPP
+        My Python Project
+        
+        ## Description
+        A simple tool to create a project with Python.
+        
+        ## Usage
+        
+        Start a project easily
+        ```
+        $ mpp setup
+        What is your project name? Project
+        What is your author name? Name
+        Do you want to display the console (y/n)? [n] y
+        Are you using an icon (y/n)? [y]
+        
+        $ python main.py
+        'Project' is ready to be used
+        ```
+        
+        Show your configuration
+        ```
+        $ mpp config
+         -â†’ name = Project
+         -â†’ author = Name
+         -â†’ console = True
+         -â†’ icon = resources/images/icon.ico
+        ```
+        
+        Edit your configuration
+        ```
+        $ mpp config name author
+        What is your project name? [Project] AmazingProject
+        What is your author name? [Name] John
+        
+        Are you sure of your modifications (y/n)? y
+        ```
+        
+        Freeze your project with [PyInstaller](https://www.pyinstaller.org/)
+        ```
+        $ mpp freeze
+        [PyInstaller stdout...]
+        $ target\AmazingProject\AmazingProject.exe
+        'AmazingProject' is ready to be used
+        ```
+        
+        Create an installer for your project with [NSIS](https://nsis.sourceforge.io/Main_Page)
+        ```
+        $ mpp installer
+        [NSIS stdout...]
+        ```
+        
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
