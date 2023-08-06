@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_text %}Красногорский комбинат автофургонов...{% endblock %}
+
+{% block icon %}static/favicon.ico.png{% endblock %}
+
+{% block js_code %}
+    <script>isc.Log.setDefaultLogPriority("Log", 3);</script>
+    <script>isc.Page.setAppImgDir("/static/common-webapp/images/");</script>
+    <script type="text/javascript" src={% static "isc-ts/kaf-1.0.80.js" %}></script>
+{% endblock %}
+
+{% block start_page %}startPage(){% endblock %}
