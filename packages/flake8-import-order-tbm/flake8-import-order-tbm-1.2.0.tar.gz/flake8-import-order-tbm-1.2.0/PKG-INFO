@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: flake8-import-order-tbm
+Version: 1.2.0
+Summary: flake8-import-order style plugin for my (thebigmunch) taste.
+Home-page: https://github.com/thebigmunch/flake8-import-order-tbm
+License: MIT
+Author: thebigmunch
+Author-email: mail@thebigmunch.me
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: dev
+Provides-Extra: lint
+Requires-Dist: flake8 (>=3.5,<4.0); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-builtins (>=1.0,<2.0); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-comprehensions (>=2.0,<=4.0); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-import-order (>=0.18,<0.19); extra == "dev" or extra == "lint"
+Requires-Dist: flake8-import-order-tbm (>=1.0,<2.0); extra == "dev" or extra == "lint"
+Requires-Dist: importlib-metadata (>=1.5.0,<2.0.0); python_version < "3.8"
+Requires-Dist: natsort (>=5.0,<8.0)
+Requires-Dist: nox (>=2019,<2020); extra == "dev"
+Project-URL: Repository, https://github.com/thebigmunch/flake8-import-order-tbm
+Description-Content-Type: text/markdown
+
+# flake8-import-order-tbm
+
+[![PyPI](https://img.shields.io/pypi/v/flake8-import-order-tbm.svg?label=PyPI)](https://pypi.org/project/flake8-import-order-tbm/)
+![](https://img.shields.io/badge/Python-3.6%2B-blue.svg)  
+[![GitHub CI](https://img.shields.io/github/workflow/status/thebigmunch/flake8-import-order-tbm/CI?label=GitHub%20CI)](https://github.com/thebigmunch/flake8-import-order-tbm/actions?query=workflow%3ACI)  
+
+[flake8-import-order-tbm](https://github.com/thebigmunch/flake8-import-order-tbm) is a style for
+[flake8-import-order](https://github.com/PyCQA/flake8-import-order).
+
+
+## Styling
+
+* Package, module, and imported names are naturally sorted using [natsort](https://github.com/SethMMorton/natsort).
+* Standard library import section precedes 3rd-party import section precedes local import section.
+* Import statements precede from import statements.
+* UPPERCASE precedes Capitalized precedes lowercase.
+* Fewer levels in a local relative import precede greater levels.
+
+A basic example:
+
+```
+import os
+import sys
+from os import path
+
+import attr
+import requests
+from attr import attrib, attrs
+
+import LocalPackage
+import localpackage
+from localpackage import name
+from . import name1, name2, name10
+from .module import name3
+from ..module import name4
+```
+
+## Usage
+
+Install ``flake8-import-order-tbm`` using ``pip install flake8-import-order-tbm``.
+
+When running flake8, do one of the following:
+
+* Add the ``--import-order-style=tbm`` option to the command.
+
+* Add this to your [flake8 config](http://flake8.pycqa.org/en/latest/user/configuration.html):
+
+	```
+	import-order-style = tbm
+	```
+

@@ -1,0 +1,50 @@
+[build-system]
+requires = [ "poetry>=1.0.0" ]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "flake8-import-order-tbm"
+description = "flake8-import-order style plugin for my (thebigmunch) taste."
+version = "1.2.0"
+
+license = "MIT"
+
+authors = ["thebigmunch <mail@thebigmunch.me>"]
+
+readme = "README.md"
+
+repository = "https://github.com/thebigmunch/flake8-import-order-tbm"
+homepage = "https://github.com/thebigmunch/flake8-import-order-tbm"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+flake8 = "^3.5"
+flake8-import-order = "^0.18"
+natsort = ">=5.0,<8.0"
+
+flake8-builtins = { version = "^1.0", optional = true }
+flake8-comprehensions = { version = ">=2.0,<=4.0", optional = true }
+flake8-import-order-tbm = { version = "^1.0", optional = true }
+importlib-metadata = { version = "^1.5.0", python = "<3.8", optional = true }
+nox = { version = "^2019", optional = true }
+
+[tool.poetry.extras]
+dev = [
+	"flake8",
+	"flake8-builtins",
+	"flake8-comprehensions",
+	"flake8-import-order",
+	"flake8-import-order-tbm",
+	"nox"
+]
+lint = [
+	"flake8",
+	"flake8-builtins",
+	"flake8-comprehensions",
+	"flake8-import-order",
+	"flake8-import-order-tbm"
+]
+
+[tool.poetry.plugins."flake8_import_order.styles"]
+"tbm" = "flake8_import_order_tbm:TBM"
