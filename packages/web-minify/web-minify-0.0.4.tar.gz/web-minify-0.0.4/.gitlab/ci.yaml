@@ -1,0 +1,50 @@
+image: python:3.7.4-stretch
+
+variables:
+  GIT_DEPTH: 1
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  RESTORE_CACHE_ATTEMPTS: 10
+  ARTIFACT_DOWNLOAD_ATTEMPTS: 10
+  GET_SOURCES_ATTEMPTS: 10
+
+cache:
+  key: one-cache-to-rule-them-all
+  paths:
+  - .cache/pip
+  - gitlab_cache
+
+before_script:
+  - apk --no-cache --update add make bash
+  - make info
+
+stages:
+  - testing
+  - building
+  - deployment
+
+# Disabled for now to increase build performance since we dont have any tests :'(
+.general_test:
+  stage: testing
+  script:
+  - make docker-test
+  # This is always carried out no matter which branch we are on
+  rules:
+    - when: on_success
+
+Build:
+  stage: building
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master"'
+      when: on_success
+  script:
+  - make req
+  - make setup
+  - make banana
+
+Deploy:
+  stage: deployment
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master"'
+      when: on_success
+  script:
+  - make gke-secrets-manager-clear
