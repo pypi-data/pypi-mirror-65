@@ -1,0 +1,1 @@
+from pandemic.simulation import run
