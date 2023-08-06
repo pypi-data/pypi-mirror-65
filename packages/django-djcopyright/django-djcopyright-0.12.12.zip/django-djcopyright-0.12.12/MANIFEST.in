@@ -1,0 +1,10 @@
+# django-djcopyright
+# MANIFEST.in
+
+
+prune tests*
+include README.rst
+include COPYING
+include AUTHORS
+recursive-include djcopyright *.po
+recursive-include djcopyright *.mo
