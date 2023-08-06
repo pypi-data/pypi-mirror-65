@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+bin/random_scrape
+random_scraper/__init__.py
+random_scraper/random_scraper.py
+random_scraper.egg-info/PKG-INFO
+random_scraper.egg-info/SOURCES.txt
+random_scraper.egg-info/dependency_links.txt
+random_scraper.egg-info/requires.txt
+random_scraper.egg-info/top_level.txt
+random_scraper/package_data/.DS_Store
+random_scraper/package_data/user-agents.txt
