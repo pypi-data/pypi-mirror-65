@@ -1,0 +1,9 @@
+numpy
+scikit-learn
+tqdm
+torch
+torchvision
+
+[dev]
+pytest>3.8
+pytest-cov~=2.8
