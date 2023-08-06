@@ -1,0 +1,14 @@
+.gitignore
+LICENSE
+README.md
+setup.py
+snoop_tensor/__init__.py
+snoop_tensor/base.py
+snoop_tensor/numpy.py
+snoop_tensor/profiler.py
+snoop_tensor/torch.py
+snoop_tensor.egg-info/PKG-INFO
+snoop_tensor.egg-info/SOURCES.txt
+snoop_tensor.egg-info/dependency_links.txt
+snoop_tensor.egg-info/requires.txt
+snoop_tensor.egg-info/top_level.txt

@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: snoop-tensor
+Version: 0.2
+Summary: Tensor extension for snoop
+Home-page: https://github.com/cmpute/snoop-tensor
+Author: Jacob Zhong
+Author-email: cmpute@gmail.com
+License: UNKNOWN
+Description: # snoop-tensor
+        Numpy/Pytorch Tensor extension for snoop. It's modified from [TorchSnooper](https://github.com/zasdfgbnm/TorchSnooper)
+        
+        # Usage
+        
+        ```python
+        import snoop, snoop_tensor
+        snoop.install()
+        snoop_tensor.register() # need to be called after install()
+        ```
+        
+        ## Features
+        
+        - Display tensors in a beautiful way
+        - Profiling GPU memory usage and time usage
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
