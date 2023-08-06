@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "jiradumper"
+version = "0.2.0"
+description = ""
+authors = ["Khalid <khalidck@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^7.1.1"
+jira = "^2.0.0"
+jsonschema = "^3.2.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.4.4"
+mypy = "^0.770"
+autopep8 = "^1.5.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+jiradumper = 'jiradumper.jiradumper:cli'
