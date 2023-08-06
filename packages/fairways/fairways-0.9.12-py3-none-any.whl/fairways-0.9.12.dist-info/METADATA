@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: fairways
+Version: 0.9.12
+Summary: Toolset to organize tasks
+Home-page: https://gitlab.com/danwin/fairways_py#egg=fairways
+Author: Dmitry Zimoglyadov
+Author-email: dmitry.zimoglyadov@gmail.com
+License: Apache 2.0 / MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: cached-property (>=1.5.1)
+Requires-Dist: colorlog (>=4.0.2)
+Requires-Dist: python-dateutil (>=2.8.0)
+Requires-Dist: python-dotenv (>=0.10.3)
+Requires-Dist: requests (>=2.22.0)
+
+[![pipeline status](https://gitlab.com/danwin/fairways_py/badges/master/pipeline.svg)](https://gitlab.com/danwin/fairways_py/commits/master)
+
+[![Documentation Status](https://readthedocs.org/projects/fairways-py/badge/?version=latest)](https://fairways-py.readthedocs.io/en/latest/?badge=latest)
+
+## Installation ##
+```$ pip install fairways```
+## Documents ##
+https://fairways-py.readthedocs.io/en/latest/
+
+## Warning ##
+Some modules are proof-of-concept. Avoid to use this package in production without comprehensive test suite for your app.
+
+## License ##
+
+Licensed under either of the following, at your option:
+
+Apache License, Version 2.0 (LICENSE-APACHE or
+https://www.apache.org/licenses/LICENSE-2.0)
+MIT License (LICENSE-MIT or
+https://opensource.org/licenses/MIT)
+
