@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pyaides
+Version: 20.4.0a0
+Summary: Light-weight Python 3 utilities
+Home-page: https://github.com/okomestudio/pyaides
+Author: Taro Sato
+Author-email: okomestudio@gmail.com
+License: MIT
+Platform: Linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Provides-Extra: dev
+Requires-Dist: black (>=18.9b0) ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: coverage (>=4.5.2) ; extra == 'dev'
+Requires-Dist: pytest (>=4.2.1) ; extra == 'dev'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'dev'
+Requires-Dist: pytest-mock (>=1.10.4) ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage (>=4.5.2) ; extra == 'test'
+Requires-Dist: pytest (>=4.2.1) ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'test'
+Requires-Dist: pytest-mock (>=1.10.4) ; extra == 'test'
+
+UNKNOWN
+
+
