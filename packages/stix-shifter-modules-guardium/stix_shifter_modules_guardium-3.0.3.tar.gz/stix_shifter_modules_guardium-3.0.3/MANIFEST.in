@@ -1,0 +1,15 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include JSON files (generated values)
+include stix_shifter_modules/guardium/configuration/guardium_config.json 
+include stix_shifter_modules/guardium/configuration/guardium_lang.json 
+include stix_shifter_modules/guardium/stix_translation/json/from_stix_map.json 
+include stix_shifter_modules/guardium/stix_translation/json/guardium_report_params.json 
+include stix_shifter_modules/guardium/stix_translation/json/guardium_report_params_map.json 
+include stix_shifter_modules/guardium/stix_translation/json/guardium_reports_def.json 
+include stix_shifter_modules/guardium/stix_translation/json/reference_data_types4Query.json 
+include stix_shifter_modules/guardium/stix_translation/json/to_stix_map.json 
