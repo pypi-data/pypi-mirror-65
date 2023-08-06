@@ -1,0 +1,31 @@
+ply>=3.10
+
+[:python_version < "3.0" and sys_platform != "win32"]
+M2Crypto>=0.31.0
+
+[:python_version < "3.8"]
+six>=1.10.0
+
+[:python_version == "2.6"]
+mock<3.0.0,>=2.0.0
+ordereddict>=1.1
+PyYAML<3.12,>=3.11
+backport_collections>=0.1
+
+[:python_version == "2.7"]
+PyYAML>=5.1
+
+[:python_version == "3.4"]
+PyYAML<5.3,>=5.1
+
+[:python_version > "3.4"]
+PyYAML>=5.1
+
+[:python_version >= "2.7" and python_version <= "3.5"]
+mock<4.0.0,>=2.0.0
+
+[:python_version >= "3.6"]
+mock>=2.0.0
+
+[:python_version >= "3.8"]
+six>=1.12.0
