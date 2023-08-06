@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: miniwdl-s3upload
+Version: 0.0.1
+Summary: miniwdl plugin for progressive upload of task output files to Amazon S3
+Home-page: https://github.com/chanzuckerberg/miniwdl-s3upload
+Author: Mike Lin, Andrey Kislyuk
+License: UNKNOWN
+Project-URL: Documentation, https://github.com/chanzuckerberg/miniwdl-s3upload
+Project-URL: Source Code, https://github.com/chanzuckerberg/miniwdl-s3upload
+Project-URL: Issue Tracker, https://github.com/chanzuckerberg/miniwdl-s3upload/issues
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: boto3
+
+# miniwdl-s3upload
+
+This Python package is a [MiniWDL](https://github.com/chanzuckerberg/miniwdl) plugin to handle the orchestration of S3 upload (delocalization) for S3 URIs in WDL workflow I/O.
+
+## Installation
+```
+pip3 install miniwdl-s3upload
+```
+To check that the installation was successful, run `miniwdl --version`, which will list available plugins, including this one.
+
+## Usage
+Set the environment variable `MINIWDL__S3_PROGRESSIVE_UPLOAD__URI_PREFIX` to an S3 URL where the task outputs should be uploaded.
+
+
