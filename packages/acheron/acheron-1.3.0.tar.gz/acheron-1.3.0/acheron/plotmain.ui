@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PlotMainWindow</class>
+ <widget class="QMainWindow" name="PlotMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Acheron</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>2</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="tabWidget"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>3</number>
+      </property>
+      <property name="rightMargin">
+       <number>3</number>
+      </property>
+      <property name="bottomMargin">
+       <number>1</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="warningLabel">
+        <property name="styleSheet">
+         <string notr="true">QLabel { color : red ; font-weight : bold ; font-size : 18px ; }</string>
+        </property>
+        <property name="text">
+         <string>Warning: Archiving Disabled</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="uploadRateLabel">
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>350 kB/s</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="uploadProgress">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>175</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximum">
+         <number>5957928</number>
+        </property>
+        <property name="value">
+         <number>2359296</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="format">
+         <string>%v/%m (%p%)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="uploadNameLabel">
+        <property name="text">
+         <string>20181029T2241Z_HSS2143.apd</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="datetimeLabel">
+        <property name="text">
+         <string>0000-00-00T00:00:00Z</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuStreaming">
+    <property name="title">
+     <string>Streaming</string>
+    </property>
+    <addaction name="actionDisableStreaming"/>
+    <addaction name="actionDisableArchiving"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionClosableTabs"/>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <widget class="QMenu" name="menuCheckForUpdates">
+     <property name="title">
+      <string>Check for Updates</string>
+     </property>
+     <addaction name="actionUpdateLatestStable"/>
+     <addaction name="actionUpdateCurrentBranch"/>
+     <addaction name="actionUpdateSpecificBranch"/>
+     <addaction name="actionUpdateSpecificCommit"/>
+    </widget>
+    <addaction name="menuCheckForUpdates"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuDevices">
+    <property name="title">
+     <string>Devices</string>
+    </property>
+    <addaction name="actionRescanUSB"/>
+    <addaction name="actionFindTCPDevices"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuMarkForUpload">
+     <property name="title">
+      <string>Mark for Upload</string>
+     </property>
+     <addaction name="actionMarkFiles"/>
+     <addaction name="actionMarkDirectory"/>
+    </widget>
+    <addaction name="actionDownloadFirmware"/>
+    <addaction name="separator"/>
+    <addaction name="menuMarkForUpload"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuDevices"/>
+   <addaction name="menuStreaming"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionEnableRFPower"/>
+   <addaction name="actionDisableRFPower"/>
+   <addaction name="actionRescanUSB"/>
+   <addaction name="actionFindTCPDevices"/>
+   <addaction name="separator"/>
+   <addaction name="actionPause"/>
+   <addaction name="actionResume"/>
+  </widget>
+  <action name="actionRescanUSB">
+   <property name="text">
+    <string>Rescan USB</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences...</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About...</string>
+   </property>
+  </action>
+  <action name="actionDisableStreaming">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable Streaming</string>
+   </property>
+  </action>
+  <action name="actionDisableArchiving">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable Archiving</string>
+   </property>
+  </action>
+  <action name="actionFindTCPDevices">
+   <property name="text">
+    <string>Find TCP Devices...</string>
+   </property>
+  </action>
+  <action name="actionEnableRFPower">
+   <property name="text">
+    <string>Enable RF Power (0)</string>
+   </property>
+  </action>
+  <action name="actionDisableRFPower">
+   <property name="text">
+    <string>Disable RF Power (0)</string>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="actionResume">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Resume</string>
+   </property>
+  </action>
+  <action name="actionClosableTabs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Easy Close Tabs</string>
+   </property>
+   <property name="toolTip">
+    <string>Easy Close Tabs</string>
+   </property>
+  </action>
+  <action name="actionUpdateLatestStable">
+   <property name="text">
+    <string>Latest Stable</string>
+   </property>
+  </action>
+  <action name="actionUpdateSpecificBranch">
+   <property name="text">
+    <string>Specific Branch...</string>
+   </property>
+  </action>
+  <action name="actionUpdateSpecificCommit">
+   <property name="text">
+    <string>Specific Commit..</string>
+   </property>
+  </action>
+  <action name="actionUpdateCurrentBranch">
+   <property name="text">
+    <string>Latest branch</string>
+   </property>
+  </action>
+  <action name="actionDownloadFirmware">
+   <property name="text">
+    <string>Download Firmware...</string>
+   </property>
+   <property name="toolTip">
+    <string>Download Firmware...</string>
+   </property>
+  </action>
+  <action name="actionMarkFiles">
+   <property name="text">
+    <string>Mark Files...</string>
+   </property>
+   <property name="toolTip">
+    <string>Mark Files...</string>
+   </property>
+  </action>
+  <action name="actionMarkDirectory">
+   <property name="text">
+    <string>Mark Directory...</string>
+   </property>
+   <property name="toolTip">
+    <string>Mark Directory...</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>PlotMainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>373</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

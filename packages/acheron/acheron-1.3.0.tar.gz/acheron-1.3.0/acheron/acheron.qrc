@@ -1,0 +1,238 @@
+<RCC>
+  <qresource>
+    <file>acheron.ico</file>
+  </qresource>
+  <qresource prefix="icons/suprock">
+    <file alias="index.theme">icons/suprock/index.theme</file>
+    <file alias="16x16/about.png">icons/suprock/16x16/about.png</file>
+    <file alias="24x24/about.png">icons/suprock/24x24/about.png</file>
+    <file alias="32x32/about.png">icons/suprock/32x32/about.png</file>
+    <file alias="48x48/about.png">icons/suprock/48x48/about.png</file>
+    <file alias="64x64/about.png">icons/suprock/64x64/about.png</file>
+    <file alias="256x256/about.png">icons/suprock/256x256/about.png</file>
+
+    <file alias="16x16/antenna_play.png">icons/suprock/16x16/antenna_play.png</file>
+    <file alias="24x24/antenna_play.png">icons/suprock/24x24/antenna_play.png</file>
+    <file alias="32x32/antenna_play.png">icons/suprock/32x32/antenna_play.png</file>
+    <file alias="48x48/antenna_play.png">icons/suprock/48x48/antenna_play.png</file>
+    <file alias="64x64/antenna_play.png">icons/suprock/64x64/antenna_play.png</file>
+    <file alias="256x256/antenna_play.png">icons/suprock/256x256/antenna_play.png</file>
+
+    <file alias="16x16/antenna_stop.png">icons/suprock/16x16/antenna_stop.png</file>
+    <file alias="24x24/antenna_stop.png">icons/suprock/24x24/antenna_stop.png</file>
+    <file alias="32x32/antenna_stop.png">icons/suprock/32x32/antenna_stop.png</file>
+    <file alias="48x48/antenna_stop.png">icons/suprock/48x48/antenna_stop.png</file>
+    <file alias="64x64/antenna_stop.png">icons/suprock/64x64/antenna_stop.png</file>
+    <file alias="256x256/antenna_stop.png">icons/suprock/256x256/antenna_stop.png</file>
+
+    <file alias="16x16/application.png">icons/suprock/16x16/application.png</file>
+    <file alias="24x24/application.png">icons/suprock/24x24/application.png</file>
+    <file alias="32x32/application.png">icons/suprock/32x32/application.png</file>
+    <file alias="48x48/application.png">icons/suprock/48x48/application.png</file>
+    <file alias="64x64/application.png">icons/suprock/64x64/application.png</file>
+    <file alias="256x256/application.png">icons/suprock/256x256/application.png</file>
+
+    <file alias="16x16/bomb.png">icons/suprock/16x16/bomb.png</file>
+    <file alias="24x24/bomb.png">icons/suprock/24x24/bomb.png</file>
+    <file alias="32x32/bomb.png">icons/suprock/32x32/bomb.png</file>
+    <file alias="48x48/bomb.png">icons/suprock/48x48/bomb.png</file>
+    <file alias="64x64/bomb.png">icons/suprock/64x64/bomb.png</file>
+    <file alias="256x256/bomb.png">icons/suprock/256x256/bomb.png</file>
+
+    <file alias="16x16/branch.png">icons/suprock/16x16/branch.png</file>
+    <file alias="24x24/branch.png">icons/suprock/24x24/branch.png</file>
+    <file alias="32x32/branch.png">icons/suprock/32x32/branch.png</file>
+    <file alias="48x48/branch.png">icons/suprock/48x48/branch.png</file>
+    <file alias="64x64/branch.png">icons/suprock/64x64/branch.png</file>
+    <file alias="256x256/branch.png">icons/suprock/256x256/branch.png</file>
+
+    <file alias="16x16/branch_element_new.png">icons/suprock/16x16/branch_element_new.png</file>
+    <file alias="24x24/branch_element_new.png">icons/suprock/24x24/branch_element_new.png</file>
+    <file alias="32x32/branch_element_new.png">icons/suprock/32x32/branch_element_new.png</file>
+    <file alias="48x48/branch_element_new.png">icons/suprock/48x48/branch_element_new.png</file>
+    <file alias="64x64/branch_element_new.png">icons/suprock/64x64/branch_element_new.png</file>
+    <file alias="256x256/branch_element_new.png">icons/suprock/256x256/branch_element_new.png</file>
+
+    <file alias="16x16/branch_view.png">icons/suprock/16x16/branch_view.png</file>
+    <file alias="24x24/branch_view.png">icons/suprock/24x24/branch_view.png</file>
+    <file alias="32x32/branch_view.png">icons/suprock/32x32/branch_view.png</file>
+    <file alias="48x48/branch_view.png">icons/suprock/48x48/branch_view.png</file>
+    <file alias="64x64/branch_view.png">icons/suprock/64x64/branch_view.png</file>
+    <file alias="256x256/branch_view.png">icons/suprock/256x256/branch_view.png</file>
+
+    <file alias="16x16/caliper.png">icons/suprock/16x16/caliper.png</file>
+    <file alias="24x24/caliper.png">icons/suprock/24x24/caliper.png</file>
+    <file alias="32x32/caliper.png">icons/suprock/32x32/caliper.png</file>
+    <file alias="48x48/caliper.png">icons/suprock/48x48/caliper.png</file>
+    <file alias="64x64/caliper.png">icons/suprock/64x64/caliper.png</file>
+    <file alias="256x256/caliper.png">icons/suprock/256x256/caliper.png</file>
+
+    <file alias="16x16/chart_column.png">icons/suprock/16x16/chart_column.png</file>
+    <file alias="24x24/chart_column.png">icons/suprock/24x24/chart_column.png</file>
+    <file alias="32x32/chart_column.png">icons/suprock/32x32/chart_column.png</file>
+    <file alias="48x48/chart_column.png">icons/suprock/48x48/chart_column.png</file>
+    <file alias="64x64/chart_column.png">icons/suprock/64x64/chart_column.png</file>
+    <file alias="256x256/chart_column.png">icons/suprock/256x256/chart_column.png</file>
+
+    <file alias="16x16/cloud_computing_download.png">icons/suprock/16x16/cloud_computing_download.png</file>
+    <file alias="24x24/cloud_computing_download.png">icons/suprock/24x24/cloud_computing_download.png</file>
+    <file alias="32x32/cloud_computing_download.png">icons/suprock/32x32/cloud_computing_download.png</file>
+    <file alias="48x48/cloud_computing_download.png">icons/suprock/48x48/cloud_computing_download.png</file>
+    <file alias="64x64/cloud_computing_download.png">icons/suprock/64x64/cloud_computing_download.png</file>
+    <file alias="256x256/cloud_computing_download.png">icons/suprock/256x256/cloud_computing_download.png</file>
+
+    <file alias="16x16/cpu_flash.png">icons/suprock/16x16/cpu_flash.png</file>
+    <file alias="24x24/cpu_flash.png">icons/suprock/24x24/cpu_flash.png</file>
+    <file alias="32x32/cpu_flash.png">icons/suprock/32x32/cpu_flash.png</file>
+    <file alias="48x48/cpu_flash.png">icons/suprock/48x48/cpu_flash.png</file>
+    <file alias="64x64/cpu_flash.png">icons/suprock/64x64/cpu_flash.png</file>
+    <file alias="256x256/cpu_flash.png">icons/suprock/256x256/cpu_flash.png</file>
+
+    <file alias="16x16/document_gear.png">icons/suprock/16x16/document_gear.png</file>
+    <file alias="24x24/document_gear.png">icons/suprock/24x24/document_gear.png</file>
+    <file alias="32x32/document_gear.png">icons/suprock/32x32/document_gear.png</file>
+    <file alias="48x48/document_gear.png">icons/suprock/48x48/document_gear.png</file>
+    <file alias="64x64/document_gear.png">icons/suprock/64x64/document_gear.png</file>
+    <file alias="256x256/document_gear.png">icons/suprock/256x256/document_gear.png</file>
+
+    <file alias="16x16/document_plain.png">icons/suprock/16x16/document_plain.png</file>
+    <file alias="24x24/document_plain.png">icons/suprock/24x24/document_plain.png</file>
+    <file alias="32x32/document_plain.png">icons/suprock/32x32/document_plain.png</file>
+    <file alias="48x48/document_plain.png">icons/suprock/48x48/document_plain.png</file>
+    <file alias="64x64/document_plain.png">icons/suprock/64x64/document_plain.png</file>
+    <file alias="256x256/document_plain.png">icons/suprock/256x256/document_plain.png</file>
+
+    <file alias="16x16/document_up.png">icons/suprock/16x16/document_up.png</file>
+    <file alias="24x24/document_up.png">icons/suprock/24x24/document_up.png</file>
+    <file alias="32x32/document_up.png">icons/suprock/32x32/document_up.png</file>
+    <file alias="48x48/document_up.png">icons/suprock/48x48/document_up.png</file>
+    <file alias="64x64/document_up.png">icons/suprock/64x64/document_up.png</file>
+    <file alias="256x256/document_up.png">icons/suprock/256x256/document_up.png</file>
+
+    <file alias="16x16/exit.png">icons/suprock/16x16/exit.png</file>
+    <file alias="24x24/exit.png">icons/suprock/24x24/exit.png</file>
+    <file alias="32x32/exit.png">icons/suprock/32x32/exit.png</file>
+    <file alias="48x48/exit.png">icons/suprock/48x48/exit.png</file>
+    <file alias="64x64/exit.png">icons/suprock/64x64/exit.png</file>
+    <file alias="256x256/exit.png">icons/suprock/256x256/exit.png</file>
+
+    <file alias="16x16/flash_yellow.png">icons/suprock/16x16/flash_yellow.png</file>
+    <file alias="24x24/flash_yellow.png">icons/suprock/24x24/flash_yellow.png</file>
+    <file alias="32x32/flash_yellow.png">icons/suprock/32x32/flash_yellow.png</file>
+    <file alias="48x48/flash_yellow.png">icons/suprock/48x48/flash_yellow.png</file>
+    <file alias="64x64/flash_yellow.png">icons/suprock/64x64/flash_yellow.png</file>
+    <file alias="256x256/flash_yellow.png">icons/suprock/256x256/flash_yellow.png</file>
+
+    <file alias="16x16/folder_up.png">icons/suprock/16x16/folder_up.png</file>
+    <file alias="24x24/folder_up.png">icons/suprock/24x24/folder_up.png</file>
+    <file alias="32x32/folder_up.png">icons/suprock/32x32/folder_up.png</file>
+    <file alias="48x48/folder_up.png">icons/suprock/48x48/folder_up.png</file>
+    <file alias="64x64/folder_up.png">icons/suprock/64x64/folder_up.png</file>
+    <file alias="256x256/folder_up.png">icons/suprock/256x256/folder_up.png</file>
+
+    <file alias="16x16/gear.png">icons/suprock/16x16/gear.png</file>
+    <file alias="24x24/gear.png">icons/suprock/24x24/gear.png</file>
+    <file alias="32x32/gear.png">icons/suprock/32x32/gear.png</file>
+    <file alias="48x48/gear.png">icons/suprock/48x48/gear.png</file>
+    <file alias="64x64/gear.png">icons/suprock/64x64/gear.png</file>
+    <file alias="256x256/gear.png">icons/suprock/256x256/gear.png</file>
+
+    <file alias="16x16/information.png">icons/suprock/16x16/information.png</file>
+    <file alias="24x24/information.png">icons/suprock/24x24/information.png</file>
+    <file alias="32x32/information.png">icons/suprock/32x32/information.png</file>
+    <file alias="48x48/information.png">icons/suprock/48x48/information.png</file>
+    <file alias="64x64/information.png">icons/suprock/64x64/information.png</file>
+    <file alias="256x256/information.png">icons/suprock/256x256/information.png</file>
+
+    <file alias="16x16/install.png">icons/suprock/16x16/install.png</file>
+    <file alias="24x24/install.png">icons/suprock/24x24/install.png</file>
+    <file alias="32x32/install.png">icons/suprock/32x32/install.png</file>
+    <file alias="48x48/install.png">icons/suprock/48x48/install.png</file>
+    <file alias="64x64/install.png">icons/suprock/64x64/install.png</file>
+    <file alias="256x256/install.png">icons/suprock/256x256/install.png</file>
+
+    <file alias="16x16/media_pause.png">icons/suprock/16x16/media_pause.png</file>
+    <file alias="24x24/media_pause.png">icons/suprock/24x24/media_pause.png</file>
+    <file alias="32x32/media_pause.png">icons/suprock/32x32/media_pause.png</file>
+    <file alias="48x48/media_pause.png">icons/suprock/48x48/media_pause.png</file>
+    <file alias="64x64/media_pause.png">icons/suprock/64x64/media_pause.png</file>
+    <file alias="256x256/media_pause.png">icons/suprock/256x256/media_pause.png</file>
+
+    <file alias="16x16/media_play_green.png">icons/suprock/16x16/media_play_green.png</file>
+    <file alias="24x24/media_play_green.png">icons/suprock/24x24/media_play_green.png</file>
+    <file alias="32x32/media_play_green.png">icons/suprock/32x32/media_play_green.png</file>
+    <file alias="48x48/media_play_green.png">icons/suprock/48x48/media_play_green.png</file>
+    <file alias="64x64/media_play_green.png">icons/suprock/64x64/media_play_green.png</file>
+    <file alias="256x256/media_play_green.png">icons/suprock/256x256/media_play_green.png</file>
+
+    <file alias="16x16/plug_lan.png">icons/suprock/16x16/plug_lan.png</file>
+    <file alias="24x24/plug_lan.png">icons/suprock/24x24/plug_lan.png</file>
+    <file alias="32x32/plug_lan.png">icons/suprock/32x32/plug_lan.png</file>
+    <file alias="48x48/plug_lan.png">icons/suprock/48x48/plug_lan.png</file>
+    <file alias="64x64/plug_lan.png">icons/suprock/64x64/plug_lan.png</file>
+    <file alias="256x256/plug_lan.png">icons/suprock/256x256/plug_lan.png</file>
+
+    <file alias="16x16/plug_usb.png">icons/suprock/16x16/plug_usb.png</file>
+    <file alias="24x24/plug_usb.png">icons/suprock/24x24/plug_usb.png</file>
+    <file alias="32x32/plug_usb.png">icons/suprock/32x32/plug_usb.png</file>
+    <file alias="48x48/plug_usb.png">icons/suprock/48x48/plug_usb.png</file>
+    <file alias="64x64/plug_usb.png">icons/suprock/64x64/plug_usb.png</file>
+    <file alias="256x256/plug_usb.png">icons/suprock/256x256/plug_usb.png</file>
+
+    <file alias="16x16/preferences.png">icons/suprock/16x16/preferences.png</file>
+    <file alias="24x24/preferences.png">icons/suprock/24x24/preferences.png</file>
+    <file alias="32x32/preferences.png">icons/suprock/32x32/preferences.png</file>
+    <file alias="48x48/preferences.png">icons/suprock/48x48/preferences.png</file>
+    <file alias="64x64/preferences.png">icons/suprock/64x64/preferences.png</file>
+    <file alias="256x256/preferences.png">icons/suprock/256x256/preferences.png</file>
+
+    <file alias="16x16/preferences_edit.png">icons/suprock/16x16/preferences_edit.png</file>
+    <file alias="24x24/preferences_edit.png">icons/suprock/24x24/preferences_edit.png</file>
+    <file alias="32x32/preferences_edit.png">icons/suprock/32x32/preferences_edit.png</file>
+    <file alias="48x48/preferences_edit.png">icons/suprock/48x48/preferences_edit.png</file>
+    <file alias="64x64/preferences_edit.png">icons/suprock/64x64/preferences_edit.png</file>
+    <file alias="256x256/preferences_edit.png">icons/suprock/256x256/preferences_edit.png</file>
+
+    <file alias="16x16/redo.png">icons/suprock/16x16/redo.png</file>
+    <file alias="24x24/redo.png">icons/suprock/24x24/redo.png</file>
+    <file alias="32x32/redo.png">icons/suprock/32x32/redo.png</file>
+    <file alias="48x48/redo.png">icons/suprock/48x48/redo.png</file>
+    <file alias="64x64/redo.png">icons/suprock/64x64/redo.png</file>
+    <file alias="256x256/redo.png">icons/suprock/256x256/redo.png</file>
+
+    <file alias="16x16/stethoscope.png">icons/suprock/16x16/stethoscope.png</file>
+    <file alias="24x24/stethoscope.png">icons/suprock/24x24/stethoscope.png</file>
+    <file alias="32x32/stethoscope.png">icons/suprock/32x32/stethoscope.png</file>
+    <file alias="48x48/stethoscope.png">icons/suprock/48x48/stethoscope.png</file>
+    <file alias="64x64/stethoscope.png">icons/suprock/64x64/stethoscope.png</file>
+    <file alias="256x256/stethoscope.png">icons/suprock/256x256/stethoscope.png</file>
+
+    <file alias="16x16/symbol_hash.png">icons/suprock/16x16/symbol_hash.png</file>
+    <file alias="24x24/symbol_hash.png">icons/suprock/24x24/symbol_hash.png</file>
+    <file alias="32x32/symbol_hash.png">icons/suprock/32x32/symbol_hash.png</file>
+    <file alias="48x48/symbol_hash.png">icons/suprock/48x48/symbol_hash.png</file>
+    <file alias="64x64/symbol_hash.png">icons/suprock/64x64/symbol_hash.png</file>
+    <file alias="256x256/symbol_hash.png">icons/suprock/256x256/symbol_hash.png</file>
+
+    <file alias="16x16/tag.png">icons/suprock/16x16/tag.png</file>
+    <file alias="24x24/tag.png">icons/suprock/24x24/tag.png</file>
+    <file alias="32x32/tag.png">icons/suprock/32x32/tag.png</file>
+    <file alias="48x48/tag.png">icons/suprock/48x48/tag.png</file>
+    <file alias="64x64/tag.png">icons/suprock/64x64/tag.png</file>
+    <file alias="256x256/tag.png">icons/suprock/256x256/tag.png</file>
+
+    <file alias="16x16/text_list_numbers.png">icons/suprock/16x16/text_list_numbers.png</file>
+    <file alias="24x24/text_list_numbers.png">icons/suprock/24x24/text_list_numbers.png</file>
+    <file alias="32x32/text_list_numbers.png">icons/suprock/32x32/text_list_numbers.png</file>
+    <file alias="48x48/text_list_numbers.png">icons/suprock/48x48/text_list_numbers.png</file>
+    <file alias="64x64/text_list_numbers.png">icons/suprock/64x64/text_list_numbers.png</file>
+    <file alias="256x256/text_list_numbers.png">icons/suprock/256x256/text_list_numbers.png</file>
+
+    <file alias="16x16/wrench.png">icons/suprock/16x16/wrench.png</file>
+    <file alias="24x24/wrench.png">icons/suprock/24x24/wrench.png</file>
+    <file alias="32x32/wrench.png">icons/suprock/32x32/wrench.png</file>
+    <file alias="48x48/wrench.png">icons/suprock/48x48/wrench.png</file>
+    <file alias="64x64/wrench.png">icons/suprock/64x64/wrench.png</file>
+    <file alias="256x256/wrench.png">icons/suprock/256x256/wrench.png</file>
+</qresource>
+</RCC>

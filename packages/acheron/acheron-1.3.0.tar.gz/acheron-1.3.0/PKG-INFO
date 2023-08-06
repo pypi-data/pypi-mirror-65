@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: acheron
+Version: 1.3.0
+Summary: Plotting and recording program for Asphodel devices
+Home-page: https://bitbucket.org/suprocktech/acheron
+Author: Suprock Technologies, LLC
+Author-email: inquiries@suprocktech.com
+License: UNKNOWN
+Description: # Acheron
+        
+        ## About
+        Acheron is a plotting application and data recorder for USB and TCP devices communicating via the Asphodel protocol.
+        
+        The Asphodel communication protocol was developed by Suprock Technologies (http://www.suprocktech.com)
+        
+        ## License
+        Acheron is licensed under the ISC license.
+        
+        The ISC license is a streamlined version of the BSD license, and permits usage in both open source and propretary projects.
+        
+Keywords: asphodel suprock apd
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Hardware
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

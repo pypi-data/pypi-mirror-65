@@ -1,0 +1,4 @@
+# include the main requirements
+-r requirements.txt
+
+git+https://github.com/anthony-tuininga/cx_Freeze.git@0ce8086cb636e4eade272598c0edfa0fd81da459#egg=cx-Freeze

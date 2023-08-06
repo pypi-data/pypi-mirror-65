@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RadioPanel</class>
+ <widget class="QGroupBox" name="RadioPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>115</width>
+    <height>445</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Radio Panel</string>
+  </property>
+  <property name="title">
+   <string>Radio</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QPushButton" name="detailScanButton">
+     <property name="text">
+      <string>Detail Scan...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="devicesComboBox"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="scanButton">
+     <property name="text">
+      <string>Quick Scan</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="connectButton">
+     <property name="text">
+      <string>Connect</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="disconnectButton">
+     <property name="text">
+      <string>Disconnect</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="advancedMenuButton">
+     <property name="text">
+      <string>Advanced Menu</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="ctrlVarLayout"/>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>10</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="goToRemoteButton">
+     <property name="text">
+      <string>Go To Remote Tab</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="actionConnectAnyBootloader">
+   <property name="text">
+    <string>Connect Any Bootloader</string>
+   </property>
+  </action>
+  <action name="actionConnectSpecificBootloader">
+   <property name="text">
+    <string>Connect Specific Bootloader</string>
+   </property>
+  </action>
+  <action name="actionBootloaderScan">
+   <property name="text">
+    <string>Bootloader Scan</string>
+   </property>
+  </action>
+  <action name="actionConnectNoStreaming">
+   <property name="text">
+    <string>Connect (No Streaming)</string>
+   </property>
+  </action>
+  <action name="actionBulkClaim">
+   <property name="text">
+    <string>Bulk Claim</string>
+   </property>
+   <property name="toolTip">
+    <string>Bulk Claim</string>
+   </property>
+  </action>
+  <action name="actionBulkUpdateFirmware">
+   <property name="text">
+    <string>Bulk Update Firmware</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
