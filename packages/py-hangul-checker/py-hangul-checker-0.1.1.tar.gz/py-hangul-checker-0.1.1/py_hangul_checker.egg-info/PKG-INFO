@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: py-hangul-checker
+Version: 0.1.1
+Summary: Python implementation of Hanhul (Korean Language) Spell Checker
+Home-page: https://github.com/jha929/py-hangul-checker
+Author: Jinsung Ha
+Author-email: jsung5381@naver.com
+License: MIT
+Description: # py-hangul-checker
+        Python implementation of Hanhul (Korean Language) Spell Checker
+        
+        ## 설치법
+        ```zsh
+        $ pip install py-hangul-checker
+        ```
+        
+        ## 사용법
+        ```python
+        >>> sentence_to_be_checked = "간편 하게 쓰세요!"
+        >>> ksc = KoreanSpellChecker()
+        >>> res = ksc.check_spelling(sentence_to_be_checked)
+        >>> res
+        "간편하게 쓰세요!"
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
