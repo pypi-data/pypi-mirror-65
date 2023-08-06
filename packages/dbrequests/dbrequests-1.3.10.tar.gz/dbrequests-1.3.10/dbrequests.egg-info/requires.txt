@@ -1,0 +1,15 @@
+pandas
+
+[:python_version >= "3.0"]
+SQLAlchemy
+
+[mysql]
+pymysql
+datatable
+
+[pg]
+psycopg2
+
+[redshift]
+sqlalchemy-redshift
+psycopg2
