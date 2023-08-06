@@ -1,0 +1,20 @@
+# docs
+sphinx==2.4.4
+sphinxcontrib-images==0.9.1
+sphinx-rtd-theme>=0.4.2
+sphinxcontrib-spelling>=4.2.0
+sphinxcontrib-websupport>=1.1.0
+
+# test/build
+tox
+flake8
+mock
+wheel
+hashin
+coverage
+bandit
+towncrier
+pip-licenses
+pyenchant>=2.0.0
+pygments>=2.2.0
+scour>=0.37
