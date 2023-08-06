@@ -1,0 +1,9 @@
+include LICENSE README.md CHANGELOG.rst requirements.txt runtime.txt Procfile
+
+graft src
+prune Makefile
+prune tests
+
+global-exclude *__pycache__*
+global-exclude *.egg-info*
+global-exclude *.pkl*
