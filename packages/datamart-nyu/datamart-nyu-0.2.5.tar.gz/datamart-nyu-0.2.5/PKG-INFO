@@ -1,0 +1,40 @@
+Metadata-Version: 1.2
+Name: datamart-nyu
+Version: 0.2.5
+Summary: Client library for NYU's DataMart system
+Home-page: https://gitlab.com/ViDA-NYU/datamart/datamart-api
+Author: Remi Rampin, Fernando Chirigati
+Author-email: remi.rampin@nyu.edu, fchirigati@nyu.edu
+Maintainer: Remi Rampin, Fernando Chirigati
+Maintainer-email: remi.rampin@nyu.edu, fchirigati@nyu.edu
+License: BSD-3-Clause
+Project-URL: Homepage, https://gitlab.com/ViDA-NYU/datamart/datamart-api
+Project-URL: Source, https://gitlab.com/ViDA-NYU/datamart/datamart-api
+Project-URL: Tracker, https://gitlab.com/ViDA-NYU/datamart/datamart-api/issues
+Description: DataMart Python Wrapper for NYU's Datamart API
+        ==============================================
+        
+        This is a specialization of the Datamart REST API wrapper for NYU's system. It provides some optimization, running some computations locally rather than relying on the API server for everything.
+        
+        See also the `generic datamart-rest wrapper <https://pypi.org/project/datamart-rest/>`__, and the `REST API documentation <https://datadrivendiscovery.gitlab.io/datamart-api/rest_api.html>`__.
+        
+        How to install?
+        ---------------
+        
+        ::
+        
+            $ pip install datamart-nyu
+        
+        How to use?
+        -----------
+        
+        We provide an example using the `NY Taxi Demand data <https://gitlab.datadrivendiscovery.org/d3m/datasets/tree/master/seed_datasets_data_augmentation/DA_ny_taxi_demand/DA_ny_taxi_demand_dataset>`__. The example is available `here <examples/ny-taxi-demand.ipynb>`__.
+        
+Keywords: datamart,rest,auctus
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
