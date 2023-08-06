@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data group="1">
+        <record model="ir.message" id="no_carriers_found">
+            <field name="text">Shipping carrier is not configured for code: %s</field>
+        </record>
+        <record model="ir.message" id="no_tax_found">
+            <field name="text">%s (tax) of rate %f was not found.</field>
+        </record>
+        <record model="ir.message" id="no_order_states_to_import">
+            <field name="text">No importable order state found\nHINT: Import order states from Order States tab in Channel</field>
+        </record>
+        <record model="ir.message" id="unique_tax_rate_per_channel">
+            <field name="text">Tax rate and name must be unique per channel</field>
+        </record>
+        <record model="ir.message" id="channel_missing">
+            <field name="text">First go to user preferences and select a current_channel for "%s".</field>
+        </record>
+        <record model="ir.message" id="channel_not_allowed">
+            <field name="text">You cannot work on orders of this channel because you do not have the required permissions.</field>
+        </record>
+        <record model="ir.message" id="channel_exception">
+            <field name="text">You missed some unresolved exceptions in sale %s.</field>
+        </record>
+        <record model="ir.message" id="no_active_listing">
+            <field name="text">There are no active listings to import images for.</field>
+        </record>
+        <record model="ir.message" id="checkbox_required">
+            <field name="text">At least one checkbox need to be ticked.</field>
+        </record>
+    </data>
+</tryton>
