@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: pyhmy
+Version: 20.1.26
+Summary: A library for interacting and working the Harmony blockchain and related codebases.
+Home-page: http://harmony.one/
+Author: Daniel Van Der Maden
+Author-email: daniel@harmony.one
+License: MIT
+Keywords: Harmony,blockchain,protocol
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pexpect
+Requires-Dist: requests
+Requires-Dist: pytest
+Requires-Dist: pytest-ordering
+Requires-Dist: incremental
+Requires-Dist: click
+Requires-Dist: twisted
+
+# Pyhmy - Harmony's python utilities
+
+**This library is for python 3 only.** 
+
+A Python library for interacting and working the [Harmony blockchain](https://harmony.one/) 
+and [related codebases](https://github.com/harmony-one).
+
+[Full documentation is located on Harmony's GitBook](https://harmony.one/) (in progress).
+
+## Installation
+
+```
+pip install pyhmy
+```
+
+## Development
+
+Clone the repository and then run the following:
+```
+make install
+```
+
+## Running tests
+
+You can run all of the tests with the following:
+
+```
+make test
+```
+
+Or directly with `pytest` (reference [here](https://docs.pytest.org/en/latest/index.html) for more info):
+
+```
+py.test tests
+```
+
+## Releasing
+
+You can release this library with the following command (assuming you have the credentials to upload):
+
+```
+make release
+```
+
+TODO: sample of how to use the library, reference Tezos.
+TODO: start (and finish) some of the documentation. 
+
+
