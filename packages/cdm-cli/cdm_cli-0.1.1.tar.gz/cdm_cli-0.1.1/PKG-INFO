@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: cdm-cli
+Version: 0.1.1
+Summary: A CLI for search and download mangas form the CDM website
+Author: Cleyson Lima
+Author-email: cleysonph@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: beautifulsoup4 (>=4.9.0,<5.0.0)
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
