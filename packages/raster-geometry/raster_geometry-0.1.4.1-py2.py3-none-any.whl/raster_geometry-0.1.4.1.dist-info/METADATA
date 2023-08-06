@@ -1,0 +1,129 @@
+Metadata-Version: 2.0
+Name: raster-geometry
+Version: 0.1.4.1
+Summary: Create/manipulate N-dimensional raster geometries.
+Home-page: https://github.com/norok2/raster_geometry
+Author: Riccardo Metere
+Author-email: rick@metere.it
+License: GPLv3+
+Keywords: geometry,geometric,raster,shape,pixel,voxel,render,mask
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Classifier: Operating System :: POSIX
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: blessed
+Requires-Dist: appdirs
+Requires-Dist: flyingcircus
+Requires-Dist: flyingcircus-numeric
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: setuptools
+Provides-Extra: blessed
+Requires-Dist: blessed; extra == 'blessed'
+
+Raster Geometry
+===============
+
+**Raster Geometry** - Create/manipulate N-dim raster geometric shapes.
+
+
+Overview
+--------
+
+This software provides a library for generating or otherwise manipulating
+N-dimensional raster geometric shapes.
+
+Most of the code is used is used in a number of projects where it is tested
+against real-life scenarios.
+
+As a result of the code maturity, some of the library components may
+undergo (eventually heavy) refactoring.
+While this is not expected, this will be documented.
+Please file a bug report if you detect an undocumented refactoring.
+
+Releases information are available through ``NEWS.rst``.
+
+For a more comprehensive list of changes see ``CHANGELOG.rst`` (automatically
+generated from the version control system).
+
+
+Features
+--------
+
+The 2D geometrical shapes currently available are:
+
+ - square
+ - rectangle
+ - rhombus
+ - circle
+ - ellipse
+
+The 3D geometrical shapes currently available are:
+
+ - cube
+ - cuboid
+ - rhomboid
+ - sphere
+ - ellipsoid
+ - cylinder
+
+The N-dim geometrical shapes currently available are:
+
+ - cuboid: sum[abs(x_n/a_n)^inf] < 1
+ - superellipsoid: sum[abs(x_n/a_n)^k] < 1
+ - prism: stack (N-1)-D rendered objects on given axis
+
+etc.
+
+Additional may be added in the future.
+
+
+Installation
+------------
+
+The recommended way of installing the software is through
+`PyPI <https://pypi.python.org/pypi/raster_geometry>`__:
+
+.. code:: bash
+
+    $ pip install raster_geometry
+
+Alternatively, you can clone the source repository from
+`GitHub <https://github.com/norok2/raster_geometry>`__:
+
+.. code:: bash
+
+    $ git clone git@github.com:norok2/raster_geometry.git
+    $ cd raster_geometry
+    $ pip install -e .
+
+For more details see also ``INSTALL.rst``.
+
+
+License
+-------
+
+This work is licensed through the terms and conditions of the
+`GPLv3+ <http://www.gnu.org/licenses/gpl-3.0.html>`__ See the
+accompanying ``LICENSE.rst`` for more details.
+
+
+Acknowledgements
+----------------
+
+For a complete list of authors please see ``AUTHORS.rst``.
+
+People who have influenced this work are acknowledged in ``THANKS.rst``.
+
+
+
