@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: fourutils
+Version: 0.2.1
+Summary: 
+License: GPL-3.0
+Author: Oscar Rainford
+Author-email: oscar@fourbs.com.au
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: flask
+Provides-Extra: ldap
+Provides-Extra: sqlalchemy
+Provides-Extra: webnotifications
+Requires-Dist: sentry-sdk (>=0,<1)
