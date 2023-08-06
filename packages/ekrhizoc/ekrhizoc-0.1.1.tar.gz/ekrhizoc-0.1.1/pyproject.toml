@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "ekrhizoc"
+version = "0.1.1"
+description = "A simple python web crawler"
+license = "MIT"
+authors = ["Nicholas Elia <me@nichelia.com>"]
+maintainers = ["Nicholas Elia <me@nichelia.com>"]
+readme = "README.md"
+homepage = "https://github.com/nichelia/ekrhizoc"
+repository = "https://github.com/nichelia/ekrhizoc"
+keywords = ["python", "web", "crawl"]
+include = ["CHANGELOG.md"]
+
+[tool.poetry.dependencies]
+aiodns = "^2.0.0"            # MIT
+aiohttp = "^3.6.2"           # Apache2
+asyncio = "^3.4.3"           # Apache2
+beautifulsoup4 = "^4.8.1"    # MIT
+matplotlib = "^3.1.3"        # MDT
+networkx = "^2.4"            # BSD
+python = "^3.7"              # PSF
+pyyaml = "^5.3.1"            # MIT
+reppy = "^0.4.14"            # MIT
+urlcanon = "^0.3.1"          # Apache2
+
+[tool.poetry.dev-dependencies]
+codecov = "^2.0.16"          # Apache2
+mock = "4.0.2"               # BSD
+pytest = "^5.3"              # MIT
+pytest-cov = "^2.8"          # MIT
+pytest-env = "^0.6.2"        # MIT
+
+[tool.poetry.scripts]
+ekrhizoc = "ekrhizoc.cli.__main__:main"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[build-system]
+requires = ["wheel", "tomlkit", "poetry>=0.12.16"] # PEP 518
+build-backend = "poetry.masonry.api"
