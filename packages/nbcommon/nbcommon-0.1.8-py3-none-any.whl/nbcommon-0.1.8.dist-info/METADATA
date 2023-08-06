@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: nbcommon
+Version: 0.1.8
+Summary: nbcommon pkgs
+Home-page: UNKNOWN
+Author: chang@nextbillion.ai
+Author-email: chang@nextbillion.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# nbcommon
+
+## changelog
+
+ - 20200413: add geo.to_poly_filter function. support converting to poly-filter format from single polygon geojson
+ - 20200413: add geo.poly_to_geojson function. support converting to geojson format from single area poly filter file
+ - 20200413: add geo.parse_poly function. parsing poly file to array of coords arrays
+
+
+
