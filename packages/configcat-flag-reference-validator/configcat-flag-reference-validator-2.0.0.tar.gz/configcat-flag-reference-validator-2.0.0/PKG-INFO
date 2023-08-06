@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: configcat-flag-reference-validator
+Version: 2.0.0
+Summary: ConfigCat feature flag reference validator.
+Home-page: https://github.com/configcat/feature-flag-reference-validator
+Author: ConfigCat
+Author-email: developer@configcat.com
+License: MIT
+Description: This tool can be used for discovering ConfigCat feature flag usages in your source code and validating them against your own ConfigCat configuration dashboard. It searches for ConfigCat SDK usage and greps the feature flag keys from the source code, then it compares them with the keys got from your ConfigCat dashboard.
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development
