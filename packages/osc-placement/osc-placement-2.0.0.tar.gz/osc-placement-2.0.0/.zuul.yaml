@@ -1,0 +1,22 @@
+- project:
+    templates:
+      - openstack-python3-ussuri-jobs
+      - check-requirements
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+    check:
+      jobs:
+        - openstack-tox-functional-py36:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py37:
+            required-projects:
+              - openstack/placement
+    gate:
+      jobs:
+        - openstack-tox-functional-py36:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py37:
+            required-projects:
+              - openstack/placement
