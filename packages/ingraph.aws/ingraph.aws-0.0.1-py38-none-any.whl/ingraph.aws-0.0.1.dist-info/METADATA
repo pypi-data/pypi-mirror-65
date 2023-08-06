@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: ingraph.aws
+Version: 0.0.1
+Summary: AWS CloudFormation resources for InGraph.
+Home-page: https://lifa.dev/ingraph
+Author: lifa.dev
+Author-email: croak@lifa.dev
+License: Apache-2.0
+Project-URL: Repository, https://github.com/lifadev/ingraph-aws
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: <4.0,>=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: autoflake ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: jinja2 ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+Requires-Dist: pytest-xdist ; extra == 'dev'
+Requires-Dist: rope ; extra == 'dev'
+Requires-Dist: toml ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+# [ingraph-aws][github] &middot; [![Version][badge-version]][version] ![CloudFormation][badge-cfn] [![License][badge-license]][license]
+
+[github]: https://github.com/lifadev/ingraph-aws
+[badge-version]: https://img.shields.io/badge/version-0.0.1-blue?style=flat-square
+[version]: https://pypi.org/project/ingraph.aws/0.0.1/
+[badge-cfn]: https://img.shields.io/badge/cloudformation-12.3.0-blue?style=flat-square
+[badge-license]: https://img.shields.io/badge/license-Apache2-blue?style=flat-square
+[license]: https://github.com/lifadev/ingraph-aws#license
+
+
