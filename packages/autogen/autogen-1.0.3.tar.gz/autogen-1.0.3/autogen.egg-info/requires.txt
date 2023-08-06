@@ -1,0 +1,7 @@
+PyYAML
+autopep8
+docopt
+pipreqs
+
+[:platform_system == "Windows"]
+pywin32
