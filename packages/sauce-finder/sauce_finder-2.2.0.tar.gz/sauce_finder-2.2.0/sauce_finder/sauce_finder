@@ -1,0 +1,332 @@
+#!/usr/bin/env python
+import re
+from pkg_resources import require
+from os import path
+from typing import Union
+from urllib.parse import urlparse
+
+import requests
+from click import *
+from validators import url
+
+from sauce_finder.sauce_finder import check_url, get_match
+
+
+class LinkType(ParamType):
+    """
+    A class to provide link validation straight in the commandline instead of
+    elsewhere.
+    """
+    name = "link"
+    
+    def convert(self, value, param, ctx):
+        from validators import url
+        if not url(value):
+            self.fail(f"expected a valid URL, but was given an invalid one",
+                      param, ctx)
+        if not check_url(value):
+            self.fail(f"provided URL does not have a content-type containing"
+                      "'image'", param, ctx)
+        return value
+
+
+LINK = LinkType()
+
+
+@command()
+@argument("link", type=LINK)
+@option("-d", "--download", default=False, is_flag=True, type=bool,
+        help="Whether to download the first match.")
+@option("-o", "--open", "open_", default=False, is_flag=True, type=bool,
+        help="Whether to open the first match in browser.")
+@option("-v", "--verbose", default=False, is_flag=True, type=bool,
+        help="Whether to display more verbose data.")
+@option("-e", "--export", default="", type=str,
+        help="Where to export the findings as JSON")
+@version_option(version=require("sauce-finder")[0].version)
+def main(link, download, open_, verbose, export):
+    """sauce_finder is a script to automatically find sources for and deal
+    with anime art.
+    Full documentation available at
+    <https://gitlab.com/miicat/sauce-finder/-/wikis/script-mode>
+
+    LINK is the link to source.
+
+    Programmed by /u/Miicat_47 and /u/RaxFTB
+    """
+    args = {
+        "download": download,
+        "browser": open_,
+        "verbose": verbose,
+        "export": export,
+    }
+    
+    res = get_match(link)
+    
+    _parse_res(res, **args)
+
+
+def _parse_res(res, **kwargs):
+    if not res["type"] or not res["found"]:
+        raise ValueError("Missing data in response object.")
+    
+    if res["type"] == "definite":
+        _parse_definite(res, **kwargs)
+    elif res["type"] == "possible":
+        _parse_possible(res, **kwargs)
+
+
+def _parse_definite(res, **kwargs):
+    verbose = kwargs["verbose"] if "verbose" in kwargs.keys() else False
+    found = res["found"]
+    
+    if type(found) is not dict:
+        raise ValueError(f"'found' is invalid type of {type(found)} but was"
+                         "expecting dict")
+    
+    if "download" in kwargs.keys() and kwargs["download"]:
+        try:
+            _download_img(found["link"], verbose)
+        except ValueError as e:
+            print(e)
+    if "browser" in kwargs.keys() and kwargs["browser"]:
+        try:
+            _open_browser(found["link"])
+        except ValueError as e:
+            print(e)
+    if "export" in kwargs.keys() and kwargs["export"] != "":
+        try:
+            _export(kwargs["export"], found)
+        except ValueError as e:
+            print(e)
+    
+    _print_item(found, verbose)
+
+
+RANGE = re.compile(r"(\d+)-(\d+)")
+
+
+def _parse_possible(res, **kwargs):
+    verbose = kwargs["verbose"] if "verbose" in kwargs.keys() else False
+    found = res["found"]
+    
+    if type(found) is not list:
+        raise ValueError(f"'found' is invalid type of {type(found)} but was"
+                         "expecting list")
+    
+    print("_" * 50)
+    i = 0
+    for x in found:
+        print(f"#{i+1:01d}")
+        i += 1
+        _print_item(x, verbose)
+        print("_" * 50)
+    
+    first = found[0]
+    
+    if "download" in kwargs.keys() and kwargs["download"]:
+        res: str = prompt(
+            "Which one do you wish to download? [f]irst (default), [a]ll, or the number (ranges are supported as X-Y) "
+            + "from the output",
+            default="first", show_choices=False, show_default=False)
+        
+        res = res.lower()
+        
+        if res.startswith("f") or res.startswith("first"):
+            if verbose:
+                print("Downloading first result.")
+            try:
+                _download_img(first["link"], verbose)
+            except ValueError as e:
+                print(e)
+        elif res.startswith("a") or res.startswith("all"):
+            if verbose:
+                print("Attempting to download all results")
+            try:
+                _get_all(found, _download_img, verbose)
+            except ValueError as e:
+                print(e)
+        elif RANGE.match(res):
+            m = RANGE.match(res)
+            fr = int(m.group(1))
+            to = int(m.group(2))
+            error = False
+            if fr > to:
+                print(f"Invalid range from {fr} to {to}: from is after to")
+                error = True
+            if fr < 1 or to < 1:
+                print(f"Invalid range from {fr} to {to}: either from or to is negative")
+                error = True
+            if to > len(found):
+                print(f"Invalid range from {fr} to {to}: to goes past the valid amount of items")
+                error = True
+            if fr > len(found):
+                print(f"Invalid range from {fr} to {to}: from goes past the valid amount of items")
+                error = True
+            
+            if not error:
+                if verbose:
+                    print(f"Attempting to download all items between {fr} and {to}.")
+                try:
+                    _get_all(found[fr - 1 if (fr - 1) >= 0 else 0:to], _download_img, verbose)
+                except ValueError as e:
+                    print(e)
+        elif res.startswith("#") or res.isdigit():
+            if res.startswith("#"):
+                x = int(res[1:])
+            else:
+                x = int(res)
+            if verbose:
+                print(f"Attempting to download #{x}")
+            try:
+                _download_img(found[x]["link"], verbose)
+            except ValueError as e:
+                print(e)
+    if "browser" in kwargs.keys() and kwargs["browser"]:
+        res: str = prompt(
+            "Which one do you wish to open? [f]irst (default), [a]ll, or the number (ranges are supported as X-Y) "
+            + "from the output",
+            default="first", show_choices=False, show_default=False)
+        
+        res = res.lower()
+        
+        if res.startswith("f") or res.startswith("first"):
+            if verbose:
+                print("Opening first result.")
+            try:
+                _open_browser(first["link"])
+            except ValueError as e:
+                print(e)
+        elif res.startswith("a") or res.startswith("all"):
+            if verbose:
+                print("Attempting to open all results")
+            try:
+                _get_all(found, _open_browser, verbose)
+            except ValueError as e:
+                print(e)
+        elif RANGE.match(res):
+            m = RANGE.match(res)
+            fr = int(m.group(1))
+            to = int(m.group(2))
+            error = False
+            if fr > to:
+                print(f"Invalid range from {fr} to {to}: from is after to")
+                error = True
+            if fr < 1 or to < 1:
+                print(f"Invalid range from {fr} to {to}: either from or to is negative")
+                error = True
+            if to > len(found):
+                print(f"Invalid range from {fr} to {to}: to goes past the valid amount of items")
+                error = True
+            if fr > len(found):
+                print(f"Invalid range from {fr} to {to}: from goes past the valid amount of items")
+                error = True
+            
+            if not error:
+                if verbose:
+                    print(f"Attempting to open all items between {fr} and {to}.")
+                try:
+                    _get_all(found[fr - 1 if (fr - 1) >= 0 else 0:to], _open_browser, verbose)
+                except ValueError as e:
+                    print(e)
+        elif res.startswith("#") or res.isdigit():
+            if res.startswith("#"):
+                x = int(res[1:])
+            else:
+                x = int(res)
+            if verbose:
+                print(f"Attempting to open #{x}")
+            try:
+                _open_browser(found[x]["link"])
+            except ValueError as e:
+                print(e)
+    if "export" in kwargs.keys() and kwargs["export"] != "":
+        if verbose:
+            print("Exporting all to json")
+        try:
+            _export(kwargs["export"], found)
+        except ValueError as e:
+            print(e)
+
+
+def _get_all(items: list, method, verbose: bool = False):
+    items = [x["link"] for x in items]
+    
+    i = 1
+    for x in items:
+        if verbose:
+            print(f"Getting item #{i}")
+        try:
+            method(x, verbose)
+        except ValueError as e:
+            raise e
+        i += 1
+    if verbose:
+        print(f"Done getting {i-1} items.")
+
+
+def _print_item(item: dict, verbose: bool = False):
+    sim = item["similarity"] if "similarity" in item.keys() else None
+    link = item["link"] if "link" in item.keys() else None
+    rating = item["rating"] if "rating" in item.keys() else None
+    size = item["size"] if "size" in item.keys() else None
+    
+    if not sim or not link or not rating or not size:
+        raise ValueError("Missing parameters in item dict.")
+    
+    print(f"{sim}% similarity")
+    if verbose:
+        print(f"{rating} | {size['width']}x{size['height']}")
+    print(link)
+    return
+
+
+def _download_img(link: str, verbose: bool = False):
+    """Downloads a given image."""
+    if not url(link):
+        raise ValueError(f"Invalid link {link}")
+    response = requests.get(link).text
+    image_element = re.search(r"id=\"image\"", response).start()
+    parsed_html = response[image_element:]
+    img_url = re.search(r'src=\"(.*)\"', parsed_html).group(1)
+    img_name = path.basename(urlparse(img_url).path)
+    base_name, ext = path.splitext(img_name)
+    img_name = base_name
+    i = 0
+    while path.exists(f"{img_name}{ext}"):
+        if verbose:
+            print(f"Found image with name `{img_name}{ext}`, attempting new"
+                  "filename")
+        img_name = f"{base_name}_{i}"
+        i += 1
+    response = requests.get(img_url)
+    with open(f"{img_name}{ext}", 'wb') as f:
+        f.write(response.content)
+    print(f"Image saved as {img_name}{ext}")
+    return
+
+
+def _export(file: str, found: Union[dict, list]):
+    """Exports a result as json."""
+    import json
+    
+    if path.exists("file"):
+        raise ValueError(f"File `{file}` already exists")
+    
+    with open(file, "w") as f:
+        json.dump(found, f, indent=4)
+    return
+
+
+def _open_browser(link: str, verbose: bool = False):
+    """Opens a link in browser."""
+    import webbrowser
+    
+    if url(link):
+        webbrowser.open(link)
+    else:
+        raise ValueError(f"Invalid link {link}")
+
+
+if __name__ == "__main__":
+    main()
