@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <include package="plone.restapi"  />
+    
+  <!-- enable controlpanel on plone.restapi -->
+  <adapter
+        factory=".controlpanel.CookieConsentSettingsControlpanel"
+        name="cookieconsent-settings" />
+
+  <!-- route to retrieve cookie settings from Volto also from anonymous users -->
+  <plone:service
+    method="GET"
+    name="@cookieconsent-infos"
+    for="Products.CMFCore.interfaces.ISiteRoot"
+    factory=".get.CookieConsentInfosGet"
+    permission="zope2.View"
+    />
+
+</configure>

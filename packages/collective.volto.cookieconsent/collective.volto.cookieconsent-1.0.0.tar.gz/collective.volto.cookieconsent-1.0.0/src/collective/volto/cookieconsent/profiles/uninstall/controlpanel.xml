@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.volto.cookieconsent"
+    purge="False">
+
+    <configlet
+        title="Cookie consent settings"
+        action_id="CookieConsentSettings"
+        appId="collective.volto.cookieconsent"
+        remove="True">
+    </configlet>
+
+</object>

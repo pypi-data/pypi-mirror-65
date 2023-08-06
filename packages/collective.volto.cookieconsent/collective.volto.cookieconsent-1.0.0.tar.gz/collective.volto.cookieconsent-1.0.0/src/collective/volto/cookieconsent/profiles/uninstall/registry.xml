@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.volto.cookieconsent">
+
+    <records interface="collective.volto.cookieconsent.interfaces.ICookieConsentSettings"
+             remove="True" />
+
+</registry>
