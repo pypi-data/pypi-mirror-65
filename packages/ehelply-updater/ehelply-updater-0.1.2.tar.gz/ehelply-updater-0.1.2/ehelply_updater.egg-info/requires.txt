@@ -1,0 +1,7 @@
+wheel
+requests==2.22.*
+python-slugify
+pydantic==0.30.*
+pytest==5.0.*
+ehelply-logger>=0.0.8
+click
