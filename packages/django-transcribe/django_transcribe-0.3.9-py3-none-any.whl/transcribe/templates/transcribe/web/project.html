@@ -1,0 +1,17 @@
+{% extends "transcribe/web/base.html" %}
+
+
+{% block content %}
+	{% include "transcribe/web/_project.html" %}
+
+    {% if project.tasks.count %}
+    <div class="projectTasks">
+        <h3>{{ project.media_type_display }}s in this project:</h3>
+        <ul>
+            {% for task in project.tasks.all %}
+			<li><a href="{{ task.file.url }}">{{ task.filename }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endblock %}

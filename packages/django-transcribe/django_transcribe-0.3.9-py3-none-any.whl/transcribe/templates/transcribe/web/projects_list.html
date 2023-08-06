@@ -1,0 +1,21 @@
+{% extends "transcribe/web/base.html" %}
+
+{% block bodyclasses %}projects{% endblock %}
+
+
+{% block content %}
+	
+<header class="relative">
+	<h1><span class="icon-stack"></span> Projects</h1>
+
+	{% if transcribe_user.is_admin %}
+		<a class="button corner" href="{% url 'admin:transcribe_project_add' %}">+ Create a New Project</a>
+	{% endif %}
+</header>
+
+	{% for project in projects %}
+		{% include "transcribe/web/_project.html" %}
+	{% empty %}
+	<p>Sorry, there aren't any projects available right now.</p>
+	{% endfor %}
+{% endblock %}
