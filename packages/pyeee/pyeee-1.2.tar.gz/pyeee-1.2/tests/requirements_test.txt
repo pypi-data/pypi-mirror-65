@@ -1,0 +1,10 @@
+cibuildwheel
+setuptools
+coverage
+coveralls
+pytest-cov
+numpy
+scipy
+six
+matplotlib
+git+https://github.com/adrn/schwimmbad
