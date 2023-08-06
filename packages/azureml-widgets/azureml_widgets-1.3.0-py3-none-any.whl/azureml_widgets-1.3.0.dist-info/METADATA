@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: azureml-widgets
+Version: 1.3.0
+Summary: azureml widgets
+Home-page: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+Author: Microsoft Corp
+License: https://aka.ms/azureml-sdk-license
+Keywords: ipython,jupyter,widgets
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: IPython
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5,<4
+Description-Content-Type: text/x-rst
+Requires-Dist: ipywidgets (>=7.0.0)
+Requires-Dist: azureml-core (~=1.3.0)
+Requires-Dist: azureml-telemetry (~=1.3.0)
+
+The azureml-widgets contains widgets for Jupyter Notebooks to visually track your runs.
+
+
+
