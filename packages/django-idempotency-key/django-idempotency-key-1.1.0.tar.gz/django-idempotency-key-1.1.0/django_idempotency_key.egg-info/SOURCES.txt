@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+django_idempotency_key.egg-info/PKG-INFO
+django_idempotency_key.egg-info/SOURCES.txt
+django_idempotency_key.egg-info/dependency_links.txt
+django_idempotency_key.egg-info/not-zip-safe
+django_idempotency_key.egg-info/requires.txt
+django_idempotency_key.egg-info/top_level.txt
+idempotency_key/__init__.py
+idempotency_key/decorators.py
+idempotency_key/encoders.py
+idempotency_key/exceptions.py
+idempotency_key/middleware.py
+idempotency_key/status.py
+idempotency_key/storage.py
+idempotency_key/utils.py
