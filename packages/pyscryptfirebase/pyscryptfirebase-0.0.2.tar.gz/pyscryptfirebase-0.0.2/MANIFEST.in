@@ -1,0 +1,18 @@
+recursive-include scrypt-1.2.1 *.h
+recursive-include scrypt-windows-stubs *.h
+include README.rst
+include README.md
+include LICENSE
+include src/*.c
+include MANIFEST.in
+
+include pyscryptfirebase/__init__.py
+include pyscryptfirebase/pyscryptfirebase.py
+
+# Exclude what we don't want to include
+prune build
+prune doc/build
+prune */__pycache__
+
+global-exclude *.py[cod] *.egg *.egg-info
+global-exclude *~ *.bak *.swp
