@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+manifest/__init__.py
+manifest/httpdownloader.py
+manifest/main.py
+manifest/s3downloader.py
+manifest/sftpdownloader.py
+manifest/utils.py
+manifest_ingest.egg-info/PKG-INFO
+manifest_ingest.egg-info/SOURCES.txt
+manifest_ingest.egg-info/dependency_links.txt
+manifest_ingest.egg-info/entry_points.txt
+manifest_ingest.egg-info/pbr.json
+manifest_ingest.egg-info/requires.txt
+manifest_ingest.egg-info/top_level.txt
