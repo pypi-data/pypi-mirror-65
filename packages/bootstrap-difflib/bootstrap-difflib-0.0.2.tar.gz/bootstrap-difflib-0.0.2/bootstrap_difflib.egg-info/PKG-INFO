@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: bootstrap-difflib
+Version: 0.0.2
+Summary: Making the output of DiffLib Bootstrap compatible
+Home-page: https://github.com/tdjholder/bootstrap-difflib
+Author: Thomas Holder
+Author-email: tdjholder@gmail.com
+License: UNKNOWN
+Description: Bootstrap DiffLib
+        =================
+        
+        A simple project that makes the output of the python DiffLib library look a bit nicer.
+        
+        To install `pip install bootstrap-difflib`
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
