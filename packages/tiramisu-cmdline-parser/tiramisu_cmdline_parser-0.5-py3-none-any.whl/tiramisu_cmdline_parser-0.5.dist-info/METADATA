@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: tiramisu-cmdline-parser
+Version: 0.5
+Summary: command-line parser using Tiramisu.
+Home-page: https://framagit.org/tiramisu/tiramisu-cmdline-parser
+Author: Tiramisu's team
+Author-email: gnunux@gnunux.info
+License: GNU Library or Lesser General Public License (LGPL)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Natural Language :: French
+Requires-Dist: tiramisu-api (>=0.1)
+
+tiramisu-cmdline-parser
+---------------------------------
+
+Python3 parser for command-line options and arguments using Tiramisu engine.
+
+
