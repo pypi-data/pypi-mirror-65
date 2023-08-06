@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: aiida-yambo
+Version: 1.0.2
+Summary: YAMBO plugin and workflows for AiiDA
+Home-page: https://github.com/yambo-code/yambo-aiida
+Author: Miki Bonacci, Michael Atambo, Antimo Marrazzo, Prandini Gianluca
+Author-email: miki.bonacci@unimore.it
+License: MIT
+Keywords: yambo aiida workflows
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Plugins
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Framework :: AiiDA
+Requires-Dist: aiida-core[atomic_tools,docs] (>=1.0.0a2)
+Requires-Dist: aiida-quantumespresso (<4.0,>=3.0.0a6)
+Requires-Dist: netcdf4
+Requires-Dist: h5py
+Requires-Dist: pytest
+Provides-Extra: docs
+Requires-Dist: Sphinx ; extra == 'docs'
+Requires-Dist: docutils ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: pre-commit
+Requires-Dist: pre-commit (==1.11.0) ; extra == 'pre-commit'
+Requires-Dist: yapf (==0.24.0) ; extra == 'pre-commit'
+Requires-Dist: prospector (==0.12.11) ; extra == 'pre-commit'
+Requires-Dist: pylint (==1.9.3) ; extra == 'pre-commit'
+
+UNKNOWN
+
+
