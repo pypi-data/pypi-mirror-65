@@ -1,0 +1,2 @@
+python setup.py register sdist upload
+pip install git+https://github.com/JJZHK/pyjjzhktools.git
