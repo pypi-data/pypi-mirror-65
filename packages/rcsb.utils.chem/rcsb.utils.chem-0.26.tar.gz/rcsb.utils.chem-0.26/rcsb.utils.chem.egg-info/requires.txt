@@ -1,0 +1,10 @@
+mmcif>=0.51
+rcsb.utils.io>=0.57
+rcsb.utils.multiproc>=0.17
+OpenEye-toolkits==2019.10.2
+
+[dev]
+check-manifest
+
+[test]
+coverage
