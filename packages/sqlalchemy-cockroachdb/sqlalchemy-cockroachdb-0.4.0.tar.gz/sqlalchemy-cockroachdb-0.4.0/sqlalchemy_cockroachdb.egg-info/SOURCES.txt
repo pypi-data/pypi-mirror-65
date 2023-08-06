@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+cockroachdb/__init__.py
+cockroachdb/sqlalchemy/__init__.py
+cockroachdb/sqlalchemy/dialect.py
+cockroachdb/sqlalchemy/stmt_compiler.py
+cockroachdb/sqlalchemy/test_requirements.py
+cockroachdb/sqlalchemy/transaction.py
+sqlalchemy_cockroachdb.egg-info/PKG-INFO
+sqlalchemy_cockroachdb.egg-info/SOURCES.txt
+sqlalchemy_cockroachdb.egg-info/dependency_links.txt
+sqlalchemy_cockroachdb.egg-info/entry_points.txt
+sqlalchemy_cockroachdb.egg-info/top_level.txt
