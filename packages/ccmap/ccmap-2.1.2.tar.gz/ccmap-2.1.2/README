@@ -1,0 +1,7 @@
+
+
+This package was designed as a tool to quickly compute thousands of sets of 
+atomic or residue molecular contacts. The contacts can be evaluated inside a 
+single body or across two bodies. The library scales well, with the support of 
+native python multi-threading. We provided docking poses evaluation by the application 
+of triplets of euler angles and translation vectors to initial unbound conformations.
