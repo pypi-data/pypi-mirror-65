@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tree>
+    <field name="is_master"/>
+    <field name="tracking_number"/>
+    <field name="carrier"/>
+    <field name="state"/>
+    <button name="refresh_tracking_status_button" string="Refresh Status"/>
+    <button name="cancel_tracking_number_button" string="Cancel Tracking Number"/>
+</tree>

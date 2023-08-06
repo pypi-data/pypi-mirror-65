@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="//field[@name='rec_name']" position="replace">
+        <field name="code"/>
+    </xpath>
+    <xpath expr="//field[@name='type']" position="after">
+        <field name="weight"/>
+        <field name="tracking_number"/>
+    </xpath>
+</data>

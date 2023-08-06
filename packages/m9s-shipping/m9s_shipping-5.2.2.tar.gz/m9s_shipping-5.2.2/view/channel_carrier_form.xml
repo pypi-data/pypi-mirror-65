@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<form col="4">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="code"/>
+    <field name="code"/>
+    <newline/>
+    <label name="carrier"/>
+    <field name="carrier"/>
+    <label name="carrier_service"/>
+    <field name="carrier_service"/>
+</form>

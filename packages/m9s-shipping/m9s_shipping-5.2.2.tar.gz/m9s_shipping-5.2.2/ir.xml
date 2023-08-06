@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.cron" id="cron_refresh_tracking_numbers">
+            <field name="method">shipment.tracking|refresh_tracking_numbers_cron</field>
+            <field name="interval_number" eval="3"/>
+            <field name="interval_type">hours</field>
+	</record>
+    </data>
+</tryton>
