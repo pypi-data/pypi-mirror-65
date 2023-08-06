@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+host/Demo.ipynb
+host/labels.pkl
+host/pictures/PUT_PICTURES_HERE
+resnet50_pynq/__init__.py
+resnet50_pynq.egg-info/PKG-INFO
+resnet50_pynq.egg-info/SOURCES.txt
+resnet50_pynq.egg-info/dependency_links.txt
+resnet50_pynq.egg-info/entry_points.txt
+resnet50_pynq.egg-info/requires.txt
+resnet50_pynq.egg-info/top_level.txt
+resnet50_pynq/notebooks/fcweights.csv.link
+resnet50_pynq/notebooks/resnet50.xclbin.link
