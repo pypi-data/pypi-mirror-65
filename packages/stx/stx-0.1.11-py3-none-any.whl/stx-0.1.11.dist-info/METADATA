@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: stx
+Version: 0.1.11
+Summary: Python implementation of the STX Language
+Home-page: https://github.com/stx-lang/python-stx
+Author: Sergio Pedraza
+Author-email: sergio.uriel.ph@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Documentation
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: Click
+Requires-Dist: watchdog
+Requires-Dist: gramat
+
+# STX Language
+
+STX is a markup language for creating documents.
+It is designed to be simple enough to be easily read and written but at the 
+same time powerful enough to allow creating complex documents.
+
+Please visit https://stx-lang.github.io/docs/ to read the complete documentation.
+
