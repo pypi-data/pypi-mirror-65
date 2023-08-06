@@ -1,0 +1,231 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: code-snippet-2.0.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdx/spdxdocs/code-snippet-2.0.0-6a1d2a3e-5f54-4521-b5fd-3fda5a4f879c
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+ExternalDocumentRef: mbed-tools-lib-1.2.0 http://spdx.org/spdxdocs/mbed-tools-lib-1.2.0-74dcf14a-51cd-622b-4fa3-bc7b1699bcaa SHA1:f31a8fa51505edd704bbfd79b5839dbe0195b338
+ExternalDocumentRef: pystache-0.5.4 http://spdx.org/spdxdocs/pystache-0.5.4-5ce2718a-8653-5b7d-01a6-d1f1c14f6858 SHA1:810e6ae3ea89e0fe7f233422e921f03944dd22b4
+ExternalDocumentRef: toml-0.10.0 http://spdx.org/spdxdocs/toml-0.10.0-17853fa9-4b76-8af7-b47d-7fdc5006b3d6 SHA1:d19b90552bd865bac1183883d2477e80adecd238
+ExternalDocumentRef: python-dotenv-0.12.0 http://spdx.org/spdxdocs/python-dotenv-0.12.0-d7725d68-3e3a-a3c4-e32f-b3c6bc58b7a3 SHA1:c8034810058b73d1bec82c133960632098d50061
+
+
+# Creation Info
+
+Creator: Person: David Hyman, Mbed team (support@mbed.com)
+Creator: Organization: Arm Mbed (support@mbed.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-09T10:01:52Z
+
+
+# Review
+
+Reviewer: Person: Monty Bot (monty-bot@arm.com)
+ReviewDate: 2020-04-09T10:01:52Z
+
+
+# Package
+
+PackageName: code-snippet
+SPDXID: SPDXRef-14544a30-0a1d-4edb-8e40-7ac66d741ba6
+PackageVersion: 2.0.0
+PackageDownloadLocation: NONE
+FilesAnalyzed: True
+PackageSummary: <text>Code snippet extraction for documentation</text>
+PackageFileName: code-snippet
+PackageOriginator: Person: David Hyman, Mbed team (support@mbed.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: cfc79e7152b82f535d020db661909dadcc0182a9
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: Apache 2.0
+PackageLicenseConcluded: Apache 2.0 AND Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+PackageHomePage: https://github.com/ARMmbed/snippet
+
+
+# File
+
+FileName: ./snippet/__init__.py
+SPDXID: SPDXRef-c77bd7f6-a8f5-1487-9a54-fbdf30c2c8f9
+FileType: SOURCE
+FileChecksum: SHA1: d373236b560ad5193f02cc9802d95c8ed454c389
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/__main__.py
+SPDXID: SPDXRef-c6d09165-b63f-2e48-2083-d1a5c0cb121d
+FileType: SOURCE
+FileChecksum: SHA1: 24eae7edc42cbd47f87a1536ae079975571a07db
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/_internal/__init__.py
+SPDXID: SPDXRef-42d8c9d6-2a58-191b-a765-4eeea554d02c
+FileType: SOURCE
+FileChecksum: SHA1: 42e8af887e0213a263843ee65781eb6bd97ba85f
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/_internal/file_wrangler.py
+SPDXID: SPDXRef-024010c0-bc72-da19-0269-9751abda831f
+FileType: SOURCE
+FileChecksum: SHA1: 19f16d33ea08b32d1cf64fa8894581fbe47a9fed
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/_internal/logs.py
+SPDXID: SPDXRef-3a4a41d2-d4a2-c8e7-3157-f2daea57dbb5
+FileType: SOURCE
+FileChecksum: SHA1: e63ef9feb4d39572cd530a7eba62f74c35a9c27a
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/_internal/util.py
+SPDXID: SPDXRef-00495554-fb28-91d5-40cb-19ded5693c17
+FileType: SOURCE
+FileChecksum: SHA1: aaac5070e75589d9527d73307ce2f7536acfd1fc
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/_internal/wrapper.py
+SPDXID: SPDXRef-bb6347d7-05fc-b1b1-b296-c3c3691f392b
+FileType: SOURCE
+FileChecksum: SHA1: eb448c69b86c4971369e6642da012ca9df010af4
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/_version.py
+SPDXID: SPDXRef-b8d45ce3-98ac-7301-6c36-5c510142a461
+FileType: SOURCE
+FileChecksum: SHA1: e487393f27fdabe2de5dbe5f2efc297265347486
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/api.py
+SPDXID: SPDXRef-9b79b17f-a7de-ddef-3a42-25c008910d5b
+FileType: SOURCE
+FileChecksum: SHA1: 4cb861b68813a97320347c0c0dedc7210f55c74c
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/cli.py
+SPDXID: SPDXRef-9122de62-e1cf-0729-afcc-71e7ddad5933
+FileType: SOURCE
+FileChecksum: SHA1: aeb4ab69b7f099c646e31dfbc718478f42501adb
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/config.py
+SPDXID: SPDXRef-fb5dde6b-1342-6bfb-40b2-ff2a0d1c2ee7
+FileType: SOURCE
+FileChecksum: SHA1: 62463e40ef58dda44449f24777ff26d9409233bb
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/exceptions.py
+SPDXID: SPDXRef-b78b4421-30b8-8685-66a1-098ec51f0f5a
+FileType: SOURCE
+FileChecksum: SHA1: f60dd456876aa1c943f9cefbe2ce40ee65ff7e5f
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/snippet.py
+SPDXID: SPDXRef-9d1f3ee5-0e02-06c5-b3b4-716e873750d3
+FileType: SOURCE
+FileChecksum: SHA1: 8abdf9acd1fa1216780eda85465cfa9e45cdd637
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./snippet/workflow.py
+SPDXID: SPDXRef-bb853aec-9ce0-ba2d-2351-75f070178507
+FileType: SOURCE
+FileChecksum: SHA1: ee16bcab47c54110ffc1b5300a5fd6e3d5d15b39
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+
