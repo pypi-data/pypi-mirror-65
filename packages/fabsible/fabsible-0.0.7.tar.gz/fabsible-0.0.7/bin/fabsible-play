@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+import configparser
+import sys
+import os
+import tempfile
+import argparse
+import subprocess
+
+parser = argparse.ArgumentParser(description="Fabsible play")
+parser.add_argument("-i", "--inventory", dest='inventory_files', action='append', help="override fabsible.cfg inventory file. Can be user mutiple times", type=str, metavar='INVETORY_FILE')
+parser.add_argument("--save-config", dest='save_conf', action='store_true', help="do not delete temporary ansible.cfg file")
+#parser.add_argument('rest', nargs=argparse.REMAINDER)
+
+args, unknowargs = parser.parse_known_args()
+
+print(args)
+print(unknowargs)
+
+config = configparser.ConfigParser()
+config.read("fabsible.cfg")
+roles_path = ""
+if not 'defaults' in config:
+    config.add_section("defaults")
+if 'roles_path' in config['defaults']:
+    for role_path in config['defaults']['roles_path'].split(":"):
+        if not os.path.isabs(role_path):
+            roles_path += os.getcwd() +"/"+role_path+":"
+    roles_path+= config['defaults']['roles_path'] + ":"
+roles_path += sys.prefix+'/fabsible/roles'
+config['defaults']['roles_path'] = roles_path
+
+if args.inventory_files:
+    inventories = args.inventory_files
+elif config.has_option('fabsible','inventory_files'):
+    inventories = config['fabsible']['inventory_files'].split(',')
+else:
+    sys.exit("ERROR: No inventory specified")
+
+ansible_cfg = tempfile.NamedTemporaryFile(mode="w", delete=not args.save_conf, suffix='.cfg')
+config.write(ansible_cfg)
+ansible_cfg.file.flush()
+env = {'ANSIBLE_CONFIG': ansible_cfg.name}
+cmd = "ansible-playbook -i {inventories} -D {playbook} -e FABSIBLE_CWD={cwd} {forward_arguments}".format(
+    playbook=sys.prefix+"/fabsible/playbooks/site.yml",
+    forward_arguments=" ".join(unknowargs),
+    inventories=" -i ".join(inventories),
+    cwd = os.getcwd(),
+    )
+print("{env} {cmd}".format(
+    env=env,
+    cmd=cmd,
+    ))
+print(cmd.split())
+env.update(os.environ)
+subprocess.call(cmd.split(), env=env)

@@ -1,0 +1,11 @@
+- name: show iac
+  debug:
+    var: iac
+
+- name: manager instance
+  include_role:
+    name: "{{ instance.value.provider.name }}"
+  loop: "{{ iac.hosts|dict2items }}"
+  loop_control:
+    label: 'to jest label {{ instance.key }}'
+    loop_var: instance

@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: fabsible
+Version: 0.0.7
+Summary: Ansible framework using object-oriented configuration
+Home-page: https://github.com/exphost/fabsible
+Author: TORGiren
+Author-email: exphost@fabrykowski.pl
+License: UNKNOWN
+Description: Fabsible
+        ========
+        
+        Fabsible is ansible framework which is object-oriented.
+        
+        Init
+        ----
+        
+        To init new project, type `fabsible-init -i <inventory_file>` to init new project
+        
+        Configuration
+        -------------
+        
+        TODO
+        
+        Mostly typical ansible configuration
+        
+        
+        Run
+        ---
+        
+        `fabsible-play`
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Information Technology
+Classifier: Natural Language :: English
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

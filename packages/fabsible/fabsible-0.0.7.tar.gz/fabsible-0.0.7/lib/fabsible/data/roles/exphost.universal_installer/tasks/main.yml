@@ -1,0 +1,28 @@
+- name: debug
+  debug:
+    msg: "Jestem universale instalere"
+
+- name: app_loop_priority
+  include_tasks: app_loop_priority.yml
+  loop: "{{range(5)|list}}"
+  loop_control:
+    loop_var: prio
+
+- name: "app_loop default prio 5"
+  include_tasks: app_loop.yml
+  loop: "{{apps|dict2items|json_query('[?!(value.priority)]')}}"
+  loop_control:
+    loop_var: app
+
+- name: app_loop_priority
+  include_tasks: app_loop_priority.yml
+  loop: "{{range(6,11)|list}}"
+  loop_control:
+    loop_var: prio
+
+  #- include_role:
+  #    name: exphost.nginx
+  #  vars:
+  #    app: "{{ item }}"
+  #  loop: "{{ apps|dict2items }}"
+  #  when: item.value.nginx.enabled|default(False)

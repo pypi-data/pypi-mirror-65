@@ -1,0 +1,31 @@
+- name: try ping
+  ping:
+  become: True
+  when: inventory_hostname != "localhost"
+  register: reg_ping
+  ignore_errors: True
+
+- name: aa
+  debug:
+    msg: "{{reg_ping}}"
+
+- name: try to provision
+  include_tasks: "{{item}}"
+  loop: "{{ lookup('fileglob', FABSIBLE_CWD|default('.')+'/files/providers/*.yml', wantlist=True) }}"
+  when: reg_ping.unreachable|default(False) or reg_ping.failed|default(False)
+
+- meta: clear_host_errors
+
+- name: try ping after provision
+  ping:
+  become: True
+  when: inventory_hostname != "localhost"
+
+- name: create users accounts
+  include_role:
+    name: exphost.create_user
+  loop: "{{ users }}"
+  loop_control:
+    loop_var: user
+  when: inventory_hostname != "localhost"
+
