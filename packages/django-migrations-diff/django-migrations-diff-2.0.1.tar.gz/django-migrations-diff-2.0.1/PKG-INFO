@@ -1,0 +1,102 @@
+Metadata-Version: 1.2
+Name: django-migrations-diff
+Version: 2.0.1
+Summary: CLI for comparing Django migrations between two snapshots.
+Home-page: https://github.com/deniskrumko/django-migrations-diff
+Author: Denis Krumko
+Author-email: dkrumko@gmail.com
+License: MIT
+Description: django-migrations-diff
+        ======================
+        
+        .. image:: https://img.shields.io/pypi/v/django-migrations-diff.svg
+            :target: https://pypi.org/project/django-migrations-diff/
+            :alt: PyPI version
+        
+        .. image:: https://img.shields.io/pypi/pyversions/django-migrations-diff.svg
+            :target: https://pypi.org/project/django-migrations-diff/
+            :alt: Python versions
+        
+        .. image:: https://img.shields.io/pypi/l/django-migrations-diff.svg
+            :target: https://raw.githubusercontent.com/deniskrumko/django-migrations-diff/master/LICENSE
+            :alt: License
+        
+        
+        CLI to compare Django migrations between two snapshots.
+        
+        This may be useful when you need to compare migrations in the same app between different branches.
+        
+        Installation
+        ^^^^^^^^^^^^
+        .. code-block:: bash
+        
+            pip install django-migrations-diff
+        
+        Requirements
+        ^^^^^^^^^^^^
+        
+        - Python 3.6 or higher
+        
+        How to use
+        ^^^^^^^^^^
+        
+        .. code-block:: bash
+        
+            # show help
+            mdiff help
+        
+            # Create migrations snapshot
+            mdiff <snapshot>
+        
+            # Compare two snapshots
+            mdiff <snapshot_1> <snapshot_2>
+        
+            # List of all snapshots
+            mdiff list
+        
+            # Remove all or specific snapshots
+            mdiff rm all
+            mdiff rm <snapshot_1> <snapshot_2>
+        
+            # Get current version
+            mdiff -v
+        
+        Example
+        ^^^^^^^
+        
+        For example, you need to compare "master" and "develop" branches.
+        
+        .. code-block:: bash
+        
+          git checkout master # go to "master" branch
+        
+          mdiff master # create "master" snapshot
+        
+          git checkout develop # go to "develop" branch
+        
+          mdiff develop # create "develop" shapshot
+        
+          mdiff master develop # compare two snapshots
+        
+        In output you expect to see only new migrations in "develop" branch, otherwise
+        it means that original migrations from "master" were deleted or changed.
+        
+        Yellow-labeled migration means that same migration exist in both snapshots
+        but it was modified and now has different code.
+        
+Keywords: CLI,Django,Migrations,Diff
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
