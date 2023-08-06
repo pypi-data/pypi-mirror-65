@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: bntransformer
+Version: 1.0
+Summary: Bengali Transformer for natural language processing using state of the art transformer(language model)
+Home-page: https://github.com/sagorbrur/bntransformer
+Author: Sagor Sarker
+Author-email: sagorhem3532@gmail.com
+License: MIT
+Description: # Bengali Transformer
+        Bengali Transformer for natural language processing using state of the art transformer(language model)
+        
+        Thanks to huggingface [transformers](https://github.com/huggingface/transformers)
+        
+        ## Installation
+        ```
+        pip install bntransformer
+        ```
+        
+        ## Tokenizer
+        ### Bert Multilingual Tokenizer
+        
+        ```py
+        from bntransformer.bnbert import Tokenizer
+        
+        tokenizer = Tokenizer()
+        tokens = tokenizer.tokenize('আমি ভাত খাই।')
+        print(tokens)
+        # output: ['আ', '##মি', 'ভ', '##াত', 'খা', '##ই', '।']
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
