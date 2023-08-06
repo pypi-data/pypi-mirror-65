@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: videomass
+Version: 2.0.3
+Summary: Videomass is a cross-platform GUI for FFmpeg
+Home-page: http://jeanslack.github.io/Videomass/
+Author: Gianluca Pernigotto (aka jeanslack)
+Author-email: <jeanlucperni@gmail.com>
+License: GPL3 (Gnu Public License)
+Platform: All
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows :: Windows 7
+Classifier: Operating System :: Microsoft :: Windows :: Windows 8
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: BSD :: FreeBSD
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications :: GTK
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Italian
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Multimedia :: Video :: Conversion
+Classifier: Topic :: Multimedia :: Sound/Audio :: Conversion
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: PyPubSub (>=4.0.0)
+
+# **Videomass** provides a graphical interface for audio and video conversions through FFmpeg.
+
+* [Videomass on PyPi](https://pypi.org/project/videomass/)
+* [GitHub Page](https://github.com/jeanslack/Videomass)
+* [Support Page and Documentation](http://jeanslack.github.io/Videomass)
+* [Wiki page](https://github.com/jeanslack/Videomass/wiki)
+* [Downloads Source Code](https://github.com/jeanslack/Videomass/releases)
+* [Installers for Windows and MacOsX](https://sourceforge.net/projects/videomass2/)
+
+## Features
+
+- Multi-Platform, work on Linux, MacOs, Windows, FreeBsd.
+- Drag n' Drop with multiple files at once.
+- Batch processing.
+- Fully customizable presets and profiles.
+- Possibility to create your new presets and profiles from scratch.
+- Has useful presets to start with.
+- Supports all formats and codecs available with FFmpeg.
+- Displaying information from streams analyzer.
+- Real-time video filters preview.
+- Three audio normalization modes: Peak, RMS and EBU R128.
+- Audio index from videos selectable to apply normalization.
+- Setting duration portions for imported files, filters, export and tests.
+- Download multiple URLs from YouTube and other sites.
+- View video information without downloading it.
+- Ability to download videos using the 'format code'.
+- Log management.
+- Multi language (English and Italian Languages support for now).
+
+## Requirements
+
+- Python3  >= 3.6.9
+- wxPython4 (phoenix)
+- PyPubSub (https://pypi.org/project/PyPubSub/)
+- ffmpeg >= 4.1.4
+- ffprobe (for multimedia streams analysis)
+- ffplay (for playback)
+
+## Optionals
+
+- youtube-dl (https://pypi.org/project/youtube_dl/)
+
+
+
