@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: sspo-db
+Version: 8.1.0
+Summary: A lib to access SSPO DB
+Home-page: UNKNOWN
+Author: Paulo Sergio dos Santo Junior
+Author-email: paulossjuniort@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: SQLAlchemy
+Requires-Dist: SQLAlchemy-Utils
+Requires-Dist: psycopg2
+Requires-Dist: factory-boy
+Requires-Dist: SQLAlchemy-serializer
+
+UNKNOWN
+
+
