@@ -1,0 +1,102 @@
+# CosevaDB - Comma Separated Values DB
+CosevaDB is a light weight SQL database designed to store, retrieve and manage data in csv format.
+
+Targets are,
+- Apps that require SQL DB or external DB server
+- Apps that need lightweight replacement for under-utilised heavy-weight DBs such as oracle, MySQL
+- Those who need a SQL processor and DB to manage existing csv data files
+
+View detailed description on [www.github.com/ppml38/cosevadb](www.github.com/ppml38/cosevadb)
+
+### Features:
+- Written purely in python
+- No external dependencies
+
+Its a best practice to organise folders and csv files i.e., Databases and tables in below structure
+```
+database_name/
+      table_name.csv
+      table_header.csv
+      ...
+```
+And to query the database like below
+```python
+cosevadb.query("select name from path/to/database_name/table_name.csv, path/to/database_name/table_header.csv where role='Manager' & salary >= 5000")
+```
+
+However it is not mandatory to follow. you can pass the path of any csv file to parse.
+
+### How to install
+```
+pip install cosevadb
+```
+
+### Usage
+```python
+from cosevadb import cosevadb
+cosevadb.query("select name,age from data/passengers.csv,data/header.csv where native='USA'")
+```
+### Return format
+```
+[sqlcode,'<message>',[result list / empty list]]
+```
+### SQL return codes
+| SQL Code | Description |
+| --- | --- |
+| 1 | Empty result set |
+| 0 | **Success** with atleast one result |
+| -2 |  Unexpected character on position \<index\> |
+| -3 |  Unexpected character on where clause position \<index\> |
+| -4 |  Unsupported operator in where clause |
+| -5 |  Non numeric operand with arithmatic operator \<operator\> |
+| -6 | Non boolean operand(LHS) with logical operator \<operator\> |
+| -7 | Non boolean operand(RHS) with logical operator \<operator\> |
+| -8 | Operator ! must be followed by = |
+| -9 | Unbalanced paranthesis on LHS of operator \<operator\> |
+| -10 | Unbalanced paranthesis on RHS of operator \<operator\> |
+| -11 |  No field \<fieldname\> found in header file |
+| -12 | Value for variable \<variablename\> is missing in atleast one row |
+| -13 | Where clause condition returns non-boolean result |
+| -14 | Incomplete condition in where clause |
+
+### Reserved words
+| Keywords |
+| --- |
+| SELECT |
+| FROM |
+| WHERE |
+
+### Operators supported
+| Operator type | Operators |
+| --- | --- |
+| Arithmatic operators | +, -, *, /, % |
+| Comparison operators | >, <, >=, <=, =, != |
+| Logical operators | &, \| |
+
+### Operator precedence (in order from high to low)
+| Operator precedence |
+| :---: |
+| \% |
+| \/ |
+| \* |
+| + |
+| \- |
+| <,<= |
+| \>,>= |
+| != |
+| = |
+| & |
+| \| |
+
+### File formats
+Comma seperated value(.csv) files.
+
+### Instructions
+* String values should be within '<string>'
+* A file with headers(Comma separated) should be passed along with csv data file
+* As of now only select operations implemented
+* Comparison operator '=' is used instead of '=='
+* **Expression evaluation will use BODMAS as you studied in school. i.e., It has individual operator precedence unlike python or java. (ex): '9-7+1' will result '1' where python eval() will return 3**
+
+### Licence
+MIT Licence. Contributions are welcome
