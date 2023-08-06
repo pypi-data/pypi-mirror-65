@@ -1,0 +1,17 @@
+dbt/adapters/snowflake/__init__.py,sha256=6ye-wi1-N8eEeSvjSpvEiVO4J2JigXOnONgUM7ZRhVg,556
+dbt/adapters/snowflake/column.py,sha256=n6SK04a3tneninwT3O8r7lz4Dsj4ob_ifZN_g-BxTmY,605
+dbt/adapters/snowflake/connections.py,sha256=3g0p-6SsA0k30toHc2rl69enOC62sUwHg1uEKxWeXwE,11820
+dbt/adapters/snowflake/impl.py,sha256=El-dO65x3SJafiWOhmfsu58inwXNEtk2UKv0VT9VzvE,3576
+dbt/adapters/snowflake/relation.py,sha256=6zCHTX1PpLfVooeJAzTSmUiUGXj0_zDC8uIX8zNYDE4,375
+dbt/include/snowflake/__init__.py,sha256=MPQnGccFsedAruDmH7jUXQ4DyS19z-jk8Sty9zdMXVc,51
+dbt/include/snowflake/dbt_project.yml,sha256=cz8vfXK8tQn7qdg9B3mkQMmBYV0Xk_rcRpyGemXPs44,59
+dbt/include/snowflake/macros/adapters.sql,sha256=jVDM-VJlkbg4OeSpm1Ji39mzk4wD48aIyAxEm1XA-To,5559
+dbt/include/snowflake/macros/catalog.sql,sha256=BCnQkq9cORSsM7HVSC9BW3M0r6ZCIrwF80PpQ-P0Odk,2126
+dbt/include/snowflake/macros/materializations/incremental.sql,sha256=ZvIONMmOrh-7BIiZVMFg49SV4hL1y-v4IQeN-eWlL3s,2941
+dbt/include/snowflake/macros/materializations/merge.sql,sha256=dRI7bPN2yUfUiyinEB7Q6oa5bPZVC6uxDE-e8AOlEUE,783
+dbt/include/snowflake/macros/materializations/table.sql,sha256=22AzAkuPWqksRjTgIehvXE3-L5av2JgDcJRV295bwko,1307
+dbt/include/snowflake/macros/materializations/view.sql,sha256=15eBg1upU8NFJcyU1QH1TB7buJIwi4n_f3aGxzksiFM,118
+dbt_snowflake-0.16.1.dist-info/METADATA,sha256=YUzDhR0vV67FkGAUc44kjs390GAK6VqfLhJvPhA_sCE,1039
+dbt_snowflake-0.16.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+dbt_snowflake-0.16.1.dist-info/top_level.txt,sha256=B2YH4he17ajilEWOGCKHbRcEJlCuZKwCcgFcLPntLsE,4
+dbt_snowflake-0.16.1.dist-info/RECORD,,
