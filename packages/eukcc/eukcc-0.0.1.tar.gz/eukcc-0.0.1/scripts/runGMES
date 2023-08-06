@@ -1,0 +1,43 @@
+#!/bin/sh
+# simple wrapper for GMEs
+# allowing to provide an output directory
+
+
+# A POSIX variable
+OPTIND=1         # Reset in case getopts has been used previously in the shell.
+
+# Initialize our own variables:
+output_file="./output/"
+input_file=""
+ncores="1"
+key="$(pwd)/.gm_key"
+
+while getopts "h?i:o:n:k:" opt; do
+    case "$opt" in
+    h|\?)
+        show_help
+        exit 0
+        ;;
+    i)  input_file=$OPTARG
+        ;;
+    o)  output_file=$OPTARG
+        ;;
+    n)  ncores=$OPTARG
+        ;;
+    esac
+done
+
+# cd into output dir
+cd $(dirname ${output_file})
+GTF="$(basename $input_file).gtf"
+if [ -f "GTFF" ]; then
+    cp "GTFF" "genemark.gtf"
+    cp "SEQF" prot_seq.faa 
+else
+    gmes_petap.pl --v --fungus --ES --cores $ncores --min_contig 5000 --sequence $input_file > runGMES.log 2>&1 
+fi
+# check if GeneMark-ES was succesfull
+# if so extract proteins
+if [ -f "genemark.gtf" ]; then
+    get_sequence_from_GTF.pl genemark.gtf $input_file
+fi
