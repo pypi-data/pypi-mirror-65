@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+docs/Usage.md
+docs/index.md
+islandora7_rest/IslandoraClient.py
+islandora7_rest/__init__.py
+islandora7_rest/config.py
+islandora7_rest.egg-info/PKG-INFO
+islandora7_rest.egg-info/SOURCES.txt
+islandora7_rest.egg-info/dependency_links.txt
+islandora7_rest.egg-info/requires.txt
+islandora7_rest.egg-info/top_level.txt
+islandora7_rest/ku/IslandoraClientKU.py
+islandora7_rest/ku/__init__.py
