@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: robotframework-historic-listener
+Version: 0.1.7
+Summary: Listener to push robotframework execution results to MySQL
+Home-page: https://github.com/adiralashiva8/robotframework-historic-listener
+Author: Shiva Prasad Adirala
+Author-email: adiralashiva8@gmail.com
+License: MIT
+Keywords: robotframework historical execution report listener
+Platform: UNKNOWN
+Classifier: Framework :: Robot Framework
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: robotframework
+Requires-Dist: mysql-connector
+
+UNKNOWN
+
+
