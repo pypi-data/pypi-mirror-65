@@ -1,0 +1,155 @@
+Metadata-Version: 2.1
+Name: parselglossy
+Version: 0.3.0
+Summary: Generic input parsing library, speaking in tongues
+Home-page: https://github.com/dev-cafe/parselglossy
+Author: Roberto Di Remigio, Radovan Bast
+Author-email: roberto.diremigio@gmail.com
+License: MIT license
+Keywords: parselglossy
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Dist: click (>=6.0)
+Requires-Dist: pyparsing (>=2.2)
+Requires-Dist: pyyaml (>=3.13)
+
+============
+parselglossy
+============
+
+
+.. image:: https://img.shields.io/pypi/v/parselglossy.svg
+        :target: https://pypi.python.org/pypi/parselglossy
+
+.. image:: https://img.shields.io/travis/dev-cafe/parselglossy/master.svg?logo=linux&logoColor=white
+        :target: https://travis-ci.org/dev-cafe/parselglossy
+        :alt: Linux build status
+
+.. image:: https://img.shields.io/azure-devops/build/dev-cafe/32bdf3ae-88b4-469b-b30c-e255f012c562/1/master.svg?logo=windows
+        :target: https://dev.azure.com/dev-cafe/parselglossy/_build/latest?definitionId=1
+        :alt: Windows build status
+
+.. image:: https://img.shields.io/azure-devops/build/dev-cafe/32bdf3ae-88b4-469b-b30c-e255f012c562/1/master.svg?logo=apple
+        :target: https://dev.azure.com/dev-cafe/parselglossy/_build/latest?definitionId=1
+        :alt: macOS build status
+
+.. image:: https://codecov.io/gh/dev-cafe/parselglossy/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/dev-cafe/parselglossy
+
+.. image:: https://readthedocs.org/projects/parselglossy/badge/?version=latest
+        :target: https://parselglossy.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+
+.. epigraph::
+
+   "What d'you mean? You were there – you heard me —"
+
+   "I heard you speaking Parseltongue," said Ron. "Snake language. You could have been saying anything – no wonder Justin panicked, you sounded like you were egging the snake on or something – it was creepy, you know —"
+
+   -- J. K. Rowling **Harry Potter and the Chamber of Secrets**
+
+   [...] I speak with tongues more than you all;
+
+   -- **1 Corinthians** 14:18
+
+   Parse it on!
+
+   -- Bobson Dugnutt, **Private communication**
+
+
+Generic input parsing library, speaking in tongues
+
+.. image:: https://github.com/dev-cafe/parselglossy/raw/master/docs/gfx/parse.jpg
+     :alt: Parse all the inputs!
+
+* Free software: MIT license
+* Documentation: https://parselglossy.readthedocs.io.
+
+
+Requirements
+------------
+
+* Python 3.6 or later.
+
+
+Features
+--------
+
+* TODO
+
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `elgertam/cookiecutter-pipenv`_ project template, based on `audreyr/cookiecutter-pypackage`_.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`elgertam/cookiecutter-pipenv`: https://github.com/elgertam/cookiecutter-pipenv
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+Unreleased_
+-----------
+
+0.3.0_ (2019-03-31)
+-------------------
+
+* Fix Travis automatic deployment to PyPI.
+* Fix build of API docs on ReadTheDocs.
+
+0.3.0-alpha2_ (2019-03-29)
+--------------------------
+
+* Update ``CONTRIBUTING.rst``.
+
+0.3.0-alpha1_ (2019-03-28)
+--------------------------
+
+* Dropped support for Python 3.4.
+* Renamed the ``section`` and ``keyword`` fields in the template to ``name``.
+* Renamed the ``documentation`` field in the template to ``docstring``.
+* Arbitrary callables of the input dictionary are now allowed in the ``default``
+  field. Fix `#31 <https://github.com/dev-cafe/parselglossy/issues/31>`_.
+* Complex numbers have the proper type after reading in. Fix `#26 <https://github.com/dev-cafe/parselglossy/issues/26>`_.
+* Better error reporting. Exceptions are raised after each validation stage and
+  offer detail error messages that give a comprehensive overview of what went
+  wrong. Fix `#24 <https://github.com/dev-cafe/parselglossy/issues/24>`_.
+* Fully defaulted sections are now properly taken into account. Fix `#33
+  <https://github.com/dev-cafe/parselglossy/issues/33>`_.
+* Nesting of sections under keywords will throw an exception. Fix `#34
+  <https://github.com/dev-cafe/parselglossy/issues/34>`_.
+
+0.2.0_ (2019-03-11)
+-------------------
+
+* Implementation of the Getkw_ input grammar.
+* Implementation of the validation infrastructure.
+
+0.1.0_ (2018-12-03)
+-------------------
+
+* First release on PyPI.
+
+
+.. _Unreleased: https://github.com/dev-cafe/parselglossy/compare/v0.3.0...HEAD
+.. _0.3.0: https://github.com/dev-cafe/parselglossy/releases/tag/v0.3.0
+.. _0.3.0-alpha2: https://github.com/dev-cafe/parselglossy/releases/tag/v0.3.0-alpha2
+.. _0.3.0-alpha1: https://github.com/dev-cafe/parselglossy/releases/tag/v0.3.0-alpha1
+.. _0.2.0: https://github.com/dev-cafe/parselglossy/releases/tag/v0.2.0
+.. _0.1.0: https://pypi.org/project/parselglossy/0.1.0/
+.. _Getkw: https://github.com/dev-cafe/libgetkw
+
+
