@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: oort-cloud
+Version: 0.3.1
+Summary: Oort server to manage all your files in arcsecond.io cloud.
+Home-page: https://github.com/arcsecond-io/oort
+Author: Cedric Foellmi
+Author-email: cedric@arcsecond.io
+License: MIT
+Description: 
+         Oort server for managing and uploading all your files to arcsecond.io cloud storage.
+        
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
