@@ -1,0 +1,11 @@
+numpy
+rowan>=1.2
+scipy
+
+[bounding_sphere]
+miniball
+
+[test]
+pytest
+hypothesis[numpy]
+miniball
