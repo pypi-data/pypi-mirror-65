@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/nibetaseries
+   */site-packages/nibetaseries
+
+[run]
+branch = true
+source =
+    nibetaseries
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
