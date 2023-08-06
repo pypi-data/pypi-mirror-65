@@ -1,0 +1,40 @@
+autoscaling
+***********
+
+
+Description
+===========
+
+CLI for dynamically scaling Compute resources to meet application
+requirements. For information about the Compute service, see Overview
+of the Compute Service.
+
+
+Available Commands
+==================
+
+* configuration
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* policy
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
