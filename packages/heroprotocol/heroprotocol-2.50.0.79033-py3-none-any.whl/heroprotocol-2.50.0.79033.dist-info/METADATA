@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: heroprotocol
+Version: 2.50.0.79033
+Summary: Python library to decode Heroes of the Storm replays
+Home-page: https://github.com/Blizzard/heroprotocol
+Author: Blizzard Entertainment
+Author-email: HeroesReplays@blizzard.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Games/Entertainment :: Real Time Strategy
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Archiving
+Classifier: Topic :: Utilities
+Requires-Python: >=3
+Requires-Dist: mpyq (>=0.2.5)
+
+UNKNOWN
+
+
