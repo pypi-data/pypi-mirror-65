@@ -1,0 +1,59 @@
+
+* Changelog
+
+Adapted from [[https://keepachangelog.com][keepachangelog.com]] for org-mode.
+
+Adheres to [[https://github.com/salotz/rfcs/blob/master/rfcs/salotz.002_semantic-changelog.org][RFC: salotz.002_semantic-changelog]].
+
+See the git commit log history for full details.
+
+** Unreleased
+
+** [0.0.3a0.dev0] - 2020-04-13
+
+*** Growth
+
+**** ~jubeo init~ improvements
+
+The ~jubeo init~ command now allows you to specify whether you want to
+pull from the 'base_repo' in the jubeo source code. Otherwise you can
+run from an initial ~.jubeo/jubeo.toml~ file in the repo if it exists.
+
+This works well with cookiecutter like tools that provide a starter
+config so you don't even have to specify the upstream url at init time.
+
+**** 'base_repo' update
+
+The ~jubeo.toml~ in the 'base_repo' had fallen behind the updates
+which were all done to the actual repos. It is now up to date.
+
+** [0.0.2a0.dev0] - 2020-03-20
+
+Bug fix release:
+
+- modules repo is retrieved properly
+- fixes porting mistakes in the env and py modules
+
+** [0.0.1a0.dev0] - 2020-03-16
+
+First working version.
+
+*** Growth
+
+- first working prototype
+- ~jubeo~ tool configuration file, ~$HOME/.config/jubeo/jubeo_conf.toml~
+- ~.jubeo~ project-local configuration files and tool requirements in
+- base jubeo repo inside the main source tree made possible by
+  relative paths within git repos in the URL fragment
+- Commands:
+  - ~init-config~ :: initialize the configuration and cache of jubeo
+  - ~init~ :: initialize a project with a jubeo metaproject tooling
+  - ~update~ :: update the metaproject tooling for a project
+
+- caching is very stupid and not actually cached. Retrieves from git
+  repo every time if not local.
+
+** [0.0.0a0.dev0] - 2020-03-12
+
+Prehistory
+
