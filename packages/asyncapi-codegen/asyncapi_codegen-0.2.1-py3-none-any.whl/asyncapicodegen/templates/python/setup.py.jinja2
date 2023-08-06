@@ -1,0 +1,25 @@
+from setuptools import setup, find_packages
+
+setup(name='{{resolver.py_package_name()}}',
+      version="{{spec.info.version}}",
+      {%if spec.info.contact %}
+      author='{{spec.info.contact.name}}',
+      author_email='{{spec.info.contact.email}}',
+      {%endif%}
+      description="{{spec.info.title}}",
+      long_description="""{{spec.info.description}}""",
+      long_description_content_type="text/markdown",
+      license='{{spec.info.license.name}}',
+      packages=[
+          '{{resolver.py_package_base()}}',
+          '{{resolver.py_package_base()}}.messages',
+          '{{resolver.py_package_base()}}.schemas',
+          '{{resolver.py_package_base()}}.tests',
+      ],
+      zip_safe=False,
+      install_requires=[
+          'parse'
+      ],
+      include_package_data=True,
+      python_requires='>=3.7',
+)
