@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: lxmlHtml
+Version: 0.0.1
+Summary: a html parser based lxml
+Home-page: https://github.com/mouday/lxml-html
+Author: Peng Shiyu
+Author-email: pengshiyuyx@gmail.com
+License: MIT
+Keywords: html parser,lxml,spider
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: lxml (>=4.4.1)
+
+# lxml-html
+
+a html parser based lxml
+
+
+
