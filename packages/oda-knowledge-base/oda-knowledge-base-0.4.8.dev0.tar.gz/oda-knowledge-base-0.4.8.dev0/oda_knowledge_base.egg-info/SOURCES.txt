@@ -1,0 +1,16 @@
+COPYING
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+oda_knowledge_base.egg-info/PKG-INFO
+oda_knowledge_base.egg-info/SOURCES.txt
+oda_knowledge_base.egg-info/dependency_links.txt
+oda_knowledge_base.egg-info/entry_points.txt
+oda_knowledge_base.egg-info/requires.txt
+oda_knowledge_base.egg-info/top_level.txt
+odakb/__init__.py
+odakb/cwl.py
+odakb/datalake.py
+odakb/evaluator.py
+odakb/sparql.py
