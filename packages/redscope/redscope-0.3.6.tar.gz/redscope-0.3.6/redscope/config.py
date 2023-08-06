@@ -1,0 +1,2 @@
+DEFAULT_DB_URL = 'REDSCOPE_DB_URL'
+FILE_ROOT = 'database'
