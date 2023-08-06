@@ -1,0 +1,5 @@
+#!python
+
+from sdap_ingest_manager import granule_ingester
+
+granule_ingester.run_granule_as_kubernetes_pod()
