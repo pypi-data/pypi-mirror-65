@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: genutility
+Version: 0.0.24
+Summary: A collection of various Python utilities
+Home-page: https://github.com/Dobatymo/genutility
+Author: Dobatymo
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
+Requires-Dist: future
+Requires-Dist: mock ; python_version < "3.3"
+Requires-Dist: contextlib2 ; python_version < "3.3"
+Requires-Dist: pathlib2 ; python_version < "3.4"
+Requires-Dist: typing ; python_version < "3.5"
+Requires-Dist: scandir ; python_version < "3.5"
+Provides-Extra: all
+Requires-Dist: av ; extra == 'all'
+Requires-Dist: aiohttp ; extra == 'all'
+Requires-Dist: bencode.py ; extra == 'all'
+Requires-Dist: cryptography ; extra == 'all'
+Requires-Dist: ctypes-windows-sdk (>=0.0.4) ; extra == 'all'
+Requires-Dist: flask ; extra == 'all'
+Requires-Dist: gensim ; extra == 'all'
+Requires-Dist: msgpack ; extra == 'all'
+Requires-Dist: netifaces ; extra == 'all'
+Requires-Dist: nltk ; extra == 'all'
+Requires-Dist: orderedset ; extra == 'all'
+Requires-Dist: pyOpenSSL ; extra == 'all'
+Requires-Dist: PyPDF2 ; extra == 'all'
+Requires-Dist: pypiwin32 ; extra == 'all'
+Requires-Dist: rhash ; extra == 'all'
+Requires-Dist: toml ; extra == 'all'
+Requires-Dist: unidecode ; extra == 'all'
+Requires-Dist: werkzeug ; extra == 'all'
+Requires-Dist: wmi ; extra == 'all'
+Requires-Dist: wx ; extra == 'all'
+Provides-Extra: gensim
+Requires-Dist: gensim (>=3.3.0) ; extra == 'gensim'
+Requires-Dist: numpy ; extra == 'gensim'
+Provides-Extra: json
+Requires-Dist: jsonschema ; extra == 'json'
+Provides-Extra: mediainfo
+Requires-Dist: pymediainfo ; extra == 'mediainfo'
+Provides-Extra: pdf
+Requires-Dist: PyPDF2 ; extra == 'pdf'
+Provides-Extra: tls
+Requires-Dist: cryptography ; extra == 'tls'
+Requires-Dist: pyOpenSSL ; extra == 'tls'
+Provides-Extra: toml
+Requires-Dist: toml ; extra == 'toml'
+
+# genutility
+
+A collection of various Python utilities.
+
+Most functionally is supported on Python 2.7+ / Python 3.5+. However some things might only be working on Python 3.6+.
+
+
