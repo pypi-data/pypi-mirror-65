@@ -1,0 +1,10 @@
+euclid
+tpDcc-core
+tpDcc-libs-python
+tpDcc-libs-qt
+
+[dev]
+wheel
+
+[test]
+pytest
