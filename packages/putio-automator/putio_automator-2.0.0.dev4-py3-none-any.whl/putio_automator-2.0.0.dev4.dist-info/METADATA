@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: putio-automator
+Version: 2.0.0.dev4
+Summary: Automate management of torrents and files on Put.IO.
+Home-page: https://github.com/datashaman/putio-automator
+Author: Marlin Forbes
+Author-email: marlinf@datashaman.com
+License: MIT
+Keywords: torrent,download,seedbox,media
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet
+Classifier: Topic :: Utilities
+Requires-Dist: appdirs
+Requires-Dist: Flask
+Requires-Dist: Flask-Script
+Requires-Dist: putio.py
+Requires-Dist: pyinotify
+Requires-Dist: python-dotenv
+
+UNKNOWN
+
+
