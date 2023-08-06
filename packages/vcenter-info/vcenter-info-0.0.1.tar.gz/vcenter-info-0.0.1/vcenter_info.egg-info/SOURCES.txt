@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+test/test_vcenter_response_handling.py
+vcenter_info/__init__.py
+vcenter_info/api.py
+vcenter_info/app.py
+vcenter_info/default.py
+vcenter_info/vcenter.py
+vcenter_info.egg-info/PKG-INFO
+vcenter_info.egg-info/SOURCES.txt
+vcenter_info.egg-info/dependency_links.txt
+vcenter_info.egg-info/requires.txt
+vcenter_info.egg-info/top_level.txt
+vcenter_info/static/js/bundle.js
+vcenter_info/templates/index.html
