@@ -1,0 +1,16 @@
+include CONTRIBUTORS.txt
+include ez_setup.py
+include License.txt
+recursive-include nexson/test/data *
+include README.md
+include README.rst
+include requirements.txt
+recursive-include scripts *
+include setup.cfg
+include setup.py
+include test.sh
+include TESTING.md
+include THANKS.txt
+global-exclude .DS_Store
+global-exclude *.pyc
+global-exclude .gitignore

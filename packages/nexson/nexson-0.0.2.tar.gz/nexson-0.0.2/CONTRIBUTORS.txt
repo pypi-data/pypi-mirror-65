@@ -1,0 +1,55 @@
+    Here is the list of people who have contributed to this
+    repository.  It is sorted by name and formatted to allow easy
+    grepping and beautification by scripts.
+
+    The fields are: name (N), email (E), web-address (W), description
+    (D), main username (U), alias usernames (A) and geographic
+    location (S).
+
+    The format is that of the Linux kernel CREDITS file.  This file is
+    encoded in UTF-8.
+
+    The primary authors and maintainers of peyotl are:
+    Jim Allman
+    Karen Cranston,
+    Mark T. Holder, and
+    Emily Jane McTavish
+
+    Jonathan "Duke" Leto wrote parts of peyotl.phylesystem.git_actions 
+    and the tests as a part of his work on the Open Tree of Life
+    api.opentreeoflife.org repository.
+
+    Joseph Brown and Stephen Smith wrote a Java program gcmdr that was
+    the basis for a former subpackage of peyotl.
+
+----------
+
+N: Jim Allman
+E: jim@ibang.com
+W: http://ibang.com/
+
+N: Joseph W. Brown
+S: Ann Arbor, MI
+
+N: Karen A. Cranston
+S: Durham, NC
+
+N: Mark T. Holder
+E: mtholder@gmail.com
+S: Lawrence, KS
+U: mtholder
+
+N: Jonathan "Duke" Leto
+E: duke@leto.net
+W: http://duke.leto.net
+S: Portland, OR
+
+N: Emily Jane McTavish
+S: Lawrence, KS
+
+N: Jonathan A. Rees
+S: Boston, MA
+
+N: Stephen A. Smith
+S: Ann Arbor, MI
+
