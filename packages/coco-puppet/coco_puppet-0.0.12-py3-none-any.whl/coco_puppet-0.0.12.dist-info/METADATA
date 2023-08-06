@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: coco-puppet
+Version: 0.0.12
+Summary: Modular composable chatbot development
+Home-page: https://github.com/chenb67/puppet
+Author: Chen Buskilla
+Author-email: chen@buskilla.com
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: aioconsole
+Requires-Dist: coco-sdk[async] (>=0.0.6)
+Provides-Extra: discord
+Requires-Dist: discord.py ; extra == 'discord'
+Provides-Extra: msbf
+Requires-Dist: botbuilder-core ; extra == 'msbf'
+
+# puppet
+Puppet is a high-level toolkit for building chatbots using conversational components.
+Try puppet if you want to make your chatbot modular using composable components.
+
