@@ -1,0 +1,3 @@
+[console_scripts]
+dhe-cli=dhe.cli:run
+dhe=dhe.gui:main
