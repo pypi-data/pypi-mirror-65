@@ -1,0 +1,115 @@
+Metadata-Version: 1.1
+Name: kydavra
+Version: 0.1.4
+Summary: Kydavra is a sci-kit learn inspired python library with feature selection methods for Data Science and Macine Learning Model development
+Home-page: https://github.com/user/reponame
+Author: SigmoidAI - Păpăluță Vasile
+Author-email: vpapaluta06@gmail.com
+License: MIT
+Download-URL: https://github.com/ScienceKot/kydavra/archive/v1.0.tar.gz
+Description: 
+        Kydavra is a python sci-kit learn inspired package for feature selection. It used some statistical methods to extract from pure pandas Data Frames the columns that are related to column that your model should predict.
+        
+        This version of kydavra has the next methods of feature selection:
+        
+        1) ANOVA test selector (ANOVASelector).
+        
+        2) Chi squared selector (ChiSquaredSelector).
+        
+        3) Genetic Algorithm selector (GeneticAlgorithmSelector).
+        
+        4) Kendall Correlation selector (KendallCorrelationSelector).
+        
+        5) Lasso selector (LassoSelector).
+        
+        6) Pearson Correlation selector (PearsonCorrelationSelector).
+        
+        7) Point-Biserial selector (PointBiserialCorrSelector).
+        
+        8) P-value selector (PValueSelector).
+        
+        9) Spearman Correlation selector (SpermanCorrelationSelector).
+        
+        All these methods takes the pandas Data Frame and y column to select from remained columns in the Data Frame.
+        
+        
+        How to use kydavra
+        
+        To use selector from kydavra you should just import the selector from kydavra in the following framework:
+        
+        ```from kydavra import <class name>```
+        
+        class names are written above in parantheses.
+        
+        Next create a object of this algorithm (I will use p-value method as an example).
+        
+        ```method = PValueSelector()```
+        
+        To get the best feature on the opinion of the method you should use the 'select' function, using as parameters the pandas Data Frame and the column that you want your model to predict.
+        
+        ```selected_columns = method.select(df, 'target')```
+        
+        Returned value is a list of columns selected by the algorithm.
+        
+        
+        Some methods could plot the process of selecting the best features.
+        
+        In these methods dotted are features that wasn't selected by the method.
+        
+        *ChiSquaredSelector*
+        
+        ```method.plot_chi2()```
+        
+        For ploting and
+        
+        ```method.plot_chi2(save=True, file_path='FILE/PATH.png')```
+        
+        and
+        
+        ```method.plot_p_value()```
+        
+        for ploting the p-values.
+        
+        *LassoSelector*
+        
+        ```method.plot_process()```
+        
+        also you can save the plot using the same parameters.
+        
+        *PValueSelector*
+        
+        ```method.plot_process()```
+        
+        
+        Some advices.
+        
+        1) Use ChiSquaredSelector for categorical features.
+        
+        2) Use LassoSelector and PValueSelector for regression problems.
+        
+        3) Use PointBiserialCorrSelector for binary classification problems.
+        
+        
+        With love from Sigmoid.
+        
+        
+        We are open for feedback. Please send your impression to vpapaluta06@gmail.com
+        
+        
+        
+Keywords: ml,machine learning,feature selection,python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Jupyter
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
