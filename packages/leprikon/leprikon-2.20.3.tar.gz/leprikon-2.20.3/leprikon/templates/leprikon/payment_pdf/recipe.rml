@@ -1,0 +1,84 @@
+{% load i18n leprikon_tags %}
+
+<blockTable style="without-borders">
+    <tr>
+        <td><para style="title">{% trans 'Receipt for payment' %}</para></td>
+        <td><para style="right">{% trans 'recipe number' %}: {{ object.id }}</para></td>
+    </tr>
+    <tr>
+        <td>
+            <blockTable style="with-borders">
+                <tr>
+                    <td>
+                        <para style="title">{{ object.organization.name }}</para>
+                        <spacer length="2mm"/>
+                        <para style="left">{% trans 'address' %}:</para>
+                        <para style="left">{{ object.organization.street }}</para>
+                        <para style="left">{{ object.organization.postal_code }}, {{ object.organization.city }}</para>
+                        <spacer length="2mm"/>
+                        {% if object.organization.email %}<para style="left">{% trans 'email' %}: {{ object.organization.email }}</para>{% endif %}
+                        {% if object.organization.phone %}<para style="left">{% trans 'phone' %}: {{ object.organization.phone }}</para>{% endif %}
+                        {% if object.organization.email or object.organization.phone %}<spacer length="2mm"/>{% endif %}
+                        <para style="left">{% trans 'company number' %}: {{ object.organization.company_num }}</para>
+                    </td>
+                </tr>
+            </blockTable>
+        </td>
+        <td>
+            <blockTable style="with-borders">
+                <tr>
+                    <td><para style="left">{% trans 'variable symbol' %}</para></td>
+                    <td><para style="left">{{ object.registration.variable_symbol }}</para></td>
+                </tr>
+                <tr>
+                    <td><para style="left">{% trans 'payment date' %}</para></td>
+                    <td><para style="left">{{ object.accounted.date }}</para></td>
+                </tr>
+                <tr>
+                    <td><para style="left">{% trans 'amount' %}</para></td>
+                    <td><para style="left">{{ object.amount | currency }}</para></td>
+                </tr>
+            </blockTable>
+            <spacer length="2mm"/>
+            <para style="small">{% trans 'payment type' %}:</para>
+            <para style="left">{{ object.payment_type_label }}</para>
+        </td>
+    </tr>
+</blockTable>
+
+<spacer length="2mm"/>
+
+<blockTable style="without-borders">
+    <tr>
+        <td>
+            <para style="small">{% blocktrans with subject_type=object.subject.subject_type.name_genitiv %}name of {{ subject_type }}{% endblocktrans %}:</para>
+            <para style="left">{{ object.subject.name }}</para>
+
+            <spacer length="2mm"/>
+
+            {% if object.registration.subject.registration_type_participants %}
+                {% if bject.registration.all_participants|length > 1 %}
+                <para style="small">{% trans 'participant' %}:</para>
+                {% else %}
+                <para style="small">{% trans 'participants' %}:</para>
+                {% endif %}
+                {% for participant in object.registration.all_participants %}
+                <para style="left">{{ participant.full_name }}</para>
+                {% endfor %}
+            {% elif object.registration.subject.registration_type_groups %}
+                <para style="small">{% trans 'contact person' %}:</para>
+                <para style="left">{{ object.registration.group.full_name }}</para>
+                {% if object.registration.group.name %}
+                <para style="small">{% trans 'group name' %}:</para>
+                <para style="left">{{ object.registration.group.name }}</para>
+                {% endif %}
+            {% endif %}
+        </td>
+        <td>
+            {% if object.received_by %}
+            <para style="small">{% trans 'payment received by' %}:</para>
+            <para style="left">{{ object.received_by.get_full_name }}</para>
+            {% endif %}
+        </td>
+    </tr>
+</blockTable>

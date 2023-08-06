@@ -1,0 +1,36 @@
+{% load i18n leprikon_tags qr_code %}
+
+{{ object.text_registration_payment_request }}
+
+{% include 'leprikon/registration_mail_details.html' %}
+{% for ps in object.payment_statuses %}{% if ps.amount_due %}
+<p>
+    {% trans 'Amount due' %}: {{ ps.amount_due | currency }}, 
+    {% trans 'Due date' %}: {{ ps.due_date }}
+</p>
+{% endif %}{% endfor %}
+
+{% if site.payment_gateway %}
+<p>
+    {% trans 'Please, use following link to perform online payment' %}:<br/>
+    <a href="{{ object.payment_url }}">{{ object.payment_url }}</a>
+</p>
+{% endif %}
+
+{% if object.organization.bank_account %}
+<p>
+    {% trans 'Please, use following information for bank transfer' %}:<br/>
+    {% trans 'Bank account' %}: {{ object.organization.bank_account }}<br/>
+    {% trans 'Variable symbol' %}: {{ object.variable_symbol }}<br/>
+</p>
+<p>
+    {% trans 'You may use following QR code to scan the payment details to your mobile banking application' %}:<br/>
+    <img src="cid:qr_code"/>
+</p>
+{% endif %}
+
+{% if not site.payment_gateway and not object.organization.bank_account %}
+<p>{% trans 'Currently we only accept payments in cash.' %}</p>
+{% endif %}
+
+{% include 'leprikon/registration_mail_footer.html' %}

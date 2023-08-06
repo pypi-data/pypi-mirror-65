@@ -1,0 +1,37 @@
+{% extends 'leprikon/default.html' %}
+{% load i18n cms_tags leprikon_tags %}
+
+{% block content %}
+
+<h1>{% block title %}{% trans 'Summary' %}{% endblock %}</h1>
+
+{% static_placeholder "summary" %}
+
+<h2>{% trans 'New messages' %}</h2>
+
+{% if new_messages.count %}
+{% include 'leprikon/messages_table.html' with object_list=new_messages %}
+{% else %}
+<p><i>{% trans 'You have no new messages.' %}</i></p>
+{% endif %}
+
+<h2>{% trans 'Payments overview' %}</h2>
+<p>
+    {% if payment_status_sum.overdue %}
+    <strong style="color: {{ payment_status_sum.color }}">
+    {% blocktrans with overdue=payment_status_sum.overdue|currency %}You have overdue of {{ overdue }}.{% endblocktrans %}
+    </strong><br/>
+    {% endif %}
+    {% if payment_status_sum.amount_due %}
+    <span style="color: {{ payment_status_sum.color }}">
+    {% blocktrans with amount_due=payment_status_sum.amount_due|currency %}Your current amount due is {{ amount_due }}.{% endblocktrans %}
+    </span>
+    {% else %}
+    <i>{% trans 'All Your receivables have been paid.' %}</i>
+    {% endif %}
+    {% if payment_status_sum.overpaid %}
+    {% blocktrans with overdue=payment_status_sum.overpaid|currency %}You have overpaid {{ overpaid }}.{% endblocktrans %}
+    {% endif %}
+</p>
+
+{% endblock %}

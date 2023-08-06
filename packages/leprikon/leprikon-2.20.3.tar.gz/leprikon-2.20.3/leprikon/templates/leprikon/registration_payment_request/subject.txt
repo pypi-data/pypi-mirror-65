@@ -1,0 +1,16 @@
+{% load i18n leprikon_tags %}{{ object.text_registration_payment_request|striptags }}
+
+{% include 'leprikon/registration_mail_details.txt' %}
+{% for ps in object.payment_statuses %}{% if ps.amount_due %}{% trans 'Amount due' %}: {{ ps.amount_due | currency }}
+{% trans 'Due date' %}: {{ ps.due_date }}
+{% endif %}{% endfor %}
+{% if site.payment_gateway %}{% trans 'Please, use following link to perform online payment' %}:
+{{ object.payment_url }}
+
+{% endif %}{% if object.organization.bank_account %}{% trans 'Please, use following information for bank transfer' %}:
+{% trans 'Bank account' %}: {{ object.organization.bank_account }}
+{% trans 'Variable symbol' %}: {{ object.variable_symbol }}
+
+{% endif %}{% if not site.payment_gateway and not object.organization.bank_account %}{% trans 'Currently we only accept payments in cash.' %}
+
+{% endif %}{% include 'leprikon/registration_mail_footer.txt' %}
