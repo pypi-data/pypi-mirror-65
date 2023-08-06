@@ -1,0 +1,27 @@
+"config"
+********
+
+
+Description
+===========
+
+Interactive script to generate oci config file.
+
+
+Usage
+=====
+
+   oci setup config [OPTIONS]
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth", "--cert-bundle", "--cli-rc-file", "--config-file", "--
+debug", "--defaults-file", "--endpoint", "--generate-full-command-
+json-input", "--generate-param-json-input", "--help", "--no-retry", "
+--opc-client-request-id", "--opc-request-id", "--output", "--profile",
+"--query", "--raw-output", "--region", "--request-id", "--version",
+"-?", "-d", "-h", "-v"

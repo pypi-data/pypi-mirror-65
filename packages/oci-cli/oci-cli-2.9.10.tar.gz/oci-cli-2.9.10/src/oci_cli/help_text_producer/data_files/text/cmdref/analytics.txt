@@ -1,0 +1,48 @@
+analytics
+*********
+
+
+Description
+===========
+
+Analytics CLI.
+
+
+Available Commands
+==================
+
+* analytics-instance
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * scale
+
+  * start
+
+  * stop
+
+  * update
+
+* work-request
+
+  * delete
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log
+
+  * list
