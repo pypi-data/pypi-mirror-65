@@ -1,0 +1,34 @@
+<<: &shared
+  language_name: Gitksan
+mappings:
+  - display_name: Orthography
+    in_lang: git
+    out_lang: git-ipa
+    as_is: true
+    case_sensitive: false
+    authors:
+      - Fineen Davis
+    mapping: git_to_ipa.json
+    <<: *shared
+  - display_name: Rigsby APA
+    in_lang: git
+    out_lang: git-apa
+    authors:
+      - Fineen Davis
+    mapping: RAPA_Deterministic.csv
+    <<: *shared
+  - display_name: Unicode Normalization
+    in_lang: git
+    out_lang: git-norm
+    authors:
+      - Aidan Pine
+    mapping: norm.csv
+    <<: *shared
+  - display_name: Gitksan IPA to English IPA
+    in_lang: git-ipa
+    out_lang: eng-ipa
+    as_is: false
+    authors:
+      - Aidan Pine
+    mapping: git_ipa_to_eng_ipa.json
+    <<: *shared

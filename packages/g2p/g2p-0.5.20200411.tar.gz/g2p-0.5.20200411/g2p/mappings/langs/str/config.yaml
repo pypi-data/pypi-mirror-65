@@ -1,0 +1,13 @@
+<<: &shared
+  language_name: SENĆOŦEN
+mappings:
+  - display_name: SENĆOŦEN to IPA
+    mapping: str_to_ipa.json
+    in_lang: str
+    out_lang: str-ipa
+    as_is: true
+    norm_form: NFD
+    case_sensitive: false
+    authors:
+      - Aidan Pine
+    <<: *shared
