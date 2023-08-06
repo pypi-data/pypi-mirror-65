@@ -1,0 +1,140 @@
+# Document Information
+
+SPDXVersion: SPDX-1.2
+DataLicense: CC0-1.0
+DocumentName: mbed-tools-1.1.0b16
+SPDXID: SPDXRef-DOCUMENT
+DocumentNamespace: http://spdx.org/spdx/spdxdocs/mbed-tools-1.1.0b16-8d60126f-ae17-4e1f-b953-b2ace2c6aab1
+DocumentComment: <text>This document was created automatically using available information from python packages.</text>
+ExternalDocumentRef: mbed-tools-lib-1.2.0 http://spdx.org/spdxdocs/mbed-tools-lib-1.2.0-74dcf14a-51cd-622b-4fa3-bc7b1699bcaa SHA1:9007af6b2f74904f9156362db8183f29e6354357
+ExternalDocumentRef: pdoc3-0.7.5 http://spdx.org/spdxdocs/pdoc3-0.7.5-75b7d2cd-5b14-6eee-652d-4562669f5cd2 SHA1:a158146ed950336228d19bed2531047b18508d54
+ExternalDocumentRef: mbed-devices-1.0.0b67 http://spdx.org/spdxdocs/mbed-devices-1.0.0b67-d6660402-32d8-aee1-2a8a-8ef9e343c945 SHA1:e02a62051f1f627deb8413315e3fb6c36fe37e60
+ExternalDocumentRef: mbed-build-0.1.0b11 http://spdx.org/spdxdocs/mbed-build-0.1.0b11-3ccd630b-543f-bfd2-dc7e-eb8e79da7397 SHA1:9cc755a670fa2a67b2849667eb4be221411b6d42
+ExternalDocumentRef: Click-7.0 http://spdx.org/spdxdocs/Click-7.0-bb45852b-b033-4661-55f3-288440de0ec7 SHA1:046d4380feea57f0845f844f76bdd8da1d6aa364
+ExternalDocumentRef: python-dotenv-0.12.0 http://spdx.org/spdxdocs/python-dotenv-0.12.0-d7725d68-3e3a-a3c4-e32f-b3c6bc58b7a3 SHA1:ea3bc31b525f0aadcc9411fa403131db3b39a260
+ExternalDocumentRef: Mako-1.1.2 http://spdx.org/spdxdocs/Mako-1.1.2-985967a1-f5a1-6060-bd79-6a31bf69d6c2 SHA1:057b0083a3fffa8618169d9751e5d6cd9a8093da
+ExternalDocumentRef: Markdown-3.2.1 http://spdx.org/spdxdocs/Markdown-3.2.1-28bcf261-4939-e2ba-03b8-cc6c355eb51c SHA1:b1baf82db8b03eab17574580f567c20334ee88ad
+ExternalDocumentRef: mbed-tools-lib-1.2.0 http://spdx.org/spdxdocs/mbed-tools-lib-1.2.0-74dcf14a-51cd-622b-4fa3-bc7b1699bcaa SHA1:9007af6b2f74904f9156362db8183f29e6354357
+ExternalDocumentRef: mbed-targets-1.0.0b147 http://spdx.org/spdxdocs/mbed-targets-1.0.0b147-e5954685-b1a8-8a4e-b622-c808dff67f80 SHA1:145a1fa159b170a871ea2ce24b2e3470e14301c0
+ExternalDocumentRef: psutil-5.7.0 http://spdx.org/spdxdocs/psutil-5.7.0-4aa6cda5-e706-bd83-8f09-2f89065c2bb8 SHA1:215ba74b0f9c3ef19e782eafb193254f78e72847
+ExternalDocumentRef: typing-extensions-3.7.4.2 http://spdx.org/spdxdocs/typing-extensions-3.7.4.2-b61c47bc-af97-ddcb-afca-99ce36af796f SHA1:9bd9dc75590b0d3eb75aa58a9165f3488fd81028
+ExternalDocumentRef: tabulate-0.8.7 http://spdx.org/spdxdocs/tabulate-0.8.7-f6dd9dde-d957-68d2-cb72-eced4cf526c6 SHA1:c45b7d0e72fc91416f25e6158ad08b64f16a0ad1
+ExternalDocumentRef: pyudev-0.22.0 http://spdx.org/spdxdocs/pyudev-0.22.0-64927eec-c915-d59f-d6ec-c4baa1513031 SHA1:c61789766548043b659c252b20027022fb79e851
+ExternalDocumentRef: Jinja2-3.0.0a1 http://spdx.org/spdxdocs/Jinja2-3.0.0a1-76273db1-f947-c3aa-2445-bae9771c1f81 SHA1:cc74b014cc3c1548cb70f6fec6ea71c9980ec68b
+ExternalDocumentRef: MarkupSafe-1.1.1 http://spdx.org/spdxdocs/MarkupSafe-1.1.1-933be105-705d-8bdf-6004-9645c7c99d72 SHA1:5d7d6cc0e23bbaa87286ff2937eefdfc90d7781e
+ExternalDocumentRef: setuptools-46.1.3 http://spdx.org/spdxdocs/setuptools-46.1.3-d43aedce-1a6f-36bc-c3ee-6250f40b5284 SHA1:0f10d741e5de8fe5514ff9ea98f563363efbfce0
+ExternalDocumentRef: mbed-project-0.1.0b14 http://spdx.org/spdxdocs/mbed-project-0.1.0b14-f07a16b5-50bd-3188-703c-c1ccaa32edb1 SHA1:c051850154ccd6f0b8d2f497e8b2b6ad4c5dd396
+ExternalDocumentRef: Click-7.0 http://spdx.org/spdxdocs/Click-7.0-bb45852b-b033-4661-55f3-288440de0ec7 SHA1:046d4380feea57f0845f844f76bdd8da1d6aa364
+ExternalDocumentRef: requests-2.23.0 http://spdx.org/spdxdocs/requests-2.23.0-7c90ec2c-9b99-e44c-159d-a68f2a5c765b SHA1:5a9e78a8c5e2daaaf3c3887f469a63a894be8b58
+ExternalDocumentRef: six-1.14.0 http://spdx.org/spdxdocs/six-1.14.0-e53710fe-412b-efad-e2c1-83b4299900da SHA1:d570c35b2e410c24e8c02ae26143ef4f50480b54
+ExternalDocumentRef: MarkupSafe-1.1.1 http://spdx.org/spdxdocs/MarkupSafe-1.1.1-933be105-705d-8bdf-6004-9645c7c99d72 SHA1:5d7d6cc0e23bbaa87286ff2937eefdfc90d7781e
+ExternalDocumentRef: git-python-1.0.3 http://spdx.org/spdxdocs/git-python-1.0.3-faa4d35a-ae12-f967-fe41-9439cebde8ae SHA1:bcf26d1b5f5f16b8f45b6911cecef0d6d7b18c3f
+ExternalDocumentRef: urllib3-1.25.8 http://spdx.org/spdxdocs/urllib3-1.25.8-e49b52f9-0471-6874-e8df-018d4148ef9e SHA1:106c1bf63b23adff93a27222a039ebfd5fa9283d
+ExternalDocumentRef: chardet-3.0.4 http://spdx.org/spdxdocs/chardet-3.0.4-4cfc5f3b-869d-9f39-7e77-9acb3368681a SHA1:e77dc5e17e9e51cf46b6bda1c354a29e132cb054
+ExternalDocumentRef: idna-2.9 http://spdx.org/spdxdocs/idna-2.9-a0fb897a-d89c-cd93-9315-7e5651d9ab55 SHA1:c1fca9a389cab9946609efed667b019b2efd1c7f
+ExternalDocumentRef: certifi-2020.4.5.1 http://spdx.org/spdxdocs/certifi-2020.4.5.1-d4f6b7a9-9fbb-7948-95f9-68aae88e297b SHA1:8995d90b78a0d69fac6bf9534e64bedec0e42a11
+ExternalDocumentRef: GitPython-3.1.0 http://spdx.org/spdxdocs/GitPython-3.1.0-2f9bdbfd-604c-9d0d-230c-5969a4170381 SHA1:71ceaa418c178db9d1254aeb41adc634dfa03c39
+ExternalDocumentRef: gitdb-4.0.2 http://spdx.org/spdxdocs/gitdb-4.0.2-126d78c7-8ebe-f438-2cdc-2b3afcc80f02 SHA1:d44d98abfb066fa68c8789e87a94e5ad99165569
+ExternalDocumentRef: smmap-3.0.1 http://spdx.org/spdxdocs/smmap-3.0.1-af69513f-f141-c5a1-2601-75a107dc5be6 SHA1:7b2f84664e47039639d228cf36b1b985c2f8382e
+
+
+# Creation Info
+
+Creator: Person: Mbed team (support@mbed.com)
+Creator: Organization: Arm Mbed (support@mbed.com)
+Creator: Tool: mbed-spdx-generator
+Created: 2020-04-08T09:20:33Z
+
+
+# Review
+
+Reviewer: Person: Monty Bot (monty-bot@arm.com)
+ReviewDate: 2020-04-08T09:20:33Z
+
+
+# Package
+
+PackageName: mbed-tools
+SPDXID: SPDXRef-a58676f2-0505-4916-84ee-2ef116b07352
+PackageVersion: 1.1.0b16
+PackageDownloadLocation: NONE
+FilesAnalyzed: True
+PackageSummary: <text>Command line interface for Mbed OS.</text>
+PackageFileName: mbed-tools
+PackageOriginator: Person: Mbed team (support@mbed.com)
+PackageChecksum: SHA1: NOASSERTION
+PackageVerificationCode: c2ce5a94e97c6a7a613d66b291745fe767a3ee5c
+PackageDescription: <text>NOASSERTION</text>
+PackageLicenseDeclared: Apache 2.0
+PackageLicenseConcluded: Apache 2.0 AND Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageLicenseInfoFromFiles: Apache-2.0
+PackageCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+PackageHomePage: https://github.com/ARMmbed/mbed-tools
+
+
+# File
+
+FileName: ./mbed_tools/__init__.py
+SPDXID: SPDXRef-0f1fc60a-2c7c-0ddb-cd41-653f6645bd3d
+FileType: SOURCE
+FileChecksum: SHA1: 44e3ad720f3d4b8078980bb09e71a82b8e73d288
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools/_internal/__init__.py
+SPDXID: SPDXRef-d94f797d-45dc-8579-29e0-68b6102d9c5a
+FileType: SOURCE
+FileChecksum: SHA1: 42e8af887e0213a263843ee65781eb6bd97ba85f
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools/_internal/config_cli.py
+SPDXID: SPDXRef-9afe474e-71c9-032f-f725-9e66b6fa0cd3
+FileType: SOURCE
+FileChecksum: SHA1: d9a743c012b9e6ec156d082a8caf991816b97eda
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools/_version.py
+SPDXID: SPDXRef-f0f121e4-cd9a-8de6-622d-b0c1ceab7475
+FileType: SOURCE
+FileChecksum: SHA1: 734c16fdcb998d5b1b9021963ee88c97202239d1
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# File
+
+FileName: ./mbed_tools/cli.py
+SPDXID: SPDXRef-cf20ee54-809d-3204-c40e-7f339b9edc28
+FileType: SOURCE
+FileChecksum: SHA1: b4cf0d29b8312b85fad49334a93d27242ab16b48
+LicenseConcluded: Apache-2.0
+LicenseInfoInFile: Apache-2.0
+FileCopyrightText: <text>Copyright (C) 2020 Arm Mbed. All rights reserved.</text>
+FileComment: <text>NONE</text>
+
+
+# Extracted Licenses
+
