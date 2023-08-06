@@ -1,0 +1,6 @@
+[console_scripts]
+mnk-game = mnkgame.mnk_game:main
+
+[gui_scripts]
+mnk-game = mnkgame.mnk_game:main
+
