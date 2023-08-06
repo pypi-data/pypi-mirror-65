@@ -1,0 +1,20 @@
+%path = "Mathematik/Vektoren"
+%kind = kinda["Texte"]
+%level = 11
+<!-- html --><p>Wenn man die Zutaten von einer Auswahl von Kuchenrezepten
+als Vektorraum auffasst, dann ist jeder Kuchen <span class="math notranslate nohighlight">\(z\)</span> ein Vektor im <em>Zutatenvektorraum</em>,
+d.h. wir wählen unabhängige (Wert <span class="math notranslate nohighlight">\(z_i\)</span>) aus jeder Zutat (Variable <span class="math notranslate nohighlight">\(i\)</span>) (0 für nicht verwendet).</p>
+<p>Wenn man nur die Kuchen betrachtet, dann ist eine Auswahl daraus ein Vektor <span class="math notranslate nohighlight">\(y\)</span>
+im <em>Kuchenvektorraum</em>. Jedes <span class="math notranslate nohighlight">\(y_j\)</span> ist die Anzahl der Kuchensorte <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Will man von einer Auswahl von Kuchen auf die Zutaten kommen, dann ist das
+mathematisch eine <strong>Koordinatentransformation</strong>.  Um die Gesamtmenge <span class="math notranslate nohighlight">\(z_i\)</span>
+zu erhalten muss man die Anzahl von jeder Kuchensorte <span class="math notranslate nohighlight">\(y_j\)</span> mit der
+jeweiligen Zutatmenge multiplizieren. Das läuft auf eine
+Matrixmultiplikation hinaus.</p>
+<p><span class="math notranslate nohighlight">\(z = ZK \cdot y = \sum_j ZY_{ij}y_j\)</span></p>
+<p>In <span class="math notranslate nohighlight">\(ZK\)</span> ist jede Spalte ein Rezept, d.h. Zutaten (<strong>Komponenten</strong>) für den Kuchen <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Um auf den Preis <span class="math notranslate nohighlight">\(p\)</span> im <em>Preisvektorraum</em> zu kommen (d.h. was kosten alle
+Zutaten für eine Auswahl von Torten) multiplizieren wir wieder</p>
+<p><span class="math notranslate nohighlight">\(p = PZ \cdot z = PZ_{1i} z_i\)</span></p>
+<p><span class="math notranslate nohighlight">\(PZ\)</span> ist eine Matrix mit einer Zeile. Die Anzahl von Zeilen ist die
+Dimension des Zielvektorraumes.</p>

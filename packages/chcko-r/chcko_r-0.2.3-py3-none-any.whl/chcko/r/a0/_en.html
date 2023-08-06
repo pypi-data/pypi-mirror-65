@@ -1,0 +1,20 @@
+%path = "maths/vectors"
+%kind = kinda["texts"]
+%level = 11
+<!-- html --><p>If we see the ingredients of a set of cake recipes as vector space, then
+every cake <span class="math notranslate nohighlight">\(z\)</span> is a vector of the <em>ingredient vector space</em>, i.e. we
+independently choose (value <span class="math notranslate nohighlight">\(z_i\)</span>) from each ingredient (variable <span class="math notranslate nohighlight">\(i\)</span>) (0
+for not used at all).</p>
+<p>If we only look at the cakes, then a choice from them is a vector <span class="math notranslate nohighlight">\(k\)</span>
+in the <em>cake vector space</em>. Every <span class="math notranslate nohighlight">\(k_j\)</span> is the number of cakes of kind <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>When going from the cakes to the ingredients, mathematically one does a
+coordinate transformation. To get the total amount of ingredient <span class="math notranslate nohighlight">\(z_i\)</span> one
+needs to multiply the number of every cake <span class="math notranslate nohighlight">\(k_j\)</span> with the amount of
+ingredient <span class="math notranslate nohighlight">\(i\)</span> for that cake. This is a matrix multiplication.</p>
+<p><span class="math notranslate nohighlight">\(z = ZK \cdot k = \sum_j ZK_{ij}k_j\)</span></p>
+<p>In <span class="math notranslate nohighlight">\(ZK\)</span> every column is a recipe, i.e. the ingredients (<strong>components</strong>) for cake <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>To obtain the price <span class="math notranslate nohighlight">\(p\)</span> in the <em>price vector space</em>, i.e. what is the cost
+of all ingredients for a set of cakes, we multiply again</p>
+<p><span class="math notranslate nohighlight">\(p = PZ \cdot z = PZ_{1i} z_i\)</span></p>
+<p><span class="math notranslate nohighlight">\(PZ\)</span> is a matrix with one row. The number of rows is the dimension of the
+target vector space.</p>
