@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: tbmodels
+Version: 1.4.0
+Summary: A tool for reading, creating and modifying tight-binding models.
+Home-page: https://tbmodels.greschd.ch
+Author: Dominik Gresch
+Author-email: greschd@gmx.ch
+License: Apache 2.0
+Description: <!--
+        (c) 2015-2018, ETH Zurich, Institut fuer Theoretische Physik
+        Author: Dominik Gresch <greschd@gmx.ch>
+        -->
+        
+        # TBmodels
+        
+        A tool for creating, modifying and evaluating tight-binding models
+        
+        - Documentation: <https://tbmodels.greschd.ch>
+        
+        [![Build Status](https://travis-ci.org/Z2PackDev/TBmodels.svg?branch=dev)](https://travis-ci.org/Z2PackDev/TBmodels)
+        [![Documentation Status](https://readthedocs.org/projects/tbmodels/badge/?version=latest)](https://tbmodels.greschd.ch/en/latest/?badge=latest)
+        [![codecov](https://codecov.io/gh/Z2PackDev/TBmodels/branch/dev/graph/badge.svg)](https://codecov.io/gh/Z2PackDev/TBmodels)
+        
+Keywords: tight-binding,condensed matter,solid-state,physics,materials science
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: kwant
+Provides-Extra: dev
