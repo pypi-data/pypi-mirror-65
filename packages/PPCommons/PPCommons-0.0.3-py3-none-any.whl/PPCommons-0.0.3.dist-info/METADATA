@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: PPCommons
+Version: 0.0.3
+Summary: A Python3 package to rapidly setup server-less applications for AWS Lambda with generic features
+Home-page: UNKNOWN
+Author: Arpit Gaur
+Author-email: dev.arpitgaur@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: attrs (==19.3.0)
+Requires-Dist: bleach (==3.1.4)
+Requires-Dist: botocore (==1.15.39)
+Requires-Dist: certifi (==2020.4.5.1)
+Requires-Dist: chalice (==1.13.1)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: click (==7.1.1)
+Requires-Dist: docutils (==0.15.2)
+Requires-Dist: enum-compat (==0.0.3)
+Requires-Dist: idna (==2.9)
+Requires-Dist: importlib-metadata (==1.6.0)
+Requires-Dist: Jinja2 (==2.11.1)
+Requires-Dist: jmespath (==0.9.5)
+Requires-Dist: keyring (==21.2.0)
+Requires-Dist: logzero (==1.5.0)
+Requires-Dist: MarkupSafe (==1.1.1)
+Requires-Dist: pkginfo (==1.5.0.1)
+Requires-Dist: Pygments (==2.6.1)
+Requires-Dist: PyJWT (==1.7.1)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: python-dotenv (==0.12.0)
+Requires-Dist: python-redis-cache (==1.1.0)
+Requires-Dist: readme-renderer (==25.0)
+Requires-Dist: redis (==3.4.1)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: requests-toolbelt (==0.9.1)
+Requires-Dist: six (==1.14.0)
+Requires-Dist: SQLAlchemy (==1.3.16)
+Requires-Dist: SQLAlchemy-Utils (==0.36.3)
+Requires-Dist: tqdm (==4.45.0)
+Requires-Dist: typing (==3.6.4)
+Requires-Dist: urllib3 (==1.25.8)
+Requires-Dist: webencodings (==0.5.1)
+Requires-Dist: zipp (==3.1.0)
+
+**Welcome to PPCommons Python 3 Package**
+
+PPCommons package is useful to rapidly create and launch Serverless applications based on AWS Lambda. It is intended to remove overhead of integrating common libraries for setting up basic features such as database integrations, redis based cache integration, basic authentication and authorization features, templating based on Jinja2 template engine and a few other standard business objects. PPCommons is based on AWS Chalice project. 
+
