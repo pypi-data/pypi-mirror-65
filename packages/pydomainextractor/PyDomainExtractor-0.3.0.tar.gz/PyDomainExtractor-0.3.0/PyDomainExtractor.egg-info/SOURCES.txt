@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+PyDomainExtractor.egg-info/PKG-INFO
+PyDomainExtractor.egg-info/SOURCES.txt
+PyDomainExtractor.egg-info/dependency_links.txt
+PyDomainExtractor.egg-info/not-zip-safe
+PyDomainExtractor.egg-info/top_level.txt
+images/logo.png
+src/public_suffix_list.h
+src/pydomainextractor.cpp
+tests/__init__.py
+tests/test_pydomainextractor.py
