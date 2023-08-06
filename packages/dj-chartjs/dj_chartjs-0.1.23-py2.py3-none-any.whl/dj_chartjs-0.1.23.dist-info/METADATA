@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: dj-chartjs
+Version: 0.1.23
+Summary: Library to render chart using chartjs
+Home-page: https://github.com/ramon5/django-charts
+Author: Ramon dos Santos Rodrigues
+Author-email: ramon.srodrigues01@gmail.com
+License: MIT
+Keywords: dj-chartjs
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django :: 1.11
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+
+=============================
+dj-chartjs
+=============================
+
+Documentation
+-------------
+
+The full documentation is at https://django-charts.readthedocs.io/en/latest/
+
+Quickstart
+----------
+
+Install dj-chartjs::
+
+    pip install dj-chartjs
+
+Add it to your `INSTALLED_APPS`:
+
+.. code-block:: python
+
+    INSTALLED_APPS = (
+        ...
+        'dj_chartjs',
+        ...
+    )
+
+**PS: You need define jquery and chartjs libraries in your html section script**
+
+.. code-block:: html
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+
+
+Running Tests
+-------------
+
+Does the code actually work?
+
+::
+
+    source <YOURVIRTUALENV>/bin/activate
+    (myenv) $ pip install tox
+    (myenv) $ tox
+
+
+
+
+
+
+History
+-------
+
+0.1.0 (2020-03-30)
+++++++++++++++++++
+
+* First release on PyPI.
+
+
