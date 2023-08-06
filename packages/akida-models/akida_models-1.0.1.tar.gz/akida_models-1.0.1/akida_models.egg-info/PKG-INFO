@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: akida-models
+Version: 1.0.1
+Summary: Akida Models
+Home-page: https://doc.brainchipinc.com
+Author: Corentin Friedrich
+Author-email: cfriedrich@brainchip.com
+License: Apache 2.0
+Description: # Akida models
+        
+        This package contains a model zoo of pre-created spiking neural network (SNN)
+        models built with the Akida sequential API and the CNN2SNN toolkit using
+        quantized Keras models.
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
