@@ -1,0 +1,6 @@
+[console_scripts]
+manifest-http = manifest.main:run
+manifest-ingest = manifest.main:run
+manifest-s3 = manifest.main:run
+manifest-sftp = manifest.main:run
+
