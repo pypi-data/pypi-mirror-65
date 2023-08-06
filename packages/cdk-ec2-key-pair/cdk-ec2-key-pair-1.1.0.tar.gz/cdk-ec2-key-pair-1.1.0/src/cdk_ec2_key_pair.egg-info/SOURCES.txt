@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cdk_ec2_key_pair/__init__.py
+src/cdk_ec2_key_pair/py.typed
+src/cdk_ec2_key_pair.egg-info/PKG-INFO
+src/cdk_ec2_key_pair.egg-info/SOURCES.txt
+src/cdk_ec2_key_pair.egg-info/dependency_links.txt
+src/cdk_ec2_key_pair.egg-info/requires.txt
+src/cdk_ec2_key_pair.egg-info/top_level.txt
+src/cdk_ec2_key_pair/_jsii/__init__.py
+src/cdk_ec2_key_pair/_jsii/cdk-ec2-key-pair@1.1.0.jsii.tgz

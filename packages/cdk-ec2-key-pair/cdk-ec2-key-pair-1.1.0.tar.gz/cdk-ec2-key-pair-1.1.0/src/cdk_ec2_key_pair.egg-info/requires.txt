@@ -1,0 +1,7 @@
+jsii~=1.1.0
+publication>=0.0.3
+aws-cdk.aws-cloudformation<2.0.0,>=1.24.0
+aws-cdk.aws-iam<2.0.0,>=1.24.0
+aws-cdk.aws-kms<2.0.0,>=1.24.0
+aws-cdk.aws-lambda<2.0.0,>=1.24.0
+aws-cdk.core<2.0.0,>=1.24.0
