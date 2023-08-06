@@ -1,0 +1,6 @@
+from .rsa import *
+
+
+version = "0.1.1"
+keywords = ["easy rsa"]
+entry = "test:main"
