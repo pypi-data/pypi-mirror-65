@@ -1,0 +1,357 @@
+Metadata-Version: 2.1
+Name: guillotina
+Version: 5.3.34
+Summary: asyncio REST API Resource database
+Home-page: https://github.com/plone/guillotina
+Author: Ramon Navarro Bosch & Nathan Van Gheem
+Author-email: ramon@plone.org
+License: BSD
+Description: Introduction
+        ============
+        
+        .. image:: https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat
+           :target: http://guillotina.readthedocs.io/en/latest/
+        
+        .. image:: https://travis-ci.org/plone/guillotina.svg?branch=master
+           :target: https://travis-ci.org/plone/guillotina
+        
+        .. image:: https://codecov.io/gh/plone/guillotina/branch/master/graph/badge.svg
+           :target: https://codecov.io/gh/plone/guillotina/branch/master
+           :alt: Test Coverage
+        
+        .. image:: https://img.shields.io/pypi/pyversions/guillotina.svg
+           :target: https://pypi.python.org/pypi/guillotina/
+           :alt: Python Versions
+        
+        .. image:: https://img.shields.io/pypi/v/guillotina.svg
+           :target: https://pypi.python.org/pypi/guillotina
+        
+        .. image:: https://img.shields.io/pypi/l/guillotina.svg
+           :target: https://pypi.python.org/pypi/guillotina/
+           :alt: License
+        
+        .. image:: https://badges.gitter.im/plone/guillotina.png
+           :target: https://gitter.im/plone/guillotina
+           :alt: Chat
+        
+        Please `read the detailed docs <http://guillotina.readthedocs.io/en/latest/>`_
+        
+        
+        This is the working project of the next generation Guillotina server based on asyncio.
+        
+        
+        Dependencies
+        ------------
+        
+        * Python >= 3.7
+        * PostgreSQL >= 9.6
+        
+        
+        Quickstart
+        ----------
+        
+        We use pip
+        
+        .. code-block:: shell
+        
+            pip install guillotina
+        
+        
+        Run PostgreSQL
+        --------------
+        
+        If you don't have a PostgreSQL server to play with, you can run one with Docker.
+        
+        Download and start the Docker container by running
+        
+        .. code-block:: shell
+        
+            make run-postgres
+        
+        
+        
+        Run the server
+        --------------
+        
+        To run the server
+        
+        .. code-block:: shell
+        
+            g
+        
+        
+        Then...
+        
+        .. code-block:: shell
+        
+            curl http://localhost:8080
+        
+        
+        Or, better yet, use `Postman <https://www.getpostman.com/>`_ to start playing with API.
+        
+        You can also navigate in your Guillotina server with its built-in web admin interface by visiting http://localhost:8080/+admin/.
+        
+        Deploy on Heroku
+        ----------------
+        
+        Read more `Guillotina-Heroku <https://github.com/guillotinaweb/guillotina-heroku>`_.
+        
+        .. image:: https://www.herokucdn.com/deploy/button.svg
+           :target: https://www.heroku.com/deploy?template=https://github.com/guillotinaweb/guillotina-heroku
+        
+        Getting started with development
+        --------------------------------
+        
+        Using pip (requires Python > 3.7)
+        
+        .. code-block:: shell
+        
+            git clone git@github.com:plone/guillotina.git
+            cd guillotina
+            python3.7 -m venv .
+            ./bin/pip install -r requirements.txt
+            ./bin/pip install -r contrib-requirements.txt
+            ./bin/pip install -e .[test]
+            ./bin/pre-commit install
+        
+        
+        Run tests
+        ---------
+        
+        We're using `pytest <https://docs.pytest.org/en/latest/>`_
+        
+        .. code-block:: shell
+        
+            ./bin/pytest guillotina
+        
+        and for test coverage
+        
+        .. code-block:: shell
+        
+            ./bin/pytest --cov=guillotina guillotina/
+        
+        With file watcher...
+        
+        .. code-block:: shell
+        
+            ./bin/ptw guillotina --runner=./bin/py.test
+        
+        
+        To run tests with cockroach db
+        
+        .. code-block:: shell
+        
+            USE_COCKROACH=true ./bin/pytest guillotina
+        
+        Default
+        -------
+        
+        Default root access can be done with AUTHORIZATION header : Basic root:root
+        
+        
+        Docker
+        ------
+        
+        You can also run Guillotina with Docker!
+        
+        
+        First, run PostgreSQL
+        
+        .. code-block:: shell
+        
+            docker run --rm \
+                -e POSTGRES_DB=guillotina \
+                -e POSTGRES_USER=guillotina \
+                -p 127.0.0.1:5432:5432 \
+                --name postgres \
+                postgres:9.6
+        
+        Then, run Guillotina
+        
+        .. code-block:: shell
+        
+            docker run --rm -it \
+                --link=postgres -p 127.0.0.1:8080:8080 \
+                guillotina/guillotina:latest \
+                g -c '{"databases": [{"db": {"storage": "postgresql", "dsn": "postgres://guillotina:@postgres/guillotina"}}], "root_user": {"password": "root"}}'
+        
+        
+        This assumes you have a config.yaml in your current working directory
+        
+        
+        Chat
+        ----
+        
+        Join us to talk about Guillotina at https://gitter.im/plone/guillotina
+        
+        
+        CHANGELOG
+        =========
+        
+        5.3.34 (2020-04-14)
+        -------------------
+        
+        - Use bigint for statement replacement values
+          [vangheem]
+        
+        
+        5.3.33 (2020-03-24)
+        -------------------
+        
+        - Error handling: ValueDeserializationError editing registry value
+          [vangheem]
+        
+        - Handle db transaction closed while acquiring transaction lock
+          [vangheem]
+        
+        - Handle db transaction closed while acquiring lock
+          [vangheem]
+        
+        - Handle connection errors on file head requests
+          [vangheem]
+        
+        
+        5.3.32 (2020-03-06)
+        -------------------
+        
+        - Fix integer query param validation [lferran]
+        
+        
+        5.3.31 (2020-02-28)
+        -------------------
+        
+        - Be able to have async schema invariants
+          [vangheem]
+        
+        
+        5.3.30 (2020-02-24)
+        -------------------
+        
+        - Provide better validation for json schema field
+          [vangheem]
+        
+        
+        5.3.29 (2020-02-21)
+        -------------------
+        
+        - Handle error when "None" value provided for behavior data
+          [vangheem]
+        
+        
+        5.3.28 (2020-02-20)
+        -------------------
+        
+        - Handle connection reset errors when downloading files
+          [vangheem]
+        
+        
+        5.3.27 (2020-02-13)
+        -------------------
+        
+        - Add `max_ops` property to `PatchField`, `BucketListField` and `BucketDictField`
+          [vangheem]
+        
+        - Add clear action to list, dict and annotation patch fields
+          [vangheem]
+        
+        
+        5.3.26 (2020-02-12)
+        -------------------
+        
+        - Improve performance of bucket dict field
+          [vangheem]
+        
+        
+        5.3.25 (2020-02-11)
+        -------------------
+        
+        - Fix storages integration with some asyncpg pool settings
+          [vangheem]
+        
+        
+        5.3.24 (2020-02-06)
+        -------------------
+        
+        - Fix release
+          [vangheem]
+        
+        
+        5.3.23 (2020-02-06)
+        -------------------
+        
+        - Be able to configure `max_inactive_connection_lifetime` and `max_queries`
+          of pg pool.
+          [vangheem]
+        
+        - Do not have timeout when closing pg connection.
+          [vangheem]
+        
+        
+        5.3.22 (2020-02-05)
+        -------------------
+        
+        - Fix asyncpg integration with connection leaks on timeout
+          [vangheem]
+        
+        
+        5.3.21 (2020-02-04)
+        -------------------
+        
+        - Validate POST @sharing payload too [lferran]
+        
+        
+        5.3.20 (2020-02-01)
+        -------------------
+        
+        - Be able to customize pg db in test fixtures
+          [vangheem]
+        
+        5.3.19 (2020-02-01)
+        -------------------
+        
+        - fix release
+          [vangheem]
+        
+        
+        5.3.18 (2020-01-31)
+        -------------------
+        
+        - add IAnnotations.async_del type annotation
+          [vangheem]
+        
+        
+        5.3.17 (2020-01-31)
+        -------------------
+        
+        - Add pg db constraint for annotation data
+          [vangheem]
+        
+        
+        5.3.16 (2020-01-30)
+        -------------------
+        
+        - more IRequest type hints
+          [vangheem]
+        
+        
+        ...
+        
+        You are seeing a truncated changelog.
+        
+        You can read the `changelog file <https://github.com/plone/guillotina/blob/master/CHANGELOG.rst>`_
+        for a complete list.
+        
+        
+Keywords: asyncio,REST,Framework,transactional
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7.0
+Provides-Extra: docs
+Provides-Extra: mailer
+Provides-Extra: redis
+Provides-Extra: test
