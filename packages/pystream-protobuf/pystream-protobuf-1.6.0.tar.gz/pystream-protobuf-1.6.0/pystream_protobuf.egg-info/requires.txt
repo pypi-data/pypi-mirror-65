@@ -1,0 +1,8 @@
+protobuf>=3.4.0
+async_generator>=1.10
+click>=6.0.0
+future
+
+[test]
+nose>=1.0
+coverage
