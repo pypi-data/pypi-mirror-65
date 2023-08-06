@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: pandemic
+Version: 0.1.7
+Summary: Orstein-Uhlenbeck pandemic simulation
+Home-page: https://github.com/microprediction/pandemic
+Author: microprediction
+Author-email: info@microprediction.org
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pathlib
+Requires-Dist: matplotlib
+Requires-Dist: contexttimer
+Requires-Dist: requests
+Requires-Dist: python-geohash
+Requires-Dist: deepdiff
+
+# Pandemic
+
+An agent model in which commuting, compliance, testing and contagion parameters drive
+infection in a population. Agents follow OU drift processes
+on the plane. Viral load is estimated from geohashing. A population 
+of 100,000 or so can be run without easily. Contributions are welcome. 
+
+The author is not an epidemiologist. There is nothing sacrosanct about the default parameters. Opinions and issues
+are most welcome. 
+
+![](images/pandemic.png)
+
+![](https://github.com/microprediction/pandemic/blob/master/images/pandemic.png)
+
+### Usage 
+
+    pip install pandemic
+    >> from pandemic import run
+    >> run()
+
+
+### Basic elements of the model 
+
+Covered in this post 
+
