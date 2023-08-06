@@ -1,0 +1,2 @@
+"use strict";define([],(function(){return{openUrl:function openUrl(url,target){window.NativeShell?window.NativeShell.openUrl(url,target):window.open(url,target||"_blank")},enableFullscreen:function enableFullscreen(){window.NativeShell&&window.NativeShell.enableFullscreen()},disableFullscreen:function disableFullscreen(){window.NativeShell&&window.NativeShell.disableFullscreen()}}}));
+//# sourceMappingURL=shell.js.map

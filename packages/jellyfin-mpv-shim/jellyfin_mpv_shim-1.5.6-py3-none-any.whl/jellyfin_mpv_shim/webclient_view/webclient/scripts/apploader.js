@@ -1,0 +1,2 @@
+"use strict";window.appMode="standalone",function(){function injectScriptElement(src,onload){if(src){var script=document.createElement("script");self.dashboardVersion&&(src+="?v="+self.dashboardVersion),script.src=src,onload&&(script.onload=onload),document.head.appendChild(script)}}function loadSite(){injectScriptElement("./libraries/alameda.js",(function(){injectScriptElement("./scripts/site.js")}))}self.Promise?loadSite():injectScriptElement("./libraries/npo.js",loadSite)}();
+//# sourceMappingURL=apploader.js.map
