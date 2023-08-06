@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: py-antilibrary
+Version: 0.0.3
+Summary: API Client for antilibrary.xyz, a demo app for thundergolfer/example-bazel-monorepo
+Home-page: https://github.com/thundergolfer/example-bazel-monorepo/
+Author: Jonathon Belotti
+Author-email: jonathon.i.belotti@gmail.com
+License: MIT
+Description: ## `py_antilibrary` - API Client for antilibrary.xyz
+        
+        This package is [released on PyPi](https://pypi.org/project/py-antilibrary/).
+        
+        ### Usage
+        
+        ```python
+        antilibrary = py_antilibrary.Client()
+        
+        b = antilibrary.get_book(id=2)
+        ```
+        
+Keywords: antilibrary apiwrapper apiclient demo
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Description-Content-Type: text/markdown
