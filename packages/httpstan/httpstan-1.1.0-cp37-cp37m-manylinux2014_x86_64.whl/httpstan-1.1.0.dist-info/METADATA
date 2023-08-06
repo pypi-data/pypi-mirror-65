@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: httpstan
+Version: 1.1.0
+Summary: HTTP-based interface to Stan, a package for Bayesian inference.
+License: ISC
+Author: Allen Riddell
+Author-email: riddella@indiana.edu
+Requires-Python: >=3.7.2,<4.0.0
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Cython (>=0.29,<0.30)
+Requires-Dist: aiohttp (>=3.6,<4.0)
+Requires-Dist: appdirs (>=1.4,<2.0)
+Requires-Dist: marshmallow (>=3.2,<4.0)
+Requires-Dist: numpy (>=1.7,<2.0)
+Requires-Dist: protobuf (>=3.11,<4.0)
+Requires-Dist: webargs (>=5.5,<6.0)
