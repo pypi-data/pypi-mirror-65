@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: django-ibanfield
+Version: 0.0.2
+Summary: IBAN field for django with account validation
+Home-page: https://github.com/KeoH/django-ibanfield
+Author: Francisco Manzano Magaña
+Author-email: keoh77@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: Spanish
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest (>=5.4.1) ; extra == 'dev'
+Requires-Dist: Django (>=2.2.10) ; extra == 'dev'
+
+# Django IBAN Field
+[![Build Status](https://travis-ci.org/KeoH/django-ibanfield.svg?branch=master)](https://travis-ci.org/KeoH/django-ibanfield)
+[![Coverage Status](https://coveralls.io/repos/github/KeoH/django-ibanfield/badge.svg?branch=master)](https://coveralls.io/github/KeoH/django-ibanfield?branch=master)
+
+IBANField is an extension for django CharField with special validation for IBAN accounts.
+
+## Install
+
+You can install django-ibanfield with pip as usual o pipenv
+
+```bash
+    $> pip install django-ibanfield
+```
+
+```bash
+    $> pipenv install django-ibanfield
+```
+
+## Usage
+
+Use IBANField on your models, like any other django models fields.
+
+```python
+    from django_ibanfield.fields import IBANField
+
+    class MyModel(models.Model):
+
+        account = IBANField()
+```
+
+
