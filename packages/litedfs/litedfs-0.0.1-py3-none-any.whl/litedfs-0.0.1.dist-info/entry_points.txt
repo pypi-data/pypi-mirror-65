@@ -1,0 +1,5 @@
+[console_scripts]
+litedata = litedfs.data.data:main
+litedfs = litedfs.tool.litedfs:main
+litename = litedfs.name.name:main
+
