@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: kcc-example-package
+Version: 0.1.1
+Summary: Example to test setting up a pip package.
+Home-page: https://github.com/kcc3/kcc-example-package
+Author: Kevin Chang
+Author-email: kevin.chaohwa.chang@gmail.com
+License: LICENSE
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Description-Content-Type: text/markdown
+
+# kcc_example_package
+
+kcc_example_package is an example Python package for messing with pip packages
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install kcc_example_package.
+
+```bash
+pip install kcc_example_package
+```
+
+## Usage
+
+```python
+from kcc_example_package import kcc_example
+
+kcc_example.example_functio() # returns "Hello World!"
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
