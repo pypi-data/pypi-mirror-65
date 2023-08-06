@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: s3-extend
+Version: 1.12
+Summary: A Non-Blocking Event Driven Applications Framework
+Home-page: https://github.com/MrYsLab/s3-extend
+Author: Alan Yorinks
+Author-email: MisterYsLab@gmail.com
+License: GNU Affero General Public License v3 or later (AGPLv3+)
+Description: # Scratch 3 OneGPIO Extension Servers
+        
+        ## Control your favorite physical computing device using Scratch 3.
+        
+        ## For installation and usage, read the [Installation and User's Guide.](https://mryslab.github.io/s3-extend/)
+        
+        
+Keywords: Scratch3,Arduino,ESP-8266,Raspberry Pi
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Education
+Classifier: Topic :: Software Development
+Classifier: Topic :: System :: Hardware
+Description-Content-Type: text/markdown
