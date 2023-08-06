@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: flutes
+Version: 0.1
+Summary: Utilities to charm your Python
+Home-page: https://github.com/huzecong/flutes
+Author: Zecong Hu
+Author-email: huzecong@gmail.com
+License: MIT License
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: ipython
+Requires-Dist: psutil
+Requires-Dist: termcolor (>=1.0)
+Requires-Dist: tqdm (>=4.0)
+
+# Flutes
+
+[![Build Status](https://github.com/huzecong/flutes/workflows/Build/badge.svg)](https://github.com/huzecong/flutes/actions?query=workflow%3ABuild+branch%3Amaster)
+[![CodeCov](https://codecov.io/gh/huzecong/flutes/branch/master/graph/badge.svg?token=ELHfYJ2Ydq)](https://codecov.io/gh/flutes/argtyped)
+[![PyPI](https://img.shields.io/pypi/v/flutes.svg)](https://pypi.org/project/flutes/)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/huzecong/flutes/blob/master/LICENSE)
+
+> The utilities you need to charm your Python
+
+`flutes` is a set of handy utilities for Python 3.6+. All tools are type checked and test covered.
+
+
