@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: http://127.0.0.1:33113/rest/bug?f1=flagtypes.name&include_fields=blocks&include_fields=cc&include_fields=cf_stabilisation_atoms&include_fields=component&include_fields=depends_on&include_fields=flags&include_fields=id&include_fields=product&include_fields=resolution&o1=anywords&v1=sanity-check%2B&v1=sanity-check-
+  response:
+    body:
+      string: '{"bugs":[{"cc_detail":[{"id":3,"email":"alpha@gentoo.org","name":"alpha@gentoo.org","real_name":"ALPHA
+        arch team"},{"email":"hppa@gentoo.org","id":5,"name":"hppa@gentoo.org","real_name":"HPPA
+        arch team"}],"cf_stabilisation_atoms":"dev-python/unittest-mixins-1.6\r\ndev-python/coverage-4.5.4","id":2,"cc":["alpha@gentoo.org","hppa@gentoo.org"],"depends_on":[1],"resolution":"","flags":[{"creation_date":"2020-04-03T13:34:59Z","modification_date":"2020-04-03T13:34:59Z","type_id":1,"name":"sanity-check","status":"+","setter":"nattka@gentoo.org","id":2}],"component":"Keywording","product":"Gentoo
+        Linux","blocks":[9]},{"blocks":[],"product":"Gentoo Linux","flags":[{"id":3,"type_id":1,"modification_date":"2020-04-03T13:35:02Z","creation_date":"2020-04-03T13:35:02Z","setter":"nattka@gentoo.org","status":"-","name":"sanity-check"}],"component":"Stabilization","resolution":"","depends_on":[7],"cc":["amd64@gentoo.org"],"cf_stabilisation_atoms":"dev-python/mako-1.1.0
+        amd64","id":3,"cc_detail":[{"id":4,"email":"amd64@gentoo.org","real_name":"AMD64
+        arch team","name":"amd64@gentoo.org"}]}]}'
+    headers:
+      Access-control-allow-headers:
+      - origin, content-type, accept, x-requested-with
+      Access-control-allow-origin:
+      - '*'
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-security-policy:
+      - frame-ancestors 'self'
+      Date:
+      - Wed, 08 Apr 2020 15:23:57 GMT
+      Etag:
+      - IHd1Ba+cBd9uo0qlKPnzrA
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+      Transfer-Encoding:
+      - chunked
+      X-content-type-options:
+      - nosniff
+      X-frame-options:
+      - SAMEORIGIN
+      X-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

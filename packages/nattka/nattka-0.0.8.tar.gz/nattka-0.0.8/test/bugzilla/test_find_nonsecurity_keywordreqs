@@ -1,0 +1,54 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.23.0
+    method: GET
+    uri: http://127.0.0.1:33113/rest/bug?component=Keywording&include_fields=blocks&include_fields=cc&include_fields=cf_stabilisation_atoms&include_fields=component&include_fields=depends_on&include_fields=flags&include_fields=id&include_fields=product&include_fields=resolution&product=Gentoo+Linux
+  response:
+    body:
+      string: '{"bugs":[{"resolution":"","cc_detail":[{"id":3,"email":"alpha@gentoo.org","real_name":"ALPHA
+        arch team","name":"alpha@gentoo.org"},{"name":"hppa@gentoo.org","real_name":"HPPA
+        arch team","id":5,"email":"hppa@gentoo.org"}],"cc":["alpha@gentoo.org","hppa@gentoo.org"],"blocks":[9],"id":2,"component":"Keywording","product":"Gentoo
+        Linux","cf_stabilisation_atoms":"dev-python/unittest-mixins-1.6\r\ndev-python/coverage-4.5.4","depends_on":[1],"flags":[{"id":2,"modification_date":"2020-04-03T13:34:59Z","creation_date":"2020-04-03T13:34:59Z","type_id":1,"setter":"nattka@gentoo.org","name":"sanity-check","status":"+"}]},{"cf_stabilisation_atoms":"dev-python/urllib3-1.25.8\r\ndev-python/trustme-0.6.0\r\ndev-python/brotlipy-0.7.0","depends_on":[],"flags":[],"component":"Keywording","product":"Gentoo
+        Linux","id":4,"blocks":[],"cc":["hppa@gentoo.org"],"cc_detail":[{"email":"hppa@gentoo.org","id":5,"name":"hppa@gentoo.org","real_name":"HPPA
+        arch team"}],"resolution":""},{"cc":[],"resolution":"","cc_detail":[],"product":"Gentoo
+        Linux","component":"Keywording","depends_on":[2],"cf_stabilisation_atoms":"dev-python/frobnicate-11","flags":[],"blocks":[],"id":9}]}'
+    headers:
+      Access-control-allow-headers:
+      - origin, content-type, accept, x-requested-with
+      Access-control-allow-origin:
+      - '*'
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-security-policy:
+      - frame-ancestors 'self'
+      Date:
+      - Wed, 08 Apr 2020 15:23:54 GMT
+      Etag:
+      - 499mmPi2te/AeQ2SXbdHug
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+      Transfer-Encoding:
+      - chunked
+      X-content-type-options:
+      - nosniff
+      X-frame-options:
+      - SAMEORIGIN
+      X-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
