@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ubc
+Version: 0.0.2
+Summary: Utility Bill Calculator
+Author: Thomas Tu
+Author-email: thomasthetu@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: altair (>=4.1.0,<5.0.0)
+Requires-Dist: dynaconf (>=2.2.3,<3.0.0)
+Requires-Dist: jmespath (>=0.2.1,<0.3.0)
+Requires-Dist: pandas (>=1.0.3,<2.0.0)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
