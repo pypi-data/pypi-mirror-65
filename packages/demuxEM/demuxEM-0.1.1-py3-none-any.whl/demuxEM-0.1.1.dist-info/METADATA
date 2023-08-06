@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: demuxEM
+Version: 0.1.1
+Summary: demuxEM is the demultiplexing module of Pegasus
+Home-page: https://github.com/klarman-cell-observatory/demuxEM
+Author: Yiming Yang, Joshua Gould and Bo Li
+Author-email: cumulus-support@googlegroups.com
+License: UNKNOWN
+Keywords: demultiplexing cell/nucleus hashing single-cell data
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Framework :: Jupyter
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: ~=3.5
+Requires-Dist: docopt
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: seaborn
+Requires-Dist: pegasusio
+
+==================================================================
+demuxEM for demultiplexing cell/nucleus hashing single-cell data
+==================================================================
+
+|PyPI|
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/demuxEM.svg
+   :target: https://pypi.org/project/demuxEM
+
+
+demuxEM is the demultiplexing module of Pegasus.
+
+`Read documentation <http://pegasus.readthedocs.io>`__
+
+
