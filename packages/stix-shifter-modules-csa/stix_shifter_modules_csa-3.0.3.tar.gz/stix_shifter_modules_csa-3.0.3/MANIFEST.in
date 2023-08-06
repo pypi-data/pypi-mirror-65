@@ -1,0 +1,16 @@
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE.txt
+
+# Include JSON files (generated values)
+include stix_shifter_modules/csa/stix_translation/json/at_event_fields.json 
+include stix_shifter_modules/csa/stix_translation/json/at_from_stix_map.json 
+include stix_shifter_modules/csa/stix_translation/json/at_to_stix_map.json 
+include stix_shifter_modules/csa/stix_translation/json/from_stix_map.json 
+include stix_shifter_modules/csa/stix_translation/json/network_protocol_map.json 
+include stix_shifter_modules/csa/stix_translation/json/nf_event_fields.json 
+include stix_shifter_modules/csa/stix_translation/json/nf_from_stix_map.json 
+include stix_shifter_modules/csa/stix_translation/json/nf_to_stix_map.json 
+include stix_shifter_modules/csa/stix_translation/json/to_stix_map.json 
