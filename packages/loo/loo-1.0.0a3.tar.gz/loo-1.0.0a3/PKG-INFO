@@ -1,0 +1,21 @@
+Metadata-Version: 1.0
+Name: loo
+Version: 1.0.0a3
+Summary: LooMan Cli
+Home-page: https://github.com/LooMan/looman-cli
+Author: Fredrik Larsson
+Author-email: larsson.fredrik31@gmail.com
+License: MIT
+Description: # looman-cli
+        
+        ## Install 
+        `pip install loo`
+        
+        ## Upgrade
+        `pip install loo --upgrade`
+        
+        ## Upload new version
+        `python setup.py sdist bdist_wheel`
+        
+        `twine upload dist/*`
+Platform: UNKNOWN

@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+loo/__init__.py
+loo/__main__.py
+loo/cli.py
+loo/commands/__init__.py
+loo/commands/generate.py
