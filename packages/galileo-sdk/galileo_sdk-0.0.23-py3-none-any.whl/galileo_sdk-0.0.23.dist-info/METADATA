@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: galileo-sdk
+Version: 0.0.23
+Summary: UNKNOWN
+Home-page: https://hypernetwork.io/
+Author: Hypernet Labs
+Author-email: hypernet@hypernetlabs.io
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=2.7
+Requires-Dist: requests (>=2.21.0)
+Requires-Dist: python-socketio[client] (==4.3.1)
+Requires-Dist: python-engineio (==3.9.0)
+Provides-Extra: docs
+Requires-Dist: sphinx (>=2.2.0) ; extra == 'docs'
+Requires-Dist: sphinx-material ; extra == 'docs'
+
+Galileo is a hub for modeling, simulations, and data analysis that functions as a quick and easy portal to cloud resources.  The application streamlines computing infrastructure, saving engineers and researchers weeks of cloud setup time.  Team and station features allow teams to collaborate efficiently by sharing projects and results, flexibly controlling permissions, and easily tracking their model version histories.
+The Galileo SDK is an API that allows users to interact with Galileo using a Python script instead of a graphical interface.  Use the SDK to automate processes such as scheduling jobs, automatically deploying jobs, accepting jobs, and accepting members.
+
