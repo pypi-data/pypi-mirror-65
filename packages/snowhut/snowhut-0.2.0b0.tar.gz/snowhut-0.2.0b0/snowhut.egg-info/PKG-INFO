@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: snowhut
+Version: 0.2.0b0
+Summary: A small package that simplifies connection to Pizza Hut's internal snowflake environment.
+Home-page: https://github.com/pizzahutdigital/snowflake_ph
+Author: Jon McCarble
+Author-email: jon.mccarble@yum.com
+License: UNKNOWN
+Download-URL: https://github.com/pizzahutdigital/snowflake_ph/dist/snowhut-0.2.0b0.tar.gz
+Description: # snowflake
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
