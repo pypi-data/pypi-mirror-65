@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: hub20
+Version: 0.1.0
+Summary: ## Welcome to Hub20 
+Requires-Dist: attributedict
+Requires-Dist: celery
+Requires-Dist: channels
+Requires-Dist: channels-redis
+Requires-Dist: django (==2.2.10)
+Requires-Dist: django-allauth
+Requires-Dist: django-cors-headers
+Requires-Dist: django-invitations
+Requires-Dist: django-ipware
+Requires-Dist: django-model-utils
+Requires-Dist: django-pdb
+Requires-Dist: django-qr-code
+Requires-Dist: django-redis
+Requires-Dist: djangorestframework
+Requires-Dist: django-rest-auth
+Requires-Dist: django-smtp-ssl
+Requires-Dist: django-money
+Requires-Dist: ethereum
+Requires-Dist: eth-abi
+Requires-Dist: ethtoken
+Requires-Dist: factory-boy
+Requires-Dist: mypy-extensions
+Requires-Dist: psycopg2-binary
+Requires-Dist: pycoingecko
+Requires-Dist: pycryptodome
+Requires-Dist: pyjwt
+Requires-Dist: pytest-asyncio
+Requires-Dist: pytest-django
+Requires-Dist: pytest-env
+Requires-Dist: python-dotenv
+Requires-Dist: remote-pdb
+Requires-Dist: raiden-contracts
+Requires-Dist: uvicorn
+Requires-Dist: web3 (<6.0.0,>=5.4.0)
+
+Hub20 is a very-early stage open source, self-hosted online payment
+solution that can be considered as the Ethereum equivalent of
+[BTCPayServer](https://btcpayserver.org) payment gateway, allowing
+users to collect payments in Ethereum and any ERC20 token.
+
+Hub20 also provides integration with [Raiden](https://raiden.network),
+so that if you have a node running you should be able to accept and
+send payments of ERC20 tokens with near-zero fees.
+
+The possiblity of having low-fee payments, irreversibility of
+transactions and the usage of stablecoins such as
+[DAI](https://makerdao.com) make hub20 a very compelling offer for
+anyone that wants to receive payments online.
+
+### More than a payment gateway
+
+Hub20 also allows users *sending* their tokens to either other users
+of the hub as well as to any ethereum address, effectively turning any
+deployment of a hub20 server into an exclusive Paypal/Venmo/cryptobank
+for its users.
+
+This works because hub20 offers the possibility of using custodial
+wallets for managing its funds. While this is not ideal for large
+deployments such as companies and crypto exchanges, for a self-hosted
+service this is more acceptable because the node operator is the one
+effectively controlling the wallets and therefore its keys.
+
+This also opens the possibility for, e.g, enthusiasts to set up a
+hub20 node for their non-technical friends and family (i.e, people
+that are within their circle of trust) so that they can have an easy
+way to do transactions in cryptocurrency without ever having to deal
+with anything that hinders adoption: nothing to learn about wallets,
+no access to exchanges needed, no KYC, etc.
+
+
+Home-page: https://github.com/mushroomlabs/hub20
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: hub20 ethereum payment-gateway
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
