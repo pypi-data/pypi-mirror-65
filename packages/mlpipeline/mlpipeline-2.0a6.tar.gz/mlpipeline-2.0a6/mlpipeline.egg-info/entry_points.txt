@@ -1,0 +1,5 @@
+[console_scripts]
+_mlpipeline_subprocess_old = mlpipeline._pipeline_subprocess:main
+mlpipeline = mlpipeline._cli:cli
+mlpipeline_old = mlpipeline._pipeline:main
+
