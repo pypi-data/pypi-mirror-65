@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: covid-ru
+Version: 0.0.6
+Summary: Getting latest covid-19 stats in Russia to your cli
+Home-page: https://github.com/strizhechenko/covid-ru
+Author: Oleg Strizhechenko
+Author-email: oleg.strizhechenko@gmail.com
+License: MIT
+Description: covid-ru
+        --------
+        
+        .. |pypi| image:: https://badge.fury.io/py/covid-ru.svg
+           :target: https://badge.fury.io/py/covid-ru
+        .. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg?colorB=green
+           :target: https://opensource.org/licenses/MIT
+        .. |pyversions| image:: https://img.shields.io/pypi/pyversions/covid-ru.svg?colorB=green
+           :target: https://pypi.python.org/pypi/covid-ru
+           
+        |pypi| |pyversions| |license|
+        
+        Getting latest covid-19 stats in Russia to your cli from `стопкоронавирус.рф <https://стопкоронавирус.рф>`_
+        
+        Synopsis
+        ========
+        
+        ``covid-ru [--all|--dead|--tests|--cases|--recovered]``
+        
+        Installation
+        ============
+        
+        ``pip install covid-ru``
+        
+        Description
+        ===========
+        
+        covid-ru is a small command-line tool that gets latest covid-19 in Russia stats.
+        
+        Bugs
+        ====
+        
+        Bugs should be reported `here <https://github.com/strizhechenko/covid-ru/issues>`_.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: Public Domain
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary
+Classifier: Programming Language :: Python :: 3.7
