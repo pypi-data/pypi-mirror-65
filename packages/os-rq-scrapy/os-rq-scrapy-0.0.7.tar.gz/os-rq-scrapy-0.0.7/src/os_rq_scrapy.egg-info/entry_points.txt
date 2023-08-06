@@ -1,0 +1,3 @@
+[console_scripts]
+rq-scrapy = rq_scrapy.cmdline:execute
+
