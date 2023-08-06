@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: mgefinder
+Version: 1.0.3
+Summary: A toolbox for identifying mobile genetic element (MGE) insertions from short-read sequencing data of bacterial isolates.
+Home-page: https://github.com/bhattlab/MGEfinder
+Author: Matt Durrant
+Author-email: mdurrant@stanford.edu
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: click
+Requires-Dist: pandas
+Requires-Dist: biopython
+Requires-Dist: pysam
+Requires-Dist: editdistance
+Requires-Dist: scipy
+Requires-Dist: networkx
+Requires-Dist: tqdm
+
+UNKNOWN
+
+
