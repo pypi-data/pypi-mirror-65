@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+"""
+A simple script that describes the main functionalities of the antimait library.
+A gateway object is instantiated that listens for devices connected through serial ports;
+the main way to customize its behaviour is by redefining its on_connect and attaching DataReceivers
+through it.
+
+The following example generates a plot for each device connected in the current working directory and
+prints the data as it comes.
+"""
+
+import logging
+import antimait
+import antimait.plotting
+
+logging.basicConfig(level=logging.INFO)
+
+gw = antimait.Gateway()
+
+
+def on_connect(interface: antimait.CommInterface, description: str) -> None:
+    printer = antimait.Printer()
+    interface.attach(printer)
+
+
+gw.on_connect = on_connect
+
+try:
+    print("Antima printer script - use CTRL+C to close")
+    gw.listen_forever()
+except KeyboardInterrupt:
+    print("Bye!")
+    gw.close()
