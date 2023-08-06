@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: datastructs-sparkles58
+Version: 1.0.1
+Summary: Queues and trees.
+Home-page: https://github.com/sparklesunicorn/datastructs
+Author: Ezra SB
+Author-email: ezzysuger717@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Datastructs
+
+Datastructs is a small module containing trees and queues.
+
+## Queues
+
+Queues are very simple. To create one, you can just use queue() with an iterable inside, or nothing to create an empty queue. They have two
+functions: enqueue(value), which inserts a given value to the beginning of the queue, and dequeue(), which removes the last element and
+returns it.
+
+## Trees and nodes
+
+Trees and nodes are a bit more complicated. To create a tree, you can use tree(), with a value for the base node, or nothing to have the
+value be None. Nodes have a few functions. First there is set(value) which sets the value of the node, set_parent(node) which changes
+its parent node, add_child(value) which adds a child with that values to that nodes "children" list, and remove_child(node), which removes
+a child. The tree has an update() function, where you can optionally give it a new base node, and you never truly need to call it, as all
+of the node functions call it themselves. Nodes are indexed in a specific way in a tree's "nodes" list. It is a nested list, where each
+index of the list contains the nodes in that layer. Layer 0 is the base node, layer 1 is its children, and so on.
+
