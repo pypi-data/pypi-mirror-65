@@ -1,0 +1,17 @@
+[project]
+name = "orjson"
+repository = "https://github.com/ijl/orjson"
+
+[build-system]
+build-backend = "maturin"
+requires = ["maturin>=0.8,<0.9"]
+
+[tool.maturin]
+manylinux = "off"
+rustc-extra-args = "-Zmutable-noalias -C target-feature=+sse2"
+strip = "on"
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py37', 'py38']
+include = '\.pyi?$'
