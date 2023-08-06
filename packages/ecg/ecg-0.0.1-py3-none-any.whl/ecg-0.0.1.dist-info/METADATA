@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ecg
+Version: 0.0.1
+Summary: Test
+Home-page: https://your.url.com
+Author: Christian Baumann
+Author-email: your.name@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# StoryTime
+Diary-like GUI written in python.
+
+
