@@ -1,0 +1,9 @@
+features:
+  - name: sourcegraph
+    value: true
+    projects:
+      - mygroup/myproject
+    users:
+      - testuser
+    groups:
+      - testgroup

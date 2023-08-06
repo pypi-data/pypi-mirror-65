@@ -1,0 +1,20 @@
+# Reference: https://docs.gitlab.com/12.4/ee/api/settings.html
+settings:
+  asset_proxy:
+    enabled: False
+  external_authorization_service: !include external_auth.yml
+  recaptcha_enabled: !env RECAPTCHA_ENABLED:True # True if RECAPTCHA_ENABLED is not found in environment
+  repository_storages:
+    - !env REPO_STORAGE_1
+    - !env REPO_STORAGE_2
+    - /some/defined/repo/path
+  plantuml:
+    enabled: True
+    url: 'http://plantuml.url'
+
+license:
+  starts_at: 2019-11-17
+  expires_at: 2019-12-17
+  plan: premium
+  user_limit: 30
+  data: !env GITLAB_LICENSE

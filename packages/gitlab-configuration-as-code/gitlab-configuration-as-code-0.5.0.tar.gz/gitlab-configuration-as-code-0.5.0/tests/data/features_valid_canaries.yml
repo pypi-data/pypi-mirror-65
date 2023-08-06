@@ -1,0 +1,9 @@
+features:
+  - name: sourcegraph
+    value: true
+    projects:
+      - group1/project1
+      - group2/project2
+    users:
+      - user1
+      - user2
