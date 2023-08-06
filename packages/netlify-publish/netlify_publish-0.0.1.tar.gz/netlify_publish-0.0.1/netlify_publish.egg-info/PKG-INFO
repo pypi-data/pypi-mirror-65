@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: netlify-publish
+Version: 0.0.1
+Summary: Publish to netlify
+Home-page: https://github.com/commits-generation/netlify-publish
+Author: Wassim Benzarti
+Author-email: m.wassim.benzarti@gmail.com
+License: UNKNOWN
+Description: # Netlify deploy
+        #### This is used for publishing static files
+        Publish static files easily using the `deploy()` function
+        
+        ```python
+        
+        from netlify_publish.publish import deploy
+        deploy("/tmp/*.html", "domain.netlify.com", "<personal_access_token>", 
+        		temp_zip_path="/temp/temp.zip")
+        
+        ```
+        
+        - personal_access_token: you can get it from [here](https://app.netlify.com/user/applications)
+        - temp_zip_path: is optional
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

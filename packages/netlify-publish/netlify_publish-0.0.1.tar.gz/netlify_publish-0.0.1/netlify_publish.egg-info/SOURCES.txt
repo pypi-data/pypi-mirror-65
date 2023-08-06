@@ -1,0 +1,15 @@
+.gitignore
+LICENSE
+README.md
+build.sh
+publish.sh
+pyvenv.cfg
+requirements.txt
+setup.py
+.github/workflows/pythonpackage.yml
+netlify_publish/__init__.py
+netlify_publish/publish.py
+netlify_publish.egg-info/PKG-INFO
+netlify_publish.egg-info/SOURCES.txt
+netlify_publish.egg-info/dependency_links.txt
+netlify_publish.egg-info/top_level.txt
