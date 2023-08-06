@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: gnne
+Version: 0.0.4
+Summary: A Graph Neural Network Embedding Package
+Home-page: https://github.com/NELSONZHAO/GNNE
+Author: Nelson Zhao
+Author-email: dutzhaoyeyu@163.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# GNNE
+
+GNNE: Abbreviation of Graph Neural Network Embeddings. This repo mainly implements the mainstream Graph Embedding algorithm, which can quickly and efficiently help researchers conduct model experiments.
+
