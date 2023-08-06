@@ -1,0 +1,15 @@
+numpy
+scipy
+natsort
+Pillow<=7.0.0
+tqdm
+numba
+scikit-image
+matplotlib
+mxnet_mkl
+opencv_python
+
+[gui]
+pyqtgraph
+PyQt5
+google-cloud-storage
