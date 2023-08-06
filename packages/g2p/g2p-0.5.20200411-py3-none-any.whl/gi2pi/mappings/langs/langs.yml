@@ -1,0 +1,29 @@
+- name: Gitksan
+  code: git
+  tables:
+    - name: Orthography
+      table: Orthography.csv
+      abbreviations: Ortho_variables.csv
+    - name: Orthography (Deterministic)
+      table: Orthography_Deterministic.csv
+      abbreviations: Ortho_variables.csv
+    - name: Rigsby APA
+      table: RAPA.csv
+    - name: Rigsby APA (Deterministic)
+      table: RAPA_Deterministic.csv
+    - name: APA
+      table: APA.csv
+    - name: Unicode Normalization
+      table: norm.csv
+- name: Heiltsuk
+  code: hei
+  tables:
+    - name: Doulos
+      table: doulos.csv
+- name: Mohawk
+  code: moh
+  tables:
+    - name: Orthography
+      table: orth.csv
+
+  
