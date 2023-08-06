@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: frest
+Version: 0.0.25
+Summary: Write REST API quickly
+Home-page: https://github.com/dcariotti/frest
+Author: Santo Cariotti
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: argparse (==1.1)
+Requires-Dist: flask-mail (==0.9.1)
+Requires-Dist: flask (==1.1.1)
+Requires-Dist: flask-cors (==3.0.8)
+Requires-Dist: flask-sqlalchemy (==2.3.0)
+Requires-Dist: pytz (==2018.5)
+
+UNKNOWN
+
+
