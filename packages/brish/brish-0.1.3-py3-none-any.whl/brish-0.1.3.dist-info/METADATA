@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: brish
+Version: 0.1.3
+Summary: A bridge between zsh and Python.
+Author: NightMachinary
+Author-email: rudiwillalwaysloveyou@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: IPython (>=7.13.0,<8.0.0)
+Requires-Dist: plumbum (>=1.6.9,<2.0.0)
