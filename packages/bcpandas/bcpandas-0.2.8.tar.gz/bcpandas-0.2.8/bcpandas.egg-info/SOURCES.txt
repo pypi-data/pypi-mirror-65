@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+bcpandas/__init__.py
+bcpandas/constants.py
+bcpandas/main.py
+bcpandas/utils.py
+bcpandas.egg-info/PKG-INFO
+bcpandas.egg-info/SOURCES.txt
+bcpandas.egg-info/dependency_links.txt
+bcpandas.egg-info/requires.txt
+bcpandas.egg-info/top_level.txt
+bcpandas/tests/__init__.py
+bcpandas/tests/conftest.py
+bcpandas/tests/test_read_sql.py
+bcpandas/tests/test_to_sql.py
+bcpandas/tests/utils.py
