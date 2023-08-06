@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: TensorFI
+Version: 2.0.0
+Summary: A fault injection tool for TensorFlow-based program
+Home-page: https://github.com/DependableSystemsLab/TensorFI
+Author: DependableSystemsLab
+Author-email: karthikp@ece.ubc.ca
+License: MIT
+Download-URL: https://github.com/DependableSystemsLab/TensorFI/archive/v2.0.0.tar.gz
+Description: TensorFI is a fault injection framework for injecting both hardware and software faults into applications written using the TensorFlow framework.                         Check the GitHub repo for more details
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
