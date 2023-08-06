@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: fuzzy-types
+Version: 0.1.0
+Summary: fuzzywuzzy-based utilities and data structures
+Home-page: https://github.com/havok2063/fuzzy_types
+Author: Brian Cherinka
+Author-email: havok2063@gmail.com
+License: BSD 3-Clause License
+Project-URL: Repository, https://github.com/havok2063/fuzzy_types
+Project-URL: Documentation, https://fuzzy-types.readthedocs.org
+Keywords: python,software
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: fuzzywuzzy[speedup] (>=0.18.0)
+Requires-Dist: pyyaml (>=5.3)
+Provides-Extra: dev
+Requires-Dist: Sphinx (>=2.1.0) ; extra == 'dev'
+Requires-Dist: sphinx-bootstrap-theme (>=0.4.12) ; extra == 'dev'
+Requires-Dist: releases (>=1.6.3) ; extra == 'dev'
+Requires-Dist: ipython (>=7.9.0) ; extra == 'dev'
+Requires-Dist: matplotlib (>=3.1.1) ; extra == 'dev'
+Requires-Dist: flake8 (>=3.7.9) ; extra == 'dev'
+Requires-Dist: doc8 (>=0.8.0) ; extra == 'dev'
+Requires-Dist: pytest (>=5.2.2) ; extra == 'dev'
+Requires-Dist: pytest-cov (>=2.8.1) ; extra == 'dev'
+Requires-Dist: pytest-sugar (>=0.9.2) ; extra == 'dev'
+Requires-Dist: isort (>=4.3.21) ; extra == 'dev'
+Requires-Dist: codecov (>=2.0.15) ; extra == 'dev'
+Requires-Dist: coverage[toml] (>=5.0) ; extra == 'dev'
+Requires-Dist: ipdb (>=0.12.3) ; extra == 'dev'
+Requires-Dist: twine (>=3.1.1) ; extra == 'dev'
+Requires-Dist: wheel (>=0.33.6) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: Sphinx (>=2.1.0) ; extra == 'docs'
+Requires-Dist: sphinx-bootstrap-theme (>=0.4.12) ; extra == 'docs'
+Requires-Dist: releases (>=1.6.3) ; extra == 'docs'
+
+# fuzzy_types
+A collection of "fuzzy" python datatypes and utilities, using `fuzzywuzzy` to allow for fuzzy-string matching.
+
+![Python application](https://github.com/havok2063/fuzzy_types/workflows/Python%20application/badge.svg)
+![Build Sphinx Docs](https://github.com/havok2063/fuzzy_types/workflows/Build%20Sphinx%20Documentation/badge.svg)
+[![Documentation Status](https://readthedocs.org/projects/fuzzy-types/badge/?version=latest)](https://fuzzy-types.readthedocs.io/en/latest/?badge=latest)
+[![Build Status](https://travis-ci.com/havok2063/fuzzy_types.svg?branch=master)](https://travis-ci.com/havok2063/fuzzy_types)
+[![Coverage Status](https://coveralls.io/repos/github/havok2063/fuzzy_types/badge.svg?branch=master)](https://coveralls.io/github/havok2063/fuzzy_types?branch=master)
+[![codecov](https://codecov.io/gh/havok2063/fuzzy_utils/branch/master/graph/badge.svg)](https://codecov.io/gh/havok2063/fuzzy_utils)
+
+
+
