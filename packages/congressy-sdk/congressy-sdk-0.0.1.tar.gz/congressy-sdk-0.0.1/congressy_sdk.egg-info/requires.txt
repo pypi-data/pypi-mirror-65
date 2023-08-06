@@ -1,0 +1,4 @@
+requests<=2.22.0,>=2.18.2
+requests[security]
+validation==0.5.0
+pytz==2019.3
