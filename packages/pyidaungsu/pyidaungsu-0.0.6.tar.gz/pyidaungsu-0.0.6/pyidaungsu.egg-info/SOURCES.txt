@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+pyidaungsu/__init__.py
+pyidaungsu/binaryMarkov.py
+pyidaungsu/converter.py
+pyidaungsu/dataInputStream.py
+pyidaungsu/detector.py
+pyidaungsu/encodings.py
+pyidaungsu/language.py
+pyidaungsu.egg-info/PKG-INFO
+pyidaungsu.egg-info/SOURCES.txt
+pyidaungsu.egg-info/dependency_links.txt
+pyidaungsu.egg-info/requires.txt
+pyidaungsu.egg-info/top_level.txt
+pyidaungsu/model/zawgyiUnicodeModel.dat
