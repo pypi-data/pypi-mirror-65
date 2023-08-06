@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: aiowialon
+Version: 0.0.4b0
+Summary: A small example package
+Home-page: https://github.com/k-vinogradov/aiowialon
+Author: Konstantin Vinogradov
+Author-email: mail@k-vinogradov.ru
+License: UNKNOWN
+Description: # aiowialon
+        
+        Wialon Remote API async client
+        
+        ## Install
+        
+            pip install aiowialon
+        
+        ## Connection and Login
+        
+        ```python
+        from aiowialon import connect
+        
+        token = "WIALON_REMOTE_API_ACCESS_TOKEN"
+        
+        async with connect(token) as session:
+            print(session.username)
+        ```
+        
+        ## Environment Variables
+        
+        
+Keywords: wialon
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
