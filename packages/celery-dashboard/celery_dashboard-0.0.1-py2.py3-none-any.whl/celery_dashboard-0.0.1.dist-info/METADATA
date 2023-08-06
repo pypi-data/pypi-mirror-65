@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: celery-dashboard
+Version: 0.0.1
+Summary: A simple, extensible and full-featured dashboard for celery
+Home-page: UNKNOWN
+Author: Mehdi GMIRA
+License: MIT
+Keywords: celery,python,dashboard,postgresql,sql,database
+Platform: any
+Requires-Python: >=3.5
+Requires-Dist: SQLAlchemy (>=1.1.5)
+Requires-Dist: Flask (>=0.12)
+Requires-Dist: Flask-SQLAlchemy (>=2.1)
+Requires-Dist: celery (>=3.1)
+Requires-Dist: psycopg2 (>=2.7.4)
+Requires-Dist: python-dateutil (>=2.6.1)
+
+UNKNOWN
+
+
