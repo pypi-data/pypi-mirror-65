@@ -1,0 +1,44 @@
+Metadata-Version: 1.1
+Name: tryton-twilio
+Version: 0.1.0
+Summary: Send SMS from Tryton via Twilio
+Home-page: https://hg.b2ck.com/tryton-twilio
+Author: B2CK
+Author-email: info@b2ck.com
+License: GPL-3
+Description: Tryton Twilio SMS Gateway
+        =========================
+        
+        Twilio SMS Gateway for the Tryton application framework.
+        
+        To use Twilio SMS Gateway, the trytond configuration must be modified to set in
+        the `twilio` section, the Twilio credential on `account`, `token` and `from`.
+        Here is an example the section::
+        
+            [twilio]
+            account = ACXXXXXXXXXXXXXXXXX
+            token = ACXXXXXXXXXXXXXXXXX
+            from = +15555555555
+        
+        To use Twilio gateway with the module `authentication_sms`, the trytond
+        configuration must be modified to set in the `authentication_sms`, the
+        `function` to `tryton_twilio.send_sms` or
+        `tryton_twilio.send_sms_transactional`.
+        Here is an example of the section::
+        
+            [authentication_sms]
+            function = tryton_twilio.send_sms
+        
+Keywords: tryton twilio SMS
+Platform: Posix; MacOS X; Windows
+Classifier: Framework :: Tryton
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries

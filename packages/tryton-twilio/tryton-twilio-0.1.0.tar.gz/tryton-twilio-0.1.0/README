@@ -1,0 +1,22 @@
+Tryton Twilio SMS Gateway
+=========================
+
+Twilio SMS Gateway for the Tryton application framework.
+
+To use Twilio SMS Gateway, the trytond configuration must be modified to set in
+the `twilio` section, the Twilio credential on `account`, `token` and `from`.
+Here is an example the section::
+
+    [twilio]
+    account = ACXXXXXXXXXXXXXXXXX
+    token = ACXXXXXXXXXXXXXXXXX
+    from = +15555555555
+
+To use Twilio gateway with the module `authentication_sms`, the trytond
+configuration must be modified to set in the `authentication_sms`, the
+`function` to `tryton_twilio.send_sms` or
+`tryton_twilio.send_sms_transactional`.
+Here is an example of the section::
+
+    [authentication_sms]
+    function = tryton_twilio.send_sms
