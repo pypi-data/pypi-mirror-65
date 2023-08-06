@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "gcpm"
+version = "0.3.1"
+description = "Google Cloud Platform Condor Pool Manager"
+repository = "https://github.com/rcmdnk/gcpm"
+homepage = "https://github.com/rcmdnk/gcpm"
+authors = ["rcmdnk <rcmdnk@gmail.com>"]
+readme = "README.md"
+license = "Apache-2.0"
+keywords = []
+
+[tool.poetry.dependencies]
+python = "^2.7 || ^3.4"
+fire = "^0.1.3"
+google-api-python-client = "^1.7"
+google-auth-httplib2 = "^0.0.3"
+google-auth = "^1.6"
+oauth2client = "^4.1"
+"ruamel.yaml" = "^0.15.83"
+bandit = "^1.5"
+htcondor = "^8.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.0"
+pytest-cov = "^2.6"
+
+[tool.poetry.scripts]
+gcpm = "gcpm:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
