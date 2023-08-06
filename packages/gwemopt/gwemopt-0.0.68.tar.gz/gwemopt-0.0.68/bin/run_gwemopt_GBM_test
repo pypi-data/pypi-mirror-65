@@ -1,0 +1,24 @@
+
+import os, sys
+import glob
+import numpy as np
+
+from astropy.time import Time
+
+gpstime = 1240327333.34
+skymap = "../data/GBM_test/glg_healpix_all_bn180116026.fit"
+cl = 0.9
+
+outputDir = "../output/GBM_Test/%.3f_KPED"%cl
+system_command = "python gwemopt_run --telescope KPED --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 30.0 --powerlaw_cl %.3f --doReferences --doCatalog --galaxy_catalog CLU --tilesType galaxy"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+#print(stop)
+
+outputDir = "../output/GBM_Test/%.3f_ZTF"%cl
+system_command = "python gwemopt_run --telescope ZTF --doSchedule --doSkymap --doPlots --skymap %s --gpstime %d -o %s --doTiles --doSingleExposure --filters g --exposuretimes 30.0 --powerlaw_cl %.3f --doReferences"%(skymap,gpstime,outputDir,cl)
+#os.system(system_command)
+print(system_command)
+#print(stop)
+
+
