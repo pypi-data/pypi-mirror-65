@@ -1,0 +1,29 @@
+{% extends "base/show.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('projects.static', filename='nbi_projects_style.css') }}">
+    <script type="text/javascript"
+            src="{{ url_for('projects.static', filename='projects.js') }}">
+    </script>
+
+{% endblock %}
+
+{% block navbar %}
+    <div class="container-full">
+        <div class="banner">
+            <img src="{{ url_for('projects.static',
+             filename='images/bohrium_logo.png') }}">
+        </div>
+    </div>
+    {{ super() }}
+{% endblock %}
+
+{% set hidden_properties_list = ['_id', '_type', 'name','description',
+                                     'image', 'csrf_token'] %}
+
+{% set object_show_link = 'projects.show' %}
+{% set object_image_link = 'projects_base.img_render' %}
+{% set object_update_link = 'projects.update' %}
+{% set object_delete_link = 'projects.delete' %}
