@@ -1,0 +1,52 @@
+#SatelliteModal li {
+    margin-bottom: 5px;
+}
+
+.satellite-title-wrap {
+    margin-top: 0;
+}
+
+.satellite-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.satellite-names {
+    margin-bottom: 5px;
+}
+
+.satellite-img-full {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+}
+
+.panel-satellite-img {
+    padding-left: 30px;
+}
+
+.panel-satellite-info {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.satellite-success {
+    width: 100px;
+    margin-top: 20px;
+}
+
+.tab-content {
+    // Overwrite display:none of bootstrap tab panel
+
+    > .tab-pane {
+        visibility: hidden;
+        display: inline;
+        position: fixed;
+    }
+
+    > .active {
+        visibility: visible;
+        position: initial;
+    }
+}
