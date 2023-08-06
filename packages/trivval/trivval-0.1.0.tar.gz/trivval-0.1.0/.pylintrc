@@ -1,0 +1,6 @@
+# Disabled pylint warnings:
+# - bad-continuation: we let black take care of the formatting
+# - useless-object-inheritance: Python 2.x
+#
+[MESSAGES CONTROL]
+disable = bad-continuation,useless-object-inheritance

@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: trivval
+Version: 0.1.0
+Summary: A library for trivial structure validation
+Home-page: https://gitlab.com/ppentchev/python-trivval
+Author: Peter Pentchev
+Author-email: roam@ringlet.net
+License: Apache License 2.0
+Description: # Trivial validation - when the full power of the JSON Schema is not needed
+        
+        This library provides a simplistic way to validate a dictionary against
+        something resembling a schema - a dictionary describing the desired data
+        structure by example.
+        
+        The main entry point is the `validate()` function, but the various
+        `validate_*()` functions may be invoked directly with appropriate
+        arguments.
+        
+        The schema used for validation is a dictionary (the top-level object must
+        be a dictionary). For the present, the keys may only be strings.
+        A special case of a dictionary with a single key `*` means any value for
+        a key will be accepted. Otherwise, all keys with names not starting with
+        a `?` character are mandatory, and any keys with names starting with
+        a `?` character are optional.
+        
+        The dictionary values may be any of:
+        
+        - a Python type signifying that the value must be an instance thereof
+        - a single-element list signifying that the value must be a list with
+          all the elements validated by the same rules as a dictionary value
+          (i.e. one of a Python type, a single-element list, a set, or
+          a dictionary)
+        - a set signifying that the value must be exactly equal to one of
+          the set elements, i.e. an enumeration of the allowed values
+        - a dictionary with the same semantics as described above
+        
+        For example, the following schema:
+        
+            {
+                "name": str,
+                "id": int,
+                "address": [str],
+                "preferences": {
+                    "meal": set(("breakfast", "lunch", "brunch")),
+                    "colors": [{
+                        "name": str,
+                        "intensity": set(["dark", "light"])
+                    }]
+                },
+                "possessions": {
+                    "*": int
+                }
+            }
+        
+        ...may be used to validate the following dictionary:
+        
+            {
+                "name": "A. N. Nymous",
+                "id": 13,
+                "address": [
+                    "42 Nowhere Circle",
+                    "Notown-at-all",
+                    "Unnamed territory"
+                ],
+                "preferences": {
+                    "meal": "brunch",
+                    "colors": [
+                        {"name": "blue", "intensity": "light"},
+                        {"name": "green", "intensity": "dark"}
+                    ]
+                },
+                "possessions": {
+                    "pencil": 4,
+                    "paper": 0
+                }
+            }
+        
+Keywords: validate validation schema
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: DFSG approved
+Classifier: License :: Freely Distributable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: !=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7
+Description-Content-Type: text/markdown
