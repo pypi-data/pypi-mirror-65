@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+minislite/__init__.py
+minislite/exceptions.py
+minislite/fields.py
+minislite/minislite.py
+minislite/models.py
+minislite/objects.py
+minislite/sql.py
+minislite/tables.py
+minislite.egg-info/PKG-INFO
+minislite.egg-info/SOURCES.txt
+minislite.egg-info/dependency_links.txt
+minislite.egg-info/top_level.txt
