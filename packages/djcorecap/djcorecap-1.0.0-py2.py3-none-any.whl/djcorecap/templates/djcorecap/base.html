@@ -1,0 +1,228 @@
+{% load i18n static %}
+<!DOCTYPE html>
+{% block html_tag %}<html lang="en">{% endblock html_tag %}
+  {% block html %}
+
+  {% block head_tag %}<head>{% endblock head_tag %}
+    {% block head %}
+
+    {% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta
+      name="description"
+      content="{% block description %}{% endblock description %}">
+    <meta
+      name="author"
+      content="{% block author %}{% endblock author %}">
+    {% endblock meta %}
+    <title>{% block title %}{% endblock title %}</title>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js">
+      </script>
+    <![endif]-->
+
+    {% block favicon %}
+    <link
+      rel="icon"
+      href="{% static 'images/favicons/favicon.ico' %}">
+    {% endblock favicon %}
+
+    <!-- Le CSS
+         ====== -->
+    {% block css %}
+
+    <!-- place 3rd party CSS here -->
+    {% block external_css %}
+    <!-- Latest compiled and minified Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+    <link
+      href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+      integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+      rel="stylesheet"
+      crossorigin="anonymous">
+    {% endblock external_css %}
+
+    <!-- place project-specific CSS here -->
+    {% block project_css %}
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endblock project_css %}
+
+    {% endblock css %}
+
+    {% endblock head %}
+  </head>
+
+  {% block body_tag %}<body>{% endblock body_tag %}
+    {% block body %}
+
+    <!-- main navigation -->
+    {% block navbar %}
+    <section id="navbar">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container mx-auto ml-auto mr-auto">
+          <div class="col-12 col-md-6">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a
+              class="navbar-brand d-none d-lg-block"
+              href="{% url 'home' %}">
+              {% block brand %}{% endblock brand %}
+            </a>
+          </div>
+          <div class="col-12 col-md-6">
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent">
+              {% block navbar_content %}
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'home' %}">
+                    Home <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}">
+                    About
+                  </a>
+                </li>
+                {% block nav_is_authenticated %}
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_staff %}
+                {% block nav_is_staff %}
+                {% endblock nav_is_staff %}
+                {% endif %}
+                <li class="nav-item">
+                  {# URL provided by django-allauth/account/urls.py #}
+                  <a
+                    class="nav-link"
+                    href="{% url 'users:detail' %}">
+                    My Profile
+                  </a>
+                </li>
+                <li class="nav-item">
+                  {# URL provided by django-allauth/account/urls.py #}
+                  <a class="nav-link" href="{% url 'account_logout' %}">
+                    {% trans "Sign Out" %}
+                  </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  {# URL provided by django-allauth/account/urls.py #}
+                  <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">
+                    Sign Up
+                  </a>
+                </li>
+                <li class="nav-item">
+                  {# URL provided by django-allauth/account/urls.py #}
+                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">
+                    Sign In
+                  </a>
+                </li>
+                {% endif %}
+                {% endblock nav_is_authenticated %}
+              </ul>
+              {% endblock navbar_content %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+    {% endblock navbar %}
+
+    {% block main %}
+
+    <!-- main content goes here -->
+    {% block content %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+          <section id="content">
+            <p>Content...</p>
+          </section>
+        </div>
+      </div>
+    </div>
+    {% endblock content %}
+
+    {% block messages %}
+    <!-- messages -->
+    <section id="messages">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-10 mx-auto fixed-bottom">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissable fade show" role="alert">
+              {{ message }}
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock messages %}
+
+    {% endblock main %}
+
+    {% block modal %}{% endblock modal %}
+
+    <!-- Le javascript (placed @ end for fast page load)
+         =============================================== -->
+    {% block javascript %}
+
+    <!-- Place 3rd party JavaScript here -->
+    {% block external_javascript %}
+    <!-- latest bootstrap JavaScript and dependencies -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    {% endblock external_javascript %}
+
+    <!-- place project-specific JavaScript here -->
+    {% block project_javascript %}
+    <script src="{% static 'js/project.js' %}"></script>
+    {% endblock project_javascript %}
+
+    {% endblock javascript %}
+
+    {% endblock body %}
+  </body>
+
+  {% endblock html %}
+</html>
