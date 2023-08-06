@@ -1,0 +1,4 @@
+[console_scripts]
+liteshort = liteshort.main:app.run
+lshash = liteshort.util:hash_passwd
+
